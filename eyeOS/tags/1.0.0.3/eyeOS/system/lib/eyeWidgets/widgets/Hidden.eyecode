@@ -1,0 +1,105 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                             
+           eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	Hidden widget abstraction
+*/
+
+class Hidden {
+	//pid controller
+	
+	var $creatorPid;
+	
+	//global widgets options without default
+	var $name;
+	var $father;
+		
+	//global widget options with default	
+	var $x;
+	var $y;
+	var $horiz;
+	var $vert;
+	var $cent;
+	
+	var $showed = 0;
+
+	//custom widget options
+	var $text;
+		
+	function Hidden($params) {
+		global $myPid;
+		$this->creatorPid = $myPid;
+		//generic widget options without default
+		$this->name = $params['name'];
+		$this->father = $params['father'];
+
+		//generic widget options with default
+		isset($params['horiz']) ? $this->horiz = $params['horiz'] : $this->horiz = 0;
+		isset($params['vert']) ? $this->vert = $params['vert'] : $this->vert = 0;
+		isset($params['x']) ? $this->x = $params['x'] : $this->x = 10;
+		isset($params['y']) ? $this->y = $params['y'] : $this->y = 10;
+		isset($params['cent']) ? $this->cent = $params['cent'] : $this->cent = 0;
+		
+		//especific Hidden options
+		isset($params['text']) ? $this->text = $params['text'] : $this->text = "";
+	}
+	
+
+	function show($noserialize=0) {		
+		$widgetsparams = array(
+			'text' => $this->text,					
+		);
+		$widgetsparams = service("mmap","array2js",array($widgetsparams));
+		
+		$myHidden = array(
+			'name' => $this->name,
+			'father' => $this->father,
+			'horiz' => $this->horiz,
+			'vert' => $this->vert,
+			'x' => $this->x,
+			'y' => $this->y,
+			'center' => $this->cent,
+			'widgetname' => 'Hidden',
+			'params' => $widgetsparams			
+		);
+		service('eyex','createWidget',$myHidden);
+		$this->showed=1;
+		if($noserialize == 0) {
+			reqLib('eyeWidgets','serialize',array($this));
+		}
+	}
+		
+	function setText($content) {
+		global $myPid;
+		$this->text = $content;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").value="'+$this->text.'"'));
+	}
+	
+	function setValue($content) {
+		$this->text=$content;		
+	}
+	
+		
+//friend functions	
+	function getSyncString() {
+		global $myPid;
+		return "eyeParam('$this->name',document.getElementById('$myPid".'_'."$this->name').value)";
+	}
+}
+?>

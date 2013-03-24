@@ -1,0 +1,131 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+function eyeControl_on_translate_back($params = '') {
+	$selType = $GLOBALS['eyeControl_translate_hidden_type']->text;
+	eyeControl_lib_loadContent('others','translations',array($selType));
+}
+
+function eyeControl_on_translate_update($params = '') {
+	$selType = $GLOBALS['eyeControl_translate_hidden_type']->text;
+	$selLang = $GLOBALS['eyeControl_translate_hidden_lang']->text;
+	$selPart = $GLOBALS['eyeControl_translate_hidden_part']->text;
+	eyeControl_lib_loadContent('others','translate',array($selType,$selLang,$selPart));
+}
+
+function eyeControl_on_translate_select($params = '') {
+	$selType = $GLOBALS['eyeControl_translate_hidden_type']->text;
+	$selLang = $GLOBALS['eyeControl_translate_hidden_lang']->text;
+	$selPart = $params['selected'][0];
+	eyeControl_lib_loadContent('others','translate',array($selType,$selLang,$selPart));
+}
+
+function eyeControl_on_translate_edit($params = '') {
+	global $currentUser;
+	$selType = $GLOBALS['eyeControl_translate_hidden_type']->text;
+	$selLang = $GLOBALS['eyeControl_translate_hidden_lang']->text;
+	if ($currentUser != ROOTUSER) {
+		$myUserXml = um('retrieveUser',array($currentUser));
+		if (!in_array($selLang,$myUserXml['eyeUser'][0]['group'])) {
+			eyeControl_lib_loadContent('others','translations',array($selType));
+			return;
+		}
+	}
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	
+	$default = $GLOBALS['eyeControl_translate_sortabletable']->selected;
+	if ($default) {
+		$selPart = $GLOBALS['eyeControl_translate_hidden_part']->text;
+		$xml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml'));
+		$part = eyeControl_lib_findArrayByText(array($xml['lang'][0]['part'],$selPart,array('name',0)));
+		if (count($part) > 0) {
+			$lang = eyeControl_lib_findArrayByText(array($part[0]['text'],$default,array('old',0)));
+			if (count($lang) > 0) {
+				$text = $lang[0]['new'][0];
+			}
+		}
+		eyex('messageBox',array(
+			'content' => 'Please type the new translation here:',
+			'type' => 3,
+			'title' => 'Edit translation',
+			'win_name' => 'eyeControl_translate_edit_window',
+			'win_style' => TITLE + CLOSE,
+			'win_removepid' => 0,
+			'btn1_capt' => 'Save',
+			'btn1_name' => 'translate_edit_save',
+			'btn2_capt' => 'Cancel',
+			'btn2_name' => 'translate_edit_cancel',
+			'textbox_text' => $text,
+			'textbox_name' => 'translate_edit_textbox',
+			'textbox_event' => 'translate_edit_save',
+			'hidden_text' => $default,
+			'hidden_name' => 'translate_edit_hidden',
+			'father' => 'eyeControl_container_big'
+		));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose the text you want to edit.'));
+	}
+	$currentUser = $oldUser;
+}
+
+function eyeControl_on_translate_edit_save($params = '') {
+	global $currentUser;
+	$selType = $GLOBALS['eyeControl_translate_hidden_type']->text;
+	$selLang = $GLOBALS['eyeControl_translate_hidden_lang']->text;
+	if ($currentUser != ROOTUSER) {
+		$myUserXml = um('retrieveUser',array($currentUser));
+		if (!in_array($selLang,$myUserXml['eyeUser'][0]['group'])) {
+			eyeControl_lib_loadContent('others','translations',array($selType));
+			return;
+		}
+	}
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	
+	$default = $GLOBALS['translate_edit_hidden']->text;
+	$new = $GLOBALS['translate_edit_textbox']->text;
+	$selPart = $GLOBALS['eyeControl_translate_hidden_part']->text;
+	$file = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml';
+	$xml = eyeXML('getXMLfile',array($file));
+	$x = eyeControl_lib_findIdByText(array($xml['lang'][0]['part'],$selPart,array('name',0)));
+	if (count($x) > 0) {
+		$x = $x[0];
+		$y = eyeControl_lib_findIdByText(array($xml['lang'][0]['part'][$x]['text'],$default,array('old',0)));
+		if (count($y) > 0) {
+			$y = $y[0];
+			$xml['lang'][0]['part'][$x]['text'][$y]['new'][0] = $new;
+		} else {
+			$array['old'][0] = $default;
+			$array['new'][0] = $new;
+			$xml['lang'][0]['part'][$x]['text'][] = $array;
+		}
+	} else {
+		$array['name'][0] = $selPart;
+		$array['text'][0]['old'][0] = $default;
+		$array['text'][0]['new'][0] = $new;
+		$xml['lang'][0]['part'][] = $array;
+	}
+	eyeXML('setXMLFile',array($file,$xml));
+	$GLOBALS['eyeControl_translate_edit_window']->close();
+	eyex('messageBox',array('content' => 'Translation successfully updated.'));
+	$currentUser = $oldUser;
+}
+
+function eyeControl_on_translate_edit_cancel($params = '') {
+	$GLOBALS['eyeControl_translate_edit_window']->close();
+}
+?>

@@ -1,0 +1,2678 @@
+<lang>
+	<info>
+		<lang>česky</lang>
+		<lang-en>Czech</lang-en>
+		<author>Patrik Votoček</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Add an eyeLink</old>
+			<new>Přidat zástupce</new>
+		</text>
+		<text>
+			<old>Please type a correct filename.</old>
+			<new>Prosím, vložte správný název souboru.</new>
+		</text>
+		<text>
+			<old>Please type the link name here:</old>
+			<new>Prosím, sem vložte název zástupce:</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>Nemůžete stáhnout zástupce.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>App to be executed:</old>
+			<new>Program, který bude spuštěný:</new>
+		</text>
+		<text>
+			<old>Edit link</old>
+			<new>Upravit zástupce</new>
+		</text>
+		<text>
+			<old>Invalid link file.</old>
+			<new>Nesprávný soubor.</new>
+		</text>
+		<text>
+			<old>Link updated.</old>
+			<new>Zástupce byl upravený.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Uložit</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Are you sure you want to empty trash content?</old>
+			<new>Doopravdy chcete vysypat koš?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Vysypat koš</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>Instalovat programy</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Natavení hl. menu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>Zabalit</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Zabalit do...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Komprese byla úspěšně dokončeno</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Rozbalit</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Rozbalit do...</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Soubor byl úspěšně rozbalen...</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Chyba při rozbalování</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Název souboru</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Není otevřený žádný soubor</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Typ komprese není podporován</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBar</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>O eyeOS</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programy</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>Odhlásit se</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Spustit program</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Nastavení systému</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Smazat</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Odeslat</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>A calendar with same name already exists</old>
+			<new>Kalendář s tímto názvem již existuje</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Pridať kalendár</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Musí zůstat minimálně jeden kalendář!</new>
+		</text>
+		<text>
+			<old>Calendar is already runing</old>
+			<new>Kalendář už je spuštěný</new>
+		</text>
+		<text>
+			<old>Calendar Name</old>
+			<new>Název kalendáře</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalendáře</new>
+		</text>
+		<text>
+			<old>Create Calendar</old>
+			<new>Vytvořit kalendář</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Den</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celá obrazovka</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Nesprávná hodnota z checkbox-u</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Další</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Předchozí</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Zobrazit</new>
+		</text>
+		<text>
+			<old>Sorry, you can only create 5 different calendars</old>
+			<new>Omlouváme se, ale můžete vytvořit maximálně 5 různých kalendářů.</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Dnes</new>
+		</text>
+		<text>
+			<old>Update Calendars</old>
+			<new>Upravit kalendáře</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Týden</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Režim okna</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Práce</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeContacts</name>
+		<text>
+			<old>Add Contact</old>
+			<new>Vložit kontakt</new>
+		</text>
+		<text>
+			<old>Address</old>
+			<new>Adresa</new>
+		</text>
+		<text>
+			<old>ALL</old>
+			<new>Vše</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Firma</new>
+		</text>
+		<text>
+			<old>Company Address</old>
+			<new>Adresa firmy</new>
+		</text>
+		<text>
+			<old>Contact deleted successfully.</old>
+			<new>Kontakt byl smazán.</new>
+		</text>
+		<text>
+			<old>Contact updated successfully.</old>
+			<new>Změny v kontaktu byly uloženy.</new>
+		</text>
+		<text>
+			<old>Contacts exported in to %s</old>
+			<new>Kontakty exportované do %s</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Edit Contact</old>
+			<new>Upravit kontakt</new>
+		</text>
+		<text>
+			<old>Error deleting contact.</old>
+			<new>Chyba pri mazaní kontaktu.</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>Chyba exportu souboru.</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exportovat</new>
+		</text>
+		<text>
+			<old>Export all as vCard</old>
+			<new>Exportovat všechny jako vCard</new>
+		</text>
+		<text>
+			<old>Export completed successfully.</old>
+			<new>Export byl úspěšně dokončen.</new>
+		</text>
+		<text>
+			<old>Export Contacts</old>
+			<new>Exportovat kontakty</new>
+		</text>
+		<text>
+			<old>Export failed!</old>
+			<new>Export selhal!</new>
+		</text>
+		<text>
+			<old>Export To File</old>
+			<new>Exportovat do souboru</new>
+		</text>
+		<text>
+			<old>Export your contacts to vCard format</old>
+			<new>Exportovat kontakty do vCard formátu</new>
+		</text>
+		<text>
+			<old>eyeContacts can&#039;t initialize, contact with your administrator</old>
+			<new>Aplikaci není možné spustit, prosím kontaktujte administrátora.</new>
+		</text>
+		<text>
+			<old>eyeOS Username</old>
+			<new>eyeOS užív. jméno</new>
+		</text>
+		<text>
+			<old>Fax</old>
+			<new>Fax</new>
+		</text>
+		<text>
+			<old>File &quot;eyeContactsExported.vcf&quot; will be created automatically if you leave this field blank.</old>
+			<new>Pokud nevypníte jeméno souboru, bude vytvořen soubor se jménem &quot;eyeContactsExported.vcf&quot;.</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>Nepodporovaný formát!</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Tel. domů</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importovat</new>
+		</text>
+		<text>
+			<old>Import Contacts</old>
+			<new>Importovat kontakty</new>
+		</text>
+		<text>
+			<old>Import contacts from vCard files</old>
+			<new>Importovat kontakty ze souboru typu vCard</new>
+		</text>
+		<text>
+			<old>Import from .vcf file...</old>
+			<new>Importovat z .vcf souboru...</new>
+		</text>
+		<text>
+			<old>Import from vCard</old>
+			<new>Importovat z vCard</new>
+		</text>
+		<text>
+			<old>Instant Messenger</old>
+			<new>IM (ICQ,WLM/MSN,Jabber atd.)</new>
+		</text>
+		<text>
+			<old>Internet Information</old>
+			<new>Internetové informace</new>
+		</text>
+		<text>
+			<old>Manage Contacts</old>
+			<new>Spravovat kontakty</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Mobil</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Jméno</new>
+		</text>
+		<text>
+			<old>New contact created successfully.</old>
+			<new>Nový byl kontakt úspešně vytvořen.</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Prezdívka</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Poznámky</new>
+		</text>
+		<text>
+			<old>Personal Information</old>
+			<new>Osobní informáce</new>
+		</text>
+		<text>
+			<old>Phone</old>
+			<new>Telefon</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be deleted first.</old>
+			<new>Prosím, nejprve vyberte kontakt, který chcete smazat.</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be edited first.</old>
+			<new>Prosím, nejprve vyberte kontakt, který chcete upravit.</new>
+		</text>
+		<text>
+			<old>Please choose a contact you want to send an eyeMessage to first.</old>
+			<new>Prosím, nejprve vyberte kontakt, kterému chcete poslat zprávu.</new>
+		</text>
+		<text>
+			<old>Please fill in the eyeOS Username for this contact first.</old>
+			<new>Prosím, nejprve vyplňte uživatelské jméno kontaktu v eyeOS.</new>
+		</text>
+		<text>
+			<old>Please, fill the name and surname.</old>
+			<new>Prosím, vyplňte jméno a příjmení.</new>
+		</text>
+		<text>
+			<old>Please, select a correct file.</old>
+			<new>Prosím, vyberte správný soubor.</new>
+		</text>
+		<text>
+			<old>Professional Information</old>
+			<new>Pracovní informace</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Poslat zprávu</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>Omlouváme se, ale v souboru není žádný kontakt</new>
+		</text>
+		<text>
+			<old>Sorry, the contact already exists.</old>
+			<new>Omlouváme se, ale kontatk již existuje.</new>
+		</text>
+		<text>
+			<old>Source:</old>
+			<new>Zdroj:</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Příjmení</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Upravit</new>
+		</text>
+		<text>
+			<old>vCard Import/Export</old>
+			<new>vCard Import/Export</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>Zobrazit</new>
+		</text>
+		<text>
+			<old>View/Edit</old>
+			<new>Zobrazit/Upravit</new>
+		</text>
+		<text>
+			<old>Voice Over IP</old>
+			<new>VoIP (např. Skype)</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Web</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s příkaz(ov)</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s zrcadlo(zrcadel)</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s užívatel(ů)</new>
+		</text>
+		<text>
+			<old>%s% translated! %s from %s texts left.</old>
+			<new>%s% preloženo! Zbývá přeložit %s z %s textů.</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>O mně</new>
+		</text>
+		<text>
+			<old>Add a new language</old>
+			<new>Pridat nový jazyk</new>
+		</text>
+		<text>
+			<old>Add a new language you want to translate.</old>
+			<new>Pridat jazyk pro překlad.</new>
+		</text>
+		<text>
+			<old>Add language</old>
+			<new>Přidat jazyk</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Přidat zrcadlo</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Adminstrace</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Veřejné složky</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Registrace užívatelů</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Po spuštění</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Zpět</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Záložky a vyhledávání úspěšně exportováno.</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Záložky úspěšně importovány.</new>
+		</text>
+		<text>
+			<old>Center wallpaper</old>
+			<new>Centrovat pozadí</new>
+		</text>
+		<text>
+			<old>Change language</old>
+			<new>Zmenit jazyk</new>
+		</text>
+		<text>
+			<old>Change password</old>
+			<new>Změnit heslo</new>
+		</text>
+		<text>
+			<old>Change the language&#039;s information</old>
+			<new>Zmenit informace o jazyku</new>
+		</text>
+		<text>
+			<old>Change theme</old>
+			<new>Zmenit téma</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Změny byly úspěšně uloženy a informace o uživately aktualizovány.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Změny byly úspěšně uloženy.</new>
+		</text>
+		<text>
+			<old>Clean eyeOS</old>
+			<new>Vyčistit systém</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Příkaz přidán.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Příkaz uložen.</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Příkazy</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Konfigurovat startovní stránku</new>
+		</text>
+		<text>
+			<old>Create group</old>
+			<new>Přidat skupinu</new>
+		</text>
+		<text>
+			<old>Create user</old>
+			<new>Přidat uživatele</new>
+		</text>
+		<text>
+			<old>Created on</old>
+			<new>Přidán(a)</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to start a new session now.</old>
+			<new>Výchozí skupina uložena. Potřebujete spustit novou relaci.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Výchozí skupina: %s | %s skupín.</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Výchozí nastavení bylo uloženo.</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Smazat skupinu</new>
+		</text>
+		<text>
+			<old>Delete language</old>
+			<new>Smazat jazyk</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Smazat zrcadlo</new>
+		</text>
+		<text>
+			<old>Delete user</old>
+			<new>Smazat užívatele</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Plocha</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Doopravdy chcete odstranit tento příkaz?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Doopravdy chcete odstranit tuto skupinu ze systému?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this language?</old>
+			<new>Doopravdy chcete odstranit tento jazyk?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Doopravdy chcete odstranit toto zrcadlo ze systému?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Doopravdy chcete odstranit tohoto uživatele ze systému?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeDesk settings?</old>
+			<new>Doopravdy chcete použít výchozí eyeDesk nastavení?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav bookmarks?</old>
+			<new>Doopravdy chcete použít výchozí eyeNav záložky?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav search?</old>
+			<new>Doopravdy chcete použít výchozí eyeNav vyhledávání?</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Stáhnout</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Upravit</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Upravit příkaz</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Upravit zrcadlo</new>
+		</text>
+		<text>
+			<old>Edit translation</old>
+			<new>Upravit překlad</new>
+		</text>
+		<text>
+			<old>Edit user</old>
+			<new>Upravit uživatele</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exportovat</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Exportovat přednastavené záložky a vyhledávání</new>
+		</text>
+		<text>
+			<old>eyeOS hostname</old>
+			<new>Systémový hostname</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Soubor může být stáhnutý.</new>
+		</text>
+		<text>
+			<old>Full name</old>
+			<new>Celé jméno</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Název skupiny</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Skupiny</new>
+		</text>
+		<text>
+			<old>ID</old>
+			<new>ID</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importovat</new>
+		</text>
+		<text>
+			<old>Info</old>
+			<new>Informace</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Jazyk</new>
+		</text>
+		<text>
+			<old>Language ID</old>
+			<new>ID jazyka</new>
+		</text>
+		<text>
+			<old>Language succesfully saved.</old>
+			<new>Jazyk byl úspěšně uložen</new>
+		</text>
+		<text>
+			<old>Language successfully added.</old>
+			<new>Jazyk byl úspěšně přidán</new>
+		</text>
+		<text>
+			<old>Language&#039;s information</old>
+			<new>Informace o jazyku</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Vzhled a atmosféra</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Hlavní</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Spravovat výchozí záložky</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Správa vyhledávání</new>
+		</text>
+		<text>
+			<old>Manage groups</old>
+			<new>Správa skupin</new>
+		</text>
+		<text>
+			<old>Manage users</old>
+			<new>Správa užívatelů</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Zrcadlo</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Adresa zrcadla (např: %s)</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Zrcadlo bylo uspěšně uloženo/přidáno.</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Nový příkaz</new>
+		</text>
+		<text>
+			<old>New password</old>
+			<new>Nové heslo</new>
+		</text>
+		<text>
+			<old>New password (again)</old>
+			<new>Nové heslo (znovu)</new>
+		</text>
+		<text>
+			<old>New user</old>
+			<new>Nový užívatel</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Nové pozadí bylo úspěšně nastaveno.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Jiné</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Heslo</new>
+		</text>
+		<text>
+			<old>Password (again)</old>
+			<new>Heslo (znovu)</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Heslo bylo úspěšně změněno.</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Osobní</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Prosím zvolte příkaz, který má být smazán.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Prosím zvolte příkaz, který má být upraven.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Prosím zvolte skupinu, která má byť smazána.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Prosím zvolte skupinu, která má být upravena.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Prosím zvolte skupinu, kterou chcete zvolit jako výchozí.</new>
+		</text>
+		<text>
+			<old>Please choose a language to delete.</old>
+			<new>Prosím zvolte jazyk, který chcete smazat.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to create.</old>
+			<new>Prosím zvolte jazyk, který chcete vytvořit.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to download.</old>
+			<new>Prosím zvolte jazyk, který chcete stáhnout.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to edit.</old>
+			<new>Prosím zvolte jazyk, který chcete upravit.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to translate.</old>
+			<new>Prosím zvolte jazyk, který chcete přeložit.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Prosím zvolte zrcadlo, které chcete testovat.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Prosím zvolte zrcadlo, které chcete smazat.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Prosím zvolte zrcadlo, které chcete upravit.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Prosím zvolte užívatele, který chcete smazát.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Prosím zvolte užívatele, který chcete upravit.</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Prosím opravte zadané nastavení.</new>
+		</text>
+		<text>
+			<old>Please fill in all needed fields.</old>
+			<new>Prosím vyplňte všechny požadované položky!</new>
+		</text>
+		<text>
+			<old>Please fill in all textboxes!</old>
+			<new>Prosím vyplňte všechny textové položky!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Prosím, zadajte příkaz!</new>
+		</text>
+		<text>
+			<old>Please type a correct group name.</old>
+			<new>Prosím, zadajte správný název skupiny.</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Prosím, zadajte adresu!</new>
+		</text>
+		<text>
+			<old>Please type the new translation here:</old>
+			<new>Prosím, zadajte přeložený text sem:</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Smazat nyní!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Smazat dočasné soubory a složky</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Přejmenovat</new>
+		</text>
+		<text>
+			<old>Rename group</old>
+			<new>Přejmenovat skupinu</new>
+		</text>
+		<text>
+			<old>Repeat wallpaper</old>
+			<new>Opakovat pozadí</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Repositories</new>
+		</text>
+		<text>
+			<old>Root password</old>
+			<new>Heslo root-a</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>Uložit změny</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Screenshot</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Vyhledávání bylo úspěšně importováno.</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Vyberte soubor...</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Nastavit jako výchozí</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Omlouváme se, ale tento soubor nemůžete použitý jako pozadí.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startovací stránka</new>
+		</text>
+		<text>
+			<old>Statistic</old>
+			<new>Statistiky</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Systém</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Nastavení systému</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>Test address</old>
+			<new>Testovat adresu</new>
+		</text>
+		<text>
+			<old>The chosen file is no correct eyeNav search engines file.</old>
+			<new>Zvolený soubor není správným souborem pro vyhledávání. (eyeNav)</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Zvolená skupina je momentálne výchozí!</new>
+		</text>
+		<text>
+			<old>The chosen username is too long.</old>
+			<new>Jméno užívatele je příliš dlouhé.</new>
+		</text>
+		<text>
+			<old>The chosen username is too small.</old>
+			<new>Jméno užívatele je příliš krátké.</new>
+		</text>
+		<text>
+			<old>The command was successfully deleted.</old>
+			<new>Příkaz byl smazán.</new>
+		</text>
+		<text>
+			<old>The eyeOS system was successfully deleted.</old>
+			<new>Systém byl smazán.</new>
+		</text>
+		<text>
+			<old>The group was successfully deleted.</old>
+			<new>Skupina byla smazána.</new>
+		</text>
+		<text>
+			<old>The language was successfully deleted.</old>
+			<new>Jazyk byl smazán.</new>
+		</text>
+		<text>
+			<old>The language was successfully updated.</old>
+			<new>Jazyk byl upravený.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Zrcadlo je už naintalované.</new>
+		</text>
+		<text>
+			<old>The mirror was successfully deleted.</old>
+			<new>Zrcadlo bylo smazáno.</new>
+		</text>
+		<text>
+			<old>The translation was successfully updated.</old>
+			<new>Změny v překladu byly úspěšně uloženy.</new>
+		</text>
+		<text>
+			<old>The user was successfully deleted.</old>
+			<new>Uživatel byl smazán.</new>
+		</text>
+		<text>
+			<old>The username is not supported. Please type another one.</old>
+			<new>Užívatelské jméno není podporoáno. Prosím, zovolte jiné!</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Téma</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Došlo k chybě při mazání skupiny.</new>
+		</text>
+		<text>
+			<old>Translate eyeOS</old>
+			<new>Preložit systém</new>
+		</text>
+		<text>
+			<old>Translate eyeOS into your language.</old>
+			<new>Preložte systém do Vášeho jazyka.</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Zadajte příkaz, který má být spuštěný po přihlášení.</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Zadajte název skupiny, kterou chcete vytvořit:</new>
+		</text>
+		<text>
+			<old>Type the new group name:</old>
+			<new>Zadajte nový název skupiny:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Zadajte nový název zrcadla:</new>
+		</text>
+		<text>
+			<old>Uninstall eyeOS</old>
+			<new>Odinstalovat systém</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Obnovit</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Použít vlastní pozadí.</new>
+		</text>
+		<text>
+			<old>Use defaults</old>
+			<new>Použít výchozí</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Využitý prostor:</new>
+		</text>
+		<text>
+			<old>Used version</old>
+			<new>Používaná verze</new>
+		</text>
+		<text>
+			<old>User quota</old>
+			<new>Užív. kvóta</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Uživatel byl úspěšně vytvořen.</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Jmeno užívatele</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Verze</new>
+		</text>
+		<text>
+			<old>Web Browser</old>
+			<new>Webový Prohlížeč</new>
+		</text>
+		<text>
+			<old>Your eyeOS server does not need to be cleaned.</old>
+			<new>Váš systémový server nepotřebuje vyčistit.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>File Copied. You can now paste it in another folder.</old>
+			<new>Soubor byl zkopírován. Teď ho můžete vložit do jiné složky.</new>
+		</text>
+		<text>
+			<old>Links can&#039;t be copied.</old>
+			<new>Nelze kopírovat zástupce.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file.</old>
+			<new>Chyba při mazání souboru.</new>
+		</text>
+		<text>
+			<old>File moved to trash.</old>
+			<new>Soubor byl přesunut do koše.</new>
+		</text>
+		<text>
+			<old>File removed successfully.</old>
+			<new>Soubor byl smazán.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory.</old>
+			<new>Nejde smazat složku.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>Kopírovat</new>
+		</text>
+		<text>
+			<old>Delete Launcher</old>
+			<new>Vymazat odkaz</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Stáhnout</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>Nová Složka</new>
+		</text>
+		<text>
+			<old>New Launcher</old>
+			<new>Nová Záložka</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Vložit</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Nastavení</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Vlastnosti</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Obnovit</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Nahrát soubory</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Pozadí</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Vítejte v %s, %s.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>Název</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Vybrat</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Vybrat složku</new>
+		</text>
+		<text>
+			<old>Select destination file</old>
+			<new>Vybrat cílový soubor</new>
+		</text>
+		<text>
+			<old>Select file to open</old>
+			<new>Vybrat soubor pro otevření</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Velikost</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s nenalezen</new>
+		</text>
+		<text>
+			<old>Access to all the groups you are allowed to use</old>
+			<new>Máte povolený přístup do všech povolených skupin</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulačka</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendář</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Šachy</new>
+		</text>
+		<text>
+			<old>Create and edit rich text documents</old>
+			<new>Umožňuje vytvářet a upravovat textové dokumenty...</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Pracovní plocha</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>Oblíbené</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Správce souborů</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP klient</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Hry</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Skupiny</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Domov. složka</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interní zprávy</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>E-mail klient</new>
+		</text>
+		<text>
+			<old>Manage and import/export your contacts</old>
+			<new>Správa, import a export kontaktů</new>
+		</text>
+		<text>
+			<old>Navigate through Internet and save your bookmarks</old>
+			<new>Prohlížení internetových stránek s možností vytváření záložek...</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Prohlížeč</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Síť</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Kancelář</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>Místa</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Prezentace</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Správce procesů</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>Veřejné</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Veřejný panel</new>
+		</text>
+		<text>
+			<old>Public directory to share files with all the system users</old>
+			<new>Veřejná složka pro sdílení souborů mezi uživately</new>
+		</text>
+		<text>
+			<old>Read and leave messages to all the system users</old>
+			<new>Čtení a psaní zpráv mezy uživately systému...</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the other eyeOS users</old>
+			<new>Posílání zpráv s přílohami ostatňím užívatelům systému</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite blogs</old>
+			<new>Zůstane nastavený na nejnovéjší zprávy z vašich oblíbených blogů</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Koš</new>
+		</text>
+		<text>
+			<old>unable to open config file for eyeDock</old>
+			<new>Nepodařilo se otevřít konfigurační soubor pro eyeDock</new>
+		</text>
+		<text>
+			<old>Upload, manage and work with your files in eyeOS</old>
+			<new>Práce se soubory a složkami</new>
+		</text>
+		<text>
+			<old>Watch your presentations</old>
+			<new>Prohlížení prezentací</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Textový procesor</new>
+		</text>
+		<text>
+			<old>Work with any FTP Server in the world</old>
+			<new>Přístuk k ftp serveru</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Dokument byl úspěšně uložen.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Omlouváme se, ale nemáte dostatečné oprávnění.</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>Nemáte dostatečné oprávnění.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>Zástupce nelze stáhnout.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Fullscreen</old>
+			<new>Celá obrazovka</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Další</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Předchozí</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s souborů importováno!</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Procházet</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importovat</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Musíte označit složku pro import souborů</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>eyeOS Engineering Team</old>
+			<new>eyeOS Engineering Team</new>
+		</text>
+		<text>
+			<old>Thanks to</old>
+			<new>Poděkování pro</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>Přijmout</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Doopravdy chcete instalovat tento balík (program) do systému?</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instaluji</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Nic k instalaci</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Instalace byla úspěšně dokončena!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s nenalezeno</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Spustit...</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Zadajte název programu, nebo příkaz:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Accounts</old>
+			<new>Účty</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Přidat</new>
+		</text>
+		<text>
+			<old>Configure Later</old>
+			<new>Nastavit později</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>Datum:</new>
+		</text>
+		<text>
+			<old>Error deleting mail</old>
+			<new>Chyba při mazání e-mailu</new>
+		</text>
+		<text>
+			<old>eyeMail Configuration</old>
+			<new>eyeMail nastavení</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Složky</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Od</new>
+		</text>
+		<text>
+			<old>Inbox (%s)</old>
+			<new>Schránka (%s)</new>
+		</text>
+		<text>
+			<old>Incoming mail</old>
+			<new>Příchozí pošta</new>
+		</text>
+		<text>
+			<old>Mail from:</old>
+			<new>Pošta od:</new>
+		</text>
+		<text>
+			<old>Mail sent to %s</old>
+			<new>Odeslané %s</new>
+		</text>
+		<text>
+			<old>Mail to:</old>
+			<new>Pošta pro:</new>
+		</text>
+		<text>
+			<old>Manage accounts</old>
+			<new>Správa účtů</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>Zpráva smazána</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Jméno</new>
+		</text>
+		<text>
+			<old>New Mail</old>
+			<new>Nová pošta</new>
+		</text>
+		<text>
+			<old>Outgoing mail</old>
+			<new>Odchozí pošta</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Heslo</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Nastavení</new>
+		</text>
+		<text>
+			<old>Save Configuration</old>
+			<new>Uložit nastavení</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Odeslat</new>
+		</text>
+		<text>
+			<old>Server Address</old>
+			<new>Adresa serveru</new>
+		</text>
+		<text>
+			<old>Server Port</old>
+			<new>Port serveru</new>
+		</text>
+		<text>
+			<old>Server Protocol</old>
+			<new>Protokol</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Předmět</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>Předmět:</new>
+		</text>
+		<text>
+			<old>This name will be used by eyeMail to identify this account, and has nothing to do with the server&#039;s configuration.</old>
+			<new>Tento název se bude používat pro identifikáci účtu. Nemá nic společného s nastavením serveru.</new>
+		</text>
+		<text>
+			<old>Use Secure Sockets</old>
+			<new>Použít &quot;Secure Sockets&quot;</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Užívatelské jméno</new>
+		</text>
+		<text>
+			<old>Welcome to eyeMail. Please, fill this form with your e-mail account data.</old>
+			<new>Vítejte v eyeMail. Prosím vyplňte tento formulář.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Add an application</old>
+			<new>Přidat program</new>
+		</text>
+		<text>
+			<old>Add Application</old>
+			<new>Přidat program</new>
+		</text>
+		<text>
+			<old>Application entry updated</old>
+			<new>Vstup aplikace aktualizován</new>
+		</text>
+		<text>
+			<old>Application moved down</old>
+			<new>Aplikace přesunuta níž</new>
+		</text>
+		<text>
+			<old>Application moved to last position</old>
+			<new>Aplikace přesunuta na konec</new>
+		</text>
+		<text>
+			<old>Application moved up</old>
+			<new>Aplikace přesunuta víš</new>
+		</text>
+		<text>
+			<old>Application name</old>
+			<new>Název programu</new>
+		</text>
+		<text>
+			<old>Application Properties</old>
+			<new>Vlastnosti programu</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Zavřít</new>
+		</text>
+		<text>
+			<old>Code executed</old>
+			<new>Kód vykonán</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>Vytvožit skupinu</new>
+		</text>
+		<text>
+			<old>Create new Group</old>
+			<new>Vytvořit novou skupinu</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Popis</new>
+		</text>
+		<text>
+			<old>Enter the name of the new group:</old>
+			<new>Vložte název nové skupiny:</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Skupina</new>
+		</text>
+		<text>
+			<old>Group entry updated</old>
+			<new>Vstup skupiny aktualizován</new>
+		</text>
+		<text>
+			<old>Group moved down</old>
+			<new>Skupina přesunuta níž</new>
+		</text>
+		<text>
+			<old>Group moved to last position</old>
+			<new>Skupina přesunuta na konec</new>
+		</text>
+		<text>
+			<old>Group moved up</old>
+			<new>Skupina přesunuta víš</new>
+		</text>
+		<text>
+			<old>Group Name</old>
+			<new>Název skupiny</new>
+		</text>
+		<text>
+			<old>Group properties</old>
+			<new>Vlastnosti skupiny</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>Ikona</new>
+		</text>
+		<text>
+			<old>Move Down</old>
+			<new>Přesunout níž</new>
+		</text>
+		<text>
+			<old>Move Up</old>
+			<new>Přesunout víš</new>
+		</text>
+		<text>
+			<old>Parameters</old>
+			<new>Parametry</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Vlastnosti</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Obnovit</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>Uložit změny</new>
+		</text>
+		<text>
+			<old>Short description</old>
+			<new>Krátký popis</new>
+		</text>
+		<text>
+			<old>The code executed by the application must not be left blank</old>
+			<new>Kód vykonaný programem nesmí být prázdný!</new>
+		</text>
+		<text>
+			<old>You must provide a short description of the application</old>
+			<new>Musíte zadat krátky popis programu</new>
+		</text>
+		<text>
+			<old>You must select a group for the application</old>
+			<new>Musíte zadat skupinu</new>
+		</text>
+		<text>
+			<old>You must specify the name of the application</old>
+			<new>Musíte zadat název programu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Add file</old>
+			<new>Soubor</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Přiložit</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Stáhnout</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Prázdný</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Chyba odesílání zprávy</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Soubor byl úspěšně uložen.</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Od</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Přijaté</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>Zpráva smazána</new>
+		</text>
+		<text>
+			<old>Message moved to trash</old>
+			<new>Zpráva přesunuta do koše</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Zpráva obnovena do původní složky</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Zpráva odeslána</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Nová zpráva</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Prečtení</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Přečíst zprávu</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Obnovit</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Odpovědět</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Obnovit</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Poslat</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Odeslané</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Předmět</new>
+		</text>
+		<text>
+			<old>The body of the message cannot be left blank</old>
+			<new>Tělo zprávy nemůže býz prázdné</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Pro</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Koš</new>
+		</text>
+		<text>
+			<old>Trash emptied</old>
+			<new>Koš vyprázdněný</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Nepřečtené</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Musíte vybrat zprávu pro smazání</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Musíte vybrat zprávu pro otevření</new>
+		</text>
+		<text>
+			<old>You must specify the receiver of the message</old>
+			<new>Musíte zadat adresáta zprávy</new>
+		</text>
+		<text>
+			<old>You must specify the subject of the message</old>
+			<new>Musíte zadat předmět zprávy</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Error creating directory</old>
+			<new>Chyba při vytvoření složky</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nová složka</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Několik speciálních znaků bylo odstraněno.</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Zadajte název nové složky</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add</old>
+			<new>Přidat</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Přidat záložku</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programy</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Zpět</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Název záložky</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Záložky</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Smazat záložku</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Doopravdy chcete smazat tuto záložku?</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Fóra</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Vpřed</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Obrázky</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Vzdělání</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Odkaz byl úspěšně smazán.</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Odkaz byl úspěšně uložen.</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Otevřít záložku</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Otevřít vyhledávání</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Vyhledat</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nastavení</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startovní stránka</new>
+		</text>
+		<text>
+			<old>The bookmark doesn&#039;t exist!</old>
+			<new>Záložka neexistuje!</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Už existuje jiná záložka se stejným názvem!</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Web</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File not found</old>
+			<new>Soubor nenalezen</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Soubor byl úspěšně uložen.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Omlouváme se, ale nemáte dostatečbá oprávnění.</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Neni možné vytvořit soubor</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>Zpět</new>
+		</text>
+		<text>
+			<old>Full</old>
+			<new>Celá obrazovka</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Další</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Omlouváme se, ale nemáte dostatečbá oprávnění.</new>
+		</text>
+		<text>
+			<old>You are on the first slide, you can&#039;t go back</old>
+			<new>Jste na první položce, už nemůžete zpět</new>
+		</text>
+		<text>
+			<old>You have to select a file to open</old>
+			<new>Vyberte soubor který chcete otevřít</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Kill Process</old>
+			<new>Ukončit proces</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Proces ukončen</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Název procesu</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Užívatel</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Author: %s</old>
+			<new>Autor: %s</new>
+		</text>
+		<text>
+			<old>Created with: %s</old>
+			<new>Vytvořeno: %s</new>
+		</text>
+		<text>
+			<old>Creation date: %s</old>
+			<new>Datum vytvoření: %s</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>Složka</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>Informáce o souboru</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Vlastnosti</new>
+		</text>
+		<text>
+			<old>Size: %sbytes</old>
+			<new>Velikost: %s bajtov</new>
+		</text>
+		<text>
+			<old>Type: %s</old>
+			<new>Typ: %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Error renaming file.</old>
+			<new>Chyba přejmenování souboru</new>
+		</text>
+		<text>
+			<old>Please type a new name here:</old>
+			<new>Prosím, zadajte nový název:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Přejmenovat</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Niekolik speciálních znaků bylo odstraněno.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found</old>
+			<new>Soubor nenalezen</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Omlouváme se, ale nemáte dostatečné oprávnění.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s soubor je poškozený! Není možná instalace</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s byl úspěšně nainstalován!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Akceptovat</new>
+		</text>
+		<text>
+			<old>App Manager</old>
+			<new>Správce programů</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Název programu</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Autor: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategorie</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Kategorie: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Závisí na: %s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Popis: %s</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Doopravdy chcete odinstalovat aplikaci?</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Stahování a instalace %s ... prosím, počkejte</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Seznam balíků uložen</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Instalovat</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Nainstalováno</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instalace</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Licence: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Název: %s</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Pouze administrátor (root) může instalovat nové aplikáce</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Prosím, vyberte aplikaci, která má být nainstalována.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Prosím, vyberte aplikaci, která má být odinstalována.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Vyhledat</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Návrhy: %s</new>
+		</text>
+		<text>
+			<old>The application can&#039;t be uninstalled.</old>
+			<new>Aplikace nemůže být nainstalována.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Aplikacr byla úspěšně odinstalována.</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Odinstalovat</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Odinstalovat aplikaci</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Aktualizovat</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Verze</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Verze: %s</new>
+		</text>
+		<text>
+			<old>You are installing a new App in your eyeOS system</old>
+			<new>Insatalujete novou aplikaci do systému</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Add input to output</old>
+			<new>Přidat vstup na výstup</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Vložit řádek na konec</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii na Hexa</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Automatický smazat vstup</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 Rozkódovat</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 Zakódovat</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Vyčistit</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Zřetězit výstup</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimal na Římské</new>
+		</text>
+		<text>
+			<old>eyeOS hash</old>
+			<new>systémový hash</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa na Ascii</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Html entity</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Vložte text (Vstup)</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Čas poslední operace: %s</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 Hash</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>OK</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Výsledek operace (Výstup)</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Odstranit Html entity</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Římske čísla na decimal</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>Rozkódovat URL</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>Zakódovat URL</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTrash</name>
+		<text>
+			<old>Actions</old>
+			<new>Akce</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Vysypat koš</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Error uploading file</old>
+			<new>Chyba nahrávaní souboru</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Nahrát soubory</new>
+		</text>
+		<text>
+			<old>Upload finished!</old>
+			<new>Soubory nahrány!</new>
+		</text>
+		<text>
+			<old>You can now close this window.</old>
+			<new>Teď můžete zavřít okno!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>Upravit</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>Nemáte dostatečná oprávnění!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Unable to save position</old>
+			<new>Nemůžete uložit pozíci</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Změnit text popisku</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Ukázka aplikace</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process was killed</old>
+			<new>Žádný proces nebyl ukončen</new>
+		</text>
+	</part>
+	<part>
+		<name>propertyTrash</name>
+		<text>
+			<old>Deleted at: %s</old>
+			<new>Smazané: %s</new>
+		</text>
+		<text>
+			<old>Filename: %s</old>
+			<new>Název souboru: %s</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Vlastnosti</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Restore trash</old>
+			<new>Obnovit obsah koše</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>April</old>
+			<new>Duben</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Srpen</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopíruj / vlož tento kód do jiného tabulkového editoru (např. Excel)</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Prosinec</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Smazat slupec</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Smazat řádek</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Únor</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Vzorec</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Pátek</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Vložit sloupec</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Vložit řádek</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Leden</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Červenec</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Červen</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Březen</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Květen</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Pondělí</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nový</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Listopad</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Říjen</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Otevřít</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Pozice</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Tisknout</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Doopravdy chcete smazat buňku(y)?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Sobota</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Uložit</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Září</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Velikost listu</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Styl</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Neděle</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Čtvrtek</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Úterý</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Středa</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>April</old>
+			<new>Duben</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Srpen</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Prosinec</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>Pá</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Únor</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Leden</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Červenec</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Červen</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>Po</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Březen</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Květen</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Listopad</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Říjen</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>So</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Září</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>Út</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>Čt</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>St</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Are you sure you want to import this vCard?</old>
+			<new>Doopravdy chcete importovat tento vCard?</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>Chyba exportování souboru.</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Soubor importován!</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>Nepodporovaný formát</new>
+		</text>
+		<text>
+			<old>Import vCard</old>
+			<new>Importovat vCard</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>Omlováme se, ale soubor neobsahuje žádné kontakty</new>
+		</text>
+		<text>
+			<old>vCardImport can&#039;t initialize, contact with your administrator</old>
+			<new>Importován= nemůže být inicializováno, kontaktujte administrátora.</new>
+		</text>
+	</part>
+</lang>

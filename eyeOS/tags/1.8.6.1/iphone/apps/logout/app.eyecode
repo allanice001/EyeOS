@@ -1,0 +1,7 @@
+<?php
+function logout_execute() {
+	session_destroy();
+	require_once(IPHONE_PATH.'apps/login/app.eyecode');
+	login_execute();
+}
+?>

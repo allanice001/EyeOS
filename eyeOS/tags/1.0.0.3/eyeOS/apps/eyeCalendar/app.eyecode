@@ -1,0 +1,56 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://sourceforge.net/donate/index.php?group_id=145027         
+*/
+
+function eyeCalendar_run($params = null)
+{	
+	global $checknum;
+	global $myPid;
+	
+	$processTable = service('proc','getProcessTable');
+	$count = 0;
+	foreach($processTable as $process){
+		if($process['appName'] == 'eyeCalendar'){
+			if($count > 0) {
+				service('eyex','messageBox',array("content"=>"Calendar is already runing"));
+				service('proc','close',array($myPid));
+				return;
+			}
+			$count++;
+		}
+	}
+	//Call component js part
+	service('eyex','loadScript',array('url' => 'index.php?extern=apps/eyeCalendar/js/components/eyeCalendar'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+	
+	//Loading css
+	//TODO: USERTHEME var does not yet exists. line below has been commented
+	//service('eyex','loadCSS',array('url' => 'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/css/'.$file.'.css&type=css','id' => $file.'Css'));
+	if (IE > 0 && IE < 7) {
+		service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeCalendar/css/eyeCalendar_IE6.css&type=css','id' =>'eyeCalendar.css'));	
+	}else{
+		service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeCalendar/css/eyeCalendar.css&type=css','id' =>'eyeCalendar.css'));	
+	}
+}
+
+
+
+function eyeCalendar_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

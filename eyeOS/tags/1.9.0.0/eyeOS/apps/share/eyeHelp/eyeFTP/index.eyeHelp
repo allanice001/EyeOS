@@ -1,0 +1,17 @@
+eyeFtp eyeOS's Client to connect to FTP servers through eyeOS. You can use it to browse, transfer and manage files on a remote server, using your eyeOS host server as a proxy for your connections.
+
+Author: Nanawel [mail]nanawel@eyeos.org[/mail]
+[url]http://wiki.eyeos.org/EyeFTP[/url]
+
+[h]Main features[/h]
+[list][*]Connect to any FTP server through the machine hosting your eyeOS
+[*]List files with their details (name, size, date, ...) and browse folders
+[*]Create folders
+[*]Delete, rename and move files and folders
+[*]Download and upload files from/to eyeOS
+[*]Download and upload files through eyeOS:
+	[list=1][*]First transfer between FTP and eyeOS,
+	[*]Then between eyeOS and your local machine, depending on transfer direction
+	[i]So you can download/upload files from/to FTP servers even if your port 21 is unusable.[/i][/list]
+[*]Save and manage connection profiles
+[/list]

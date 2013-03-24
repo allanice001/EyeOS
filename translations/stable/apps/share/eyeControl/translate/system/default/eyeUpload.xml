@@ -1,0 +1,32 @@
+<lang>
+	<info>
+		<revision>03/03/2012</revision>
+	</info>
+	<texts>
+		<text>"%s" has been uploaded successfully.</text>
+		<text>%s MB</text>
+		<text>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</text>
+		<text>Add files</text>
+		<text>Add files to transfer, then press Upload now!</text>
+		<text>Advanced</text>
+		<text>Error occured during upload process!</text>
+		<text>Error uploading file!</text>
+		<text>Filename</text>
+		<text>File uploaded successfully.</text>
+		<text>Max filesize allowed</text>
+		<text>No</text>
+		<text>Ok</text>
+		<text>Please enter the HTTP address to a file:</text>
+		<text>Remove</text>
+		<text>Simple</text>
+		<text>Size (KB)</text>
+		<text>The file has been uploaded successfully.</text>
+		<text>Transfering: </text>
+		<text>Upload files</text>
+		<text>Upload now!</text>
+		<text>Web</text>
+		<text>Yes</text>
+		<text>You do not have enough free space!</text>
+		<text>You do not have sufficient permissions!</text>
+	</texts>
+</lang>

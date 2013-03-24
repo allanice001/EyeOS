@@ -1,0 +1,81 @@
+.cal0 {
+	background-color: #e46f46;
+	color: #ffffff;
+	height: 17px;
+	overflow-x: hidden;
+	padding-left: 5px;
+	width: 80px;
+}
+
+.cal1 {
+	background-color: #37a3ff;
+	color: #ffffff;
+	height: 17px;
+	overflow-x: hidden;
+	padding-left: 5px;
+	width: 80px;
+}
+
+.cal2 {
+	background-color: #6fba32;
+	color: #ffffff;
+	height: 17px;
+	overflow-x: hidden;
+	padding-left: 5px;
+	width: 80px;
+}
+
+.cal3 {
+	background-color: #8074c9;
+	color: #ffffff;
+	height: 17px;
+	overflow-x: hidden;
+	padding-left: 5px;
+	width: 80px;
+}
+
+.cal4 {
+	background-color: #f19a2a;
+	color: #ffffff;
+	height: 17px;
+	overflow-x: hidden;
+	padding-left: 5px;
+	width: 80px;
+}
+
+.cal5 {
+	background-color: #e26299;
+	color: #ffffff;
+	height: 17px;
+	overflow-x: hidden;
+	padding-left: 5px;
+	width: 80px;
+}
+
+.miniCalendarInnerLeft {
+	height: 145px;
+	left: 5px;
+	position: absolute;
+	top: 19px;
+	width: 160px;
+}
+
+.miniCalendarInnerRight {
+	height: 145px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: absolute;
+	right: 4px;
+	top: 19px;
+	width: 301px;
+}
+
+.miniCalendarOuter {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/apps/miniCalendar/miniCalendar.png);
+	height: 170px;
+	position: absolute;
+	right: 10px;
+	top: 80px;
+	width: 470px;
+	z-index: 100;
+}

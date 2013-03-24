@@ -1,0 +1,58 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+
+function eyeUpload_run($params=null) {
+	global $myPid;
+	global $checknum;
+	if(is_array($params)) {
+		$path = $params[0][0];
+		$callback = $params[0][1];
+		$inGroup = $params[0][2];
+	}
+	if($inGroup) {
+		$myUserDir = EYE_ROOT.'/'.GROUPS_DIR.'/'.$path;
+	} else {
+		$myUserDir = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$path;
+	}
+	$path = $myUserDir;
+	$myWindow = new Window(array('name'=>'uploadWND','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>390,'height'=>175,
+		'title'=>'Upload file'));
+	$myWindow->show();
+	$myFrame = new Iframe(array('name'=>'uploadFrame','father'=>'uploadWND_Content','x'=>5,
+		'y'=>5,'height'=>145,'width'=>370,
+		'url'=>'index.php?extern=apps/eyeUpload/eyeUpload'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum,
+		'scroll'=>0));
+	if($path) {
+		$myHidden = new Hidden(array('name'=>'upPath','father'=>'uploadWND_Content','text'=>$path));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	if($callback) {
+		$myHidden = new Hidden(array('name'=>'upCallback','father'=>'uploadWND_Content','text'=>$callback));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	$myFrame->show();
+}
+
+function eyeUpload_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

@@ -1,0 +1,114 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+define('MAX_IMAGE_SIZE_W',600);
+define('MAX_IMAGE_SIZE_H',500);
+
+function eyeImages_run($params=null) {
+	global $myPid, $checknum;
+	if($params[0]) {
+		$file = $params[0];
+		$rfile = service('vfs','getRealName',array($file));
+		$info = getimagesize($rfile);
+		
+		if($info[0] > MAX_IMAGE_SIZE_W) {
+			$info[0] = MAX_IMAGE_SIZE_W;
+		} 
+		if($info[1] > MAX_IMAGE_SIZE_H) {
+			$info[1] = MAX_IMAGE_SIZE_H;
+		}
+		
+		$myHidden = new Hidden(array('name'=>'iPath','father'=>'eyeApps','text'=>$file));
+		eyeWidgets('serialize',array($myHidden));
+		
+		if(isset($params[1]) && $params[1] == 1) {
+			$isFullscreen = 1;
+		} else {
+			$isFullscreen = 0;
+		}
+
+		if($isFullscreen == 1) {
+			$width = $_SESSION['SCREEN']['width'];
+			$height = $_SESSION['SCREEN']['height'];
+			$type = FIXED_WINDOW;
+		} else { //Fullscreen mode is set
+			$width = $info[0]+30;
+			$height = $info[1]+128;
+			
+			if($width < 200) {
+				$width = 200;
+			}
+			
+			if($height < 210) {
+				$height = 210;
+			}
+			
+			$type = NORESIZE_WINDOW;
+		}
+		
+		$myHidden2 = new Hidden(array('name'=>'fullscreen','text'=>$isFullscreen));
+		eyeWidgets('serialize',array($myHidden2));
+		
+		$myWindow = new Window(array(
+			'name'=>'eyeImagesWND',
+			'father'=>'eyeApps',
+			'cent'=>1,
+			'title'=>'eyeImages',
+			'width'=>$width,
+			'height'=>$height,
+			'type' => $type,
+			'x' => 0,
+			'y' => 0
+		));
+		$myWindow->show();
+		
+		if($isFullscreen) {
+			eyeX('rawjs',array('js' => 'document.getElementById("'.$myPid.'_eyeImagesWND_Content").style.top="0px";'));
+		}
+		
+		$myFrame = new Iframe(array(
+			'name'=>'imgFrame',
+			'father'=>'eyeImagesWND_Content',
+			'x'=>5,
+			'y'=>73,
+			'height'=>$myWindow->height-98,
+			'width'=>$myWindow->width-10,
+			'url'=>"index.php?checknum=$checknum&msg=getImage",
+			'scroll'=>1));
+		$myFrame->show();
+		
+		$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeImagesWND_Content'));
+		$myToolbar->show();
+		$myToolbar->addItem('Previous','index.php?extern=apps/eyeX/themes/default/images/toolbar/previous.png','Previous');
+		$myToolbar->addItem('Next','index.php?extern=apps/eyeX/themes/default/images/toolbar/next.png','Next');
+		$myToolbar->addItem('Fullscreen','index.php?extern=apps/eyeX/themes/default/images/toolbar/fullScreen.png','Fullscreen');
+	} else {
+		proc('end');
+	}
+}
+
+function eyeImages_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

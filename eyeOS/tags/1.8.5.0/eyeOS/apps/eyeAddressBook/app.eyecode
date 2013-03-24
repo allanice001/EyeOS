@@ -1,0 +1,289 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+require_once(EYE_ROOT.'/'.APP_DIR.'/eyeAddressBook/events'.EYE_CODE_EXTENSION);
+
+function eyeAddressBook_run($params=null) {
+	global $myPid;
+    global $checknum;
+    $mainWindow = new Window(array(
+		'name' => 'eyeAddressBook_WND',
+		'title' => 'AddressBook',
+		'father' => 'eyeApps',
+		'width' => 700,
+		'height' => 502,
+		'cent' => 1,
+		'type'=>NORMAL_WINDOW,
+		'sendResizeMsg'=> 1,
+		'sigResize'=> 'resize',
+		'savePosition' => 1
+	));
+	$mainWindow->show();
+	eyeX('rawjs',array('js' => 'xGetElementById("'.$myPid.'_eyeAddressBook_WND_Content").style.overflow = "hidden";'));
+	$myToolbar = new Toolbar(array(
+		'name'=>'eyeAddressBook_Toolbar',
+		'father'=>'eyeAddressBook_WND_Content'
+	));
+	$myToolbar->show();
+	$myToolbar->addItem('newContact','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/addcontact.png','New Contact');
+	$myToolbar->addItem('listEditContact','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/editcontact.png','Edit');
+	$myToolbar->addItem('delete','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/deletecontact.png','Delete');
+	$myToolbar->addLine();
+	$myToolbar->addItem('import','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/importcontact.png','Import');
+	$myToolbar->addItem('export','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/exportcontact.png','Export');
+	$myToolbar->addLine();
+	$myToolbar->addItem('sendMessage','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/sendmessage.png','Send Message');
+	$myToolbar->addLine();
+	$myToolbar->addItem('settings','index.php?version='.EXTERN_CACHE_VERSION.'&extern=apps/eyeAddressBook/images/settings.png','Settings');
+	$myToolbar->addItem('fullscreen','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/fullScreen.png','Full Screen','',1);
+	addListenerServiceCall('fullResized','eyex','resizedbrowser');
+	
+    // General Splitter
+    
+	// Box Contacts List
+	
+	$boxContacts = new Simplebox(array(
+		'name' => 'eyeAddressBook_boxContacts',
+		'father' => 'eyeAddressBook_WND_Content',
+		'x' => 8,
+		'y' => 68,
+		'height' => 400,
+		'width' => 300,
+		'border' => 0
+	));
+	$boxContacts->show(0);
+	$boxContacts->setCSS(array(
+		'border' => '1px solid #8A8A8A'
+	));
+	
+	$boxTitleContacts = new Simplebox(array(
+		'name' => 'eyeAddressBook_boxTitleContacts',
+		'father' => 'eyeAddressBook_boxContacts',
+		'x' => 1,
+		'y' => 1,
+		'height' => 22,
+		'width' => $boxContacts->width,
+		'border' => 0
+	));
+	$boxTitleContacts->show();
+	$boxTitleContacts->setCSS(array(
+		'border-bottom' => '1px solid #E1E1E1',
+		'background-color' => '#FAFAFA'
+	));
+	
+	$labelTitleContacts = new Label(array(
+		'name' => 'eyeAddressBook_labelTitleContacts',
+		'father' => 'eyeAddressBook_boxTitleContacts',
+		'x' => 8,
+		'y' => 4,
+		'text' => 'Contacts'
+	));
+	$labelTitleContacts->show();
+	$labelTitleContacts->setCSS(array(
+		'color' => '#346A98',
+		'font-size' => '11px'
+	));
+	
+	$txtSearch = new Textbox(array(
+		'name' => 'eyeAddressBook_txtSearch',
+		'father' => 'eyeAddressBook_boxContacts',
+		'x' => 10,
+		'y' => 64,
+		'width' => 255
+	));
+	$txtSearch->show();
+
+    eyeX('rawjs',array('js' => '
+        var searchDelay;
+    '));
+
+    $txtSearch->addEvent('onkeyup','
+        clearTimeout(searchDelay);
+        searchDelay=setTimeout(\'sendMsg('.$checknum.',"search",eyeParam("value",xGetElementById("'.$myPid.'_eyeAddressBook_txtSearch").value)+eyeParam("group",xGetElementById("'.$myPid.'_eyeAddressBook_selectGroup").value))\',1000);
+    ');
+
+	$imgSearch = new Imagebox(array(
+		'name' => 'eyeAddressBook_imgSearch',
+		'father' => 'eyeAddressBook_boxContacts',
+		'x' => 10,
+		'horiz' => 1,
+		'y' => 64,
+		'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&extern=apps/eyeAddressBook/images/search.png'
+	));
+	$imgSearch->show();
+	
+	// Box Details Information
+	
+	$boxInfo = new Simplebox(array(
+		'name' => 'eyeAddressBook_boxInfo',
+		'father' => 'eyeAddressBook_WND_Content',
+		'horiz' => 1,
+		'x' => 8,
+		'y' => 68,
+		'height' => $mainWindow->height - 102,
+		'width' => $mainWindow->width - 330,
+		'border' => 0
+	));
+	$boxInfo->show(0);
+	$boxInfo->setCSS(array(
+		'border' => '1px solid #8A8A8A'
+	));
+	
+	$boxTitleInfo = new Simplebox(array(
+		'name' => 'eyeAddressBook_boxTitleInfo',
+		'father' => 'eyeAddressBook_boxInfo',
+		'x' => 1,
+		'y' => 1,
+		'height' => 22,
+		'width' => $boxInfo->width,
+		'border' => 0
+	));
+	$boxTitleInfo->show(0);
+	$boxTitleInfo->setCSS(array(
+		'border-bottom' => '1px solid #E1E1E1',
+		'background-color' => '#FAFAFA'
+	));
+	
+	$labelTitleInfo = new Label(array(
+		'name' => 'eyeAddressBook_labelTitleInfo',
+		'father' => 'eyeAddressBook_boxTitleInfo',
+		'x' => 8,
+		'y' => 4,
+		'text' => 'Details'
+	));
+	$labelTitleInfo->show();
+	$labelTitleInfo->setCSS(array(
+		'color' => '#346A98',
+		'font-size' => '11px'
+	));
+
+	// Call to init function
+	eyeAddressBook_initFunction();
+}
+
+function eyeAddressBook_initFunction() {
+	$config = eyeAddressBook('loadConfig');
+	if ($config['config'][0]['used'][0] == 0) {
+		eyeAddressBook('importFromEyeContacts');
+		$config['config'][0]['used'][0] = 1;
+		$path = um('getCurrentUserDir').CONF_USER_DIR.'/eyeAddressBook';
+		eyeXML('setXMLfile', array($path.'/config.xml', $config));
+	}
+	eyeAddressBook_showSelectGroup();
+    $contacts = eyeAddressBook('getContacts');
+
+    eyeAddressBook_drawListBox($contacts);
+	
+	// Show the new contact form
+	eyeAddressBook_on_newContact();
+}
+
+function eyeAddressBook_drawListBox($contacts=null) {
+    if (is_object($GLOBALS['eyeAddressBook_listBox'])) {
+        $GLOBALS['eyeAddressBook_listBox']->remove();
+    }
+	
+	if ($contacts == null) {
+		$contacts['Contacts'][0] = array();
+	}
+    global $checknum;
+    global $myPid;
+	
+    $listBox = new Simplebox(array(
+        'name' => 'eyeAddressBook_listBox',
+        'father' => 'eyeAddressBook_boxContacts',
+        'x' => 10,
+        'y' => 95,
+        'height' => 306,
+        'width' => 291,
+        'border' => 0
+    ));
+    $listBox->show(0);
+	
+    eyeX('rawjs',array('js' => 'xGetElementById("'.$myPid.'_eyeAddressBook_listBox_Container").style.overflowY = "auto";
+        xGetElementById("'.$myPid.'_eyeAddressBook_listBox_Container").style.overflowX = "hidden";'));
+
+    $contacts = $contacts['Contacts'][0];    
+    $y = 2;
+    $count = 0;
+	if (!is_array($contacts)) {
+		$contacts = array();
+	}
+    foreach ($contacts as $key=>$contact) {
+        $key = substr($key,3);
+        $chkContact = new Checkbox(array(
+            'name' => 'eyeAddressBook_chkContact_'.$key,
+            'father' => 'eyeAddressBook_listBox',
+            'text' => '',
+            'x' => 4,
+            'y' => $y
+        ));
+        $chkContact->show();
+        $lblContact = new Label(array(
+            'name' => 'eyeAddressBook_lblContact_'.$count,
+            'father' => 'eyeAddressBook_listBox',
+            'text' => $contact[0]['home'][0]['name'][0].' '.$contact[0]['home'][0]['surname'][0],
+            'x' => 28,
+            'y' => $y+3
+        ));
+        $lblContact->show();
+        $lblContact->setCSS(array(
+            'cursor' => 'pointer'
+        ));
+        $lblContact->addEvent('onclick','sendMsg(' . $checknum . ',"viewContact",eyeParam("id","'.$key.'"));');
+        $y+=25;
+        ++$count;
+    }
+}
+
+function eyeAddressBook_showSelectGroup() {
+	global $checknum;
+	global $myPid;
+	if (is_object($GLOBALS['eyeAddressBook_selectGroup'])) {
+		$GLOBALS['eyeAddressBook_selectGroup']->remove();
+	}
+	$selectGroup = new Select(array(
+		'name' => 'eyeAddressBook_selectGroup',
+		'father' => 'eyeAddressBook_boxContacts',
+		'x' => 10,
+        'width' => 170,
+		'y' => 34
+	));
+	$selectGroup->show(0);
+	$selectGroup->addOption('All Groups', 0, 1);
+	$groups = eyeAddressBook('getGroups');
+    if (is_array($groups['groups'][0]['group'])) {
+        $groups = $groups['groups'][0]['group'];
+        foreach($groups as $igroup) {
+            $selectGroup->addOption($igroup['name'][0], $igroup['id'][0]);
+        }
+    }
+    $selectGroup->addEvent('onchange','sendMsg('.$checknum.',"search",eyeParam("value",xGetElementById("'.$myPid.'_eyeAddressBook_txtSearch").value)+eyeParam("group",xGetElementById("'.$myPid.'_eyeAddressBook_selectGroup").value));');
+}
+
+function eyeAddressBook_end($params=null) {
+    eyeAddressBook('clean'); // This function delete all eyeAddressBook generated files in temp dir
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

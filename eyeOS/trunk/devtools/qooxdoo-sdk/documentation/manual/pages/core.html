@@ -1,0 +1,436 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Core Framework &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../index.html" />
+    <link rel="next" title="Introduction to Object Orientation" href="core/oo_introduction.html" />
+    <link rel="prev" title="Tools beyond the Python SDK" href="tool/tools_beyond_python_sdk.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="core/oo_introduction.html" title="Introduction to Object Orientation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tool/tools_beyond_python_sdk.html" title="Tools beyond the Python SDK"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../index.html">qooxdoo v1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="core-framework">
+<h1>Core Framework<a class="headerlink" href="#core-framework" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="object-orientation">
+<h2>Object Orientation<a class="headerlink" href="#object-orientation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/oo_introduction.html">Introduction to Object Orientation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_introduction.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_introduction.html#interfaces">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_introduction.html#mixins">Mixins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_introduction.html#inheritance">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_introduction.html#qooxdoo-oo-standalone">qooxdoo OO standalone</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/oo_feature_summary.html">Features of Object Orientation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#class-definition">Class definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#inheritance">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#constructor">Constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#static-members">Static members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#instance-members">Instance Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#accessing-static-members">Accessing Static Members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#calling-the-superclass-constructor">Calling the Superclass Constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#calling-the-overridden-superclass-method">Calling the Overridden Superclass Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#destructor">Destructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#interfaces">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#mixins">Mixins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#attaching-mixins-to-a-class">Attaching mixins to a class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#attaching-mixins-to-an-already-defined-class">Attaching mixins to an already defined class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#access">Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#static-classes">Static classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#abstract-classes">Abstract classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#singletons">Singletons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#immediate-access-to-previously-defined-members">Immediate access to previously defined members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#browser-specific-methods">Browser specific methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/oo_feature_summary.html#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/classes.html">Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/classes.html#declaration">Declaration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#members">Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#class-members">Class Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#instance-members">Instance Members</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#primitive-types-vs-reference-types">Primitive Types vs. Reference Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#access">Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#special-types-of-classes">Special Types of Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#static-classes">Static Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#abstract-classes">Abstract Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#singletons">Singletons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/classes.html#inheritance">Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#single-inheritance">Single Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#multiple-inheritance">Multiple Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#polymorphism-overriding">Polymorphism (Overriding)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#calling-the-superclass-constructor">Calling the Superclass Constructor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#calling-an-overridden-method">Calling an Overridden Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#calling-the-superclass-method-or-constructor-with-all-parameters">Calling the Superclass Method or Constructor with all parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/classes.html#calling-another-static-method">Calling another Static Method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/classes.html#usage-of-interfaces-and-mixins">Usage of Interfaces and Mixins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#implementing-an-interface">Implementing an Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#including-a-mixin">Including a Mixin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/classes.html#summary">Summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/classes.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/interfaces.html">Interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/interfaces.html#definition">Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/interfaces.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/interfaces.html#members">Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/interfaces.html#statics">Statics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/interfaces.html#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/interfaces.html#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/interfaces.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/interfaces.html#summary">Summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/interfaces.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/interfaces.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/mixins.html">Mixins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/mixins.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mixins.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mixins.html#summary">Summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/mixins.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/mixins.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/understanding_properties.html">Introduction to Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/understanding_properties.html#ordinary-property-handling">Ordinary Property Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/understanding_properties.html#qooxdoo-property-handling">qooxdoo Property Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/understanding_properties.html#change-events">Change Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/understanding_properties.html#available-methods">Available Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/understanding_properties.html#property-groups">Property Groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/understanding_properties.html#shorthand-support">Shorthand support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/defining_properties.html">Properties in more detail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#declaration">Declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#handling-changes-of-property-values">Handling changes of property values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#defining-an-apply-method">Defining an apply method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/defining_properties.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#providing-an-event-interface">Providing an event interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/defining_properties.html#pages-defining-properties-example-event">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#init-values">Init values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#defining-an-init-value">Defining an init value</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/defining_properties.html#init-value-in-declaration">Init value in declaration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/defining_properties.html#init-value-in-constructor">Init value in constructor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#applying-an-init-value">Applying an init value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#refining-init-values">Refining init values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#checking-incoming-values">Checking incoming values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#predefined-types">Predefined types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#possible-values">Possible values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#instance-checks">Instance checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#interface-checks">Interface checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#implementing-custom-checks">Implementing custom checks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/defining_properties.html#alternative-solution">Alternative solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#transforming-incoming-values">Transforming incoming values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#id2">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#validation-of-incoming-values">Validation of incoming values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#using-a-predefined-validator">Using a predefined validator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#using-a-custom-validator">Using a custom validator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#validation-method-as-member">Validation method as member</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#enabling-theme-support">Enabling theme support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#working-with-inheritance">Working with inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#inheritable-css-properties">Inheritable CSS properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#internal-methods">Internal methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#defining-property-groups">Defining property groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/defining_properties.html#shorthand-support">Shorthand support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/defining_properties.html#when-to-use-properties">When to use properties?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/property_behavior.html">Initialization Behavior</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/property_behavior.html#the-problem">The Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_behavior.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_behavior.html#why-not-just-change-it-back-as-it-was">Why not just change it back as it was?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_behavior.html#when-can-it-be-changed">When can it be changed?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/property_features.html">Property features summarized</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#value-checks">Value checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#advanced-value-handling">Advanced value handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#convenience">Convenience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#notification">Notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/property_features.html#memory-managment">Memory managment</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="settings-and-variants">
+<h2>Settings and Variants<a class="headerlink" href="#settings-and-variants" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/settings.html">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/settings.html#what-are-settings">What are settings?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/settings.html#when-to-use-settings-and-when-not">When to use settings (and when not)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/settings.html#defining-new-settings">Defining new settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/settings.html#selecting-settings">Selecting settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/settings.html#using-the-generator">Using the generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/settings.html#using-a-map">Using a map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/settings.html#predefined-settings">Predefined Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/variants.html">Variants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/variants.html#browser-optimized-builds">Browser optimized builds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/variants.html#removal-of-debugging-code">Removal of debugging code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/variants.html#details">Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/variants.html#definition-of-a-variant">Definition of a Variant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/variants.html#using-variants">Using Variants</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/variants.html#select">select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/variants.html#isset">isSet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/variants.html#setting-the-value-of-a-variant">Setting the Value of a Variant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/variants.html#predefined-variants">Predefined Variants</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-binding">
+<h2>Data Binding<a class="headerlink" href="#data-binding" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_binding.html">Data Binding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/data_binding.html">Data Binding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/data_binding.html#introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/data_binding.html#the-main-idea">The main idea</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="data_binding/data_binding.html#data">Data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="data_binding/data_binding.html#store">Store</a></li>
+<li class="toctree-l5"><a class="reference internal" href="data_binding/data_binding.html#model">Model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="data_binding/data_binding.html#controller">Controller</a></li>
+<li class="toctree-l5"><a class="reference internal" href="data_binding/data_binding.html#view">View</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/data_binding.html#demos-api-and-cheatsheet">Demos, API and CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html">Single Value Binding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#binding-a-single-property-to-another-property">Binding a single property to another property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#binding-a-data-event-to-property">Binding a data event to property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#bind-a-property-chain-to-another-property">Bind a property chain to another property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#bind-an-array-to-a-property">Bind an array to a property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#options-conversion-and-validation">Options: Conversion and Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#managing-bindings">Managing bindings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/single_value_binding.html#tech-notes">Tech notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html">Controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#selection">Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#delegate">Delegate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/controller.html#configureitem">configureItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/controller.html#binditem">bindItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/controller.html#createitem">createItem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#object-controller">Object Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#list-controller">List Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#tree-controller">Tree Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#form-controller">Form Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#combining-controller">Combining Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html">Stores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#json-marshaler">JSON Marshaler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/stores.html#toclass">toClass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/stores.html#tomodel">toModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/stores.html#createmodel-static">createModel (static)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#json-store">JSON Store</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#jsonp-store">JSONP Store</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#yql-store">YQL Store</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#combining-with-controllers">Combining with controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#how-to-get-my-own-code-into-the-model">How to get my own code into the model?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Core Framework</a><ul>
+<li><a class="reference internal" href="#object-orientation">Object Orientation</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#properties">Properties</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#settings-and-variants">Settings and Variants</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-binding">Data Binding</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="tool/tools_beyond_python_sdk.html"
+                                  title="previous chapter">Tools beyond the Python SDK</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="core/oo_introduction.html"
+                                  title="next chapter">Introduction to Object Orientation</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/pages/core.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

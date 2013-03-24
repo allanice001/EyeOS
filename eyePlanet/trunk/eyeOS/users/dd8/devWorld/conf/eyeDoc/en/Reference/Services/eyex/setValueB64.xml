@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>setValueB64</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+			<tag>value</tag>
+		</tags>
+		<shortDesc>Changes the value of a widget using base 64.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>setValueB64</functionName>
+		<syntax>boolean eyex('setValueB64', array(string 'name' => $name, string 'value' => $value))</syntax>
+		<desc>Changes the value of a widget. The given value is supposed to be encoded in base 64.</desc>
+		<params>
+			<type>required</type>
+			<name>name</name>
+			<desc>Name of the widget.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>value</name>
+			<desc>New value to set, in base 64.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, if no name is specified, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No name or value are specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

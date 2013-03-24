@@ -1,0 +1,4885 @@
+<lang>
+	<info>
+		<lang>Dutch</lang>
+		<lang-en>Nederlands</lang-en>
+		<author>Walter Maas</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Typ hier de titel van de link:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Creëer</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Creëer een link</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Je kunt dit scherm nu sluiten.</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>De server accepteert geen ingepakte bestanden.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Deze links kunnen niet worden gedownload!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Download!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Download "%s" als ingepakt bestand</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Bijwerken</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Verander %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Uit te voeren commando:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Prullenbak legen</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Weet je zeker dat je "%s" wilt verwijderen?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Weet je zeker dat je de prullenmand wilt legen?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Verwijder %s</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Personal</old>
+			<new>Persoonlijk</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>notities</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>Selecteer een groep</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>Selecteer één contact om te bewerken</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>Selecteer één contact om te bewerken</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>Schrijf te nieuwe groeps naam</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>Selecteer één of meer contacten</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>Selecteer één contact om een bericht te sturen</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Notities</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>Nieuw contact succesvol gemaakt</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Naam</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>Mobiel</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>Nieuw contact</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>Selecteer één contact om een bericht te verzenden</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>nick</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Nick</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>Werk Fax</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>Functie</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>Werk E-Mail</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>Werk Adres</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>Werk Mobiel</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>Werk telefoon</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>Alstublieft, vul je voornaam en achternaam in</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Werk</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>Werk Website</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Website</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>VoIP</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Instellingen</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Berichten verzenden</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>Contact bewaren</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Achternaam</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>Mobiel bedrijf</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>voip</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>gebruiker</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Mobiele telefoon</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importeren</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Bedrijf Fax</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>Kan contactpersoon niet bewerken</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Contactpersoon succesvol bewerkt</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Contactpersoon succesvol verwijderd</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Verwijder contactpersoon</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Details</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Database om contactpersoon gegevens te bewaren:</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Contacten</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>Kan contact persoon niet maken</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>Adresboek</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Toevoegen</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>Nieuwe groep toevoegen</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Weet u zeker dat u deze contacten(%s) wilt verwijderen?</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>Alle Groepen</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>Thuis adres</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>Groep succesvol verwijderd</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>Groep succesvol toegevoegd</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Thuis Telefoonnummer</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Thuis</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>Importeren gereed</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Bedrijf</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>im</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig Scherm</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>Familie</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Fout bij het maken van een groep</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Bewerken</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>E-Mail</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Fout bij het verwijderen contact</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Export</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>Volledig export</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Contact toevoegen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Beheer Koppelingen</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Installeer Apps</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Applicaties</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Open a folder or file</old>
+			<new>Open een map of bestand</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>GZip bestnaden</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Bestandsnaam</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Fout bij uitpakken van bestand</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Tar bestanden</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Geen bestand geopend</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>Zip bestanden</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Het ingepakte bestandstype wordt niet ondersteund.</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Bestand succesvol uitgepakt.</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Uitpakken</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>Bzip bestanden</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Archief Manager</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>Archiveer bestanden</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Inpakken</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Uitpakken naar...</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Fout bij inpakken</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Inpakken voltooid</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Inpakken naar...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Versturen</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Publiek Berichtenbord</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Wissen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Rekenmachine</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Tekst voor dit gebeurtenis</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>Donderdag</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Vandaag</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Dinsdag</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Toon</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Zaterdag</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Volgende</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Geef de kalender een naam</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Geef een naam voor de kalender</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Vorige</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Twee kalenders kunnen niet de zelfde ID delen!</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>Week start op:</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Scherminstelling</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>Werk kalender configuratie:</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>Werk kalender</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Zondag</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Werk</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Week</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Twee kalenders kunnen niet dezelfde naam delen!</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Woensdag</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>Week eindigd op:</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Maandag</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Onjuist nr %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Agenda</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Kalenderbeheer</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalenders</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalender is al gestart</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalender toegevoegd</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Agenda toevoegen</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Er moet minstens één agenda zijn!</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Instellingen zijn correct opgeslagen</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>Configuratie opslaan</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Vrijdag</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig Scherm</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>Hoofd Configuratie:</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Onjuiste waarde aangevinkt</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dag</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Deze agenda naam is al in gebruik!</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Kalender Instellen</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>Dag eindigt om:</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>Dag start om:</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Queen</old>
+			<new>Koningin</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Langzaam</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Ongedaan maken</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>Zetten</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Bisschop</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Schaakspel</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Ridder</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>Commando niet gevonden</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Icon positie terug zetten</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>Venster positie opslaan</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Schermafbeelding</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Zoek gebruiker....</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Reservoir</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>'Hernoem</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Verwijder nu!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Verwijder tijdelijke bestanden en mappen</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Verwijder</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Zoekmachines geimporteerd.</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Toon volledige naam</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Selecteer gebruiker:</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Toon gebruikers</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Bestand bestaat niet.</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Toon alles</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Deze pagina is niet geinstalleerd.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Toon gebruikers...</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Instellingen</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Selecteer</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Stel als standaard in</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Bescherm de sessies door IPs</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Selecteer een bestand...</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Verwijder tijdelijke bestanden en mappen van je oneye systeem</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Geef hier de gebruikersnaam :</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Selecteer een opdracht om te bewerken.</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Persoonlijk</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Selecteer een groep om te wissen.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Selecteer een groep om te bewerken.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Selecteer een lokatie om te testen.</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Rechten</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Rechten*</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Wachtwoord*</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Wachtwoord</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Paswoord verschillend!</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Selecteer een groep als standaard groep.</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Alle velden gemerkt met * moeten worden ingevuld</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Selecteer een lokatie om te bewerken.</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Geef een korrekte groepsnaam !</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Geef een adres op!</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Vul alle noodzakelijke velden in!</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Selecteer een opdracht om te verwijderen.</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Geef een opdracht!</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Verbeter je instellingen.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Selecteer een gebruiker om te wisen.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Selecteer een gebruiker om te bewerken.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Dit bestand kan niet als achtergrond worden gebruikt.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Selecteer een lokatie om te wissen.</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Gebruikte ruimte:</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Login als normale gebruiker voor deze pagina.</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Gebruiker aangemaakt.</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Gebruik een aangepaste achtergrond</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>Gebruiker verwijderd.</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Gebruiker</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Wallpaper</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Bijwerken van je systeem instellingen</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Bijwerken van het systeemprofiel</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Geef de groepsnaam die je wilt maken:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Typ het nieuwe lokatie adres:</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Verwijder</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>Gebruikersnaam bevat niet toegestane karakters, probeer opnieuw!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>Je kan de standaard lokatie niet verwijderen!</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>Windows</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>Je kan de standaard lokatie niet bewerken!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>Je kan een lokatie niet als standaard lokatie opslaan!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>Je kan de standaard groep niet verwijderen!</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Venster positie terugzetten</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>Je kan de root gebruiker niet verwijderen!</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>U kunt /a (einde), /b (begin) and /c (teller) gebruiken om gebruikers in de lijst te zetten</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>U bent geen groeps beheerder</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>U bent geen gebruikers beheerder</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Geef de opdracht die bij het opstarten uitgevoerd moet worden.</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>Venster succes vol hersteld. Herstart de applicatie nu.</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Typ de nieuwe groepsnaam:</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Probleem bij het wissen van de groep.</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>Die opdracht bestaat niet!</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Tijdelijke bestanden en mapppen verwijderd.</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>Die opdracht is al ingesteld!</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Die gebruiker bestaat niet.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>De gekozen groep is al de standaard groep!</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Systeem</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Systeem voorkeuren</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Je hebt geen rechten voor deze pagina.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Login met de juuiste gegevens om deze pagina te bekijken</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startpagina</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Het account is verwijderd.</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>De geselecteerde gebruikersnaam is te kort!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>Het geselecteerde bestand is geen eyeNav favorieten bestand</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>Thema gewijzigd. Herstart om de veranderingen te aktiveren.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Thema</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>De geselecteerde gebruikersnaam is te lang!</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>Deze gebruiker bestaat niet</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>De geselecteerde gebruiker bestaat al!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>Het geselecteerde bestand is geen eyeNav zoekmachine bestand.</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>De geselecteerde groep bestaat al!</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Wachtwoord (nogmaals)*</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>De lokatie is al geinstalleerd!</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Paswoord gewijzigd.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Anderen</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Opdracht gewist.</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Schoon oneye op</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Opdracht opgeslagen.</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Opdrachten</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Instellen van de Office ondersteuning op een Widows server</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Veranderingen opgeslagen.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Veranderingen opgeslagen en gebruiker bijgewerkt.</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Verander huidig thema</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Verander je board instellingen</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Verander je gewenste taal</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Instellen van de Office ondersteuning op een Linux server</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Wis lokatie</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Standaard groep opgeslagen.Herstart deze sessie.</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Beschrijving</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Buroblad</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Wis groep</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Wil je echt deze groep verwijderen ?</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Verwijder waarschuwing</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Wis auto opstart</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Standaard groep: %s | %s groep(en)</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Standaard instellingen ingesteld.</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Verander huidig paswoord</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Stel de startpagina in</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Verander de buroblad achtergrond </new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Voeg een nieuwe gebruiker toe aan oneye</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>Actie</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Voeg lokatie toe</new>
+		</text>
+		<text>
+			<old>Add Rule</old>
+			<new>Regel toevoegen</new>
+		</text>
+		<text>
+			<old>Admin</old>
+			<new>Admin</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>ACL Naam:</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>ACL Naam</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s lokatie(s)</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Standaard gebruiker]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Over mij</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Toevoegen</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Startopdrachten</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrateur</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Favorieten ge-importeerd.</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Browse Plugin</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Auteur</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>Actie:</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Favorieten en zoekmachines ge-exporteerd.</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Web upload toegestaan</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Sta openbare mappen toe</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Sta nieuwe gebruikers inlog toe</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Wil je echt deze opdracht verwijderen ?</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administratie</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Bewerk de standaard favorieten</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Wil je echt deze gebruiker verwijderen ?</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Bewerk de standaard zoekmachines</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Onderhoud Beheerder</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Beheer  je startopdrachten</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Beheer de systeemgroepen</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Lokatie adres (bijv: %s)</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Onderhoud</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Top</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Taal</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Laden</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Uiterlijk</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Beheer de systeem gebruikers</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Nieuwe achtergrond ingesteld.</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Lokatie verwijderd.</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>Geen</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Office ondersteuning</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Nieuwe opdracht</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Opdracht toegevoegd.</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Geen registreerde gebruiker gevonden</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Muis</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Lokatie opgeslagen.</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Lokatie</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Fout paswoord !</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Lokatie bestaat niet !</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Laatste login</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importeer</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Bewerk lokatie</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Bewerk de geselecteerde gebruiker</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Bewerk</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exporteer</new>
+		</text>
+		<text>
+			<old>Done</old>
+			<new>Gereed</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Wil je echt de standaard eyeNav zoekmachines herstellen ?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Wil je echt deze lokatie uit eyeSoft verwijderen ?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Wil je echt de standaard instellingen herstellen ?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Wil je echt de standaard eyeNav favaorieten herstellen ?</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Exporteer de standaard fav en zoekmachines</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Haal meer vertalingen op</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Het bestand kan gedownload worden.</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Groepsnaam</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Groepen</new>
+		</text>
+		<text>
+			<old>Function:</old>
+			<new>Functie:</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Bewerk opdracht</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>De groep werd verwijderd.</new>
+		</text>
+		<text>
+			<old>Function</old>
+			<new>Functie</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Bestand kan niet gedownload worden. Geef het juiste adres op.</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Van</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s opdracht(en)</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye Board</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s geregistreerde gebruikers.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>Je kan nu "%s" in een andere map plakken.</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Linken kunnen niet gekopieerd worden.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Fout bij verwijderen van bestand</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s" is succesvol in de prullenmand geplaatst.</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s" is succesvol verwijderd.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Properties</old>
+			<new>Eigenschappen</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Hernoem</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Plak</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Openen met</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ververs</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload bestanden</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed lezer</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Welkom %s, %s.</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Voorkeuren</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Prullenbak</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Delen met</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Nieuwe starter</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Open prullenbak</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nieuwe map</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Download als zip-bestand</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Bewerken</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopieer</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Prullenbak leegmaken</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nieuw bestand</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Verkennen</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>Adresboek</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Applicaties</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select</old>
+			<new>Selecteer</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Opslaan</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>Opslaan als...</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>Je moet een bestand selecteren</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Selecteer een bestand om te openen</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Je moet een naam ingeven</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Selecteer een map</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>Fout terwijl we een map verkennen</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Auteur</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Naam</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>Weet u zeker dat u dit bestand wilt vervangen?</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>Bevestig bestand vervangen</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Mappen</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>System</old>
+			<new>Systeem</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Algemeen bericht</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Proces beheer</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Kantoor</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekstverwerker</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Netwerk</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed lezer</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Tekstbewerker</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex spel</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Rekenblad</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Schaakspel</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Rekenmachine</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Mail Account</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Toevoegingen</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Relatiebeheer</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interne Boodschapper</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Spelletjes</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Bestandsbeheer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>MS Word document file</old>
+			<new>MS Word document bestand</new>
+		</text>
+		<text>
+			<old>File not found.</old>
+			<new>Bestand niet gevonden.</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Bewaren</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Sorry, je hebt niet de juiste rechten!</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekst bewerking</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Open Document Text bestand</new>
+		</text>
+		<text>
+			<old>The file does not exist.</old>
+			<new>Dit bestand bestaat niet.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to enable OpenOffice Support to view this document.</old>
+			<new>Sorry, je moet  OpenOffice ondersteuning aanzetten om dit document te bekijken.</new>
+		</text>
+		<text>
+			<old>oneye document file</old>
+			<new>oneye document  bestand</new>
+		</text>
+		<text>
+			<old>Error saving file.</old>
+			<new>Fout bij het opslaan van het bestand.</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Document opgeslagen.</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Wil je de wijzigingen opslaan?</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Verwijderings waarschuwing</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Niet bewaren</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Error creating file.</old>
+			<new>Fout bij het maken van het bestand.</new>
+		</text>
+		<text>
+			<old>Error - Document not saved. Please try again.</old>
+			<new>Fout - Document is niet opgeslagen. Probeer het nog een keer.</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Je kunt nu dit scherm sluiten.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Links kunnen niet gedownload worden!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Download!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Aantal titels in de lijst:</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Import van bronnen uit OPML</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>De geschiedenis lezen gedurende (dagen):</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed Lezer</new>
+		</text>
+		<text>
+			<old>OPML files</old>
+			<new>OPML bestanden</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Bezig, even geduld ...</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Map gewijzigd</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Bronnen geimporteerd</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Bron gewijzigd</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Bron toegevoegd</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Map toegevoegd</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ververs</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Bron opslag duurt (sec.):</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Bronnen</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Kan lijst niet exporteren naar de opgegeven lokatie</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Instellingen opgeslagen</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Kan lijst niet importeren naar opgegeven bestand</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Geef de URL van de bron:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Typ de naam van de map:</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Je moet een naam opgeven</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Typ de naam voor de te maken map (optie):</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>Je kan de aplicatie herstarten om de wijzigingen te aktiveren.</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Kan opgegeven URL niet ophalen</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Typ een naam voor de bron (optie):</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Instellingen</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Selecteer een item om te lezen ...</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Selecteer een bron om te bekijken ...</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Titel</new>
+		</text>
+		<text>
+			<old>eyeFeeds - Enclosure</old>
+			<new>eyeFeeds - Bijlage</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Selecteer bestand</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Grootte van inhoud (kar.):</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Bron lijst geexporteerd</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Export</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Kies een map voor deze bron:</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Favorieten</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Auteur</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Kies een map voor de nieuwe bron:</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Deze map wissen ?</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>kies een bron voor de map:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>Kies een map voor de geimporteerde bronnen:</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Kies een bestand voor import</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Deze bron wissen ?</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Voeg map toe</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Voeg een bron toe</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Pas toe</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Kies een bronmap voor de nieuwe map:</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Voeg bron toe</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Fout bij de opgegeven bron</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Bewerk bron</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Fout bij het opslaan van de bron</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Fout bij het wissen van de bron</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Fout bij het doorvoeren van de veranderingen</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Fout bij het opslaan van de instellingen</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Fout bij het toevoegen van een map</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Fout bij het opslaan map</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Fout bij het importeren van bronnen</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Fout bij het toevoegen van een bron</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Bewerk map</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Wis bron/map</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Element gewist</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(onbekende naam)</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Bewerk</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Voeg map toe</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Restore</old>
+			<new>Herstellen</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Delen met</new>
+		</text>
+		<text>
+			<old>Real</old>
+			<new>Echt</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Bestanden tonen</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Hernoem</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Kenmerken</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Openen met</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Plak</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Alles tonen</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nieuwe map</new>
+		</text>
+		<text>
+			<old>Update view</old>
+			<new>Vernieuwen scherm</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Links tonen</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>Gebruikers</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>Bekijken</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>Tree</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Verversen</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload bestanden</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Afval</new>
+		</text>
+		<text>
+			<old>Show not</old>
+			<new>Niet tonen</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>Alleen tonen</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nieuw bestand</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Mappen tonen</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Volgende</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>Lijst</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Prullenbak legen</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Verkennen</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Download als zip</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>Bestand manager</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Bewerk</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Details</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopieer</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Bestandsnaam</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Auteur</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Bestandstijd</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Iconen</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Groepen</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Filter:</new>
+		</text>
+		<text>
+			<old>Folders at first</old>
+			<new>Mappen eerst</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Acties</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Bestandsgrootte (B)</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Terug</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Geef de nieuwe naam/lokatie van de map/bestand</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>Fout bij maken van de map. (Heb je hiervoor de juiste rechten?)</new>
+		</text>
+		<text>
+			<old>Unable to connect to %s</old>
+			<new>Niet mogelijk om met %s te verbinden</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Geef de naam voor de nieuwe map</new>
+		</text>
+		<text>
+			<old>Unable to create directory "%s".</old>
+			<new>Niet mogelijk om map %s te maken</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Selecteer bestand om te uploaden naar: </new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>Fout bij wissen bestand. (Heb je de juiste rechten?)</new>
+		</text>
+		<text>
+			<old>Unable to create file "%s".</old>
+			<new>Niet mogelijk om bestand "%s" te maken</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>Fout bij wissen map. (Heb je de juiste rechten?)</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>Fout bij downloaden bestand.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory's content at "%s".</old>
+			<new>Fout bij het verwijderen van de mapinhoud van "%s".</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>Kan tijdelijk bestand niet aanmaken! Download gestopt.</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Hernoem</new>
+		</text>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>Verbind met %s:%s (gebruiker "%s") ...</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Hernoem/verplaats</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>Fout met passieve mode! Data wordt in aktieve mode overgezet.</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>Geef een host op voor de verbinding</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Wachtwoord:</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>Passieve mode toegestaan</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Rechten</new>
+		</text>
+		<text>
+			<old>Only files can be downloaded</old>
+			<new>Alleen bestanden kunnen worden gedownload</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ververs</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Geef een gebruikersnaam op</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Hernoem bestand/map</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Wachtwoord</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Poort:</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Poort</new>
+		</text>
+		<text>
+			<old>Unable to download directory, error occured</old>
+			<new>Niet mogelijk om deze map te downloaden, fout opgetreden</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Je moet eerst verbinden!</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured. (Do you have sufficient permissions?)</old>
+			<new>Fout bij bestandenlijst. (Heb je voldoende rechten?)</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Je moet eerst verbinden</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Selecteer eerst een bestand of een map</new>
+		</text>
+		<text>
+			<old>yes</old>
+			<new>ja</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Gebruiker:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Gebruikersnaam</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Selecteer eerst een host om te wissen</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Selecteer eerst een host om te laden</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Selecteer een bestand aan de andere kant</new>
+		</text>
+		<text>
+			<old>Unable to browse directory's content at "%s".</old>
+			<new>Niet mogelijk om map inhoud van "%s" te verkennen.</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Geef een host, poort en gebruikersnaam op</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Selecteer een lokaal bestand</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Selecteer eerst een host om te bewerken</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>Gebruiker "%s" toegestaan</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>Uploading: "%s" naar "%s"</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>Kan tijdelijk bestand niet lezen! Upload gestopt.</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>Fout bij hernoemen selectie. (Heb je de juiste rechten?)</new>
+		</text>
+		<text>
+			<old>Unable to read file "%s"</old>
+			<new>Fout bij het lezen van bestand "%s"</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>Fout bij bestandenlijst</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>Fout bij het uploaden van het bestand</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>Fout bij schrijven bestand, controleer rechten.</new>
+		</text>
+		<text>
+			<old>Upload of file "%s" finished.</old>
+			<new>Upload bestand "$s" geeindigd.</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>Uploaden gereed, %s bytes overgezet.</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Upload</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Uploaden van een bestand</new>
+		</text>
+		<text>
+			<old>no</old>
+			<new>nee</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>Onbekende fout bij het uploaden</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Eigenaar</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>Maplijst aangemaakt voor "%s" (%s bestand(en))</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>Download gereed, %s bytes overgezet.</new>
+		</text>
+		<text>
+			<old>Disconnected - FTP Client</old>
+			<new>FTP Client - Afgebroken</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Map "%s" aangemaakt</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>Verbreek van %s: %s</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Wis selectie</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>Downloading: "%s" naar "%s"</new>
+		</text>
+		<text>
+			<old>Download of directory "%s" finished.</old>
+			<new>Downloaden van de map "%s" geeindigd.</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Bewerk selectie</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>Fout bij zoeken lokale map!</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Download of file "%s" finished.</old>
+			<new>Downloaden van bestand "%s" beeindigd.</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Wis bestand/map</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Wis</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>Bezig met maken map "%s" in "%s" ...</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>Controlle fout. Onjuiste gebruiker/wachtwoord!</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>Bezig met hernoem/verplaats van "%s" ...</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Wis dit map/bestand. Zeker weten ?</new>
+		</text>
+		<text>
+			<old>Authenticating user...</old>
+			<new>Gebruiker indentificeren...</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Voeg host toe</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Verbinding geaccepteerd</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Auteur</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Maken</new>
+		</text>
+		<text>
+			<old>Attempting to delete "%s"...</old>
+			<new>Bezig met wissen "%s" ...</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Verbind</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Error while downloading file "%s"! Transfer aborted.</old>
+			<new>Fout tijdens het downloaden van bestand "%s"! Verzenden beeindigd.</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Error while uploading file "%s"! Transfer aborted.</old>
+			<new>Fout tijdens het uploaden van bestand "%s"! Verzenden beeindigd.</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Host:</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Hostnaam</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>Help en FAQ zijn te vinden in de eyeos wiki: %s</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Gedwongen passieve mode </new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>Host beheer</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Laad selectie</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Naam mag niet leeg zijn</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Verbreek</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nieuwe map</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Beheer van hosts</new>
+		</text>
+		<text>
+			<old>Listing directory "%s"...</old>
+			<new>Lijst maken van map "%s"</new>
+		</text>
+		<text>
+			<old>Folder "%s" deleted successfully</old>
+			<new>Map "%s" succesvol vewijderd</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Bestandsgrootte</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>Fout bij uploaden van "%s" naar FTP Server</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP naar %s gestart</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted.</old>
+			<new>Fout tijdens het uploaden van het bestand! Verzenden beeindigd.</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>Fout bij uploading bestand! Overzetten gestopt. (Heb je hiervoor rechten?)</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>Fout bij verbinding met opgegeven host!</new>
+		</text>
+		<text>
+			<old>File "%s" already exists, overwriting.</old>
+			<new>Bestand "%s" bestaat al, overschrijven.</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Bestandsnaam</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>Bestand/map is hernoemd</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Bestandsgrootte (B)</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>Bestand "%s" is geupload naar "%s"</new>
+		</text>
+		<text>
+			<old>Add -a to LIST command</old>
+			<new>Voeg -a aan LIST commando</new>
+		</text>
+		<text>
+			<old>File "%s" deleted successfully</old>
+			<new>Bestand "%s" succesvol verwijderd</new>
+		</text>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>Bij het instellen van het pad deed zich een fout voor, gestopt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>Je mag deze handeling niet uitvoeren.</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>Dit veld mag niet leeg blijven.</new>
+		</text>
+		<text>
+			<old>Topics</old>
+			<new>Onderwerpen</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>Gebruiker die je kunt raadplegen voor hulp:</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>Inzenden</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Voorkeuren</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>Vraag om hulp</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>Veranderingen succesvol toegepast.</new>
+		</text>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>eyeHelp voorkeuren</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>Welke URL wil je in een Iframe openen?</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>TIFF files</old>
+			<new>TIFF bestanden</new>
+		</text>
+		<text>
+			<old>No image could be found.</old>
+			<new>Kan geen afbeelding vinden.</new>
+		</text>
+		<text>
+			<old>View Images</old>
+			<new>Toon Beelden</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Volgende</new>
+		</text>
+		<text>
+			<old>PNG files</old>
+			<new>PNG bestanden</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Vorige</new>
+		</text>
+		<text>
+			<old>JPG files</old>
+			<new>JPG bestanden</new>
+		</text>
+		<text>
+			<old>Image formats</old>
+			<new>Image formats</new>
+		</text>
+		<text>
+			<old>BMP files</old>
+			<new>BMP bestanden</new>
+		</text>
+		<text>
+			<old>JPEG files</old>
+			<new>JPEG bestanden</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>GIF files</old>
+			<new>GIF bestanden</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Selecteer een map om bestanden te importeren</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Blader</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s bestanden geimporteeerd</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>Met dank aan...</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Supporters</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>Projecten</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Niets te installeren !</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Alleen de admin kan installeren</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Pakket geinstalleerd !</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installeren</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Wil je dit pakket installeren ?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Start als andere gebruiker</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Typ de naam van een app of opdracht om te starten</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Gebruiker</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Start ...</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Wachtwoord</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Onjuiste gebruikersnaam</new>
+		</text>
+		<text>
+			<old>%s has had an unknow problem and could not be executed</old>
+			<new>%s had een onbekend probleem en kon niet worden opgestart</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Fout, lege gebruikersnaam of wachtwoord</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Fout, onjuiste gebruiker of wachtwoord</new>
+		</text>
+		<text>
+			<old>%s has had a problem and could not be executed</old>
+			<new>%s had een probleem en kon niet worden opgestart</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s niet gevonden</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Username is too short!</old>
+			<new>Gebruikersnaam is te kort!</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>Deze gebruiker bestaat reeds!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Vul wachtwoord opnieuw in</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Jouw account is uitgeschakeld!</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Vul aub alle velden in!</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>Deze taal bestaat niet!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Gebruikersnaam</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>Gebruikersnaam mag alleen alfanummerieke tekens bevatten!</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Gebruikersregistratie is geblokkeerd!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Wachtwoord</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Taal</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Enter</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Account aanmaken</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Wachtwoord is te kort!</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>(Standaard)</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Fout bij aanmaken van nieuwe gebruiker!</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Wachtwoorden komen niet overeen!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Nieuwe Gebruiker</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Taal (deze sessie)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Enter an account name to be identified later.</old>
+			<new>Voer een account naam in om later herkend te worden.</new>
+		</text>
+		<text>
+			<old>Email account has been updated.</old>
+			<new>Email account is bijgewerkt.</new>
+		</text>
+		<text>
+			<old>Every 30 minutes</old>
+			<new>Iedere 30 minuten</new>
+		</text>
+		<text>
+			<old>Email:</old>
+			<new>Email:</new>
+		</text>
+		<text>
+			<old>Email account has been created.</old>
+			<new>Email account is gemaakt.</new>
+		</text>
+		<text>
+			<old>Downloading all mails...</old>
+			<new>Download alle mail...</new>
+		</text>
+		<text>
+			<old>Every 15 minutes</old>
+			<new>Iedere 15 minuten</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Zend</new>
+		</text>
+		<text>
+			<old>Every 5 minutes</old>
+			<new>Iedere 5 minuten</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Grootte</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Email Address:</old>
+			<new>Email adres:</new>
+		</text>
+		<text>
+			<old>Sending mail...</old>
+			<new>Mail verzenden...</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Zend</new>
+		</text>
+		<text>
+			<old>Every hour</old>
+			<new>Ieder uur</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>Datum:</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this mail?</old>
+			<new>Weet u zeker dat u deze mail wilt verwijderen?</new>
+		</text>
+		<text>
+			<old>Date: %s</old>
+			<new>Datum: %s</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Bijlage</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Are you sure?</old>
+			<new>Weet u het zeker?</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Geavanceerd</new>
+		</text>
+		<text>
+			<old>Activity Monitor</old>
+			<new>Activiteit monitor</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Terug</new>
+		</text>
+		<text>
+			<old>Account Type:</old>
+			<new>Account type:</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Contacten</new>
+		</text>
+		<text>
+			<old>CC:</old>
+			<new>CC:</new>
+		</text>
+		<text>
+			<old>Create a new account</old>
+			<new>Maak een nieuwe account</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Are you sure you want to remove the account "%s"?</old>
+			<new>Weet u zeker dat u dit account "%s" wilt verwijderen?</new>
+		</text>
+		<text>
+			<old>Check mail at startup</old>
+			<new>Check voor mail bij opstarten</new>
+		</text>
+		<text>
+			<old>Check for new mail:</old>
+			<new>Check voor nieuwe mail:</new>
+		</text>
+		<text>
+			<old>CCO:</old>
+			<new>CCO:</new>
+		</text>
+		<text>
+			<old>Account Name:</old>
+			<new>Account naam:</new>
+		</text>
+		<text>
+			<old>Accounts</old>
+			<new>Accounts</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Ververs</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Read</old>
+			<new>Lezen</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Verzonden</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Beantwoord</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Lees bericht</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Herstel</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Bericht in orginele map teruggezet</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Selecteer een bericht om te wissen</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Aan</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Ongelezen</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Vernieuw</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>selecteer een bericht om te openen</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Prullenbak</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interne berichten</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Onderwerp</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nieuw</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Postvak in</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Voeg toe</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Verwijderen</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Van</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Leeg</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Bestand opgeslagen</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Leegmaken bevestigen</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Fout bij openen van bericht</new>
+		</text>
+		<text>
+			<old>(do) Read</old>
+			<new>(do) Lezen</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Geleegd</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Weet je zeker dat je alle berichten uit deze map wilt verwijderen?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Geef de naam voor de nieuwe map</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Enkele speciale karakters zijn gewist.</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Fout bij aanmaken van map!</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Map aanmaken</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug. Unfortunately it is a problem with your Flash player!</old>
+			<new>Dit is geen bug. Helaas is dit een problem met jouw Flash Player.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Search</old>
+			<new>Zoek</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Instellingen</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startpagina</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Open zoekopdrachten</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Open favorieten</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>Geselecteerd bestand is geen eyeNav favorietenbestand!</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>Geselecteerd bestand is geen eyeNav zoekbestand !</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Verversen</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Website</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Er is al een favoriet met die naam!</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Niet ingedeeld</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Link opgeslagen.</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Link verwijderd.</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Favorieten</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Favorietnaam</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>Favoriet bestaat niet!</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Terug</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Wis favoriet</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Deze favoriet wissen ?</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Kennis</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Afbeeldingen</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forums</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Doorsturen</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Voeg favoriet toe</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Text Editor</old>
+			<new>Tekst verwerker</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Opslaan als...</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Kan bestand niet maken</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Opslaan</new>
+		</text>
+		<text>
+			<old>Text files</old>
+			<new>Tekst bestand</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Je hebt niet de juiste rechten.</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nieuw</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Niet bewaren</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle bestanden</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Verwijder waarschuwing</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Bestand opgeslagen.</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Veranderingen opslaan?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Open "%s" met...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePaste</name>
+		<text>
+			<old>Links cannot be pasted!</old>
+			<new>Links kunnen niet worden geplakt!</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Hernoemen</new>
+		</text>
+		<text>
+			<old>Replace</old>
+			<new>Vervangen</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>"%s" already exists. Please enter a new name or replace the existing one.</old>
+			<new>"%s" bestaat al. Voer een nieuwe naam in of vervang de bestaande.</new>
+		</text>
+		<text>
+			<old>"%s" cannot be copied from trash.</old>
+			<new>"%s" kan niet worden gekopieerd uit de prullenbak.</new>
+		</text>
+		<text>
+			<old>"%s" cannot be copied to trash.</old>
+			<new>"%s" kan niet worden gekopieerd naar de prullenbak.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>Dit is het eerste beeld u kunt niet verder terug!</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Selecteer bestand om te openen!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Je hebt niet de juiste rechten.</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentatie</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Volgend</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Terug</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Volledig scherm</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Process Manager</old>
+			<new>Proces manager</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Procesnaam</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Gebruikersnaam</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Proces gestopt</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>Nieuw proces</new>
+		</text>
+		<text>
+			<old>Close Application</old>
+			<new>Sluit applicatie</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>Stop proces</new>
+		</text>
+		<text>
+			<old>Application killed successfully.</old>
+			<new>Applicatie succesvol beëindigd.</new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>Applicatie</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Rename %s</old>
+			<new>Hernoem %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShare</name>
+		<text>
+			<old>Share</old>
+			<new>Delen</new>
+		</text>
+		<text>
+			<old>Share "%s" with...</old>
+			<new>Deel "%s" met ...</new>
+		</text>
+		<text>
+			<old>Choose the groups to share with</old>
+			<new>Kies de groepen die u wilt delen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Rekenblad</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Rekenblad opgeslagen.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Je hebt niet de juiste rechten.</new>
+		</text>
+		<text>
+			<old>File not found!</old>
+			<new>Bestand niet gevonden!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Selecteer een app om te deinstalleren.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Zoek</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>Andere Apps</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>De app kan niet gedeinstaleerd worden.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Selecteer een app om te installeren.</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Alleen de root kan eyeApps installeren</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>niets</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Kantoor</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Suggestie: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Naam: %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Bijwerken</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>De app is gedeinstalleerd.</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versie</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Versie: %s</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Packages Manager</old>
+			<new>Pakket Beheer</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Deinstalleer</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Deinstalleer een applicatie</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>Thema's</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>Vertalingen</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedia</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Licensie: %s</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Catagorie: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Afhankelijk: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Auteur: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Bureaublad</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Categorieen</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>App naam</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administratie</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Alles</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Omschrijving: %s</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s geinstalleerd!</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Installeer</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Deze applicatie deinstalleren ?</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Geinstalleerd</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installeer</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Spelletjes</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Pakketlijst bijgewerkt</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Download en installeren %s ... een ogenblik geduld</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Opleiding</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s download is defect! kan niet installeren</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 sleutel</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Laatst uitgevoerd op: %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Invoer tekst</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Uitvoer tekst</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Wis Html opmaak</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL codeer</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Opties</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL decodeer</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Begin</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Romeins naar Decimaal</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Html opmaak</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa naar Ascii</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 codeer</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 decodeer</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Auto wis invoer</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii naar Hexa</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Legen</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Voeg invoer toe aan uitvoer</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye sleutel</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimaal naar Romeins</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Voeg uitvoer samen</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Nieuwe regel aan het einde toevoegen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>These options won't be applied until you start a new game.</old>
+			<new>Deze opties worden pas toegepast als er een nieuw spel wordt gestart.</new>
+		</text>
+		<text>
+			<old>Time</old>
+			<new>Tijd</new>
+		</text>
+		<text>
+			<old>Unable to connect to the host server.</old>
+			<new>Kan geen verbinding maken met de Host-server.</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Opslaan</new>
+		</text>
+		<text>
+			<old>Rank</old>
+			<new>Niveau</new>
+		</text>
+		<text>
+			<old>Number of moves:</old>
+			<new>Aantal zetten:</new>
+		</text>
+		<text>
+			<old>Tip used! Ranking disabled...</old>
+			<new>Tip gebruikt! Geen niveau-aanduiding.</new>
+		</text>
+		<text>
+			<old>Your rank:</old>
+			<new>Jouw niveau:</new>
+		</text>
+		<text>
+			<old>Use shared highscores on server (all users)</old>
+			<new>Gedeelde highscores op server (alle gebruikers)</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Spel</new>
+		</text>
+		<text>
+			<old>Your time:</old>
+			<new>Jouw tijd:</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Gebruiker</new>
+		</text>
+		<text>
+			<old>New game</old>
+			<new>Nieuw spel</new>
+		</text>
+		<text>
+			<old>Use colored numbers on tiles</old>
+			<new>Gebruik gekleurde nummers op de tegels</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>Network problem</old>
+			<new>Netwerk probleem</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Do you want to start a new game?</old>
+			<new>Wil je een nieuw spel starten?</new>
+		</text>
+		<text>
+			<old>Fullscreen</old>
+			<new>Volledig scherm</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Sluit</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Board size :</old>
+			<new>Veld grootte:</new>
+		</text>
+		<text>
+			<old>Finished!</old>
+			<new>Klaar!</new>
+		</text>
+		<text>
+			<old>Maybe you should try a higher level...</old>
+			<new>Mischien moet je een hoger niveau proberen...</new>
+		</text>
+		<text>
+			<old>Level / board size (%s-%s):</old>
+			<new>Niveau / Veld grootte (%s-%s)</new>
+		</text>
+		<text>
+			<old>Maximum</old>
+			<new>Maximum</new>
+		</text>
+		<text>
+			<old>Configuration</old>
+			<new>Instellingen</new>
+		</text>
+		<text>
+			<old>Moves</old>
+			<new>Zetten</new>
+		</text>
+		<text>
+			<old>Maximum value on edges:</old>
+			<new>Maximale randwaarde:</new>
+		</text>
+		<text>
+			<old>[Unknown string]</old>
+			<new>[Unknown string]</new>
+		</text>
+		<text>
+			<old>Highscores</old>
+			<new>Highscores</new>
+		</text>
+		<text>
+			<old>Always remember my last configuration</old>
+			<new>Onthoudt altijd mijn laatste instellingen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Transfering: </old>
+			<new>Overzetten:</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Upload starten!</new>
+		</text>
+		<text>
+			<old>Size (KB)</old>
+			<new>Grootte (Kb)</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Eenvoudig</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload bestanden</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Je hebt onvoldoende rechten!</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>Vul de URL in van het bestand:</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>Het bestand is succesvol geupload.</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>Je hebt onvoldoende vrije opslagruimte!</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Web</old>
+			<new>Web</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Verwijder</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>uitgebreid</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Fout bij uploaden van bestand!</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Voeg bestanden toe, klik daarna op Upload!</new>
+		</text>
+		<text>
+			<old>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</old>
+			<new>&lt;b&gt;Sommige bestanden zijn te groot!&lt;/b&gt;&lt;br&gt;Sommige van de geselecteerde bestanden zijn te groot en kunnen worden geweigerd door de server.&lt;br&gt;Wil je ze nu verwijderen?</new>
+		</text>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>Fout tijdens het uploaden van bestand!</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>"%s" is succesvol geupload.</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Voeg bestanden toe</new>
+		</text>
+		<text>
+			<old>Max filesize allowed</old>
+			<new>Maximaal toegestaande bestandsgrootte</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Bestandsnaam</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Bestand is succesvol geupload.</new>
+		</text>
+		<text>
+			<old>%s MB</old>
+			<new>%s MB</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Je hebt niet voldoende rechten</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Bewerk</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Welkom bij %s</new>
+		</text>
+		<text>
+			<old>Unable to save position!</old>
+			<new>Niet mogelijk om deze positie te bewaren!</new>
+		</text>
+		<text>
+			<old>Please wait...</old>
+			<new>Een ogenblik geduld...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hallo Wereld!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Voorbeeld eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Wijzig Label Tekst</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>Er werd geen proces gestopt!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Send an internal message</old>
+			<new>Verstuur intern bericht</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Upload je bestanden</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nee</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Nieuw document aanmaken</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Nieuw rekenblad aanmaken</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Wil je dat deze widget de volgende sessie vanzelf opent ?</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Mijn hoeveelheid</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Intern bericht</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Sommige speciale karakters zijn verwijderd.</new>
+		</text>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Vul hier de naam in van het nieuwe bestand:</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Fout bij maken van bestand!</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Maak bestand</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepteren</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Subject</old>
+			<new>Onderwerp</new>
+		</text>
+		<text>
+			<old>To groups</old>
+			<new>Aan groepen</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Aan</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Verzend</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Nieuw bericht</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Bericht verzonden</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Sluit</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Fout bij verzenden</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Bestand toevoegen</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Bijlage</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>Weet je zeker dat je "%s" wilt herstellen?</new>
+		</text>
+		<text>
+			<old>Restore %s</old>
+			<new>Herstel "%s"</new>
+		</text>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>Kan "%s" niet herstellen naar een bestaande map!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>"%s" kon niet worden hersteld!</new>
+		</text>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>"%s" is hersteld en opgeslagen in de Home map!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ok</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Zaterdag</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Opslaan als</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Afdrukken</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Positie</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Opslaan</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Dinsdag</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Werkblad grootte</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Woensdag</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Cel(len) leegmaken ?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Donderdag</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Zondag</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stijl</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nieuw</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februari</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formule</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Kolom invoegen</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Wis kolom</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopieer / Plak deze code in een ander rekenbladprog (bijv. Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Vrijdag</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Maart</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Rij invoegen</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mei</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Maandag</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Wis rij</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januari</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Augustus</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>ZA</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>Z</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Zon</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>D</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Woe</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Zat</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Upload</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Din</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>DO</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Don</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Ma</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mei</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februari</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>uitgepakt</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Fout %s</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Augustus</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Vrij</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januari</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Maart</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Ander bestand</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>System console log</old>
+			<new>Systeem console log</new>
+		</text>
+		<text>
+			<old>Clean</old>
+			<new>Schoonmaken</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Geen relaties gevonden in dit bestand</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Kan bestand niet vinden</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>Import van vCard lukt niet, meld aan je administrateur</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importeren</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Importeer %s</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Bestand geimporteerd!</new>
+		</text>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Weet je zeker dat je deze vCard wilt importeren?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Fout bij exporteren van bestand!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Annuleren</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Map niet gevonden</new>
+		</text>
+	</part>
+</lang>

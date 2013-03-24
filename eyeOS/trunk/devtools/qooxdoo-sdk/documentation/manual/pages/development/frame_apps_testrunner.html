@@ -1,0 +1,251 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The qooxdoo Test Runner &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Development" href="../development.html" />
+    <link rel="next" title="Framework Unit Testing" href="framework_unit_testing.html" />
+    <link rel="prev" title="Unit Testing" href="unit_testing.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="framework_unit_testing.html" title="Framework Unit Testing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="unit_testing.html" title="Unit Testing"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../development.html" accesskey="U">Development</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-qooxdoo-test-runner">
+<span id="pages-frame-apps-testrunner-the-qooxdoo-test-runner"></span><h1>The qooxdoo Test Runner<a class="headerlink" href="#the-qooxdoo-test-runner" title="Permalink to this headline">¶</a></h1>
+<p>&quot;Test Runner&quot; is a <a class="reference external" href="http://en.wikipedia.org/wiki/Unit_test">unit testing</a> framework that fully supports testing qooxdoo classes. It is similar to but does not require JSUnit or any other JavaScript unit testing framework. If you look at the component section of a qooxdoo distribution under <tt class="docutils literal"><span class="pre">component/testrunner/</span></tt>, you will find the Test Runner sources, together with a mockup test class. In the <tt class="docutils literal"><span class="pre">framework/</span></tt> section you can create a Test Runner instance with all test classes from the qooxdoo framework by running:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">test</span>
+</pre></div>
+</div>
+<p>Test Runner provides a convenient interface to test classes that have been written to that end. You can run single tests, or run a whole suite of them at once.</p>
+<a class="reference external image-reference" href="../../_images/testrunner.png"><img alt="../../_images/testrunner.png" src="../../_images/testrunner.png" style="width: 270px; height: 203px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the Test Runner in action in the <a class="reference external" href="http://demo.qooxdoo.org/1.3/testrunner/">online demo</a>.</p>
+</div>
+<p>The Test Runner framework can also be deployed for <em>your own</em> application. It provides a GUI, a layer of infrastructure and a certain interface for arbitrary test classes. So now you can write your own test classes and take advantage of the Test Runner environment.</p>
+<div class="section" id="how-to-deploy-test-runner-for-your-own-development">
+<span id="pages-frame-apps-testrunner-how-to-deploy-test-runner-for-your-own-development"></span><h2>How to deploy Test Runner for your own development<a class="headerlink" href="#how-to-deploy-test-runner-for-your-own-development" title="Permalink to this headline">¶</a></h2>
+<p>This section assumes that your qooxdoo application bears on the structure of the qooxdoo <a class="reference internal" href="../getting_started/helloworld.html#pages-getting-started-helloworld-create-your-application"><em>skeleton</em></a> application. Then this is what you have to do:</p>
+<div class="section" id="writing-test-classes">
+<span id="pages-frame-apps-testrunner-writing-test-classes"></span><h3>Writing Test Classes<a class="headerlink" href="#writing-test-classes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>You have to code test classes that perform the individual tests. These test classes have to comply to the following constraints:<ul>
+<li>They have to be within the name space of your application.</li>
+<li>They have to be derived from <tt class="docutils literal"><span class="pre">qx.dev.unit.TestCase</span></tt>.</li>
+<li>They have to define member functions with names starting with <tt class="docutils literal"><span class="pre">test*</span></tt>. These methods will be available as individual tests.</li>
+<li>Apart from that you are free to add other member functions, properties etc., and to instantiate other classes to your own content. But you will usually want to instantiate classes of your current application and invoke their methods in the test functions.</li>
+<li>In order to communicate the test results back to the Test Runner framework exceptions are used. No exception means the test went fine, throwing an exception from the test method signals a failure. Return values from the test methods are not evaluated.</li>
+<li>To model your test method behaviour, you can use the methods inherited from <tt class="docutils literal"><span class="pre">qx.dev.unit.TestCase</span></tt> which encapsulate exceptions in the form of assertions:<ul>
+<li><tt class="docutils literal"><span class="pre">assert</span></tt>, <tt class="docutils literal"><span class="pre">assertFalse</span></tt>, <tt class="docutils literal"><span class="pre">assertEquals</span></tt>, <tt class="docutils literal"><span class="pre">assertNumber</span></tt>, ... - These functions take values which are compared (either among each other or to some predefined value) and a message string, and raise an exception if the comparison fails.</li>
+<li>A similar list of methods of the form <tt class="docutils literal"><span class="pre">assert*DebugOn</span></tt> is available, which are only evaluated if the debug variant <tt class="docutils literal"><span class="pre">qx.debug</span></tt> is on (see <a class="reference internal" href="variants.html"><em>Variants</em></a>).</li>
+<li>See the documentation for the <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.dev.unit.TestCase">qx.dev.unit.TestCase</a> class for more information on the available assertions.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="generic-setup-and-teardown">
+<span id="pages-frame-apps-testrunner-generic-setup-teardown"></span><h4>Generic setUp and tearDown<a class="headerlink" href="#generic-setup-and-teardown" title="Permalink to this headline">¶</a></h4>
+<p>Test classes can optionally define a <tt class="docutils literal"><span class="pre">setUp</span></tt> method. This is used to initialize common objects needed by some or all of the tests in the class. Since <tt class="docutils literal"><span class="pre">setUp</span></tt> is executed before each test, it helps to ensure that each test function runs in a &quot;clean&quot; environment.
+Similarly, a method named <tt class="docutils literal"><span class="pre">tearDown</span></tt> will be executed after each test, e.g. to dispose any objects created by <tt class="docutils literal"><span class="pre">setUp</span></tt> or the test itself.</p>
+</div>
+<div class="section" id="specific-teardown">
+<span id="pages-frame-apps-testrunner-specific-teardown"></span><h4>Specific tearDown<a class="headerlink" href="#specific-teardown" title="Permalink to this headline">¶</a></h4>
+<p>For cases where the generic class-wide <tt class="docutils literal"><span class="pre">tearDown</span></tt> isn't enough, methods using the naming convention <tt class="docutils literal"><span class="pre">tearDown&lt;TestFunctionName&gt;</span></tt> can be defined. A method named e.g. <tt class="docutils literal"><span class="pre">tearDownTestFoo</span></tt> would be called after <tt class="docutils literal"><span class="pre">testFoo</span></tt> and the generic <tt class="docutils literal"><span class="pre">tearDown</span></tt> of the class were executed.</p>
+</div>
+<div class="section" id="asynchronous-tests">
+<span id="pages-frame-apps-testrunner-asynchronous-tests"></span><h4>Asynchronous Tests<a class="headerlink" href="#asynchronous-tests" title="Permalink to this headline">¶</a></h4>
+<p>Starting with qooxdoo 0.8.2, the unit testing framework supports asynchronous tests. This enables testing for methods that aren't called directly, such as event handlers:</p>
+<ul class="simple">
+<li>Test classes inheriting from <tt class="docutils literal"><span class="pre">qx.dev.unit.TestCase</span></tt> have a <tt class="docutils literal"><span class="pre">wait()</span></tt> method that stops the test's execution and sets a timeout. <tt class="docutils literal"><span class="pre">wait()</span></tt> should always be the last function to be called in a test since any code following it is ignored. <tt class="docutils literal"><span class="pre">wait()</span></tt> has two optional arguments: The <strong>amount of time to wait</strong> in milliseconds (defaults to 5000) and a <strong>function to be executed</strong> when the timeout is reached. If no function is specified, reaching the timeout will cause an exception to be thrown and the test to fail.</li>
+<li>The <tt class="docutils literal"><span class="pre">resume()</span></tt> method is used to (surprise!) resume a waiting test. It takes two arguments, a <strong>function to be executed</strong> when the test is resumed, typically containing assertions, and the object context it should be executed in.</li>
+</ul>
+<p>Here's an example: In our test, we want to send an AJAX request to the local web server, then assert if the response is what we expect it to be.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">testAjaxRequest</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">remote</span><span class="p">.</span><span class="nx">Request</span><span class="p">(</span><span class="s2">&quot;/myWebApp/index.html&quot;</span><span class="p">);</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">resume</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">assertEquals</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">());</span>
+    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+  <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-test-application">
+<span id="pages-frame-apps-testrunner-create-the-test-application"></span><h3>Create the Test Application<a class="headerlink" href="#create-the-test-application" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Run <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">test</span></tt> from the top-level directory of your application. This will generate the appropriate test application for you, which will be available in the subfolder <tt class="docutils literal"><span class="pre">test</span></tt> as <tt class="docutils literal"><span class="pre">test/index.html</span></tt>. Open this file in your browser and run your tests.</p>
+</li>
+<li><p class="first">Equally, you can invoke <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">test-source</span></tt>. This will generate the test application, but allows you to use the <em>source</em> version of your application to run the tests on. In doing so the test application links directly into the source tree of your application. This allows for <a class="reference external" href="http://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a> where you simultaneously develop your source classes, the test classes and run the tests. All you need to do is to change the URL of the &quot;test backend application&quot; (the textfield in the upper middle of the TestRunner frame) from <tt class="docutils literal"><span class="pre">tests.html</span></tt> (which is the default) to <tt class="docutils literal"><span class="pre">tests-source.html</span></tt>. (Caveat: If <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">test-source</span></tt> is the first thing you do, you might get an error when TestRunner starts, since the default tests.html has not been built; just change the URL and continue). For example, the resulting URL will look something like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">html</span><span class="o">/</span><span class="nx">tests</span><span class="o">-</span><span class="nx">source</span><span class="p">.</span><span class="nx">html</span><span class="o">?</span><span class="nx">testclass</span><span class="o">=&lt;</span><span class="nx">your_app_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>After that, you just reload the backend application by hitting the reload button to the right to see and test your changes in the TestRunner.</p>
+</li>
+<li><p class="first">If you're working on an application based on qx.application.Native or qx.application.Inline (e.g. by starting with an Inline skeleton), you can run <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">test-native</span></tt> or <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">test-inline</span></tt> to create a test application of the same type as your actual application. The TestRunner's index file will be called <tt class="docutils literal"><span class="pre">index-native.html</span></tt> or <tt class="docutils literal"><span class="pre">index-inline.html</span></tt>, respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="test-runner-2-experimental">
+<h1>Test Runner 2 (Experimental)<a class="headerlink" href="#test-runner-2-experimental" title="Permalink to this headline">¶</a></h1>
+<p>As an alternative to the &quot;regular&quot; Test Runner GUI, test applications can be run in the new &quot;testrunner2&quot; component. This is a modular unit testing GUI that makes use of framework features such as data binding that were introduced after the original Test Runner was created.
+Its main advantage is separation of logic and UI so that specialized views for different use cases can be created, such as a lightweight HTML GUI for use on mobile devices, or a &quot;headless&quot; UI for server-side tests running in Rhino or node.js.</p>
+<p>Test Runner 2 is designed to be fully backwards compatible with existing unit test suites. At any time, developers can switch between the old an new runners using the <tt class="docutils literal"><span class="pre">TESTRUNNER_TYPE</span></tt> configuration macro. This can be defined in an application's config.json file or on the command line:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">test</span> <span class="o">-</span><span class="nx">m</span> <span class="nx">TESTRUNNER_TYPE</span><span class="o">:</span><span class="nx">testrunner2</span>
+</pre></div>
+</div>
+<p>The generated files and directories use the same names as the original Test Runner.</p>
+<div class="section" id="defining-test-requirements">
+<h2>Defining Test Requirements<a class="headerlink" href="#defining-test-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Test Requirements are a new feature only supported by Test Runner 2. Basically, they are conditions that must be met before a test can be run. For example, a test might rely on the application having been loaded over HTTPS and would give false results otherwise.
+Requirements are defined for individual tests; if one or more aren't satisfied, the test code won't be executed and the test will be marked as &quot;skipped&quot; in Test Runner 2's results list.</p>
+<div class="section" id="using-requirements">
+<h3>Using Requirements<a class="headerlink" href="#using-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The make use of the requirements feature, test classes must include the <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.dev.unit.MRequirements">MRequirements mixin</a>.
+The mixin defines a method <tt class="docutils literal"><span class="pre">require</span></tt> that takes an array of strings: The requirement IDs. This method is called from a test function <strong>before</strong> the actual logic of the test, e.g.:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">testSslRequest</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">require</span><span class="p">([</span><span class="s2">&quot;ssl&quot;</span><span class="p">]);</span>
+  <span class="c1">// test code goes here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">require</span></tt> then searches the current test instance for a method that verifies the listed requirements: The naming convention is &quot;has&quot; + the requirement ID with the first letter capitalized, e.g. <tt class="docutils literal"><span class="pre">hasSsl</span></tt>. This method is the called with the requirement ID as the only parameter. If it returns <tt class="docutils literal"><span class="pre">true</span></tt>, the test code will be executed. Otherwise a <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.dev.unit.RequirementError">RequirementError</a> is thrown. Test Runner 2 will catch these and mark the test as &quot;skipped&quot; in the results list. Any test code after the <tt class="docutils literal"><span class="pre">require</span></tt> call will not be executed.</p>
+<p>In addition to the verification methods in MRequirements, test developers can define their own right in the test class.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">The qooxdoo Test Runner</a><ul>
+<li><a class="reference internal" href="#how-to-deploy-test-runner-for-your-own-development">How to deploy Test Runner for your own development</a><ul>
+<li><a class="reference internal" href="#writing-test-classes">Writing Test Classes</a><ul>
+<li><a class="reference internal" href="#generic-setup-and-teardown">Generic setUp and tearDown</a></li>
+<li><a class="reference internal" href="#specific-teardown">Specific tearDown</a></li>
+<li><a class="reference internal" href="#asynchronous-tests">Asynchronous Tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-the-test-application">Create the Test Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-runner-2-experimental">Test Runner 2 (Experimental)</a><ul>
+<li><a class="reference internal" href="#defining-test-requirements">Defining Test Requirements</a><ul>
+<li><a class="reference internal" href="#using-requirements">Using Requirements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="unit_testing.html"
+                                  title="previous chapter">Unit Testing</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="framework_unit_testing.html"
+                                  title="next chapter">Framework Unit Testing</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/development/frame_apps_testrunner.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

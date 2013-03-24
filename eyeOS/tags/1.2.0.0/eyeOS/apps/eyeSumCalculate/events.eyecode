@@ -1,0 +1,46 @@
+<?php
+/**
+ * 
+ * eyeString 0.5
+ * (c) 2007 Juanjo Ponz and Jose Carlos Norte
+ * 
+ * eyeString is released under the GNU General Public License Version 3 (GPL3)
+ * provided with this eyeOS release in license.txt or via web at gnu.org/licenses/gpl.txt
+ *
+ */
+function eyeSumCalculate_on_Message($params=""){
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeSumCalculate_on_Close($params=null){
+	proc('end');
+}
+
+function eyeSumCalculate_on_SumButton($params=""){
+	global $checknum;
+	$options = array(
+		0,
+		'SelectFileOpen',
+		$checknum,
+	);
+	 service('proc','launch',array('eyeDialog',$options)) ;
+}
+
+function eyeSumCalculate_on_SelectFileOpen($params=""){
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir') . FILES_USER_DIR . '/' . $file;
+		$file = vfs('getRealName',array($file));
+		$selected =$GLOBALS['SumSelect1']->selected;
+	
+		if($selected == 'md5hash') {
+			$file = md5_file($file);
+			$GLOBALS['SumLabel2'] -> setText($file);
+		} else {
+			$file = sha1_file($file);
+			$GLOBALS['SumLabel2'] -> setText($file);
+		}	
+	}
+}
+
+?>

@@ -1,0 +1,27 @@
+<eyeFeeds>
+	<base>
+		<feed>
+			<id>1</id>
+			<type>folder</type>
+			<name>eyeos</name>
+			<feed>
+				<id>2</id>
+				<type>feed</type>
+				<name>Applications</name>
+				<url>http://eyeos-apps.org/eyeos-apps-content.rdf</url>
+			</feed>
+			<feed>
+				<id>3</id>
+				<type>feed</type>
+				<name>Blog</name>
+				<url>http://blog.eyeos.org/en/feed/</url>
+			</feed>
+			<feed>
+				<id>4</id>
+				<type>feed</type>
+				<name>Forums</name>
+				<url>http://forums.eyeos.org/?type=rss;action=.xml</url>
+			</feed>
+		</feed>
+	</base>
+</eyeFeeds>

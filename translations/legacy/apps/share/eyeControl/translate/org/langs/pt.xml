@@ -1,0 +1,329 @@
+<lang>
+	<info>
+		<lang>PORTUGUÊS</lang>
+		<author>Daniel Sousa</author>
+		<version>20/05/2008</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>community</name>
+		<text>
+			<old>section-community-blog-desc</old>
+			<new>O Blog Oficial do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-blog-title</old>
+			<new>Blog do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-ca</old>
+			<new>Comunidade para a Catalunha (Espanha)</new>
+		</text>
+		<text>
+			<old>section-community-cn</old>
+			<new>Comunidade para a China</new>
+		</text>
+		<text>
+			<old>section-community-cz</old>
+			<new>Comunidade para a Republica Checa</new>
+		</text>
+		<text>
+			<old>section-community-de</old>
+			<new>Comunidade para a Alemanha</new>
+		</text>
+		<text>
+			<old>section-community-es</old>
+			<new>Comunidade para Espanha</new>
+		</text>
+		<text>
+			<old>section-community-forums-desc</old>
+			<new>Forums oficiais do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-forums-title</old>
+			<new>Forums do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-fr</old>
+			<new>Comunidade para França</new>
+		</text>
+		<text>
+			<old>section-community-it</old>
+			<new>Comunidade para Itália</new>
+		</text>
+		<text>
+			<old>section-community-localforums-desc</old>
+			<new>Forums locais do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-localforums-title</old>
+			<new>Forums do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-nl</old>
+			<new>Comunidade para Holanda</new>
+		</text>
+		<text>
+			<old>section-community-official</old>
+			<new>Comunidades oficiais</new>
+		</text>
+		<text>
+			<old>section-community-pt</old>
+			<new>Comunidade para Portugal</new>
+		</text>
+		<text>
+			<old>section-community-sites</old>
+			<new>Sites da comunidade (em inglês)</new>
+		</text>
+		<text>
+			<old>section-community-text</old>
+			<new>A comunidade do eyeOS é a melhor forma de estar envolvido no projecto, para pedir ajuda ou comunicar com outros utilizadores e desenvolvedores do eyeOS.</new>
+		</text>
+		<text>
+			<old>section-community-unofficial</old>
+			<new>Comunidades não oficiais</new>
+		</text>
+		<text>
+			<old>section-community-wiki-desc</old>
+			<new>A Wiki Oficial do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-wiki-title</old>
+			<new>Wiki do eyeOS</new>
+		</text>
+		<text>
+			<old>section-community-wolrdwid-text</old>
+			<new>Todas as comunidades são mantidas por utilizadores do eyeOS que querem contribuir para o projecto, criando um website específico do eyeOs para o seu país. Se quiser começar uma comunidade do eyeOS para o seu país, por favor [a mail]contacte-nos[/a].</new>
+		</text>
+		<text>
+			<old>section-community-wolrdwide</old>
+			<new>O eyeOS no mundo</new>
+		</text>
+	</part>
+	<part>
+		<name>concept</name>
+		<text>
+			<old>section-concept-idea</old>
+			<new>A ideia por trás do eyeOS</new>
+		</text>
+		<text>
+			<old>section-concept-idea-list</old>
+			<new>[li] Ser capaz de trabalhar a partir de todo o lado, usando um computador, usando um telemóvel, um gadget ou um PC completamente obsolento. [/li][li] Partilhar recursos facilmente entre os diferentes centros de um mesmo trabalho de uma empresa, ou trabalhar a partir de diferentes lugares e países no mesmo projectos. [/li][li] Beneficiando sempre as mesmas aplicações com o mesmo formato aberto, e esquecendo os habituais problemas de compatibilidade entre suites de Office ou tradicionais sistemas operacionais. [/li][li] Ser capaz de continuar a trabalhar, se tiver de deixar o seu computador local ou se ele simplesmente avariar, sem perder dados ou tempo para resolver seus problemas: Basta efetuar login na sua eyeOS e omutro lugar e continuar a trabalhar. [/li]</new>
+		</text>
+		<text>
+			<old>section-concept-idea-text</old>
+			<new>O eyeOS tem tudo a ver com a centralização do trabalho e entretenimento num único local. O eyeOS tem tudo a ver com remover questões de compatibilidade entre aplicações e sistemas operativos. O eyeOS tem tudo a ver com a sua vida em todos os lugares.[br /][br /]Como você pode ver, a ideia por trás eyeOS não é ser um Sistema Operativo dentro de um Sistema Operacional, ou um browser dentro de um browser. O eyeOS é outro passo na vida da era digital:</new>
+		</text>
+		<text>
+			<old>section-concept-presentation</old>
+			<new>Fazer downloadno formato [strong][a ppt]Microsoft Powerpoint[/a][/strong] | [strong][a odp]OpenOffice Impress[/a][/strong] | [strong][a pdf]PDF[/a][/strong]</new>
+		</text>
+		<text>
+			<old>section-concept-video</old>
+			<new>Veja o eyeOS em acção</new>
+		</text>
+		<text>
+			<old>section-concept-video-download</old>
+			<new>Fazer download do video em MP4 (com maior resolução)</new>
+		</text>
+		<text>
+			<old>section-concept-welcome</old>
+			<new>Bem-vindo!</new>
+		</text>
+		<text>
+			<old>section-concept-welcome-text</old>
+			<new>O eyeOS é uma plataforma Open Source concebida para armazenar uma grande variedade de Web Aplicações sobre ele. O eyeOS foi pensado como uma nova definição de Operação Sistema, onde tudo dentro dele pode ser acessado a partir de qualquer lugar de uma rede. Tudo o que você precisa fazer é login no seu servidor com um Browser de Internet  comum, e assim aceder ao seu computador pessoal, com as suas aplicações, documentos, música, filmes ... Tal como você os deixou da última vez.[br /][br /]Actualmente, com o sistema básico, você pode encontrar um pacote completo de aplicações, algumas para uso privado, como o gerenciador de arquivos, um processador de texto, uma
+agenda, contactos ou um bloco de notas. Existem também algumas aplicações para utilizar em grupo, tais como um gestor de grupos, uma aplicação de partilha de arquivos, Um mensageiro de grupo e muitos mais.[br /][br /]O eyeOS é Open Source, licenciado sob a GNU Public License versão 3 (GPL3), o que significa que você pode ter o seu próprio servidor privado eyeOS para a sua família e amigos, empresa ou rede de Internet, de forma totalmente gratuita. Mas isso também significa que você
+pode navegar através do código fonte eyeOS e assim desenvolver para o eyeOS ferramentas para personalizar o sistema e desenvolver novas aplicações que se encaixem nas suas necessidades específicas.[br /][br /]Se quiser começar a usar o eyeOS, você pode entrar no servidor internacional e livre do eyeOS,  ou criar o seu próprio servidor do eyeOS e ser capaz de decidir quem pode juntar-se e personalizá-lo de acordo com suas necessidades.[br /][br /]Criar o seu próprio servidor eyeOS é realmente muito fácil. Tudo o que você precisa é um servidor web com suporte para PHP5, e mesmo sem isso, você encontrará soluções completas que irão  instalar tudo o que você precisa para começar a usar o eyeOS em poucos minutos.</new>
+		</text>
+	</part>
+	<part>
+		<name>default</name>
+		<text>
+			<old>site-footer-1</old>
+			<new>O [b]project eyeOS 2008[/b]. Sistema operativo web de código aberto &amp; Escritório na Web. [a mail]Contacte-nos[/a]</new>
+		</text>
+		<text>
+			<old>site-footer-2</old>
+			<new>O alojamento e os serviços para o eyeOS são oferecidos por: [b][a interdominios]Interdominios[/a][/b]. [a partners]Learn more[/a].</new>
+		</text>
+		<text>
+			<old>site-footer-3</old>
+			<new>Este site foi traduzido por [b][author][/b].</new>
+		</text>
+		<text>
+			<old>site-header-dev</old>
+			<new>COMUNIDADE DE DESENVOLVEDORES</new>
+		</text>
+		<text>
+			<old>site-header-eyeoscom</old>
+			<new>SERVIÇOS PROFESSIONAIS</new>
+		</text>
+		<text>
+			<old>site-header-eyeosorg</old>
+			<new>PÁGINA INICIAL DO EYOS</new>
+		</text>
+		<text>
+			<old>site-header-lang-by</old>
+			<new>by</new>
+		</text>
+		<text>
+			<old>site-menu-apps</old>
+			<new>Applicações</new>
+		</text>
+		<text>
+			<old>site-menu-blog</old>
+			<new>Blog</new>
+		</text>
+		<text>
+			<old>site-menu-concept</old>
+			<new>Conceito</new>
+		</text>
+		<text>
+			<old>site-menu-demo</old>
+			<new>Demo</new>
+		</text>
+		<text>
+			<old>site-menu-downloads</old>
+			<new>Downloads</new>
+		</text>
+		<text>
+			<old>site-menu-forums</old>
+			<new>Forums</new>
+		</text>
+		<text>
+			<old>site-menu-home</old>
+			<new>Início</new>
+		</text>
+		<text>
+			<old>site-menu-use</old>
+			<new>Use o eyeOS</new>
+		</text>
+		<text>
+			<old>site-menu-wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>site-sidebar-community</old>
+			<new>Comunidade</new>
+		</text>
+		<text>
+			<old>site-sidebar-community-text</old>
+			<new>Faça parte da comunidade do eyeOS à volta do mundo!</new>
+		</text>
+		<text>
+			<old>site-sidebar-donations</old>
+			<new>Doações</new>
+		</text>
+		<text>
+			<old>site-sidebar-donations-text</old>
+			<new>O eyeOS tem o código aberto, toda a gente pode usar.</new>
+		</text>
+		<text>
+			<old>site-sidebar-download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>site-sidebar-download-text</old>
+			<new>Obtenha o último eyeOS e construa o seu próprio servidor.</new>
+		</text>
+		<text>
+			<old>site-sidebar-news</old>
+			<new>Últimas novidades</new>
+		</text>
+		<text>
+			<old>site-sidebar-news-read</old>
+			<new>Ler mais...</new>
+		</text>
+		<text>
+			<old>site-sidebar-signup</old>
+			<new>Use gratuitamente!</new>
+		</text>
+		<text>
+			<old>site-sidebar-signup-text</old>
+			<new>Se só quer usar o eyeOS, pode usar o servidor gratuito.</new>
+		</text>
+		<text>
+			<old>site-sidebar-stickers</old>
+			<new>Obtenha alguns autocolantes!</new>
+		</text>
+		<text>
+			<old>site-sidebar-use</old>
+			<new>Use o eyeOS!</new>
+		</text>
+		<text>
+			<old>site-title</old>
+			<new>eyeOS  Web Desktop - Web OS - Web Office - Os seu ficheiros e aplicações em todo o lado!</new>
+		</text>
+	</part>
+	<part>
+		<name>donations</name>
+		<text>
+			<old>section-donations-euros</old>
+			<new>Doar em Euros</new>
+		</text>
+		<text>
+			<old>section-donations-introduction</old>
+			<new>Introdução</new>
+		</text>
+		<text>
+			<old>section-donations-stickers-text</old>
+			<new>Se quiser receber alguns auto-colantes do eyeOS em sua casa (a sério, em todo o mundo), Envie-nos um e-mail para [a mail /a] durante os 7 dias a seguir à doação e nós iremos enviar alguns para sua casa.</new>
+		</text>
+		<text>
+			<old>section-donations-stickers-title</old>
+			<new>Quer alguns auto-colantes?</new>
+		</text>
+		<text>
+			<old>section-donations-text</old>
+			<new>O projecto eyeOS tem o objectivo de oferecer um gratuito,livre e aberto ambiente de trabalho baseado na web e as suas aplicação a toda a gente, em todo o lado. O eyeOS diponibiliza o seu código-fonte com a licensa GNU General Public License e permite a toda a gente melhorá-lo, modificá-lo e usá-lo livremente, sem custos.[br /][br /]Actualmente, aceitamos doações graças ao Paypal. Se nõ tem uma conta no Paypal, poderá fazer uma doação directamente através de Visa ou Mastercard, no mesmo local.[br /][br /]Por favor, escolha a moeda em que pretende efectuar a doação e será redireccionado para uma página segura para fazer a doação:</new>
+		</text>
+		<text>
+			<old>section-donations-thanks</old>
+			<new>Muito obrigado!</new>
+		</text>
+		<text>
+			<old>section-donations-title</old>
+			<new>eyeOS Donations</new>
+		</text>
+		<text>
+			<old>section-donations-usd</old>
+			<new>Doar em Dólares americanos</new>
+		</text>
+	</part>
+	<part>
+		<name>home</name>
+		<text>
+			<old>section-home-developers</old>
+			<new>Para desenvolvedores</new>
+		</text>
+		<text>
+			<old>section-home-developers-text</old>
+			<new>O eyeOS introduz um novo modo de desenvolver aplicações web com o tollkit do eyeOS, uma biblioteca/classe para ajudar o desenvolvimento de aplicações e um grupo de funções para inreractuar com o sistema. Esqueça HTML, Javascript, sistemas de ficheiros e muito mais. Faça uma introdução de si mesmo à equipa de desenvolvimento do eyeOS, o eyeOS é software de desenvolvimento gratuito! [a dev]Go to developers community...[/a]</new>
+		</text>
+		<text>
+			<old>section-home-discover</old>
+			<new>Descubra o eyeOS</new>
+		</text>
+		<text>
+			<old>section-home-taketour-concept</old>
+			<new>O conceito</new>
+		</text>
+		<text>
+			<old>section-home-taketour-welcome</old>
+			<new>Bem-vindo</new>
+		</text>
+		<text>
+			<old>section-home-users</old>
+			<new>Para os utilizadores</new>
+		</text>
+		<text>
+			<old>section-home-users-text</old>
+			<new>O eyeOS é um novo tipo de sistema operativo, onde tudp reside num browser web. Com o eyeOS, vai ter o seu ambiente de trablho, aplicações e ficheiros sempre consigo, da sua casa, do colégio, do escritório ou da casa do seu vizinho. Simplesmente abra um web browser, ligue o seu sistema eyeOS e entre no seu ambiente de trabalho pessoal e todas as suas coisas, tal como as deixou da última vez.</new>
+		</text>
+		<text>
+			<old>section-home-whatis</old>
+			<new>O que é o eyeOS</new>
+		</text>
+	</part>
+</lang>

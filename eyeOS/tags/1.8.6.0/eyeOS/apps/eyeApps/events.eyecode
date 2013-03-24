@@ -1,0 +1,68 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeApps_on_Close($params = '') {
+	proc('end');
+}
+
+function eyeApps_on_Icon_Clicked($params = '') {
+	proc('launch',array($params['arg0'][0]));
+}
+
+function eyeApps_on_InstallApps($params = '') {
+	proc('launch',array('eyeSoft'));
+	proc('end');
+}
+
+function eyeApps_on_ManageDock($params = '') {
+	proc('launch',array('eyeManageApps'));
+	proc('end');
+}
+
+function eyeApps_on_fullScreen(){
+	global $myPid;
+	$GLOBALS['eyeApps_Window']->setFullScreen();
+}
+
+function eyeApps_on_Resize($params = '') {
+	global $myPid;
+	$GLOBALS['eyeApps_Window']->width = $params['arg'][0];
+	$GLOBALS['eyeApps_Window']->height = $params['arg'][1];
+	$GLOBALS['eyeApps_Container']->setHeight(intval($params['arg'][1]) - 84);
+	$GLOBALS['eyeApps_Container']->setWidth(intval($params['arg'][0]) - 4);
+	eyex('rawjs',array('js' => 'i = 0;
+	x = 20;
+	y = 20;
+	e = xGetElementById("' . $myPid . '_eyeApps_Icon_0_Container");
+	while (e) {
+		xSlideTo("' . $myPid . '_eyeApps_Icon_" + i + "_Container",x,y,500);
+		x += 88;
+		if (xWidth("' . $myPid . '_eyeApps_Container") - x - 88 < 0) {
+			x = 20;
+			y += 88;
+		}
+		i++;
+		e = xGetElementById("' . $myPid . '_eyeApps_Icon_" + i + "_Container");
+	}'));
+}
+?>

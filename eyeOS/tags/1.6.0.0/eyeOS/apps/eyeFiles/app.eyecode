@@ -1,0 +1,203 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeFiles_run($params=null) {
+	global $checknum;
+	global $myPid;
+	$file=$params[0];
+	if(!$file) {
+		$file = '/';
+	}
+	
+	//main window
+	$myWindow = new Window(array('title'=>'eyeFiles','name'=>'WND_1','father' => 'eyeApps',
+		'y'=>35,'x'=>0,'cent'=>2,'width'=>680,'height'=>560));
+	$myWindow->show();
+	
+	//panel window
+	$myWindow3 = new Window(array('name'=>'WND_3','father'=>'WND_1_Content','type'=>100,'width'=>200,
+		'height'=>$myWindow->height-60,'x'=>5,'y'=>32));
+	$myWindow3->show();
+	service('eyex','rawjs',array('js'=>'document.getElementById("'.$myPid.'_WND_3").onmousedown="";'));
+	
+	//icon window
+	$myWindow2 = new Window(array('name'=>'WND_2','father' => 'WND_1_Content','type'=>100,
+		'width'=>$myWindow->width-($myWindow3->width+18),'height'=>$myWindow->height-60,
+		'x'=>$myWindow3->width+10,'y'=>32));
+	$myWindow2->show();
+	eyex('rawjs',array('js'=>'var winContent = xGetElementById("'.$myPid.'_WND_2_Content");
+							  winContent.style.backgroundImage="url(index.php?extern=apps/eyeFiles/gfx/eyefilesbg.png)";
+							  winContent.style.backgroundPosition="bottom right";
+							  winContent.style.backgroundRepeat="no-repeat";'));	
+	service('eyex','rawjs',array('js'=>'document.getElementById("'.$myPid.'_WND_2").onmousedown="";'));
+	
+	//places box
+	$myBox2 = new Box(array('name'=>'BOX_1','father'=>'WND_3_Content','x'=>6,'y'=>8,
+		'width'=>170,'height'=>240,'title'=>'Folders'));
+	$myBox2->show();
+
+	//places window, for have scrolling
+	$myWindow4 = new Window(array('name'=>'WND_BOX_1','father' => 'BOX_1',
+		'y'=>0,'x'=>0,'width'=>168,'height'=>220,'type'=>100));
+	$myWindow4->show();
+	
+	//WND_BOX_1_Content for files
+	
+	$myTree = new Tree(array(
+		'name'=>'filesTree',
+		'father'=>'WND_BOX_1_Content',
+		'width'=>155,
+		'height'=>185,
+		'x'=>0,
+		'y'=>0,
+		'clickTree'=>1,
+		'signal'=>'gotoDir'
+	));
+	$myTree->show();
+	global $currentUser;
+	$myUdir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+	$myTree->addItem('filesTree','home_item',$currentUser);
+	$myTree->addSubList('home_item','home_list');
+	drawTree($myTree,'home_list',$myUdir);
+	$myTree->processList();
+	$myTree->expandTree();
+	
+	//places box
+	$myBox2 = new Box(array('name'=>'BOX_2','father'=>'WND_3_Content','x'=>6,'y'=>262,
+		'width'=>170,'height'=>210,'title'=>'Actions'));
+	$myBox2->show();
+	
+	//places window, for have scrolling
+	$myWindow4 = new Window(array('name'=>'WND_BOX_2','father' => 'BOX_2',
+		'y'=>12,'x'=>0,'width'=>168,'height'=>193,'type'=>100));
+	$myWindow4->show();
+	
+	if (IE > 0) {
+		$myYtxtBox = 9;
+	} else {
+		$myYtxtBox = 10;
+	}
+	$myTextBox = new Textbox(array('name'=>'eyeFilesText','father'=>'WND_1_Content','width'=>'586',
+		'x'=>60,'y'=>$myYtxtBox,'text'=>$file));
+	$myTextBox->show();
+	
+	$myTextBox->setCss(array('border'=>'none','background-image'=>'url(index.php?extern=apps/eyeFiles/gfx/PathCenter.png)',
+		'background-repeat'=>'repeat-x','height'=>'18px','padding-top'=>'3px'));
+		
+	$myImage1 = new Imagebox(array('name'=>'left_textbox_img','father'=>'WND_1_Content',
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/PathLeft.png',
+		'x'=>49,'y'=>10));
+	$myImage1->show();
+	
+	$myImage2 = new Imagebox(array('name'=>'right_textbox_img','father'=>'WND_1_Content',
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/PathGo.png','signal'=>'goToPath','disableMsg'=>0,
+		'x'=>635,'y'=>10));
+	$myImage2->addFriend($myTextBox);
+	$myImage2->show();
+	$myImage2->setCss(array('cursor'=>'Pointer'));
+	
+	$myImage5 = new Imagebox(array('name'=>'top_img','father'=>'WND_1_Content',
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/Top.png',
+		'x'=>14,'y'=>10,'signal'=>'goTop','disableMsg'=>0));
+	$myImage5->addFriend($myTextBox);
+	$myImage5->show();
+	$myImage5->setCss(array('cursor'=>'Pointer'));
+
+	$xml = getConfig('eyeFiles','conf_actions.xml');
+	$counter = 0;
+	if(is_array($xml['eyeFiles'][0]['plugin'])) {
+		foreach($xml['eyeFiles'][0]['plugin'] as $value) {
+				$Yofset = $counter * 25;
+				$myContainer = new Container(array('name' =>'action_container_line_'.$counter,
+					'father' => 'WND_BOX_2_Content', 'x' => 2,'y'=>$Yofset,'width'=>160,'height'=>30));
+				$myContainer->show();
+				service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_action_container_line_".$counter."').onmouseover = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#E9E9E9';};}"));
+				service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_action_container_line_".$counter."').onmouseout = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='transparent';};}"));
+				$myImage1 = new Imagebox(array('name'=>'action_img_'.$counter,
+					'father'=>'action_container_line_'.$counter,'url'=>$value['icon'][0],'x'=>10,'y'=>7));
+				$myImage1->show();
+				
+				$myHidden = new Hidden(array('name'=>'action_hid_'.$counter,
+					'father'=>'action_container_line_'.$counter,'text'=>$value['appName'][0]));
+				$myHidden->show();
+				if($value['context'][0] == 'current') {
+					$myLabel1 = new Label(array('name'=>'action_lbl_'.$counter,
+						'father'=>'action_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+						'disablemsg'=>0,'signal'=>'actionExecutePanel'));
+					$myLabel1->addFriend($myHidden);
+					$myLabel1->addFriend($myTextBox);
+					$myLabel1->show();
+				} else  {
+					$myLabel1 = new Label(array('name'=>'action_lbl_'.$counter,
+						'father'=>'action_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+						'disablemsg'=>0,'signal'=>'actionSelect'));
+					$myLabel1->addFriend($myHidden);
+					$myLabel1->show();
+					service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_action_lbl_".$counter."').onmousedown = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className == 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').className = '';document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#E9E9E9';}else if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {eyeFiles_clean($myPid);document.getElementById('".$myPid."_action_container_line_".$counter."').className = 'eyeHighlighted';document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#579AFF';};}"));
+				}
+				$myLabel1->setCss(array('font-family'=>'Verdana','font-size'=>'11px',
+					'cursor'=>'Pointer'));
+				$counter++;
+		}
+	}
+	
+	service('eyex','loadScript',array('url' => 'index.php?extern=apps/eyeFiles/js/eyeFiles'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+		
+	global $eyeFilesText;
+	$eyeFilesText=$myTextBox;
+	
+	$myHidden = new Hidden(array('name'=>'history','father'=>'eyeApps','text'=>''));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+
+	addListenerServiceCall('onEvent','vfs','create',1);
+	addListenerServiceCall('onEvent','vfs','delete',1);
+	addListenerServiceCall('onEvent','vfs','mkdir',1);
+	addListenerServiceCall('onEvent','vfs','rmdir',1);
+
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFiles/events'.EYE_CODE_EXTENSION);
+	eyeFiles_on_openFile(array('file'=>$file,'size'=>$myWindow2->width));
+}
+
+function eyeFiles_end($params=null) {
+	removeListenerServiceCall('vfs','create',1);
+	removeListenerServiceCall('vfs','delete',1);
+	removeListenerServiceCall('vfs','mkdir',1);
+	removeListenerServiceCall('vfs','rmdir',1);
+	reqLib('eyeWidgets','unserialize');
+}
+
+function drawTree($object,$tree,$dir) {
+	$content = vfs('getDirContent',array($dir));
+	if(is_array($content)) {
+		foreach($content as $value)	{
+			if(is_dir($value)) {
+				$rnd = uniqid(time());
+				$object->addItem($tree,'item_'.utf8_basename($value).$rnd,utf8_basename($value));
+				$object->addSubList('item_'.utf8_basename($value).$rnd,'list_'.utf8_basename($value).$rnd);
+				drawTree($object,'list_'.utf8_basename($value).$rnd,$value);
+			}
+		}
+	}
+}
+
+?>

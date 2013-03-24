@@ -1,0 +1,110 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+
+function eyeDBM_run($params=null) {
+	global $myPid;
+	$content = "";
+	
+	$myPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeDBM/";
+	if(!service('vfs', 'fileExists', array($myPath))) {
+		service('vfs', 'real_mkDir', array($myPath));
+	}	
+	
+	if(isset($params[0])){
+		//Reading DB Configuration and Form
+		$file = $params[0];
+		$dbConfigSize = service('vfs','filesize',array($file));
+		if ($dbConfigSize > 0) {
+			$fp = service('vfs','open',array($file,'r'));
+			$dbFileContent = fread($fp,$dbConfigSize);
+			fclose($fp);
+			$dbConfig = reqLib('eyeXML','xml2array',array($dbFileContent));	
+		}
+		else {
+			service('eyex','messageBox',array('content'=>'Error reading the DB configuration'));
+			proc('end');
+		}
+		
+		$dbName = $dbConfig['eyeDataBase'][0]['name'][0];
+		$dbWinTitle = $dbConfig['eyeDataBase'][0]['window'][0]['title'][0];
+		$dbWinSizeWidth = $dbConfig['eyeDataBase'][0]['window'][0]['size'][0]['width'][0];
+		$dbWinSizeHeight = $dbConfig['eyeDataBase'][0]['window'][0]['size'][0]['height'][0];
+		
+
+		if (is_numeric ($dbWinSizeWidth) && is_numeric ($dbWinSizeHeight)) {
+			$myWindow = new Window(array('name'=>$dbName,'title'=>$dbWinTitle,'father'=>'eyeApps', 'type'=>NORMAL_WINDOW,'width'=>$dbWinSizeWidth,'height'=>$dbWinSizeHeight,'cent'=>1));
+			$myWindow->show();
+		} else {
+			service('eyex','messageBox',array('content'=>'Error reading the DB configuration'));
+			proc('end');
+		}
+		
+		foreach ($dbConfig['eyeDataBase'][0]['form'][0] as $item) {
+			foreach ($item as $i_item) {
+				switch ($i_item["type"][0]) {
+					case "textbox":
+						$myTextbox = new Textbox(array('name'=>$i_item["name"][0],'father' => $dbName.'_Content', 'x' => $i_item["position"][0]['x'][0],'y' => $i_item["position"][0]['y'][0],'width'=>$i_item["size"][0]));
+						$myTextbox->show();
+					break;
+					case "label":
+						$myLabel = new Label(array ('name' => $i_item["name"][0],'father' => $dbName.'_Content',
+							'text' =>$i_item["text"][0],'x' => $i_item["position"][0]['x'][0],'y' => $i_item["position"][0]['y'][0]));
+						$myLabel->show();
+					break;
+					default:
+					break;
+				}
+			}
+		}
+		
+		//Loading Data
+		$dbPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeDBM/".$dbName."/";
+		
+	}
+	
+	/*
+	$myTab = new Tab(array('name'=>'eyeDBM_TabGRP','father'=>'eyeDBMWND_Content','width'=>558,'height'=>370,
+		'x'=>0,'y'=>7,'caption'=>'eyeDBM','signal'=>'tabClosed'));
+	$myTab->show();
+
+	// New Contact Tab
+	$newContactTab = $myTab->addTab("New Contact",1);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDBM/new_contact_form'.EYE_CODE_EXTENSION);
+	
+	// Export Import tab
+	$exportImportListTab = $myTab->addTab("Manage",1);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDBM/export_import_form'.EYE_CODE_EXTENSION);
+		
+	// List Contacts Tab
+	$contactListTab = $myTab->addTab("Contacts",1);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDBM/list_contacts_form'.EYE_CODE_EXTENSION);
+	*/
+}
+
+function eyeDBM_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

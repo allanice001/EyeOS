@@ -1,0 +1,176 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.7
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeInstaller_on_Close($params = '') {
+	global $myPid;
+	$path = EYE_ROOT . '/' . EYEOS_TMP_DIR . '/' . $myPid;
+	if (vfs('real_fileExists',array($path))) {
+		vfs('real_rmdir',array($path));
+	}
+	if (vfs('real_fileExists',array($path . '.tgz'))) {
+		vfs('real_delete',array($path . '.tgz'));
+	}
+	proc('end');
+}
+
+function eyeInstaller_on_Continue($params = '') { // TODO
+	global $checknum;
+	global $myPid;
+// Set default status
+	$GLOBALS['eyeInstaller_button_continue']->unhide();
+	$GLOBALS['eyeInstaller_button_back']->hide();
+	$GLOBALS['eyeInstaller_label_step_welcome']->setCss(array('font-weight' => 'normal'));
+	if (is_object($GLOBALS['eyeInstaller_label_step_license'])) {
+		$GLOBALS['eyeInstaller_label_step_license']->setCss(array('font-weight' => 'normal'));
+	}
+	if (is_object($GLOBALS['eyeInstaller_label_step_notes'])) {
+		$GLOBALS['eyeInstaller_label_step_notes']->setCss(array('font-weight' => 'normal'));
+	}
+	$GLOBALS['eyeInstaller_label_step_install']->setCss(array('font-weight' => 'normal'));
+	if (is_object($GLOBALS['eyeInstaller_label_name'])) {
+		$GLOBALS['eyeInstaller_label_name']->hide();
+	}
+	$GLOBALS['eyeInstaller_label_attention']->hide();
+	if (is_object($GLOBALS['eyeInstaller_label_license_1'])) {
+		$GLOBALS['eyeInstaller_label_license_1']->hide();
+		$GLOBALS['eyeInstaller_label_license_2']->hide();
+	}
+	if (is_object($GLOBALS['eyeInstaller_Window_notes'])) {
+		$GLOBALS['eyeInstaller_Window_notes']->hide();
+	}
+// Show welcome
+	if ($GLOBALS['eyeInstaller_hidden_step']->text == 'welcome') {
+		if (is_object($GLOBALS['eyeInstaller_label_step_license'])) {
+			$GLOBALS['eyeInstaller_hidden_step']->setText('license');
+		} elseif (is_object($GLOBALS['eyeInstaller_label_step_notes'])) {
+			$GLOBALS['eyeInstaller_hidden_step']->setText('notes');
+		}
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").innerHTML = "' . i18n('translate',array('Continue')) . '";'));
+		$GLOBALS['eyeInstaller_label_step_welcome']->setCss(array('font-weight' => 'bold'));
+		$GLOBALS['eyeInstaller_label_text']->setText('Welcome to eyeInstaller!');
+		$GLOBALS['eyeInstaller_label_attention']->unhide();
+		if (is_object($GLOBALS['eyeInstaller_label_name'])) {
+			$GLOBALS['eyeInstaller_label_name']->unhide();
+		}
+// Show license
+	} elseif ($GLOBALS['eyeInstaller_hidden_step']->text == 'license') {
+		if (is_object($GLOBALS['eyeInstaller_label_step_notes'])) {
+			$GLOBALS['eyeInstaller_hidden_step']->setText('notes');
+			eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").innerHTML = "' . i18n('translate',array('Accept')) . '";'));
+		} else {
+			$GLOBALS['eyeInstaller_hidden_step']->setText('install');
+			eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").innerHTML = "' . i18n('translate',array('Accept and Install')) . '";'));
+		}
+		$GLOBALS['eyeInstaller_button_back']->unhide();
+		$GLOBALS['eyeInstaller_label_step_license']->setCss(array('font-weight' => 'bold'));
+		$GLOBALS['eyeInstaller_label_text']->setText('You must accept the license to continue!');
+		$GLOBALS['eyeInstaller_label_license_1']->unhide();
+		$GLOBALS['eyeInstaller_label_license_2']->unhide();
+// Show notes
+	} elseif ($GLOBALS['eyeInstaller_hidden_step']->text == 'notes') {
+		$GLOBALS['eyeInstaller_hidden_step']->setText('install');
+		$GLOBALS['eyeInstaller_button_back']->unhide();
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").innerHTML = "' . i18n('translate',array('Install')) . '";'));
+		$GLOBALS['eyeInstaller_label_step_notes']->setCss(array('font-weight' => 'bold'));
+		$GLOBALS['eyeInstaller_label_text']->setText('Please read these notes before installing!');
+		$GLOBALS['eyeInstaller_Window_notes']->unhide();
+// Show install
+	} elseif ($GLOBALS['eyeInstaller_hidden_step']->text == 'install') {
+		$GLOBALS['eyeInstaller_hidden_step']->setText('ready');
+		$GLOBALS['eyeInstaller_button_continue']->hide();
+		$GLOBALS['eyeInstaller_label_step_install']->setCss(array('font-weight' => 'bold'));
+		$GLOBALS['eyeInstaller_label_text']->setText('Installing...');
+		eyex('rawjs',array('js' => 'sendMsg(' . $checknum . ',"Continue","");'));
+	} elseif ($GLOBALS['eyeInstaller_hidden_step']->text == 'ready') {
+		$GLOBALS['eyeInstaller_label_text']->setText('The eyePackage could not be installed!');
+		$GLOBALS['eyeInstaller_label_text']->setCss(array('color' => '#FF0000'));
+// Do install
+		$file = $GLOBALS['eyeInstaller_hidden_file']->text;
+		$path = EYE_ROOT . '/' . EYEOS_TMP_DIR . '/';
+		if (!vfs('real_fileExists',array($path))) {
+			vfs('real_mkDir',array($path));
+		}
+		$path .= $myPid;
+		if (vfs('real_fileExists',array($path . '/'))) {
+			vfs('real_rmdir',array($path . '/'));
+		}
+		vfs('real_mkDir',array($path . '/'));
+		if (vfs('real_copy',array($file,$path . '.tgz'))) {
+			if (eyeFileArchive('extract',array($path . '.tgz',$path . '/','realOutput' => 1,'eqTypes' => array('eyeFile' => 'tgz')))) {
+				if (vfs('real_move',array($path . '/' . $myPid . '.tgz/install.xml',$path . '/install.xml'))) {
+					$xml = eyeXML('getXMLfile',array($path . '/install.xml'));
+					proc('launch',array($xml['launch'][0]['app'][0],$xml['launch'][0]['args'][0]));
+				}
+				if (vfs('real_copyDir',array($path . '/' . $myPid . '.tgz/',EYE_ROOT . '/'))) {
+// Successfully installed
+					$GLOBALS['eyeInstaller_label_text']->setText('eyePackage successfully installed.');
+					$GLOBALS['eyeInstaller_label_text']->setCss(array('color' => '#55AA55'));
+				}
+			}
+		}
+// Show ready
+		$GLOBALS['eyeInstaller_hidden_step']->setText('close');
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").innerHTML = "' . i18n('translate',array('Close')) . '";'));
+		$GLOBALS['eyeInstaller_label_step_ready']->setCss(array('font-weight' => 'bold'));
+	} elseif ($GLOBALS['eyeInstaller_hidden_step']->text == 'close') {
+		eyeInstaller_on_Close($params);
+	}
+}
+
+function eyeInstaller_on_Back($params = '') {
+	if ($GLOBALS['eyeInstaller_hidden_step']->text == 'install' && is_object($GLOBALS['eyeInstaller_label_step_notes']) && is_object($GLOBALS['eyeInstaller_label_step_license'])) {
+		$GLOBALS['eyeInstaller_hidden_step']->setText('license');
+	} else {
+		$GLOBALS['eyeInstaller_hidden_step']->setText('welcome');
+	}
+	eyeInstaller_on_Continue($params);
+}
+
+function eyeInstaller_on_License($params = '') {
+	global $myPid;
+	$list = array(
+		'Creative Commons by' => 'http://creativecommons.org/licenses/by/3.0/',
+		'Creative Commons by-nc' => 'http://creativecommons.org/licenses/by-nc/3.0/',
+		'Creative Commons by-nc-nd' => 'http://creativecommons.org/licenses/by-nc-nd/3.0/',
+		'Creative Commons by-nc-sa' => 'http://creativecommons.org/licenses/by-nc-sa/3.0/',
+		'Creative Commons by-nd' => 'http://creativecommons.org/licenses/by-nd/3.0/',
+		'Creative Commons by-sa' => 'http://creativecommons.org/licenses/by-sa/3.0/',
+		'GNU Affero General Public License 3' => 'http://gnu.org/licenses/agpl-3.0.txt',
+		'GNU Free Documentation License 1.1' => 'http://gnu.org/licenses/fdl.txt',
+		'GNU Free Documentation License 1.2' => 'http://gnu.org/licenses/fdl-1.2.txt',
+		'GNU General Public License 3' => 'http://gnu.org/licenses/gpl-3.0.txt',
+		'GNU General Public License 2' => 'http://gnu.org/licenses/gpl-2.0.txt',
+		'GNU General Public License 1' => 'http://gnu.org/licenses/gpl-1.0.txt',
+		'GNU Lesser General Public License 2.1' => 'http://gnu.org/licenses/lgpl-2.1.txt',
+		'GNU Lesser General Public License 3' => 'http://gnu.org/licenses/lgpl-3.0.txt'
+	);
+	$license = $params[$myPid . '_eyeInstaller_label_license_1'][0]; // TODO
+	if ($list[$license]) {
+		proc('launch',array('eyeIframize',$list[$license]));
+	}
+}
+
+function eyeInstaller_on_Message($params = '') {
+	eyeWidgets('updateContent',$params);
+}
+?>

@@ -1,0 +1,745 @@
+/* Global */ 
+#background{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/wallpapers/default.jpg);
+	background-position: center;
+}
+.eyeLine {
+	width: 100%;
+	height:1px;
+	background-color: #bababa;
+}
+.multipleSelect {
+	background-color: #6699FF;
+	border: 1px solid blue;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+/* System Bar */ 
+.eyeMenu {
+	position: absolute;
+	z-index: 10000;
+	bottom: 50px;
+	left: -21px;
+	width: 180px;
+	visibility: hidden;
+}
+.eyeMenu_top {
+	height: 20px;
+	width: 180px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/top_bub.png);
+	background-repeat: no-repeat;
+}
+.eyeMenu_bot {
+	height: 20px;
+	width: 180px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/bottom_bub.png);
+	background-repeat: no-repeat;
+}
+.eyeMenu_cen {
+	width: 180px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/center_bub.png);
+	background-repeat: repeat-y;
+}
+.eyeMenu_content {
+	position: absolute;
+	top: 19px;
+	left: 15px;
+	width: 100%;
+}
+.eyeMenuButton {
+	position: absolute;
+	left: 50%;
+	margin-left: -65px;
+	width: 138px;
+	bottom: 70px;
+	height: 38px;
+}
+.eyeMenuButton_Img {
+	cursor: pointer;
+}
+.menuBar_text {
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-family: Verdana;
+}
+.eyeBarItemsText {
+	position:absolute;
+	top:0.3em;
+	left:35px;
+	width:100%;
+	z-index:200;
+	color: #dddddd;
+}
+
+/* eyeBox */
+.eyeBoxSupCent {
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/widgets/bg_sup_center.png");
+	height:23px;
+	width: 100%;
+	background-repeat:repeat-x;
+}
+.eyeBoxBottCent {
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/widgets/bg_bottom_center.png");
+	height:17px;
+	background-repeat:repeat-x;
+}
+.eyeBoxTable {
+	border: 1px solid #777;
+	background-color: #FFFFFF;
+}
+.eyeBoxText {
+	position:absolute;
+	top:3px;
+	left:10px;
+	font-size:11px;
+	font-family:Verdana;
+	color:#145689;
+}
+
+/* eyeButton */
+.eyeButtonClass {
+	border-top: 1px solid #858585;
+	border-bottom: 1px solid #858585;
+	border-left: 1px solid #aeaeae;
+	border-right: 1px solid #aeaeae;
+	font-family: Verdana;
+	font-size: 11px;
+	height: 22px;
+	background-image: url('index.php?extern=apps/eyeX/themes/default/images/widgets/buttonbg.png');
+}
+.eyeButtonClass:hover {
+	border-top: 1px solid #6fa1e0;
+	border-bottom: 1px solid #6fa1e0;
+	border-left: 1px solid #a1c6f3;
+	border-right: 1px solid #a1c6f3;
+}
+
+/* eyeChess */
+.eyeChess_w {
+	background-color:#cccccc
+}
+.eyeChess_b {
+	background-color:#888
+}
+.eyeChess_t {
+	background: #ddd;
+}
+#PI {
+	position:absolute;
+	left:500px;
+	top:20px
+}
+.eyeChess_Table {
+	position: absolute;
+	left: 460px;
+	top: 5px;
+}
+.eyeChess_Text {
+	position: absolute;
+	left: 10px;
+	top: 480px;
+}
+.eyeChess_TextUndo {
+	position: absolute;
+	left: 180px;
+	top: 460px;
+}
+.eyeChess_textarea {
+	border: 1px solid gray;
+}
+
+/* eyeDesk_extras */
+.eyeClock {
+	position: absolute;
+	width: 111px;
+	height: 22px;
+	bottom: 0;
+	right: 0;
+	background-image: url('index.php?extern=apps/eyeX/themes/default/images/desktop/clock.png');
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.eyeClock:hover {
+	background-image: url('index.php?extern=apps/eyeX/themes/default/images/desktop/clock_x.png');
+	background-repeat: no-repeat;
+}
+.eyeClockText {
+	font-size: 9pt;
+	text-align: right;
+	margin-top: 5px;
+	margin-right: 10px;
+	color: #1e5682;
+}
+.eyeDesk_miniCalendar {
+	position: absolute;
+	width: 170px;
+	height: 160px;
+	bottom: 12px;
+	background-image: url('index.php?extern=apps/eyeX/themes/default/images/desktop/calendar.png');
+	background-repeat: no-repeat;
+	right: 5px;
+	display: none;
+	padding-top: 10px;
+}
+
+/* eyeDock */
+.eyeDock_left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 18px;
+	height: 32px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/left.png);
+	background-repeat: no-repeat;
+}
+.eyeDock_right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 18px;
+	height: 32px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/right.png);
+	background-repeat: no-repeat;
+}
+.eyeDock_center {
+	position: absolute;
+	right: 18px;
+	left: 18px;
+	top: 0;
+	height: 32px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/center.png);
+	background-repeat: repeat-x;
+}
+.eyeDockIcon {
+	cursor: pointer;
+}
+.eyeDockMenuTitle {
+	position: absolute;
+	top: 35px;
+	z-index: 10000;
+	display: none;
+	font-size: 10pt;
+	color: #fff;
+}
+.eyeDockMenu {
+	position: absolute;
+	top: 66px;
+	z-index: 10000;
+	display: none;
+	width: 160px;
+}
+.eyeDockMenuTopRight {
+	position: absolute;
+	height: 11px;
+	width: 11px;
+	top: -11px;
+	right: -11px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/top_right.png);
+	background-repeat: no-repeat;
+}
+.eyeDockMenuTopLeft {
+	position: absolute;
+	height: 11px;
+	width: 11px;
+	top: -11px;
+	left: -11px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/top_left.png);
+	background-repeat: no-repeat;
+}
+.eyeDockMenuBottonLeft {
+	position: absolute;
+	height: 11px;
+	width: 11px;
+	bottom: -11px;
+	left: -11px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bottom_left.png);
+	background-repeat: no-repeat;
+}
+.eyeDockMenuBottonRight {
+	position: absolute;
+	height: 11px;
+	width: 11px;
+	bottom: -11px;
+	right: -11px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bottom_right.png);
+	background-repeat: no-repeat;
+}
+.eyeDockMenuBottomCenter {
+	position: absolute;
+	height: 11px;
+	width: 100%;
+	bottom: -11px;
+	left: 0;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png);
+	background-repeat: repeat;
+}
+.eyeDockMenuTopCenter {
+	position: absolute;
+	height: 11px;
+	width: 100%;
+	top: -11px;
+	left: 0;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png);
+	background-repeat: repeat;
+}
+.eyeDockMenuRightCenter {
+	position: absolute;
+	width: 11px;
+	height: 100%;
+	right: -11px;
+	top: 0;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png);
+	background-repeat: repeat;
+}
+.eyeDockMenuLeftCenter {
+	position: absolute;
+	width: 11px;
+	height: 100%;
+	left: -11px;
+	top: 0;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png);
+	background-repeat: repeat;
+}
+.eyeDockMenuContent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png);
+	background-repeat: repeat;
+}
+.eyeDockMenuIcon {
+	position: absolute;
+	left: 5px;
+}
+.eyeDockMenuText{
+	position: absolute;
+	left: 40px;
+	font-size: 9pt;
+	color: #fff;
+}
+.eyeDockMenuLine {
+	position: absolute;
+	width: 99%;
+	left: 1%;
+	height: 1px;
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/line.png);
+	background-repeat: repeat-x;
+}
+
+/* eyeTab */
+.eyeTab {
+	
+}
+.eyeTabHeader {
+	border-top:1px solid #acacac;
+	border-bottom: 1px solid #acacac;
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:23px;
+	background-image:url(index.php?extern=apps/eyeX/themes/default/images/widgets/tabbg.png);
+	background-repeat: repeat-x;
+}
+.eyeTabBody {
+	position:absolute;
+	top:23px;
+	left:0px;
+}
+.eyeTabNotSelected {
+	margin-top: -1px;
+	vertical-align: middle;
+	background-color: #fff;
+	border-top: 1px solid #acacac;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;	
+	cursor: pointer;
+}
+.eyeTabSelected {
+	margin-top: -1px;
+	padding-bottom: 1px;
+	background-color: #fff;
+	vertical-align: middle;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;
+	border-bottom: 1px solid #fff;
+	background-image:url(index.php?extern=apps/eyeX/themes/default/images/widgets/tabtopbg.png);
+	background-repeat: repeat-x;
+	background-position: top;
+	cursor: pointer;
+}
+.eyeTabText {
+	vertical-align: middle;
+	margin-top: 4px;
+	margin-left: 3px;
+	font-family:Verdana;
+	font-size:11px;
+	font-color: #3e3e3e;
+}
+.eyeTabCross {
+	position:absolute;
+	top:9px;
+	right:5px;
+	font-family:Arial,Verdana;
+	font-size:11px;
+	font-color: #7f7f7f;
+	width:8px;
+	height:6px;
+	background-image:url(index.php?extern=apps/eyeX/themes/default/images/widgets/cross.png);
+	cursor:Pointer;
+}
+
+/* eyeTextarea */
+.eyeTextarea {
+	background-color: white;
+	border:1px solid #bcbcbc;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.eyeTextarea:hover {
+	border:1px solid #858585;
+}
+.eyeTextareaContainer {
+	
+}
+
+/* eyeTextbox */
+.eyeTextbox {
+	background-color: white;
+	border:1px solid #bcbcbc;
+	padding-left:2px;
+	font-family: Verdana;
+	font-size: 11px;
+}
+.eyeTextbox:hover {
+	border:1px solid #858585;
+}
+
+/* icons */
+.eyeIcon {
+
+}
+.eyeIcon_Text {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* message box */
+.eyeMessageBox {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	opacity: 0;
+	width: 208px;
+	height: 69px;
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/desktop/messagebox.png");
+	background-repeat: no-repeat;
+	z-index: 100;
+}
+.eyeMessageBoxText {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 18px;
+	font-size: 10pt;
+	color: #fff;
+}
+
+/* slider */
+.dynamic-slider-control {
+	position: relative;
+	-moz-user-focus: normal;
+	-moz-user-select: none;
+	cursor:	default;
+}
+.horizontal {
+	width: 200px;
+	height: 27px;
+}
+.vertical {
+	width: 29px;
+	height: 200px;
+}
+.dynamic-slider-control input {
+	display: none;
+}
+.dynamic-slider-control .handle {
+	position: absolute;	
+	font-size: 1px;
+	overflow: hidden;
+	-moz-user-select: none;
+	cursor: default;
+}
+.dynamic-slider-control.horizontal .handle {
+	width: 31px;
+	height: 14px;
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/widgets/handle.horizontal.png");
+}
+.dynamic-slider-control.horizontal .handle div {}
+.dynamic-slider-control.horizontal .handle.hover {}
+.dynamic-slider-control.vertical .handle {
+	width: 15px;
+	height:	31px;
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/widgets/handle.vertical.png");
+}
+.dynamic-slider-control.vertical .handle.hover {}
+.dynamic-slider-control .line {
+	position: absolute;
+	font-size: 0.01mm;
+	overflow: hidden;
+	border:	1px solid rgb(90,97,90);
+	
+	-moz-box-sizing: content-box;
+}
+.dynamic-slider-control.vertical .line {
+	width: 3px;
+}
+.dynamic-slider-control.horizontal .line {
+	height:	3px;
+}
+.dynamic-slider-control .line div {
+	width: 1px;
+	height:	1px;
+	border: 1px solid;
+	border-color: rgb(230,230,230) rgb(189,190,189) rgb(189,190,189) rgb(230,230,230);
+}
+
+/* sortable table */
+.sort-table {
+	font:		Icon;
+	background:	white;
+	color:		WindowText;
+}
+.sort-table thead {
+	background:	ButtonFace;
+	font-size:14px;
+	font-family:Verdana;
+}
+.sort-table td {
+	padding:	2px 5px;
+	cursor: Pointer;
+	font-size:11px;
+	font-family:Verdana;
+}
+.sort-table-container {
+	border: 1px Solid ThreeDShadow;
+	overflow:auto;
+}
+.sort-table thead td {
+	border:			1px solid;
+	border-color:	ButtonHighlight ButtonShadow
+					ButtonShadow ButtonHighlight;
+	cursor:			default;
+}
+.sort-table-select {
+	background-color: #3399FF;
+}
+.sort-table thead td:active {
+	border-color:	ButtonShadow ButtonHighlight
+					ButtonHighlight ButtonShadow;
+	padding:		3px 4px 1px 6px;
+}
+.sort-table thead td[_sortType=None]:active {
+	border-color:	ButtonHighlight ButtonShadow
+					ButtonShadow ButtonHighlight;
+	padding:		2px 5px;
+}
+.sort-arrow {
+	width:					11px;
+	height:					11px;
+	background-position:	center center;
+	background-repeat:		no-repeat;
+	margin:					0 2px;
+}
+.sort-arrow.descending {
+	background-image:		url("index.php?extern=apps/eyeX/themes/default/images/widgets/downsimple.png");
+
+}
+.sort-arrow.ascending {
+	background-image:		url("index.php?extern=apps/eyeX/themes/default/images/widgets/upsimple.png");
+}
+
+/* Window */
+.eyeWindowMain {
+  position:absolute;
+  overflow:hidden;
+  width:200px;
+  height: 200px;
+  margin:0;
+  padding:0;
+  color:#000;
+}
+.eyeWindowMinimizeButton {
+  position: absolute;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/min.png');
+}
+.eyeWindowMinimizeButton:hover {
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/min_x.png');
+}
+.eyeWindowMaxButton {
+  position: absolute;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/max.png');
+}
+.eyeWindowMaxButton:hover {
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/max_x.png');
+}
+.eyeWindowCloseButton {
+  position: absolute;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/close.png');
+}
+.eyeWindowCloseButton:hover {
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/close_x.png');
+}
+.eyeWindowResizeButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  cursor: se-resize;
+}
+.eyeWindowTitle {
+  overflow:hidden;
+  width: 100%;  
+  height:23px;
+  margin:0;
+  padding:0;
+}
+.eyeWindowTitle_border_right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 5px;  
+  height:23px;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/border_top_right.png');
+  background-repeat: no-repeat;
+}
+.eyeWindowTitle_border_left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;  
+  height:23px;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/border_top_left.png');
+  background-repeat: no-repeat;
+}
+.eyeWindowTitle_center {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 0;
+  height:23px;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/bg_top.png');
+  background-repeat: repeat-x;
+}
+.eyeWindowTitle_text {
+  margin-left: 10px;
+  margin-top: 4px;
+  color:#fff;
+  font-weight: 600;
+  cursor: default;
+}
+.eyeWindowContent {
+  position: absolute;
+  overflow:auto;
+  left: 0;
+  right: 0;
+  top: 23px;
+  bottom: 0;
+  border-right: 1px solid #424d5f;
+  border-left: 1px solid #424d5f;
+  border-bottom: 1px solid #424d5f;
+  background-color: #fff;
+}
+.eyeWindowContentInvisible {
+  position: absolute;
+  overflow:auto;
+  left: 0;
+  right: 0;
+  top: 23px;
+  bottom: 0;
+  background-color: transparent;
+}
+
+/* minimized apps dock */
+.minimizedApps {
+	position: absolute;
+	bottom: 0px;
+	right: 127px;
+	left: 10px;
+	height: 30px;
+	overflow: hidden;
+}
+.eyeWindowOnBar_Container {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.eyeWindowOnBar_text {
+  margin-left: 12px;
+  margin-top: 3px;
+}
+.eyeWindowOnBar_On {
+  position: absolute;
+  overflow: hidden;
+  width: 132px;
+  height: 21px;
+  z-index: 20;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/minimized/minbar_on.png');
+  background-repeat: no-repeat;
+  bottom: 0;
+  color:#d9e4f3;
+  font-weight: 600;
+}
+.eyeWindowOnBar_Off {
+  position: absolute;
+  overflow: hidden;
+  width: 132px;
+  height: 21px;
+  z-index: 20;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/default/images/minimized/minbar_off.png');
+  background-repeat: no-repeat;
+  bottom: 0;
+  color:#fff;
+  font-weight: 600;
+}
+.minIconLeft {
+	position: absolute;
+	bottom: 0;
+	left: 1px;
+	width: 8px;
+	height: 18px;
+	overflow: hidden;
+	display: none;
+	cursor: pointer;
+}
+.minIconRight {
+	position: absolute;
+	bottom: 0;
+	right: 113px;
+	width: 8px;
+	height: 18px;
+	overflow: hidden;
+	display: none;
+	cursor: pointer;
+}

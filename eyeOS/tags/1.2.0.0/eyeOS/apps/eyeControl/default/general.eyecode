@@ -1,0 +1,214 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+$ContentY = 10;
+// Hostname
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_label_fullname',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'eyeOS hostname'
+));
+$myLabel->show();
+$myTextbox_hostname = new Textbox(array(
+	'name' => 'eyeControl_general_textbox_hostname',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => EYEOS_HOSTNAME
+));
+$myTextbox_hostname->show();
+$ContentY = $ContentY + 30;
+// Allow user registration
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_label_registration',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Allow user registration'
+));
+$myLabel->show();
+$myCheckbox_register = new Checkbox(array(
+	'name' => 'eyeControl_general_checkbox_register',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => ' ',
+	'checked' => ALLOW_USER_REGISTER
+));
+$myCheckbox_register->show();
+$ContentY = $ContentY + 30;
+// Allow public dirs
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_label_publicdirs',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Allow public dirs'
+));
+$myLabel->show();
+$myCheckbox_publicdirs = new Checkbox(array(
+	'name' => 'eyeControl_general_checkbox_publicdirs',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => ' ',
+	'checked' => ALLOW_PUBLIC_DIRS
+));
+$myCheckbox_publicdirs->show();
+$ContentY = $ContentY + 30;
+// Default language
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_label_language',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Default language'
+));
+$myLabel->show();
+$mySelect_lang = new Select(array(
+	'name' => 'eyeControl_general_select_language',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'width' => 140
+));
+$mySelect_lang->show();
+$mySelect_lang->addOption('English','en');
+$LangXML = eyeXML('getXMLfile',array(EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/skel/' . CONF_USER_DIR . '/i18n/lang.xml'));
+$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/i18n/';
+$openDir = vfs('real_getDirContent',array($dir,'*.xml'));
+foreach ($openDir as $file) {
+	$file = basename($file);
+	$lang = substr($file,0,strlen($file) - 4);
+	if ($lang == $LangXML['lang'][0]) {
+		$select = 1;
+	} else {
+		$select = 0;
+	}
+	$LangXML = eyeXML('getXMLfile',array($dir . $file));
+	$mySelect_lang->addOption($LangXML['lang'][0]['name'][0],$lang,$select);
+}
+$ContentY = $ContentY + 30;
+// Default and login theme
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_label_theme',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Default and login theme'
+));
+$myLabel->show();
+$mySelect_theme = new Select(array(
+	'name' => 'eyeControl_general_select_theme',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'width' => 140
+));
+$mySelect_theme->show();
+$ActualThemeXML = eyeXML('getXMLfile',array(EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/eyex.xml'));
+$dir = EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/';
+$openDir = vfs('real_getDirContent',array($dir));
+foreach ($openDir as $theme) {
+	if (is_dir($theme) && file_exists($theme . '/info.xml')) {
+		$ThemeXML = eyeXML('getXMLfile',array($theme . '/info.xml'));
+		$theme = basename($theme);
+		if ($theme == $ActualThemeXML['CONFIG'][0]['DEFAULT_THEME'][0]) {
+			$select = 1;
+			$selectedXML = $ThemeXML;
+			$selectedName = $theme;
+		} else {
+			$select = 0;
+		}
+		$mySelect_theme->addOption($ThemeXML['eyeXtheme'][0]['display'][0],$theme,$select);
+	}
+}
+$ContentY = $ContentY + 40;
+// Save changes
+$myButton = new Button(array(
+	'name' => 'eyeControl_general_button_save',
+	'father' => $eyeContainer,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Save changes',
+	'signal' => 'general_save'
+));
+$myButton->addFriend($myTextbox_hostname);
+$myButton->addFriend($myCheckbox_register);
+$myButton->addFriend($myCheckbox_publicdirs);
+$myButton->addFriend($myCheckbox_eyeupdater);
+$myButton->addFriend($mySelect_lang);
+$myButton->addFriend($mySelect_theme);
+$myButton->show();
+$ContentY = $ContentY + 45;
+
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_label_password',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Root password'
+));
+$myLabel->show();
+$myTextbox_password = new Textbox(array(
+	'name' => 'eyeControl_general_textbox_password',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'password' => 1
+));
+$myTextbox_password->show();
+$ContentY = $ContentY + 30;
+// Uninstall eyeOS
+$myLabel = new Label(array(
+	'name' => 'eyeControl_update_label_used_1',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Used version'
+));
+$myLabel->show();
+
+$myLabel = new Label(array(
+	'name' => 'eyeControl_update_label_used_2',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY + 3,
+	'text' => EYEOS_VERSION
+));
+$myLabel->show();
+$ContentY += 30;
+$myButton = new Button(array(
+	'name' => 'eyeControl_general_button_uninstall',
+	'father' => $eyeContainer,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Uninstall eyeOS',
+	'signal' => 'general_uninstall'
+));
+$myButton->addFriend($myTextbox_password);
+$myButton->show();
+
+?>

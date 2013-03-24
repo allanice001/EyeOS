@@ -1,0 +1,102 @@
+a:hover, a:link, a:visited {
+	border: 0;
+	text-decoration: none;
+}
+
+body, html {
+	background-color: #ffffff;
+	font-family: Verdana,Arial,sans-serif,FreeSans;
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+}
+
+#background {
+	overflow: hidden;
+}
+
+.cPointer {
+	cursor: pointer;
+}
+
+#eyeApps {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+}
+
+.eyeCheckboxContainer {
+	font-size: 11px;
+}
+
+.eyeHidden{
+	display: none;
+}
+
+.eyeIcon {
+	cursor: pointer;
+}
+
+.eyeIconMain {
+	cursor: default;
+	overflow: hidden;
+	position: absolute;
+	visibility: hidden;
+}
+
+.eyeLabel {
+	font-size: 11px;
+}
+
+.eyeMenuButton {
+	z-index: 10;
+}
+
+.eyeRadio {
+	font-size: 11px;
+}
+
+#eyeScreen {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+#eyeWallpaper {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.fullPercent {
+	height: 94%;
+}
+
+.hiddenDiv {
+	visibility: hidden;
+}
+
+.minimizedAppsIn {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 500%;
+}
+
+.movableElement {
+	border: 0;
+	cursor: default;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+}
+
+.newLayer {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}

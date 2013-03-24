@@ -1,0 +1,207 @@
+<lang>
+	<info>
+		<lang>العربية</lang>
+		<author>Ahmad Gharbeia</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>كلمة سرِّ المدير</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>لا</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]لا[/span] سترجعك إلى صفحة النظام.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>أتريد حقا إزالة مُنصِّب oneye؟</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>اختر أحد الأفعال التالية:</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>يمكن تنزيل الترجمات من [link].</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>أزل المنصب لدواعي الأمن.</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>أزِل oneye</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>ارجع إلى القائمة</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>واصِل...</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]نعم[/span] ستزيل كل ملفات مُنَصِّب oneye!</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>تعذَّر استخراج ملفات التحديث. لتحديث oneye يدويا غير اسم "[package]" إلى "package.tar.gz" ثم استخرج محتوياته في الدليل ذاته.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>أتريد حقا إزالة oneye؟</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>هذا المحدِّث لا يصلح سوى لإصدارات eyeos 1.5 و ما يليها، بينما الإصدارة المُنصَّبة [version1]. رقِّ eyeos إلى الإصدارة 1.5 قبل التحديث إلى الإصدارة [version2].</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>واصل تحديث تنصيبة oneye إلى الإصدارة [version].</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>حدِّث oneye</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>كلمة سرِّ المدير غير صحيحة!</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>تعذَّرت تسمية الدليل "./eyeOS/". غيَّر اسمه يدويا إلى "[hash]" و اكتب فوق كل الملفات الموجودة.</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>واصِل...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]نعم[/span] ستزيل oneye تماما!</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>نعم</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>صفِّر ملفات النظام</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]لا[/span] سترجعك إلى صفحة النظام.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>فِعل</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>أزل مُنَصِّب oneye</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>كلمة سر المدير مطلوبة</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>كلمة سر المدير ينبغي أن تكون أطول من ثلاثة محارف.</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>املأ الاستمارة التالية لتنصيب oneye:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>يبدو أن الخادوم ليس به دعم gzip. لتنصيب oneye يدويا، غيِّر اسم "[package]" إلى "package.tar.gz" ثم استخرج محتوياته في الدليل ذاته.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>إصدارة oneye المُنَصَّبة حاليا أحدث من هذه. ألغِ الدليل "[installer]" لدواعي الأمن.</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>كلمة سر المدير</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>أعد إدخال كلمة السِّر</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>واصل</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>تعذَّر استخراج الملفات. لتنصيب oneye يدويا غيِّر اسم "[package]" إلى "package.tar.gz" ثم استخرج محتوياته في الدليل ذاته.</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>تعذَّرت تسمية الدليل "./eyeOS/". غيِّر اسمه يدويا إلى "[hash]".</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>تحذير: افحص "[package]" لأنها تبدو معطوبة.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>اللغة الحالية</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>تحذير: خصص الصلاحيات الكلية (chmod 777) للملف "[file]".</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>يجري تنصيب oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>إصدارة PHP العاملة لا تدعم UTF-8 كاملا. نحثك على ترقية PHP أو تنصيب وحدة mbstring، فبغيرها قد تقابلك مشكلات في بعض نواحي النظام التي تتطلب دعم الأقلمة.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>أنجزه</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>كلمة السر لا تطابق توكيدها</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>اللغات</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>طرأت مشكلات أثناء التنصيب:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>يُشغِّل الخادوم حاليا إصدارة من PHP غير مدعومة. رقِّ PHP إلى الإصدارة 5.0 أو ما يليها قبل تنصيب oneye.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>يتطلَّب oneye تعطيل SAFE_MODE، غير أن التضبيطات الحالية تُفَعِّل SAFE_MODE. حرر ملف php.ini لضبط SAFE_MODE إلى OFF، أو اطلب مساعدة مدير النظيم.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>مَكِّن المستخدمين من فتح حسابات</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>عُطل: "[file]" غير موجود.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>نصِّب oneye</new>
+		</text>
+	</part>
+</lang>

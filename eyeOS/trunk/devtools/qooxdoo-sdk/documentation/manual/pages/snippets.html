@@ -1,0 +1,871 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>User Snippets &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../index.html" />
+    <link rel="up" title="Development" href="development.html" />
+    <link rel="next" title="<no title>" href="snippets/toctree.html" />
+    <link rel="prev" title="Using Parts" href="development/parts_using.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="snippets/toctree.html" title="<no title>"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="development/parts_using.html" title="Using Parts"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="development.html" accesskey="U">Development</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="user-snippets">
+<span id="pages-snippets-user-snippets"></span><h1>User Snippets<a class="headerlink" href="#user-snippets" title="Permalink to this headline">¶</a></h1>
+<p>These code snippets have come mainly from the <a class="reference external" href="http://lists.sourceforge.net/lists/listinfo/qooxdoo-devel">mailing list</a>. If you find a mistake in any of the snippets, or have an improvement, or have a snippet of your own, please <tt class="docutils literal"><span class="pre">Login</span></tt> to this wiki and edit these pages.</p>
+<div class="section" id="general">
+<span id="pages-snippets-general"></span><h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="demo-browser">
+<span id="pages-snippets-demo-browser"></span><h3>Demo Browser<a class="headerlink" href="#demo-browser" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Demo Browser</strong> has a large number of simple examples. You can use the <a class="reference external" href="http://demo.qooxdoo.org/1.3/demobrowser">online version</a> or if you&#8217;ve downloaded and <a class="reference internal" href="tool/generator_usage.html"><em>built the SDK</em></a>, you can use your local copy in <tt class="docutils literal"><span class="pre">application/demobrowser/build</span></tt> subdirectory of your SDK installation.</p>
+</div>
+<div class="section" id="show-html-created-by-qooxdoo">
+<span id="pages-snippets-show-html-created-by-qooxdoo"></span><h3>Show HTML created by qooxdoo<a class="headerlink" href="#show-html-created-by-qooxdoo" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you want to see the HTML created by qooxdoo to solve layout problems or track down bugs in qooxdoo.</p>
+<p>In Firefox you can use the <a class="reference external" href="http://getfirebug.com">Firebug extension</a>. &#8220;Inspect Element&#8221; allows you to click on any part of the page and see the XML and CSS that generated the element.</p>
+<p>Otherwise this link will work in all browsers to show the XML tree for the current page:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">javascript</span><span class="o">:</span><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">outerHTML</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span><span class="s1">&#39;&lt;xmp&gt;&#39;</span><span class="o">+</span><span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">outerHTML</span><span class="o">+</span><span class="s1">&#39;&lt;/xmp&gt;&#39;</span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;html&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">innerHTML</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span><span class="s1">&#39;&lt;xmp&gt;&#39;</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;html&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">innerHTML</span><span class="o">+</span><span class="s1">&#39;&lt;/xmp&gt;&#39;</span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">outerHTML</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span><span class="s1">&#39;&lt;xmp&gt;&#39;</span><span class="o">+</span><span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">outerHTML</span><span class="o">+</span><span class="s1">&#39;&lt;/xmp&gt;&#39;</span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Your browser does not support this functionality&#39;</span><span class="p">)</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>There is also a simpler form for IE that will open up the XML in a new window:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">javascript</span><span class="o">:</span><span class="k">void</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;javascript:&#39;&lt;xmp&gt;&#39;+opener.window.document.documentElement.outerHTML+&#39;&lt;/xmp&gt;&#39;&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>You can create a shortcut for this on the toolbar.</p>
+<p><a class="reference external" href="http://ajaxian.com/archives/ie-tip-cheeky-way-to-see-the-current-state-of-the-page">See this Ajaxian article for the original source</a>.</p>
+</div>
+<div class="section" id="running-a-source-version-from-a-web-server">
+<span id="pages-snippets-running-a-source-version-from-a-web-server"></span><h3>Running a Source Version from a Web Server<a class="headerlink" href="#running-a-source-version-from-a-web-server" title="Permalink to this headline">¶</a></h3>
+<p>The basic programming model of qooxdoo suggests that you develop your application in its <tt class="docutils literal"><span class="pre">source</span></tt> version, and once you&#8217;re satisfied create the <tt class="docutils literal"><span class="pre">build</span></tt> version of it, which is then deployed on a web server. qooxdoo&#8217;s <em>build</em> versions of an application are self-contained, they encompass all script files, resources like images and style sheets, and any helper files that are necessary for the application. You can safely copy the <em>build</em> directory to the document forrest of a web server, or zip it up in an archive and send it by mail; the recipient will be able to unpack it and run the application without flaws.</p>
+<p>In contrast, the <em>source</em> version is run off of the file system most of the time (i.e. opening it with the <em>file:</em> protocol in your browser). The source script just references source code and resources with relative paths, wherever they happen to be on your file system. This usually doesn&#8217;t lend itself well to being run from a web server. Even if you include the <em>source</em> directory of your application in an server-accessible path (somewhere down from its DocumentRoot or one of the defined Aliases), chances are that the source script references files which are <strong>outside</strong> the document scope of the web server.</p>
+<p>So if you find yourself in the situation where you need to run a <em>source</em> version of your app from a web server, mind the following hints:</p>
+<ul class="simple">
+<li>Make the <em>source</em> directory of your application accessible to the web server, so that it is reachable through a valid URL like <em>http://your.web.server/path/to/yourapp/source/index.html</em>.</li>
+<li>Make sure all components that are used by your application, as there are the qooxdoo SDK itself, and any additional qooxdoo library or contribution that you use, are equally accessible by the web server.<ul>
+<li>In the case of contribs referenced through the <em>contrib://</em> pseudo protocol in your application configuration, these are downloaded and stored in the download cache directory (config key <a class="reference internal" href="tool/generator_config_ref.html#pages-tool-generator-config-ref-cache"><em>cache/downloads</em></a>), so make sure this path is included in your considerations.</li>
+</ul>
+</li>
+<li>Make sure the relative paths on the web server match those on your file system, e.g. if your app lives on the file system at <em>/a/b/A/myapp</em> and your qooxdoo installation is at <em>/a/b/Z/qooxdoo-sdk</em> and the server path to your app is <em>/web/apps/myapp</em> then make sure the server path to qooxdoo is <em>/web/Z/qooxdoo-sdk</em> so that relative references like <em>../Z/qooxdoo-sdk</em> will work under the web server.</li>
+</ul>
+<p>A simple way to achieve this is to map the DocumentRoot or an Alias to a directory in your file system that is <em>a common parent</em> to <em>all</em> involved qooxdoo components of your app.</p>
+</div>
+<div class="section" id="relax-firefox-3-file-uri-restriction">
+<span id="pages-snippets-relax-firefox-3-file-uri-restriction"></span><h3>Relax Firefox 3 File URI Restriction<a class="headerlink" href="#relax-firefox-3-file-uri-restriction" title="Permalink to this headline">¶</a></h3>
+<p>Firefox 3 will by default employ a strict <a class="reference external" href="http://en.wikipedia.org/wiki/Same_origin_policy">same-origin-policy</a> concerning file URIs, ie. URIs loaded with the <tt class="docutils literal"><span class="pre">%file://%</span></tt> protocol. This can lead to errors when you run the <em>source</em> version of your app from the file system, particularly when your app uses <a class="reference internal" href="development/parts_overview.html"><em>parts</em></a>. In order to relax this strict policy for file URIs, enter <tt class="docutils literal"><span class="pre">about:config</span></tt> in the location bar of your browser and apply the following setting:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">security</span><span class="p">.</span><span class="nx">fileuri</span><span class="p">.</span><span class="nx">strict_origin_policy</span> <span class="o">:</span> <span class="kc">false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="coding">
+<span id="pages-snippets-coding"></span><h2>Coding<a class="headerlink" href="#coding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="center-a-window-on-screen">
+<span id="pages-snippets-center-a-window-on-screen"></span><h3>Center a window on screen<a class="headerlink" href="#center-a-window-on-screen" title="Permalink to this headline">¶</a></h3>
+<p>Here is the solution:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">Window</span><span class="p">();</span>
+
+<span class="c1">// first solution</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">center</span><span class="p">();</span>
+<span class="p">},</span> <span class="nx">win</span><span class="p">);</span>
+
+<span class="c1">// second solution</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="nx">win</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span> <span class="nx">win</span><span class="p">);</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="nx">win</span><span class="p">);</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This solution works even if we don&#8217;t know the real size of the window, because it depends on its content.</p>
+<p>Before the window is shown and know its real size, we place it at the center. We use the <tt class="docutils literal"><span class="pre">resize</span></tt> event instead of the <tt class="docutils literal"><span class="pre">appear</span></tt> event to prevent any flickering, because when using the <tt class="docutils literal"><span class="pre">appear</span></tt> event the window is already visible and then moved to the center. With the <tt class="docutils literal"><span class="pre">resize</span></tt> you can center the window right after the inserting in the DOM (the widget resizes) and avoid any flickering.</p>
+</div>
+<div class="section" id="focus-a-widget-inside-a-window">
+<span id="pages-snippets-focus-a-widget-inside-a-window"></span><h3>Focus a widget inside a window<a class="headerlink" href="#focus-a-widget-inside-a-window" title="Permalink to this headline">¶</a></h3>
+<p>Here is the solution:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">Window</span><span class="p">();</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">Canvas</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">field</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">TextField</span><span class="p">;</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">field</span><span class="p">)</span>
+
+<span class="nx">field</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="nx">win</span><span class="p">);</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Setting the focus at the textfield widget is done in a post-process, so you do not have to use any event listener methods to achieve this.</p>
+</div>
+<div class="section" id="implement-a-context-menu">
+<span id="pages-snippets-implement-a-context-menu"></span><h3>Implement a context-menu<a class="headerlink" href="#implement-a-context-menu" title="Permalink to this headline">¶</a></h3>
+<p>Implementing a context-menu is as easy as never before.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">container</span><span class="p">.</span><span class="nx">Composite</span><span class="p">(</span><span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">Canvas</span><span class="p">);</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">setPadding</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">List</span><span class="p">;</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">setContextMenu</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getContextMenu</span><span class="p">());</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="nx">getContextMenu</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">menu</span><span class="p">.</span><span class="nx">Menu</span><span class="p">;</span>
+
+   <span class="kd">var</span> <span class="nx">cutButton</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">menu</span><span class="p">.</span><span class="nx">Button</span><span class="p">(</span><span class="s2">&quot;Cut&quot;</span><span class="p">,</span> <span class="s2">&quot;icon/16/actions/edit-cut.png&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_cutCommand</span><span class="p">);</span>
+   <span class="kd">var</span> <span class="nx">copyButton</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">menu</span><span class="p">.</span><span class="nx">Button</span><span class="p">(</span><span class="s2">&quot;Copy&quot;</span><span class="p">,</span> <span class="s2">&quot;icon/16/actions/edit-copy.png&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_copyCommand</span><span class="p">);</span>
+   <span class="kd">var</span> <span class="nx">pasteButton</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">menu</span><span class="p">.</span><span class="nx">Button</span><span class="p">(</span><span class="s2">&quot;Paste&quot;</span><span class="p">,</span> <span class="s2">&quot;icon/16/actions/edit-paste.png&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_pasteCommand</span><span class="p">);</span>
+
+   <span class="nx">cutButton</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;execute&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">debugButton</span><span class="p">);</span>
+   <span class="nx">copyButton</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;execute&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">debugButton</span><span class="p">);</span>
+   <span class="nx">pasteButton</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;execute&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">debugButton</span><span class="p">);</span>
+
+   <span class="nx">menu</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cutButton</span><span class="p">);</span>
+   <span class="nx">menu</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">copyButton</span><span class="p">);</span>
+   <span class="nx">menu</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">pasteButton</span><span class="p">);</span>
+
+   <span class="k">return</span> <span class="nx">menu</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This little code snippet is taken from the <a class="reference external" href="http://demo.qooxdoo.org/1.3/demobrowser/#widget~Menu.html">online demo</a>. Just right-click at the list.</p>
+</div>
+<div class="section" id="disable-the-browser-context-menu">
+<span id="pages-snippets-disable-the-browser-context-menu"></span><h3>Disable the browser context menu<a class="headerlink" href="#disable-the-browser-context-menu" title="Permalink to this headline">¶</a></h3>
+<p>qooxdoo does show the default right-click browser menu. How can I disable it?</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Init</span><span class="p">.</span><span class="nx">getApplication</span><span class="p">().</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">setNativeContextMenu</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="problems-with-this-in-event-handlers">
+<span id="pages-snippets-problems-with-this-in-event-handlers"></span><h3>Problems with &#8220;this&#8221; in event handlers<a class="headerlink" href="#problems-with-this-in-event-handlers" title="Permalink to this headline">¶</a></h3>
+<p>How do I ensure that the correct &#8220;this&#8221; is referred to in an event handler? Say you have an event-handler within a custom widget which looks like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">_someHandler</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and then later within the same class definition, register a handler with another class instance:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">anotherWidget</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AnotherWidget</span><span class="p">();</span>
+<span class="nx">anotherWidget</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSomething&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_someHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>When the handler gets triggered by a &#8220;changeSomething&#8221; event, the alert of the handler is being called. However, there is a problem in that &#8216;this&#8217; now refers to an object of class AnotherWidget and not to the instance of MyWidget. To solve this problem, use:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">anotherWidget</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSomething&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_someHandler</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transparent-colors">
+<span id="pages-snippets-transparent-colors"></span><h3>Transparent colors<a class="headerlink" href="#transparent-colors" title="Permalink to this headline">¶</a></h3>
+<p>To set a transparent color for any widget do the following:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// text color</span>
+<span class="nx">myWidget</span><span class="p">.</span><span class="nx">setTextColor</span><span class="p">(</span><span class="s2">&quot;transparent&quot;</span><span class="p">);</span>
+
+<span class="c1">// background color</span>
+<span class="nx">myWidget</span><span class="p">.</span><span class="nx">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;transparent&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>As the <tt class="docutils literal"><span class="pre">transparent</span></tt> color is part of every color theme in qooxdoo, you set this color by simply use this string.</p>
+</div>
+<div class="section" id="user-defined-data">
+<span id="pages-snippets-user-defined-data"></span><h3>User-defined data<a class="headerlink" href="#user-defined-data" title="Permalink to this headline">¶</a></h3>
+<p>Storing any arbitrary value in a qooxdoo object.</p>
+<p>You can store arbitrary user-defined data in any qooxdoo object using the <tt class="docutils literal"><span class="pre">setUserData</span></tt> and <tt class="docutils literal"><span class="pre">getUserData</span></tt> methods. These are guaranteed not to conflict with qooxdoo or javascript properties of the object. Note that as qooxdoo events are derived from <tt class="docutils literal"><span class="pre">qx.event.type.Event</span></tt> which extends <tt class="docutils literal"><span class="pre">qx.core.Object</span></tt>, you can store user-defined data in events as well.</p>
+<p>For example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">MyObject</span><span class="p">.</span><span class="nx">setUserData</span><span class="p">(</span><span class="s2">&quot;MyData&quot;</span><span class="p">,</span> <span class="s2">&quot;123&quot;</span><span class="p">);</span>
+<span class="nx">MyObject</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;MyData = &quot;</span> <span class="o">+</span> <span class="nx">MyObject</span><span class="p">.</span><span class="nx">getUserData</span><span class="p">(</span><span class="s2">&quot;MyData&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modal-windows">
+<span id="pages-snippets-modal-windows"></span><h3>Modal windows<a class="headerlink" href="#modal-windows" title="Permalink to this headline">¶</a></h3>
+<p>Modal windows are windows which have to be closed (e.g. via it&#8217;s buttons like &#8220;OK&#8221; or &#8220;Cancel&#8221;) before any other UI element can be used. In qooxdoo a special blocker element is used to prevent user actions on other elements than the open modal window. The blocker element can be styled (e.g. it can have an semi-transparent background) to accent that the window is a modal one.
+The blocker is included in every root widget (<a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.ui.root.Application">qx.ui.root.Application</a>, <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.ui.root.Inline">qx.ui.root.Inline</a>, <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.ui.root.Page">qx.ui.root.Page</a>) and in <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.ui.window.Desktop">qx.ui.window.Desktop</a>.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">getApplicationRoot</span><span class="p">().</span><span class="nx">set</span><span class="p">({</span>
+  <span class="nx">blockerColor</span><span class="o">:</span> <span class="s1">&#39;#bfbfbf&#39;</span><span class="p">,</span>
+  <span class="nx">blockerOpacity</span><span class="o">:</span> <span class="mf">1.2</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>If you want to use this feature not inside a widget based object but inside a qx.application.Standalone, use this.getRoot() instead of this.getApplication.Root().</p>
+</div>
+<div class="section" id="add-a-flash-movie-to-a-window">
+<span id="pages-snippets-add-a-flash-movie-to-a-window"></span><h3>Add a flash movie to a window<a class="headerlink" href="#add-a-flash-movie-to-a-window" title="Permalink to this headline">¶</a></h3>
+<p>This short snippet also applies if just want to add a flash movie to your qooxdoo application.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">doc</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">Window</span><span class="p">(</span><span class="s2">&quot;Window&quot;</span><span class="p">);</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">Canvas</span><span class="p">());</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">win</span><span class="p">,</span> <span class="p">{</span><span class="nx">top</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">left</span><span class="o">:</span> <span class="mi">20</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">layout</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">Basic</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">container</span><span class="p">.</span><span class="nx">Composite</span><span class="p">(</span><span class="nx">layout</span><span class="p">);</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">400</span> <span class="p">});</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">);</span>
+
+<span class="nx">win</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;appear&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">domElement</span> <span class="o">=</span> <span class="nx">container</span><span class="p">.</span><span class="nx">getContentElement</span><span class="p">().</span><span class="nx">getDomElement</span><span class="p">();</span>
+   <span class="kd">var</span> <span class="nx">flash</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">bom</span><span class="p">.</span><span class="nx">Flash</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">domElement</span><span class="p">,</span> <span class="nx">FLASH_URL</span><span class="p">,</span> <span class="s2">&quot;flashMovie&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">win</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="table-celleditors-stop-editing-on-value-change">
+<span id="pages-snippets-table-celleditors-stop-editing-on-value-change"></span><h3>Table Celleditors: Stop editing on value change<a class="headerlink" href="#table-celleditors-stop-editing-on-value-change" title="Permalink to this headline">¶</a></h3>
+<p>As default behaviour the cell editors of the table widget are stop the editing mode whenever the user clicks at any other cell. Anyway sometimes the users want to be able to stop the editing whenever the value has changed, e.g. if  they pick another item out of the list of a combobox.
+To achieve this you can add the following to the cell editor classes</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// this snippet targets the ComboBox cell editor</span>
+<span class="c1">// this approach should also work for the other cell editors</span>
+
+<span class="nx">createCellEditor</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cellInfo</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="p">...</span>
+
+   <span class="nx">cellEditor</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeValue&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+  <span class="p">{</span>
+     <span class="nx">cellInfo</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">stopEditing</span><span class="p">();</span>
+  <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enabling-drag-and-drop-in-virtual-widgets">
+<span id="pages-snippets-enabling-drag-and-drop-in-virtual-widgets"></span><h3>Enabling drag and drop in virtual widgets<a class="headerlink" href="#enabling-drag-and-drop-in-virtual-widgets" title="Permalink to this headline">¶</a></h3>
+<p>To enable drag and drop features at virtual widgets you currently have to manipulate framework methods directly. The issues with drag and drop in virtual widgets will be addressed with the <a class="reference external" href="http://bugzilla.qooxdoo.org/show_bug.cgi?id=1215">Bug #1215</a></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// patch the &quot;supportsDrop&quot; method</span>
+<span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">supportsDrop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dragCache</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">supportsDropMethod</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getSupportsDropMethod</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">supportsDropMethod</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">supportsDropMethod</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">dragCache</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// patch the &quot;getDropTarget&quot; method</span>
+<span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">handler</span><span class="p">.</span><span class="nx">DragAndDropHandler</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getDropTarget</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;qx.client&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="s2">&quot;gecko&quot;</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">vCurrent</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">getTarget</span><span class="p">();</span>
+
+    <span class="c1">//        if (vCurrent == this.__dragCache.sourceWidget) {</span>
+    <span class="c1">//          vCurrent = qx.event.handler.EventHandler.getTargetObject(qx.html.ElementFromPoint.getElementFromPoint(e.getPageX(), e.getPageY()));</span>
+    <span class="c1">//        } else {</span>
+    <span class="nx">vCurrent</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">handler</span><span class="p">.</span><span class="nx">EventHandler</span><span class="p">.</span><span class="nx">getTargetObject</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">vCurrent</span><span class="p">);</span>
+
+    <span class="c1">//        }</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">vCurrent</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">vCurrent</span><span class="p">.</span><span class="nx">supportsDrop</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">__dragCache</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">supportsDrop</span><span class="p">(</span><span class="nx">vCurrent</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">vCurrent</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">vCurrent</span> <span class="o">=</span> <span class="nx">vCurrent</span><span class="p">.</span><span class="nx">getParent</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;default&quot;</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">vCurrent</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">getTarget</span><span class="p">();</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="nx">vCurrent</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">vCurrent</span><span class="p">.</span><span class="nx">supportsDrop</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">__dragCache</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">supportsDrop</span><span class="p">(</span><span class="nx">vCurrent</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">vCurrent</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">vCurrent</span> <span class="o">=</span> <span class="nx">vCurrent</span><span class="p">.</span><span class="nx">getParent</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}),</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="finding-out-which-qooxdoo-widget-generated-a-given-dom-element">
+<span id="pages-snippets-finding-out-which-qooxdoo-widget-generated-a-given-dom-element"></span><h3>Finding out which qooxdoo widget generated a given DOM element<a class="headerlink" href="#finding-out-which-qooxdoo-widget-generated-a-given-dom-element" title="Permalink to this headline">¶</a></h3>
+<p>I have found this useful for testing with <a class="reference external" href="http://seleniumhq.org/">Selenium</a>. If you have a native DOM element and want to find out which qooxdoo widget it is, use the following code, (I only tried it in qooxdoo 1.2).</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">getQooxdooClassName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">domElement</span><span class="p">)</span>
+      <span class="p">{</span>
+           <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">qx</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span> <span class="c1">// this is not a qooxdoo frame</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">$$hash</span><span class="p">)</span>
+            <span class="p">{</span>
+                  <span class="kd">var</span> <span class="nx">qxWrapper</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">ObjectRegistry</span><span class="p">.</span><span class="nx">__registry</span><span class="p">[</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">$$hash</span><span class="p">];</span>
+                  <span class="k">if</span> <span class="p">(</span><span class="nx">qxWrapper</span><span class="p">.</span><span class="nx">__attribValues</span> <span class="o">&amp;&amp;</span> <span class="nx">qxWrapper</span><span class="p">.</span><span class="nx">__attribValues</span><span class="p">[</span><span class="s2">&quot;$$widget&quot;</span><span class="p">])</span>
+                  <span class="p">{</span>
+                        <span class="kd">var</span> <span class="nx">wid</span> <span class="o">=</span> <span class="nx">qxWrapper</span><span class="p">.</span><span class="nx">__attribValues</span><span class="p">[</span><span class="s2">&quot;$$widget&quot;</span><span class="p">];</span> <span class="c1">// widgetId</span>
+                        <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">ObjectRegistry</span><span class="p">.</span><span class="nx">__registry</span><span class="p">[</span><span class="nx">wid</span><span class="p">];</span>
+                        <span class="k">return</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">classname</span>
+                  <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// the domElement has no qooxdoo counterpart - returns `undefined`</span>
+      <span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-contextual-help-inside-a-tooltip">
+<span id="pages-snippets-display-contextual-help-inside-a-tooltip"></span><h3>Display contextual help inside a toolTip<a class="headerlink" href="#display-contextual-help-inside-a-tooltip" title="Permalink to this headline">¶</a></h3>
+<p><em>Contributed by Farid Elyahyaoui</em></p>
+<p>Suppose you like to display a contextual help inside a toolTip widget by requesting the help contents dynamically with the help of a XMLHttp request. This little snippet could be a good entry point.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">_help</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">basic</span><span class="p">.</span><span class="nx">Image</span><span class="p">(</span><span class="s2">&quot;icon/16/actions/help-contents.png&quot;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_help</span><span class="p">);</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">_helpToolTip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">tooltip</span><span class="p">.</span><span class="nx">ToolTip</span><span class="p">(</span><span class="s1">&#39;the &lt;b&gt;initial html&lt;/b&gt; code&#39;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">_helpToolTip</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span> <span class="nx">rich</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">showTimeout</span><span class="o">:</span> <span class="mi">200</span> <span class="p">});</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">_help</span><span class="p">.</span><span class="nx">setToolTip</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_helpToolTip</span><span class="p">);</span>
+
+<span class="c1">// only get the help content once</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">_help</span><span class="p">.</span><span class="nx">addListenerOnce</span><span class="p">(</span><span class="s2">&quot;mouseover&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onHelpMouseOver</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">onHelpMouseOver</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">remote</span><span class="p">.</span><span class="nx">Request</span><span class="p">(</span><span class="s2">&quot;path/to/help.txt&quot;</span><span class="p">);</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onHelpRequestCompleted</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">onHelpRequestCompleted</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">getContent</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">_helpToolTip</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-scrollbars-to-a-desktop-widget">
+<span id="pages-snippets-adding-scrollbars-to-a-desktop-widget"></span><h3>Adding scrollbars to a Desktop widget<a class="headerlink" href="#adding-scrollbars-to-a-desktop-widget" title="Permalink to this headline">¶</a></h3>
+<p>By default a Desktop widget does not display scrollbars if a wiget get positioned (partly) outside the visible area of the Desktop. If you want to have scrollbars, you have to configure the Manager of the Desktop:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">windowManager</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">Manager</span><span class="p">().</span><span class="nx">set</span><span class="p">({</span>
+  <span class="nx">allowShrinkX</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">allowShrinkY</span> <span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">desktop</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">Desktop</span><span class="p">(</span><span class="nx">windowManager</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="activate-the-focus-handler-at-low-level">
+<span id="pages-snippets-activate-the-focus-handler-at-low-level"></span><h3>Activate the focus handler at low-level<a class="headerlink" href="#activate-the-focus-handler-at-low-level" title="Permalink to this headline">¶</a></h3>
+<p>Consider the following setup: A low-level widget which tries to listen to key input events at a e.g. native input element. If you develop your low-level application with extending the <tt class="docutils literal"><span class="pre">qx.application.Simple</span></tt> framework class everything is fine and you&#8217;re done. However, if you choose to develop a stand-alone low-level widget/application which does <strong>not</strong> extend the simple application class you have to activate the focus handler for yourself.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">isDefined</span><span class="p">(</span><span class="s2">&quot;qx.event.handler.Focus&quot;</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">Registration</span><span class="p">.</span><span class="nx">getManager</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">getHandler</span><span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">handler</span><span class="p">.</span><span class="nx">Focus</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You probably think: so why do you need to do this?</p>
+<p>The reason is that the focus handler is not created at startup rather at the
+first key events dispatched by the user actions. Since the focus handler is not
+available at the time the user focusses the input element at the first time it
+cannot set this element as the active one and does not delegate the events to
+this element.
+The events are fired at the BODY element (which is the fallback if no element
+is active).</p>
+</div>
+<div class="section" id="keypress-and-keyup-listener-at-input-elements">
+<span id="pages-snippets-keypress-and-keyup-listener-at-input-elements"></span><h3>keypress and keyup listener at input elements<a class="headerlink" href="#keypress-and-keyup-listener-at-input-elements" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This snippet is about low-level functionality when adding listener to e.g. <em>input</em> elements. The high-level textfield widget does provide the <em>input</em> event for monitoring the value changes.</p>
+</div>
+<p>Suppose you like to get informed when the user types into a certain input element you probably dealing with the question: should I use the <em>keypress</em> or the <em>keyup</em> event listener?</p>
+<p>These code snippet should help you with your decision:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">inputEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
+
+<span class="c1">// suppose the user is inserting the value &quot;a&quot;</span>
+<span class="c1">// into the empty input element</span>
+
+<span class="nx">inputEl</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;keypress&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+  <span class="c1">// &quot;this&quot; refers to the input element</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+
+  <span class="c1">// -&gt; value == &quot;&quot;</span>
+<span class="p">});</span>
+
+<span class="nx">inputEl</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;keyup&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+  <span class="c1">// &quot;this&quot; refers to the input element</span>
+   <span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+
+  <span class="c1">// -&gt; value == &quot;a&quot;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The interesting thing is that the <em>keypress</em> event is fired <strong>before</strong> the input element receives the value, so you can&#8217;t use the <em>keypress</em> event to check for the correct value. You have access to the inserted character by <em>e.getKeyIdentifier()</em> but you can&#8217;t know where the character is inserted.</p>
+<p>The <em>keyUp</em> event on the other hand does get you the right value because this event is fired <strong>after</strong> the value is inserted.
+Drawback for the <em>keyup</em> listener: if the user holds the key only <strong>one event</strong> is fired at the end.</p>
+</div>
+<div class="section" id="reducing-requests-when-using-the-remote-table-model">
+<span id="pages-snippets-reducing-requests-when-using-the-remote-table-model"></span><h3>Reducing requests when using the Remote Table Model<a class="headerlink" href="#reducing-requests-when-using-the-remote-table-model" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As of r19372, the actions suggested in this snippet are no longer required. The mutex %__loadRowCountRequestRunning% has been added within qx.ui.table.model.Remote to prevent multiple concurrent calls to the user’s _loadRowCount() method. To revert to the original behavior, set the remote model&#8217;s property blockConcurrentLoadRowCount to <em>false</em>.</p>
+</div>
+<p>This snippet is assuming you&#8217;ve already read the article about <a class="reference internal" href="widget/table_remote_model.html"><em>Using the remote table model</em></a>.</p>
+<p>Normally the remote table model does fire several requests when starting up to retrieve the information about the row count.
+Since several table components need this value they are requesting this value on their own resulting in multiple requests to the backend (as long as the value is retrieved and stored).</p>
+<p>To omit this behaviour you can only allow one request for the row count to be fired and blocking all other requests.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">members</span> <span class="o">:</span> <span class="p">{</span>
+  <span class="nx">__loadRowCountRequestRunning</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+
+  <span class="c1">// overloaded - called whenever the table requests the row count</span>
+  <span class="nx">_loadRowCount</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">__loadRowCountRequestRunning</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Call the backend service (example) - using XmlHttp</span>
+      <span class="kd">var</span> <span class="nx">url</span>  <span class="o">=</span> <span class="s2">&quot;http://localhost/services/getTableCount.php&quot;</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">remote</span><span class="p">.</span><span class="nx">Request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">);</span>
+
+      <span class="c1">// Add listener</span>
+      <span class="nx">req</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onRowCountCompleted</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+
+      <span class="c1">// send request</span>
+      <span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+
+      <span class="c1">// setting the flag</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">__loadRowCountRequestRunning</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Listener for request of &quot;_loadRowCount&quot; method</span>
+  <span class="nx">_onRowCountCompleted</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+  <span class="p">{</span>
+     <span class="c1">// Resetting the flag</span>
+     <span class="k">this</span><span class="p">.</span><span class="nx">__loadRowCountRequestRunning</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+     <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">getContent</span><span class="p">();</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">result</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+     <span class="p">{</span>
+        <span class="c1">// Apply it to the model - the method &quot;_onRowCountLoaded&quot; has to be called</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_onRowCountLoaded</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integrating-maps-google-yahoo-openlayers">
+<span id="pages-snippets-integrating-maps-google-yahoo-openlayers"></span><h3>Integrating Maps (Google, Yahoo, OpenLayers, ...)<a class="headerlink" href="#integrating-maps-google-yahoo-openlayers" title="Permalink to this headline">¶</a></h3>
+<p>It should be pretty straightforward to integrate qooxdoo with free map software. Here are some pointers that should get you started for integrating with ...</p>
+<ul class="simple">
+<li><a class="reference external" href="http://n2.nabble.com/yahoo-maps-breaks-qooxdoo-tp3271487p3274572.html">Yahoo maps</a></li>
+<li><a class="reference external" href="http://old.nabble.com/embedding-google-maps-td24805482.html">Google maps</a></li>
+<li><a class="reference external" href="http://old.nabble.com/Openstreet-map-td24932920.html">OpenStreetMap</a></li>
+<li><a class="reference external" href="http://old.nabble.com/integrating-openlayers-with-qooxdoo-td22417744.html">OpenLayers</a></li>
+</ul>
+</div>
+<div class="section" id="using-a-bom-application-inside-a-frameset-in-ie">
+<span id="pages-snippets-using-a-bom-application-inside-a-frameset-in-ie"></span><h3>Using a BOM application inside a frameset in IE<a class="headerlink" href="#using-a-bom-application-inside-a-frameset-in-ie" title="Permalink to this headline">¶</a></h3>
+<p>If you plan to use a BOM application inside a frameset you have to be aware of some IE-specific behaviour. All versions of IE do fire the <tt class="docutils literal"><span class="pre">ready</span></tt> event <em>before</em> the listener can be attached to the window object.
+However below is a solution to deal with this behaviour.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">Registration</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s2">&quot;ready&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="p">});</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">qx</span> <span class="o">&amp;&amp;</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">event</span> <span class="o">&amp;&amp;</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">Registration</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">manager</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">Registration</span><span class="p">.</span><span class="nx">getManager</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">handler</span> <span class="o">=</span> <span class="nx">manager</span><span class="p">.</span><span class="nx">findHandler</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s2">&quot;ready&quot;</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">isApplicationReady</span><span class="p">())</span> <span class="p">{</span>
+     <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;application ready&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capturing-caps-lock">
+<span id="pages-snippets-capturing-caps-lock"></span><h3>Capturing Caps Lock<a class="headerlink" href="#capturing-caps-lock" title="Permalink to this headline">¶</a></h3>
+<p>If you try to detect a caps lock you can use for example this <a class="reference external" href="http://24ways.org/2007/capturing-caps-lock">algorithm</a>, but keep care the algorithm doesn&#8217;t work with umlauts etc.</p>
+<p>Here the qooxdoo equivalent:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">textField</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">TextField</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">capsLock</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">CheckBox</span><span class="p">(</span><span class="s2">&quot;Caps lock&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">doc</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">();</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">capsLock</span> <span class="p">,</span> <span class="p">{</span><span class="nx">left</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">25</span><span class="p">});</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">textField</span><span class="p">,</span> <span class="p">{</span><span class="nx">left</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">50</span><span class="p">});</span>
+
+<span class="nx">textField</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;keyinput&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">charCode</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">getCharCode</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">shiftPressed</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">isShiftPressed</span><span class="p">();</span>
+
+  <span class="c1">// Keep care the algorithm doesn&#39;t work with umlauts etc.</span>
+  <span class="k">if</span> <span class="p">(((</span><span class="nx">charCode</span> <span class="o">&gt;=</span> <span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="nx">charCode</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">shiftPressed</span><span class="p">)</span> <span class="o">||</span>
+     <span class="p">((</span><span class="nx">charCode</span> <span class="o">&gt;=</span> <span class="mi">97</span> <span class="o">&amp;&amp;</span> <span class="nx">charCode</span> <span class="o">&lt;=</span> <span class="mi">122</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">shiftPressed</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">capsLock</span><span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">capsLock</span><span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tooling">
+<span id="pages-snippets-tooling"></span><h2>Tooling<a class="headerlink" href="#tooling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-client-specific-variants-of-your-application">
+<span id="pages-snippets-create-client-specific-variants-of-your-application"></span><h3>Create client-specific variants of your application<a class="headerlink" href="#create-client-specific-variants-of-your-application" title="Permalink to this headline">¶</a></h3>
+<p>Suppose you have a client-detection at your site and you want to serve your visitors a client-specific version of your application. To achieve this goal you can use the powerful generator. You only have to create a custom configuration and you&#8217;re done.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="c1">// normal skeleton configuration</span>
+  <span class="c1">// left out for simplicity</span>
+
+  <span class="cm">/* the &quot;jobs&quot; section is the interesting part */</span>
+  <span class="s2">&quot;jobs&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+     <span class="s2">&quot;build-script&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+      <span class="cm">/* adding the variants */</span>
+      <span class="s2">&quot;variants&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;qx.client&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;gecko&quot;</span><span class="p">,</span> <span class="s2">&quot;mshtml&quot;</span><span class="p">,</span> <span class="s2">&quot;webkit&quot;</span><span class="p">,</span> <span class="s2">&quot;opera&quot;</span> <span class="p">]</span>
+      <span class="p">},</span>
+
+      <span class="s2">&quot;compile-options&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;paths&quot;</span> <span class="o">:</span>
+        <span class="p">{</span>
+           <span class="cm">/* overwrite &quot;file&quot; entry to get client-specific file names */</span>
+           <span class="s2">&quot;file&quot;</span> <span class="o">:</span> <span class="s2">&quot;${BUILD_PATH}/script/${APPLICATION}-{qx.client}.js&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="support-for-finding-potential-memory-leaks">
+<span id="pages-snippets-support-for-finding-potential-memory-leaks"></span><h3>Support for finding potential memory leaks<a class="headerlink" href="#support-for-finding-potential-memory-leaks" title="Permalink to this headline">¶</a></h3>
+<p>You know that <a class="reference internal" href="development/memory_management.html"><em>Memory Management</em></a> is an important task and you would like to check your application against potential memory leaks? Then read on :)</p>
+<p>The best way to achieve this is to create a new job by extend the existing <tt class="docutils literal"><span class="pre">source</span></tt> job. This lets you easily switch between your normal development and a special version of your application to track down memory issues.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;jobs&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="c1">// existing jobs ...</span>
+
+    <span class="s2">&quot;source-disposerDebug&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;desc&quot;</span> <span class="o">:</span> <span class="s2">&quot;source version with &#39;qx.disposerDebugLevel&#39; for destruct support&quot;</span><span class="p">,</span>
+
+      <span class="s2">&quot;extend&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;source&quot;</span> <span class="p">],</span>
+
+      <span class="s2">&quot;settings&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+         <span class="s2">&quot;qx.disposerDebugLevel&quot;</span> <span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>That&#8217;s all.</p>
+<p>If you like you can add the <tt class="docutils literal"><span class="pre">source-disposerDebug</span></tt> to your <tt class="docutils literal"><span class="pre">export</span></tt> list to make this job public. If you run <tt class="docutils literal"><span class="pre">./generate.py</span> <span class="pre">?</span></tt> this job will show up in the list with the given description.</p>
+<p>When you generated your application with the <tt class="docutils literal"><span class="pre">source-disposerDebug</span></tt> job all you have to run is</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">ObjectRegistry</span><span class="p">.</span><span class="nx">shutdown</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>at the Firebug console. This starts the destruct mechanism of your application and you can analyze the given messages to improve your application. Usually, there is not much to see because we can not check for some of the critical stuff. So be sure to read <a class="reference internal" href="development/memory_management.html"><em>Memory Management</em></a> documentation.</p>
+</div>
+<div class="section" id="compress-qooxdoo-without-mod-deflate">
+<span id="pages-snippets-compress-qooxdoo-without-mod-deflate"></span><h3>Compress qooxdoo without mod_deflate<a class="headerlink" href="#compress-qooxdoo-without-mod-deflate" title="Permalink to this headline">¶</a></h3>
+<p>This explains how to enable a gzipped qooxdoo.js without having this possibility directly built in to your webserver.</p>
+<p>If you have php at the server, you can write in your html file:</p>
+<div class="highlight-javascript"><pre>&lt;script type="text/javascript" src="&lt;&lt;path&gt;&gt;/qooxdoo.php"&gt;&lt;/script&gt;</pre>
+</div>
+<p>Then you create a file called qooxdoo.php with this content:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+   <span class="cm">/**</span>
+<span class="cm">   * @author     Oliver Vogel &lt;o.vogel@muv.com&gt;</span>
+<span class="cm">   * @since      05.03.2006</span>
+<span class="cm">   */</span>
+   <span class="nx">$encodings</span> <span class="o">=</span> <span class="nx">array</span><span class="p">();</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nx">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_ACCEPT_ENCODING&#39;</span><span class="p">]))</span>
+   <span class="p">{</span>
+       <span class="c1">// Get all available encodings</span>
+       <span class="nx">$encodings</span> <span class="o">=</span> <span class="nx">explode</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="nx">strtolower</span><span class="p">(</span><span class="nx">preg_replace</span><span class="p">(</span><span class="s2">&quot;/\s+/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_ACCEPT_ENCODING&#39;</span><span class="p">])));</span>
+         <span class="c1">// Check for gzip header</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">in_array</span><span class="p">(</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="nx">$encodings</span><span class="p">))</span>
+       <span class="p">{</span>
+           <span class="c1">// found: send the zip-ed file</span>
+           <span class="nx">header</span><span class="p">(</span><span class="s2">&quot;Content-Encoding: gzip&quot;</span><span class="p">);</span>
+           <span class="nx">echo</span> <span class="nx">file_get_contents</span><span class="p">(</span><span class="nx">getenv</span><span class="p">(</span><span class="s1">&#39;DOCUMENT_ROOT&#39;</span><span class="p">)</span> <span class="p">.</span> <span class="s1">&#39;&lt;&lt;path&gt;&gt;/qooxdoo.js.gz&#39;</span><span class="p">);</span>
+           <span class="nx">die</span><span class="p">;</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="c1">// Encoding not found or gzip not accepted -&gt; send &quot;normal&quot; file</span>
+   <span class="nx">echo</span> <span class="nx">file_get_contents</span><span class="p">(</span><span class="nx">getenv</span><span class="p">(</span><span class="s1">&#39;DOCUMENT_ROOT&#39;</span><span class="p">)</span> <span class="p">.</span> <span class="s1">&#39;&lt;&lt;path&gt;&gt;/qooxdoo.js&#39;</span><span class="p">);</span>
+   <span class="nx">die</span><span class="p">;</span>
+<span class="o">?&gt;</span>
+</pre></div>
+</div>
+<p>This page checks if the browser supports gzip. If this is true, the server sends the gzip file to the client. This solution needs no gzip-support at the server-side!</p>
+<p>Also, if you are writing your own webserver it is trivial to include this feature directly.</p>
+<p>I know, it is NOT JavaScript but maybe it is a good idea to add this to the qooxdoo distribution (and it may be a good idea if one with Python or Perl or other experience ports this script to another server-side programming language).</p>
+<p><a class="reference external" href="http://www.nabble.com/speed-up-loading-time-of-qooxdoo-t1234762.html">Contributed by Oliver Vogel, here</a>.</p>
+</div>
+<div class="section" id="setting-a-different-application-root">
+<span id="pages-snippets-setting-a-different-application-root"></span><h3>Setting a different application root<a class="headerlink" href="#setting-a-different-application-root" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="snippets/setting_a_different_application_root.html"><em>separate document</em></a>.</p>
+</div>
+<div class="section" id="setting-a-different-main-application-class">
+<span id="pages-snippets-setting-a-different-main-application-class"></span><h3>Setting a different main application class<a class="headerlink" href="#setting-a-different-main-application-class" title="Permalink to this headline">¶</a></h3>
+<p>If you want to have a different class as the main class of your application, this is what you have to do:</p>
+<p><em>(version 0.8.3+)</em></p>
+<p>In the global <em>let</em> section of your config file, add the &#8220;APPLICATION_MAIN_CLASS&#8221; macro:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;let&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;APPLICATION_MAIN_CLASS&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;namespace&gt;.&lt;ClassName&gt;&quot;</span><span class="p">,</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>(version &lt;0.8.3)</em></p>
+<p>You have to tweak two keys in your configuration:</p>
+<blockquote>
+<ul class="simple">
+<li>you have to override the <em>include</em> key of the compile jobs</li>
+<li>you have to override the <em>qx.application</em> setting</li>
+</ul>
+</blockquote>
+<p>In a GUI skeleton you could achieve this like so:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="p">...</span>
+  <span class="s2">&quot;jobs&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;common&quot;</span> <span class="o">:</span> <span class="p">{</span>
+       <span class="s2">&quot;=include&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;${QXTHEME}&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;namespace&gt;.&lt;ClassName&gt;&quot;</span><span class="p">],</span>
+       <span class="s2">&quot;settings&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;qx.application&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;namespace&gt;.&lt;ClassName&gt;&quot;</span><span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">=</span></tt> in front of the <em>include</em> key is important, since you need to overrride the whole list of included names.</p>
+</div>
+<div class="section" id="adding-non-qooxdoo-code-to-your-application">
+<span id="pages-snippets-adding-non-qooxdoo-code-to-your-application"></span><h3>Adding non-qooxdoo code to your application<a class="headerlink" href="#adding-non-qooxdoo-code-to-your-application" title="Permalink to this headline">¶</a></h3>
+<p>At times you might need to incorporate code into your qooxdoo application that for some reason cannot be clad in qooxdoo class code, e.g. because it is code you don&#8217;t maintain yourself or which is used across several projects.</p>
+<p>As of today, there is no complete integration of foreign code into a qooxdoo application. But here are some hints:</p>
+<blockquote>
+<ul class="simple">
+<li>You can compress and optimize non-qooxdoo code using the <tt class="docutils literal"><span class="pre">tool/bin/compile.py</span></tt> frontend of the compiler. compile.py works on individual files. Use <tt class="docutils literal"><span class="pre">compile.py</span> <span class="pre">--help</span></tt> to familiarize yourself with the options. You have to capture the output into a file.</li>
+<li>You can use the <em>:ref:`copy-files &lt;pages/tool/generator_config_ref#copy-files&gt;`</em> config key, to copy JS files between source and build version.</li>
+<li>To integrate the code in your application, you can use <tt class="docutils literal"><span class="pre">&lt;script&gt;</span></tt> tags in your index.html. In your qooxdoo class code you can then access the classes and functions provided by the foreign JS code module.</li>
+<li>Have a look at the code of the <a class="reference external" href="http://qooxdoo.svn.sourceforge.net/viewvc/qooxdoo/tags/release_0_8_2/qooxdoo/application/playground/">Playground</a> application that uses CodeMirror code.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="using-complex-name-spaces">
+<span id="pages-snippets-using-complex-name-spaces"></span><h3>Using complex name spaces<a class="headerlink" href="#using-complex-name-spaces" title="Permalink to this headline">¶</a></h3>
+<p>Increasingly, people use complex name spaces in their applications, e.g. following the Java style with name spaces like <tt class="docutils literal"><span class="pre">org.myorg.webclient.utils</span></tt>. See this <a class="reference internal" href="snippets/using_complex_namespaces.html"><em>separate document</em></a> for more details on using complex name spaces.</p>
+</div>
+<div class="section" id="creating-an-apiviewer-that-covers-all-used-libraries-contributions">
+<span id="pages-snippets-creating-an-apiviewer-that-covers-all-used-libraries-contributions"></span><h3>Creating an Apiviewer that covers all used libraries/contributions<a class="headerlink" href="#creating-an-apiviewer-that-covers-all-used-libraries-contributions" title="Permalink to this headline">¶</a></h3>
+<p>You can create a local version of the <a class="reference external" href="http://qooxdoo.org/application#api_viewer">Apiviewer</a> application by running <tt class="docutils literal"><span class="pre">:ref:`generate.py</span> <span class="pre">api</span> <span class="pre">&lt;pages/tool/generator_default_jobs#api&gt;`</span></tt> in your application. By default, though, only your own application classes and the framework classes are taken into account and displayed in the generated Apiviewer. If you are using additional qooxdoo libraries and/or contributions in your application (which requires you to list them in the <tt class="docutils literal"><span class="pre">libraries</span></tt> job in your config), and want them included in a local Apiviewer, you have to overwrite the <a class="reference internal" href="tool/generator_config_macros.html"><em>API_INCLUDE</em></a>  macro, to get the lib classes documented in Apiviewer. Add this to your config.json&#8217;s <tt class="docutils literal"><span class="pre">let</span></tt> section:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">API_INCLUDE</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;qx.*&quot;</span><span class="p">,</span><span class="s2">&quot;${APPLICATION}.*&quot;</span><span class="p">,</span> <span class="s2">&quot;lib1.*&quot;</span><span class="p">,</span> <span class="s2">&quot;contrib2.*&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The first two, <tt class="docutils literal"><span class="pre">&quot;qx.*&quot;</span></tt> and <tt class="docutils literal"><span class="pre">&quot;${APPLICATION}&quot;</span></tt>, should always be in; then, add the name spaces of  libs/contribs as desired, to have the data in the generated Apiviewer.</p>
+</div>
+<div class="section" id="finding-your-system-wide-tmp-directory">
+<span id="pages-snippets-finding-your-system-wide-tmp-directory"></span><h3>Finding your System-wide TMP Directory<a class="headerlink" href="#finding-your-system-wide-tmp-directory" title="Permalink to this headline">¶</a></h3>
+<p>If you are using the default settings, the cache path for your generator runs is under a system-wide TMP directory. The path to this TMP directory is system-dependend (e.g. under Linux, it is usually /tmp, and on some Windows version, it might be under C:TEMP). To find out which path is used on your particular system, use the following shell command:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">python</span> <span class="o">-</span><span class="nx">c</span> <span class="s2">&quot;import tempfile; print tempfile.gettempdir()&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="further-individual-snippets">
+<h2>Further Individual Snippets<a class="headerlink" href="#further-individual-snippets" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="snippets/centering_a_window.html">How to center a window on screen?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/compress_qooxdoo.js_without_mod_deflate.html">Compress qooxdoo without mod_deflate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/demobrowser.html">Demo Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/different_application_root.html">Setting a different application root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/focusing_a_widget_in_a_window.html">How to set the focus to a widget in a window?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/how_do_i_enable_the_browser_context_menu.html">How do I disable the browser context menu?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/how_do_i_see_html_created_by_qooxdoo.html">How do I see HTML created by qooxdoo?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/implementing_a_contextmenu.html">How to implement a context-menu?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/problems_with_this_in_event_handlers.html">Problems with &#8220;this&#8221; in event handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/setting_a_different_application_root.html">Setting a different application root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/transparent_colors.html">Transparent colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/user-defined_data.html">User-defined data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippets/using_complex_namespaces.html">Using Complex Name Spaces</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">User Snippets</a><ul>
+<li><a class="reference internal" href="#general">General</a><ul>
+<li><a class="reference internal" href="#demo-browser">Demo Browser</a></li>
+<li><a class="reference internal" href="#show-html-created-by-qooxdoo">Show HTML created by qooxdoo</a></li>
+<li><a class="reference internal" href="#running-a-source-version-from-a-web-server">Running a Source Version from a Web Server</a></li>
+<li><a class="reference internal" href="#relax-firefox-3-file-uri-restriction">Relax Firefox 3 File URI Restriction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#coding">Coding</a><ul>
+<li><a class="reference internal" href="#center-a-window-on-screen">Center a window on screen</a></li>
+<li><a class="reference internal" href="#focus-a-widget-inside-a-window">Focus a widget inside a window</a></li>
+<li><a class="reference internal" href="#implement-a-context-menu">Implement a context-menu</a></li>
+<li><a class="reference internal" href="#disable-the-browser-context-menu">Disable the browser context menu</a></li>
+<li><a class="reference internal" href="#problems-with-this-in-event-handlers">Problems with &#8220;this&#8221; in event handlers</a></li>
+<li><a class="reference internal" href="#transparent-colors">Transparent colors</a></li>
+<li><a class="reference internal" href="#user-defined-data">User-defined data</a></li>
+<li><a class="reference internal" href="#modal-windows">Modal windows</a></li>
+<li><a class="reference internal" href="#add-a-flash-movie-to-a-window">Add a flash movie to a window</a></li>
+<li><a class="reference internal" href="#table-celleditors-stop-editing-on-value-change">Table Celleditors: Stop editing on value change</a></li>
+<li><a class="reference internal" href="#enabling-drag-and-drop-in-virtual-widgets">Enabling drag and drop in virtual widgets</a></li>
+<li><a class="reference internal" href="#finding-out-which-qooxdoo-widget-generated-a-given-dom-element">Finding out which qooxdoo widget generated a given DOM element</a></li>
+<li><a class="reference internal" href="#display-contextual-help-inside-a-tooltip">Display contextual help inside a toolTip</a></li>
+<li><a class="reference internal" href="#adding-scrollbars-to-a-desktop-widget">Adding scrollbars to a Desktop widget</a></li>
+<li><a class="reference internal" href="#activate-the-focus-handler-at-low-level">Activate the focus handler at low-level</a></li>
+<li><a class="reference internal" href="#keypress-and-keyup-listener-at-input-elements">keypress and keyup listener at input elements</a></li>
+<li><a class="reference internal" href="#reducing-requests-when-using-the-remote-table-model">Reducing requests when using the Remote Table Model</a></li>
+<li><a class="reference internal" href="#integrating-maps-google-yahoo-openlayers">Integrating Maps (Google, Yahoo, OpenLayers, ...)</a></li>
+<li><a class="reference internal" href="#using-a-bom-application-inside-a-frameset-in-ie">Using a BOM application inside a frameset in IE</a></li>
+<li><a class="reference internal" href="#capturing-caps-lock">Capturing Caps Lock</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tooling">Tooling</a><ul>
+<li><a class="reference internal" href="#create-client-specific-variants-of-your-application">Create client-specific variants of your application</a></li>
+<li><a class="reference internal" href="#support-for-finding-potential-memory-leaks">Support for finding potential memory leaks</a></li>
+<li><a class="reference internal" href="#compress-qooxdoo-without-mod-deflate">Compress qooxdoo without mod_deflate</a></li>
+<li><a class="reference internal" href="#setting-a-different-application-root">Setting a different application root</a></li>
+<li><a class="reference internal" href="#setting-a-different-main-application-class">Setting a different main application class</a></li>
+<li><a class="reference internal" href="#adding-non-qooxdoo-code-to-your-application">Adding non-qooxdoo code to your application</a></li>
+<li><a class="reference internal" href="#using-complex-name-spaces">Using complex name spaces</a></li>
+<li><a class="reference internal" href="#creating-an-apiviewer-that-covers-all-used-libraries-contributions">Creating an Apiviewer that covers all used libraries/contributions</a></li>
+<li><a class="reference internal" href="#finding-your-system-wide-tmp-directory">Finding your System-wide TMP Directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#further-individual-snippets">Further Individual Snippets</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="development/parts_using.html"
+                                  title="previous chapter">Using Parts</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="snippets/toctree.html"
+                                  title="next chapter">&lt;no title&gt;</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/pages/snippets.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

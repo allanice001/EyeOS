@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>setConfig</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>config</tag>
+		</tags>
+		<shortDesc>Writes configuration file of an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Function added.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>setConfig</functionName>
+		<syntax>void setConfig(string $appName, string $file='conf.xml', array $arr)</syntax>
+		<desc>Writes an application configuration file in the applications shared configuration directory.</desc>
+		<params>
+			<type>required</type>
+			<name>appName</name>
+			<desc>Name of the application.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Name of the configuration file to write. If it is not specified, a file called 'conf.xml' is loaded instead.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>arr</name>
+			<desc>Array to save as the configuration.</desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

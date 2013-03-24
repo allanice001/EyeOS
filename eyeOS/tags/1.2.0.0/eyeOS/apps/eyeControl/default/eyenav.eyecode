@@ -1,0 +1,113 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+global $currentUser;
+$NavUserConf = eyeXML('getXMLfile',array(um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeNav/conf.xml'));
+$oldUser = $currentUser;
+$currentUser = ROOTUSER;
+$NavSkelConf = eyeXML('getXMLfile',array(EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/skel/' . CONF_USER_DIR . '/eyeNav/conf.xml'));
+$currentUser = $oldUser;
+$ContentY = 10;
+// Startpage
+$myLabel = new Label(array(
+	'name' => 'eyeControl_eyenav_label',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Startpage'
+));
+$myLabel->show();
+$myTextbox = new Textbox(array(
+	'name' => 'eyeControl_eyenav_textbox',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $NavUserConf['eyeNav'][0]['home'][0]
+));
+$myTextbox->show();
+$myLabel = new Label(array(
+	'name' => 'eyeControl_eyenav_label_test',
+	'father' => $eyeContainer,
+	'x' => 320,
+	'y' => $ContentY + 3,
+	'text' => 'Test address',
+	'disablemsg' => 0,
+	'signal' => 'eyenav_test'
+));
+$myLabel->addFriend($myTextbox);
+$myLabel->show();
+$myLabel->setCss(array(
+	'color' => 'blue',
+	'cursor' => 'Pointer'
+));
+$ContentY = $ContentY + 30;
+// Default startpage
+if ($currentUser == ROOTUSER) {
+$myLabel = new Label(array(
+	'name' => 'eyeControl_eyenav_label_default',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Default startpage'
+));
+$myLabel->show();
+$myTextbox_default = new Textbox(array(
+	'name' => 'eyeControl_eyenav_textbox_default',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $NavSkelConf['eyeNav'][0]['home'][0]
+));
+$myTextbox_default->show();
+$myLabel = new Label(array(
+	'name' => 'eyeControl_eyenav_label_test_default',
+	'father' => $eyeContainer,
+	'x' => 320,
+	'y' => $ContentY + 3,
+	'text' => 'Test address',
+	'disablemsg' => 0,
+	'signal' => 'eyenav_test_default'
+));
+$myLabel->addFriend($myTextbox_default);
+$myLabel->show();
+$myLabel->setCss(array(
+	'color' => 'blue',
+	'cursor' => 'Pointer'
+));
+$ContentY = $ContentY + 40;
+}
+// Save changes
+$myButton = new Button(array(
+	'name' => 'eyeControl_eyenav_button_save',
+	'father' => $eyeContainer,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Save changes',
+	'signal' => 'eyenav_save'
+));
+$myButton->addFriend($myTextbox);
+if ($currentUser == ROOTUSER) {
+	$myButton->addFriend($myTextbox_default);
+}
+$myButton->show();
+?>

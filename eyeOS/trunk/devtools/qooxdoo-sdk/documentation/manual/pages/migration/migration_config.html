@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration Migration &mdash; qooxdoo v1.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.2 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="configuration-migration">
+<span id="pages-migration-config-configuration-migration"></span><h1>Configuration Migration<a class="headerlink" href="#configuration-migration" title="Permalink to this headline">¶</a></h1>
+<p>Most changes to qooxdoo&#8217;s configuration system are additions, which are backwards compatible. This means older configuration files still work with newer versions of the generator; they just don&#8217;t take advantage of the new features.</p>
+<p>A few changes, though, affect existing keys. Since, as of today,  there is no automatic conversion of configuration files, adaptions to the new standard have to made by hand.</p>
+<div class="section" id="compile-dist-compile-source">
+<span id="pages-migration-config-compile-dist-compile-source"></span><h2>compile-dist / compile-source<a class="headerlink" href="#compile-dist-compile-source" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">compile-dist</span></tt> and <tt class="docutils literal"><span class="pre">compile-source</span></tt> keys have been superseded by <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options</em></a> and <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile"><em>compile</em></a>.  Here is how to migrate the old keys to the new.</p>
+<div class="section" id="compile-dist">
+<span id="pages-migration-config-compile-dist"></span><h3>compile-dist<a class="headerlink" href="#compile-dist" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">compile-dist</span></tt> key can simply be renamed to <tt class="docutils literal"><span class="pre">compile-options</span></tt>, together with an added <tt class="docutils literal"><span class="pre">compile</span></tt> key.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;compile-dist&quot;</span> <span class="o">:</span>          <span class="s2">&quot;compile-options&quot;</span> <span class="o">:</span>
+<span class="p">{</span>                         <span class="p">{</span>
+  <span class="p">...</span>               <span class="o">=&gt;</span>      <span class="p">...</span>
+<span class="p">}</span>                         <span class="p">}</span>
+
+<span class="s2">&quot;compile&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;build&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-source">
+<span id="pages-migration-config-compile-source"></span><h3>compile-source<a class="headerlink" href="#compile-source" title="Permalink to this headline">¶</a></h3>
+<p>Here is the mapping from the old <tt class="docutils literal"><span class="pre">compile-source</span></tt> keys to the new <tt class="docutils literal"><span class="pre">compile-options</span></tt> keys. The path-like expressions denote sub-keys.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;compile-source&quot;</span> <span class="o">:</span>          <span class="s2">&quot;compile-options&quot;</span> <span class="o">:</span>
+<span class="p">{</span>                           <span class="p">{</span>
+  <span class="s2">&quot;file&quot;</span>                      <span class="s2">&quot;paths/file&quot;</span>
+  <span class="s2">&quot;root&quot;</span>                      <span class="s2">&quot;paths/app-root&quot;</span>
+  <span class="s2">&quot;locales&quot;</span>         <span class="o">=&gt;</span>        <span class="s2">&quot;code/locales&quot;</span>
+  <span class="s2">&quot;gzip&quot;</span>                      <span class="s2">&quot;paths/gzip&quot;</span>
+  <span class="s2">&quot;decode-uris-plug&quot;</span>          <span class="s2">&quot;code/decode-uris-plug&quot;</span>
+  <span class="s2">&quot;loader-template&quot;</span>           <span class="s2">&quot;paths/loader-template&quot;</span>
+<span class="p">}</span>                           <span class="p">}</span>
+
+<span class="s2">&quot;compile&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;source&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NOTE: If you are extending or overriding one of the standard build jobs, namely <tt class="docutils literal"><span class="pre">source-script</span></tt> or <tt class="docutils literal"><span class="pre">build-script</span></tt>, you can leave out the <tt class="docutils literal"><span class="pre">compile</span></tt> key as this will be provided by the standard job.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Configuration Migration</a><ul>
+<li><a class="reference internal" href="#compile-dist-compile-source">compile-dist / compile-source</a><ul>
+<li><a class="reference internal" href="#compile-dist">compile-dist</a></li>
+<li><a class="reference internal" href="#compile-source">compile-source</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/migration/migration_config.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

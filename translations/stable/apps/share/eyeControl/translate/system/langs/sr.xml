@@ -1,0 +1,788 @@
+<lang>
+	<info>
+		<lang>Српски</lang>
+		<lang-en>Serbian</lang-en>
+		<author>Marko Milićević</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Молимо унесите назив везе овде:</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Креирај везу</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Везе се не могу преузети!</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Ажурирај</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Измени %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Покрени команду:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Испразни корпу</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Да ли сте сигурни да желите да уклоните "%s"?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Да ли сте сигурни да желите да испразните корпу?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Обриши %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>Инсталирај Апликације</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Апликације</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>No file open</old>
+			<new>Ниједан фајл није отворен</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Тип компресије није подржан</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Назив фајла</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Неуспешно компресовано</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Компресуј</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Успешно компресовано</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Компресуј у</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Пошаљи</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Калкулатор</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Password</old>
+			<new>Лозинка</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Лозинке се нису сложиле!</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Дозволе</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Лозинка успешно промењена.</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Нова команда</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Погрешна лозинка!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Језик</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Миш</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Лично</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Означи фајл...</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Прикажи кориснике...</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Прикажи кориснике</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Систем</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Прикажи све</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Подешавања</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Означи корисника:</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Означи</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Групе</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Група успешно обрисана.</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Промените ваш тренутни шаблон</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Промените вашу позадину десктопа</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Измене успешно сачуване и корисник ажуриран.</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Промените вашу тренутну лозинку</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Аутор</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Администрација</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Администратор</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Дозволи регистрацију корисника</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Измене успешно сачуване.</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Команда успешно додата.</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Да ли сте сигурни да желите да обришете ову команду?</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Измени команду</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Измени</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Обриши групу</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Команде</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Команда успешно обрисана.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Команда успешно сачувана.</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Додај</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>New folder</old>
+			<new>Нови фолдер</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Отвори корпу</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Отвори са</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Корпа</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Нови фајл</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Кућа</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Календар</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Копирај</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Обриши</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Апликације</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Properties</old>
+			<new>Атрибути</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Преименуј</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Отвори преко</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Нови фолдер</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Иконе</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Нови фајл</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Прикажи све</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Прикажи фајлове</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>Дрво</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>Корисници</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Корпа</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>Прикажи само</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Прикажи фолдере</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Прикажи линкове</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Кућа</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Помоћ</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Детаљи</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Преузми као zip</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Обриши</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Копирај</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Аутор</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Назад</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Преузми</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Измени</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Филтер:</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Групе</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Време фајла</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Величина фајла (B)</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Испразни корпу</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Назив фајла</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Акције</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>Ask for help</old>
+			<new>Питај за помоћ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Само роот може да инсталира пакете</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Пакет је успешно инсталиран</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Ништа за инсталацију!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Инсталација у току</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Да ли сте сигурни да желите да инсталирате овај пакет на систем?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Прихвати</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run</old>
+			<new>Покрени</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Унесите назив апликације или команду да је покренете</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Корисник</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Покрени...</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Покрени као други корисник</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Грешка, погрешно корисничко име или лозинка</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Погрешно корисничко име</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Лозинка</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Грешка, корисничко име или лозинка је празно</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>The language does not exist!</old>
+			<new>Језик не постоји!</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>Тај корисник већ постоји!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Понови лозинку</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Систем не дозвољава регистрацију корисника!</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>Корисничко име је превише кратко</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Ваш налог је обрисан!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Корисничко име</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Молимо попуните сва поља!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Лозинка</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Језик (ова сесија)</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Грешка при креирању новог корисника!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Језик</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Нови Корисник</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Лозинка је превише кратка!</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Поља за лозинку се нису сложила!</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Креирај налог</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Здраво свете!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Пример eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Промени текст картице</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Create a new document</old>
+			<new>Креирај нови документ</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Молимо унесите назив новог фајла овде:</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Грешка при креирању фајла!</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Креирај фајл</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Position</old>
+			<new>Позиција</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Штампај</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Отвори</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Октобар</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Новембар</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Сачувај као</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Сачувај</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Среда</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Стил</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Септембар</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Нови</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Понедељак</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Обриши ред</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Фебруар</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Обриши колону</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Децембар</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Август</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Петак</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Јануар</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Мај</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Март</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Јун</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Јул</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Април</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>May</old>
+			<new>Мај</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Март</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Пон</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Новембар</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Септембар</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Октобар</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Јун</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Јул</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Децембар</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Август</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Фебруар</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Пет</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Јануар</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Април</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>The file was not found!</old>
+			<new>Фајл није пронађен!</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Ниједан контакт није пронађен у фајлу!</new>
+		</text>
+	</part>
+</lang>

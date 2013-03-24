@@ -1,0 +1,86 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyePresentation_run($params=null) {
+	if(!function_exists('shell_exec')) {
+		proc('end');
+		return;
+	}
+    $os = strtolower(PHP_OS);
+    if(strstr($os, "win") || strstr($os,"darwin")) {
+    	proc('end');
+    	return;
+    }
+	$myWindow = new Window(array('name'=>'presentationWND','father'=>'eyeApps',
+		'cent'=>1,'width'=>680,'height'=>590,'title'=>'eyePresentation','sendResizeMsg'=>1,'sigResize'=>'Resize'));
+	$myWindow->show();
+	$myToolbar = new Toolbar(array('name'=>'myToolbar','father'=>'presentationWND_Content'));
+	$myToolbar->show();
+	$myToolbar->addItem('open','index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png','Open');
+	$myToolbar->addLine();
+	$myToolbar->addItem('back','index.php?extern=apps/eyeX/themes/default/images/toolbar/previous.png','Back');
+	$myToolbar->addItem('next','index.php?extern=apps/eyeX/themes/default/images/toolbar/next.png','Next');
+	$myToolbar->addLine();
+	$myToolbar->addItem('fullscreen','index.php?extern=apps/eyeX/themes/default/images/toolbar/fullScreen.png','Full');
+
+	$myFrame = new Iframe(array('name'=>'imgFrame','father'=>'presentationWND_Content','x'=>5,
+		'y'=>55,'height'=>$myWindow->height-90,'width'=>$myWindow->width-15, 'url'=>"about:blank",'scroll'=>1));
+	$myFrame->show();
+	if($params[0]) {
+		$file = $params[0];
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		fclose($fp);
+		$myHidden = new Hidden(array('name'=>'filepath','father'=>'presentationWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		$GLOBALS['filepath'] = $myHidden;
+		include(EYE_ROOT.'/'.APP_DIR.'/eyePresentation/events.eyecode');
+		gotoSlide(0);
+		global $checknum;
+		$myFrame->setUrl("index.php?checknum=".$checknum."&msg=getSlide&anticache=".md5(uniqid(time())));
+	}
+	$myHidden = new Hidden(array('name'=>'fullscreen','father'=>'presentationWND','text'=>1));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+function eyePresentation_end($params=null) {
+	global $myPid;
+	$dir = service('um','getCurrentUserDir').'/tmp/';
+	if ($handle = opendir($dir)) {
+	    while (false !== ($file = readdir($handle))) {
+	        if ($file{0} != ".") {
+	        	$pid = utf8_substr($file,0,5);
+	        	if(intval($pid) == $myPid) {
+	           		vfs('real_delete',array($dir.$file));
+	        	}
+	        }
+	    }
+	    closedir($handle);
+	}
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

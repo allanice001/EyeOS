@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>checkVar</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Checks if a session var exists.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>checkVar</functionName>
+		<syntax>eyeSessions('checkVar', array($varName))</syntax>
+		<desc>Checks whether certain variable exists in the user's session.</desc>
+		<params>
+			<type>required</type>
+			<name>varName</name>
+			<desc>Name of the variable.</desc>
+		</params>
+		<return>Returns true if the variable exists, false otherwise.</return>
+	</definition>
+</info>

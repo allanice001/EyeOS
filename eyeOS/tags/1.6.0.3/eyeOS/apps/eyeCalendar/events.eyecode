@@ -1,0 +1,792 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)    
+*/
+
+function eyeCalendar_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeCalendar_on_Launch($params="") {
+	global $myPid;
+	global $checknum;		
+	$defaultView = reqLib('eyeCalendar','getDefaultView');
+	_changeView($defaultView);	
+}
+//Event recivers maybe we'll use messageTables instead recivers functions
+function eyeCalendar_on_WeekView(){	
+	_changeView('week');		
+}
+function eyeCalendar_on_DayView(){	
+	_changeView('day');
+}
+function eyeCalendar_on_WorkView(){		
+	_changeView('work');
+}
+
+//these functions generate the correct weekplanner widget for each view
+function _WeekView($date,$num){	
+	$myWeekPlanner = new WeekPlanner(array(
+		'name'=>'weekPlanner',
+		'father'=>'calendarContainer_Container',
+		'dayEven'=>7,
+		'x'=>0,
+		'y'=>0,
+		'date'=>$date,
+		'selectedCalendar'=>$num
+	));	
+	return $myWeekPlanner;
+}
+function _DayView($date,$num){	
+	if($date != null){				
+		$dateInfo = getDate($date);
+		$dayFrom = $dateInfo['wday'];		
+		$dayEven = $dateInfo['wday']+1;
+	}else{		
+		$dayFrom = 1;
+		$dayEven = 2;
+	}
+	$myWeekPlanner = new WeekPlanner(array(
+		'name'=>'weekPlanner',
+		'father'=>'calendarContainer_Container',
+		'dayFrom'=>$dayFrom,
+		'dayEven'=>$dayEven,
+		'x'=>0,
+		'y'=>0,
+		'date'=>$date,
+		'selectedCalendar'=>$num
+	));
+	return $myWeekPlanner;
+}
+function _WorkView($date,$num){		
+	$myWeekPlanner = new WeekPlanner(array(
+		'name'=>'weekPlanner',
+		'father'=>'calendarContainer_Container',
+		'dayFrom'=>1,
+		'dayEven'=>6,
+		'x'=>0,
+		'y'=>0,
+		'date'=>$date,
+		'selectedCalendar'=>$num
+	));
+	return $myWeekPlanner;	
+}
+//The real changeView function.
+function _changeView($type){	
+	if($GLOBALS['weekPlanner']){
+		$width = $GLOBALS['weekPlanner']->width;
+		$date = $GLOBALS['weekPlanner']->date;
+		$GLOBALS['weekPlanner']->killme();	
+	}else{
+		$windowWidth = $GLOBALS['eyeCalendarWin1']->width;
+		$width = $windowWidth-142-75-17;
+		$date = null;
+	}
+	$num = reqLib('eyeCalendar','getCurrentCalendar');
+	if($type == 'week'){
+		$myWeekPlanner = _WeekView($date,$num);		
+	}elseif($type == 'day'){
+		$myWeekPlanner = _DayView($date,$num);
+	}elseif($type == 'work'){
+		$myWeekPlanner = _WorkView($date,$num);
+	}else{
+		$myWeekPlanner = _WeekView($date,$num);
+	}
+	
+	$myWeekPlanner->width = $width;
+	$myWeekPlanner->show();
+			
+	//Getting notes for the week.
+	$calendars = reqLib('eyeCalendar','getCalendarsInfo');
+	$myWeekPlanner->addCalendars($calendars);
+	$myDays = $myWeekPlanner->getDays();
+	$notes = reqLib('eyeCalendar','getWeekNotes',array($myDays));	
+	$myWeekPlanner->addNotes($notes);	
+	reqLib('eyeCalendar','setDefaultView',array($type));
+}
+
+function eyeCalendar_on_GoToday(){
+	$width = $GLOBALS['weekPlanner']->width;	
+	$GLOBALS['weekPlanner']->killme();
+	$date = mktime();
+	$dateInfo = getDate($date);
+	$dayFrom = $dateInfo['wday'];
+	$dayEven = $dateInfo['wday']+1;
+	$num = reqLib('eyeCalendar','getCurrentCalendar');
+	$myWeekPlanner = new WeekPlanner(array(
+		'name'=>'weekPlanner',
+		'father'=>'calendarContainer_Container',
+		'width'=>$width,
+		'dayFrom'=>$dayFrom,
+		'dayEven'=>$dayEven,
+		'x'=>0,
+		'y'=>0,
+		'date'=>$date,
+		'selectedCalendar'=>$num
+	));
+	$myWeekPlanner->show();
+	$calendars = reqLib('eyeCalendar','getCalendarsInfo');
+	$myWeekPlanner->addCalendars($calendars);
+	$myDays = $myWeekPlanner->getDays();
+	$notes = reqLib('eyeCalendar','getWeekNotes',array($myDays));
+	$myWeekPlanner->addNotes($notes);
+}
+
+//Go forward and go back receivers
+function eyeCalendar_on_GoBack($params){
+	_backOrFordward(true);
+}
+function eyeCalendar_on_GoForward($params){
+	_backOrFordward(false);
+}
+function _backOrFordward($back=false){
+	$dayFrom = $GLOBALS['weekPlanner']->dayFrom;
+	$dayEven = $GLOBALS['weekPlanner']->dayEven;
+	$date = $GLOBALS['weekPlanner']->date;
+	$width = $GLOBALS['weekPlanner']->width;
+	//Killing
+	$GLOBALS['weekPlanner']->killme();
+	$GLOBALS['calendarWidget']->remove();
+			
+	//If is a day view	
+	if($dayEven - $dayFrom == 1){				
+		if($dayFrom > 0 && $back==true){
+			$dayFrom--;
+			$dayEven--;
+			
+			$dateInfo = getdate($date);
+			$month = $dateInfo['mon'];
+			$day = $dateInfo['mday']-1;
+			$year = $dateInfo['year'];
+			$time = mktime(0,0,0,$month,$day,$year);
+		}elseif($dayEven < 7 && $back==false){
+			$dayFrom++;
+			$dayEven++;			
+			$dateInfo = getdate($date);
+			$month = $dateInfo['mon'];
+			$day = $dateInfo['mday']+1;
+			$year = $dateInfo['year'];
+			$time = mktime(0,0,0,$month,$day,$year);
+		}elseif($dayFrom < 0 && $back==true){
+			$dayFrom = 6;
+			$dayEven = 7;
+			$dateInfo = getdate($date);
+			$month = $dateInfo['mon'];
+			$day = $dateInfo['mday'];
+			$year = $dateInfo['year'];
+			$day = $day-1;
+			$time = mktime(0,0,0,$month,$day,$year); 
+		}elseif($dayEven > 7 && $back==false){
+			$dayFrom = 0;
+			$dayEven = 1;
+			$dateInfo = getdate($date);
+			$dateInfo = getdate($date);
+			$month = $dateInfo['mon'];
+			$day = $dateInfo['mday'];
+			$wday = $dateInfo['wday'];
+			$year = $dateInfo['year'];
+			$day = $day+1;
+			$time = mktime(0,0,0,$month,$day,$year);
+		}
+		
+		$num = reqLib('eyeCalendar','getCurrentCalendar');
+		$myWeekPlanner = new WeekPlanner(array(
+			'name'=>'weekPlanner',
+			'father'=>'calendarContainer_Container',
+			'width'=>$width,
+			'dayFrom'=>$dayFrom,
+			'dayEven'=>$dayEven,
+			'x'=>0,
+			'y'=>0,
+			'date'=>$time,
+			'selectedCalendar'=>$num
+		));			
+		$myWeekPlanner->show();	
+		$calendars = reqLib('eyeCalendar','getCalendarsInfo');
+		$myWeekPlanner->addCalendars($calendars);
+
+		$myDays = $myWeekPlanner->getDays();
+		$notes = reqLib('eyeCalendar','getWeekNotes',array($myDays));	
+		$myWeekPlanner->addNotes($notes);
+		
+		//Calendar widget.
+		$calendarWidgetDate = $time*1000;
+		$myCalendarWidget = new Calendar(array(
+							'name'=>'calendarWidget',
+							'father'=>'container',
+							'width'=>158,
+							'height'=>148,
+							'x'=>0,
+							'y'=>20,
+							'vert'=>1,
+							'drawOnClick'=>1,
+							'forceDate'=>$calendarWidgetDate,
+							'drawServerDate'=>$calendarWidgetDate,
+							'drawHighlight'=>1
+							));
+		$myCalendarWidget->show();
+		return true;
+	}
+	//Week or work view
+	if($dayEven - $dayFrom == 7){
+		$daysBack = 7;
+	}else if($dayEven - $dayFrom == 5){
+		$daysBack = 7;
+	}
+	$dateInfo = getdate($date);
+	$month = $dateInfo['mon'];
+	$day = $dateInfo['mday'];
+	$wday = $dateInfo['wday'];
+	$year = $dateInfo['year'];
+	
+	if($back == true){
+		$day = $day-$daysBack;	
+	}else{
+		$day = $day+$daysBack;
+	}
+	$time = mktime(0,0,0,$month,$day,$year);
+	$num = reqLib('eyeCalendar','getCurrentCalendar');
+	$myWeekPlanner = new WeekPlanner(array(
+		'name'=>'weekPlanner',
+		'father'=>'calendarContainer_Container',
+		'width'=>$width,
+		'dayFrom'=>$dayFrom,
+		'dayEven'=>$dayEven,
+		'x'=>0,
+		'y'=>0,
+		'date'=>$time,
+		'selectedCalendar'=>$num
+	));
+	$myWeekPlanner->show();
+	$calendars = reqLib('eyeCalendar','getCalendarsInfo');
+	$myWeekPlanner->addCalendars($calendars);
+	$myDays = $myWeekPlanner->getDays();
+	$notes = reqLib('eyeCalendar','getWeekNotes',array($myDays));	
+	$myWeekPlanner->addNotes($notes);
+	//Calendar widget.
+	$calendarWidgetDate = $time*1000;
+	$myCalendarWidget = new Calendar(array(
+						'name'=>'calendarWidget',
+						'father'=>'container',
+						'width'=>158,
+						'height'=>148,
+						'x'=>0,
+						'y'=>20,
+						'vert'=>1,
+						'drawOnClick'=>1,
+						'forceDate'=>$calendarWidgetDate,
+						'drawServerDate'=>$calendarWidgetDate,
+						'drawHighlight'=>1
+						));
+	$myCalendarWidget->show();
+}
+function eyeCalendar_on_mainResize($params){
+	$width = intval($params['arg'][0]);
+	$height = intval($params['arg'][1]);
+
+	$widthDiff = $GLOBALS['eyeCalendarWin1']->width - $width;
+	$heightDiff = $GLOBALS['eyeCalendarWin1']->height - $height;
+	$GLOBALS['eyeCalendarWin1']->width = $width;
+	$GLOBALS['eyeCalendarWin1']->height = $height;
+
+	//Reusing  the var because we don't need it anymore
+	$width = $GLOBALS['container']->width - $widthDiff;
+	$height = $GLOBALS['container']->height - $heightDiff;
+	$GLOBALS['container']->width = $width;
+	$GLOBALS['container']->height = $height;
+	$GLOBALS['container']->setWidth($width);
+	$GLOBALS['container']->setHeight($height);
+
+	//Reusing  the var because we don't need it anymore
+	$width = $GLOBALS['calendarContainer']->width - $widthDiff;
+	$height = $GLOBALS['calendarContainer']->height - $heightDiff;
+	$GLOBALS['calendarContainer']->width = $width;
+	$GLOBALS['calendarContainer']->height = $height;
+	$GLOBALS['calendarContainer']->setWidth($width);
+	$GLOBALS['calendarContainer']->setHeight($height);
+
+	$width = $GLOBALS['horizBottom']->width - $widthDiff;
+	$GLOBALS['horizBottom']->width  = $width;
+	$GLOBALS['horizBottom']->setWidth($width);
+
+	$height = $GLOBALS['verticalPanel']->height - $heightDiff;
+	$GLOBALS['verticalPanel']->height  = $height;
+	$GLOBALS['verticalPanel']->setHeight($height);
+
+	$width = $GLOBALS['weekPlanner']->width - $widthDiff;
+	$GLOBALS['weekPlanner']->width  = $width;
+	$GLOBALS['weekPlanner']->setWidth($width);
+
+}
+
+function eyeCalendar_on_addNote($params="") {	
+	//Creating the noteTime	 	
+	$id = $params['id'][0];
+	if(!is_numeric($id)){
+		//TODO: send a remove command
+		return false;
+	}
+	$date = getDate($GLOBALS['weekPlanner']->date);	
+	$dayInfo = $GLOBALS['weekPlanner']->getDays();
+	$weekDay = $params['day'][0];	
+	$monDay = $dayInfo['nums'][$weekDay];	
+	$params['wday'][0] = $dayInfo['wday'][$weekDay];
+	
+	$params['day'][0] = $monDay;
+	$params['month'][0] =$dayInfo['month'][$weekDay];
+	$params['year'][0] =$dayInfo['year'][$weekDay];
+	$noteTime = mktime($params['hourFrom'][0],$params['minFrom'][0],$date['seconds'],$params['month'][0],$params['day'][0],$params['year'][0]);		
+	$params['time'][0] = $noteTime;	
+	$GLOBALS['weekPlanner']->notes[$id] = $noteTime;
+	reqLib('eyeCalendar','saveNote',$params);
+}
+
+function eyeCalendar_on_delNote($params="") {
+	$id = $params['id'][0];	
+	if(!is_numeric($id)){
+		//TODO: remove command
+		return false;
+	}
+	$calendar = $params['calendar'][0];
+	$idNote = $GLOBALS['weekPlanner']->notes[$id];
+	
+	reqLib('eyeCalendar','deleteNote',array('dateInt'=>$idNote,'calendar'=>$calendar));
+	$GLOBALS['weekPlanner']->deleteNote($id);
+}
+
+function eyeCalendar_on_resizeNote($params=""){
+	$id = $params['id'][0];
+	if(!is_numeric($id)){
+		return false;
+	}	
+	$hourEven = $params['hourEven'][0];
+	$minEven = $params['minEven'][0];
+	$calendar = $params['calendar'][0];	
+	$idNote = $GLOBALS['weekPlanner']->notes[$id];
+	$oldNoteInfo = reqLib('eyeCalendar','retriveNote',array('dateInt'=>$idNote,'calendar'=>$calendar));	
+	$oldNoteInfo['note'][0]['minEven'][0] = $minEven;
+	$oldNoteInfo['note'][0]['hourEven'][0] = $hourEven;
+	$oldNoteInfo['note'][0]['title'][0] = base64_encode($oldNoteInfo['note'][0]['title'][0]);	
+	reqLib('eyeCalendar','updateNote',array('calendar'=>$calendar,'info'=>$oldNoteInfo,'oldId'=>$idNote));
+}
+function eyeCalendar_on_moveNote($params=""){
+	$id = $params['id'][0];
+	if(!is_numeric($id)){
+		return false;
+	}
+	$calendar = $params['calendar'][0];
+	$idNote = $GLOBALS['weekPlanner']->notes[$id];
+	$infoDays = $GLOBALS['weekPlanner']->getDays();
+	
+	$day = $params['day'][0];
+	$weekDay = $infoDays['wday'][$day];
+	$monDay = $infoDays['nums'][$day];
+	$year = $infoDays['year'][$day];
+	$month = $infoDays['month'][$day];
+	
+	$oldNoteInfo = reqLib('eyeCalendar','retriveNote',array('dateInt'=>$idNote,'calendar'=>$calendar));
+	
+	$oldNoteInfo['note'][0]['hourFrom'][0] = $params['hourFrom'][0];
+	$oldNoteInfo['note'][0]['minFrom'][0] = $params['minFrom'][0];
+	$oldNoteInfo['note'][0]['hourEven'][0] = $params['hourEven'][0];
+	$oldNoteInfo['note'][0]['minEven'][0] = $params['minEven'][0];
+	$oldNoteInfo['note'][0]['year'][0] = $year;
+	$oldNoteInfo['note'][0]['wday'][0] = $weekDay;
+	$oldNoteInfo['note'][0]['day'][0] = $monDay;
+	$oldNoteInfo['note'][0]['month'][0] = $month;
+	$oldNoteInfo['note'][0]['title'][0] = base64_encode($oldNoteInfo['note'][0]['title'][0]);
+	$oldNoteInfo['note'][0]['dateInt'][0] = mktime($params['hourFrom'][0],$params['minFrom'][0],0,$month,$monDay,$year);
+	$GLOBALS['weekPlanner']->notes[$id] = $oldNoteInfo['note'][0]['dateInt'][0];
+	reqLib('eyeCalendar','updateNote',array('info'=>$oldNoteInfo,'calendar'=>$calendar,'oldId'=>$idNote));
+}
+function eyeCalendar_on_updateTitle($params=""){	
+	$id = $params['id'][0];
+	if(!is_numeric($id)){
+		return false;
+	}	
+	$title = $params['title'][0];
+	$calendar = $params['calendar'][0];	
+	$idNote = $GLOBALS['weekPlanner']->notes[$id];
+	$oldNoteInfo = reqLib('eyeCalendar','retriveNote',array('dateInt'=>$idNote,'calendar'=>$calendar));	
+	$oldNoteInfo['note'][0]['title'][0] = base64_encode($title);	
+	reqLib('eyeCalendar','updateNote',array('calendar'=>$calendar,'info'=>$oldNoteInfo,'oldId'=>$idNote));
+}
+
+function eyeCalendar_on_changeDate($params=""){
+	$date = $params['date'][0];
+	$date = $date / 1000;//MiliSecons to seconds
+		
+	$dayFrom = $GLOBALS['weekPlanner']->dayFrom;
+	$dayEven = $GLOBALS['weekPlanner']->dayEven;		
+//If is a day view
+	if($dayEven - $dayFrom == 1){		
+		
+		$width = $GLOBALS['weekPlanner']->width;
+		$GLOBALS['weekPlanner']->killme();
+	
+		$dateInfo = getdate($date);
+		$dayFrom = $dateInfo['wday'];
+		$dayEven = $dayFrom+1;		
+		$num = reqLib('eyeCalendar','getCurrentCalendar');
+		$myWeekPlanner = new WeekPlanner(array(
+			'name'=>'weekPlanner',
+			'father'=>'calendarContainer_Container',
+			'width'=>$width,
+			'dayFrom'=>$dayFrom,
+			'dayEven'=>$dayEven,
+			'x'=>0,
+			'y'=>0,
+			'date'=>$date,
+			'selectedCalendar'=>$num
+		));			
+		$myWeekPlanner->show();	
+		$calendars = reqLib('eyeCalendar','getCalendarsInfo');
+		$myWeekPlanner->addCalendars($calendars);
+		$myDays = $myWeekPlanner->getDays();
+		$notes = reqLib('eyeCalendar','getWeekNotes',array($myDays));	
+		$myWeekPlanner->addNotes($notes);
+		return true;		
+	}
+
+	$GLOBALS['weekPlanner']->cleanNotes();
+	$GLOBALS['weekPlanner']->updateDate($date);
+	$days = $GLOBALS['weekPlanner']->getDays(); 
+	$notes = reqLib('eyeCalendar','getWeekNotes',array($days));		
+	if(is_array($notes)){
+		$GLOBALS['weekPlanner']->addNotes($notes);
+	}		
+}
+
+function eyeCalendar_on_calendarShow($params=""){	
+	$status = $params['showed'][0];
+	$num = $params['calendar'][0];	
+	
+	if(!reqLib('eyeCalendar','setCalendarsInfo',array($num,$status))){
+		return false;
+	}
+	return true;
+}
+function eyeCalendar_on_addCalendar(){
+	$myCalendars = reqLib('eyeCalendar','getCalendarsInfo');
+	if(count($myCalendars['calendars'][0]['calendarInfo']) > 4){
+		eyeX('messageBox',array('content'=>"Sorry, you can only create 5 different calendars"));
+		return false;
+	}
+	//Creating a window for calendar info
+	$myWindow1 = new Window(array('title'=>'Calendars','name'=>'addCalendars','father' => 'eyeCalendarWin1','cent'=>1,'width'=>200,'height'=>125,'sigClose'=>'addCalednar_Closed'));
+	$myWindow1->show();
+
+	//Small hack for close even window
+	$myLabel1 = new Label(array('name' => "nameLabel",'father' => 'addCalendars',
+			'text' =>"Calendar Name",'x' => 22,'y' => 35));
+	$myLabel1->show();
+	
+	$myTextbox1 = new Textbox(array('name'=>'calendarName','father' => 'addCalendars',
+	'x' => 22,'y'=>55,'width'=>150));
+	$myTextbox1->show();
+	$myTextbox1->focus();
+	$myTextbox1->addEnterEventMsg('createCalendar');
+	
+	$myButton = new Button(array('name'=>'createCalendar','father'=>'addCalendars',
+	'x'=>40,'y'=>90,'caption'=>'Create Calendar'));	
+	$myButton->addFriend($myTextbox1);
+	$myButton->show();	
+}
+function eyeCalendar_on_manageCalendars($params=""){
+	$myCalendars = reqLib('eyeCalendar','getCalendarsInfo');
+	//Creating a window for calendar info
+	$myWindow1 = new Window(array('title'=>'Calendars','name'=>'manageCalendars','father' => 'eyeCalendarWin1','cent'=>1,'width'=>400,'height'=>275,'sigClose'=>'manageCalendar_Closed'));
+	$myWindow1->show();
+
+	//Title
+	$titleCss = array(
+			'font-size'=>'15px',
+			'font-weight'=>'bold'
+		);		
+	$myLabel1 = new Label(array('name' => "nameLabel",'father' => 'manageCalendars',
+			'text' =>"Calendars management",'x' => 10,'y' => 27));
+	$myLabel1->show();
+	$myLabel1->setCss($titleCss);
+	
+	$myButton = new Button(array('name'=>'updateCalendars','father'=>'manageCalendars',
+	'x'=>150,'y'=>5,'vert'=>1,'caption'=>'Update Calendars'));	
+	
+	$y = 75;
+	foreach($myCalendars['calendars'][0]['calendarInfo'] as $key=>$calendarInfo){				
+		//Small hack for close even window		
+		$name = $calendarInfo['name'][0];
+		$num = $calendarInfo['num'][0];
+		$show = $calendarInfo['show'][0];
+		
+		$mySelect = new Select(array(
+		'name' => $key.'_selectNum',
+		'father' => 'manageCalendars',
+		'width' => 40,
+		'x' => 10,
+		'y' => $y,
+		));
+		$mySelect->show();
+		
+		for($x=1;$x<6;$x++){
+			if($x == $num){
+				$mySelect->addOption($x,$x,true);	
+			}else{
+				$mySelect->addOption($x,$x,false);
+			}
+		}
+							
+		$myTextbox1 = new Textbox(array('name'=>$key.'_calendarName','father' => 'manageCalendars',
+		'x' => 65,'y'=>$y,'width'=>150,'text'=>$name));
+		$myTextbox1->show();
+				
+		if($show==1){
+			$myCheckBox = new Checkbox(array('name'=>$key.'_Show','father'=>'manageCalendars',
+			'x'=>220,'y'=>$y,'checked'=>1,'text'=>'Show'));		
+		}else{
+			$myCheckBox = new Checkbox(array('name'=>$key.'_Show','father'=>'manageCalendars',
+			'x'=>220,'y'=>$y,'text'=>'Show'));
+		}		
+		$myCheckBox->show();
+		
+		$myCheckBox1 = new Checkbox(array('name'=>$key.'_Delete','father'=>'manageCalendars',
+			'x'=>20,'y'=>$y,'horiz'=>1,'text'=>'Delete'));		
+		$myCheckBox1->show();
+		$y += 30;
+		
+		//Button friends
+		$myButton->addFriend($mySelect);
+		$myButton->addFriend($myTextbox1);
+		$myButton->addFriend($myCheckBox);
+		$myButton->addFriend($myCheckBox1);
+	}
+	$myButton->show();
+}
+function eyeCalendar_on_updateCalendars($params=""){
+	$paramsInfo = Array();
+	foreach($params as $key=>$value){
+		$preNum = utf8_substr($key,0,utf8_strpos($key,'_'));
+		if(!is_numeric($preNum)){
+			return false;
+		}
+		$type = utf8_substr($key,utf8_strpos($key,'_')+1);
+		$value =  $value[0];
+		if($type == 'selectNum'){
+			if(!is_numeric($value) || $value > 5){
+				eyeX('messageBox',array('content'=>'Invalid Num %s','tokens'=>array($value)));
+				return false;
+			}
+			$paramsInfo[$preNum]['num'] = $value;
+		}else if($type == 'Show'){
+			$value = utf8_strtolower($value);
+			if($value == 'true' || $value == 'false'){
+				$paramsInfo[$preNum]['show'] = $value;
+			}else{				
+				eyeX('messageBox',array('content'=>'Invalid checkbox value'));
+				return false;
+			}
+		}else if($type == 'calendarName'){			
+			$paramsInfo[$preNum]['name'] = $value;	
+		}else if($type == 'Delete'){
+			$value = utf8_strtolower($value);			
+			$paramsInfo[$preNum]['delete'] = $value;			
+		}		
+	}
+	unset($params);		
+	foreach($paramsInfo as $key =>$info){		
+		if($info['delete'] == 'true'){			
+			$calednarsNum = reqLib('eyeCalendar','numOfCalendars');			
+			if($calednarsNum > 1){
+				reqLib('eyeCalendar','deleteCalendar',array($paramsInfo[$key]['name']));
+				$GLOBALS['weekPlanner']->deleteCalendarNotes($paramsInfo[$key]['num']);
+				unset($paramsInfo[$key]);
+				continue;
+			}else{
+				eyeX('messageBox',array('content'=>'At least, one calendar is required!'));
+				break;//We need at least one calendar
+			}			
+		}
+		$nums[$info['num']]++ ;
+		$names[$info['name']]++;
+	}
+		
+
+	//Checking if the ids are repeated
+	foreach($nums as $num){
+		if($num > 1){
+			eyeX('messageBox',array('content'=>'Two calendars cannot have the same Id.'));
+			return false;
+		}
+	}
+	//Checking if name are differents
+	foreach($names as $name){
+		if($name > 1){
+			eyeX('messageBox',array('content'=>'Two calendars cannot have the same name.'));
+			return false;
+		}
+	}
+	$newCalendars = reqLib('eyeCalendar','updateCalendarsInfo',array($paramsInfo));
+	if($newCalendars == false){
+		return false;
+	}
+	
+	foreach($paramsInfo as $showInfo){
+		if($showInfo['show'] == 'true'){
+			$GLOBALS['weekPlanner']->showNotes($showInfo['num']);		
+		}else{
+			$GLOBALS['weekPlanner']->hiddenNotes($showInfo['num']);
+		}
+	}
+
+	foreach($newCalendars['calendars'][0]['calendarInfo'] as $calendarInfo){
+		$num = $calendarInfo['num'][0];
+		break;
+	}
+	
+	reqLib('eyeCalendar','setCurrentCalendar',array($num));
+	$GLOBALS['weekPlanner']->cleanCalendars();
+	$GLOBALS['weekPlanner']->addCalendars($newCalendars);
+	$GLOBALS['weekPlanner']->selectCalendar($num);
+	$myDays = $GLOBALS['weekPlanner']->getDays();
+	$notes = reqLib('eyeCalendar','getWeekNotes',array($myDays));	
+	$GLOBALS['weekPlanner']->cleanNotes();
+	$GLOBALS['weekPlanner']->addNotes($notes);
+	$GLOBALS['manageCalendars']->close();
+}
+function eyeCalendar_on_createCalendar($params=""){
+	$myCalendars = reqLib('eyeCalendar','getCalendarsInfo');
+	if(count($myCalendars['calendars'][0]['calendarInfo']) > 4){
+		eyeX('messageBox',array('content'=>"Sorry, you can only create 5 different calendars"));
+		return false;
+	}
+	
+	if(!$params['calendarName'][0]){
+		eyeX('messageBox',array('content'=>"Please type a name for the calendar"));
+		return false;
+	}
+	$name = $params['calendarName'][0];
+	$info = reqLib('eyeCalendar','createCalendar',array($name));	
+	if(!$info){
+		eyeX('messageBox',array('content'=>"A calendar with same name already exists"));
+		return false;
+	}
+	$GLOBALS['weekPlanner']->addCalendars($info);
+	eyeX('messageBox',array('content'=>"Calendar added succesfully"));
+	$GLOBALS['addCalendars']->close();
+}
+function eyeCalendar_on_addCalendar_Closed($params=""){
+	$GLOBALS['addCalendars']->close();
+}
+function eyeCalendar_on_manageCalendar_Closed($params=""){
+	$GLOBALS['manageCalendars']->close();
+}
+
+function eyeCalendar_on_selectCalendar($params){
+	if(!$params['calendar']){
+		return false;	
+	}
+	reqLib('eyeCalendar','setCurrentCalendar',array($params['calendar'][0]));
+}
+
+function eyeCalendar_on_hideLeftPanel(){
+	//hidding panel content
+	$hidden = true;
+	if(!$GLOBALS['hiddenPanel']){
+		$myHidden = new Hidden(array('name'=>'hiddenPanel','father'=>'eyeApps','text'=>true));		
+		reqLib('eyeWidgets','serialize',array($myHidden));								
+	}else{
+		if($GLOBALS['hiddenPanel']->text == true){
+			$GLOBALS['hiddenPanel']->setText(false);
+			$hidden = false;
+		}else{
+			$GLOBALS['hiddenPanel']->setText(true);
+			$hidden = true;
+		}		
+	}
+		
+	//Hide panel
+	if($hidden == true){
+		if(!$GLOBALS['verticalX']){
+			$myHidden = new Hidden(array('name'=>'verticalX','father'=>'eyeApps','text'=>$GLOBALS['verticalPanel']->x));		
+			reqLib('eyeWidgets','serialize',array($myHidden));	
+		}else{
+			$GLOBALS['verticalX']->setText($GLOBALS['verticalPanel']->x);		
+		}
+		
+		$GLOBALS['calendarsContainer']->hide();
+		$GLOBALS['calendarWidget']->hide();
+		$GLOBALS['horizPanel']->hide();
+
+		//Setting bar to left = 0		
+		$verticalX = $GLOBALS['verticalPanel']->x;
+		$GLOBALS['verticalPanel']->setX(0); 
+		//Expanding calendar
+		
+		$width = $GLOBALS['calendarContainer']->width + $GLOBALS['verticalPanel']->width + $verticalX;	
+		
+		$GLOBALS['calendarContainer']->width = $width;
+		$GLOBALS['calendarContainer']->setWidth($width);
+		$GLOBALS['calendarContainer']->setX($GLOBALS['verticalPanel']->width);
+
+		$width -= 48;
+		$width -= 17;
+		$GLOBALS['weekPlanner']->width  = $width;
+		$GLOBALS['weekPlanner']->setWidth($width);		
+	//Show panel	
+	}else{				 
+		$verticalX = $GLOBALS['verticalX']->text;
+		$GLOBALS['verticalPanel']->setX($verticalX);		
+		//Reusing  the var because we don't need it anymore
+		$width = $GLOBALS['calendarContainer']->width - $verticalX -$GLOBALS['verticalPanel']->width;
+		
+		$calendarContainerX = $verticalX + $GLOBALS['verticalPanel']->width;		
+		$GLOBALS['calendarContainer']->width = $width;
+		$GLOBALS['calendarContainer']->setWidth($width);
+		$GLOBALS['calendarContainer']->setX($calendarContainerX+5);
+		
+		$width -= 48;
+		$width -= 17;
+		$GLOBALS['weekPlanner']->width  = $width;
+		$GLOBALS['weekPlanner']->setWidth($width);
+				
+		$GLOBALS['calendarsContainer']->unhide();
+		$GLOBALS['calendarWidget']->unhide();
+		$GLOBALS['horizPanel']->unhide();		
+	}
+}
+function eyeCalendar_on_fullScreen(){
+	global $myPid;
+	if($GLOBALS['fullScreen'] == 1){
+		service('eyex','rawjs',array('js' => 'weekPlanner_close('.$myPid.');'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedAppsLeft").style.zIndex="10000";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedAppsRight").style.zIndex="10000";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedApps").style.zIndex="10000";'));
+		proc('end');
+		proc('launch',array('eyeCalendar'));	
+	}else{
+		service('eyex','rawjs',array('js' => 'weekPlanner_close('.$myPid.');'));
+		proc('end');
+		proc('launch',array('eyeCalendar',array('fullScreen'=>1)));	
+	}	
+}
+function eyeCalendar_on_Close(){
+	proc('end');
+}
+?>

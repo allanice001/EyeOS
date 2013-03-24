@@ -1,0 +1,270 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/*
+	eyeOS external files service
+*/
+/*
+	extern service is the way to get files, like css, js and images ignoring the EYE_ROOT content
+	because EYE_ROOT can change in each installation, and should be "secret"
+*/
+
+define('MAX_FILE_EXTENSION',8);
+define('MAX_FILE_NAME_LEN',40);
+
+function service_extern_init($params = '') {
+	global $externRequest;
+	$externRequest = true;
+
+	$version = CACHE_VERSION;
+	$config = eyeXML('getXMLconfig',array('eyex','eyex.xml'));
+	if ($config && $config['changes'][0]['times'][0]) {
+		$version += $config['changes'][0]['times'][0];
+	}
+	define('EXTERN_CACHE_VERSION',$version);
+}
+/**
+* Retrieves a file located in the eyeOS extern directory.
+* 
+* @param $params array(path,type)
+* @param $path Path to the file inside the extern directory.
+* @param $type Type of resource. Possible type values are:
+    				image:
+*	used for loading images
+    				download: used to force the
+*	downloading of a file
+    				css: used for loading CSS
+*	files
+    				swf: used for loading Flash (.swf) files
+   
+*					dynamic: used for files ending with EYE_CODE_EXTENSION
+*	(by default '.eyecode'). The code of the files will be
+*	loaded, executing the get_dynamic_content function and
+*	returning its result. 
+* @return This function does not return any value.
+* @date 2008/03/11
+*/
+function service_extern_getFile($params) {
+	if(!isset($params[0])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+
+	$forceNoCache = false;
+	if (!empty($_REQUEST['nocache'] ) && $_REQUEST['nocache'] == '1') {
+		$forceNoCache = true;
+	}
+
+	if ($_REQUEST['theme']) {
+		$myPath = eyex('getThemeImage',array(EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/default/' . $params[0],3));
+	} elseif ($_REQUEST['theme'] === '0') {
+		$myPath = EYE_ROOT . '/' . EXTERN_DIR . '/' . $params[0];
+	} else {
+		$myPath = eyex('getThemeImage',array(EYE_ROOT . '/' . EXTERN_DIR . '/' . $params[0],3));
+	}
+
+	if (!$myPath) {
+		return false;
+	}
+
+// get path information
+	$info = utf8_pathinfo($myPath);
+	$type = $params[1];
+	$myDir = $info['dirname'];
+	$myFile = $info['basename'];
+	$myExt = $info['extension'];
+
+// protect against header tricks
+	$myExt = str_replace("\n",'',$myExt);
+	$myExt = str_replace("\r",'',$myExt);
+	$myFile = str_replace("\n",'',$myFile);
+	$myFile = str_replace("\r",'',$myFile);
+
+// check lengths
+	if(utf8_strlen($myExt) > MAX_FILE_EXTENSION) {
+		return false;
+	}
+	if(utf8_strlen($myFile > MAX_FILE_NAME_LEN)) {
+		return false;
+	}
+
+// check if an extern file is called
+	if (utf8_strpos(realpath($myDir),realpath(EYE_ROOT . '/' . EXTERN_DIR . '/')) !== 0) {
+		return false;
+	}
+
+// set headers
+	$myFile = $myDir.'/'.$myFile;
+	$cacheReplace = false;
+	if(is_readable($myFile)) {
+		$len = filesize($myFile);
+		if($type == 'text' || $myExt == 'js') {
+			if (USE_COMPRESSED && utf8_substr($myFile, -7) !== '.min.js' && file_exists(utf8_substr($myFile, 0, -3) . '.min.js')) {
+				$myFile = utf8_substr($myFile, 0, -3) . '.min.js';
+			}
+			header('Content-type: text/javascript; charset=utf-8');
+		} elseif($myExt == 'htm' || $myExt == 'html' || $myExt == 'xhtml') {
+			header('Content-type: text/html; charset=utf-8');
+		} elseif ($type == 'icon' || $myExt == 'ico' || $myExt == 'cur') {
+			header('Content-Type: image/x-icon');
+		} elseif ($type == 'image' || $myExt == 'png' || $myExt == 'jpg' || $myExt == 'gif') {
+			header('Content-Type: image/'.$myExt);
+		} elseif ($type == 'download') {
+			header('Content-Type: application/force-download');
+			header('Content-Description: File Transfer');
+			header('Content-Disposition: attachment; filename="'.$myFile.'"');
+		} elseif ($type == 'css' || $myExt == 'css') {
+			if (USE_COMPRESSED && utf8_substr($myFile, -8) !== '.min.css' && file_exists(utf8_substr($myFile, 0, -4) . '.min.css')) {
+				$myFile = utf8_substr($myFile, 0, -4) . '.min.css';
+			}
+			header('Content-type: text/css; charset=utf-8');
+			$cacheReplace = true;
+		} elseif ($type == 'xml' || $myExt == 'xml' || $myExt == 'xsl') {
+			header('Content-type: text/xml; charset=utf-8');
+		} elseif($type == 'swf'  || $myExt == 'swf'){
+			header('Content-type: application/x-shockwave-flash');
+		} else if($type == 'mp3' || $myExt == 'mp3') {
+			header('Content-type: audio/mpeg3');
+		}
+		$len = filesize($myFile);
+		if ($type == 'dynamic') {
+			include_once($myFile);
+			if(function_exists('get_dynamic_content')) {
+				$return = get_dynamic_content($_GET['params']);
+				$len = strlen($return);
+			}
+		}
+		header("Content-Length: $len");
+		header("Accept-Ranges: bytes");
+		header("X-Pad: avoid browser bug");
+		if($type == 'dynamic') {
+			echo $return;
+		} else {
+			// eyeCache original by Matthew Francis-Landau 
+			// currently maintained and self rewritten by the eyeOS Team
+			if(EXTERN_CACHE == 1 && $forceNoCache == false)
+			{
+				$ftime = filemtime($myFile);
+				$date = gmdate('D, d M Y H:i:s',0).' GMT';
+				if(isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && $_SERVER['HTTP_IF_MODIFIED_SINCE'] == $date)
+				{
+					header("HTTP/1.0 304 Not Modified");
+					exit;
+				}
+
+				header("Last-Modified: $date");
+				$date = gmdate('D, d M Y H:i:s',2147483647).' GMT';
+				header("Expires: $date");
+
+				//If the file needs be replaced, and any of the auto modes are enabled...
+				if($cacheReplace == true && EXTERN_CACHE_AUTO > 0){
+					//needed by all ways
+					$contents = '';
+					while($contents == ''){
+						$contents = file_get_contents($myFile);
+						usleep(200);//Should be enough if this happens...
+					}
+					$path = EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/eyeX/eyex.xml';
+					$eyexConfig = eyeXML('getXMLfile',array($path));
+					isset($_SESSION['usertheme']) ? $usertheme = $_SESSION['usertheme'] : $usertheme = 'oldCache';
+
+					//Full auto mode
+					if(EXTERN_CACHE_AUTO == 1){
+						//If the server never has use the SEMI-AUTO mode
+						if(!$eyexConfig || !is_array($eyexConfig)){
+							$search = 'version=EXTERN_CACHE_VERSION';
+						}else if($eyexConfig['config'][0][$usertheme][0] == CACHE_VERSION){//If the server already used the semi-auto 
+							$search = 'version='.CACHE_VERSION;
+						}else if($eyexConfig['config'][0][$usertheme][0] != CACHE_VERSION){//If a semi-auto update is reaming...
+							$search = 'version='.$eyexConfig['config'][0][$usertheme][0];
+						}
+						//In the full auto mode doesn't matter with what cache version you replace
+						//Because it'll be replaced again and again
+						$replace = 'version='.EXTERN_CACHE_VERSION;
+						$contents = str_replace($search,$replace,$contents);
+					//SEMI-AUTO method, ths patch the files only 1 time per theme/file
+					}else if(EXTERN_CACHE_AUTO == 2){
+						if(!$eyexConfig || !is_array($eyexConfig)){
+							$eyexConfig = array('config'=>array(array($usertheme=>array(CACHE_VERSION))));
+							eyeXML('setXMLfile',array($path,$eyexConfig));
+							$search = 'version=EXTERN_CACHE_VERSION';
+							$replace = 'version='.CACHE_VERSION;
+							$contents = str_replace($search,$replace,$contents);
+							flock_file_put_contents($myFile,$contents);
+						}else if($eyexConfig['config'][0][$usertheme][0] != CACHE_VERSION){
+							$search = 'version='.$eyexConfig['config'][0][$usertheme][0];
+							$replace = 'version='.CACHE_VERSION;
+							$contents = str_replace($search,$replace,$contents);
+							//Saving the new cache.
+							$eyexConfig['config'][0][$usertheme][0] = CACHE_VERSION;
+							flock_file_put_contents($myFile,$contents);
+							eyeXML('setXMLfile',array($path,$eyexConfig));
+						}else if(!isset($eyexConfig['config'][0][$usertheme])){
+							$search = 'version=EXTERN_CACHE_VERSION';
+							$replace = 'version='.CACHE_VERSION;
+							$contents = str_replace($search,$replace,$contents);
+							//Saving the new cache.
+							flock_file_put_contents($myFile,$contents);
+							//add currenttheme to the hash
+ 							$eyexConfig['config'][0][$usertheme][0] = 1;
+							eyeXML('setXMLfile',array($path,$eyexConfig));
+						}
+					}
+					//I don't like to put this return here, but css is the only exception...
+					echo $contents;
+					return true;
+				}
+			}
+			//If the cache is enabled, the headers should be changed
+			readfile($myFile);
+		}
+	} 
+}
+
+function flock_file_put_contents($file,$content){
+	$counter = 0;
+	$fd = @fopen($file,'w');
+	while(!@flock($fd,LOCK_EX)){
+		usleep(100);
+		$counter++;
+		if($counter == 10){
+			@fclose($fd);
+			return false;
+		}
+	}
+	@fwrite($fd,$content);
+	@fclose($fd);
+}
+
+function getExternUrl($path, $theme = 0, $cache = 1) {
+	$url = 'index.php?extern='.$path;
+	if ($theme == 1) {
+		$url = $url.'&theme=1';
+	}
+	if ($cache == 1) {
+		$url = $url.'&version='.EXTERN_CACHE_VERSION;
+	}
+	return $url;
+}
+
+?>

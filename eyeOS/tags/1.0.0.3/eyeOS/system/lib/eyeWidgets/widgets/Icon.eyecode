@@ -1,0 +1,205 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	Icon widget abstraction
+*/
+
+class Icon {
+	//pid controller
+	
+	var $creatorPid;
+	
+	//global widgets options without default
+	var $name;
+	var $father;
+
+	//generic widget options with default
+	var $x;
+	var $y;
+	var $horiz;
+	var $vert;
+	var $cent;
+	
+	var $showed = 0;
+	
+	//custom widget options
+	var $draggable;
+	var $image;
+	var $text;
+	var $content;
+	var $myOnLoad;
+	
+	var $width;
+	var $height;
+	
+	var $breaktext;
+	var $tooltip;
+	//event handling
+	var $disableMsg = 0;
+	var $events;
+	var $fixIE=0;
+	
+	function Icon($params) {
+		global $myPid;
+		$this->creatorPid = $myPid;
+		//generic widget options without default
+		$this->name = $params['name'];
+		$this->father = $params['father'];
+
+		//generic widget options with default
+		isset($params['horiz']) ? $this->horiz = $params['horiz'] : $this->horiz = 0;
+		isset($params['vert']) ? $this->vert = $params['vert'] : $this->vert = 0;
+		isset($params['x']) ? $this->x = $params['x'] : $this->x = 40;
+		isset($params['y']) ? $this->y = $params['y'] : $this->y = 40;
+		isset($params['cent']) ? $this->cent = $params['cent'] : $this->cent = 0;
+		
+		isset($params['text']) ? $this->text = $params['text'] : $this->text = $this->name;
+		isset($params['image']) ? $this->image = $params['image'] : $this->image = 0; //TODO: SET A DEFAULT ICON
+		isset($params['content']) ? $this->content = $params['content'] : $this->content = 0;
+		isset($params['draggable']) ? $this->draggable = $params['draggable'] : $this->draggable = 1;
+		isset($params['myonload']) ? $this->myOnLoad = $params['myonload'] : $this->myOnLoad = '';
+		isset($params['breaktext']) ? $this->breaktext = $params['breaktext'] : $this->breaktext = 1;
+		isset($params['tooltip']) ? $this->tooltip = $params['tooltip'] : $this->tooltip = $this->text;
+		if(strstr($params['image'],'index.php?extern=') && IE == 6) {
+			$realName = substr($params['image'],strlen("index.php?extern="));
+			$realName = EYE_ROOT.'/'.EXTERN_DIR.'/'.$realName;
+			$info = @getimagesize($realName);
+			$this->width = $info[0];
+			$this->height = $info[1];
+			$this->fixIE = 1;
+		}else {
+			$this->width = -1;
+			$this->height = -1;
+		}
+	}
+	
+		
+	//event handling
+	function addEvent($eventName,$eventFunc,$args="") {
+		global $myPid;
+		$name = $myPid.'_'.$this->name;
+		if($this->showed == 0) {
+			$this->show();
+		}
+		service('eyex','addEvent',array('name' => $name, 'action' => $eventFunc, 'event' => $eventName,'args'=>$args));
+	}
+	
+	function setCss($params) {
+		global $myPid;
+		if(is_array($params)) {
+			foreach($params as $key => $value) {
+				service('eyex','updateCss',array('name' => $myPid.'_'.$this->name.'_Container','property' => $key,'value' => $value));
+			}
+		}
+	}
+	
+		
+	function setCssText($params) {
+		global $myPid;
+		if(is_array($params)) {
+			foreach($params as $key => $value) {
+				service('eyex','updateCss',array('name' => $myPid.'_'.$this->name.'_text','property' => $key,'value' => $value));
+			}
+		}
+	}
+	
+
+	function show() {
+		global $myPid;
+		$eventString = "";
+		if(is_array($this->events)) {
+			foreach($this->events as $key => $value) {
+				$eventString .= $key.'="'.$value.'" ';
+			}
+		}
+		if($this->breaktext == 1) {
+			$subs = $this->text;
+			$pre = "";
+			while(strlen($subs)>8) {
+				$pre .= substr($subs,0,8)."<br/>";
+				$subs = substr($subs,8);
+			}
+			if(strlen($subs)>0) {
+				$pre .= $subs;
+			}
+			if(strlen($pre) > 0) {
+				$this->text=$pre;
+			}
+		}
+		if(!is_array($this->content)) {
+			$this->content = array($this->content);
+		}
+		$this->content=service("mmap","array2jsArg",array($this->content));
+		$widgetsparams = array(
+			'content' => $this->content,
+			'image' => $this->image,
+			'text' => $this->text,
+			'draggable' => $this->draggable,
+			'width' => $this->width,
+			'height' => $this->height,
+			'myonload' => $this->myOnLoad,
+			'tooltip' => $this->tooltip
+		);
+		$widgetsparams = service("mmap","array2js",array($widgetsparams));
+		
+		$myButton = array(
+			'name' => $this->name,
+			'x' => $this->x,
+			'y' => $this->y,
+			'horiz' => $this->horiz,
+			'vert' => $this->vert,
+			'father' => $this->father,
+			'widgetname' => 'Icon',
+			'params' => $widgetsparams
+		);
+		service('eyex','createWidget',$myButton);
+		$this->showed=1;
+		if($this->fixIE == 1) {
+			service('eyex','rawjs',array('js' => "fixPNG('img_".$myPid.'_'.$this->name."')"));
+		}
+	}
+	
+	function setWidth($width) {
+		global $myPid;
+		$this->width = intval($width);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.width="'.$this->width.'px";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.width="'.$this->width.'px";'));
+	}
+	
+	function setHeight($height) {
+		global $myPid;
+		$this->height = intval($height);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.height="'.$this->height.'px";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.height="'.$this->height.'px";'));
+	}
+	
+	function setX($x) {
+		global $myPid;
+		$this->x = intval($x);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.left="'.$this->x.'px";'));
+	}
+	
+	function setY($y) {
+		global $myPid;
+		$this->y = intval($y);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.top="'.$this->y.'px";'));
+	}
+}
+
+?>

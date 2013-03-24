@@ -1,0 +1,163 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+$selCategory = $contentParams[0];
+if (!$selCategory) {
+	eyex('messageBox',array('content' => 'The category doesn\'t exists!'));
+	loadContent();
+} elseif ($selCategory == 'others') {
+	global $currentUser;
+	$x = 1;
+	$boxY = 0;
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$openDir = vfs('real_getDirContent',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/others/','*.xml'));
+	$currentUser = $oldUser;
+	if (is_array($openDir) && $openDir[0]) {
+		// $myLine
+		$myLine = new Line(array(
+			'name' => 'eyeControl_index_line_others',
+			'father' => $eyeContainer,
+			'x' => 0,
+			'y' => $boxY,
+			'width' => 545
+		));
+		$myLine->show();
+		$boxY += 5;
+		// $myLabel
+		$myLabel = new Label(array(
+			'name' => 'eyeControl_index_label_others',
+			'father' => $eyeContainer,
+			'text' => 'Others',
+			'x' => 0,
+			'y' => $boxY
+		));
+		$myLabel->show();
+		$myLabel->setCss(array(
+			'font-size'=>'14px',
+			'color' => '#004488'
+		));
+		$boxY += 25;
+		$z = -1;
+		foreach ($openDir as $file) {
+			$oldUser = $currentUser;
+			$currentUser = ROOTUSER;
+			$content = eyeXML('getXMLfile',array($file));
+			$currentUser = $oldUser;
+			$content = $content['content'][0];
+			if ($content['show'][0] != 'no' && ($content['permissions'][0] == 'all' || $content['permissions'][0] == 'root' && $currentUser == ROOTUSER || $content['permissions'][0] == 'user' && $currentUser != ROOTUSER)) {
+				$x++;
+				$myHiddenCAT = new Hidden(array(
+					'name' => 'eyeControl_index_hiddenCAT_' . $x,
+					'father' => $eyeContainer,
+					'text' => 'others'
+				));
+				$myHiddenCAT->show();
+				$myHiddenNAME = new Hidden(array(
+					'name' => 'eyeControl_index_hiddenNAME_' . $x,
+					'father' => $eyeContainer,
+					'text' => $content['name'][0]
+				));
+				$myHiddenNAME->show();
+				$myButton = new Button(array(
+					'name' => 'eyeControl_index_button_' . $x,
+					'father' => $eyeContainer,
+					'caption' => $content['display'][0],
+					'x' => 40,
+					'y' => $boxY,
+					'img' => $content['img'][0],
+					'signal' => 'index_button',
+					'width' => 140
+				));
+				$myButton->addFriend($myHiddenCAT);
+				$myButton->addFriend($myHiddenNAME);
+				$myButton->show();
+				$boxY += 60;
+			}
+		}
+	}
+} else {
+	global $currentUser;
+	$x = 1;
+	$boxY = 0;
+	$categoriesXML = getConfig('eyeControl','categories.xml');
+	$category = array_findArrayByText(array($categoriesXML['category'],$selCategory,array('name',0)));
+	$category = $category[0];
+	$array = array_findArrayByText(array($category['content'],'no',array('show',0),2));
+	// $myLine
+	$myLine = new Line(array(
+		'name' => 'eyeControl_index_line_' . $category['name'][0],
+		'father' => $eyeContainer,
+		'x' => 0,
+		'y' => $boxY,
+		'width' => 545
+	));
+	$myLine->show();
+	$boxY += 5;
+	// $myLabel
+	$myLabel = new Label(array(
+		'name' => 'eyeControl_index_label_' . $x,
+		'father' => $eyeContainer,
+		'text' => $category['display'][0],
+		'x' => 0,
+		'y' => $boxY
+	));
+	$myLabel->show();
+	$myLabel->setCss(array(
+		'font-size'=>'14px',
+		'color' => '#004488'
+	));
+	$boxY += 25;
+	foreach($array as $content) {
+		if ($content['permissions'][0] == 'all' || $content['permissions'][0] == 'root' && $currentUser == ROOTUSER || $content['permissions'][0] == 'user' && $currentUser != ROOTUSER) {
+			$x++;
+			$myHiddenCAT = new Hidden(array(
+				'name' => 'eyeControl_index_hiddenCAT_' . $x,
+				'father' => $eyeContainer,
+				'text' => $selCategory
+			));
+			$myHiddenCAT->show();
+			$myHiddenNAME = new Hidden(array(
+				'name' => 'eyeControl_index_hiddenNAME_' . $x,
+				'father' => $eyeContainer,
+				'text' => $content['name'][0]
+			));
+			$myHiddenNAME->show();
+			$myButton = new Button(array(
+				'name' => 'eyeControl_index_button_' . $x,
+				'father' => $eyeContainer,
+				'caption' => $content['display'][0],
+				'x' => 40,
+				'y' => $boxY,
+				'img' => $content['img'][0],
+				'signal' => 'index_button',
+					'width' => 140
+			));
+			$myButton->addFriend($myHiddenCAT);
+			$myButton->addFriend($myHiddenNAME);
+			$myButton->show();
+			$boxY += 60;
+		}
+	}
+}
+?>

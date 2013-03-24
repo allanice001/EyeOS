@@ -1,0 +1,41 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeControl_on_index_button($params = '') {
+	foreach($params as $key => $value) {
+		if(utf8_stristr($key,'eyeControl_index_hiddenCAT_')) {
+			$key = utf8_substr($key,utf8_strlen('eyeControl_index_hiddenCAT_') - utf8_strlen($key),utf8_strlen($key));
+			eyeControl_lib_loadContent($GLOBALS['eyeControl_index_hiddenCAT_' . $key]->text,$GLOBALS['eyeControl_index_hiddenNAME_' . $key]->text);
+		}
+	}
+}
+
+function eyeControl_on_index_category($params = '') {
+	foreach($params as $key => $value) {
+		if(utf8_stristr($key,'eyeControl_index_hiddenCAT_')) {
+			$key = utf8_substr($key,utf8_strlen('eyeControl_index_hiddenCAT_') - utf8_strlen($key),utf8_strlen($key));
+			eyeControl_lib_loadContent($GLOBALS['eyeControl_index_hiddenCAT_' . $key]->text);
+		}
+	}
+}
+?>

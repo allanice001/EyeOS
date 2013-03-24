@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Window</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>container</tag>
+		</tags>
+		<shortDesc>A container that has multiple controls.</shortDesc>
+	</general>
+	<name>Window</name>
+	<description>The Window widget is the responsible of creating an User Interface element that consists in a rectangle that contains elements inside of it. It also has some properties, such as the ability to be resized, moved, minimized (to the Window list of eyeOS), among other options.</description>
+	<image>Una ventana típica de eyeOS con todos sus controles habilitados.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Nombre unívoco dado al widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Nombre de su elemento padre dentro del cual se crea.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Especifica si la coordenada horizontal debe tomarse desde el borde izquierdo (0) o derecho (1) de su contenedor. El valor por defecto es 0 (borde izquierdo).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Especifica si la coordenada vertical debe tomarse desde el borde superior (0) o inferior (1) de su contenedor. El valor por defecto es 0 (borde superior).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Especifica la coordenada horizontal dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Especifica la coordenada vertical dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Especifica cómo debe centrarse el widget. Los valores posibles son:
+			 0: sin centrar. Es el valor por defecto.
+			 1: centrar horizontal y verticalmente.
+			 2: centrar horizontalmente.
+			 3: centrar verticalmente.
+			 4: especifica como coordenadas horizontales y verticales del widget el centro del contenedor.
+			 5: especifica como coordenada horizontal del widget el centro del contenedor.
+			 6: especifica como coordenada vertical del widget el centro del contenedor.
+
+			Ten en cuenta la diferencia que hay entre las opciones 1-3 y 4-6. Las opciones 1-3 calculan el tamaño del widget para asegurarse que su punto central coincide con el centro de su contenedor, mientras que las opciones 4-6 sólo posicionan el widget con las coordenadas del punto central del contenedor, haciendo que el widget pueda verse desplazado del centro.
+			</desc>
+		</key>
+		<key>
+			<name>width</name>
+			<desc>Especifica la anchura del widget, en píxeles. El valor por defecto son 200 píxeles.</desc>
+		</key>
+		<key>
+			<name>height</name>
+			<desc>Especifica la altura del widget, en píxeles. El valor por defecto son 200 píxeles.</desc>
+		</key> 
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>background</name>
+			<desc>The URL (using the extern service) of the image used as a background. This key is required for Windows that use a background image.</desc>
+		</key>
+		<key>
+			<name>forcePosition</name>
+			<desc>If set to 1, ignores the position the user gave to the Window in previous uses and places the Window using the 'x' and 'y' keys.</desc>
+		</key>
+		<key>
+			<name>removepid</name>
+			<desc>Specifies whether the process that has created the window must me ended (1) or not (0) when the Window is closed. Default value is 1.</desc>
+		</key>
+		<key>
+			<name>removeWin</name>
+			<desc>Specifies whether the Window and its child widgets must be removed or just hidden when the Window is closed. The default value of 1 removes the Window, while a value of 0 hides it.</desc>
+		</key>
+		<key>
+			<name>saveFunc</name>
+			<desc>Name of the custom JavaScript function that is executed every time the Window is moved. In case this key is not specified, a generic function of the system is used.</desc>
+		</key>
+		<key>
+			<name>savePosition</name>
+			<desc>If set to any non-null value, places the Window at the same position the user set it in a previous use.</desc>
+		</key>
+		<key>
+			<name>SendResizeMsg</name>
+			<desc>Specifies whether or not a signal is sent to the system when the Window is resized. The default value of 0 disables this option, while any other value enables it.</desc>
+		</key>
+		<key>
+			<name>sigClose</name>
+			<desc>Name of the message sent to the system when the Window is closed. By default, the signal sent is 'Close'.</desc>
+		</key>
+		<key>
+			<name>sigResize</name>
+			<desc>Name of the message sent to the system when the Window is resized.</desc>
+		</key>
+		<key>
+			<name>style</name>
+			<desc>
+			Specifies the properties of the Window. To set multiple properties you must specify the desired properties separated by '+' symbols.
+			TITLE: the Window has a title.
+			LISTED: the Window is listed in the windows list.
+			MIN: the Window can be minimized.
+			MAX: the Window can be maximized.
+			CLOSE: the Window can be closed.
+			RESIZE: the Window can be resized.
+			NODRAG: the Window can't be moved.
+			</desc>
+		</key>
+		<key>
+			<name>title</name>
+			<desc>String that sets the title of the Window.</desc>
+		</key>
+		<key>
+			<name>type</name>
+			<desc>
+			Determines the type of the Window. It can be one of the following values:
+			Value	Properties
+			1 		A visible Window. Its properties can be set using the style key
+			2 		An invisible Window: only the inside widgets are visible
+			3 		A movable, invisible Window that only displays it background image
+			4 		Same as type 4, but avoids being listed in the Window list
+			</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Hace que el sistema ejecute un código JavaScript dado cada vez que se produzca un evento en este widget.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Nombre del evento JS. Ejemplos: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>Código JavaScript que se ejecutará cada vez que se dispare el evento. El código se ejecutará dentro de una función para que puedan recibirse argumentos.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Argumentos pasados a la función del evento.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>clear()</syntax>
+			<desc>Empties the content of the Window.</desc>
+		</method>
+		<method>
+			<syntax>close()</syntax>
+			<desc>Closes the Window. The behaviour of this action depends on the value of the sigClose, removeWin and removepid parameters.</desc>
+		</method>
+		<method>
+			<syntax>void focus()</syntax>
+			<desc>Pone el foco en este widget.</desc>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Hace el widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Aplica atributos CSS al widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Especifica, en forma de un array asociativo, los atributos a aplicar. La clave del elemento del array corresponde a la propiedad, mientras que el valor representa al valor de la propiedad. Tanto las claves como los valores deben ser válidos en la sintaxis de CSS.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setHeight(int $height)</syntax>
+			<desc>Cambia la altura de un widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>Nueva altura, expresada en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setRawContent(string $myContent)</syntax>
+			<desc>Sets as the content of the Window a given HTML code.</desc>
+			<arguments>
+				<arg>
+					<name>myContent</name>
+					<desc>HTML code.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>void setWidth(int $width)</syntax>
+			<desc>Cambia la anchura del widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>Nueva anchura del widget, en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setX(int $x)</syntax>
+			<desc>Cambia la posición horizontal del widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>Nueva coordenada horizontal.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setY(int $y)</syntax>
+			<desc>Cambia la posición vertical del widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>Nueva posición vertical.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show()</syntax>
+			<desc>Draws the widget in the screen and serializes the instance in the user's session.</desc>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Hace el widget visible.</desc>
+		</method>
+	</methods>
+</info>

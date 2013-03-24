@@ -1,0 +1,68 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeNav_run($params=null) {
+	$config = reqLib('eyeXML','getXMLconfig',array('eyeNav','conf.xml'));
+	if(!is_array($config)) {
+		service('eyex','messageBox',array('content'=>'Error loading preferences'));
+	}
+	if($params[0]) {
+		$homepage=$params[0];
+	} else {
+		$homepage = $config['eyeNav'][0]['home'][0];
+	}
+	$myWindow = new Window(array('name'=>'eyeNavWND','father'=>'eyeApps',
+	'cent'=>1,'width'=>600,'height'=>550,'title'=>'eyeNav','sendResizeMsg'=>1,'sigResize'=>'Resize'));
+	$myWindow->show();
+	if (IE > 0) {
+		$myYtxtBox = 9;
+	} else {
+		$myYtxtBox = 10;
+	}
+	$myTextBox = new Textbox(array('name'=>'eyeNavUrl','father'=>'eyeNavWND_Content',
+		'width'=>$myWindow->width-50,'x'=>25,'y'=>$myYtxtBox,'text'=>$homepage));
+	$myTextBox->show();
+	$myTextBox->setCss(array('border'=>'none','background-image'=>'url(index.php?extern=apps/eyeFiles/gfx/PathCenter.png)',
+		'background-repeat'=>'repeat-x','height'=>'18px','padding-top'=>'3px'));
+		
+	$myTextBox->addEnterEventMsg('OpenUrl');	
+	$myImage1 = new Imagebox(array('name'=>'left_textbox_img','father'=>'eyeNavWND_Content',
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/PathLeft.png',
+		'x'=>$myTextBox->x-11,'y'=>10));
+	$myImage1->show(0);
+	
+	$myImage2 = new Imagebox(array('name'=>'right_textbox_img','father'=>'eyeNavWND_Content',
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/PathGo.png','signal'=>'OpenUrl','disableMsg'=>0,
+		'x'=>$myImage1->x+$myTextBox->width,'y'=>10));
+	$myImage2->addFriend($myTextBox);
+	$myImage2->show(0);
+	
+	$myImage2->setCss(array('cursor'=>'Pointer'));
+
+	$myFrame = new Iframe(array('name'=>'eyeNavFrame','father'=>'eyeNavWND_Content','x'=>15,
+		'y'=>$myTextBox->y+30,'height'=>$myWindow->height-($myTextBox->y+60),'width'=>$myWindow->width-35,
+		'url'=>$homepage));
+	$myFrame->show();
+}
+
+function eyeNav_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

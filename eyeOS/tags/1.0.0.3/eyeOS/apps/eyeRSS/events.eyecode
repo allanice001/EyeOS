@@ -1,0 +1,249 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+
+function eyeRSS_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeRSS_on_addFeed($params="") {
+	$myWindow = new Window(array('name'=>'addFeedWnd','father'=>'eyeRSS','removepid'=>0,
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>250,'height'=>140,'title'=>'Add feed'));
+	$myWindow->show();
+	$myLabel = new Label(array('name'=>'addFeed_label','father'=>'addFeedWnd_Content',
+		'text'=>'Enter the url of feed to add','y'=>20,'x'=>15));
+	$myLabel->show();
+	$myTextBox = new Textbox(array('name'=>'nfTextbox','father'=>'addFeedWnd_Content',
+		'x'=>15,'y'=>45,'width'=>214));
+	$myTextBox->show();
+	$myTextBox->focus();
+	$myTextBox->addEnterEventMsg('doAdd');
+	$myButton = new Button(array('name'=>'nfButton','father'=>'addFeedWnd_Content',
+		'caption'=>'Add Feed','x'=>15,'y'=>78,'signal'=>'doAdd'));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();
+}
+
+function eyeRSS_on_doAdd($params="") {
+	$GLOBALS['addFeedWnd']->close();
+	$url = $GLOBALS['nfTextbox']->text;
+	$file = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/conf.xml';
+	$feeds = reqLib('eyeXML','getXMLfile',array($file));
+	if(!$url) {
+		service('eyex','messageBox',array('content'=>"You have to enter a valid url"));
+		return;
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeRSS/rss_parse'.EYE_CODE_EXTENSION);
+	preg_match ('/^\\s*(?:\\w+:\\/{2})?(.*?)(:\\d+)?(\\/.*)$/',$url, $matches);
+	$host = $matches[1];
+	$port = $matches[2];
+	$path = $matches[3];
+
+	if(!$port) {
+		$port = 80;
+	}
+	
+	if(!$path) {
+		$path = '/';
+	}
+	if(!$host) {
+		service('eyex','messageBox',array('content'=>"You have to enter a valid url"));
+		return;
+	}
+	$xml = reqLib('eyeURL','doRequest',array('host'=>$host,'port'=>$port,'path'=>$path));
+	$myFeed = new MagpieRSS($xml);
+	$title = htmlentities($myFeed->channel['title'],ENT_QUOTES,'UTF-8');
+	$myNewFeed = array('url'=>array($url),'name'=>array($title));
+	if(!is_array($feeds['eyeRSS'][0]['feed'])) {
+		$feeds['eyeRSS'][0] = array('feed'=>array());
+	}
+	foreach($feeds['eyeRSS'][0]['feed'] as $value) {
+		if($value['url'][0] == $url) {
+			service('eyex','messageBox',array('content'=>"This feed already exists"));
+			return;
+		}
+	}
+	array_unshift($feeds['eyeRSS'][0]['feed'],$myNewFeed);
+	$content = reqLib('eyeXML','array2xml',array($feeds));
+	eyeRSS_on_loadFeeds($feeds);
+	$fp = service('vfs','real_open',array($file,'w'));
+	fwrite($fp,$content);
+	fclose($fp);
+}
+
+function eyeRSS_on_loadFeeds($params="") {
+	$GLOBALS['eyeFeeds']->clear();
+	if(is_array($params)) {
+		$feeds = $params;
+	} else {
+		$file = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/conf.xml';
+		$feeds = reqLib('eyeXML','getXMLfile',array($file));
+	}
+	if(is_array($feeds['eyeRSS'][0]['feed'])) {
+		$counter = 0;
+		$y = 10;
+		$icon = 'file';
+		foreach($feeds['eyeRSS'][0]['feed'] as $value) {
+			if(is_array($value['name'])) {
+				$name = $value['name'][0];
+				if(strlen($name)>15) {
+					$name = substr($name,0,15);
+					$name .= '...';
+				}
+				$myLabel = new Label(array('name'=>md5($value['url'][0]).'_lbl','father'=>'eyeFeeds_Content',
+					'text'=>$name,'y'=>$y,'x'=>30,'signal'=>'readFeed','disablemsg'=>0));
+				$myLabel->show();
+				$myLabel->setCss(array('cursor'=>'Pointer'));
+				$myImage = new Imagebox(array('name'=>$counter.'_img','father'=>'eyeFeeds_Content',
+					'url'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/'.$icon.'.png',
+					'x'=>10,'y'=>$y));
+				$myImage->show();
+				$counter++;
+				$y += 27;
+			}
+		}
+	}
+}
+
+function eyeRSS_on_printFeed($params) {
+	global $myPid;
+	$url = $params[0];
+	//feedBody
+	$cacheDir = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/cache/';
+	if(service('vfs','real_fileExists',array($cacheDir.md5($url).'.xml'))) {
+		$fp = service('vfs','real_open',array($cacheDir.md5($url).'.xml','r'));
+		$xml = fread($fp,filesize($cacheDir.md5($url).'.xml'));
+		fclose($fp);
+	} else {
+		preg_match ('/^\\s*(?:\\w+:\\/{2})?(.*?)(:\\d+)?(\\/.*)$/',$url, $matches);
+		$host = $matches[1];
+		$port = $matches[2];
+		$path = $matches[3];
+	
+		if(!$port) {
+			$port = 80;
+		}
+		
+		if(!$path) {
+			$path = '/';
+		}
+		if(!$host) {
+			service('eyex','messageBox',array('content'=>"You have to enter a valid url"));
+			return;
+		}
+		$xml = reqLib('eyeURL','doRequest',array('host'=>$host,'port'=>$port,'path'=>$path));
+		service('vfs','real_create',array($cacheDir.md5($url).'.xml'));
+		$fp = service('vfs','real_open',array($cacheDir.md5($url).'.xml','w'));
+		fwrite($fp,$xml);
+		fclose($fp);
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeRSS/rss_parse'.EYE_CODE_EXTENSION);
+	$myFeed = new MagpieRSS($xml);
+	$title = $myFeed->channel['title'];
+	$GLOBALS['feedBody']->clear();
+	$myLabel = new Label(array('name'=>'title_label','father'=>'feedBody_Content',
+		'text'=>$title,'y'=>0,'x'=>30));
+	$myLabel->show();
+	$myLabel->setCss(array('font-size'=>'20px'));
+	$myContainer = new Container(array('name'=>'myLine','father'=>'feedBody_Content',
+		'width'=>400,'height'=>1,'x'=>20,'y'=>30));
+	$myContainer->show();
+	$myContainer->setCss(array('background-color'=>'#acacac'));
+	$counter = 0;
+	$y = 50;
+	global $checknum;
+	foreach($myFeed->items as $value) {
+		$myLabel = new Label(array('name'=>'link_label_'.$counter,'father'=>'feedBody_Content',
+			'text'=>$value['title'],'y'=>$y,'x'=>35));
+		$myLabel->show();
+		$furl = htmlentities($value['link'],ENT_QUOTES);
+		$myLabel->addEvent('onclick','sendMsg('.$checknum.',"openURL",eyeParam("arg","'.$furl.'"));');
+		$myLabel->setCss(array('cursor'=>'pointer'));
+		$counter++;
+		$y += 30;
+	}
+	$myHidden = new Hidden(array('name'=>'feedSelected','father'=>'eyeApps','text'=>$url));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+function eyeRSS_on_updateFeed($params=null) {
+	$url = $GLOBALS['feedSelected']->text;
+	$cacheDir = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/cache/';
+	service('vfs','real_delete',array($cacheDir.md5($url).'.xml'));
+	eyeRSS_on_printFeed(array($url));
+}
+
+function eyeRSS_on_openURL($params=null) {
+	$url = $params['arg'][0];
+	service('proc','launch',array('eyeNav',$url));
+}
+
+function eyeRSS_on_deleteFeed($params=null) {
+	$GLOBALS['feedBody']->clear();
+	$url = $GLOBALS['feedSelected']->text;
+	$file = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/conf.xml';
+	$feeds = reqLib('eyeXML','getXMLfile',array($file));
+	if(is_array($feeds) && is_array($feeds['eyeRSS']) && is_array($feeds['eyeRSS'][0]['feed'])) {
+		foreach($feeds['eyeRSS'][0]['feed'] as $key=>$value) {
+			$furl = $value['url'][0];
+			$fname = $value['name'][0];
+			if($furl == $url) {
+				unset($feeds['eyeRSS'][0]['feed'][$key]);
+			}
+		}
+	}
+	$content = reqLib('eyeXML','array2xml',array($feeds));
+	eyeRSS_on_loadFeeds($feeds);
+	$fp = service('vfs','real_open',array($file,'w'));
+	fwrite($fp,$content);
+	fclose($fp);
+}
+
+function eyeRSS_on_readFeed($params="") {
+	foreach($params as $key=>$value) {
+		if(strstr($key,'_lbl')) {
+			$url = substr($key,6,32);
+			$file = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/conf.xml';
+			$feeds = reqLib('eyeXML','getXMLfile',array($file));
+			if(is_array($feeds) && is_array($feeds['eyeRSS']) && is_array($feeds['eyeRSS'][0]['feed'])) {
+				foreach($feeds['eyeRSS'][0]['feed'] as $value) {
+					$furl = $value['url'][0];
+					$fname = $value['name'][0];
+					if(md5($furl) == $url) {
+						eyeRSS_on_printFeed(array($furl));
+					}
+				}
+			}
+		}
+	}
+}
+
+function eyeRSS_on_Close($params=null) {
+	global $myPid;
+	$cacheDir = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeRSS/cache/';
+	$content = service('vfs','real_getDirContent',array($cacheDir));
+	if(is_array($content)) {
+		foreach($content as $value) {
+			service('vfs','real_delete',array($value));
+		}
+	}
+	service('proc','close',array($myPid));
+}
+
+?>

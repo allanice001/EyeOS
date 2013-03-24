@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<script src="MaByS.js" type="text/javascript"></script>
+		<style type="text/css">
+			body {
+				color: #555555;
+				font-family: Verdana;
+				font-size: 12px;
+			}
+		</style>
+		<title>Math By Strings (MaByS)</title>
+	</head>
+	<body>
+		<div style="font-weight: bold;">Main functions</div>
+		<br />
+		<form action="" name="AddForm">
+			MaByS.Add(
+			<input type="text" name="one" value="3.21">
+			,
+			<input type="text" name="two" value="3.1">
+			)
+			<input type="button" value="=" onclick="AddForm.returned.value = MaByS.Add(AddForm.one.value,AddForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="DivideForm">
+			MaByS.Divide(
+			<input type="text" name="one" value="5.27">
+			,
+			<input type="text" name="two" value="3.1">
+			)
+			<input type="button" value="=" onclick="DivideForm.returned.value = MaByS.Divide(DivideForm.one.value,DivideForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="MultiplyForm">
+			MaByS.Multiply(
+			<input type="text" name="one" value="5.27">
+			,
+			<input type="text" name="two" value="3.83">
+			)
+			<input type="button" value="=" onclick="MultiplyForm.returned.value = MaByS.Multiply(MultiplyForm.one.value,MultiplyForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="SubtractForm">
+			MaByS.Subtract(
+			<input type="text" name="one" value="3.21">
+			,
+			<input type="text" name="two" value="3.1">
+			)
+			<input type="button" value="=" onclick="SubtractForm.returned.value = MaByS.Subtract(SubtractForm.one.value,SubtractForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<br />
+		<div style="font-weight: bold;">Intern functions</div>
+		<br />
+		<form action="" name="InputForm">
+			MaByS.Intern.Input(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			,
+			<input type="text" name="three" value="">
+			)
+			<input type="button" value="=" onclick="InputForm.returned.value = MaByS.Intern.Input(InputForm.one.value,InputForm.two.value,InputForm.three.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="OutputForm">
+			MaByS.Intern.Output(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="OutputForm.returned.value = MaByS.Intern.Output(OutputForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="SubstrForm">
+			MaByS.Intern.Substr(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			,
+			<input type="text" name="three" value="">
+			)
+			<input type="button" value="=" onclick="SubstrForm.returned.value = MaByS.Intern.Substr(SubstrForm.one.value,SubstrForm.two.value,SubstrForm.three.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="ToFloatForm">
+			MaByS.Intern.ToFloat(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="ToFloatForm.returned.value = String(MaByS.Intern.ToFloat(ToFloatForm.one.value));">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<br />
+		<div style="font-weight: bold;">New functions</div>
+		<br />
+		<form action="" name="ChangeNumSystemForm">
+			MaByS.ChangeNumSystem(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			,
+			<input type="text" name="three" value="">
+			)
+			<input type="button" value="=" onclick="ChangeNumSystemForm.returned.value = MaByS.ChangeNumSystem(ChangeNumSystemForm.one.value,ChangeNumSystemForm.two.value,ChangeNumSystemForm.three.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="CompareForm">
+			MaByS.Compare(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="CompareForm.returned.value = String(MaByS.Compare(CompareForm.one.value,CompareForm.two.value));">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="FactorialForm">
+			MaByS.Factorial(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="FactorialForm.returned.value = MaByS.Factorial(FactorialForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="GammaForm">
+			MaByS.Gamma(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="GammaForm.returned.value = MaByS.Gamma(GammaForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="lnForm">
+			MaByS.ln(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="lnForm.returned.value = MaByS.ln(lnForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="nCrForm">
+			MaByS.nCr(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="nCrForm.returned.value = MaByS.nCr(nCrForm.one.value,nCrForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="nPrForm">
+			MaByS.nPr(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="nPrForm.returned.value = MaByS.nPr(nPrForm.one.value,nPrForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="RootForm">
+			MaByS.Root(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="RootForm.returned.value = MaByS.Root(RootForm.one.value,RootForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<br />
+		<div style="font-weight: bold;">Changed functions</div>
+		<br />
+		<form action="" name="acosForm">
+			MaByS.acos(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="acosForm.returned.value = MaByS.acos(acosForm.one.value,acosForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="asinForm">
+			MaByS.asin(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="asinForm.returned.value = MaByS.asin(asinForm.one.value,asinForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="atanForm">
+			MaByS.atan(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="atanForm.returned.value = MaByS.atan(atanForm.one.value,atanForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="cosForm">
+			MaByS.cos(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="cosForm.returned.value = MaByS.cos(cosForm.one.value,cosForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="logForm">
+			MaByS.log(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="logForm.returned.value = MaByS.log(logForm.one.value,logForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="sinForm">
+			MaByS.sin(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="sinForm.returned.value = MaByS.sin(sinForm.one.value,sinForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="tanForm">
+			MaByS.tan(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="tanForm.returned.value = MaByS.tan(tanForm.one.value,tanForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<br />
+		<div style="font-weight: bold;">Aliases</div>
+		<br />
+		<form action="" name="absForm">
+			MaByS.abs(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="absForm.returned.value = MaByS.abs(absForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="expForm">
+			MaByS.exp(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="expForm.returned.value = MaByS.exp(expForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="ceilForm">
+			MaByS.ceil(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="ceilForm.returned.value = MaByS.ceil(ceilForm.one.value,ceilForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="floorForm">
+			MaByS.floor(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="floorForm.returned.value = MaByS.floor(floorForm.one.value,floorForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="maxForm">
+			MaByS.max(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="maxForm.returned.value = MaByS.max(maxForm.one.value,maxForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="minForm">
+			MaByS.min(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="minForm.returned.value = MaByS.min(minForm.one.value,minForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="powForm">
+			MaByS.pow(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			)
+			<input type="button" value="=" onclick="powForm.returned.value = MaByS.pow(powForm.one.value,powForm.two.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="randomForm">
+			MaByS.random(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			,
+			<input type="text" name="three" value="">
+			)
+			<input type="button" value="=" onclick="randomForm.returned.value = MaByS.random(randomForm.one.value,randomForm.two.value,randomForm.three.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="roundForm">
+			MaByS.round(
+			<input type="text" name="one" value="">
+			,
+			<input type="text" name="two" value="">
+			,
+			<input type="text" name="three" value="">
+			)
+			<input type="button" value="=" onclick="roundForm.returned.value = MaByS.round(roundForm.one.value,roundForm.two.value,roundForm.three.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="sqrtForm">
+			MaByS.sqrt(
+			<input type="text" name="one" value="">
+			)
+			<input type="button" value="=" onclick="sqrtForm.returned.value = MaByS.sqrt(sqrtForm.one.value);">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<br />
+		<div style="font-weight: bold;">Constants</div>
+		<br />
+		<form action="" name="EForm">
+			MaByS.E()
+			<input type="button" value="=" onclick="EForm.returned.value = MaByS.E();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="LN2Form">
+			MaByS.LN2()
+			<input type="button" value="=" onclick="LN2Form.returned.value = MaByS.LN2();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="LN10Form">
+			MaByS.LN10()
+			<input type="button" value="=" onclick="LN10Form.returned.value = MaByS.LN10();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="LOG2EForm">
+			MaByS.LOG2E()
+			<input type="button" value="=" onclick="LOG2EForm.returned.value = MaByS.LOG2E();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="LOG10EForm">
+			MaByS.LOG10E()
+			<input type="button" value="=" onclick="LOG10EForm.returned.value = MaByS.LOG10E();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="PIForm">
+			MaByS.PI()
+			<input type="button" value="=" onclick="PIForm.returned.value = MaByS.PI();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="SQRT1_2Form">
+			MaByS.SQRT1_2()
+			<input type="button" value="=" onclick="SQRT1_2Form.returned.value = MaByS.SQRT1_2();">
+			<input type="text" name="returned">
+		</form>
+		<br />
+		<form action="" name="SQRT2Form">
+			MaByS.SQRT2()
+			<input type="button" value="=" onclick="SQRT2Form.returned.value = MaByS.SQRT2();">
+			<input type="text" name="returned">
+		</form>
+	</body>
+</html>

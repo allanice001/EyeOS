@@ -1,0 +1,71 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+$ContentY = 10;
+// Text
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newsite_label_text',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Text'
+));
+$myLabel->show();
+$myTextbox_text = new Textbox(array(
+	'name' => 'eyeControl_newsite_textbox_text',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY
+));
+$myTextbox_text->show();
+$ContentY = $ContentY + 30;
+// Path
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newsite_label_path',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Path'
+));
+$myLabel->show();
+$myTextbox_path = new Textbox(array(
+	'name' => 'eyeControl_newsite_textbox_path',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY
+));
+$myTextbox_path->show();
+$ContentY = $ContentY + 40;
+// Add site
+$myButton = new Button(array(
+	'name' => 'eyeControl_newsite_button_add',
+	'father' => $eyeContainer,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Add site',
+	'signal' => 'newsite_add'
+));
+$myButton->addFriend($myTextbox_text);
+$myButton->addFriend($myTextbox_path);
+$myButton->show();
+?>

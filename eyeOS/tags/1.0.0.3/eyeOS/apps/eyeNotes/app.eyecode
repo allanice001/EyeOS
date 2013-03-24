@@ -1,0 +1,71 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeNotes_run($params=null) {
+	global $myPid;
+	$myWindow = new Window(array('name'=>'eyeNotesWND','father'=>'eyeApps',
+	'cent'=>1,'width'=>600,'height'=>500,'title'=>'eyeNotes','sendResizeMsg'=>1,'sigResize'=>'Resize'));
+	$myWindow->show();
+	$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeNotesWND_Content',
+		'width'=>$myWindow->width-19,'height'=>$myWindow->height-60,'x'=>5,'y'=>30));
+	$myTextArea->show();
+	
+	$myCssText = array(
+		'border'=>'0px',
+		'font-size'=>'9pt'
+	);
+	
+	$myTextArea->setCss($myCssText);
+		
+	$myButton = new Button(array('name'=>'BTN_1','father'=>'eyeNotesWND_Content','signal'=>'New',
+	'caption'=>'New','x'=>5,'y'=>5,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/new.png'));
+	$myButton->show();
+	$myButton1 = new Button(array('name'=>'BTN_1','father'=>'eyeNotesWND_Content','signal'=>'Open',
+	'caption'=>'Open','x'=>64,'y'=>5,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png'));
+	$myButton1->show();
+	$myButton2 = new Button(array('name'=>'BTN_2','father'=>'eyeNotesWND_Content','signal'=>'Save',
+	'caption'=>'Save','x'=>130,'y'=>5,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/save.png'));
+	$myButton2->addFriend($myTextArea);
+	$myButton2->show();
+	$myButton3 = new Button(array('name'=>'BTN_3','father'=>'eyeNotesWND_Content','signal'=>'SaveAs',
+	'caption'=>'Save As','x'=>194,'y'=>5,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/saveas.png','width'=>70));
+	$myButton3->addFriend($myTextArea);
+	$myButton3->show();
+	if($params[0]) {
+		$file = $params[0];
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'File not found'));
+			return;
+		}
+		$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		$size = service('vfs','filesize',array($file));
+		$content = fread($fp,$size);
+		fclose($fp);
+		$myTextArea->setText($content);
+	}
+}
+
+function eyeNotes_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

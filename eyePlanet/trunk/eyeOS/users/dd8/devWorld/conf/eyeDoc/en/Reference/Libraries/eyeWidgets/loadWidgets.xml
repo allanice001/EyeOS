@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>loadWidgets</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyewidgets</tag>
+		</tags>
+		<shortDesc>Loads all the available widgets.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>loadWidgets</functionName>
+		<syntax>eyeWidgets('loadWidgets')</syntax>
+		<desc>Makes available all the widgets installed in the system.</desc>
+		<return>None.</return>
+	</definition>
+</info>

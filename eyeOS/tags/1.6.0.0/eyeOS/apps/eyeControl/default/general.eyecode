@@ -1,0 +1,271 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+global $myPid;
+
+$myTab = new Tab(array(
+	'name' => 'eyeControl_general_tab',
+	'father' => $eyeContainer,
+	'width' => 565,
+	'height' => 410,
+	'x' => 0,
+	'y' => 0
+));
+$myTab->show();
+
+$systemTab = $myTab->addTab('System',1);
+$permissionsTab = $myTab->addTab('Permissions',1);
+$uninstallTab = $myTab->addTab('Uninstall',1);
+
+if (is_array($contentParams) && $contentParams[0]) {
+	$myTab->selectByName($contentParams[0]);
+} else {
+	$myTab->selectByName('System');
+}
+
+// systemTab
+
+$ContentY = 20;
+// Hostname
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_system_label_hostname',
+	'father' => $systemTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'eyeOS hostname'
+));
+$myLabel->show();
+$myTextbox_hostname = new Textbox(array(
+	'name' => 'eyeControl_general_system_textbox_hostname',
+	'father' => $systemTab,
+	'x' => 160,
+	'y' => $ContentY + 2,
+	'text' => EYEOS_HOSTNAME
+));
+$myTextbox_hostname->show();
+$ContentY += 40;
+// Protect sessions by IPs
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_system_label_ipprotect',
+	'father' => $systemTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Protect sessions by IPs'
+));
+$myLabel->show();
+$myCheckbox_ipprotect = new Checkbox(array(
+	'name' => 'eyeControl_general_system_checkbox_ipprotect',
+	'father' => $systemTab,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => ' ',
+	'checked' => PROTECTED_IP_SESSIONS
+));
+$myCheckbox_ipprotect->show();
+$ContentY += 40;
+// User quota
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_system_label_quota',
+	'father' => $systemTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'User quota'
+));
+$myLabel->show();
+$quota = DEFAULT_QUOTA;
+if (!$quota) {
+	$quota_checked = 0;
+} else {
+	$quota_checked = 1;
+}
+$myCheckbox_quota = new Checkbox(array(
+	'name' => 'eyeControl_general_system_checkbox_quota',
+	'father' => $systemTab,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => ' ',
+	'checked' => $quota_checked
+));
+$myCheckbox_quota->show();
+$myCheckbox_quota->addEvent('onchange','if (this.checked == false) { document.getElementById("' . $myPid . '_eyeControl_general_system_textbox_quota").disabled = true; document.getElementById("' . $myPid . '_eyeControl_general_system_select_quota").disabled = true; } else { document.getElementById("' . $myPid . '_eyeControl_general_system_textbox_quota").disabled = false; document.getElementById("' . $myPid . '_eyeControl_general_system_select_quota").disabled = false; }');
+if ($quota / 1024 / 1024 / 1024 >= 1 && round($quota / 1024 / 1024 / 1024) * 1024 * 1024 * 1024 == $quota) {
+	$quota = $quota / 1024 / 1024 / 1024;
+	$temp_sel['GB'] = 1;
+} elseif ($quota / 1024 / 1024 >= 1 && round($quota / 1024 / 1024) * 1024 * 1024 == $quota) {
+	$quota = $quota / 1024 / 1024;
+	$temp_sel['MB'] = 1;
+} elseif ($quota / 1024 >= 1 && round($quota / 1024) * 1024 == $quota) {
+	$quota = $quota / 1024;
+	$temp_sel['KB'] = 1;
+} else {
+	$temp_sel['B'] = 1;
+}
+$myTextbox_quota = new Textbox(array(
+	'name' => 'eyeControl_general_system_textbox_quota',
+	'father' => $systemTab,
+	'x' => 190,
+	'y' => $ContentY + 2,
+	'text' => $quota,
+	'width' => 50,
+	'enabled' => $quota_checked
+));
+$myTextbox_quota->show();
+$mySelect_quota = new Select(array(
+	'name' => 'eyeControl_general_system_select_quota',
+	'father' => $systemTab,
+	'x' => 250,
+	'y' => $ContentY + 2,
+	'width' => 80
+));
+$mySelect_quota->show();
+$mySelect_quota->addOption('Bytes','B',$temp_sel['B']);
+$mySelect_quota->addOption('KBytes','KB',$temp_sel['KB']);
+$mySelect_quota->addOption('MBytes','MB',$temp_sel['MB']);
+$mySelect_quota->addOption('GBytes','GB',$temp_sel['GB']);
+if (!$quota_checked) {
+	$mySelect_quota->disable();
+}
+$ContentY += 40;
+// Save changes
+$myButton = new Button(array(
+	'name' => 'eyeControl_general_system_button_save',
+	'father' => $systemTab,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Save changes',
+	'signal' => 'general_system'
+));
+$myButton->addFriend($myTextbox_hostname);
+$myButton->addFriend($myCheckbox_ipprotect);
+$myButton->addFriend($myCheckbox_quota);
+$myButton->addFriend($myTextbox_quota);
+$myButton->addFriend($mySelect_quota);
+$myButton->show();
+
+// permissionsTab
+
+$ContentY = 20;
+// Allow user registration
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_permissions_label_registration',
+	'father' => $permissionsTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Allow user registration'
+));
+$myLabel->show();
+$myCheckbox_registration = new Checkbox(array(
+	'name' => 'eyeControl_general_permissions_checkbox_registration',
+	'father' => $permissionsTab,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => ' ',
+	'checked' => ALLOW_USER_REGISTER
+));
+$myCheckbox_registration->show();
+$ContentY += 40;
+// Allow public dirs
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_permissions_label_publicdirs',
+	'father' => $permissionsTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Allow public dirs'
+));
+$myLabel->show();
+$myCheckbox_publicdirs = new Checkbox(array(
+	'name' => 'eyeControl_general_permissions_checkbox_publicdirs',
+	'father' => $permissionsTab,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => ' ',
+	'checked' => ALLOW_PUBLIC_DIRS
+));
+$myCheckbox_publicdirs->show();
+$ContentY += 40;
+// Save changes
+$myButton = new Button(array(
+	'name' => 'eyeControl_general_permissions_button_save',
+	'father' => $permissionsTab,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Save changes',
+	'signal' => 'general_permissions'
+));
+$myButton->addFriend($myCheckbox_registration);
+$myButton->addFriend($myCheckbox_publicdirs);
+$myButton->addFriend($myCheckbox_webupload);
+$myButton->show();
+
+// uninstallTab
+
+$ContentY = 20;
+// Used version
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_uninstall_label_version',
+	'father' => $uninstallTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Used version'
+));
+$myLabel->show();
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_uninstall_label_version_2',
+	'father' => $uninstallTab,
+	'x' => 160,
+	'y' => $ContentY + 3,
+	'text' => EYEOS_VERSION
+));
+$myLabel->show();
+$ContentY += 40;
+// Root password
+$myLabel = new Label(array(
+	'name' => 'eyeControl_general_uninstall_label_password',
+	'father' => $uninstallTab,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Root password'
+));
+$myLabel->show();
+$myTextbox_password = new Textbox(array(
+	'name' => 'eyeControl_general_uninstall_textbox_password',
+	'father' => $uninstallTab,
+	'x' => 160,
+	'y' => $ContentY + 2,
+	'password' => 1
+));
+$myTextbox_password->show();
+$myTextbox_password->addEnterEventMsg('general_uninstall');
+$myTextbox_password->focus();
+$ContentY += 40;
+// Uninstall eyeOS
+$myButton = new Button(array(
+	'name' => 'eyeControl_general_uninstall_button_uninstall',
+	'father' => $uninstallTab,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Uninstall eyeOS',
+	'signal' => 'general_uninstall'
+));
+$myButton->addFriend($myTextbox_password);
+$myButton->show();
+?>

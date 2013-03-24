@@ -1,0 +1,38 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeControl_on_lang_change($params = '') {
+	$dir = eyeControl_lib_getConfigUserPath() . '/' . CONF_USER_DIR . '/i18n/';
+	$LangXML = eyeControl_lib_getXMLconfig(array('i18n','lang.xml'));
+	$LangXML['lang'][0] = $GLOBALS['eyeControl_lang_select']->selected;
+	if (!file_exists($dir)) {
+		vfs('real_mkdir',array($dir));
+	}
+	eyeControl_lib_setXMLconfig(array('i18n','lang.xml',$LangXML));
+	eyex('messageBox',array('content' => 'Language changed. Please restart eyeOS now.'));
+}
+
+function eyeControl_on_lang_eyeosorg($params = '') {
+	proc('launch',array('eyeNav','http://eyeos.org/?section=downloads&part=translations&lang=' . i18n('getLang')));
+}
+?>

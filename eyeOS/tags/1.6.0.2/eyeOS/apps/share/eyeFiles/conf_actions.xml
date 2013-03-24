@@ -1,0 +1,38 @@
+<eyeFiles>
+	<plugin>
+		<appName>eyeUpload</appName>
+		<label>Upload files</label>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/upload.png</icon>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<appName>eyeDownload</appName>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/download.png</icon>
+		<label>Download</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyeMkDir</appName>
+		<label>Create folder</label>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/newfolder.png</icon>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<appName>eyeDelete</appName>
+		<label>Delete</label>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/delete.png</icon>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyeCopy</appName>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/copy.png</icon>
+		<label>Copy</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyePaste</appName>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/paste.png</icon>
+		<label>Paste</label>
+		<context>current</context>
+	</plugin>
+</eyeFiles>

@@ -1,0 +1,194 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+global $checknum;
+global $currentUser;
+global $myPid;
+$selType = $contentParams[0];
+$selLang = $contentParams[1];
+$selPart = $contentParams[2];
+if (!$selType || !$selLang) {
+	eyeControl_lib_loadContent('others','translations',array($selType));
+	return;
+}
+if ($currentUser != ROOTUSER) {
+	$myUserXml = um('retrieveUser',array($currentUser));
+	if (!in_array($selLang,$myUserXml['eyeUser'][0]['group'])) {
+		eyeControl_lib_loadContent('others','translations',array($selType));
+		return;
+	}
+	
+	if ($_SESSION['eyeControl'][$myPid]['translate'][$selType][$selLang] + 3600 < time()) {
+		reqLib('eyeBoard','newMessage',array($selType . ': The translation "' . $selLang . '" has been updated.'));
+		$_SESSION['eyeControl'][$myPid]['translate'][$selType][$selLang] = time();
+	}
+}
+
+$oldUser = $currentUser;
+$currentUser = ROOTUSER;
+
+$openDir = vfs('real_getDirContent',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default/','*.xml',2));
+include_once(EYE_ROOT . '/' . APP_DIR . '/eyeControl/libraries/translate.eyecode');
+if (!$selPart) {
+	$selPart = basename($openDir[0],'.xml');
+}
+$selXml = eyeXML('getXMLfile',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml'));
+$selXml = $selXml['lang'][0];
+$defaultXml = eyeXML('getXMLfile',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default/' . $selPart . '.xml'));
+$defaultXml = $defaultXml['lang'][0]['texts'][0];
+
+// $myHiddenType
+$myHiddenType = new Hidden(array(
+	'name' => 'eyeControl_translate_hidden_type',
+	'father' => $eyeContainer,
+	'text' => $selType
+));
+$myHiddenType->show();
+eyeWidgets('serialize',array($myHiddenType));
+// $myHiddenLang
+$myHiddenLang = new Hidden(array(
+	'name' => 'eyeControl_translate_hidden_lang',
+	'father' => $eyeContainer,
+	'text' => $selLang
+));
+$myHiddenLang->show();
+eyeWidgets('serialize',array($myHiddenLang));
+// $myHiddenPart
+$myHiddenPart = new Hidden(array(
+	'name' => 'eyeControl_translate_hidden_part',
+	'father' => $eyeContainer,
+	'text' => $selPart
+));
+$myHiddenPart->show();
+eyeWidgets('serialize',array($myHiddenPart));
+
+// $myTable
+$myTable = new Sortabletable(array(
+	'name' => 'eyeControl_translate_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => array('Hidden','String','String'),
+	'theader' => array(' ','English',$selXml['info'][0]['lang'][0]),
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 375,
+	'dblsignal' => 'translate_edit'
+));
+$myTable->show();
+$all = 0;
+$todo = 0;
+$selPartArray = eyeControl_lib_findArrayByText(array($selXml['part'],$selPart,array('name',0)));
+$selPartArray = $selPartArray[0];
+if (eyeControl_lib_check_system_translation($selType)) {
+	foreach ($defaultXml['text'] as $default) {
+		$selPartText = eyeControl_lib_findArrayByText(array($selPartArray['text'],$default,array('old',0)));
+		$selPartText = $selPartText[0]['new'][0];
+		if (!$selPartText) {
+			$selPartText = ' ';
+			$todo++;
+		}
+		$myTable->addRow(array(
+			$default,
+			$default,
+			$selPartText
+		));
+		$all++;
+	}
+} else {
+	foreach ($defaultXml as $key => $default) {
+		$selPartText = eyeControl_lib_findArrayByText(array($selPartArray['text'],$key,array('old',0)));
+		$selPartText = $selPartText[0]['new'][0];
+		if (!$selPartText) {
+			$selPartText = ' ';
+			$todo++;
+		}
+		$myTable->addRow(array(
+			$key,
+			$default[0],
+			$selPartText
+		));
+		$all++;
+	}
+}
+if ($todo) {
+	$percent = round(100 / $all * ($all - $todo));
+	if ($percent == 100) {
+		$percent = 99;
+	} elseif ($percent == 0 && $todo < $all) {
+		$percent == 1;
+	}
+	eyex('messageBox',array('content' => '%s% translated! %s from %s texts left.','tokens' => array($percent,$todo,$all)));
+} else {
+	eyex('messageBox',array('content' => 'All texts are translated!'));
+}
+// Select
+$mySelect = new Select(array(
+	'name' => 'eyeControl_translate_select',
+	'father' => $eyeContainer,
+	'width' => 175,
+	'horiz' => 1,
+	'y' => 3
+));
+$mySelect->show();
+foreach ($openDir as $file) {
+	$part = basename($file,'.xml');
+	if ($part == $selPart) {
+		$select = 1;
+	} else {
+		$select = 0;
+	}
+	$mySelect->addOption($part,$part,$select);
+}
+$mySelect->addEvent('onchange','sendMsg(' . $checknum . ',"translate_select",eyeParam("selected",this.value));');
+// Edit
+$myButton = new Button(array(
+	'name' => 'eyeControl_translate_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'translate_edit',
+	'caption' => 'Edit',
+	'width' => 90,
+	'x' => 10,
+	'y' => 0,
+	'img' => eyex('getThemeImage',array('icons/16x16/paste.png',1))
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Update
+$myButton = new Button(array(
+	'name' => 'eyeControl_translate_button_update',
+	'father' => $eyeContainer,
+	'signal' => 'translate_update',
+	'caption' => 'Update',
+	'width' => 90,
+	'x' => 100,
+	'y' => 0,
+	'img' => eyex('getThemeImage',array('icons/16x16/refresh.png',1))
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Back
+$myButton = new Button(array(
+	'name' => 'eyeControl_translate_button_back',
+	'father' => $eyeContainer,
+	'signal' => 'translate_back',
+	'caption' => 'Back',
+	'width' => 90,
+	'x' => 190,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeControl/gfx/back.png'
+));
+$myButton->show();
+?>

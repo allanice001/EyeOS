@@ -1,0 +1,91 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeManageApps_run($params=null) {
+	global $myPid;
+	
+	//Loading the needed javascript
+	eyeX('loadScript',array('url' => 'index.php?extern=apps/eyeManageApps/js/eyeManageApps.js&type=text'));
+	$myWindow = new Window(array('name' => 'WND_1', 'father' => 'eyeApps', 'title' => 'eyeManageApps',
+	 'width' => 775, 'height' => 525, 'x' => 50, 'y' => 3));
+	$myWindow->show();
+	
+	$myBox1 = new Box(array('name' => 'BOX_1', 'father' => 'WND_1_Content', 'x' => 5, 'y' => 5,
+	 'width' => 170, 'height' => 185, 'title' => 'Actions'));
+	$myBox1->show();
+
+	$myWindow2 = new Window(array('name'=>'WND_BOX_1','father' => 'BOX_1',
+		'y'=>12,'x'=>0,'width'=>168,'height'=>262, 'type'=>INVISIBLE_WINDOW));
+	$myWindow2->show();
+	
+	$counter = 0;
+	$xml = getConfig('eyeManageApps', 'conf.xml');
+		
+	foreach($xml['Plugins'][0]['plugin'] as $value) {
+		$Yofset = $counter * 25;
+		$myContainer = new Container(array('name' =>'action_container_line_'.$counter,
+			'father' => 'WND_BOX_1_Content', 'x' => 2,'y'=>$Yofset,'width'=>160,'height'=>30));
+		$myContainer->show();
+		eyeX('rawjs',array('js'=>"document.getElementById('".$myPid."_action_container_line_".$counter."').onmouseover = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#E9E9E9';};}"));
+		eyeX('rawjs',array('js'=>"document.getElementById('".$myPid."_action_container_line_".$counter."').onmouseout = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='transparent';};}"));
+		$myImage1 = new Imagebox(array('name'=>'action_img_'.$counter,
+			'father'=>'action_container_line_'.$counter,'url'=>$value['icon'][0],'x'=>10,'y'=>7));
+		$myImage1->show();
+		
+		$myHidden = new Hidden(array('name'=>'action_hid_'.$counter,
+			'father'=>'action_container_line_'.$counter,'text'=>$value['appName'][0]));
+		$myHidden->show();
+		if($value['context'][0] == 'current') {
+			$myLabel1 = new Label(array('name'=>'action_lbl_'.$counter,
+				'father'=>'action_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+				'disablemsg'=>0,'signal'=>'actionExecute'));
+			$myLabel1->addFriend($myHidden);
+			$myLabel1->addFriend($myTextBox);
+			$myLabel1->show();
+		} else  {
+			$myLabel1 = new Label(array('name'=>'action_lbl_'.$counter,
+				'father'=>'action_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+				'disablemsg'=>0,'signal'=>'actionSelect'));
+			$myLabel1->addFriend($myHidden);
+			$myLabel1->show();
+			eyeX('rawjs',array('js'=>"document.getElementById('".$myPid."_action_lbl_".$counter."').onmousedown = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className == 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').className = '';document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#E9E9E9';}else if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {eyeManageApps_clean($myPid);document.getElementById('".$myPid."_action_container_line_".$counter."').className = 'eyeHighlighted';document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#579AFF';};}"));
+		}
+		$myLabel1->setCss(array('font-family'=>'Verdana','font-size'=>'11px',
+			'cursor'=>'Pointer'));
+		$counter++;
+	}
+
+	$myContainer = new Container(array('name' => 'appsContainer', 'father' => 'WND_1_Content', 'x' => 180,
+	 'y' => 5, 'width' => 570, 'height' => 515));
+	$myContainer->show();
+	reqLib('eyeWidgets', 'serialize', array($myContainer));
+	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeManageApps/events'.EYE_CODE_EXTENSION);
+	eyeManageApps_on_ListApps(false);
+}
+
+function eyeManageApps_end() {
+	reqLib('eyeWidgets', 'unserialize');
+}
+
+?>

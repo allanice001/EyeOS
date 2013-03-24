@@ -1,0 +1,52 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+if ($_REQUEST['uninstall'] == 'yes') {
+	output_uninstall();
+} elseif ($_REQUEST['uninstall']) {
+	system_uninstall_no();
+} else {
+	system_uninstall_start();
+}
+
+function system_uninstall_start() {
+	$content = '<div class="system">
+	' . lang_translate('installer-system-uninstall-yes','[span]Yes[/span] will remove eyeOS completely!',array('[span]' => '<span style="font-size: 120%; font-weight: bold;">','[/span]' => '</span>')) . '
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	' . lang_translate('installer-system-uninstall-no','[span]No[/span] will bring you back to the system page.',array('[span]' => '<span style="font-size: 120%; font-weight: bold;">','[/span]' => '</span>')) . '
+</div>
+<div class="button">
+	<form action="./index.php?uninstall=yes" method="post"><input class="iButton" type="submit" value="' . lang_translate('installer-system-yes','Yes') . '" /></form> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <form action="./index.php?uninstall=no" method="post"><input class="iButton" type="submit" value="' . lang_translate('installer-system-no','No') . '" /></form>
+</div>';
+	output_do($content,'system',lang_translate('installer-system-uninstall-really','Do you really want to uninstall eyeOS?'));
+}
+
+function system_uninstall_no() {
+	unset($_SECTION['password']);
+	system_start('uninstall',$_SECTION['password']);
+}
+?>

@@ -1,0 +1,21 @@
+<?php
+global $language;
+$language['Services'] = 'Servicios';
+$language['Libraries'] = 'Librerías';
+$language['Kernel'] = 'Kernel';
+$language['Description'] = 'Descripción';
+$language['Constructor Generic Keys'] = 'Parámetros Genéricos del Constructor';
+$language['Constructor Specific Keys'] = 'Parámetros Específicos del Constructor';
+$language['Methods'] = 'Métodos de la Clase';
+$language['Arguments'] = 'Argumentos';
+$language['Search'] = 'Buscar';
+$language['Language'] = 'Idioma';
+$language['Parameters'] = 'Parámetres';
+$language['Return Values'] = 'Valores que devuelve';
+$language['Changelog'] = 'Registro de cambios';
+$language['Version'] = 'Versión';
+$language['Change description'] = 'Descripción del cambio';
+$language['None'] = 'Ninguno';
+$language['Name'] = 'Nombre';
+$language['Value'] = 'Valor';
+?>

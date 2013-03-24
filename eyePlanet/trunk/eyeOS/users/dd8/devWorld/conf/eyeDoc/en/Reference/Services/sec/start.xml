@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>start</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>sec</tag>
+		</tags>
+		<shortDesc>Cleans global variables.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>start</functionName>
+		<syntax>void sec('start')</syntax>
+		<desc>Unsets the global variables and performs a cleanup of predefined PHP variables _POST, _GET, _REQUEST and _COOKIE.</desc>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

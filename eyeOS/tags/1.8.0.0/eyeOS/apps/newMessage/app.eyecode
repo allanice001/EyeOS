@@ -1,0 +1,170 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function newMessage_run($params=null) {
+	global $myPid, $checknum;
+
+	$to = '';
+	$subject = '';
+
+	//Allow to specify addressee and subject
+	if(!empty($params['to'])) {
+		$to = $params['to'];
+	}
+		
+	if(!empty($params['subject'])) {
+		$subject = $params['subject'];
+	}
+	
+	$myWindow = new Window(array(
+		'name' => 'newMessageWND',
+		'father' => 'eyeApps',
+		'removepid' => 0,
+		'type' => NORESIZE_WINDOW,
+		'width' => 400,
+		'height' => 400,
+		'title' => 'New Message',
+		'cent' => 1
+	));
+	$myWindow->show();
+	
+	//Allow to send a callback once the application is finished. Store an array with the checknum and name of signal
+	if(is_array($params['callback'])) {
+		$myHidden = new Hidden(array(
+			'name' => 'callback',
+			'father' => 'newMessageWND',
+			'text' => $params['callback']
+		));
+		eyeWidgets('serialize', array($myHidden));
+	}
+	
+	$lblTo = new Label(array(
+		'name' => 'lblTo',
+		'father' => 'newMessageWND_Content',
+		'x' => 10,
+		'y' => 21,
+		'text' => 'To',
+		'width' => 50
+	));
+	$lblTo->show();
+	$tboxTo = new Textbox(array(
+		'name' => 'tboxTo', 
+		'father' => 'newMessageWND_Content',
+		'x' => 80,
+		'y' => 19,
+		'width' => 300,
+		'text' => $to
+	));
+	$tboxTo->show();
+	$tboxTo->focus();
+	
+	$lblSubject = new Label(array(
+		'name' => 'lblSubject',
+		'father' => 'newMessageWND_Content',
+		'x' => 10,
+		'y' => 41,
+		'text' => 'Subject',
+		'width' => 50
+	));
+	$lblSubject->show();
+	$tboxSubject = new Textbox(array(
+		'name' => 'tboxSubject', 
+		'father' => 'newMessageWND_Content',
+		'x' => 80,
+		'y' => 39,
+		'width' => 300,
+		'text' => $subject
+	));
+	$tboxSubject->show();
+	
+	$lblAttach = new Label(array(
+		'name' => 'lblAttach',
+		'father' => 'newMessageWND_Content',
+		'x' => 10,
+		'y' => 63,
+		'text' => 'Attach',
+		'width' => 50
+	));
+	$lblAttach->show();
+	$tboxAttach = new Textbox(array(
+		'name' => 'tboxAttach', 
+		'father' => 'newMessageWND_Content',
+		'x' => 80,
+		'y' => 64,
+		'width' => 200,
+		'enabled' => 0
+	));
+	$tboxAttach->show();
+	$bttnAddAttach = new Button(array(
+		'name' => 'addAttach',
+		'father' => 'newMessageWND_Content',
+		'x' => $tboxAttach->width+90,
+		'y' => 61,
+		'caption' => 'Add file',
+		'width' => 94
+	));
+	$bttnAddAttach->show();
+	
+	$contentTarea = new Textarea(array(
+		'name' => 'contentTarea',
+		'father' => 'newMessageWND_Content',
+		'width' => 302,
+		'height' => 240,
+		'x' => 80,
+		'y' => 88
+	));
+	$contentTarea->show();
+	
+	$bttnSend = new Button(array(
+		'name' => 'send',
+		'father' => 'newMessageWND_Content',
+		'width' => 150,
+		'caption' => 'Send',
+		'x' => 80,
+		'vert' => 1,
+		'y' => 18
+	));
+	$bttnSend->addFriend($tboxTo);	
+	$bttnSend->addFriend($tboxSubject);
+	$bttnSend->addFriend($tboxAttach);
+	$bttnSend->addFriend($contentTarea);
+	$bttnSend->show();
+	
+	$bttnClose = new Button(array(
+		'name' => 'Close',
+		'father' => 'newMessageWND_Content',
+		'width' => 150,
+		'caption' => 'Close',
+		'horiz' => 1,
+		'x' => 14,
+		'vert' => 1,
+		'y' => 18
+	));
+	$bttnClose->show();
+}
+
+function newMessage_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

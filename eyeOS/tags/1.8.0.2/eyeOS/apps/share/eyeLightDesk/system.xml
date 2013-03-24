@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eyeLightDeskSystem>
+	<items>
+		<item>
+			<text>Launch app</text>
+			<icon>launch.png</icon>
+			<exec>eyeLaunch</exec>
+		</item>
+		<item>
+			<text>Preferences</text>
+			<icon>preferences.png</icon>
+			<exec>eyeControl</exec>
+		</item>
+		<item>
+			<text>Edit this bar</text>
+			<icon>editbar.png</icon>
+			<exec>eyeManageApps</exec>
+		</item>
+		<item>
+			<text>Log out</text>
+			<icon>logout.png</icon>
+			<exec>exit</exec>
+		</item>
+	</items>
+</eyeLightDeskSystem>

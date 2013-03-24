@@ -1,0 +1,39 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function theme_lightdesk_unload() {
+	$xml = eyeXML('getXMLconfig',array('eyeDesk','conf.xml'));
+	$autolaunch = $xml['eyeDesk'][0]['autolaunch'];
+	unset($xml['eyeDesk'][0]['autolaunch']);
+	foreach ($autolaunch as $autorun) {
+		if (!in_array($autorun,array('eyeLightDesk','eyeBar','eyeDesk_extras','eyeDock','miniActions'))) {
+			$xml['eyeDesk'][0]['autolaunch'][] = $autorun;
+		}
+	}
+	$xml['eyeDesk'][0]['autolaunch'][] = 'eyeBar';
+	$xml['eyeDesk'][0]['autolaunch'][] = 'eyeDesk_extras';
+	$xml['eyeDesk'][0]['autolaunch'][] = 'eyeDock';
+	$xml['eyeDesk'][0]['autolaunch'][] = 'miniActions';
+	eyeXML('setXMLconfig',array('eyeDesk','conf.xml',$xml));
+}
+?>

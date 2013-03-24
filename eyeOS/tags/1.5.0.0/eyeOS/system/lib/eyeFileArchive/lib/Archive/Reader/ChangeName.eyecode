@@ -1,0 +1,212 @@
+<?php
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+
+/**
+ * Add a directory to the public name of all the files of a reader
+ *
+ * PHP versions 4 and 5
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330,Boston,MA 02111-1307 USA
+ *
+ * @category   File Formats
+ * @package    File_Archive
+ * @author     Vincent Lascaux <vincentlascaux@php.net>
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.gnu.org/copyleft/lesser.html  LGPL
+ * @version    CVS: $Id: ChangeName.php,v 1.19 2005/07/09 12:54:35 vincentlascaux Exp $
+ * @link       http://pear.php.net/package/File_Archive
+ */
+
+require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR."/eyeFileArchive/lib/Archive/Reader/Relay".EYE_CODE_EXTENSION;
+
+/**
+ * Add a directory to the public name of all the files of a reader
+ *
+ * Example:
+ *  If archive.tar is a file archive containing files a.txt and foo/b.txt
+ *  new File_Archive_Reader_Addutf8_basename('bar',
+ *     new File_Archive_Reader_Tar(
+ *         new File_Archive_Reader_File('archive.tar')
+ *     )
+ *  ) is a reader containing files bar/a.txt and bar/foo/b.txt
+ */
+class File_Archive_Reader_Addutf8_basename extends File_Archive_Reader_Relay
+{
+    var $utf8_basename;
+    function File_Archive_Reader_Addutf8_basename($utf8_basename, &$source)
+    {
+        parent::File_Archive_Reader_Relay($source);
+        $this->utf8_basename = $this->getStandardURL($utf8_basename);
+    }
+
+    /**
+     * Modify the name by adding utf8_basename to it
+     */
+    function modifyName($name)
+    {
+        return $this->utf8_basename.
+               (empty($this->utf8_basename) || empty($name) ? '': '/').
+               $name;
+    }
+
+    /**
+     * Remove utf8_basename from the name
+     * Return false if the name doesn't start with utf8_basename
+     */
+    function unmodifyName($name)
+    {
+        if (strncmp($name, $this->utf8_basename.'/', utf8_strlen($this->utf8_basename)+1) == 0) {
+            $res = utf8_substr($name, utf8_strlen($this->utf8_basename)+1);
+            if ($res === false) {
+                return '';
+            } else {
+                return $res;
+            }
+        } else if (empty($this->utf8_basename)) {
+            return $name;
+        } else if ($name == $this->utf8_basename) {
+            return '';
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @see File_Archive_Reader::getFilename()
+     */
+    function getFilename()
+    {
+        return $this->modifyName(parent::getFilename());
+    }
+    /**
+     * @see File_Archive_Reader::getFileList()
+     */
+    function getFileList()
+    {
+        $list = parent::getFileList();
+        $result = array();
+        foreach ($list as $name) {
+            $result[] = $this->modifyName($name);
+        }
+        return $result;
+    }
+    /**
+     * @see File_Archive_Reader::select()
+     */
+    function select($filename, $close = true)
+    {
+        $name = $this->unmodifyName($filename);
+        if ($name === false) {
+            return false;
+        } else {
+            return $this->source->select($name, $close);
+        }
+    }
+}
+
+/**
+ * Change a directory name to another
+ *
+ * Example:
+ *  If archive.tar is a file archive containing files a.txt and foo/b.txt
+ *  new File_Archive_Reader_Changeutf8_basename('foo', 'bar'
+ *     new File_Archive_Reader_Tar(
+ *         new File_Archive_Reader_File('archive.tar')
+ *     )
+ *  ) is a reader containing files a.txt and bar/b.txt
+ */
+class File_Archive_Reader_Changeutf8_basename extends File_Archive_Reader_Relay
+{
+    var $oldutf8_basename;
+    var $newutf8_basename;
+
+    function File_Archive_Reader_Changeutf8_basename
+                        ($oldutf8_basename, $newutf8_basename, &$source)
+    {
+        parent::File_Archive_Reader_Relay($source);
+        $this->oldutf8_basename = $this->getStandardURL($oldutf8_basename);
+        if (utf8_substr($this->oldutf8_basename, -1) == '/') {
+            $this->oldutf8_basename = utf8_substr($this->oldutf8_basename, 0, -1);
+        }
+
+        $this->newutf8_basename = $this->getStandardURL($newutf8_basename);
+        if (utf8_substr($this->newutf8_basename, -1) == '/') {
+            $this->newutf8_basename = utf8_substr($this->newutf8_basename, 0, -1);
+        }
+    }
+
+    function modifyName($name)
+    {
+        if (empty($this->oldutf8_basename) ||
+          !strncmp($name, $this->oldutf8_basename.'/', utf8_strlen($this->oldutf8_basename)+1) ||
+           strcmp($name, $this->oldutf8_basename) == 0) {
+            return $this->newutf8_basename.
+                   (
+                    empty($this->newutf8_basename) ||
+                    utf8_strlen($name)<=utf8_strlen($this->oldutf8_basename)+1 ?
+                    '' : '/'
+                   ).
+                   utf8_substr($name, utf8_strlen($this->oldutf8_basename)+1);
+        } else {
+            return $name;
+        }
+    }
+    function unmodifyName($name)
+    {
+        if (empty($this->newutf8_basename) ||
+          !strncmp($name, $this->newutf8_basename.'/', utf8_strlen($this->newutf8_basename)+1) ||
+           strcmp($name, $this->newutf8_basename) == 0) {
+            return $this->oldutf8_basename.
+                   (
+                    empty($this->oldutf8_basename) ||
+                    utf8_strlen($name)<=utf8_strlen($this->newutf8_basename)+1 ?
+                    '' : '/'
+                   ).
+                   utf8_substr($name, utf8_strlen($this->newutf8_basename)+1);
+        } else {
+            return $name;
+        }
+    }
+
+    /**
+     * @see File_Archive_Reader::getFilename()
+     */
+    function getFilename()
+    {
+        return $this->modifyName(parent::getFilename());
+    }
+    /**
+     * @see File_Archive_Reader::getFileList()
+     */
+    function getFileList()
+    {
+        $list = parent::getFileList();
+        $result = array();
+        foreach ($list as $name) {
+            $result[] = $this->modifyName($name);
+        }
+        return $result;
+    }
+    /**
+     * @see File_Archive_Reader::select()
+     */
+    function select($filename, $close = true)
+    {
+        return $this->source->select($this->unmodifyName($filename));
+    }
+
+}
+
+?>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getTask</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>proc</tag>
+		</tags>
+		<shortDesc>Calls application's start function.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getTask</functionName>
+		<syntax>mixed proc('getTask', array(int $myPid [, mixed $appArgs]))</syntax>
+		<desc>Calls the start function of an already running application.</desc>
+		<params>
+			<type>required</type>
+			<name>myPid</name>
+			<desc>ID of the process.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>appArgs</name>
+			<desc>Arguments passed to the application start function. Whether the form of the arguments must be an array or not depends on the application.</desc>
+		</params>
+		<return>If the function succeeds, returns the result of the application's start function. If it doesn't suceed, returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No application name is specified.</desc>
+			</error>
+			<error>
+				<type>PROC_APP_NOT_ARE_RUNNING</type>
+				<desc>No application with the given name is running.</desc>
+			</error>
+			<error>
+				<type>PROC_APP_NOT_FOUND</type>
+				<desc>No application with the provided name can be found in the system.</desc>
+			</error>
+			<error>
+				<type>PROC_APP_DONT_HAVE_RUN_FUNCTION</type>
+				<desc>The application does not have a start function.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

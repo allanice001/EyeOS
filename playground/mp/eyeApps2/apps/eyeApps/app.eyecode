@@ -1,0 +1,175 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeApps/events'.EYE_CODE_EXTENSION);
+
+function eyeApps_run($params = '') {
+	global $checknum;
+	global $currentUser;
+	global $myPid;
+
+	$path = um('getCurrentUserDir') .'/'. CONF_USER_DIR .'/eyeApps/';
+	if(!file_exists($path)){
+		vfs('real_mkDir', array($path));
+		eyeApps_mkXml();
+	}
+
+	$myWindow = new Window(array(
+		'cent' => 1,
+		'father' => 'eyeApps',
+		'height' => 430,
+		'name' => 'eyeApps_Window',
+		'title' => 'Applications',
+		'savePosition' => 1,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'Resize',
+		'width' => 660
+	));
+	$myWindow->show();
+/**
+*	@TODO add laucher box. Maybe add clients name and server if wanted ?
+*/
+	//Toolbar
+	$myToolbar = new Toolbar(array(
+		'father' => 'eyeApps_Window_Content',
+		'name' => 'eyeApps_Toolbar'
+	));
+	$myToolbar->show();
+	$myToolbar->addItem('ManageDock','index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/22x22/lin_agt_wrench.png','Manage Dock');
+	if ($currentUser == ROOTUSER) {
+		$myToolbar->addItem('InstallApps','index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/22x22/installapps.png','Install Apps');
+	}
+	$myToolbar->addItem('fullscreen','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/22x22/fullScreen.png','Full Screen','',1);
+
+	//body Container
+	$myContainer = new Container(array(
+		'father' => 'eyeApps_Window_Content',
+		'height' => $myWindow->height - 84,
+		'name' => 'eyeApps_Container_WND',
+		'width' => $myWindow->width - 4,
+		'x' => intval(!IE || IE > 6),
+		'y' => 59
+	));
+	$myContainer->show();
+	
+	//line dividing menu from icons
+	$myLine = new Line(array(
+		'name'=> 'verticalLine',
+		'father'=>'eyeApps_Window_Content',
+		'x'=>140,
+		'y'=>57,
+		'width'=>1,
+		'height'=>$myWindow->height - 83
+	));
+	$myLine->show(0);
+
+	//menu
+	$myMenuContainer = new Container(array(
+		'father' => 'eyeApps_Window_Content',
+		'height' => $myWindow->height - 83,
+		'name' => 'eyeApps_Menu_Content',
+		'width' => 145,
+		'x' => 0,
+		'y' => 59
+	));
+	$myMenuContainer->show();
+	$myMenuContainer->setCss(array(
+		'display' => 'block',
+		'overflow' => 'auto',
+		'position' => 'absolute'
+	));
+
+	//menu Content
+	$cats = eyeXML('getXMLconfig',array('eyeApps','conf.xml'));
+	$counter = 0;
+	foreach ($cats['eyeApps'][0]['catagory'] as $cat) {
+		$catName = $cat['name'][0];
+		// container for the catagory
+		$catContainer = new Container(array(
+			'name' => $catName . '_container',
+			'father' => 'eyeApps_Menu_Content',
+			'x' => 0,
+			'y' => 5 + $counter * 30,
+			'width' => 143,
+			'height' => 30
+		));
+		$catContainer->show();
+		$catContainer->setCss(array('display' => 'block','overflow' => 'hidden','position' => 'absolute'));
+		//catagory image
+		$catIcon = new Imagebox(array(
+			'name' => $catName . '_img',
+			'father' => $catContainer->name,
+			'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/22x22/' . $cat['img'][0] . '.png',
+			'alt' => '',
+			'x' => 5,
+			'y' => 3,
+		));
+		$catIcon->show();
+		//catagory label
+		$catLbl = new Label(array(
+			'name' => $catName . '_lbl',
+			'father' => $catContainer->name,
+			'text' => $catName,
+			'x' => 33,
+			'y' => 6,
+		));
+		$catLbl->show();
+		//hover effects & send command
+		eyeX('rawjs',array(
+			'js'=> 'e = xGetElementById("' . $myPid . '_' . $catContainer->name . '");
+				e.style.cursor = "pointer";
+				e.style.zIndex = "1";
+				e.onclick = function(){
+					sendMsg(' . $checknum . ',"Action",eyeParam("section","' . $catName . '"));
+				};
+				e.onmouseout = function(){
+					e = xGetElementById("' . $myPid . '_' . $catContainer->name . '");
+					if (e.className != "eyeHighlighted") {
+						e.style.backgroundColor = "";
+					}
+				};
+				e.onmouseover = function(){
+					e = xGetElementById("' . $myPid . '_' . $catContainer->name . '");
+					if (e.className != "eyeHighlighted") {
+						e.style.backgroundColor = "#E9E9E9";
+					}
+				};
+			'
+		));
+		$counter++;
+	}
+	//catagory to start with
+	eyeX('rawjs',array(
+	'js'=> 'e = xGetElementById("' . $myPid . '_Office_container");
+		e.className = "eyeHighlighted";
+		e.style.backgroundColor = "#ffffff";
+		e.style.borderTop = "1px solid #dadada";
+		e.style.borderBottom = "1px solid #eeeeee";
+	'
+	));
+	eyeApps_iconGen('Office');
+}
+
+function eyeApps_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

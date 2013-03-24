@@ -1,0 +1,37 @@
+﻿[b]Pour bénéficier du Support Office pour les applications onEye sur Microsoft Windows 2000 et supérieurs, il faut installer OpenOffice.org 2.x.x. Ensuite il suffit de faire une petite astuce. Cet article vous décrit comment faire.[/b]
+
+
+[b]Serveur Apache[/b]
+
+[b]En tant qu'Administrateur[/b]
+[list][*] Lancez "[b]services.msc[/b]".
+
+[*] Allez dans "[b]Properties[/b]" de votre service Apache et choisissez l'onglet "[b]Log On[/b]".
+
+[*] Activez "This account" et cliquez sur "[b]Browse...[/b]".
+
+[*] Confirmez un compte administrateur et cliquez sur "[b]Check Names[/b]".
+
+[*] Cliquez sur OK et sauvegardez puis [b]relancez le service Apache.[/b] 
+[/list]
+
+[b]Documents et Présentations[/b]
+[list][*] "[b]<ooo-path>[/b]" correspond au chemin d'installation de OpenOffice.org. Le chemin par [b]défaut[/b] est "[b]C:\Program Files\OpenOffice.org 2.4\[/b]".
+
+[*] Téléchargez OpenOffice.org 2 depuis [url]http://download.services.openoffice.org/files/stable/[/url] et installez-le.
+
+[*] [b]Copiez "extras/OpenOffice/onEye.xba[/b]" dans "[b]<ooo-path>\share\basic\Tools\[/b]".
+
+[*] [b]Editez "<ooo-path>\share\basic\Tools\script.xlb[/b]" et [b]ajoutez <library:element library:name="onEye"/>"  A LA FIN DE [/b] .
+
+[*] Retournez dans onEye >> "[b]Préférences Système[/b]" >> "[b]Système[/b]" >> "[b]Support Office[/b]".
+
+[*] Mettez à jour le dossier "[b]program[/b]" avec "[b]<ooo-path>\program\[/b]" et cliquez sur "[b]Save changes[/b]". 
+[/list]
+
+[b]Fueilles de calcul (Spreadsheets)[/b]
+[list][*] Téléchargez "7-Zip Command Line Version" depuis [url]http://7-zip.org/download.html[/url] .
+
+[*]Décompressez-le et copiez "[b]7za.exe[/b]" dans "[b]onEyexxxxxxxx/extras/7-Zip/[/b]". 
+[/list]
+

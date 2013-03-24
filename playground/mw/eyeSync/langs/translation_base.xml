@@ -1,0 +1,198 @@
+﻿  <data name="about" xml:space="preserve">
+    <value>About eyeSync</value>
+  </data>
+  <data name="about_desc" xml:space="preserve">
+    <value>Show Information about eyeSync</value>
+  </data>
+  <data name="automatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="building_local_tree" xml:space="preserve">
+    <value>Building local tree...</value>
+  </data>
+  <data name="building_remote_tree" xml:space="preserve">
+    <value>Building remote tree...</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="close_desc" xml:space="preserve">
+    <value>Close eyeSync</value>
+  </data>
+  <data name="connecting_with_server" xml:space="preserve">
+    <value>Connecting with Server...</value>
+  </data>
+  <data name="create_sync_job" xml:space="preserve">
+    <value>Create Synchronisation-Job</value>
+  </data>
+  <data name="day" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="desktop" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="error_not_a_user" xml:space="preserve">
+    <value>The given Username-Password combination is invalid!</value>
+  </data>
+  <data name="error_not_both_selected" xml:space="preserve">
+    <value>Please choose a local and a remote folder to synchronize.</value>
+  </data>
+  <data name="error_not_eyeOS" xml:space="preserve">
+    <value>The given Server URL is invalid!</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="files_in_progress" xml:space="preserve">
+    <value>files in progress...</value>
+  </data>
+  <data name="help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="hide_eyeSync" xml:space="preserve">
+    <value>Hide eyeSync</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="loading_data" xml:space="preserve">
+    <value>Loading data...</value>
+  </data>
+  <data name="local" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="manual" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="merge" xml:space="preserve">
+    <value>Merge</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="my_computer" xml:space="preserve">
+    <value>My Computer</value>
+  </data>
+  <data name="my_documents" xml:space="preserve">
+    <value>My Documents</value>
+  </data>
+  <data name="options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="remote" xml:space="preserve">
+    <value>Remote</value>
+  </data>
+  <data name="restart_now" xml:space="preserve">
+    <value>Restart now?</value>
+  </data>
+  <data name="run_at_startup" xml:space="preserve">
+    <value>Run at Startup</value>
+  </data>
+  <data name="run_at_startup_desc" xml:space="preserve">
+    <value>Run eyeSync minimzed at OS-Startup</value>
+  </data>
+  <data name="save_server_url" xml:space="preserve">
+    <value>Save Server URL</value>
+  </data>
+  <data name="server" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="server_instruction" xml:space="preserve">
+    <value>Server (e.g. www.eyeos.info)</value>
+  </data>
+  <data name="server_url" xml:space="preserve">
+    <value>Server URL</value>
+  </data>
+  <data name="server_url_desc" xml:space="preserve">
+    <value>Set the URL of the Server you want to connect with</value>
+  </data>
+  <data name="show_eyeSync" xml:space="preserve">
+    <value>Show eyeSync</value>
+  </data>
+  <data name="subdir_instruction" xml:space="preserve">
+    <value>Subdirectory (e.g. eyeos/)</value>
+  </data>
+  <data name="synchronize" xml:space="preserve">
+    <value>Synchronize</value>
+  </data>
+  <data name="synchronize_desc" xml:space="preserve">
+    <value>Synchronizes files between local and remote</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="update_every" xml:space="preserve">
+    <value>Update every</value>
+  </data>
+  <data name="update_server_url_info" xml:space="preserve">
+    <value>You need to restart eyeSync, if you want to connect to another server. Restart now?</value>
+  </data>
+  <data name="url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="user_password" xml:space="preserve">
+    <value>User / Password</value>
+  </data>
+  <data name="user_password_desc" xml:space="preserve">
+    <value>Set Username and Password to your eyeOS-Account</value>
+  </data>
+  <data name="use_public_server" xml:space="preserve">
+    <value>Use Public eyeOS Server</value>
+  </data>
+  <data name="with" xml:space="preserve">
+    <value>with</value>
+  </data>
+  <data name="cancel_ignore" xml:space="preserve">
+    <value>Cancel =&gt; This file will be ignored and the next file will progress.</value>
+  </data>
+  <data name="file_changed_both" xml:space="preserve">
+    <value>The file "{1}" has been changed online and offline. Should the online file be the new one?</value>
+  </data>
+  <data name="no_offline" xml:space="preserve">
+    <value>No =&gt; Th offline file is the new one,</value>
+  </data>
+  <data name="yes_online" xml:space="preserve">
+    <value>Yes =&gt; The online file is the new one,</value>
+  </data>
+  <data name="DeleteJob" xml:space="preserve">
+    <value>Delete Job</value>
+  </data>
+  <data name="RunJob" xml:space="preserve">
+    <value>Run Job</value>
+  </data>
+  <data name="working" xml:space="preserve">
+    <value>Working...</value>
+  </data>

@@ -1,0 +1,150 @@
+{
+  "name"    : "Inspector (export) config",
+
+  "let" :
+  {
+    "APPLICATION"  : "inspector",
+    "QOOXDOO_PATH" : "../..",
+    "CACHE"        : "${TMPDIR}/cache",
+    "THEME"        : "inspector.theme.Theme",
+    "ICONTHEME"    : ["Tango"],    
+    "INSPECTOR_ROOT"  : ".",
+    "INSPECTOR_PATH"   : "${ROOT}/build",    
+    "OPTIMIZE"     : ["basecalls", "variables", "privates", "strings"]
+  },
+
+  "jobs" :
+  {
+    "libraries" :
+    {
+      "desc" : "includer job, to hold the essential libraries for the compile jobs",
+
+      "library" :
+      [
+        {
+          "manifest" : "${QOOXDOO_PATH}/framework/Manifest.json"
+        },
+
+        {
+          "manifest" : "${INSPECTOR_ROOT}/Manifest.json"
+        }
+      ]
+    },
+
+    "common" :
+    {
+      "desc"    : "common settings for base.json jobs",
+
+      "extend"  : ["libraries"],
+
+      "include" :
+      [
+        "${THEME}",
+        "inspector.Application"
+      ],
+
+      "cache" :
+      {
+        "compile"   :  "${CACHE}",
+        "downloads" :  "${CACHE}/downloads",
+        "invalidate-on-tool-change" : true
+      },
+
+      "settings" :
+      {
+        "qx.version"     : "${QOOXDOO_VERSION}",
+        "qx.theme"       : "${THEME}",
+        "qx.application" : "inspector.Application",
+        "qx.inspector.selenium.core" : "http://selenium.googlecode.com/svn/tags/selenium-core/REL-1.0.1/src/main/resources/",
+        "qx.inspector.selenium.extensions" : "http://qooxdoo-contrib.svn.sourceforge.net/viewvc/qooxdoo-contrib/trunk/qooxdoo-contrib/Simulator/trunk/tool/selenium/user_extension/user-extensions-qooxdoo.js"
+      },
+      
+      "asset-let" :
+      {
+        "qx.icontheme" : "${ICONTHEME}"
+      }
+    },
+
+    
+    // -- build jobs ---------------------------------------------------
+
+    "build-script" :
+    {
+      "desc"    : "create build script of current application",
+
+      "extend" : ["common"],
+
+      "variants" :
+      {
+        "qx.debug" : ["off"]
+      },
+
+      "compile-options" :
+      {
+        "paths"  :
+        {
+          "file" : "${INSPECTOR_PATH}/script/inspector.js"
+        },
+        "uris"   :
+        {
+          "script"   : "./script"
+          ,"resource" : "./resource"
+        },
+        "code"   :
+        {
+          "format"   : true,
+          "locales"  : "${LOCALES}",
+          "optimize" : "${OPTIMIZE}"
+        }
+      },
+      
+      "compile" : { "type" : "build" }
+    },
+
+
+    "build-files" :
+    {
+      "desc"    : "copy files of current application to build dir",
+
+      "extend" : ["common"],
+
+      "copy-files" :
+      {
+        "files" :
+        [
+          "index.html"
+        ],
+
+        "target" : "${INSPECTOR_PATH}",
+        "source" : "${INSPECTOR_ROOT}/source"
+      }
+    },
+
+
+    "build-resources":
+    {
+      "desc"    : "copy necessary resources for current application to build dir",
+
+      "extend" : ["common"],
+
+      "copy-resources" :
+      {
+        "target"          : "${INSPECTOR_PATH}",
+        "resource-filter" : true
+      }
+    },
+
+
+    "build" :
+    {
+      "desc"    : "create build version of current application",
+
+      "run" :
+      [
+        "build-resources",
+        "build-script",
+        "build-files"
+      ]
+    }
+  }
+}

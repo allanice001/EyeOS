@@ -1,0 +1,517 @@
+<lang>
+	<info>
+		<revision>03/03/2012</revision>
+	</info>
+	<texts>
+		<text>%s command(s)</text>
+		<text>%s filetype(s)</text>
+		<text>%s mirror(s)</text>
+		<text>%s user(s) registered.</text>
+		<text>About me</text>
+		<text>Access Control</text>
+		<text>ACL Name</text>
+		<text>ACL Name:</text>
+		<text>Action</text>
+		<text>Action:</text>
+		<text>Add</text>
+		<text>Add, edit or remove your Access Control List settings</text>
+		<text>Add ACL</text>
+		<text>Add an ACL target to your oneye system</text>
+		<text>Add a new filetype to your oneye system</text>
+		<text>Add a new user to your oneye system</text>
+		<text>Add mirror</text>
+		<text>ADD PARAMETERS TO TARGETS</text>
+		<text>Add Rule</text>
+		<text>Adds a new task to the Buffer.</text>
+		<text>Admin</text>
+		<text>Admin's Name:</text>
+		<text>Administration</text>
+		<text>Administrator</text>
+		<text>Allow</text>
+		<text>Allow public dirs</text>
+		<text>Allow user registration</text>
+		<text>Allow web upload</text>
+		<text>Appends a value to an virtual file's content. This function can be perfectly used by any application, but it is specifically thought to be used remotely using oneye' XML-RPC API.</text>
+		<text>Application</text>
+		<text>Application Name</text>
+		<text>Are you sure you want to delete this ACL?</text>
+		<text>Are you sure you want to delete this param?</text>
+		<text>Are you sure you want to delete this target?</text>
+		<text>Author</text>
+		<text>Autorun Commands</text>
+		<text>Background Color</text>
+		<text>Blanks a real file.</text>
+		<text>Block User</text>
+		<text>Bookmarks and search engines successfully exported.</text>
+		<text>Bookmarks successfully imported.</text>
+		<text>Browse Plugin</text>
+		<text>Browser plugin</text>
+		<text>BROWSER PLUGIN:</text>
+		<text>Bytes</text>
+		<text>Calculates the size of a virtual file.</text>
+		<text>Calls an event function of an application. This function is automatically called every time an application sends a signal from a user's client.</text>
+		<text>Calls the start function of an already running application.</text>
+		<text>Cancel</text>
+		<text>Center Wallpaper</text>
+		<text>Change Language</text>
+		<text>Change Password</text>
+		<text>Changes a widget's position.</text>
+		<text>Changes successfully saved.</text>
+		<text>Changes successfully saved and user updated.</text>
+		<text>Changes the location of a real file from one location to another.</text>
+		<text>Changes the name of an virtual file.</text>
+		<text>Changes the size of an existing widget to the specified width and height.</text>
+		<text>Changes the value of a widget.</text>
+		<text>Changes the value of a widget. The given value is supposed to be encoded in base 64.</text>
+		<text>Changes the wallpaper of the screen.</text>
+		<text>Change Theme</text>
+		<text>Change your current password</text>
+		<text>Change your current theme</text>
+		<text>Change your desktop wallpaper</text>
+		<text>Change your eyeBoard settings</text>
+		<text>Change your preferred language</text>
+		<text>Checknum of the application executing the action.</text>
+		<text>Checks if a file has illegal characters in its name.</text>
+		<text>Checks if a given file or directory is inside of one of the system groups.</text>
+		<text>Checks if a given path points to a directory.</text>
+		<text>Checks if a specified real file exists or not.</text>
+		<text>Checks if a user is a maintainer.</text>
+		<text>Checks if a virtual file exists.</text>
+		<text>Checks if the current user is Root.</text>
+		<text>Checks if the specified user's credentials are correct.</text>
+		<text>Checks the permissions of a file.</text>
+		<text>Checks the permissions of a real file.</text>
+		<text>Checks to see if a user exists.</text>
+		<text>Checks to see whether the current user has been disabled.</text>
+		<text>Checks whether a file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</text>
+		<text>Checks whether a layer exists or not.</text>
+		<text>Checks whether a process with the given application name exists in the process table and returns its checknum.</text>
+		<text>Checks whether a process with the given application name exists in the process table and returns its process ID.</text>
+		<text>Checks whether a process with the given checknum exists and returns all its information of its entry in the process table.</text>
+		<text>Checks whether a process with the given checknum exists in the process table.</text>
+		<text>Checks whether a process with the given checknum exists in the process table and returns its application name.</text>
+		<text>Checks whether a process with the given process ID exists.</text>
+		<text>Checks whether a process with the given process ID exists and returns all the information of its entry in the process table.</text>
+		<text>Checks whether a process with the given process ID exists and returns its checknum.</text>
+		<text>Checks whether a process with the given process ID exists in the process table and returns its application name.</text>
+		<text>Checks whether a virtual file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</text>
+		<text>Choose the rendering method for PDF files</text>
+		<text>Clean oneye</text>
+		<text>Commands</text>
+		<text>Command successfully added.</text>
+		<text>Command successfully deleted.</text>
+		<text>Command successfully saved.</text>
+		<text>Concatenates text to the value property of a widget.</text>
+		<text>Concatenates text to the value property of a widget. The specified value is encoded in base 64 until it is set.</text>
+		<text>Concatenates text to the value property of a widget. This function works with Textarea widgets which have been set to contain rich text.</text>
+		<text>Configure the office support on a Linux server</text>
+		<text>Configure the office support on a Windows server</text>
+		<text>Configure the startpage</text>
+		<text>Copies a directory and its contents.</text>
+		<text>Copies a real file to the specified destination.</text>
+		<text>Copies a virtual file to a specified destination.</text>
+		<text>Create ACL</text>
+		<text>Create an ACL rule for your oneye system</text>
+		<text>Created On</text>
+		<text>Create Filetype</text>
+		<text>Create Group</text>
+		<text>Creates a blank real file.</text>
+		<text>Creates a directory.</text>
+		<text>Creates a new user, including his/her 'home' directory.</text>
+		<text>Creates a virtual file.</text>
+		<text>Create Target</text>
+		<text>Create Thumbnails</text>
+		<text>Create User</text>
+		<text>CSS ID attribute</text>
+		<text>Current Password</text>
+		<text>Customize the Image Viewer</text>
+		<text>Default group: %s | %s group(s)</text>
+		<text>Default group successfully saved. You need to restart your session now.</text>
+		<text>Default Language</text>
+		<text>Default settings successfully set.</text>
+		<text>Default User Quota</text>
+		<text>Delete</text>
+		<text>Delete ACL</text>
+		<text>Delete autorun</text>
+		<text>Delete filetype</text>
+		<text>Delete group</text>
+		<text>Delete mirror</text>
+		<text>Deletes a directory and its content.</text>
+		<text>Deletes a real file.</text>
+		<text>Deletes a user from the system.</text>
+		<text>Deletes a virtual file.</text>
+		<text>Deletes the contents of a virtual file, leaving it blank.</text>
+		<text>Delete Target</text>
+		<text>Delete User</text>
+		<text>Delete warning</text>
+		<text>Deny</text>
+		<text>Description</text>
+		<text>Desktop</text>
+		<text>Desktop Icons</text>
+		<text>Direct download</text>
+		<text>DIRECT DOWNLOAD:</text>
+		<text>Directory Name</text>
+		<text>Displays a dialog to the user with the specified message.</text>
+		<text>Done</text>
+		<text>Do you really want to delete the oneye system? This removes all data from oneye' directory!</text>
+		<text>Do you really want to remove this command?</text>
+		<text>Do you really want to remove this group from the system?</text>
+		<text>Do you really want to remove this mirror from eyeSoft?</text>
+		<text>Do you really want to remove this user from the system?</text>
+		<text>Do you really want to restore the default eyeDesk settings?</text>
+		<text>Do you really want to restore the default eyeNav bookmarks?</text>
+		<text>Do you really want to restore the default eyeNav search?</text>
+		<text>Draws a new layer and serializes it into the eyeX layer table.</text>
+		<text>Draws a new layer on the screen, without serializing it in the eyeX layer table.</text>
+		<text>Draws a new widget in the screen.</text>
+		<text>E-mail</text>
+		<text>Echoes the content of a file. This function is the equivalent of the printFile() function for virtual files.</text>
+		<text>Echoes the content of a file. This function is the equivalent of the readFile() function for real files.</text>
+		<text>Edit</text>
+		<text>Edit ACL</text>
+		<text>Edit command</text>
+		<text>Edit Filetype</text>
+		<text>Edit mirror</text>
+		<text>Edit Targets</text>
+		<text>Edit the chosen filetype</text>
+		<text>Edit the chosen user</text>
+		<text>Edit User</text>
+		<text>Edit your eyePictures slideshow related settings</text>
+		<text>Element Name</text>
+		<text>Eliminates a loaded CSS resource.</text>
+		<text>Eliminates a widget from the user's session.</text>
+		<text>Embeds the specified content inside of an existing layer.</text>
+		<text>Empties a user's temporary directory.</text>
+		<text>Executes an application by calling its start function. Also adds an entry in the process table.</text>
+		<text>Executes a specified JS code.</text>
+		<text>Executes a specified JS code. Has better content handling than rawjs().</text>
+		<text>Expiration (dd/mm/yyyy)</text>
+		<text>Expiration Date</text>
+		<text>Export</text>
+		<text>Export default bookmarks and search engines</text>
+		<text>Extension</text>
+		<text>eyePictures settings savedsuccessfully</text>
+		<text>Fielded: Icons are aligned automatically</text>
+		<text>File can be downloaded successfully.</text>
+		<text>File cannot be downloaded. Please correct the address.</text>
+		<text>Filetype</text>
+		<text>Filetypes</text>
+		<text>Filetype successfully created.</text>
+		<text>Filetype successfully deleted.</text>
+		<text>Fixed: Icons cannot be moved</text>
+		<text>From</text>
+		<text>Full Name</text>
+		<text>Function</text>
+		<text>Function:</text>
+		<text>Function Description:</text>
+		<text>GBytes</text>
+		<text>General Privileges</text>
+		<text>Get more translations</text>
+		<text>Gets the content of a user's account file.</text>
+		<text>Gets the virtual name of a real file.</text>
+		<text>Group</text>
+		<text>Groupname</text>
+		<text>Group Name:</text>
+		<text>Groups</text>
+		<text>Group successfully deleted.</text>
+		<text>Hide Hazardous Options:</text>
+		<text>Hides a layer applying a gradual fade to black effect.</text>
+		<text>Host Name</text>
+		<text>HTML5 integrated renderer</text>
+		<text>HTML5 RENDERER:</text>
+		<text>Image Viewer</text>
+		<text>Import</text>
+		<text>Incorrect password!</text>
+		<text>Informations about the available rendering methods</text>
+		<text>Input PHP array</text>
+		<text>Instead of displaying the PDF files in a window, download them. The browser will then ask you whether you'd like to open them or save them</text>
+		<text>JS Code</text>
+		<text>KBytes</text>
+		<text>Language</text>
+		<text>Language changed. Please restart oneye now.</text>
+		<text>Last login</text>
+		<text>Layer Name</text>
+		<text>Load</text>
+		<text>Loads a CSS file from a specified directory inside the extern folder.</text>
+		<text>Loads a JS script from a specified URL in the extern folder.</text>
+		<text>Look &amp; Feel</text>
+		<text>Main</text>
+		<text>Maintain</text>
+		<text>Maintained Groups</text>
+		<text>Maintained Users</text>
+		<text>Maintainer</text>
+		<text>Makes a layer invisible.</text>
+		<text>Makes a layer visible and displays it on top of any other layers or windows in the screen.</text>
+		<text>Makes an application terminate itself.</text>
+		<text>Makes a virtual file out of a real one without deleting it.</text>
+		<text>Makes a widget draggable by the user.</text>
+		<text>Manage default bookmarks</text>
+		<text>Manage default search engines</text>
+		<text>Manage Groups</text>
+		<text>Manage the navigator's startpage, bookmarks and search engines</text>
+		<text>Manage the packages repositories</text>
+		<text>Manage Users</text>
+		<text>Manage your autorun commands</text>
+		<text>Manage your security settings</text>
+		<text>Manage your system's filetypes</text>
+		<text>Manage your system's groups</text>
+		<text>Manage your system's SMTP settings</text>
+		<text>Manage your system's users</text>
+		<text>MBytes</text>
+		<text>Message Content</text>
+		<text>Mirror</text>
+		<text>Mirror address (example: %s)</text>
+		<text>Mirror does not exist!</text>
+		<text>Mirror successfully deleted.</text>
+		<text>Mirror successfully saved.</text>
+		<text>Mouse</text>
+		<text>Moves a virtual file.</text>
+		<text>Name:</text>
+		<text>Name of Process</text>
+		<text>Navigator</text>
+		<text>Never</text>
+		<text>New</text>
+		<text>New command</text>
+		<text>New Filetypes</text>
+		<text>New Password</text>
+		<text>New Password (again)</text>
+		<text>New User</text>
+		<text>New Wallpaper</text>
+		<text>New wallpaper successfully set.</text>
+		<text>No</text>
+		<text>none</text>
+		<text>No registered user could be found.</text>
+		<text>Office Support</text>
+		<text>oneye Board</text>
+		<text>Open fullscreen</text>
+		<text>OpenOffice program folder:</text>
+		<text>Opens a virtual file and returns a handler to work with.</text>
+		<text>Others</text>
+		<text>Password</text>
+		<text>Password (again) *</text>
+		<text>Password *</text>
+		<text>Passwords do not match!</text>
+		<text>Password successfully changed.</text>
+		<text>Path to Check</text>
+		<text>Path to Directory</text>
+		<text>Path to File</text>
+		<text>Path to File's Start</text>
+		<text>Path to New File</text>
+		<text>Path to new Image</text>
+		<text>Path to Original Dir</text>
+		<text>Path to Original File</text>
+		<text>Path to the file</text>
+		<text>PDF Reader</text>
+		<text>Permissions</text>
+		<text>Permissions *</text>
+		<text>Personal</text>
+		<text>PHP array to transform.</text>
+		<text>Please choose a command to be deleted.</text>
+		<text>Please choose a command to be edited.</text>
+		<text>Please choose a filetype to be edited.</text>
+		<text>Please choose a filetype to delete.</text>
+		<text>Please choose a group to delete.</text>
+		<text>Please choose a group to edit.</text>
+		<text>Please choose a group to set it as default group.</text>
+		<text>Please choose a mirror to be tested.</text>
+		<text>Please choose a mirror to delete.</text>
+		<text>Please choose a mirror to edit.</text>
+		<text>Please choose an ACL to delete</text>
+		<text>Please choose an ACL to edit from the list</text>
+		<text>Please choose a parameter to delete</text>
+		<text>Please choose a target to delete</text>
+		<text>Please choose a user to be deleted.</text>
+		<text>Please choose a user to be edited.</text>
+		<text>Please correct your typed settings.</text>
+		<text>Please fill and select all fields</text>
+		<text>Please fill in all necessary fields!</text>
+		<text>Please fill in all required fields!</text>
+		<text>Please fill in and select the proper fields to add params</text>
+		<text>Please fill out all fields.</text>
+		<text>Please fill out all required fields marked with *.</text>
+		<text>Please follow the instructions at %s.</text>
+		<text>Please type a command!</text>
+		<text>Please type a correct group name!</text>
+		<text>Please type an address!</text>
+		<text>Please type in the parameter to filter</text>
+		<text>Please type the correct root password to uninstall oneye!</text>
+		<text>Please type the username here:</text>
+		<text>Please type your password to remove this account.</text>
+		<text>Port</text>
+		<text>Privilege Level:</text>
+		<text>Process Checknum</text>
+		<text>Process ID</text>
+		<text>Process ID of Application</text>
+		<text>Protect Sessions by IP</text>
+		<text>Protect sessions by IPs</text>
+		<text>Reads a virtual file's info part and returns its contents as an array.</text>
+		<text>Refresh Interval (seconds)</text>
+		<text>Remove</text>
+		<text>Remove now!</text>
+		<text>Removes a layer from the user's session.</text>
+		<text>Remove temporary files and folders</text>
+		<text>Remove temporary files and folders from your oneye system</text>
+		<text>Rename</text>
+		<text>Rename Group</text>
+		<text>Render Method</text>
+		<text>Repeat Wallpaper</text>
+		<text>Repositories</text>
+		<text>Reset icon positions</text>
+		<text>Reset window positions</text>
+		<text>Retrieves a file located in the oneye extern directory.</text>
+		<text>Returns a handler to work with a file.</text>
+		<text>Returns a list containing all the users belonging to a specific group.</text>
+		<text>Returns a list of the groups that the currently logged in user is a member of.</text>
+		<text>Returns a list of the virtual files found in a directory under the specified search pattern.</text>
+		<text>Returns a list with all the users registered in the system.</text>
+		<text>Returns the 'tty' field of a process.</text>
+		<text>Returns the contents of the output buffer.</text>
+		<text>Returns the path of a user's directory.</text>
+		<text>Returns the path to a user's account directory.</text>
+		<text>Returns the path to the current user's 'home' directory.</text>
+		<text>Returns the real filename in which a virtual file is stored.</text>
+		<text>Returns the resolved path to a specified directory. The path can be part of the user's directory or to a group directory.</text>
+		<text>Returns the size of a file.</text>
+		<text>Returns the whole process table of a user's session.</text>
+		<text>Root</text>
+		<text>Root Password</text>
+		<text>Rule Updated</text>
+		<text>Save</text>
+		<text>Save Changes</text>
+		<text>Save window positions</text>
+		<text>Screenshot</text>
+		<text>Search engines successfully imported.</text>
+		<text>Searches the real files in a directory matching a given search pattern.</text>
+		<text>Search user...</text>
+		<text>Seconds to wait between every picture</text>
+		<text>Security</text>
+		<text>Select</text>
+		<text>Select a file...</text>
+		<text>Select a target from the list to add parameters to</text>
+		<text>SELECT TARGET AND NAME</text>
+		<text>Select user:</text>
+		<text>Sends a signal to an application.</text>
+		<text>Service</text>
+		<text>Service:</text>
+		<text>Service Description:</text>
+		<text>Set as default</text>
+		<text>Set custom value:</text>
+		<text>Set Fullscreen</text>
+		<text>Set new password on next login</text>
+		<text>Sets a CSS property of an element.</text>
+		<text>Sets the user of a process.</text>
+		<text>Settings</text>
+		<text>Set value:</text>
+		<text>Show all</text>
+		<text>Show full names</text>
+		<text>Show users</text>
+		<text>Show users...</text>
+		<text>Signal Name</text>
+		<text>Smooth: Icons can be moved anywhere</text>
+		<text>SMTP</text>
+		<text>Sorry, but that file does not exist.</text>
+		<text>Sorry, this file is not allowed to be a wallpaper.</text>
+		<text>Sorry, this page cannot be entered by the default user.</text>
+		<text>Sorry, this page is not installed.</text>
+		<text>Sorry, you do not have permissions to enter this page.</text>
+		<text>Sorry, you need to login as normal user to enter this page.</text>
+		<text>Sorry, you need to login as this user to enter this page.</text>
+		<text>Specifies which JavaScript code must be executed every time a widget triggers a JS event.</text>
+		<text>Startpage</text>
+		<text>System</text>
+		<text>System Name</text>
+		<text>System preferences</text>
+		<text>System Sound</text>
+		<text>Target</text>
+		<text>Target:</text>
+		<text>Temporary files and folders successfully removed.</text>
+		<text>Terminates an application calling its closing function and removes it from the process table.</text>
+		<text>Test</text>
+		<text>Test Address</text>
+		<text>That command does not exist!</text>
+		<text>That command is already configured!</text>
+		<text>That user does not exist.</text>
+		<text>The account was successfully deleted.</text>
+		<text>The category does not exist!</text>
+		<text>The chosen group is already the default group!</text>
+		<text>The extern service is used to load resources such as images or CSS files from the extern directory. These resources can then be used by applications within oneye.</text>
+		<text>The eyeX service is responsible for drawing the contents of the page and the manipulation of CSS and JS files. It is also responsible for the control of the layer system, part of which is the 'eyeApps' layer, in which all the applications and the desktop are drawn.</text>
+		<text>Theme</text>
+		<text>Theme changed. You must restart your desktop for the changes to become active.</text>
+		<text>The mirror is installed, yet!</text>
+		<text>The mmap service is a key part of the oneye system that connects the client side with the server side via message passing between the two parts. The messages always consist in an XML string giving instructions of the actions to perform to the part.</text>
+		<text>The proc service gives the possibility to manage and get information about running processes.</text>
+		<text>There was a problem while deleting the group.</text>
+		<text>The selected file is not an eyeNav bookmarks file.</text>
+		<text>The selected file is not an eyeNav search engine file.</text>
+		<text>The selected group already exists!</text>
+		<text>The selected user already exists!</text>
+		<text>The selected username is too long!</text>
+		<text>The selected username is too small!</text>
+		<text>The user does not exist.</text>
+		<text>The User Manager service is responsible for managing users and allowing applications to interact with a user's data.</text>
+		<text>The vfs service is the layer that must be used to manipulate any file inside oneye. It contains two sets of functions to manipulate files: one to work with the user's personal (virtual) files, and the other one (having always a 'real_' prefix on their name) to work with normal (real) files.</text>
+		<text>This group does not exist.</text>
+		<text>This user does not exist.</text>
+		<text>Title</text>
+		<text>Transforms a directory's files to virtual mode. Each real file found will have in the same directory an equivalent file in virtual mode.</text>
+		<text>Transforms a PHP array into string convertible to a JavaScript array.</text>
+		<text>Transforms a PHP array into string convertible to a JS array with the use of the JS function getArrayArg.</text>
+		<text>Turn system sound off</text>
+		<text>Type in the parameter you want to filter:</text>
+		<text>Type the command you want to run at login.</text>
+		<text>Type the name of the group you want to create:</text>
+		<text>Type the new group's name:</text>
+		<text>Type the new mirror address:</text>
+		<text>Unhides a layer applying a gradual fade in effect.</text>
+		<text>Uninstall</text>
+		<text>Uninstall oneye</text>
+		<text>Unlimited</text>
+		<text>Update Rule</text>
+		<text>Updates a user's information contained in that user's account file.</text>
+		<text>Update your system's profile</text>
+		<text>Update your system's settings</text>
+		<text>URL of Script</text>
+		<text>URL of Stylesheet</text>
+		<text>Use a custom background color</text>
+		<text>Use a custom wallpaper</text>
+		<text>Use an HTML5 renderer. It does not require any external plugin. It is still under development, so some PDF files could be wrongly displayed</text>
+		<text>Use Defaults</text>
+		<text>Use Doubleclicks</text>
+		<text>Used space:</text>
+		<text>Used to create a directory in the user's 'home' directory or its descendents.</text>
+		<text>Used Version</text>
+		<text>User</text>
+		<text>Username</text>
+		<text>User Name</text>
+		<text>User Name *</text>
+		<text>Username:</text>
+		<text>Username contains invalid characters, please try another!</text>
+		<text>User Quota</text>
+		<text>User Quota *</text>
+		<text>User successfully created.</text>
+		<text>User successfully deleted.</text>
+		<text>Use SSL</text>
+		<text>Use system default</text>
+		<text>Use the browser plugin (recommended if your browser has a PDF reader plugin installed)</text>
+		<text>Wallpaper</text>
+		<text>Widget Name</text>
+		<text>Windows</text>
+		<text>Windows successfully restored. Please restart the applications now.</text>
+		<text>Writes the content of a file to a given value. This function is the equivalent of the writeFile() function for virtual files.</text>
+		<text>Writes the content of an virtual file to a given value. This function is the equivalent of the real_putFileContent() function for real files.</text>
+		<text>XML containing the Task</text>
+		<text>Yes</text>
+		<text>You are not allowed to manage groups!</text>
+		<text>You are not allowed to manage users!</text>
+		<text>You cannot delete the default group!</text>
+		<text>You cannot delete the default mirror!</text>
+		<text>You cannot delete the root user!</text>
+		<text>You cannot edit the default mirror!</text>
+		<text>You cannot save a mirror as the default mirror!</text>
+		<text>You can use /a (ending), /b (beginning) and /c (counts) to list users.</text>
+		<text>Your oneye system was successfully deleted.</text>
+		<text>Your server does not need cleaning!</text>
+		<text>[Default user]</text>
+	</texts>
+</lang>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>File</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>container</tag>
+		</tags>
+		<shortDesc>A container widget with a title.</shortDesc>
+	</general>
+	<name>File</name>
+	<description>The File widget creates an input field that allows the user to upload a file of his local filesystem. It can also be specified to select multiple files.</description>
+	<image>Un ejemplo del widget File permitiendo subir múltiples archivos. El idioma del texto 'Examinar' depende del idioma del ordenador del usuario.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Nombre unívoco dado al widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Nombre de su elemento padre dentro del cual se crea.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Especifica si la coordenada horizontal debe tomarse desde el borde izquierdo (0) o derecho (1) de su contenedor. El valor por defecto es 0 (borde izquierdo).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Especifica si la coordenada vertical debe tomarse desde el borde superior (0) o inferior (1) de su contenedor. El valor por defecto es 0 (borde superior).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Especifica la coordenada horizontal dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Especifica la coordenada vertical dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Especifica cómo debe centrarse el widget. Los valores posibles son:
+			 0: sin centrar. Es el valor por defecto.
+			 1: centrar horizontal y verticalmente.
+			 2: centrar horizontalmente.
+			 3: centrar verticalmente.
+			 4: especifica como coordenadas horizontales y verticales del widget el centro del contenedor.
+			 5: especifica como coordenada horizontal del widget el centro del contenedor.
+			 6: especifica como coordenada vertical del widget el centro del contenedor.
+
+			Ten en cuenta la diferencia que hay entre las opciones 1-3 y 4-6. Las opciones 1-3 calculan el tamaño del widget para asegurarse que su punto central coincide con el centro de su contenedor, mientras que las opciones 4-6 sólo posicionan el widget con las coordenadas del punto central del contenedor, haciendo que el widget pueda verse desplazado del centro.
+			</desc>
+		</key>
+		<key>
+			<name>visible</name>
+			<desc>Especifica la visibilidad del widget. Los valores posibles son 0 (invisible) o 1 (visible). El valor por defecto es 1.</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>callback</name>
+			<desc>Name of the signal sent to the system when the upload button is clicked.</desc>
+		</key>
+		<key>
+			<name>filename</name>
+			<desc>Unique identifier given to the widget, used to check if the uploading process is completed.</desc>
+		</key>
+		<key>
+			<name>multiple</name>
+			<desc>Specifies whether or not the File widget allows to upload multiple files. The default value of 0 disables it, while any other value enagles the feature.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Hace que el sistema ejecute un código JavaScript dado cada vez que se produzca un evento en este widget.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Nombre del evento JS. Ejemplos: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>Código JavaScript que se ejecutará cada vez que se dispare el evento. El código se ejecutará dentro de una función para que puedan recibirse argumentos.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Argumentos pasados a la función del evento.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>checkFile()</syntax>
+			<desc>Checks whether the file or files have been uploaded successfully.</desc>
+		</method>
+		<method>
+			<syntax>getRemoteName()</syntax>
+			<desc>Retrieves the original name of the file on the user's machine.</desc>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Hace el widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>notify(string $callback)</syntax>
+			<desc>Sends a signal to the system with the given name.</desc>
+			<arguments>
+				<arg>
+					<name>callback</name>
+					<desc>Name of the signal to send.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void remove()</syntax>
+			<desc>Elimina el widget, y con él todos los widgets en su interior.</desc>
+		</method>
+		<method>
+			<syntax>saveFile(string $where)</syntax>
+			<desc>Saves the file or files to the specified directory.</desc>
+			<arguments>
+				<arg>
+					<name>where</name>
+					<desc>Path to store the files.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Aplica atributos CSS al widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Especifica, en forma de un array asociativo, los atributos a aplicar. La clave del elemento del array corresponde a la propiedad, mientras que el valor representa al valor de la propiedad. Tanto las claves como los valores deben ser válidos en la sintaxis de CSS.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setHeight(int $height)</syntax>
+			<desc>Cambia la altura de un widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>Nueva altura, expresada en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>void setWidth(int $width)</syntax>
+			<desc>Cambia la anchura del widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>Nueva anchura del widget, en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setX(int $x)</syntax>
+			<desc>Cambia la posición horizontal del widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>Nueva coordenada horizontal.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setY(int $y)</syntax>
+			<desc>Cambia la posición vertical del widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>Nueva posición vertical.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show()</syntax>
+			<desc>Draws the widget in the screen.</desc>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Hace el widget visible.</desc>
+		</method>
+	</methods>
+</info>

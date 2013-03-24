@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getDirContent</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Searches for virtual files in a directory.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getDirContent</functionName>
+		<syntax>array vfs('getDirContent', array(string $dirToRead [, string $exp]))</syntax>
+		<desc>Returns a list of the virtual files found in a directory under the specified search pattern.</desc>
+		<params>
+			<type>required</type>
+			<name>dirToRead</name>
+			<desc>Path to the directory to search.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>exp</name>
+			<desc>Pattern to determine which files to get. It has the same form as the expression used in the native glob() PHP function. In case no pattern is specified, this function will list all the virtual files found in the directory.</desc>
+		</params>
+		<return>If the function succeeds, returns an indexed array containing the names of the virtual files found. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No directory has been specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions to search the directory.</desc>
+			</error>
+			<error>
+				<type>VFS_DIR_NOT_EXISTS</type>
+				<desc>The directory does not exist.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

@@ -1,0 +1,321 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Makefile Migration &mdash; qooxdoo v1.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.2 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="makefile-migration">
+<span id="pages-migration-makefile-makefile-migration"></span><h1>Makefile Migration<a class="headerlink" href="#makefile-migration" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Makefile variable</th>
+<th class="head">Config key name / description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>QOOXDOO_PATH</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-let-top-level"><em>let/QOOXDOO_PATH</em></a></td>
+</tr>
+<tr><td>APPLICATION_NAMESPACE</td>
+<td><a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/provides/namespace</em></a></td>
+</tr>
+<tr><td>APPLICATION_CLASSNAME</td>
+<td>by overwriting the <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-include"><em>include/{ns}.XXX</em></a> key (default: “Application”)</td>
+</tr>
+<tr><td>QOOXDOO_URI</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-let-top-level"><em>let/QOOXDOO_URI</em></a></td>
+</tr>
+<tr><td>APPLICATION_NAMESPACE_PATH</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_ID</td>
+<td>N/A (default: application namespace)</td>
+</tr>
+<tr><td>APPLICATION_TITLE</td>
+<td>N/A (default: application namespace)</td>
+</tr>
+<tr><td>APPLICATION_MAKE_TITLE</td>
+<td>N/A (default: application namespace)</td>
+</tr>
+<tr><td>APPLICATION_VERSION</td>
+<td><a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/info/version</em></a></td>
+</tr>
+<tr><td>APPLICATION_DESCRIPTION</td>
+<td><a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/info/description</em></a></td>
+</tr>
+<tr><td>APPLICATION_COPYRIGHT</td>
+<td><a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/info/license</em></a></td>
+</tr>
+<tr><td>APPLICATION_WIDTH</td>
+<td>N/A (for AIR)</td>
+</tr>
+<tr><td>APPLICATION_HEIGHT</td>
+<td>N/A (for AIR)</td>
+</tr>
+<tr><td>APPLICATION_ICON_PATH</td>
+<td>N/A (icons will be searched in each library under .../source/resource/&lt;namespace&gt;)</td>
+</tr>
+<tr><td>APPLICATION_ICON</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_FILES</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-copy-files"><em>copy-files/files</em></a></td>
+</tr>
+<tr><td>APPLICATION_LOCALES</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-let-top-level"><em>let/LOCALES</em></a></td>
+</tr>
+<tr><td>APPLICATION_HTML_TO_ROOT_URI</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-library"><em>library/uri</em></a> of individual library (see also dedicated <a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-uri-handling"><em>article</em></a></td>
+</tr>
+<tr><td>APPLICATION_COMPLETE_BUILD</td>
+<td>by overwriting the <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-include"><em>include</em></a> key (default: false)</td>
+</tr>
+<tr><td>APPLICATION_COMPLETE_SOURCE</td>
+<td>by using dedicated job <tt class="docutils literal"><span class="pre">source-all</span></tt></td>
+</tr>
+<tr><td>APPLICATION_COMPLETE_API</td>
+<td>by setting <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-let-top-level"><em>let/API_INCLUDE</em></a></td>
+</tr>
+<tr><td>APPLICATION_LINEBREAKS_BUILD</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/code/format</em></a> (default: false)</td>
+</tr>
+<tr><td>APPLICATION_LINEBREAKS_SOURCE</td>
+<td>N/A (default: true)</td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_STRINGS</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/code/optimize</em></a></td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_VARIABLES</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/code/optimize</em></a></td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_BASE_CALL</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/code/optimize</em></a></td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_PRIVATE</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/code/optimize</em></a></td>
+</tr>
+<tr><td>APPLICATION_OBFUSCATE_ACCESSORS</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_BROWSER</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-variants"><em>variants/qx.client</em></a></td>
+</tr>
+<tr><td>APPLICATION_INDIVIDUAL_BROWSERS</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-variants"><em>variants/qx.client</em></a></td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_REMOVE_DEBUG</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-settings"><em>settings/qx.debug</em></a> to &#8220;off&#8221;</td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_REMOVE_COMPATIBILITY</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_OPTIMIZE_REMOVE_ASPECTS</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_ENABLE_GUI</td>
+<td>N/A, replaced by customized builds using <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-include"><em>include</em></a></td>
+</tr>
+<tr><td>APPLICATION_RESOURCE_FILTER</td>
+<td>N/A (always enabled, i.e. all source files need <a class="reference internal" href="../gui_toolkit/ui_resources.html#pages-ui-resources-declaring-resources-in-the-code"><em>#asset</em></a> declarations)</td>
+</tr>
+<tr><td>APPLICATION_INCLUDES</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-include"><em>include</em></a></td>
+</tr>
+<tr><td>APPLICATION_THEME</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-let-top-level"><em>let/QXTHEME</em></a></td>
+</tr>
+<tr><td>APPLICATION_THEME_COLOR</td>
+<td>N/A (all set in the theme class(es))</td>
+</tr>
+<tr><td>APPLICATION_THEME_BORDER</td>
+<td>N/A (all set in the theme class(es))</td>
+</tr>
+<tr><td>APPLICATION_THEME_FONT</td>
+<td>N/A (all set in the theme class(es))</td>
+</tr>
+<tr><td>APPLICATION_THEME_ICON</td>
+<td>N/A (all set in the theme class(es))</td>
+</tr>
+<tr><td>APPLICATION_THEME_WIDGET</td>
+<td>N/A (all set in the theme class(es))</td>
+</tr>
+<tr><td>APPLICATION_THEME_APPEARANCE</td>
+<td>N/A (all set in the theme class(es)</td>
+</tr>
+<tr><td>APPLICATION_SOURCE_LOG_LEVEL</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-log"><em>log</em></a></td>
+</tr>
+<tr><td>APPLICATION_BUILD_LOG_LEVEL</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-log"><em>log</em></a></td>
+</tr>
+<tr><td>APPLICATION_SOURCE_LOG_APPENDER</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_BUILD_LOG_APPENDER</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_TEMPLATE_INPUT</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_TEMPLATE_OUTPUT</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_TEMPLATE_REPLACE</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_SOURCE_PATH</td>
+<td>split into various in <a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/provides</em></a>, e.g. “class”, “resource”, “translation”</td>
+</tr>
+<tr><td>APPLICATION_BUILD_PATH</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-let"><em>let/BUILD_PATH</em></a>, <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/paths/file</em></a></td>
+</tr>
+<tr><td>APPLICATION_API_PATH</td>
+<td>N/A (default: ./api)</td>
+</tr>
+<tr><td>APPLICATION_DEBUG_PATH</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_PUBLISH_PATH</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_TEST_PATH</td>
+<td>N/A (default: ./test)</td>
+</tr>
+<tr><td>APPLICATION_TOOL_PATH</td>
+<td>N/A (default: ./tool)</td>
+</tr>
+<tr><td>APPLICATION_BUILDTOOL_PATH</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_SCRIPT_FOLDERNAME</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/paths/file</em></a></td>
+</tr>
+<tr><td>APPLICATION_CLASS_FOLDERNAME</td>
+<td><a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/provides/class</em></a></td>
+</tr>
+<tr><td>APPLICATION_TRANSLATION_FOLDERNAME</td>
+<td><a class="reference internal" href="../tool/generator_config_articles.html#pages-tool-generator-config-articles-manifest-files"><em>Manifest.json/provides/translation</em></a></td>
+</tr>
+<tr><td>APPLICATION_SCRIPT_FILENAME</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/paths/file</em></a></td>
+</tr>
+<tr><td>LINT_ALLOWED_GLOBALS</td>
+<td><a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-compile-options"><em>compile-options/paths/file</em></a></td>
+</tr>
+<tr><td>APPLICATION_PROFILE_SOURCE</td>
+<td>extend <tt class="docutils literal"><span class="pre">profiling</span></tt> job</td>
+</tr>
+<tr><td>APPLICATION_PROFILE_BUILD</td>
+<td>extend <tt class="docutils literal"><span class="pre">profiling</span></tt> job</td>
+</tr>
+<tr><td>APPLICATION_ADDITIONAL_CLASS_PATH</td>
+<td>covered by adding <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-library"><em>library/uri</em></a> entries</td>
+</tr>
+<tr><td>APPLICATION_ADDITIONAL_CLASS_URI</td>
+<td>covered by adding <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-library"><em>library/uri</em></a> entries</td>
+</tr>
+<tr><td>APPLICATION_ADDITIONAL_SOURCE_OPTIONS</td>
+<td>N/A</td>
+</tr>
+<tr><td>APPLICATION_ADDITIONAL_BUILD_OPTIONS</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/migration/migration_makefile.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

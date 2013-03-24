@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>loadConfig</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>config</tag>
+		</tags>
+		<shortDesc>Loads XML config files of an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>Created</version>
+			<desc>1.0</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>loadConfig</functionName>
+		<syntax>void loadConfig(string $appName)</syntax>
+		<desc>Opens every application's XML configuration file in the applications shared configuration directory and defines a constant with its value for each parameter found in the files.</desc>
+		<params>
+			<type>required</type>
+			<name>appName</name>
+			<desc>Name of the application from to load the configuration files.</desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

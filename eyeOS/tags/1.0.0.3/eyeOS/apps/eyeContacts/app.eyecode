@@ -1,0 +1,45 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeContacts_run($params=null) {
+	global $myPid;
+	$content = "";
+	$myWindow = new Window(array('name'=>'eyeContactsWND','father'=>'eyeApps','type'=>NORESIZE_WINDOW,
+	'cent'=>1,'width'=>560,'height'=>405,'title'=>'eyeContacts'));
+	$myWindow->show();
+
+	$myTab = new Tab(array('name'=>'eyeContacts_TabGRP','father'=>'eyeContactsWND_Content','width'=>558,'height'=>370,
+		'x'=>0,'y'=>7,'caption'=>'eyeContacts','signal'=>'tabClosed'));
+	$myTab->show();
+
+	/* New Contact Tab */
+	$newContactTab = $myTab->addTab("New Contact",1);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/new_contact_form'.EYE_CODE_EXTENSION);
+	
+	/* List Contacts Tab */	
+	$contactListTab = $myTab->addTab("Contacts",1);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/list_contacts_form'.EYE_CODE_EXTENSION);
+}
+
+function eyeContacts_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

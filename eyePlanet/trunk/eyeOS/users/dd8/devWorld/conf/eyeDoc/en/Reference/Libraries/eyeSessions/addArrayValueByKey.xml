@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>addArrayValueByKey</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Adds a new value with a key in a variable.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>addArrayValueByKey</functionName>
+		<syntax>eyeSessions('addArrayValueByKey', array($varName, $varValue, $key))</syntax>
+		<desc>Adds a new value to the array session variable varName. The value is inserted as an associative array, being the key of the new element the 'key' argument.</desc>
+		<params>
+			<type>required</type>
+			<name>varName</name>
+			<desc>Name of the session variable.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>varValue</name>
+			<desc>Value to insert in the variable.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>key</name>
+			<desc>Key of the new element added to the array.</desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

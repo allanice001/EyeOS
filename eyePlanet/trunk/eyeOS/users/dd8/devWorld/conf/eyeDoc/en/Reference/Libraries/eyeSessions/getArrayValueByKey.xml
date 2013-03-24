@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getArrayValueByKey</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Gets the value of a session array var.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getArrayValueByKey</functionName>
+		<syntax>eyeSessions('getArrayValueByKey', array($arrayName, $position))</syntax>
+		<desc>Retrieves the value of the array element referred by position in the session variable arrayName.</desc>
+		<params>
+			<type>required</type>
+			<name>arrayName</name>
+			<desc>Name of the variable.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>position</name>
+			<desc>Key of the element of the variable.</desc>
+		</params>
+		<return>Returns the value of the specified element of the variable.</return>
+	</definition>
+</info>

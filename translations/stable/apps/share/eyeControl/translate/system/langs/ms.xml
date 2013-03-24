@@ -1,0 +1,211 @@
+<lang>
+	<info>
+		<lang>بهاس ملايو‎</lang>
+		<lang-en>Malay</lang-en>
+		<author>Ziera Eliani</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Applications</old>
+			<new>Applikasi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>User</old>
+			<new>Nama</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Kata Rahsia</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Username</old>
+			<new>Nama</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Kata Rahsia</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Pengguna Baru</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Bahasa</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Buat Akaun</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Masuk</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello Dunia!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Misal eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Ubah Label Teks</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Simpan</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Hapus Row</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Hapus Column</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Disember</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Salin dan tampalkan kod ini ke applikasi lembaran kerja yang lain (misal Excel)</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Ogos</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Aha</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>K</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>R</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Rab</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sab</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Sel</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Kha</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>HB</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Isn</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februari</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januari</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Jum</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Ogos</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Julai</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Jun</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mei</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Mac</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Disember</new>
+		</text>
+	</part>
+</lang>

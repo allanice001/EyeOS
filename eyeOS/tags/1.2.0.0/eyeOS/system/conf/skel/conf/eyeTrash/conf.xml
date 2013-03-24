@@ -1,0 +1,20 @@
+<eyeFiles>
+	<plugin>
+		<appName>emptyTrash</appName>
+		<label>Empty trash</label>
+		<icon>index.php?extern=apps/eyeTrash/gfx/empty.png</icon>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<appName>restoreTrash</appName>
+		<icon>index.php?extern=apps/eyeTrash/gfx/restore.png</icon>
+		<label>Restore File</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>propertyTrash</appName>
+		<icon>index.php?extern=apps/eyeTrash/gfx/properties.png</icon>
+		<label>File properties</label>
+		<context>select</context>
+	</plugin>
+</eyeFiles>

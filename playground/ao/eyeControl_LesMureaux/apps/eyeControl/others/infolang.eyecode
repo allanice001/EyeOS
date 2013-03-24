@@ -1,0 +1,225 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+$selType = $contentParams[0];
+$selLang = $contentParams[1];
+if (!$selType || !$selLang) {
+	eyeControl_lib_loadContent('others','translations',array($selType));
+	return;
+}
+$selXml = eyeXML('getXMLfile',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml'));
+$selXml = $selXml['lang'][0];
+
+$myHidden_type = new Hidden(array(
+	'name' => 'eyeControl_infolang_hidden_type',
+	'father' => $eyeContainer,
+	'text' => $selType
+));
+$myHidden_type->show();
+$myHidden_lang = new Hidden(array(
+	'name' => 'eyeControl_infolang_hidden_lang',
+	'father' => $eyeContainer,
+	'text' => $selLang
+));
+$myHidden_lang->show();
+$ContentY = 20;
+// Wikipedia
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_wikipedia',
+	'father' => $eyeContainer,
+	'x' => 50,
+	'y' => $ContentY,
+	'text' => 'Please use the list of ISO 639-1 codes!',
+	'disablemsg' => 0,
+	'signal' => 'infolang_wikipedia'
+));
+$myLabel->show();
+$myLabel->setCss(array(
+	'color' => '#004488',
+	'cursor' => 'Pointer'
+));
+$ContentY = $ContentY + 50;
+// Language ID
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_id',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Language ID'
+));
+$myLabel->show();
+$myTextbox_id = new Textbox(array(
+	'name' => 'eyeControl_infolang_textbox_id',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $selLang
+));
+$myTextbox_id->show();
+$ContentY = $ContentY + 30;
+// Native name
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_lang',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Native name'
+));
+$myLabel->show();
+$myTextbox_lang = new Textbox(array(
+	'name' => 'eyeControl_infolang_textbox_lang',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $selXml['info'][0]['lang'][0]
+));
+$myTextbox_lang->show();
+$ContentY = $ContentY + 30;
+if (eyeControl_lib_check_system_translation($selType)) {
+	// Language name
+	$myLabel = new Label(array(
+		'name' => 'eyeControl_infolang_label_lang_en',
+		'father' => $eyeContainer,
+		'x' => 20,
+		'y' => $ContentY + 3,
+		'text' => 'Language name'
+	));
+	$myLabel->show();
+	$myTextbox_lang_en = new Textbox(array(
+		'name' => 'eyeControl_infolang_textbox_lang_en',
+		'father' => $eyeContainer,
+		'x' => 160,
+		'y' => $ContentY,
+		'text' => $selXml['info'][0]['lang-en'][0]
+	));
+	$myTextbox_lang_en->show();
+	$ContentY = $ContentY + 30;
+}
+// Author
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_author',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Author (full name)'
+));
+$myLabel->show();
+$myTextbox_author = new Textbox(array(
+	'name' => 'eyeControl_infolang_textbox_author',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $selXml['info'][0]['author'][0]
+));
+$myTextbox_author->show();
+$ContentY = $ContentY + 30;
+// Revision
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_revision',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Revision'
+));
+$myLabel->show();
+$myTextbox_revision = new Textbox(array(
+	'name' => 'eyeControl_infolang_textbox_revision',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $selXml['info'][0]['revision'][0]
+));
+$myTextbox_revision->show();
+$ContentY = $ContentY + 30;
+// Statistic
+$all = 0;
+$todo = 0;
+$dir = EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default/';
+$openDir = vfs('real_getDirContent',array($dir,'*.xml'));
+foreach ($openDir as $file) {
+	$part = utf8_basename($file,'.xml');
+	$defaultXml = eyeXML('getXMLfile',array($dir . $part . '.xml'));
+	$selPartArray = eyeControl_lib_findArrayByText(array($selXml['part'],$part,array('name',0)));
+	$selPartArray = $selPartArray[0];
+	if (eyeControl_lib_check_system_translation($selType)) {
+		foreach ($defaultXml['lang'][0]['texts'][0]['text'] as $default) {
+			$selPartText = eyeControl_lib_findArrayByText(array($selPartArray['text'],$default,array('old',0)));
+			if (!$selPartText[0]['new'][0]) {
+				$todo++;
+			}
+			$all++;
+		}
+	} else {
+		foreach ($defaultXml['lang'][0]['texts'][0] as $key => $default) {
+			$selPartText = eyeControl_lib_findArrayByText(array($selPartArray['text'],$key,array('old',0)));
+			if (!$selPartText[0]['new'][0]) {
+				$todo++;
+			}
+			$all++;
+		}
+	}
+}
+$percent = round(100 / $all * ($all - $todo));
+if ($percent == 100 && $todo > 0) {
+	$percent = 99;
+} elseif ($percent == 0 && $todo < $all) {
+	$percent = 1;
+}
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_statistic',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Statistic'
+));
+$myLabel->show();
+$myLabel = new Label(array(
+	'name' => 'eyeControl_infolang_label_statistic_show',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY + 3,
+	'text' => '%s% translated! %s of %s texts left.',
+	'tokens' => array($percent,$todo,$all)
+));
+$myLabel->show();
+$ContentY = $ContentY + 40;
+// Save changes
+$myButton = new Button(array(
+	'name' => 'eyeControl_infolang_button',
+	'father' => $eyeContainer,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Save changes',
+	'signal' => 'infolang_save'
+));
+$myButton->addFriend($myHidden_type);
+$myButton->addFriend($myHidden_lang);
+$myButton->addFriend($myTextbox_id);
+$myButton->addFriend($myTextbox_lang);
+if (eyeControl_lib_check_system_translation($selType)) {
+	$myButton->addFriend($myTextbox_lang_en);
+}
+$myButton->addFriend($myTextbox_author);
+$myButton->addFriend($myTextbox_revision);
+$myButton->show();
+?>

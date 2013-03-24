@@ -1,0 +1,21 @@
+<?php
+function get_dynamic_content($params) {
+	$myPid=intval($params[0]);
+	$checknum=$params[1];
+	if(!is_int($myPid) || !is_numeric($checknum)) {
+		exit;
+	}
+	$toRead = EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeMp3/js/eyeMp3.js';
+	
+	if(is_readable($toRead)) {
+		$fp = fopen($toRead,'r');		
+		$content1 = fread($fp,filesize($toRead));
+		
+		fclose($fp);
+		$content1 = str_replace('$myPid',$myPid,$content1);
+		$content1 = str_replace('$checknum',$checknum,$content1);		
+	}		
+	return $content1;
+	exit;
+}
+?>

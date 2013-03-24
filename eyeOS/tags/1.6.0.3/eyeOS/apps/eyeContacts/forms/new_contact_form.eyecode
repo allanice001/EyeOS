@@ -1,0 +1,225 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+$myCssText = array(
+	'font-family'=>'Verdana',
+	'font-size'=>'11px',
+	'font-weight'=>'bold'
+);
+
+$block1x = 15;
+$text1x = 130;
+$block1y = 30;
+$myLabel1 = new Label(array ('name' => "eyeContacts_lbl_1",'father' => 'addContact_Content',
+	'text' =>"Personal Information",'x' => $block1x,'y' => 10));
+$myLabel1->show();
+$myLabel1->setCss($myCssText);
+
+$myText1 = new Label(array ('name' => "eyeContacts_txt_1",'father' => 'addContact_Content',
+	'text' =>"Surname",'x' => $block1x,'y' => $block1y+4));
+$myText1->show();
+$myTextbox1 = new Textbox(array('name'=>'eyeContacts_txtb_1','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block1y,'width'=>120));
+$myTextbox1->show();
+$myTextbox1->setCss(array('border-color'=>'red'));
+$myTextbox1->focus();
+$block1y = $block1y + 20;
+
+$myText2 = new Label(array ('name' => "eyeContacts_txt_2",'father' => 'addContact_Content',
+	'text' =>"Name",'x' => $block1x,'y' => $block1y+4));
+$myText2->show();
+$myTextbox2 = new Textbox(array('name'=>'eyeContacts_txtb_2','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block1y,'width'=>120));
+$myTextbox2->show();
+$myTextbox2->setCss(array('border-color'=>'red'));
+$block1y = $block1y + 20;
+
+$myText3 = new Label(array ('name' => "eyeContacts_txt_3",'father' => 'addContact_Content',
+	'text' =>"Home Phone",'x' => $block1x,'y' => $block1y+4));
+$myText3->show();		
+$myTextbox3 = new Textbox(array('name'=>'eyeContacts_txtb_3','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block1y,'width'=>120));
+$myTextbox3->show();
+$block1y = $block1y + 20;
+
+$myText4 = new Label(array ('name' => "eyeContacts_txt_4",'father' => 'addContact_Content',
+	'text' =>"Mobile Phone",'x' => $block1x,'y' => $block1y+4));
+$myText4->show();	
+$myTextbox4 = new Textbox(array('name'=>'eyeContacts_txtb_4','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block1y,'width'=>120));
+$myTextbox4->show();
+$block1y = $block1y + 20;
+
+$myText5 = new Label(array ('name' => "eyeContacts_txt_5",'father' => 'addContact_Content',
+	'text' =>"Address",'x' => $block1x,'y' => $block1y+4));
+$myText5->show();	
+$myTextbox5 = new Textarea(array('name'=>'eyeContacts_txtb_5','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block1y,'width'=>122));
+$myTextbox5->show();
+$block1y = $block1y + 20;
+
+
+
+$block2x = 280;
+$text2x = 400;
+$block2y = 30;		
+
+$myLabel2 = new Label(array ('name' => "eyeContacts_lbl_2",'father' => 'addContact_Content',
+	'text' =>"Internet Information",'x' => 275,'y' => 10));
+$myLabel2->show();
+$myLabel2->setCss($myCssText);
+
+$myText6 = new Label(array ('name' => "eyeContacts_txt_6",'father' => 'addContact_Content',
+	'text' =>"Nick",'x' => $block2x,'y' => $block2y+4));
+$myText6->show();		
+$myTextbox6 = new Textbox(array('name'=>'eyeContacts_txtb_6','father' => 'addContact_Content',
+	'x' => $text2x,'y' => $block2y,'width'=>120));
+$myTextbox6->show();
+$block2y = $block2y + 20;
+
+$myText7 = new Label(array ('name' => "eyeContacts_txt_7",'father' => 'addContact_Content',
+	'text' =>"E-mail",'x' => $block2x,'y' => $block2y+4));
+$myText7->show();		
+$myTextbox7 = new Textbox(array('name'=>'eyeContacts_txtb_7','father' => 'addContact_Content',
+	'x' => $text2x,'y' => $block2y,'width'=>120));
+$myTextbox7->show();
+$block2y = $block2y + 20;
+
+$myText8 = new Label(array ('name' => "eyeContacts_txt_8",'father' => 'addContact_Content',
+	'text' =>"Website",'x' => $block2x,'y' => $block2y+4));
+$myText8->show();		
+$myTextbox8 = new Textbox(array('name'=>'eyeContacts_txtb_8','father' => 'addContact_Content',
+	'x' => $text2x,'y' => $block2y,'width'=>120));
+$myTextbox8->show();
+$block2y = $block2y + 20;
+
+$myText9 = new Label(array ('name' => "eyeContacts_txt_9",'father' => 'addContact_Content',
+	'text' =>"Instant Messenger",'x' => $block2x,'y' => $block2y+4));
+$myText9->show();		
+$myTextbox9 = new Textbox(array('name'=>'eyeContacts_txtb_9','father' => 'addContact_Content',
+	'x' => $text2x,'y' => $block2y,'width'=>120));
+$myTextbox9->show();
+$block2y = $block2y + 20;
+
+$myText10 = new Label(array ('name' => "eyeContacts_txt_10",'father' => 'addContact_Content',
+	'text' =>"Voice Over IP",'x' => $block2x,'y' => $block2y+4));
+$myText10->show();		
+$myTextbox10 = new Textbox(array('name'=>'eyeContacts_txtb_10','father' => 'addContact_Content',
+	'x' => $text2x,'y' => $block2y,'width'=>120));
+$myTextbox10->show();
+$block2y = $block2y + 20;
+
+$myText17 = new Label(array ('name' => "eyeContacts_txt_17",'father' => 'addContact_Content',
+	'text' =>"eyeOS Username",'x' => $block2x,'y' => $block2y+4));
+$myText17->show();		
+$myTextbox17 = new Textbox(array('name'=>'eyeContacts_txtb_17','father' => 'addContact_Content',
+	'x' => $text2x,'y' => $block2y,'width'=>120));
+$myTextbox17->show();
+$block2y = $block2y + 20;
+
+
+$block3y = 210;			
+
+
+$myLabel3 = new Label(array ('name' => "eyeContacts_lbl_3",'father' => 'addContact_Content',
+	'text' =>"Professional Information",'x' => $block1x,'y' => 190));
+$myLabel3->show();
+$myLabel3->setCss($myCssText);
+
+$myText11 = new Label(array ('name' => "eyeContacts_txt_11",'father' => 'addContact_Content',
+	'text' =>"Company",'x' => $block1x,'y' => $block3y+4));
+$myText11->show();		
+$myTextbox11 = new Textbox(array('name'=>'eyeContacts_txtb_11','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block3y,'width'=>120));
+$myTextbox11->show();
+$block3y = $block3y + 20;
+
+$myText12 = new Label(array ('name' => "eyeContacts_txt_12",'father' => 'addContact_Content',
+	'text' =>"Phone",'x' => $block1x,'y' => $block3y+4));
+$myText12->show();		
+$myTextbox12 = new Textbox(array('name'=>'eyeContacts_txtb_12','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block3y,'width'=>120));
+$myTextbox12->show();
+$block3y = $block3y + 20;
+
+$myText13 = new Label(array ('name' => "eyeContacts_txt_13",'father' => 'addContact_Content',
+	'text' =>"Mobile Phone",'x' => $block1x,'y' => $block3y+4));
+$myText13->show();		
+$myTextbox13 = new Textbox(array('name'=>'eyeContacts_txtb_13','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block3y,'width'=>120));
+$myTextbox13->show();
+$block3y = $block3y + 20;
+
+$myText14 = new Label(array ('name' => "eyeContacts_txt_14",'father' => 'addContact_Content',
+	'text' =>"Fax",'x' => $block1x,'y' => $block3y+4));
+$myText14->show();		
+$myTextbox14 = new Textbox(array('name'=>'eyeContacts_txtb_14','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block3y,'width'=>120));
+$myTextbox14->show();
+$block3y = $block3y + 20;
+
+$myText15 = new Label(array ('name' => "eyeContacts_txt_15",'father' => 'addContact_Content',
+	'text' =>"Company Address",'x' => $block1x,'y' => $block3y+4));
+$myText15->show();		
+$myTextbox15 = new Textarea(array('name'=>'eyeContacts_txtb_15','father' => 'addContact_Content',
+	'x' => $text1x,'y' => $block3y,'width'=>122));
+$myTextbox15->show();
+$block3y = $block3y + 20;
+
+
+
+$myLabel4 = new Label(array ('name' => "eyeContacts_lbl_4",'father' => 'addContact_Content',
+	'text' =>"Notes",'x' => 275,'y' => 190));
+$myLabel4->show();
+$myLabel4->setCss($myCssText);
+
+$myTextbox16 = new Textarea(array('name'=>'eyeContacts_txtb_16','father' => 'addContact_Content',
+	'x' => 280,'y' => 210,'width'=>245,'height'=>100));
+$myTextbox16->show();
+
+$myButton = new Button(array('name'=>'Create','father'=>'addContact_Content',
+	'x'=>30,'y'=>317,'horiz'=>1,'caption'=>'Create'));
+	
+$myButton->addFriend($myTextbox1);
+$myButton->addFriend($myTextbox2);
+$myButton->addFriend($myTextbox3);
+$myButton->addFriend($myTextbox4);
+$myButton->addFriend($myTextbox5);
+$myButton->addFriend($myTextbox6);
+$myButton->addFriend($myTextbox7);
+$myButton->addFriend($myTextbox8);
+$myButton->addFriend($myTextbox9);
+$myButton->addFriend($myTextbox10);
+$myButton->addFriend($myTextbox11);
+$myButton->addFriend($myTextbox12);
+$myButton->addFriend($myTextbox13);
+$myButton->addFriend($myTextbox14);
+$myButton->addFriend($myTextbox15);
+$myButton->addFriend($myTextbox16);
+$myButton->addFriend($myTextbox17);
+$myButton->show();
+
+$myButton2 = new Button(array('name'=>'Create','father'=>'addContact_Content',
+	'x'=>100,'y'=>317,'horiz'=>1,'caption'=>'Cancel','signal'=>'addConact_Closed')); 
+$myButton2->show();
+?>

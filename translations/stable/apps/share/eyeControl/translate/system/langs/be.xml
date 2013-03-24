@@ -1,0 +1,374 @@
+<lang>
+	<info>
+		<lang>Беларуская</lang>
+		<lang-en>Belarusian</lang-en>
+		<author>Soltan Maksim</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Калі ласка, увядзіце назоў гэтай спасылкі тут:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Стварыць</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Стварыць спасылку</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Адмена</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Цяпер вы можаце зачыніць гэтае вакно.</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Сервер не падтрымлівае zip файлы.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Спасылкі не могуць быть загружаныя!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Загрузіць!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Загрузка "%s" як zip</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Абнаўленне</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Рэдагаваць %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Каманда для выканання:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Выдаліць %s?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Ачысціць сметнік</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Ачысціць сметнік?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Выдаліць %s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Адмена</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Згадіцца</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Прывітанне мір!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Прыклад eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Змяніць тэкст надпісу</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Save As</old>
+			<new>Захаваць як</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Верасень</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Велічыня старонкі</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Друкаваць</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Палажэнне</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Захаваць</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Аўторак</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Серада</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Стыль</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>Х</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Сапраўды пустое вочка (і)?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Субота</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Чацвер</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Нядзеля</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Лістапад</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Кастрычнік</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Адкрыць</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Новы</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Формула</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Дадать слупок</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Дадать радок</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Выдаліць слупок</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Снежань</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Пятніца</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Сакавік</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Травень</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Студзень</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Панядзелак</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Выдаліць радок</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Люты</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Чэрвень</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Ліпень</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Красавік</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Жнівень</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Скапіюйце / устаўце гэты код у іншы рэдактар табліц (напр., Excel)</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Лістапад</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Кастрычнік</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Нядз</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Сер</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Суб</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Верасень</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>загрузіць</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Аўт</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TH</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Чац</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Пан</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Травень</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Люты</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Пятн</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>Выняты</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Снежань</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Памылка %s</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Студзень</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Іншы файл</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Сакавік</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Червень</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Ліпень</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Красавік</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Жнівень</new>
+		</text>
+	</part>
+</lang>

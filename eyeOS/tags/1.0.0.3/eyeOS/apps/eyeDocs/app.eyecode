@@ -1,0 +1,76 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeDocs_run($params=null) {
+	global $myPid;
+	$content = "";
+	if($params[0]) {
+		$file = $params[0];
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'File not found'));
+			return;
+		}
+		$size = service('vfs','filesize',array($file));
+		$content = fread($fp,$size);
+		$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		fclose($fp);
+	}
+	$myWindow = new Window(array('name'=>'eyeDocsWND','father'=>'eyeApps',
+	'cent'=>1,'width'=>600,'height'=>500,'title'=>'eyeDocs','sendResizeMsg'=>1,'sigResize'=>'Resize','removeWin'=>0));
+	$myWindow->show();
+	if (IE > 0) {
+		$restWidth = 19;
+		$restHeight = 66;
+	} else {
+		$restWidth = 18;
+		$restHeight = 63;
+		
+	}
+	$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeDocsWND_Content',
+		'width'=>$myWindow->width-$restWidth,'height'=>$myWindow->height-$restHeight,'x'=>5,'y'=>29,'rich'=>1,'text'=>$content));
+	$myTextArea->show();
+	$myButton = new Button(array('name'=>'BTN_1','father'=>'eyeDocsWND_Content','signal'=>'New',
+		'caption'=>'New','x'=>5,'y'=>7,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/new.png',
+		'width'=>80));
+	$myButton->show();
+	$myButton1 = new Button(array('name'=>'BTN_1','father'=>'eyeDocsWND_Content','signal'=>'Open',
+		'caption'=>'Open','x'=>64,'y'=>7,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png',
+		'width'=>80));
+	$myButton1->show();
+	$myButton2 = new Button(array('name'=>'BTN_2','father'=>'eyeDocsWND_Content','signal'=>'Save',
+		'caption'=>'Save','x'=>130,'y'=>7,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/save.png',
+		'width'=>80));
+	$myButton2->addFriend($myTextArea);
+	$myButton2->show();
+	$myButton3 = new Button(array('name'=>'BTN_3','father'=>'eyeDocsWND_Content','signal'=>'SaveAs',
+		'caption'=>'Save As','x'=>194,'y'=>7,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/saveas.png',
+		'width'=>80));
+	$myButton3->addFriend($myTextArea);
+	$myButton3->show();
+}
+
+function eyeDocs_end($params=null) {
+	global $myPid;
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

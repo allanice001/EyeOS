@@ -1,0 +1,141 @@
+.eyeMenu_top {
+	height: 20px;
+	width: 180px;
+	background-image:;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/top_bub.png,sizingMethod='image');
+}
+.eyeMenu_bot {
+	height: 20px;
+	width: 180px;
+	background-image:;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/bottom_bub.png,sizingMethod='image');
+}
+.eyeMenu_cen {
+	color: #FFFFFF;
+	font-size: 11px;
+	font-family: Verdana;
+	width: 180px;
+	background-image:;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/center_bub.png,sizingMethod='scale');
+}
+.eyeClock {
+	position: absolute;
+	width: 111px;
+	height: 22px;
+	bottom: 0;
+	right: 0;
+	background-image:url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/desktop/clock.png', sizingMethod='scale');
+	cursor: pointer;
+}
+.eyeClockText {
+	font-size: 9pt;
+	text-align: right;
+	margin-top: 5px;
+	margin-right: 10px;
+	color: #1e5682;
+}
+.eyeDesk_miniCalendar {
+	bottom: 30px;
+	background-image:url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/desktop/calendar.png', sizingMethod='scale');
+}
+.eyeDock_left {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/left.png', sizingMethod='scale');
+}
+.eyeDock_right {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/right.png', sizingMethod='scale');
+}
+.eyeDock_center {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/center.png', sizingMethod='scale');
+	width: expression(this.parentNode.offsetWidth-18-18);
+}
+.eyeDockMenuTopRight {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/top_right.png', sizingMethod='scale');
+	top: -14px;
+}
+.eyeDockMenuTopLeft {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/top_left.png', sizingMethod='scale');
+	top: -14px;
+}
+.eyeDockMenuBottonLeft {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bottom_left.png', sizingMethod='scale');
+	bottom: -15px;
+}
+.eyeDockMenuBottonRight {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bottom_right.png', sizingMethod='scale');
+	bottom: -15px;
+}
+.eyeDockMenuBottomCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png', sizingMethod='scale');
+	bottom: -15px;
+}
+.eyeDockMenuTopCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png', sizingMethod='scale');
+	top: -14px;
+}
+.eyeDockMenuRightCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png', sizingMethod='scale');
+}
+.eyeDockMenuLeftCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png', sizingMethod='scale');
+}
+.eyeDockMenuContent {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/bg.png', sizingMethod='scale');
+}
+.eyeDockMenuLine {
+	background-image: url(index.php?extern=apps/eyeX/themes/default/images/IE/apps/eyeDock/line.png);
+}
+.eyeMessageBox {
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/IE/desktop/messagebox.png");
+}
+.eyeWindowOnBar_On {
+  background-image: url();
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/IE/minimized/minbar_on.png', sizingMethod='scale');
+}
+.eyeWindowOnBar_Off {
+  background-image: url();
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/IE/minimized/minbar_off.png', sizingMethod='scale');
+}
+.eyeWindowTitle_center {
+	width: expression(this.parentNode.offsetWidth-5-5);
+}
+.eyeWindowContent {
+	width: expression(this.parentNode.offsetWidth-2);
+	height: expression(this.parentNode.offsetHeight-24);
+}
+.eyeWindowTitle_border_right {
+  background-image: url();
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/windows/border_top_right.png', sizingMethod='scale');
+}
+.eyeWindowTitle_border_left {
+  background-image: url();
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/windows/border_top_left.png', sizingMethod='scale');
+}
+.minimizedApps {
+	width: expression(this.parentNode.offsetWidth-160);
+}
+.eyeWindowOnBar_On {
+  background-image: url();
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/minimized/minbar_on.png', sizingMethod='scale');
+}
+.eyeWindowOnBar_Off {
+  background-image: url();
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='index.php?extern=apps/eyeX/themes/default/images/minimized/minbar_off.png', sizingMethod='scale');
+}
+.eyeWindowContentInvisible {
+	width: expression(this.parentNode.offsetWidth);
+	height: expression(this.parentNode.offsetHeight);
+}

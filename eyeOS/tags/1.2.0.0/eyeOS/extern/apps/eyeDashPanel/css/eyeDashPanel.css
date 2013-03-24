@@ -1,0 +1,13 @@
+.dashPanelWidget{
+	width: 375px;
+	height: 135px;
+	border: 1px dotted black;	
+	margin:0 auto;
+}
+.widgetListWindow{
+	overflow: scroll;
+	background-color: green;
+}
+.renderDescContent{
+	border: none;
+}

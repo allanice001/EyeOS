@@ -1,0 +1,151 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+
+function eyeSheets_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeSheets_on_Resize($params=null) {
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+
+	$GLOBALS['eyeSheetsFrame']->setWidth($width-4);
+	$GLOBALS['eyeSheetsFrame']->setHeight($height-30);
+}
+
+function eyeSheets_on_getSheet($params=null) {
+	global $myPid;
+	$file = $GLOBALS['sheetPath']->text;
+	if(!$file) {
+			echo "
+cols = 10;
+rows = 30;	
+dbCells = [];";
+			exit;
+	}
+	$myReal = vfs('getRealName',array($file));
+	if(!vfs('checkPermissions',array($myReal))) {
+		return false;
+	}
+	$udir = um('getCurrentUserDir').'/tmp/';
+	copy($myReal,$udir.$myPid.'_'.utf8_basename($file));
+	echo openFile($udir.$myPid.'_'.utf8_basename($file));
+	exit;
+}
+
+function eyeSheets_on_getFile($params=null) {
+	$file = $GLOBALS['sheetPath']->text;
+	if(!$file) {
+			echo "
+cols = 10;
+rows = 30;	
+dbCells = [];";
+			exit;
+	}
+	$fp = vfs('open',array($file,'r'));
+	$content = fread($fp,vfs('fileSize',array($file)));
+	fclose($fp);
+	$content = base64_encode(addslashes($content));
+	echo "load(Base64.decode('$content'))";
+	exit;
+}
+
+function openFile($file) {
+	global $myPid;
+	if(!vfs('real_checkPermissions',array($file))) {
+		return false;
+	}
+	$ext = utf8_pathinfo($file);
+	$newName = utf8_substr($file,0,utf8_strlen($file)-utf8_strlen($ext['extension']));
+	eyeConverter('convert',array($file,$newName.'zip','calc8',1));
+	vfs('real_mkdir',array(um('getCurrentUserDir').'/tmp/'.$myPid));
+	//TODO:IMPORTANT:SECURITY: CHANGE IT TO EYEFILEARCHIVE WHEN AFIESTAS FIX IT
+	shell_exec('unzip '.escapeshellarg($newName.'zip').' -d '.escapeshellarg(um('getCurrentUserDir').'/tmp/'.$myPid));
+	$value = parseODS(um('getCurrentUserDir').'/tmp/'.$myPid.'/content.xml');
+	return $value;
+}
+
+function parseODS($content) {
+	require_once(EYE_ROOT.'/'.APP_DIR.'/eyeSheets/lib/ods.eyecode');
+	$myOds = new ods($content);
+	$myOds->parse();
+	
+	$ret = "
+cols = 10;
+rows = 30;	
+dbCells = [";
+	for($x=0;$x<count($myOds->sheets[0]['rows']);$x++) {
+		for($i=0;$i<count($myOds->sheets[0]['rows'][$x]);$i++) {
+			if(isset($myOds->sheets[0]['rows'][$x][$i]['attrs']['TABLE:FORMULA'])) {
+				$formula = $myOds->sheets[0]['rows'][$x][$i]['attrs']['TABLE:FORMULA'];
+				$formula = utf8_substr($formula,5);
+				$formula = str_replace("[.","",$formula);
+				$formula = str_replace("[","",$formula);
+				$formula = str_replace("]","",$formula);
+				$formula = str_replace(":.",":",$formula);
+				$formula = str_replace("SUM","sum",$formula);
+				$ret .= "[$i,$x,'".$formula."',''],";
+			} else {
+				$ret .= "[$i,$x,'".$myOds->sheets[0]['rows'][$x][$i]['value']."',''],";
+			}
+		}
+	}
+	$ret .= "];";
+	return $ret;
+}
+
+function eyeSheets_on_openFile($params=null) {
+	global $checknum;
+	$options = array(
+		0,
+		'SelectFileOpen',
+		$checknum,
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeSheets_on_SelectFileOpen($params=null) {
+	global $myPid;
+	global $checknum;
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		fclose($fp);
+		proc('launch',array('eyeSheets',$file));
+		proc('end');
+	}
+}
+
+function eyeSheets_on_Close() {
+	proc('end');
+}
+
+?>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Button</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>input</tag>
+			<tag>friend</tag>
+		</tags>
+		<shortDesc>Un widget que manda señales al sistema al ser pulsado.</shortDesc>
+	</general>
+	<name>Button</name>
+	<description>The Button widget is an element of the User Interface that lets to trigger an event every time a user clicks on it. Every time a Button is clicked, a signal to the system is sent to execute a certain event function of an application.</description>
+	<image>Dos botones: el primero usando una imagen, y el segundo sólo texto.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Nombre unívoco dado al widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Nombre de su elemento padre dentro del cual se crea.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Especifica si la coordenada horizontal debe tomarse desde el borde izquierdo (0) o derecho (1) de su contenedor. El valor por defecto es 0 (borde izquierdo).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Especifica si la coordenada vertical debe tomarse desde el borde superior (0) o inferior (1) de su contenedor. El valor por defecto es 0 (borde superior).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Especifica la coordenada horizontal dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Especifica la coordenada vertical dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Especifica cómo debe centrarse el widget. Los valores posibles son:
+			 0: sin centrar. Es el valor por defecto.
+			 1: centrar horizontal y verticalmente.
+			 2: centrar horizontalmente.
+			 3: centrar verticalmente.
+			 4: especifica como coordenadas horizontales y verticales del widget el centro del contenedor.
+			 5: especifica como coordenada horizontal del widget el centro del contenedor.
+			 6: especifica como coordenada vertical del widget el centro del contenedor.
+
+			Ten en cuenta la diferencia que hay entre las opciones 1-3 y 4-6. Las opciones 1-3 calculan el tamaño del widget para asegurarse que su punto central coincide con el centro de su contenedor, mientras que las opciones 4-6 sólo posicionan el widget con las coordenadas del punto central del contenedor, haciendo que el widget pueda verse desplazado del centro.
+			</desc>
+		</key>
+		<key>
+			<name>visible</name>
+			<desc>Especifica la visibilidad del widget. Los valores posibles son 0 (invisible) o 1 (visible). El valor por defecto es 1.</desc>
+		</key>
+		<key>
+			<name>width</name>
+			<desc>Especifica la anchura del widget, en píxeles. El valor por defecto son 200 píxeles.</desc>
+		</key>
+		<key>
+			<name>height</name>
+			<desc>Especifica la altura del widget, en píxeles. El valor por defecto son 200 píxeles.</desc>
+		</key> 
+		<key>
+			<name>disablemsg</name>
+			<desc>Especifica si el botón debe mandar una señal al sistema al ser pulsado o no. El valor por defecto 0 permite mandar señales, mientras que cualquier otro valor lo impide.</desc>
+		</key>
+		<key>
+			<name>signal</name>
+			<desc>Nombre de la señal enviada al sistema cada vez que el botón sea pulsado. El parámetro 'disablemsg' debe tener el valor 0 para mandar señales. En caso de no especificar ninguna, se usará el nombre del botón como señal.</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>caption</name>
+			<desc>Texto del botón. Si el texto tiene algún token, debe usarse el parámetro 'token' para que el texto del botón sea traducido correctamente al idioma del usuario.</desc>
+		</key>
+		<key>
+			<name>tokens</name>
+			<desc>Array indexado que contiene los valores de los tokens que aparecen en el parámetro 'text'. Cada token que aparece en el parámetro 'text' se representa con la cadena '%s'.</desc>
+		</key>
+		<key>
+			<name>img</name>
+			<desc>Ruta hacia la imagen que se muestra dentro del botón. Debe estar dentro del directorio extern de eyeOS.</desc>
+		</key>
+		<key>
+			<name>forceMsg</name>
+			<desc>Si se le da un valor distinto a 0, fuerza que la señal enviada al sistema tenga como contenido el valor de este parámetro.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Hace que el sistema ejecute un código JavaScript dado cada vez que se produzca un evento en este widget.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Nombre del evento JS. Ejemplos: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>Código JavaScript que se ejecutará cada vez que se dispare el evento. El código se ejecutará dentro de una función para que puedan recibirse argumentos.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Argumentos pasados a la función del evento.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void addFriend(object $friend)</syntax>
+			<desc>Añade el widget especificado a la lista de amigos del botón. Cada vez que el botón envíe una señal al sistema, éste recogerá el contenido de sus widgets amigos y actualizará su valor en el lado del servidor. Si se ha usado el parámetro del constructor 'forceMsg', enviará como contenido el valor especificado del parámetro.</desc>
+			<arguments>
+				<arg>
+					<name>friend</name>
+					<desc>Widget a añadir como amigo.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void disable()</syntax>
+			<desc>Deshabilita el widget.</desc>
+		</method>
+		<method>
+			<syntax>void enable()</syntax>
+			<desc>Habilita el widget.</desc>
+		</method>
+		<method>
+			<syntax>void focus()</syntax>
+			<desc>Pone el foco en este widget.</desc>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Hace el widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>void remove()</syntax>
+			<desc>Elimina el widget, y con él todos los widgets en su interior.</desc>
+		</method>
+		<method>
+			<syntax>void setCaption(string $newCaption, array $newTokens=0)</syntax>
+			<desc>Cambia el texto del botón al valor dado. Si el texto usa algún token, éstos deben estar representados en el texto por la cadena '%s', y debe usarse el argumento 'newTokens' para indicar su valor.</desc>
+			<arguments>
+				<arg>
+					<name>newCaption</name>
+					<desc>Nuevo texto del botón.</desc>
+				</arg>
+				<arg>
+					<name>newTokens</name>
+					<desc>Array indexado que contiene los tokens usados en el texto.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Aplica atributos CSS al widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Especifica, en forma de un array asociativo, los atributos a aplicar. La clave del elemento del array corresponde a la propiedad, mientras que el valor representa al valor de la propiedad. Tanto las claves como los valores deben ser válidos en la sintaxis de CSS.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setHeight(int $height)</syntax>
+			<desc>Cambia la altura de un widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>Nueva altura, expresada en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>void setWidth(int $width)</syntax>
+			<desc>Cambia la anchura del widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>Nueva anchura del widget, en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setX(int $x)</syntax>
+			<desc>Cambia la posición horizontal del widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>Nueva coordenada horizontal.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setY(int $y)</syntax>
+			<desc>Cambia la posición vertical del widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>Nueva posición vertical.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void show(int $noserialize=1)</syntax>
+			<desc>Dibuja el botón en pantalla, y permite serializarlo para guardar la instancia en la sesión</desc>
+			<arguments>
+				<arg>
+					<name>noserialize</name>
+					<desc>Especifica si el widget debe ser serializado o no. El valor por defecto 1 evita serializarlo, mientras que el valor 0 lo serializa.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Hace el widget visible.</desc>
+		</method>
+	</methods>
+</info>

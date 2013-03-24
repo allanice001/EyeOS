@@ -1,0 +1,113 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeControl_on_newuser_save($params = '') {
+	global $currentUser;
+	global $myPid;
+
+	if ($currentUser != ROOTUSER && !um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+		eyex('messageBox',array('content' => 'You are not allowed to manage users!'));
+		eyeControl_lib_loadContent();
+		return;
+	} elseif (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+		$myUserXml = um('retrieveUser',array(eyeControl_lib_getConfigUser()));
+	}
+
+	$username = $GLOBALS['eyeControl_newuser_textbox_username']->text;
+	$password = base64_decode($GLOBALS['eyeControl_newuser_textbox_password']->text);
+	$pwd_again = base64_decode($GLOBALS['eyeControl_newuser_textbox_pwd_again']->text);
+	$fullname = $GLOBALS['eyeControl_newuser_textbox_fullname']->text;
+	$email = $GLOBALS['eyeControl_newuser_textbox_email']->text;
+	$resetPassword = $GLOBALS['eyeControl_newuser_checkbox_setnewpassword']->checked;
+	$expirationDate = $GLOBALS['eyeControl_newuser_textbox_expire']->text;
+
+	if (utf8_strtolower($expirationDate) == 'never' || utf8_strtolower($expirationDate) == utf8_strtolower(i18n('translate',array('Never')))) {
+		$expirationDate = 0;
+	} else {
+		$date = explode("/",$expirationDate);
+		$expirationDate = mktime(0,0,0,$date[1],$date[0],$date[2]);
+	}
+
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$permissions = $GLOBALS['eyeControl_newuser_select_permissions']->selected;
+	if ($permissions == 'admin') {
+		$admin = 1;
+		$maintainer = 0;
+	} elseif ($permissions == 'maintainer') {
+		$admin = 0;
+		$maintainer = 1;
+	} else {
+		$admin = 0;
+		$maintainer = 0;
+	}
+	$openDir = vfs('real_getDirContent',array(EYE_ROOT . '/' . GROUPS_DIR . '/'));
+	foreach ($openDir as $group) {
+		if (is_dir($group)) {
+			$group = utf8_basename($group);
+			if ($GLOBALS['eyeControl_newuser_checkbox_maintain_' . $group]->checked == 1 && $maintainer) {
+				$groups[] = $group;
+				$maintain[] = $group;
+			} elseif ($GLOBALS['eyeControl_newuser_checkbox_group_' . $group]->checked == 1) {
+				$groups[] = $group;
+			}
+		}
+	}
+	if ($username && $password && $pwd_again && preg_match("/^[-_a-zA-Z0-9]+$/",$username) && !um('userExists',array($username)) && $password == $pwd_again && utf8_strlen($username) > 2 && utf8_strlen($username) <= MAX_USERNAME_LEN) {
+		um('createUser',array(
+			'username' => $username,
+			'password' => $password,
+			'fullname' => $fullname,
+			'email' => $email,
+			'groups' => $groups,
+			'maintain' => $maintain,
+			'admin' => $admin,
+			'maintainer' => $maintainer,
+			'resetPassword' => $resetPassword,
+			'expirationDate' => $expirationDate
+		));
+		if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+			$myUserXml['eyeUser'][0]['mngUser'][] = $username;
+			um('updateUser',array('username' => $oldUser,'mngUser' => $myUserXml['eyeUser'][0]['mngUser']));
+		}
+		eyex('messageBox',array('content' => 'User successfully created.'));
+		$currentUser = $oldUser;
+		eyeControl_lib_loadContent('only_root','users',array($_SESSION['eyeControl'][$myPid]['content']['users']));
+	} elseif (!$username || !$password || !$pwd_again) {
+		eyex('messageBox',array('content' => 'Please fill in all necessary fields!'));
+	} elseif (!preg_match("/^[-_a-zA-Z0-9]+$/",$username)) {
+		eyex('messageBox',array('content' => 'Username contains invalid characters, please try another!'));
+	} elseif (um('userExists',array($username))) {
+		eyex('messageBox',array('content' => 'The selected user already exists!'));
+	} elseif ($password != $pwd_again) {
+		eyex('messageBox',array('content' => 'Passwords do not match!'));
+	} elseif (utf8_strlen($username) < 2) {
+		eyex('messageBox',array('content' => 'The selected username is too small!'));
+	} elseif (utf8_strlen($username) > MAX_USERNAME_LEN) {
+		eyex('messageBox',array('content' => 'The selected username is too long!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please correct your typed settings.'));
+	}
+	$currentUser = $oldUser;
+}
+?>

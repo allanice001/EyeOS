@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>ContextMenu</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>right click</tag>
+		</tags>
+		<shortDesc>A menu shown with a right click.</shortDesc>
+	</general>
+	<name>ContextMenu</name>
+	<description>The ContextMenu widget appears every time the user clicks the right mouse button. In can handle many options, and every time an option is clicked, the widget sends a signal to the application to make it respond to the action chosen by the user.</description>
+	<image>A context menu that appears when making right-click in an empty area in the desktop.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Unique name given to the widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Parent element inside of which the widget is created.</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>mfather</name>
+			<desc>Allows to define another father element other than that defined in the 'father' key.</desc>
+		</key>
+		<key>
+			<name>rfather</name>
+			<desc>This parameter is needed to ensure the ContextMenu works correctly under Internet Explorer. Specifies a father element. It can be the same father assigned to the widget.</desc>
+		</key>
+		<key>
+			<name>searchFather</name>
+			<desc>Specifies whether the ContextMenu must be displayed when right click button is pressed anywhere on its father element or not. A value of 1 enables it, while the default value of 0 disables it.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Makes the system execute a given JavaScript code every time certain event of this widget is triggered.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Name of the JS event. Examples: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>JavaScript code inside the function of the event.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Arguments passed to the function of the event.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>addEntry($text, $Ename, $signal [, $params=""])</syntax>
+			<desc>Adds a new option to the menu.</desc>
+			<arguments>
+				<arg>
+					<name>text</name>
+					<desc>Displayed text of the option.</desc>
+				</arg>
+				<arg>
+					<name>Ename</name>
+					<desc>Internal name given to the entry.</desc>
+				</arg>
+				<arg>
+					<name>signal</name>
+					<desc>Name of the signal sent to the system when the option is clicked.</desc>
+				</arg>
+				<arg>
+					<name>params</name>
+					<desc>Additional parameters passed when the option sends a signal.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show(int $noserialize=1)</syntax>
+			<desc>Draws the widget in the screen, allowing to serialize the instance in the session.</desc>
+			<arguments>
+				<arg>
+					<name>noserialize</name>
+					<desc>Specifies whether the ContextMenu must be serialized or not. The default value of 1 does not serialize it, while a value of 0 does.</desc>
+				</arg>
+			</arguments>
+		</method>
+	</methods>
+</info>

@@ -1,0 +1,221 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+
+function lib_eyeSwap_send($params) {
+	//0: user to
+	//1: text
+	global $currentUser;
+	$to = utf8_basename($params[0]);
+	$text = $params[2];
+	$subject = $params[1];
+	$file = $params[3];
+	
+	if(!um('userExist',array($to)) || empty($text)) {
+		return false;
+	}
+
+	if(!vfs('fileExists', array($file)) || vfs('isdir', array($file))) {
+		$filehash = "";
+	} else {
+		$filehash = reqLib('eyeSwap', 'copyFile', array($to, $file));
+	}
+
+	$hash = md5(uniqid(time())); //new hash for the file
+	
+	$swapDir = um('getUserDir',array($to)).'/swap/';
+	
+	while(vfs('real_fileExists',array($swapDir.$hash.'.msgSwap'))) {
+		$hash = md5(uniqid(time()));
+	}
+	
+	$time = time();
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	vfs('real_create',array($swapDir.$hash.'.msgSwap'));
+	$xml = array(
+		'swapMessage' => array(
+			array(
+				'header'=>array(array(
+					'from' => array($oldUser),
+					'date' => array($time),
+					'subject' => array($subject)
+					)),
+				'body'=>array(array(
+					'content'=>array($text)
+ 					))
+			)
+		)
+	);
+	
+	if(!empty($filehash)) {
+		$attach = array($filehash);
+		$xml['swapMessage'][0]['header'][0]['attach'] = $attach;
+	}
+	
+	eyeXML('setXMLfile',array($swapDir.$hash.'.msgSwap',$xml));
+	$currentUser = $oldUser;
+	return true;
+}
+
+function lib_eyeSwap_copyFile($params) {
+	//0: user to
+	//1: orig filepath
+
+	$to = $params[0];
+	$orig = $params[1];
+	
+	global $currentUser;
+	
+	if(empty($to) || empty($orig) || !um('userExist',array($to))) {
+		return false;
+	}
+
+	if(!vfs('fileExists',array($orig))) {
+		return false;
+	}
+	$name = utf8_basename($orig);
+	$hash = md5(uniqid(time())); //new hash for the file
+	
+	$swapDir = um('getUserDir',array($to)).'/swap/';
+	
+	while(vfs('real_fileExists',array($swapDir.$hash.'.fileSwap'))) {
+		$hash = md5(uniqid(time()));
+	}
+
+	$forig = vfs('getRealName',array($orig));
+	
+	if(!vfs('real_checkPermissions',array($forig))) {
+		return false;
+	}
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;	
+	vfs('real_copy', array($forig,$swapDir.$hash.'.fileSwap'));
+	$time = time();
+	$xml = array(
+		'swapFile' => array(
+			array(
+				'header'=>array(array(
+					'from' => array($oldUser),
+					'date' => array($time),
+					'name' => array($name)
+					))
+			)
+		)
+	);
+	vfs('real_create',array($swapDir.$hash.'.infoSwap'));
+	eyeXML('setXMLfile',array($swapDir.$hash.'.infoSwap',$xml));
+	$currentUser = $oldUser;
+	return $hash;
+}
+
+function lib_eyeSwap_getFile($params) {
+	global $currentUser;
+	
+	$hash = $params[0];
+	$dest = $params[1];
+	
+	$swapDir = um('getCurrentUserDir').'/swap/';
+	vfs('create',array($dest));
+	$fp = vfs('open',array($dest,'wb'));
+	$fpo = vfs('real_open',array($swapDir.$hash,'rb'));
+	
+	if(!$fpo || !$fp) {
+		return false;
+	}
+	
+	while (!feof($fpo)) {
+	 	fwrite($fp,fread($fpo, 8192));
+	}
+	
+	fclose($fp);
+	fclose($fpo);
+	return true;
+}
+
+function lib_eyeSwap_deleteFile($params) {
+	$hash = $params[0];
+	
+	if(!$hash) {
+		return false;
+	}
+	
+	$swapDir = um('getCurrentUserDir').'swap/';
+	
+	$file = $swapDir.$hash;
+
+	if(!vfs('real_fileExists',array($file.'.infoSwap'))) {
+		return false;
+	}
+
+	vfs('real_delete', array($file.'.infoSwap'));
+	vfs('real_delete', array($file.'.fileSwap'));
+	return true;
+}
+
+function lib_eyeSwap_list($params=null) {
+	$swapDir = um('getCurrentUserDir').'/swap/';
+	
+	$content = vfs('real_getDirContent', array($swapDir, '*.msgSwap'));
+
+	if(!is_array($content)) {
+		return false;
+	}
+	
+	$myArray = array();
+	foreach($content as $msg) {
+		$xml = eyeXML('getXMLfile', array($msg));
+		$myArray[] = array(
+						'author' => $xml['swapMessage'][0]['header'][0]['from'][0],
+						'date' => $xml['swapMessage'][0]['header'][0]['date'][0],
+						'hash' => utf8_substr(utf8_basename($msg), 0, utf8_strlen(utf8_basename($msg))-utf8_strlen('.msgSwap')),
+						'subject' => $xml['swapMessage'][0]['header'][0]['subject'][0]
+		);
+	}
+	return $myArray;
+}
+
+function lib_eyeSwap_read($params) {
+	$hash = $params[0];
+	
+	$swapDir = um('getCurrentUserDir').'/swap/';
+	
+	$xml = eyeXML('getXMLfile', array($swapDir.$hash.'.msgSwap'));
+	$xmlfinal = $xml['swapMessage'][0];
+	return $xmlfinal;
+}
+
+function lib_eyeSwap_delete($params) {
+	$hash = $params[0];
+	
+	if(empty($hash)) {
+		return false;
+	}
+	
+	$swapDir = um('getCurrentUserDir').'/swap/';
+	
+	vfs('real_delete', array($swapDir.$hash.'.msgSwap'));
+	return true;
+}
+
+?>

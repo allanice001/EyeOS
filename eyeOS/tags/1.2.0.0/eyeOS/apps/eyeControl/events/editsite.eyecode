@@ -1,0 +1,46 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_editsite_save($params = '') {
+$old = $GLOBALS['eyeControl_editsite_hidden']->text;
+$text = $GLOBALS['eyeControl_editsite_textbox_text']->text;
+$path = $GLOBALS['eyeControl_editsite_textbox_path']->text;
+	if ($text && $path) {
+		$dir = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeFiles/sites.xml';
+		$xml = eyeXML('getXMLfile',array($dir));
+		$id = array_findIdByText(array($xml['eyeSites'][0]['site'],$old,array('label',0)));
+		$id = $id[0];
+		if (isset($id)) {
+			$xml['eyeSites'][0]['site'][$id]['label'][0] = $text;
+			$xml['eyeSites'][0]['site'][$id]['path'][0] = $path;
+			eyeXML('setXMLFile',array($dir,$xml));
+			eyex('messageBox',array('content' => 'Site successfully saved.'));
+			loadContent('apps','eyefiles');
+		} else {
+			eyex('messageBox',array('content' => 'The site is not configured, yet!'));
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please type the displayed text and a path!'));
+	}
+}
+?>

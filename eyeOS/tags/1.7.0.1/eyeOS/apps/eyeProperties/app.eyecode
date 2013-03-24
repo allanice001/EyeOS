@@ -1,0 +1,445 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.7
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeProperties_run($params = '') {
+	global $myPid;
+	if (is_array($params)) {
+		$file = $params[0];
+	}
+	
+// Trash
+	if (service('vfs','real_fileExists',array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . $file)) && utf8_strtolower(strrchr($file,'.')) == utf8_strtolower('.' . EYEOS_TRASH_EXT)) {
+		$file = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . $file;
+		$fileInfo = eyeXML('getXMLfile',array($file));
+		$title = $fileInfo['eyeTrash'][0]['lastname'][0];
+		$path = 'trash/';
+		if ($fileInfo['eyeTrash'][0]['type'][0] == 'dir') {
+			$icon = 'folder';
+			$type = 'Directory';
+			$size = vfs('getDirSize',array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_basename($file,'.' . EYEOS_TRASH_EXT)));
+		} else {
+			$info = utf8_pathinfo($title);
+			$mime = getConfig('mime','mime.xml');
+			$icon = 'unknown';
+			foreach ($mime['mimeTypes'][0]['mime'] as $value) {
+				if (utf8_strtolower($value['extension'][0]) == utf8_strtolower($info['extension'])) {
+					$icon = $value['type'][0];
+				}
+			}
+			$filetype = getConfig('filetypes',utf8_strtolower($info['extension']) . '.xml');
+			if ($filetype['fileType'][0]['name'][0]) {
+				$type = $filetype['fileType'][0]['name'][0];
+			} else {
+				$type = utf8_strtoupper($info['extension']) . ' file';
+			}
+			$size = vfs('real_filesize',array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_basename($file,'.' . EYEOS_TRASH_EXT) . '.' . EYEOS_FILE_EXT));
+			$fileInfo2 = eyeXML('getXMLfile',array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_basename($file,'.' . EYEOS_TRASH_EXT) . '.' . EYEOS_INFO_EXT));
+			$author = $fileInfo2['eyeFile'][0]['author'][0];
+			$creationdate = $fileInfo2['eyeFile'][0]['created'][0];
+			$createdwith = $fileInfo2['eyeFile'][0]['creationapp'][0];
+		}
+		$deletiondate = $fileInfo['eyeTrash'][0]['deleteDate'][0];
+// Directories
+	} elseif (vfs('isdir',array($file))) {
+		if (utf8_substr($file,utf8_strlen($file) - 1) != '/') {
+			$file .= '/';
+		}
+		$title = utf8_basename($file);
+		$icon = 'folder';
+		$type = 'Directory';
+		$size = vfs('getDirSize',array($file));
+// Links
+	} elseif (service('vfs','real_fileExists',array($file)) && utf8_strtolower(strrchr($file,'.')) == utf8_strtolower('.' . EYEOS_LINK_EXT)) {
+		$title = utf8_basename($file);
+		$info = eyeXML('getXMLfile',array($file));
+		$icon = '../' . $info['eyeLink'][0]['icon'][0];
+		$type = 'Launcher';
+		$size = vfs('real_filesize',array($file));
+		$command = $info['eyeLink'][0]['content'][0];
+// Files
+	} elseif (vfs('fileExists',array($file))) {
+		$title = utf8_basename($file);
+		$info = utf8_pathinfo($file);
+		$fileInfo = vfs('readInfo',array($file));
+		$mime = getConfig('mime','mime.xml');
+		$icon = 'unknown';
+		foreach ($mime['mimeTypes'][0]['mime'] as $value) {
+			if (utf8_strtolower($value['extension'][0]) == utf8_strtolower($info['extension'])) {
+				$icon = $value['type'][0];
+			}
+		}
+		$filetype = getConfig('filetypes',utf8_strtolower($info['extension']) . '.xml');
+		if ($filetype['fileType'][0]['name'][0]) {
+			$type = $filetype['fileType'][0]['name'][0];
+		} else {
+			$type = utf8_strtoupper($info['extension']) . ' file';
+		}
+		$size = vfs('filesize',array($file));
+		$author = $fileInfo['eyeFile'][0]['author'][0];
+		$creationdate = $fileInfo['eyeFile'][0]['created'][0];
+		$createdwith = $fileInfo['eyeFile'][0]['creationapp'][0];
+	} else {
+		service('eyex','messageBox',array('content' => 'The file does not exist!'));
+		proc('end');
+		return;
+	}
+	
+	if (!isset($path)) {
+		$rmusrdir = um('getCurrentUserDir') . '/' . FILES_USER_DIR;
+		$rmusrdir = utf8_substr($rmusrdir,utf8_strlen(EYE_ROOT . '/'));
+		$rmusrdir = str_replace('//','/',$rmusrdir);
+		$rmusrdir = str_replace('//','/',$rmusrdir);
+		
+		$rmgroupdir = GROUPS_DIR;
+		$rmgroupdir = str_replace('//','/',$rmgroupdir);
+		$rmgroupdir = str_replace('//','/',$rmgroupdir);
+		
+		$path = $file;
+		if (utf8_substr($path,0,utf8_strlen(EYE_ROOT . '/')) == EYE_ROOT . '/') {
+			$path = utf8_substr($path,utf8_strlen(EYE_ROOT . '/'));
+		}
+		$path = str_replace('//','/',$path);
+		$path = str_replace('//','/',$path);
+		$path = utf8_substr($path,0,utf8_strrpos($path,$title));
+		
+		if (utf8_strrpos($path,$rmusrdir) === 0) {
+			$path = 'home' . utf8_substr($path,utf8_strlen($rmusrdir));
+		} elseif (utf8_strrpos($path,$rmgroupdir) === 0) {
+			$path = 'groups' . utf8_substr($path,utf8_strlen($rmgroupdir));
+		} else {
+			$path = 0;
+		}
+	}
+	
+	if ($size >= 1024 * 1024 * 1024) {
+		$size = round($size / 1024 / 1024 / 1024,2) . ' G';
+	} elseif ($size >= 1024 * 1024) {
+		$size = round($size / 1024 / 1024,2) . ' M';
+	} elseif ($size >= 1024) {
+		$size = round($size / 1024,2) . ' K';
+	} else {
+		$size = round($size) . ' ';
+	}
+// Window
+	$myWindow = new Window(array(
+		'name' => 'eyeProperties_window',
+		'father' => 'eyeApps',
+		'style' => TITLE + LISTED + MIN + CLOSE,
+		'cent' => 1,
+		'width' => 250,
+		'height' => 400,
+		'title' => 'Properties',
+		'savePosition' => 1
+	));
+	$myWindow->show();
+	$contentY = 20;
+// Icon
+	$myImage = new Imagebox(array(
+		'name' => 'eyeProperties_imagebox',
+		'father' => 'eyeProperties_window_Content',
+		'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/48x48/filetypes/' . $icon . '.png',
+		'x' => 20,
+		'y' => $contentY
+	));
+	$myImage->show();
+	$contentY = $contentY + 10;
+// Filename
+	$myTextbox = new Textbox(array(
+		'name' => 'eyeProperties_textbox_name',
+		'father' => 'eyeProperties_window_Content',
+		'width' => 140,
+		'text' => $title,
+		'x' => 100,
+		'y' => $contentY
+	));
+	$myTextbox->show();
+	$myTextbox->setCss(array(
+		'border' => '0px',
+		'font-weight' => 'bold'
+	));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_name").readOnly = true;'));
+	$contentY = $contentY + 20;
+// Filetype
+	$myTextbox = new Textbox(array(
+		'name' => 'eyeProperties_textbox_type',
+		'father' => 'eyeProperties_window_Content',
+		'width' => 140,
+		'text' => $type,
+		'x' => 100,
+		'y' => $contentY
+	));
+	$myTextbox->show();
+	$myTextbox->setCss(array(
+		'border' => '0px'
+	));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_type").readOnly = true;'));
+	$contentY = $contentY + 28;
+// File information
+	$contentY = $contentY + 20;
+	$myLabel = new Label(array(
+		'name' => 'eyeProperties_label_fileinformation',
+		'father' => 'eyeProperties_window_Content',
+		'text' => 'File information',
+		'x' => 10,
+		'y' => $contentY
+	));
+	$myLabel->show();
+	$myLabel->setCss(array(
+		'font-size' => '90%'
+	));
+	$contentY = $contentY + 15;
+	$myLine = new Line(array(
+		'name' => 'eyeProperties_line_fileinformation',
+		'father' => 'eyeProperties_window_Content',
+		'width' => 248,
+		'x' => 0,
+		'y' => $contentY
+	));
+	$myLine->show();
+	$contentY = $contentY + 20;
+// Path
+	if ($path) {
+		$myLabel = new Label(array(
+			'name' => 'eyeProperties_label_url',
+			'father' => 'eyeProperties_window_Content',
+			'text' => 'Path',
+			'x' => 20,
+			'y' => $contentY
+		));
+		$myLabel->show();
+		$myTextbox = new Textbox(array(
+			'name' => 'eyeProperties_textbox_url',
+			'father' => 'eyeProperties_window_Content',
+			'width' => 140,
+			'text' => $path,
+			'x' => 90,
+			'y' => $contentY
+		));
+		$myTextbox->show();
+		$myTextbox->setCss(array(
+			'border' => '0px'
+		));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_url").readOnly = true;'));
+		$contentY = $contentY + 20;
+	}
+// Size
+	$myLabel = new Label(array(
+		'name' => 'eyeProperties_label_size',
+		'father' => 'eyeProperties_window_Content',
+		'text' => 'Size',
+		'x' => 20,
+		'y' => $contentY
+	));
+	$myLabel->show();
+	$myTextbox = new Textbox(array(
+		'name' => 'eyeProperties_textbox_size',
+		'father' => 'eyeProperties_window_Content',
+		'width' => 140,
+		'text' => i18n('translate',array('%sBytes',array($size))),
+		'x' => 90,
+		'y' => $contentY
+	));
+	$myTextbox->show();
+	$myTextbox->setCss(array(
+		'border' => '0px'
+	));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_size").readOnly = true;'));
+	$contentY = $contentY + 20;
+// Author
+	if ($author) {
+		$myLabel = new Label(array(
+			'name' => 'eyeProperties_label_author',
+			'father' => 'eyeProperties_window_Content',
+			'text' => 'Author',
+			'x' => 20,
+			'y' => $contentY
+		));
+		$myLabel->show();
+		$myTextbox = new Textbox(array(
+			'name' => 'eyeProperties_textbox_author',
+			'father' => 'eyeProperties_window_Content',
+			'width' => 140,
+			'text' => $author,
+			'x' => 90,
+			'y' => $contentY
+		));
+		$myTextbox->show();
+		$myTextbox->setCss(array(
+			'border' => '0px'
+		));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_author").readOnly = true;'));
+		$contentY = $contentY + 20;
+	}
+// Command
+	if ($command) {
+		$myLabel = new Label(array(
+			'name' => 'eyeProperties_label_command',
+			'father' => 'eyeProperties_window_Content',
+			'text' => 'Command',
+			'x' => 20,
+			'y' => $contentY
+		));
+		$myLabel->show();
+		$myTextbox = new Textbox(array(
+			'name' => 'eyeProperties_textbox_command',
+			'father' => 'eyeProperties_window_Content',
+			'width' => 140,
+			'text' => $command,
+			'x' => 90,
+			'y' => $contentY
+		));
+		$myTextbox->show();
+		$myTextbox->setCss(array(
+			'border' => '0px'
+		));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_command").readOnly = true;'));
+		$contentY = $contentY + 20;
+	}
+// Creation information
+	if ($creationdate || $createdwith) {
+		$contentY = $contentY + 20;
+		$myLabel = new Label(array(
+			'name' => 'eyeProperties_label_creationinformation',
+			'father' => 'eyeProperties_window_Content',
+			'text' => 'Creation information',
+			'x' => 10,
+			'y' => $contentY
+		));
+		$myLabel->show();
+		$myLabel->setCss(array(
+			'font-size' => '90%'
+		));
+		$contentY = $contentY + 15;
+		$myLine = new Line(array(
+			'name' => 'eyeProperties_line_creationinformation',
+			'father' => 'eyeProperties_window_Content',
+			'width' => 248,
+			'x' => 0,
+			'y' => $contentY
+		));
+		$myLine->show();
+		$contentY = $contentY + 20;
+// Creation date
+		if ($creationdate) {
+			$myLabel = new Label(array(
+				'name' => 'eyeProperties_label_creationdate',
+				'father' => 'eyeProperties_window_Content',
+				'text' => 'Creation date',
+				'x' => 20,
+				'y' => $contentY
+			));
+			$myLabel->show();
+			$myTextbox = new Textbox(array(
+				'name' => 'eyeProperties_textbox_creationdate',
+				'father' => 'eyeProperties_window_Content',
+				'width' => 120,
+				'text' => date('Y/m/d H:i:s',$creationdate),
+				'x' => 110,
+				'y' => $contentY
+			));
+			$myTextbox->show();
+			$myTextbox->setCss(array(
+				'border' => '0px'
+			));
+			eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_creationdate").readOnly = true;'));
+			$contentY = $contentY + 20;
+		}
+// Created with
+		if ($createdwith) {
+			$myLabel = new Label(array(
+				'name' => 'eyeProperties_label_createdwith',
+				'father' => 'eyeProperties_window_Content',
+				'text' => 'Created with',
+				'x' => 20,
+				'y' => $contentY
+			));
+			$myLabel->show();
+			$myTextbox = new Textbox(array(
+				'name' => 'eyeProperties_textbox_createdwith',
+				'father' => 'eyeProperties_window_Content',
+				'width' => 120,
+				'text' => $createdwith,
+				'x' => 110,
+				'y' => $contentY
+			));
+			$myTextbox->show();
+			$myTextbox->setCss(array(
+				'border' => '0px'
+			));
+			eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_createdwith").readOnly = true;'));
+			$contentY = $contentY + 20;
+		}
+	}
+// Deletion information
+	if ($deletiondate) {
+		$contentY = $contentY + 20;
+		$myLabel = new Label(array(
+			'name' => 'eyeProperties_label_deletioninformation',
+			'father' => 'eyeProperties_window_Content',
+			'text' => 'Deletion information',
+			'x' => 10,
+			'y' => $contentY
+		));
+		$myLabel->show();
+		$myLabel->setCss(array(
+			'font-size' => '90%'
+		));
+		$contentY = $contentY + 15;
+		$myLine = new Line(array(
+			'name' => 'eyeProperties_line_deletioninformation',
+			'father' => 'eyeProperties_window_Content',
+			'width' => 248,
+			'x' => 0,
+			'y' => $contentY
+		));
+		$myLine->show();
+		$contentY = $contentY + 20;
+// Deletion date
+		$myLabel = new Label(array(
+			'name' => 'eyeProperties_label_deletiondate',
+			'father' => 'eyeProperties_window_Content',
+			'text' => 'Deletion date',
+			'x' => 20,
+			'y' => $contentY
+		));
+		$myLabel->show();
+		$myTextbox = new Textbox(array(
+			'name' => 'eyeProperties_textbox_deletiondate',
+			'father' => 'eyeProperties_window_Content',
+			'width' => 120,
+			'text' => date('Y/m/d H:i:s',$deletiondate),
+			'x' => 110,
+			'y' => $contentY
+		));
+		$myTextbox->show();
+		$myTextbox->setCss(array(
+			'border' => '0px'
+		));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeProperties_textbox_deletiondate").readOnly = true;'));
+	}
+}
+
+function eyeProperties_end($params = '') {
+	reqLib('eyeWidgets','unserialize');
+}
+?>

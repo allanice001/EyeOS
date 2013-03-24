@@ -1,0 +1,1191 @@
+<lang>
+	<info>
+		<lang>Монгол</lang>
+		<lang-en>Mongolian</lang-en>
+		<author>Tolui Davaasuren</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Энд холбоосын гарчгийг оруул:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Үүсгэх</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Холбоос үүсгэх</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Цуцлах</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Та одоо энэ цонхыг хааж болно.</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Сервер zip файл дэмжихгүй.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Холбоос татагдах боломжгүй!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Татаж авах!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>"%s" -г Zip хэлбэрээр татах</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Шинэчлэх</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Засварлах %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Ажиллуулах комманд:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Хоослох</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Та "%s" - г үнэхээр устгах уу ?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Та хогийн саваа үнэхээр хоосолмоор байна уу?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>%s -г устгах</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Удирдах</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Програм суулгах</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Програмууд</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>Файлын нэр</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Файл амжилттай задарлаа.</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Нээлттэй файл байхгүй</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Шахалтын арагчлал дэмжигдэхгүй</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Файл амжилтгүй задарлаа</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Задлах</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Замчилсан задлалт...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Замчилсан шахалт...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Амжилттай шахагдлаа</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Шахалт амжилтгүй боллоо</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Архивлагч</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Шахалт хийх</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Илгээх</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Нийтийн самбар</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Цэвэрлэх</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Тооны машин</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Үйл явдалын тайлбар:</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Хоёр хуанлид нэг ижил id гаар нийтлэж болохгүй.</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Өмнөх</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Хуанлийн нэрийг оруул</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Өнөөдөр</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Ажил</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Дараах</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Үзэх</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Цонхон хэлбэр</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>7 хоног</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Хоёр хуанлид нэг ижил нэрээр нийтлэж болохгүй.</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Хуанлийг нэрээр төрөлжүүл:</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Тохирохгүй дугаар %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Хуанли</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Хуанлинууд</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Хуанли амжилттай нэмэгдлээ</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Наад зах нь нэг хуанли шаардлагатай!</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Хуанлийн удирдлага</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Тохирохгүй дүн</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Ийм нэртэй хуанли үүссэн байна!</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Хуанли ажиллаж байна!</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Өдөр</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Хуанли тохируулах</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Тохиргоо зөв хадаглагдлаа</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Хуанли үүсгэх</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Slow</old>
+			<new>Удаан</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Буцаах</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Тэрэг</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Бэрс</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Дундаж</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Морь</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Тэмээ</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Шатар</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Устгах хэрэглэгчээ сонго.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Тестлэх тусгалаа сонго.</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Бичсэн тохиргоогоо засна уу.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Засварлах тусгалаа сонго.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Өгөгдмөл болгох бүлгээ сонго.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Засварлах бүлгээ сонго.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Засварлах хэрэглэгчээ сонго.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Засварлах тушаалаа сонго.</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Хаягаа бичнэ үү!</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Зайлшгүй шаардлагатай бүх талбарыг бөглөнө үү!</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Хэрэглэгчийн нэрээ энд бич:</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Суултуудыг IP - гаар хамгаалах</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Түр зуурын хавтас болон файлуудыг oneye системээсээ устга</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Бүлгийн нэрийг зөв бичнэ үү!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Тушаалаа бичнэ үү!</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>* Тэмдэгтэй талбаруудыг бөглөх шаардлагатай.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Устгах тушаалаа сонго.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Устгах бүлгээ сонго.</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Хувийн</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Бүртгэгдсэн хэрэглэгч олдохгүй байж болзошгүй.</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Хулгана</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Бусад</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Шинэ ханын цаас амжилттай тогтоогдлоо.</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Тусгал</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Тусгал амжилттай хадгалагдлаа.</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Офисийн дэмжлэг</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Тусгал байхгүй байна!</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Нууц үг тохирохгүй байна!</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Нууц үг (давтах)*</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Эрхүүд*</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Эрхүүд</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Шинэ тушаал</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Нууц үг</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Нууц үг амжилттай солигдлоо.</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Нууц үг*</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Одоо устга!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Уучлаарай, танд энэ хуудсанд хандах эрх байхгүй.</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Түр зуурын хавтас болон файлуудыг устга</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Уучлаарай, та уг хуудсанд хандахын тулд энгийн хэрэглэгчээр нэвтрэх шаардлагатай</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Уучлаарай, та энэ хуудсанд хандахын тулд энэ хэрэглэгчээр нэвтрэх шаардлагатай.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Эхлэл хуудас</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Уучлаарай, энэ хуудас суугдаагүй байна.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Уучлаарай, уг файл ханын цаасанд тохирохгүй.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Хэрэглэгчдийг харах...</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Хэрэглэгчдийг харах</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Уучлаарай, энэ файл байхгүй байна.</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Системийн тохиргоо</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Тест</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>Энэ тушаалд тохиргоо хийгдсэн!</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Энэ хэрэглэгч байхгүй.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Устгах тусгалаа сонго.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Данс амжилттай устгагдлаа.</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>Энэ тушаал байхгүй байна!</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Систем</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Түр файлууд болон хавтаснууд амжилттай устгагдлаа.</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Овог нэрүүдийг харах</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Бүгдийг харах</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Хөргийн байрлалуудыг дахин олгох</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Цонхны байрлалуудыг дахин олгох</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Үндэс</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Агуулах ууд</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Дахин нэрлэх</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Устгах</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>Цонхны байрлалуудыг хадгал</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Дэлгэцийн хадмал</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Сонгох</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Хэрэглэгч сонго:</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Өгөгдмөлөөр тогтоо</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Тохиргоо</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Файлаа сонго...</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Тусгалын хаяг (жишээ нь: %s)</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Хайлтын системүүдийг амжилттай импортоллоо.</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Хэрэглэгч хайх...</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Тусгал амжилттай устсан.</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Системийнхээ хэрэглэгчидийг удирдах</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Тушаал амжилттай хадгалагдлаа.</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>oneye -г цэвэрлэх</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Linux сервер дээр оффисийн дэмжлэг тохируулах</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Тушаал амжилттай устгагдлаа.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Өөрчлөлт амжилттай хадгалагдлаа.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Өөрчлөлт амжилттай хадгалагдаж хэрэглэгч шинэчлэгдлээ.</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Тушаалууд</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>eyeСамбарынхаа тохиргоог өөрчлөх</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Өгөгдмөл тохиргоог амжилттай тогтоолоо.</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Windows сервер дээр оффисийн дэмжлэг тохируулах</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Авто-эхлэл устгах</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Бүлэг устгах</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Ажлын орчин</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Өгөгдмөл бүлэг: %s | %s бүлэг(үүд)</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Өгөгдмөл бүлэг амжилттай хадаглагдлаа. Та суултыг дахин эхлүүлэх шаардлагатай.</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Эхлэх хуудасны тохиргоо</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Дэлгэцийн ханын цаасыг солих</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Илүү дуртай хэлээ сонго</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Үндсэн харагдацаа солих</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Захирагч</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Тусгал нэмэх</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Бүртгэл хийхийг зөвшөөрөх</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Захиргаа</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>oneye системд шинэ хэрэглэгч нэмэх</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Миний тухай</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Нийтийн хавтасд зөвшөөрөх</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s толь(нууд)</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Хадгалсан хуудаснууд амжилттай ипортлогдлоо.</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Вэб -руу хуулахыг зөвшөөрөх</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Плагин хөтлөх</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Үндсэн нууц үгээ солих</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Нэмэх</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Хадгалсан хуудаснууд болон хайлтын системүүд амжилттай  экспортлогдлоо.</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Авто-ажиллах Тушаалууд</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Нийтлэгч</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Тусгал устгах</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Нууц үг буруу!</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Та энэ тушаалыг устгахыг хүсэж байна уу?</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Хэл</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Сүүлийн нэвтрэлт</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Ачаалах</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Импортлох</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Бүлгүүд</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Орчуулга нэмж авах</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Бүлэг амжилттай устлаа.</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Бүлгийн нэр</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Хараад Мэдэр</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Засварлагч</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Өгөгдмөл хайлтын системүүдийг удирдах</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Авто-эхлэлийн тушаалуудыг удирдах</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Тушаал амжилттай нэмэгдлээ.</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Системийнхээ бүлгүүдийг удирдах</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Өгөгдмөл тэмдгэлгээнүүдийг удирдах</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Үндсэн</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Засварлах</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Бэхлэгдсэн: Хөргүүдийг хөдөлгөх боломжгүй</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Файл татагдсангүй. хаягаа зөв оруулна уу.</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Та өгөгдмөл ажлын орчинг сэргээхийг хүсэж байна уу?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Та өгөгдмөл тэмдгэлгээнүүдийг сэргээхийг хүсэж байна уу?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Та өгөгдмөл хайлтын системийг сэргээхийг хүсэж байна уу?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Та энэ хэрэглэгчийг системээс устгахыг хүсэж байна уу?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Та энэ тусгалыг eyeSoft - с устгахыг хүсэж байна уу? </new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Та энэ бүлгийг системээс устгахыг хүсэж байна уу?</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>Э-Захиа</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Тушаал засварлах</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Экспорт</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Өгөгдмөл тэмдгэлгээнүүд болон хайлтын системүүдийг экспортлох</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Талбаржсан: Хөргүүд автоматаар байрлагдана.</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Файл амжилттай татагдлаа.</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Засварлах</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s комманд(ууд)</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Тусгал засварлах</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Сонгогдсон хэрэглэгчийг засварлах</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s хэрэглэгч(ид) бүртгэгдсэн.</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Сайн уу дэлхий!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Жишээ eyeПрог</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Гарчиг солих</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Бямба</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Шинээр Хадгалах</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>9-р сар</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Хэвлэх</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Байрлал</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Нээх</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Хадгалах</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Мягмар</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Хуудасны хэмжээ</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Лхагва</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Хоосон нүд(нүүд) мөн үү?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Пүрэв</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Ням</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Загвар</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>11-р сар</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>10-р сар</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Шинэ</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>2-р сар</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Томъёо</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Багана.Нэмэх</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Багана. Устгах</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>12-р сар</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Хуулах / Наах энэ кодыг бусад төстэй софтуудад ашиглана ( жишээ нь Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Баасан</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>3-р сар</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Мөр.Нэмэх</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>5-р сар</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Даваа</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Мөр. Устгах</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>6-р сар</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>7-р сар</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>1-р сар</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>4-р сар</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>8-р сар</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>September</old>
+			<new>9-р сар</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>11-р сар</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>10-р сар</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Ням</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Лхагва</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Бямба</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Шидэх</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Мягмар</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TH</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Пүрэв</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Даваа</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>5-р сар</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>2-р сар</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>задарсан</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Алдаа %s</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>8-р сар</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>12-р сар</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Баасан</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>1-р сар</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>3-р сар</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>6-р сар</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>7-р сар</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Өөр файл</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>4-р сар</new>
+		</text>
+	</part>
+</lang>

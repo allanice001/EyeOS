@@ -1,0 +1,41 @@
+.blockbar {
+	background: #ffffff url('index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/toolbar.png') repeat-x bottom ;
+}
+
+.eyeDock_bottom_left_icon:hover, .eyeDock_top_right_icon:hover {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.eyeDock_bottom_left_menu:hover,.eyeDock_top_left_menu:hover, .eyeDock_bottom_right_menu:hover, .eyeDock_bottom_left_icon:hover, .eyeDock_top_right_icon:hover, .eyeDock_bottom_right_menu_selected, .eyeDock_top_right_menu_selected, .eyeDock_top_left_menu_selected {
+	background-color: #cccccc;
+	background-image: url('index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/apps/eyeDock/backgrounds/taskHover.png');
+}
+
+.eyeDock_bottom_left_icon:hover, .eyeDock_top_right_icon:hover {
+	background-color: transparent;
+}
+
+.eyeDock_top_left_menu:hover {
+	background-color: #999999;
+}
+
+.eyeDock_top_left_menu_selected {
+	background-color: #cccccc;
+}
+
+.eyeDock_top_left_menu:hover, .eyeDock_top_right_icon:hover {
+	color: eyeos; /* reset */
+	height: eyeos; /* reset */
+}
+
+.eyeDock_top {
+	background-color: #000000;
+	background-position: eyeos; /* reset */
+	border-bottom: eyeos; /* reset */
+}
+.eyeWindowTitle_text {
+	background: transparent url('index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/title_bg.png') no-repeat right;
+	padding: 3px 200px 0 7px;
+}

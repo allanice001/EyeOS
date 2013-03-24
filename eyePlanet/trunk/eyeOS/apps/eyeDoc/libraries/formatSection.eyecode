@@ -1,0 +1,31 @@
+<?php
+
+function eyeDoc_formatSection($info) {
+	$info = $info['info'][0];
+	eyex('resetDiv', array('name' => 'eyeContent', 'usepid' => 1));
+
+	//Translate strings
+	$description = i18n('translate', array('Description'));
+	$name = i18n('translate', array('Name'));
+	$value = i18n('translate', array('Value'));
+	
+	$html = '<h1 class="headerText">'.$info['title'][0].'</h1>';
+	
+	if(is_array($info['desc'][0])) { 
+		$html .= eyeXML('array2xml', array($info['desc'][0]));
+	} else {
+		$html.= '<p>'.$info['desc'][0].'</p>';
+	}
+	
+	if(is_array($info['constants'][0]['constant'])) {
+		$html.= '<p class="title">Constants</p><table border=1 cellpadding=5 class="eyeDocTable"><thead><tr><td>Name</td><td>Value</td><td>Description</td></tr></thead>';
+		foreach($info['constants'][0]['constant'] as $k) {
+			$html.= '<tr><td>'.$k['name'][0].'</td><td>'.$k['desc'][0].'</td></tr>';
+		}
+		$html.= '</table>';
+	}
+	
+	eyeX('setDiv', array('name' => 'eyeContent', 'content' => $html));
+}
+
+?>

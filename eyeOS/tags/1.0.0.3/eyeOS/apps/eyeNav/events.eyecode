@@ -1,0 +1,47 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeNav_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeNav_on_Resize($params=null) {
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$GLOBALS['eyeNavUrl']->setWidth($width-110);
+	$GLOBALS['right_textbox_img']->setX($GLOBALS['left_textbox_img']->x+$GLOBALS['eyeNavUrl']->width);
+	$GLOBALS['eyeNavFrame']->setWidth($width-35);
+	$GLOBALS['eyeNavFrame']->setHeight($height-($GLOBALS['eyeNavUrl']->y+60));
+}
+
+function eyeNav_on_OpenUrl($params=null) {
+	if(!preg_match('/^[^:]+:\/\//',$GLOBALS['eyeNavUrl']->text)) {
+		$GLOBALS['eyeNavUrl']->text = 'http://'.$GLOBALS['eyeNavUrl']->text;
+	}
+	$GLOBALS['eyeNavFrame']->setUrl($GLOBALS['eyeNavUrl']->text);
+}
+
+function eyeNav_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+?>

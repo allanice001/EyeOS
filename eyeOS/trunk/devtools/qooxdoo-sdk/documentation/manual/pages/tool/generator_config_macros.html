@@ -1,0 +1,217 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration Macro Reference &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="References" href="../references.html" />
+    <link rel="next" title="Glossary" href="../glossary.html" />
+    <link rel="prev" title="Reference Listing of Config Keys" href="generator_config_ref.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../glossary.html" title="Glossary"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="generator_config_ref.html" title="Reference Listing of Config Keys"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../references.html" accesskey="U">References</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="configuration-macro-reference">
+<span id="pages-tool-generator-config-macros-configuration-macro-reference"></span><h1>Configuration Macro Reference<a class="headerlink" href="#configuration-macro-reference" title="Permalink to this headline">¶</a></h1>
+<p>This page lists the macros which are pre-defined in qooxdoo, and can (mostly) be overridden in custom configuration files.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="40%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Macro name</th>
+<th class="head">Description</th>
+<th class="head">Default value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>API_EXCLUDE</td>
+<td>list of class pattern to exclude from the api documentation</td>
+<td>[]</td>
+</tr>
+<tr><td>API_INCLUDE</td>
+<td>list of class pattern to include in the api documentation</td>
+<td>[&quot;qx.*&quot;, &quot;${APPLICATION}.*&quot;]</td>
+</tr>
+<tr><td>APPLICATION</td>
+<td>application name space</td>
+<td>&lt;undef&gt;</td>
+</tr>
+<tr><td>APPLICATION_MAIN_CLASS</td>
+<td>application main class</td>
+<td>${APPLICATION}.Application</td>
+</tr>
+<tr><td>BUILD_PATH</td>
+<td>output path for the &quot;build&quot; job (can be rel. to config dir)</td>
+<td>./build</td>
+</tr>
+<tr><td>CACHE</td>
+<td>path to the compile cache (can be rel. to config dir)</td>
+<td>${TMPDIR}/cache</td>
+</tr>
+<tr><td>HOME</td>
+<td>(read-only) value of the (process) environment variable &quot;HOME&quot;</td>
+<td>&quot;.&quot;</td>
+</tr>
+<tr><td>LOCALES</td>
+<td>list of locales for this application</td>
+<td>[ &quot;en&quot; ]</td>
+</tr>
+<tr><td>OPTIMIZE</td>
+<td>list of optimization options for build version</td>
+<td>[&quot;basecalls&quot;, &quot;variables&quot;, &quot;privates&quot;, &quot;strings&quot;]</td>
+</tr>
+<tr><td>QOOXDOO_PATH</td>
+<td>path to the qooxdoo installation root dir</td>
+<td>&lt;undef&gt;</td>
+</tr>
+<tr><td>QOOXDOO_VERSION</td>
+<td>the current qooxdoo version</td>
+<td>1.3</td>
+</tr>
+<tr><td>QXICONTHEME</td>
+<td>icon theme to use for this application</td>
+<td>[&quot;Tango&quot;]</td>
+</tr>
+<tr><td>QXTHEME</td>
+<td>theme to use for this application</td>
+<td>&quot;qx.theme.Modern&quot;</td>
+</tr>
+<tr><td>ROOT</td>
+<td>application root dir (rel. to config dir)</td>
+<td>&quot;.&quot;</td>
+</tr>
+<tr><td>SIMULATION_INCLUDE</td>
+<td>class pattern to search for GUI test classes</td>
+<td>&quot;${APPLICATION}.simulation.*&quot;</td>
+</tr>
+<tr><td>SIMULATOR_CLASSPATH</td>
+<td>Java classpath argument for GUI test runner</td>
+<td>&quot;${SIMULATOR_ROOT}/tool/js.jar: ${SIMULATOR_ROOT}/tool/selenium-java-client-driver.jar&quot;</td>
+</tr>
+<tr><td>SIMULATOR_ROOT</td>
+<td>path to the framework's simulator component</td>
+<td>&quot;${QOOXDOO_PATH}/component/simulator&quot;</td>
+</tr>
+<tr><td>TEST_INCLUDE</td>
+<td>class pattern to search for unit test classes</td>
+<td>&quot;${APPLICATION}.test.*&quot;</td>
+</tr>
+<tr><td>TESTS_SCRIPT</td>
+<td>script file name for the test application (the &quot;AUT&quot;)</td>
+<td>&quot;tests.js&quot;</td>
+</tr>
+<tr><td>TMPDIR</td>
+<td>(read-only) path to tmp directory</td>
+<td>(platform-dependent, like /tmp etc.)</td>
+</tr>
+<tr><td>USERNAME</td>
+<td>(read-only) value of the (process) environment variable &quot;USERNAME&quot;</td>
+<td>&lt;undef&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="generator_config_ref.html"
+                                  title="previous chapter">Reference Listing of Config Keys</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../glossary.html"
+                                  title="next chapter">Glossary</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/tool/generator_config_macros.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

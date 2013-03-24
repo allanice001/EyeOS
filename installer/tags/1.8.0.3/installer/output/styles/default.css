@@ -1,0 +1,101 @@
+a {
+	text-decoration: none;
+}
+
+body {
+	font-family: "Lucida Grande",sans-serif,Verdana;
+	font-size: 11px;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	text-align: justify;
+}
+
+form {
+	display: inline;
+}
+
+.background {
+	background-image: url(./../../output/images/background.jpg);
+	background-position: center;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.button {
+	display: block;
+	position: absolute;
+	text-align: center;
+	top: 400px;
+	width: 100%;
+}
+
+.errors {
+	border: 1px solid gray;
+	font-size: 12px;
+	height: 200px;
+	left: 20px;
+	line-height: 200%;
+	overflow: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: absolute;
+	top: 141px;
+	width: 694px;
+}
+
+.iButton {
+	background-image: url(./../../output/images/button.png);
+	border-color: #858585 #aeaeae;
+	border-style: solid;
+	border-width: 1px;
+	font-family: "Lucida Grande",sans-serif,Verdana;
+	font-size: 12px;
+	height: 22px;
+}
+
+.iButton:hover {
+	border-color: #6fa1e0 #a1c6f3;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.logo {
+	background-image: url(./../../output/images/logo.png);
+	height: 33px;
+	right: 20px;
+	position: absolute;
+	top: 44px;
+	width: 40px;
+}
+
+.title {
+	font-size: 12px;
+	font-weight: bold;
+	left: 20px;
+	position: absolute;
+	top: 70px;
+	width: 650px;
+}
+
+.warning {
+	border: 1px solid gray;
+	font-size: 12px;
+	left: 20px;
+	padding: 10px;
+	position: absolute;
+	top: 90px;
+	width: 694px;
+}
+
+.window {
+	background-image: url(./../../output/images/window.png);
+	height: 528px;
+	left: 50%;
+	margin-left: -377px;
+	margin-top: -264px;
+	position: absolute;
+	top: 50%;
+	width: 754px;
+}

@@ -1,0 +1,108 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_general_system($params = '') {
+// Get the correct quota in bytes
+	$quota = $GLOBALS['eyeControl_general_system_textbox_quota']->text;
+	if (!$GLOBALS['eyeControl_general_system_checkbox_quota']->checked || !is_numeric($quota)) {
+		$quota = 0;
+	} else {
+		round($quota);
+		$q_type = $GLOBALS['eyeControl_general_system_select_quota']->selected;
+		switch ($q_type) {
+		case 'GB':
+			$quota = $quota * 1024 * 1024 * 1024;
+			break;
+		case 'MB':
+			$quota = $quota * 1024 * 1024;
+			break;
+		case 'KB':
+			$quota = $quota * 1024;
+			break;
+		}
+	}
+	
+	$file = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/system.xml';
+	$xml = eyeXML('getXMLfile',array($file));
+	$xml['CONFIG'][0]['EYEOS_HOSTNAME'][0] = $GLOBALS['eyeControl_general_system_textbox_hostname']->text;
+	$xml['CONFIG'][0]['DEFAULT_QUOTA'][0] = strval($quota);
+	eyeXML('setXMLFile',array($file,$xml));
+	
+	unset($file);
+	unset($xml);
+	
+	$file = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/sec.xml';
+	$xml = eyeXML('getXMLfile',array($file));
+	$xml['CONFIG'][0]['PROTECTED_IP_SESSIONS'][0] = $GLOBALS['eyeControl_general_system_checkbox_ipprotect']->checked;
+	eyeXML('setXMLFile',array($file,$xml));
+	
+	eyex('messageBox',array('content' => 'Changes successfully saved.'));
+}
+
+function eyeControl_on_general_permissions($params = '') {
+	$file = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/system.xml';
+	$xml = eyeXML('getXMLfile',array($file));
+	$xml['CONFIG'][0]['ALLOW_USER_REGISTER'][0] = $GLOBALS['eyeControl_general_permissions_checkbox_registration']->checked;
+	$xml['CONFIG'][0]['ALLOW_PUBLIC_DIRS'][0] = $GLOBALS['eyeControl_general_permissions_checkbox_publicdirs']->checked;
+	eyeXML('setXMLFile',array($file,$xml));
+	eyex('messageBox',array('content' => 'Changes successfully saved.'));
+}
+
+function eyeControl_on_general_uninstall($params = '') {
+	global $currentUser;
+	$password = $GLOBALS['eyeControl_general_textbox_password']->text;
+	$userInfo = um('retrieveUser',array($currentUser));
+	if ($currentUser == ROOTUSER && md5($password . md5($password)) == $userInfo['eyeUser'][0]['password'][0]) {
+		eyex('messageBox',array(
+			'content' => 'Do you really want to delete the eyeOS system?',
+			'type' => 3,
+			'title' => 'Uninstall eyeOS',
+			'win_name' => 'eyeControl_general_uninstall_window',
+			'win_style' => TITLE + CLOSE,
+			'win_removepid' => 0,
+			'btn1_capt' => 'Yes',
+			'btn1_name' => 'general_uninstall_yes',
+			'btn2_capt' => 'No',
+			'btn2_name' => 'general_uninstall_no',
+			'father' => 'eyeControl_container_big',
+			'img' => '?'
+		));
+	} else {
+		eyex('messageBox',array('content' => 'Please type the correct root password to uninstall eyeOS!'));
+	}
+}
+
+function eyeControl_on_general_uninstall_yes($params = '') {
+	global $currentUser;
+	if ($currentUser == ROOTUSER) {
+		eyeWidgets('unserialize');
+		eyex('messageBox',array('content' => 'The eyeOS system was successfully deleted.'));
+		eyex('rawjs',array('js' => 'window.setTimeout("home()",2000);'));
+		vfs('real_rmdir',array(EYE_ROOT . '/'));
+	}
+}
+
+function eyeControl_on_general_uninstall_no($params = '') {
+	$GLOBALS['eyeControl_general_uninstall_window']->close();
+}
+?>

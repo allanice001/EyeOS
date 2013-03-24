@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>isLayer</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+			<tag>layer</tag>
+			<tag>container</tag>
+		</tags>
+		<shortDesc>Checks whether a layer exists or not.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>isLayer</functionName>
+		<syntax>boolean eyex('isLayer', array(string 'name' => $name))</syntax>
+		<desc>Checks whether a layer exists or not.</desc>
+		<params>
+			<type>required</type>
+			<name>name</name>
+			<desc>Name of the layer.</desc>
+		</params>
+		<return>If no layer name is specified, returns false and sets the error code accordingly. Otherwise, returns a boolean value indicating whether the layer exists or not.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No name is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

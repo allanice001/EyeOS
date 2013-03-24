@@ -1,0 +1,56 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeMkDir_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeMkDir_on_newfolder($params=null) {
+	if(is_object($GLOBALS['nfPath'])) {
+		$myUserDir = $GLOBALS['nfPath']->text;
+	}
+	$myFolderName = basename(trim($GLOBALS['nfTextbox']->text));
+	$myFolderName = str_replace('\\','',$myFolderName);
+	$myFolderName = str_replace('.','',$myFolderName);
+	$myFolderName = str_replace('/','',$myFolderName);
+	$myFolderName = str_replace("'",'',$myFolderName);	
+	$myFolderName = str_replace('"','',$myFolderName);		
+	$myUserDir .= '/'.$myFolderName;
+	if(is_object($GLOBALS['nfCallback'])) {
+		$callback = $GLOBALS['nfCallback']->text;
+	}
+	global $myPid;
+	//TODO: FILTER SPECIAL CHARACTERS
+	if(!service('vfs','mkDir',array($myUserDir))) {
+		service('eyex','messageBox',array('content'=>'Error creating directory'));
+	} else {
+		service('proc','close',array($myPid));
+		if($callback) {
+			service('eyex','rawjs',array('js'=>$callback));
+		}
+	}
+}
+
+function eyeMkDir_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+
+?>

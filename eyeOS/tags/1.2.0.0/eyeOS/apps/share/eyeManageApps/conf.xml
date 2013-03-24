@@ -1,0 +1,42 @@
+<Plugins>
+	<plugin>
+		<name>Create Group</name>
+		<appName>createGroup</appName>
+		<description>Create a new Group</description>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/new.png</icon>
+		<label>Create Group</label>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<name>Add Application</name>
+		<appName>addApp</appName>
+		<description>Action to add an application</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/upload.png</icon>
+		<label>Add Application</label>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<name>Delete Group/App</name>
+		<appName>delete</appName>
+		<description>Delete any application or group</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/delete.png</icon>
+		<label>Delete</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>Properties</name>
+		<appName>properties</appName>
+		<description>View the properties of an application</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/properties.png</icon>
+		<label>Properties</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>Refresh</name>
+		<appName>ListApps</appName>
+		<description>Refresh</description>
+		<icon>index.php?extern=apps/eyeX/themes/default/icons/16x16/refresh.png</icon>
+		<label>Refresh</label>
+		<context>current</context>
+	</plugin>
+</Plugins>

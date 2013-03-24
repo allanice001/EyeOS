@@ -1,0 +1,30 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	eyeX base app
+*/
+
+function eyeX_run($params=null) {
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeX/screen'.EYE_CODE_EXTENSION);
+	//drawScreen trhow a xhtml base.
+	drawScreen();
+}
+
+
+?>

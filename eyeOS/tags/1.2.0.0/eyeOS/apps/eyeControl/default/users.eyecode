@@ -1,0 +1,106 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+// $myTable
+$sortypes = array('String','String','String','String','Date');
+$theader = array('Username','Full name','Email','Groups','Created on');
+
+$myTable = new Sortabletable(array(
+	'name' => 'eyeControl_users_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes,
+	'theader' => $theader,
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 375
+));
+$myTable->show();
+$allUsers = um('getAllUsers');
+foreach ($allUsers as $user) {
+	$userXML = um('retriveUser',array($user));
+	$userXML = $userXML['eyeUser'][0];
+	($userXML['fullname'][0]) ? $fullname = $userXML['fullname'][0] : $fullname = ' ';
+	$groups = '';
+	foreach ($userXML['group'] as $group) {
+		($groups) ? $groups = $groups . ', ' . $group : $groups = $group;
+	}
+	($userXML['email'][0]) ? $email = $userXML['email'][0] : $email = ' ';
+	($userXML['createDate'][0]) ? $createdate = $userXML['createDate'][0] : $createdate = ' ';
+	$myTable->addRow(array(
+		$user,
+		$fullname,
+		$email,
+		$groups,
+		date('d/m/Y H:i:s',$createdate)
+	));
+}
+// New
+$myButton = new Button(array(
+	'name' => 'eyeControl_users_button_new',
+	'father' => $eyeContainer,
+	'signal' => 'users_new',
+	'caption' => 'New',
+	'width' => 90,
+	'x' => 10,
+	'y' => 0,
+	'img' => 'index.php?extern=' . THEMES_DIR . '/default/icons/16x16/new.png'
+));
+$myButton->show();
+// Edit
+$myButton = new Button(array(
+	'name' => 'eyeControl_users_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'users_edit',
+	'caption' => 'Edit',
+	'width' => 90,
+	'x' => 100,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/paste.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Delete
+$myButton = new Button(array(
+	'name' => 'eyeControl_users_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'users_delete',
+	'caption' => 'Delete',
+	'width' => 90,
+	'x' => 190,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/delete.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// x user(s) registered.
+$myLabel = new Label(array(
+	'name' => 'eyeControl_account_label_users',
+	'father' => $eyeContainer,
+	'horiz' => 1,
+	'y' => 5,
+	'text' => '%s user(s) registered.',
+	'tokens' => array(count($allUsers))
+));
+$myLabel->show();
+?>

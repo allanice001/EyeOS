@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<entry>
+		<text>Download</text>
+		<signal>download</signal>
+		<icon>download</icon>
+	</entry>
+	<entry>
+		<text>Delete</text>
+		<signal>delete</signal>
+		<icon>delete</icon>
+	</entry>
+	<entry>
+		<text>Copy</text>
+		<signal>copy</signal>
+		<icon>copy</icon>
+	</entry>
+	<entry>
+		<text>Properties</text>
+		<signal>properties</signal>
+		<icon>properties</icon>
+	</entry>
+</menu>

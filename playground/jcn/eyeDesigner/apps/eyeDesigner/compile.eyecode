@@ -1,0 +1,315 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+function eyeDesigner_on_runCode($params=''){
+	global $currentUser;
+	
+	$wndCode = make_compile();
+	$code = '<?php function eyeDesigner_Test_run($params=null){'."\n".$wndCode."\n}\n".'function eyeDesigner_Test_end($params = null) {'."\neyeWidgets('unserialize',".'$params'.');}?>';
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	vfs('real_putFileContent', array(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner_Test/app.eyecode',$code));
+	$currentUser = $oldUser;
+	proc('launch',array('eyeDesigner_Test'));
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	vfs('real_putFileContent', array(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner_Test/app.eyecode',' '));
+	$currentUser = $oldUser;
+}
+
+function eyeDesigner_on_viewCode($params=''){
+
+	$code = make_compile();
+	
+	$viewCodeWND = new Window(array(
+		'name' => 'eyeDesigner_viewCodeWND',
+		'father' => 'eyeDesigner_Content',
+		'style' => TITLE+CLOSE,
+		'title' => 'View Code',
+		'cent' => 1,
+		'width' => 520,
+		'height' => 400,
+		'removepid' => 0
+	));
+	$viewCodeWND->show();
+	$globalFatherviewWND = "eyeDesigner_viewCodeWND_Content";
+	
+	$textareaViewCode = new Textarea(array(
+		'name' => 'Textarea_result',
+		'father' => $globalFatherviewWND,
+		'enabled' => 0,
+		'code' => 0,
+		'cssClass' => '',
+		'lang' => 'generic',
+		'rich' => 0,
+		'text' => $code,
+		'x' => 5,
+		'y' => 5,
+		'width' => 505,
+		'height' => 360,
+	));
+	$textareaViewCode->show();
+}
+
+function eyeDesigner_on_Compile($params=null){
+	$myWindow = new Window(array(
+		'name' => 'eyeDesigner_compileWND',
+		'father' => 'eyeApps',
+		'style' => TITLE+CLOSE,
+		'title' => 'Compile',
+		'cent' => 1,
+		'width' => 333,
+		'height' => 225,
+		'removepid' => 0
+	));
+	$myWindow->show();
+	$globalFather = "eyeDesigner_compileWND_Content";
+
+	$singlefile_rd = new Radio(array(
+		'name' => 'singlefile_rd',
+		'father' => $globalFather,
+		'checked' => 1,
+		'text' => 'Function',
+		'group' => 'compile',
+		'x' => 55,
+		'y' => 54,
+	));
+	$singlefile_rd->show(0);
+
+	$application_rd = new Radio(array(
+		'name' => 'application_rd',
+		'father' => $globalFather,
+		'checked' => 0,
+		'text' => 'Application',
+		'group' => 'compile',
+		'x' => 214,
+		'y' => 54,
+	));
+	$application_rd->show(0);
+
+	$compile_lbl_2 = new Label(array(
+		'name' => 'compile_lbl_2',
+		'father' => $globalFather,
+		'text' => 'Function/Application Name:',
+		'x' => 20,
+		'y' => 92,
+	));
+	$compile_lbl_2->show();
+
+	$compile_lbl_1 = new Label(array(
+		'name' => 'compile_lbl_1',
+		'father' => $globalFather,
+		'text' => 'Compilation type:',
+		'x' => 20,
+		'y' => 24,
+	));
+	$compile_lbl_1->show();
+
+	$compile_appname = new Textbox(array(
+		'name' => 'compile_appname',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 55,
+		'y' => 124,
+		'width' => 240,
+	));
+	$compile_appname->show(0);
+
+	$compile_doCompile = new Button(array(
+		'name' => 'compile_doCompile',
+		'father' => $globalFather,
+		'caption' => 'Compile',
+		'x' => 240,
+		'y' => 167,
+		'signal' => 'doCompile',
+	));
+	$compile_doCompile->addFriend($singlefile_rd);
+	$compile_doCompile->addFriend($application_rd);
+	$compile_doCompile->addFriend($compile_appname);
+	$compile_doCompile->show();
+}
+
+function eyeDesigner_on_doCompile($params=null){
+	global $checknum;
+	$myIframe = new Iframe(array(
+		'name' => 'ifr_hidden_'.uniqid(time()),
+		'father' => 'eyeApps',
+		'width' => 0,
+		'height' => 0,
+		'x' => 1,
+		'y' => 1,
+		'url' => 'index.php?checknum='.$checknum.'&msg=getCompile'
+	));
+	$myIframe->show();
+}
+
+function eyeDesigner_on_getCompile($params=null){
+	$code = make_compile();
+	if($GLOBALS['singlefile_rd']->checked ){
+    	$code = "<?php\n\n".'function '.$GLOBALS['compile_appname']->text.'() {'."\n".$code."\n}\n\n?>";
+	} else {
+    	$code = "<?php\n\n".'function '.$GLOBALS['compile_appname']->text.'_run() {'."\n".$code."\n}\n\nfunction ".$GLOBALS['compile_appname']->text."_end () {\n";
+		$code .= "\teyeWidgets('unserialize');\n";
+		$code .= "}\n";
+		$code .="?>";
+	}
+	ob_clean();
+	header('Content-Disposition: attachment; filename="' . $GLOBALS['compile_appname']->text.'.eyecode' . '"');
+	header('Content-Length: ' . strlen($code));
+	header('Content-Type: application/octet-stream');
+	header('Accept-Ranges: bytes');
+	header('X-Pad: avoid browser bug');
+	echo $code;
+	exit;
+}
+
+function make_compile($params=null) {
+	global $myPid;
+
+	$styleStr = "";
+
+	if($_SESSION[$myPid.'_wnd']['title'] == 1){
+    	$styleStr .= "TITLE";
+	}
+
+	if($_SESSION[$myPid.'_wnd']['close'] == 1){
+    	if(!empty($styleStr)){
+        	$styleStr .= "+";
+		}
+		$styleStr .= "CLOSE";
+	}
+
+	if($_SESSION[$myPid.'_wnd']['min'] == 1){
+    	if(!empty($styleStr)){
+        	$styleStr .= "+";
+		}
+		$styleStr .= "MIN";
+	}
+
+	if($_SESSION[$myPid.'_wnd']['max'] == 1){
+    	if(!empty($styleStr)){
+        	$styleStr .= "+";
+		}
+		$styleStr .= "MAX";
+	}
+
+	if($_SESSION[$myPid.'_wnd']['listed'] == 1){
+    	if(!empty($styleStr)){
+        	$styleStr .= "+";
+		}
+		$styleStr .= "LISTED";
+	}
+
+	if($_SESSION[$myPid.'_wnd']['resize'] == 1){
+    	if(!empty($styleStr)){
+        	$styleStr .= "+";
+		}
+		$styleStr .= "RESIZE";
+	}
+
+	$widgets = $_SESSION[$myPid.'_wo'];
+	$code = "";
+	$code .= "\t".'$myWindow = new Window(array('."\n";
+	$code .= "\t\t'name' => '".$_SESSION[$myPid.'_wnd']['name']."',\n";
+	$code .= "\t\t'father' => 'eyeApps',\n";
+	$code .= "\t\t'style' => ".$styleStr.",\n";
+	$code .= "\t\t'title' => '".$_SESSION[$myPid.'_wnd']['titleStr']."',\n";
+	$code .= "\t\t'cent' => 1,\n";
+	$code .= "\t\t'width' => ".$_SESSION[$myPid.'_wnd']['width'].",\n";
+	$code .= "\t\t'height' => ".$_SESSION[$myPid.'_wnd']['height'].",\n";
+	
+	if($_SESSION[$myPid.'_wnd']['sendResizeMsg'] == 1){
+    	$code .= "\t\t'sendResizeMsg' => 1,\n";	
+	}	
+	
+	if(!empty($_SESSION[$myPid.'_wnd']['sendResizeMsgStr'])) {
+		$code .= "\t\t'sigResize' => '".$_SESSION[$myPid.'_wnd']['sendResizeMsgStr']."',\n";
+	}
+
+	$code .= "\t));\n";
+	$code .= "\t".'$myWindow->show();'."\n";
+	$code .= "\n";
+	$code .= "\t".'$globalFather = "'.$_SESSION[$myPid.'_wnd']['name'].'_Content";'."\n";
+	
+	if(isset($_SESSION[$myPid.'friends'])){
+		foreach($_SESSION[$myPid.'friends'] as $friendKey => $friendValue1){
+			foreach ($_SESSION[$myPid.'friends'][$friendKey] as $friendValue2){
+				$friendsWidgets .= "\t".'$'.$friendKey."->addFriend($".$friendValue2.");\n";
+			}
+		}
+	}
+	
+	if(isset($_SESSION[$myPid.'content'])){
+		foreach($_SESSION[$myPid.'content'] as $contentKey => $contentValue){
+			foreach($_SESSION[$myPid.'content'][$contentKey] as $contentKey2 => $contentValue2){
+				foreach($contentValue2 as $contentValue3);
+				if(isset($_SESSION[$myPid.'_wo'][$contentKey])){
+					$widgetType = get_class($_SESSION[$myPid.'_wo'][$contentKey]);
+					if($widgetType == 'Select'){
+						$contentWidgets .= "\t".'$'.$contentKey."->addOption('".$contentKey2."','".$contentValue3."');\n";
+					}else if($widgetType == 'Listbox'){
+						$contentWidgets .= "\t".'$'.$contentKey."->addItem('".$contentKey2."','".$contentValue3."');\n";
+					}else if($widgetType == 'Toolbar'){
+						foreach($_SESSION[$myPid.'content'][$contentKey][$contentKey2] as $keys=>$values){
+							$posPoint = stristr($keys, ".png");
+							if ($posPoint != false){
+								$imageSav = $keys;
+							}
+						}
+						$contentWidgets .= "\t".'$'.$contentKey."->addItem('".$keys."','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/".$imageSav."','".$contentKey2."');\n";
+					}
+				}
+			}
+		}
+	}
+	
+	if(is_array($widgets) ){
+		foreach($widgets as $key=>$value) {
+			$code .= showWidget($value);
+			if( $value->serializable == 1 ){
+	        	$showerWidget .= "\t".'$'.$value->name."->show(0);\n";
+			} elseif($value->serializable == 2 ){
+	        	$showerWidget .= "\t".'$'.$value->name."->show(1);\n";
+			} else {
+	        	$showerWidget .= "\t".'$'.$value->name."->show();\n";
+			}
+		}
+		$code .= "\n".$friendsWidgets;
+		$code .= "\n".$showerWidget;
+		$code .= "\n".$contentWidgets;
+	}
+	
+	//clean compile flag
+	if( is_array($widgets) ){
+		foreach($widgets as $key=>$value ){
+    		$value->compiled = 0;
+		}
+	}
+	return $code;
+}
+
+
+?>

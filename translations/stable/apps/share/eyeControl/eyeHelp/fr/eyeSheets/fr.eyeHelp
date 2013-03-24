@@ -1,0 +1,46 @@
+﻿		eyeSheets: un tableur à usage général pleinement intégré dans onEye. Vous pouvez désormais créer une feuille de calcul et la sauvegarde aux formats OpenOffice sheets ou Microsoft Excel. Avec un [b]serveur eyeOffice-ready[/b], vous pourrez créer de nouvelles feuilles de calcul et les éditer.
+
+[b]Ouvrir une feuille de calcul[/b]
+		Pour ouvrir un document, vous pouvez cliquer sur le bouton “Ouvrir” dans la barre des tâches d'eyeSheets ou simplement cliquer sur le document à ouvrir depuis l'Explorateur eyeFiles.
+
+
+[b]Nouvelle feuille de calcul[/b]
+		Pour ouvrir une nouvelle feuille de calcul, cliquez simplement sur le bouton “Nouveau” de la barre des tâches d'eyeSheets.
+
+
+[b]Sauvegarder une feuille de calcul[/b]
+		Pour sauvegarder votre feuille de calcul, cliquez sur le bouton “Enregistrer” de la barre des tâches d'eyeSheets ou sur le bouton “Enregistrer sous” si vous n'avez pas encore sauvegardé votre document. Notez qu'il n'est pas nécessaire d'ajouter une extension lors de la sauvegarde du document, il sera sauvegarder en tant que Document onEye, avec l'extension .ods. Pour le rendre compatible avec Microsoft Excel, ajoutez simplement l'extension .xls.
+
+
+[b]Lignes et Colonnes[/b]
+		Dans le coin inférieur droit d'eyeSheets, vous pouvez voir "Taille de la feuille: XX x XX" x=[b],[/b],3,... Le 1er chiffre est le nombre de Colonnes disponibles dans votre feuille de calcul, le 2nd, au nombre de lignes. Vous pouvez ajuster ces nombres en écrivant directement dans les cases.
+
+
+[b]Naviguer[/b]
+		Dans le coin inférieur gauche d'eyeSheets, vous pouvez voir 4 flèches. Les flèches haut et bas vous permettent de naviguer de ligne en ligne et les flèches gauche et droite, de colonne en colonne.
+
+
+[b]Insérer et Supprimer[/b]
+
+[list][*]Lignes
+		[b]Insérer[/b]
+			Sur la partie gauche de la feuille de calcul sont numérotées les lignes. Sélectionnez la ligne au dessus de laquelle vous voulez insérer une nouvelle ligne, puis cliquez sur le bouton "Ins. Ligne" de la barre des tâches d'eyeSheets.
+
+		[b]Supprimer[/b]
+			De la même façon, sélectionnez la ligne à supprimer puis cliquez sur le bouton "Eff. Ligne" de la barre des tâches d'eyeSheets.
+
+
+[*]Colonnes
+		[b]Insérer[/b]
+			Sur la partie supérieure de la feuille de calcul sont référencées les colonnes en mode alphabétique... Sélectionnez la colonne à la gauche de laquelle vous voulez insérer une nouvelle colonne, puis cliquez sur le bouton "Ins. Colonne" de la barre des tâches d'eyeSheets.
+
+		[b]Supprimer[/b]
+			De la même façon, sélectionnez la colonne à supprimer puis cliquez sur le bouton "Eff. Colonne" de la barre des tâches d'eyeSheets.
+[/list]
+
+[b]Imprimer[/b]
+		Quand votre document est prêt pour l'impression, cliquez simplement sur le bouton "Imprimer" de la barre des tâches d'eyeSheets: une fenêtre pop-up apparaîtra pour prévisualiser le document et une autre fenêtre pour les propriétés d'impression. Cliquez, alors, sur "OK" pour lancer l'impression.
+
+
+[b]Contenu(Formater des Cellules)[/b]
+		double-cliquez sur une cellule et écrivez dedans, et/ou effacez son contenu, puis pressez la touche "Enter" de votre clavier pour valider votre modification.

@@ -1,0 +1,68 @@
+html, body{
+	margin: 0px;
+	padding: 0px;
+	font-size: 11px;
+	font-family: sans-serif, Verdana;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+a:link, a:visited, a:hover{
+	text-decoration: none;
+	border: 0;
+}
+#eyeScreen{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+#eyeWallpaper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#eyeApps{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+/* Icons */
+.eyeIconMain {
+  position:absolute;
+  overflow:hidden;
+  visibility:hidden;
+  cursor:default;
+}
+
+/* movableElement */
+.movableElement {
+  position:absolute;
+  visibility:hidden;
+  overflow: hidden;
+  cursor:default;
+  margin:0;
+  padding:0;
+  border:0;
+}
+.eyeIcon {
+  cursor: pointer;
+}
+.eyeHidden{
+	display: none;
+}
+.cPointer {
+	cursor: pointer;
+}
+/* Hidden System Parts */
+.hiddenDiv {
+	visibility: hidden;
+}
+.fullPercent {
+	height: 94%;
+}
+.minimizedAppsIn {
+	position: absolute;
+	width: 500%;
+	height: 100%;
+	overflow: hidden;
+}

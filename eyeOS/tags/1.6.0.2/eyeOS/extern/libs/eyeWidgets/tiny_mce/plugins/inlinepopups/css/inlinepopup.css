@@ -1,0 +1,75 @@
+/* Window classes */
+
+.mceWindow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-right: 1px solid #424d5f;
+	border-left: 1px solid #424d5f;
+	border-bottom: 1px solid #424d5f;
+	background-color: #D4D0C8;
+}
+
+.mceWindowHead {
+	background-color: #799fd3;
+	width: 100%;
+	height: 23px;
+	cursor: move;
+	overflow: hidden;
+	background-image: url('index.php?extern=apps/eyeX/themes/default/images/windows/bg_top.png');
+ 	background-repeat: repeat-x;
+}
+
+.mceWindowBody {
+	clear: both;
+	background-color: white;
+}
+
+.mceWindowStatusbar {
+	background-color: #D4D0C8;
+	height: 12px;
+	border-top: 1px solid black;
+}
+
+.mceWindowTitle {
+	float: left;
+	color:#fff;
+	font-weight: 600;
+	line-height: 18px;	
+	font-size: 11px;
+	font-family: Verdana, Arial, sans-serif,FreeSans;
+	margin-left: 2px;
+	overflow: hidden;
+	margin-top: 2px;
+	margin-left: 9px;
+}
+
+.mceWindowHeadTools {
+	margin-right: 2px;
+}
+
+.mceWindowClose, .mceWindowMinimize, .mceWindowMaximize {
+	display: block;
+	float: right;
+	overflow: hidden;
+	margin-top: 2px;
+}
+
+.mceWindowClose {
+	margin-left: 2px;
+}
+
+.mceWindowMinimize {
+}
+
+.mceWindowMaximize {
+}
+
+.mceWindowResize {
+	display: block;
+	float: right;
+	overflow: hidden;
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+}

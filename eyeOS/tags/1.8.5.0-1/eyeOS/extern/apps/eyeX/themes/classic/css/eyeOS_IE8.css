@@ -1,0 +1,15 @@
+.eyeDesk_iconsOver {
+	border: 0;
+}
+
+.eyeDock_center {
+	width: expression(this.parentNode.offsetWidth - 18 - 18);
+}
+
+.eyeFiles_icons {
+	border: 0;
+}
+
+.eyeIcon {
+	border: 0;
+}

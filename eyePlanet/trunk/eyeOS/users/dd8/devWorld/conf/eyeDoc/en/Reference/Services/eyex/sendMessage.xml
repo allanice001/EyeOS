@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>sendMessage</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+			<tag>signal</tag>
+		</tags>
+		<shortDesc>Sends a signal to an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds, and it allows to send messages to other applications with only specifying the checknum.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>sendMessage</functionName>
+		<warning>Some browsers, especially Internet Explorer might have problems if the params arguments is left blank. It is recommended that you give it some value to avoid problems.</warning>
+		<syntax>boolean eyex('sendMessage', array(string 'msg' => $msg [, string 'params' => $params]))</syntax>
+		<desc>Sends a signal to an application. Older versions than eyeOS 1.6 only allow to send the message to the application that calls this function, while newer versions allow to specify the checknum of another application.</desc>
+		<params>
+			<type>required</type>
+			<name>msg</name>
+			<desc>Name of the signal to send.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>params</name>
+			<desc>Additional parameters passed to the event.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, if no message is specified, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No message is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

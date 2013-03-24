@@ -1,0 +1,74 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeArchive_run($params=null) {
+	global $myPid,$checknum;		
+	
+	$myWindow = new Window(array('name'=>'mainWindow','title'=>'eyeArchive','father'=>'eyeApps',
+		'type'=>NORESIZE_WINDOW,'width'=>548,'height'=>535,'cent'=>1));
+	$myWindow->show();
+	
+	$actionLabel = new Label(array('name'=>'actionLabel','father'=>'mainWindow_Content','text'=>'Open a folder or file','y'=>70,'x'=>5));
+	$actionLabel->show(0);
+	
+	$myTextBox = new Textbox(array('name'=>'workingPath','father'=>'mainWindow_Content','width'=>490,'y'=>85,'x'=>5,'text'=>'/'));
+	$myTextBox->show();
+	
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'mainWindow_Content'));
+	$myToolbar->show();
+	$myToolbar->addItem('Open','index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png','Open');
+	$myToolbar->addItem('Extract','index.php?extern=apps/eyeX/themes/default/images/toolbar/archive-extract.png','Extract',array($myTextBox));
+	$myToolbar->addItem('Compress','index.php?extern=apps/eyeX/themes/default/images/toolbar/archive-insert.png','Compress',array($myTextBox));	
+		
+	
+	$myButton = new Button(array('name'=>'selectDest','father'=>'mainWindow_Content','signal'=>'SelectDest',
+	'caption'=>'...','x'=>505,'y'=>85,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png'));
+	$myButton->show();
+	
+	
+	$sortypes = array("String");
+	$myHeader = array('Filename');
+	$myTable = new Sortabletable(array('name'=>'mainTable','father'=>'mainWindow_Content',
+		'sortypes'=>$sortypes,'theader'=>$myHeader,'x'=>5,'y'=>110,'width'=>535,'height'=>388));
+	
+	$myTable->show();
+	foreach($content as $value) {
+		$myTable->addRow(array($value));
+	}
+	
+	$myHidden = new Hidden(array('name'=>'projectStarted','father'=>'eyeApps','text'=>'false'));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+		
+	if(isset($params[0])){				
+		$myHidden->setText('true');
+		$myHidden2 = new Hidden(array('name'=>'argSrc','father'=>'eyeApps','text'=>$params[0]));
+		reqLib('eyeWidgets','serialize',array($myHidden2));
+		service('eyex','rawjs',array('js'=>"sendMsg($checknum,'SelectOpenFile');"));	
+	}		
+}
+
+function eyeArchive_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

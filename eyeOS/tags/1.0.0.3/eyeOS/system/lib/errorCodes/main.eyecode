@@ -1,0 +1,83 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Error code library for eyeos
+*/
+
+function lib_errorCodes_loadCodes($params=null){
+	global $errorCode;
+	$errorCode = "";
+	
+	//kernel & generic errorCodes -1/-99
+	define('ERROR_SERVICE_NOT_EXIST',-1);
+	define('ERROR_LIB_NOT_EXIST',-2);
+	define('SERVICE_FUNC_NOT_FOUND',-3);
+	define('ERROR_FUNC_NOT_FOUND',-4);
+	define('INCORRECT_PARAMS',-5);
+
+	//vfs service errorCodes -100/-199
+	define('VFS_INSUFFICIENT_PERMISSIONS',-100);
+	define('VFS_FILE_ALREADY_EXISTS',-102);
+	define('VFS_FILE_NOT_EXISTS',-103);
+	define('VFS_DIR_NOT_EXISTS',-104);
+	define('VFS_FILE_NOT_FOUND',105);
+	
+	//Proc service errorCodes -200/-299
+	define('PROC_APP_NOT_ARE_RUNNING',-200);
+	define('PROC_APP_ALREADY_RUNNING',-201);
+	define('PROC_APP_NOT_FOUND',-202);
+	define('PROC_APP_DONT_HAVE_RUN_FUNCTION',-203);
+	
+	//um service errorCodes -300/-399
+	define('UM_USER_PERMISSIONS',-300);
+	define('UM_USER_ALREADY_EXISTS',-301);
+	define('UM_USERNAME_REQUIRED',-302);
+	define('UM_USER_NOT_EXISTS',-303);
+	
+	//log service errorCodes -400/-499
+	define('EYEOS_LOG_BAD_VALUE',-400);
+	define('EYEOS_LOG_SERVICE_IGNORED',-401);
+	
+	//php native errorCodes -500/599
+	define('PHP_ERROR_ON_FOPEN',-500);
+	define('PHP_ERROR_ON_UNLINK',-501);
+	define('PHP_ERROR_ON_COPY',-502);
+	define('PHP_ERROR_ON_MKDIR',503);
+}
+
+function lib_errorCodes_setErrorCode($params) {
+	global $errorCode;
+	$ecode = $params[0];
+	if(!$ecode) {
+		return false;
+	}
+	$errorCode = $ecode;
+}
+
+function lib_errorCodes_getErrorCode($params=null) {
+	global $errorCode;
+	return $errorCode;
+}
+
+?>

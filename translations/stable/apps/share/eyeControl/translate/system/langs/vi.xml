@@ -1,0 +1,1175 @@
+<lang>
+	<info>
+		<lang>Tiếng Việt</lang>
+		<lang-en>Vietnamese</lang-en>
+		<author>Nguyen Dang Khoa</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Nhập tên liên kết tại đây:</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Tạo liên kết</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Liên kết không thể tải về!</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Cập nhật</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Quản lí Dock</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Cài đặt ứng dụng</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Ứng dụng</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>File extraction failed</old>
+			<new>Giải nén tập tin thất bại.</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Đã giải nén tập tin thành công.</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Tên tập tin</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Chưa chọn tập tin để mở</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Kiểu nén không được hỗ trợ</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Giải nén</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Giái nén thành...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Nén thành...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Nén</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Đã nén tập tin thành công.</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Nén tập tin thất bại.</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Quản lí tập tin nén</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Gửi</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Bản tin chung</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Xóa</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Máy tính</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Today</old>
+			<new>Hôm nay</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Hiện</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Tuần</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Chế độ cửa sổ</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Công việc</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Trước</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Kế</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Đã tạo lịch thành công.</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Lịch</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Quản lí lịch</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Cấu hình lịch</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Tạo lịch</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Select</old>
+			<new>Chọn</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Chọn người dùng:</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Chọn một tập tin...</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Đổi tên</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Chọn làm mặc định</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Thiết lập hệ thống</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Người dùng</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Gỡ bỏ</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Kiểm tra</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Hệ thống</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Mật khẩu</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Mật khẩu *</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Xóa nhóm</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Tác giả</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Quản trị viên</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Quản trị</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Xuất</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Tên nhóm</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Mật khẩu (gõ lại) *</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>không có</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Nhập</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Người dùng mặc định]</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Liên kết không thể sao chép!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Lỗi xóa tập tin!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select</old>
+			<new>Chọn</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Chọn một thư mục</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Chọn một tập tin để mở</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Tên</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Paste</old>
+			<new>Dán</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Thuộc tính</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Đổi tên</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Tập tin tải lên</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Thư mục mới</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Tập tin mới</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Chép</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Xóa</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Tải về dạng nén</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Tải về</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Thao tác</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>View Images</old>
+			<new>Xem hình ảnh</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Hình trước</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Hình kế</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Bạn phải chọn một thư mục để nhập tập tin</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Nhập</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Duyệt</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s tập tin đã được nhập!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Password</old>
+			<new>Mật khẩu</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Tên người dùng</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Người dùng mới</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Ngôn ngữ</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Truy cập</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Tạo tài khoản</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Nạp lại</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Nhập tên cho thư mục mới</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Một vài ký tự đặc biệt đã bị gỡ bỏ.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Search</old>
+			<new>Tìm kiếm</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Thiết lập</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Mở kết quả tìm</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Mở dấu trang</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Trình duyệt</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Trang khởi đầu</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>Tập tin vừa chọn không phải là dấu trang hợp lệ cho eyeNav!</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Trang Web</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Không phân loại</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Đã có dấu trang khác sử dụng tên này!</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>Tập tin vừa chọn không phải là tìm kiếm hợp lệ cho eyeNav!</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Đã lưu liên kết thành công.</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Đã xóa liên kết thành công.</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Dấu trang</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Xóa dấu trang</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Tên dấu trang</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>Dấu trang không tồn tại!</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Quay lại</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Bạn có thực sự muốn xóa dấu trang này?</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Diễn đàn</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Kiến thức</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Hình ảnh</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Tiến tới</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Thêm dấu trang</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Unable to create file</old>
+			<new>Không thể tạo tập tin</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Soạn thảo nội dung</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Xin lỗi, bạn không có đủ quyền hạn.</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Đã lưu tập tin thành công.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Bạn cần chọn một tập tin để mở!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Xin lỗi, bạn không có đủ quyền hạn.</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Trình chiếu</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Tiến tới</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Quay lại</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Process Name</old>
+			<new>Tên tiến trình</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Người dùng</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Quản lí tiến trình</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Tiến trình đã bị hủy thành công.</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>Tiến trình mới</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>Hủy tiến trình</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Bảng tính</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Đã lưu bảng tính thành công.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Xin lỗi, bạn không có đủ quyền hạn.</new>
+		</text>
+		<text>
+			<old>File not found!</old>
+			<new>Không tìm thấy tập tin!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>Ứng dụng không thể gỡ bỏ.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Ứng dụng đã được gỡ bỏ thành công.</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Đề nghị: %s</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Tìm kiếm</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Chọn một ứng dụng để cài đặt.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Chọn một ứng dụng để gỡ bỏ.</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>Giao dịch</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>Bản dịch</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Phiên bản</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Phiên bản: %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Cập nhật</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Gỡ bỏ</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Gỡ bỏ ứng dụng</new>
+		</text>
+		<text>
+			<old>Packages Manager</old>
+			<new>Quản lí gói cài đặt</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>Ứng dụng khác</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Cài đặt</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Đã cài đặt</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Trò chơi</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Đã cập nhật danh sách cài đặt</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Tất cả</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Giáo dục</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Đang cài đặt</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>không có</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Văn phòng</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Tên: %s</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Đa phương tiện</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Bản quyền: %s</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Quản trị</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Gỡ bỏ thực thể HTML</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Chuỗi xuất</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Tùy chọn</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>La Mã sang Thập phân</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Bắt đầu</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>Mã hóa URL</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>Giải mã URL</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>Mã hóa MD5</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Thời gian thực thi sau cùng: %s</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Ràng buộc xuất</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Xóa</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Mã hóa Base64</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Thập phân sang La Mã</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>Mã hóa oneye</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Chuỗi nhập</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Thực thể HTML</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Giải mã Base64</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Simple</old>
+			<new>Đơn giản</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Truyền tải:</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Tập tin tải lên</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Tải lên ngay!</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Gỡ bỏ</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Đã tải lên tập tin thành công.</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Thêm tập tin</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Nâng cao</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Lỗi tải lên tập tin!</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Thêm tập tin, sau đó bấm nút Tải lên!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Bạn không có đủ quyền hạn!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Sửa</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Chào thế giới!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Ví dụ eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Thay đổi nhãn chữ</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Upload your files</old>
+			<new>Tải lên tập tin</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Gửi tin nội bộ</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Bạn có muốn mở thanh công cụ này tự động cho phiên đăng nhập sau không?</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Soạn bảng tính mới</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Soạn tài liệu mới</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Lịch</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Nhắn tin nội bộ</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Một vài ký tự đặc biệt đã bị gỡ bỏ.</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Thực sự xóa hết ô?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Thứ bảy</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Lưu bản khác</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>In</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Vị trí</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Tháng mười</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Mở</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lưu</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Tháng chín</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Thứ ba</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Thứ tư</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Thứ năm</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Chủ nhật</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Kích thước trang</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Giao diện</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Tháng mười một</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Mới</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Xóa dòng</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Tháng hai</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Công thức</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Xóa cột</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Tháng mười hai</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Tháng tám</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Chép / dán đoạn mã này đến các ứng dụng bảng tính khác (như Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Thứ sáu</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Chèn cột</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Tháng ba</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Tháng năm</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Thứ hai</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Tháng sáu</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Tháng bảy</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Chèn dòng</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Tháng một</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Tháng tư</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>Sat</old>
+			<new>Bảy</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Tháng chín</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>T7</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>CN</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Tháng mười</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>CN</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T3</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>T4</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Tư</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Ba</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Năm</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>T5</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Tháng mười một</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Hai</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>T6</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Tháng hai</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>đã giải nén</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Tháng mười hai</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Tháng tám</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Sáu</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Tháng một</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Tháng ba</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Tháng năm</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>T2</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Tháng sáu</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Tháng bảy</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Tháng tư</new>
+		</text>
+	</part>
+</lang>

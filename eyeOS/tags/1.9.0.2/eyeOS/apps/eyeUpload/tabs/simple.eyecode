@@ -1,0 +1,45 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+$myImagebox = new Imagebox(array(
+	'father' => $simpleTab,
+	'name' => 'eyeUpload_simple_Imagebox',
+	'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/48x48/upload.png',
+	'x' => 22,
+	'y'=> 43
+));
+$myImagebox->show();
+
+$myFile = new File(array(
+	'callback' => 'simple_Do',
+	'father' => $simpleTab,
+	'filename' => 'myFile',
+	'multiple' => 1,
+	'name' => 'eyeUpload_simple_File',
+	'x' => 80,
+	'y' => 10
+));
+$myFile->show();
+$myFile->setHeight(190);
+$myFile->setWidth(375);
+?>

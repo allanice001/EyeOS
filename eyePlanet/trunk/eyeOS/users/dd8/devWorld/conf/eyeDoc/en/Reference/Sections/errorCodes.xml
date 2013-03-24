@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>errorCodes, the error handling library</title>
+	<general>
+		<name>errorCodes</name>
+		<tags>
+			<tag>library</tag>
+		</tags>
+		<shortDesc>Allows to report and retrieve the errors ocurred during the run time.</shortDesc>
+	</general>
+	<desc>The errorCodes library contains the functions needed to retrieve and notify the applications which errors ocurr during the running of an application.</desc>
+</info>

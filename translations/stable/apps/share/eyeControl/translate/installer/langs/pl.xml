@@ -1,0 +1,207 @@
+<lang>
+	<info>
+		<lang>Polski</lang>
+		<author>Mateusz Nowak</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>Hasło administratora</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>Nie</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]Nie[/span] - spowoduje powrócenie na stronę główną.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Jesteś pewien, że chcesz skasować instalator oneye?</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Proszę wybrać jedną z poniższych opcji:</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Przekłady mogą zostać pobrane pod adresem [a link].</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>Proszę usunąć folder instalacyjny ze względów bezpieczeństwa.</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Usuń oneye</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Wróć do menu</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Kontynuuj...</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]Tak[/span] - spowoduje usunięcie instalatora oneye!</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>Pliki aktualizacji nie mogą zostać wypakowane. W celu zrobienia tego manualnie zmień nazwę "[package]" na "package.tar.gz", następnie wypakuj zawartość do tego samego katalogu. </new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>Jesteś pewien, że chcesz usunąć oneye?</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Aktualizator jest jedynie dla wersji eyeos powyżej 1.5. Na tym serwerze zainstalowana jest [version1]. Proszę najpierw wykonać aktualizacje do wersji [version2].</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Proszę kontynuować, aby zaktualizować oneye do wersji [version].</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Zaktualizuj oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Nieprawidłowe hasło administratora!</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>Nie można zmienić nazwy katalogu "./eyeOS/". Proszę zmienić to manualnie na wartość "[hash]", a następnie nadpisać wszystkie istniejące pliki. </new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Kontynuuj...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>span]Tak[/span] - spowoduje usunięcie systemu oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Tak</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Resetuj pliki systemu</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]Nie[/span] - spowoduje powrócenie na stronę główną.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Akcja</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Usuń instalator oneye</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>Hasło administratora jest wymagane!</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>Hasło administratora musi mieć przynajmniej 3 znaki!</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Wypełnij poniższy formularz, aby zainstalować oneye:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>Twój serwer nie obsługuje formatu gzip. W celu zainstalowania oneye manualnie, zmień nazwę "[package]" na "package.tar.gz", następnie wypakuj zawartość do tego samego katalogu. </new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>Aktualna wersja oneye jest nowsza niż systemu aktualizacji. Proszę usunąć katalog "[installer]" ze względów bezpieczeństwa.</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Hasło administratora</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Powtórz hasło</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Kontynuuj...</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>W celu zainstalowania pliki nie mogą być wyodrębnione. Aby zainstalować oneye ręcznie, zmień nazwę "[package]" na "package.tar.gz".</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>Nie można zmienić nazwy katalogu "./eyeOS/". Proszę, ręcznie zmienić jego nazwę na "[hash]".</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Ostrzeżenie: Proszę sprawdzić "[package]", możliwe iż jest uszkodzona.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Język bieżący</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Ostrzeżenie: Proszę nadać pełne uprawnienia (CHMOD 777) dla pliku "[file]".</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>Instalator oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>Twoja wersja PHP nie obsługuje w pełni UTF-8. Proszę zaktualizować wersję pasera PHP, bądź zainstalować moduł mbstring. </new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>przez</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>Wpisane hasła administratora nie pasują do siebie!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Język</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>Wystąpiły następujące problemy:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>Twój serwer nie obsługuje wymaganej wersji PHP. Proszę zaktualizować do wersji PHP 5.0, bądź wyżej w celu instalacji oneye.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>Twoje ustawienia pasera PHP wskazują na SAFE_MODE o wartości ON, system oneye do prawidłowego działania wymaga wyłączenia tej opcji. W tym celu proszę edytować plik php.ini, bądź w razie problemu skontaktować się z administratorem serwera.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Zezwalaj użytkownikom na tworzenie kont.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Błąd: "[file]" nie istnieje.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Instaluj oneye!</new>
+		</text>
+	</part>
+</lang>

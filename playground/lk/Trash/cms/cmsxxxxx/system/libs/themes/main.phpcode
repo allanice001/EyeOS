@@ -1,0 +1,7 @@
+<?php
+class themes {
+	function getContent($part) {
+		// load the plugins and connect them to the correct parts.
+	}
+}
+?>

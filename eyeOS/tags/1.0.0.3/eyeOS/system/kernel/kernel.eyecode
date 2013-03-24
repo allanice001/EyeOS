@@ -1,0 +1,324 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	eyeOS 1.0 Kernel
+*/
+
+$ua=$_SERVER['HTTP_USER_AGENT'];
+if(strstr($ua,'MSIE 6')){
+	define('IE',6);
+} elseif (strstr($ua,'MSIE 7')) {
+	define('IE',7);
+} else {
+	define('IE',0);
+}
+
+function service($servicename,$servicefunction=null,$params=null,$noListen=0) {
+	$sec_servicename = basename($servicename);
+	if(!checkServiceLoaded($sec_servicename)){
+		if(is_readable(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SERVICE_DIR.'/'.$sec_servicename.'/main'.EYE_CODE_EXTENSION)) {
+			include_once(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SERVICE_DIR.'/'.$sec_servicename.'/main'.EYE_CODE_EXTENSION);
+			setServiceLoaded($sec_servicename);
+			if(function_exists('service_'.$sec_servicename.'_init')) {
+				call_user_func('service_'.$sec_servicename.'_init');
+			}
+		} else {
+			return false;
+		}
+	} 
+	
+	//TODO: THIS SHOULD WORK USING LISTENER SERVICE CALLS IN A FUTURE.
+	if(EYEOS_LOG > 0){	
+		if(!function_exists('service_log_init')){
+			include_once(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SERVICE_DIR.'/log/main'.EYE_CODE_EXTENSION);						
+		}	
+		
+		if(service_log_checkLog() == false)
+		{
+			service_log_Lock();
+			if(service_log_init(array($sec_servicename)) != EYEOS_LOG_BAD_VALUE)
+			{
+				service_log_addLog(array($servicename,$servicefunction,$params));
+			}
+			service_log_unLock();
+		}
+	}
+	
+	if(!$servicefunction) {
+		return false;
+	}
+	
+	if(!function_exists('service_'.$sec_servicename.'_'.$servicefunction)) {
+		return false;
+	}
+
+	if(isset($_SESSION['KListenerList'][$sec_servicename][$servicefunction]) &&
+		is_array($_SESSION['KListenerList'][$sec_servicename][$servicefunction]) && $noListen == 0){
+		
+		foreach($_SESSION['KListenerList'][$sec_servicename][$servicefunction] as $key=>$value) {
+			global $myPid;
+			global $checknum;
+			global $procInfo;
+			$oldProcInfo = $procInfo;
+			$oldPid = $myPid;
+			$oldChecknum = $checknum;
+			$appName = service('proc','findNameByPid',array($key));
+			if(!$appName) {
+				unset($_SESSION['KListenerList'][$sec_servicename][$servicefunction][$key]);
+			} else {
+				$appName = basename($appName);
+				if(is_readable(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/com'.EYE_CODE_EXTENSION)) {
+					include_once(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/com'.EYE_CODE_EXTENSION);
+					if(function_exists($appName.'_com_'.$value)) {
+						$myPid = $key;
+						$checknum = service('proc','findNChecknumByPid',array($myPid));
+						$procInfo = service('proc','getProcByPid',array($myPid));	
+						call_user_func($appName.'_com_'.$value,$params);
+						$procInfo = $oldProcInfo;
+						$myPid = $oldPid;
+						$checknum = $oldChecknum;
+					} else {
+						unset($_SESSION['KListenerList'][$sec_servicename][$servicefunction][$key]);
+					}
+				} else {
+					unset($_SESSION['KListenerList'][$sec_servicename][$servicefunction][$key]);
+				}
+			}
+		}
+	} 
+
+	$ret = call_user_func('service_'.$sec_servicename.'_'.$servicefunction,$params);
+	
+	if(isset($_SESSION['KListenerListP'][$sec_servicename][$servicefunction]) &&
+		is_array($_SESSION['KListenerListP'][$sec_servicename][$servicefunction]) && $noListen == 0){
+		
+		foreach($_SESSION['KListenerListP'][$sec_servicename][$servicefunction] as $key=>$value) {
+			global $myPid;
+			global $checknum;
+			global $procInfo;
+			$oldProcInfo = $procInfo;
+			$oldPid = $myPid;
+			$oldChecknum = $checknum;
+			$appName = service('proc','findNameByPid',array($key));
+			if(!$appName) {
+				unset($_SESSION['KListenerListP'][$sec_servicename][$servicefunction][$key]);
+			} else {
+				$appName = basename($appName);
+				if(is_readable(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/com'.EYE_CODE_EXTENSION)) {
+					include_once(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/com'.EYE_CODE_EXTENSION);
+					if(function_exists($appName.'_com_'.$value)) {
+						$myPid = $key;
+						$checknum = service('proc','findNChecknumByPid',array($myPid));
+						$procInfo = service('proc','getProcByPid',array($myPid));	
+						call_user_func($appName.'_com_'.$value,$params);
+						$procInfo = $oldProcInfo;
+						$myPid = $oldPid;
+						$checknum = $oldChecknum;
+					} else {
+						unset($_SESSION['KListenerListP'][$sec_servicename][$servicefunction][$key]);
+					}
+				} else {
+					unset($_SESSION['KListenerListP'][$sec_servicename][$servicefunction][$key]);
+				}
+			}
+		}
+	}
+	return $ret; 
+}
+
+function reqLib($libname,$function,$params=null) {
+	$sec_libname = basename($libname);
+	if(!checkLibraryLoaded($sec_libname)) {
+		if(is_readable(EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/'.$sec_libname.'/main'.EYE_CODE_EXTENSION)) {
+			include_once(EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/'.$sec_libname.'/main'.EYE_CODE_EXTENSION);
+			setLibraryLoaded($sec_libname);
+			if(function_exists('lib_'.$sec_libname.'_init')) {
+				call_user_func('lib_'.$sec_libname.'_init');
+			}
+		} else {
+			if(!defined('ERROR_LIB_NOT_EXIST')) {
+				return -1;
+			} else {
+				return false;
+			}
+		}
+	}
+	if(function_exists('lib_'.$libname.'_'.$function)){
+		return call_user_func('lib_'.$libname.'_'.$function,$params);
+	} else {
+		return false;
+	}
+}
+
+function setServiceLoaded($name) {
+	if(!$name) {
+		return false;
+	}
+	define(strtoupper($name).'_LOADED',1);
+	return true;
+}
+
+function checkServiceLoaded($name) {
+	if(!$name) {
+		return false;
+	}
+	if(!defined(strtoupper($name.'_LOADED'))) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function setLibraryLoaded($name) {
+	if(!$name) {
+		return false;
+	}
+	define('LIB_'.strtoupper($name).'_LOADED',1);
+	return true;
+}
+
+function checkLibraryLoaded($name) {
+	if(!$name) {
+		return false;
+	}
+	if(!defined('LIB_'.strtoupper($name.'_LOADED'))) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function loadServiceConfig() {
+	if ($handler = opendir(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SYSTEM_CONF_DIR.'/')) {
+		while (false !== ($archivo = readdir($handler))) {
+			if(is_file(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SYSTEM_CONF_DIR.'/'.$archivo)) {
+				if ($archivo{0} != "." && filesize(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SYSTEM_CONF_DIR.'/'.$archivo) > 1) {
+					$myFile = fopen(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SYSTEM_CONF_DIR.'/'.$archivo,'r');
+					$myContent = fread($myFile,filesize(EYE_ROOT.'/'.SYSTEM_DIR.'/'.SYSTEM_CONF_DIR.'/'.$archivo));
+					fclose($myFile);
+					$myArray = reqLib('eyeXML','xml2array',array($myContent));
+					if(is_array($myArray['CONFIG'][0])) {
+						foreach($myArray['CONFIG'][0] as $key => $value) {
+							define($key,$value[0]);
+						}
+					}
+				}
+			}
+		}
+		closedir($handler);
+	}
+}
+
+function loadConfig($appName) {
+	$appName = basename($appName);
+	if ($handler = opendir(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/')) {
+		while (false !== ($archivo = readdir($handler))) {
+			if ($archivo{0} != "." && filesize(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/'.$archivo) > 1) {
+				$myFile = fopen(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/'.$archivo,'r');
+				$myContent = fread($myFile,filesize(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/'.$archivo));
+				fclose($myFile);
+				$myArray = reqLib('eyeXML','xml2array',array($myContent));
+				if(is_array($myArray['CONFIG'][0])) {
+					foreach($myArray['CONFIG'][0] as $key => $value) {
+						define($key,$value[0]);
+					}
+				}
+			}
+		}
+		closedir($handler);
+	}	
+}
+
+function getConfig($appName,$archivo='conf.xml') {
+	$appName = basename($appName);
+	$archivo = basename($archivo);
+	if(is_readable(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/'.$archivo)) {
+		$myFile = fopen(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/'.$archivo,'r');
+		$myContent = fread($myFile,filesize(EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/'.$appName.'/'.$archivo));
+		fclose($myFile);
+		$myArray = reqLib('eyeXML','xml2array',array($myContent));
+		return $myArray;
+	}
+	return false;
+}
+
+function getAppInfo($app) {
+	$app = basename($app);
+	$myFile = EYE_ROOT.'/'.APP_DIR.'/'.$app.'/';
+	global $currentUser;
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$xml = reqLib('eyeXML', 'getXMLfile', array($myFile.'info.xml'));
+	$currentUser = $oldUser;
+	return $xml;
+}
+
+function addShortUrl($shortUrl,$msg) {
+	global $checknum;
+	$_SESSION['shortUrls'][$shortUrl] = array();
+	$_SESSION['shortUrls'][$shortUrl]['checknum'] = $checknum;
+	$_SESSION['shortUrls'][$shortUrl]['msg'] = $msg;
+}
+
+function delShortUrl($shortUrl) {
+	unset($_SESSION['shortUrls'][$shortUrl]);
+}
+
+function addListenerServiceCall($myCallback,$myService,$myCall,$postExecution=0) {
+	//TODO: eyeSessions should be recorded.
+	//for that reasion, it don't use eyeSessions lib
+	global $myPid;
+	if($postExecution==0) {
+		$_SESSION['KListenerList'][$myService][$myCall][$myPid] = $myCallback;
+	} else {
+		$_SESSION['KListenerListP'][$myService][$myCall][$myPid] = $myCallback;
+	}
+}
+
+function removeListenerServiceCall($myService,$myCall,$postExecution=0) {
+	global $myPid;
+	if($postExecution==0) {
+		if(isset($_SESSION['KListenerList'][$myService][$myCall][$myPid])) {
+			unset($_SESSION['KListenerList'][$myService][$myCall][$myPid]);
+		}
+	} else {
+		if(isset($_SESSION['KListenerListP'][$myService][$myCall][$myPid])) {
+			unset($_SESSION['KListenerListP'][$myService][$myCall][$myPid]);
+		}		
+	}
+}
+
+function getListenerServiceCallList($postExecution=0) {
+	if($postExecution==0) {
+		return $_SESSION['KListenerList']; 
+	} else {
+		return $_SESSION['KListenerListP']; 
+	}
+}
+
+function _L($string,$tokens) {
+	
+}
+
+?>

@@ -1,0 +1,105 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_desktop_repeat($params = '') {
+	global $myPid;
+	if ($params['selected'][0] == 'true') {
+		$repeatImg = 'repeat';
+	} else {
+		$repeatImg = 'norepeat';
+	}
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_desktop_imagebox_wallpaper").src = "index.php?extern=apps/eyeControl/gfx/' . $repeatImg . '.png";'));
+}
+
+function eyeControl_on_desktop_center($params = '') {
+	global $myPid;
+	if ($params['selected'][0] == 'true') {
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_desktop_imagebox_wallpaper_Container").style.top = "103px";'));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_desktop_imagebox_wallpaper_Container").style.left = "104px";'));
+	} else {
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_desktop_imagebox_wallpaper_Container").style.top = "70px";'));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_desktop_imagebox_wallpaper_Container").style.left = "60px";'));
+	}
+}
+
+function eyeControl_on_desktop_select($params = '') {
+	global $checknum;
+	proc('launch',array('eyeDialog',array(0,'desktop_select_now',$checknum)));
+}
+
+function eyeControl_on_desktop_select_now($params=null) {
+	$file = $params['arg'][0];
+	if ($file) {
+		$fileX = eyeControl_lib_getConfigUserPath() . '/' . FILES_USER_DIR . '/' . $file;
+		if (vfs('filesize',array($fileX)) > 0 && in_array(utf8_strtolower(utf8_substr($file,-4)),array('.jpg','.gif','.bmp','.png','.tif'))) {
+			$GLOBALS['eyeControl_desktop_textbox_select']->setText($file);
+			$GLOBALS['eyeControl_desktop_checkbox_use']->check();
+		} elseif (!in_array(utf8_strtolower(utf8_substr($file,-4)),array('.jpg','.gif','.bmp','.png','.tif'))) {
+			eyex('messageBox',array('content' => 'Sorry, this file is not allowed to be a wallpaper.'));
+		} else {
+			eyex('messageBox',array('content' => 'Sorry, but the file does not exist.'));
+		}
+	}
+}
+
+function eyeControl_on_desktop_save($params=null) {
+	global $checknum;
+	global $myPid;
+	$config = eyeControl_lib_getXMLconfig(array('eyeDesk','conf.xml'));
+	if ($GLOBALS['eyeControl_desktop_checkbox_use']->checked) {
+		$file = eyeControl_lib_getConfigUserPath() . '/' . FILES_USER_DIR . '/' . $GLOBALS['eyeControl_desktop_textbox_select']->text;
+		if (vfs('filesize',array($file)) > 0 && in_array(utf8_strtolower(utf8_substr($file,-4)),array('.jpg','.gif','.bmp','.png','.tif'))) {
+			$config['eyeDesk'][0]['wallpaper'][0] = $file;
+		} elseif (!in_array(utf8_strtolower(utf8_substr($file,-4)),array('.jpg','.gif','.bmp','.png','.tif'))) {
+			eyex('messageBox',array('content' => 'Sorry, the file is not allowed to be a wallpaper.'));
+			return;
+		} else {
+			eyex('messageBox',array('content' => 'Sorry, but the file does not exist.'));
+			return;
+		}
+	} else {
+		$config['eyeDesk'][0]['wallpaper'][0] = '';
+	}
+	$repeat = $GLOBALS['eyeControl_desktop_checkbox_repeat']->checked;
+	$center = $GLOBALS['eyeControl_desktop_checkbox_center']->checked;
+	$config['eyeDesk'][0]['wallpaperRepeat'][0] = $repeat;
+	$config['eyeDesk'][0]['wallpaperCenter'][0] = $center;
+	$config = eyeControl_lib_setXMLconfig(array('eyeDesk','conf.xml',$config));
+	eyex('setWallpaper',array('path' => 'index.php?checknum=' . $checknum . '&msg=getWallpaper&' . time(),'repeat' => $repeat,'center' => $center));
+	eyex('messageBox',array('content' => 'New wallpaper successfully set.'));
+}
+
+function eyeControl_on_getWallpaper($params = '') {
+	$config = eyeControl_lib_getXMLconfig(array('eyeDesk','conf.xml'));
+	$url = $config['eyeDesk'][0]['wallpaper'][0];
+	if ($url != '') {
+		$length = vfs('filesize',array($url));
+		header('Content-Type: image/jpg');
+		header('Content-Length: ' . $length);
+		header('Accept-Ranges: bytes');
+		header('X-Pad: avoid browser bug');
+		vfs('printFile',array(service('vfs','getRealName',array($url))));
+	}
+	exit;
+}
+?>

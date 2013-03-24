@@ -1,0 +1,138 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Framework Unit Testing &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Development" href="../development.html" />
+    <link rel="next" title="Parts and Packages Overview" href="parts_overview.html" />
+    <link rel="prev" title="The qooxdoo Test Runner" href="frame_apps_testrunner.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="parts_overview.html" title="Parts and Packages Overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="frame_apps_testrunner.html" title="The qooxdoo Test Runner"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../development.html" accesskey="U">Development</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="framework-unit-testing">
+<span id="pages-framework-unit-testing-framework-unit-testing"></span><h1>Framework Unit Testing<a class="headerlink" href="#framework-unit-testing" title="Permalink to this headline">¶</a></h1>
+<p>This page is about creating unit tests for the qooxdoo framework classes. It is a developer's notebook to collect ideas and approaches to create working unit tests and a good test coverage for the framework.</p>
+<p>Currently, it is just a list of notes:</p>
+<blockquote>
+<ul class="simple">
+<li>With 1.2 the framework's unit test classes are part of the framework class library, under the <tt class="docutils literal"><span class="pre">qx.test.*</span></tt> name space.</li>
+<li>The existing tests cover only a portion of the framework classes.</li>
+<li>The potential to create a unit test for any given framework class largely depends on the level of sophistication the test should have, which condition it tests and what is considered correctness:
+* on the simplest level, a test could just run through the methods of a class and invoke them; test success is defined by the absence of runtime errors (exceptions etc.). This is sometimes called <tt class="docutils literal"><span class="pre">smoke</span> <span class="pre">testing</span></tt>.
+* on more sophisticated levels, correctness can be defined by return values, changes of system state, manipulations of the underlying DOM, up to GUI changes in the browser. Obviously, with each level it's get harder to test and/or check the correctness.</li>
+<li>Currently, we'd rather have a large test coverage with simple tests, than have sophisticated tests for only a few classes. The test sophistication level can then be increased individually step by step.</li>
+<li>The <strong>event</strong> system should be black-box (API) testable, but there are currently only few tests written (?).</li>
+<li><strong>io.Remote</strong> could be tested with a suitable server backend running in the test environment</li>
+<li>The <strong>DOM/BOM</strong> layer is black-box testable and there is acceptable test coverage</li>
+<li>The <strong>layout</strong> system should be black-box testable.</li>
+<li>The core <strong>Widget</strong> class should be black-box testable.</li>
+<li>Higher-level <strong>GUI widgets</strong> are difficult to black-box test, since they require user and GUI interaction (?). Selenium RC could be used here, but requires additional environment setup.</li>
+<li>Maybe we can come up with a good classification of the framework classes, and how each class can and should be tested.</li>
+<li>Automated GUI tests depend on synthetic events being generated. Selenium can do this. Other possibilities?</li>
+<li>The Testrunner application is a nice GUI tool for interactive testing, but for automated/continuous-integration testing we need a (nearly)non-GUI test frame.</li>
+</ul>
+</blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="frame_apps_testrunner.html"
+                                  title="previous chapter">The qooxdoo Test Runner</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="parts_overview.html"
+                                  title="next chapter">Parts and Packages Overview</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/development/framework_unit_testing.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

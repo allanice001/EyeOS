@@ -1,0 +1,76 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeControl_lib_findIdByText($params) {
+	$array = $params[0];
+	$text = $params[1];
+	$path = $params[2];
+	$type = $params[3];
+	if (!$array || !$text || !is_array($array)) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$x = 0;
+	foreach($array as $secArray) {
+		if (is_array($path)) {
+			foreach($path as $pathNow) {
+				$secArray = $secArray[$pathNow];
+			}
+		}
+		if ($secArray != $text && $type == 2) {
+			$return[] = $x;
+		} elseif ($secArray == $text && $type != 2) {
+			$return[] = $x;
+		}
+		$x++;
+	}
+	return($return);
+}
+
+function eyeControl_lib_findArrayByText($params) {
+	$array = $params[0];
+	$text = $params[1];
+	$path = $params[2];
+	$type = $params[3];
+	if (!$array || !$text || !is_array($array)) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$x = 0;
+	foreach($array as $secArray) {
+		$secText = $secArray;
+		if (is_array($path)) {
+			foreach($path as $pathNow) {
+				$secText = $secText[$pathNow];
+			}
+		}
+		if ($secText != $text && $type == 2) {
+			$return[] = $secArray;
+		} elseif ($secText == $text && $type != 2) {
+			$return[] = $secArray;
+		}
+		$x++;
+	}
+	return($return);
+}
+?>

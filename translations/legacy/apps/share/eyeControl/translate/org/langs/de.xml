@@ -1,0 +1,597 @@
+<lang>
+	<info>
+		<lang>DEUTSCH</lang>
+		<author>Lars Knickrehm</author>
+		<version>20/05/2008</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>community</name>
+		<text>
+			<old>section-community-blog-desc</old>
+			<new>Offizieller eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>section-community-blog-title</old>
+			<new>eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>section-community-ca</old>
+			<new>Katalanische Community (Spanien)</new>
+		</text>
+		<text>
+			<old>section-community-cn</old>
+			<new>Chinas Community</new>
+		</text>
+		<text>
+			<old>section-community-cz</old>
+			<new>Tschechiens Community</new>
+		</text>
+		<text>
+			<old>section-community-de</old>
+			<new>Deutschlands Community</new>
+		</text>
+		<text>
+			<old>section-community-es</old>
+			<new>Spaniens Community</new>
+		</text>
+		<text>
+			<old>section-community-forums-desc</old>
+			<new>Offizielles eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>section-community-forums-title</old>
+			<new>eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>section-community-fr</old>
+			<new>Frankreichs Community</new>
+		</text>
+		<text>
+			<old>section-community-it</old>
+			<new>Italiens Community</new>
+		</text>
+		<text>
+			<old>section-community-localblog-desc</old>
+			<new>Deutscher eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>section-community-localblog-title</old>
+			<new>eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>section-community-localforums-desc</old>
+			<new>Deutsches eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>section-community-localforums-title</old>
+			<new>eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>section-community-nl</old>
+			<new>Niederländische Community</new>
+		</text>
+		<text>
+			<old>section-community-official</old>
+			<new>Offizielle Communities</new>
+		</text>
+		<text>
+			<old>section-community-pt</old>
+			<new>Portugiesiche Community</new>
+		</text>
+		<text>
+			<old>section-community-sites</old>
+			<new>Community-Seiten</new>
+		</text>
+		<text>
+			<old>section-community-text</old>
+			<new>Die eyeOS-Community ist der beste Weg um Hilfe zu bitten, sich mit anderen Benutzern oder den Entwicklern auszutauschen oder dem Projekt zu helfen.</new>
+		</text>
+		<text>
+			<old>section-community-unofficial</old>
+			<new>Weitere Communities</new>
+		</text>
+		<text>
+			<old>section-community-wiki-desc</old>
+			<new>Offizielles eyeOS-Wiki</new>
+		</text>
+		<text>
+			<old>section-community-wiki-title</old>
+			<new>eyeOS-Wiki</new>
+		</text>
+		<text>
+			<old>section-community-wolrdwid-text</old>
+			<new>Alle Communities werden von eyeOS-Benutzern verwaltet, die dem Projekt helfen möchten indem Sie eine lokalisierte Homepage zur Verfügung stellen. Wenn Sie eine eyeOS-Community für Ihren Staat oder Ihre Sprache erstellen möchten, [a mail]kontaktieren Sie uns[/a] bitte.</new>
+		</text>
+		<text>
+			<old>section-community-wolrdwide</old>
+			<new>Weltweit</new>
+		</text>
+	</part>
+	<part>
+		<name>concept</name>
+		<text>
+			<old>section-concept-idea</old>
+			<new>Die Idee hinter eyeOS</new>
+		</text>
+		<text>
+			<old>section-concept-idea-list</old>
+			<new>[li]Die Möglichkeit überall zu arbeiten. An modernen Computern, Handys und auch an älteren Computern.[/li][li]Resourcen mit verschiedenen Gruppen und Personen zu teilen. An verschiedenen Projekten innerhalb eines UNternehmens oder international zu arbeiten.[/li][li]Zu jeder Zeit die gleiche und einfache Oberfläche mit gleichen Programmen und gleichen Formaten. So vergessen Sie leicht die Kompatiblitätsprobleme von den traditionellen Betriebssystemen.[/li][li]Verlassen Sie Ihren aktuellen Standpunkt und vervollständigen Sie Ihre Arbeit an einem anderen Ort ohne Daten zu verlieren oder weitere Probleme lösen zu müssen: Einfach einloggen und weiterarbeiten![/li]</new>
+		</text>
+		<text>
+			<old>section-concept-idea-text</old>
+			<new>eyeOS konzentriert Ihre Arbeiten auf einen Bereich und verhindert so Kompatiblitätsprobleme zwischen verschiedenen Programmen und Betriebssystemen. Alles, was Sie benötigen, steht Ihnen überall zur Verfügung.[br /][br /]Wie Sie bereits erkennen können ist die Idee hinter eyeOS nicht, dass ein  Betriebssystem in einem Betriebssystem oder ein Browser in einem Browser arbeiten soll. eyeOS ist vielmehr ein weiterer Weg in die Ära des digitalen Zeitalters:</new>
+		</text>
+		<text>
+			<old>section-concept-presentation</old>
+			<new>Als [strong][a ppt]Microsoft-Powerpoint-Datei[/a][/strong] | [strong][a odp]OpenOffice-Präsentation[/a][/strong] | [strong][a pdf]PDF-Datei[/a][/strong] herunterladen</new>
+		</text>
+		<text>
+			<old>section-concept-video</old>
+			<new>Sehen Sie eyeOS in Aktion</new>
+		</text>
+		<text>
+			<old>section-concept-video-download</old>
+			<new>Als MP4-Datei mit besserer Qualität herunterladen</new>
+		</text>
+		<text>
+			<old>section-concept-welcome</old>
+			<new>Willkommen</new>
+		</text>
+		<text>
+			<old>section-concept-welcome-text</old>
+			<new>eyeOS ist eine Open-Source-Plattform auf der eine große Anzahl an Web-Programmen läuft. Es definiert eine neue Welt an Betriebssystemen, indem es alle Daten und Programme der Nutzer von überall im Netzwerk erreichbar macht. Sie müssen sich lediglich mit Ihrem Account bei Ihrem eyeOS-Server mit einem normalen Internet-Browser anmelden und schon können Sie Ihren persönlichen Desktop zusammen mit Ihren Dokumenten, Programmen, Ihrer Musik, Ihren Videos und allem anderen nutzen.[br /][br /]Mit unserem aktuellen Basissystem haben Sie bereits ein komplettes Paket an Programmen, wie unter anderem dem Dateimanager, der Textverarbeitung, dem Kalender, dem Kontaktemanager und dem Musikplayer. Natürlich können Sie auch mit Programmen in Gruppen arbeiten: Der Gruppen-Manager, ein Programm zum teilen von Dateien, ein Schwarzes Brett und vieles mehr.[br /][br /]eyeOS ist Open-Source und steht unter der GNU Affero Public License 3 (AGPL3). Für Sie bbedeutet das, dass Sie Ihren eyeOS-Server kostenlos in Ihrer Familie und in Freundeskreisen aber auch in Unternehmen einsetzen dürfen. Es bedeutet zusätzlich, dass Sie den eyeOS-Quellcode frei verändern können und zusätzliche Programme entwickeln können, die Ihren Ansprüchen entsprechen.[br /][br /]Wenn Sie anfangen möchten eyeOS zu verwenden können Sie unseren kostenlosen und offiziellen eyeOS-Server benutzen oder Ihr eigenes eyeOS-System einrichten und diesen an Ihre Wünsche anpassen.[br /][br /]Einen eigenes eyeOS-System zu erstellen ist einfach. Sie benötigen lediglich einen Server mit PHP-Unterstützung.</new>
+		</text>
+	</part>
+	<part>
+		<name>default</name>
+		<text>
+			<old>site-footer-1</old>
+			<new>Das [b]eyeOS-Projekt 2008[/b]. Open-Source-Web-Betriebssystem &amp; Web-Office. [a mail]Kontakt[/a]</new>
+		</text>
+		<text>
+			<old>site-footer-2</old>
+			<new>Die eyeOS-Server sind bereitgestellt von [b][a interdominios]Interdominios[/a][/b]. [a partners]Erfahren Sie mehr[/a].</new>
+		</text>
+		<text>
+			<old>site-footer-3</old>
+			<new>Deutsches Projektmanagement durch [b]&lt;a href=&quot;http://lars-sh.de/&quot; onclick=&quot;window.open(this.href); return false;&quot;&gt;[author]&lt;/a&gt;[/b].</new>
+		</text>
+		<text>
+			<old>site-header-dev</old>
+			<new>ENTWICKLER-GEMEINSCHAFT</new>
+		</text>
+		<text>
+			<old>site-header-eyeoscom</old>
+			<new>PROFESSIONELLE SERVICES</new>
+		</text>
+		<text>
+			<old>site-header-eyeosorg</old>
+			<new>EYEOS-HOMEPAGE</new>
+		</text>
+		<text>
+			<old>site-header-lang-by</old>
+			<new>von</new>
+		</text>
+		<text>
+			<old>site-menu-apps</old>
+			<new>Anwendungen</new>
+		</text>
+		<text>
+			<old>site-menu-blog</old>
+			<new>Blog</new>
+		</text>
+		<text>
+			<old>site-menu-concept</old>
+			<new>Konzept</new>
+		</text>
+		<text>
+			<old>site-menu-demo</old>
+			<new>Demo</new>
+		</text>
+		<text>
+			<old>site-menu-downloads</old>
+			<new>Downloads</new>
+		</text>
+		<text>
+			<old>site-menu-forums</old>
+			<new>Forum</new>
+		</text>
+		<text>
+			<old>site-menu-home</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>site-menu-tour</old>
+			<new>Tour</new>
+		</text>
+		<text>
+			<old>site-menu-use</old>
+			<new>eyeOS benutzen</new>
+		</text>
+		<text>
+			<old>site-menu-wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>site-sidebar-community</old>
+			<new>Gemeinschaft</new>
+		</text>
+		<text>
+			<old>site-sidebar-community-text</old>
+			<new>Werden Sie ein weiterer Teil unserer weltweiten eyeOS-Gemeinschaft!</new>
+		</text>
+		<text>
+			<old>site-sidebar-donations</old>
+			<new>Spenden</new>
+		</text>
+		<text>
+			<old>site-sidebar-donations-text</old>
+			<new>Das eyeOS-Projekt ist Open-Source. Es kann jeder helfen!</new>
+		</text>
+		<text>
+			<old>site-sidebar-download</old>
+			<new>Herunterladen</new>
+		</text>
+		<text>
+			<old>site-sidebar-download-text</old>
+			<new>Laden Sie die aktuelle kostenlose Version für Ihren Server herunter.</new>
+		</text>
+		<text>
+			<old>site-sidebar-news</old>
+			<new>Aktuelle Nachrichten</new>
+		</text>
+		<text>
+			<old>site-sidebar-news-read</old>
+			<new>Weiterlesen...</new>
+		</text>
+		<text>
+			<old>site-sidebar-signup</old>
+			<new>Kostenlos anmelden!</new>
+		</text>
+		<text>
+			<old>site-sidebar-signup-text</old>
+			<new>Sie können auch unseren freien eyeOS-Server verwenden.</new>
+		</text>
+		<text>
+			<old>site-sidebar-stickers</old>
+			<new>Sticker erhalten!</new>
+		</text>
+		<text>
+			<old>site-sidebar-use</old>
+			<new>eyeOS benutzen!</new>
+		</text>
+		<text>
+			<old>site-title</old>
+			<new>eyeOS | Web-Desktop - Web-OS - Web-Office - Ihre Dateien und Anwendungen überall!</new>
+		</text>
+	</part>
+	<part>
+		<name>donations</name>
+		<text>
+			<old>section-donations-euros</old>
+			<new>In Euro spenden</new>
+		</text>
+		<text>
+			<old>section-donations-introduction</old>
+			<new>Einleitung</new>
+		</text>
+		<text>
+			<old>section-donations-stickers-text</old>
+			<new>Wenn auch Sie selbstklebende eyeOS-Sticker haben möchten, dann senden Sie einfach eine E-Mail an [a mail /a]. Spätestens 7 Tage nach Ihrer Spende werden wir Ihre eyeOS-Sticker lossenden.</new>
+		</text>
+		<text>
+			<old>section-donations-stickers-title</old>
+			<new>Sie möchten Sticker?</new>
+		</text>
+		<text>
+			<old>section-donations-text</old>
+			<new>Das eyeOS-Projekt hat das Ziel die freie Open-Source-Plattform und die Programme für jeden zur Verfügung zu stellen. eyeOS veröffentlicht den Quellcode unter der GNU Afferro General Public License 3 (AGPL3) und erlaubt jedem diesen zu verändern und kostenfrei zu verwenden.[br /][br /]Aktuell werden Spenden über PayPal unterstützt. Wenn Sie nicht per PayPal, aber lieber per Visa oder Mastercard spenden möchten, können Sie dieses ebenfalls über die untenstehenden Links erledigen.[br /][br /]Bitte wählen Sie Ihre Währung und Sie gelangen auf die sicherheitsgeschützte PayPal-Seite für eyeOS-Spenden:</new>
+		</text>
+		<text>
+			<old>section-donations-thanks</old>
+			<new>Herzlichen Dank!</new>
+		</text>
+		<text>
+			<old>section-donations-title</old>
+			<new>eyeOS-Spenden</new>
+		</text>
+		<text>
+			<old>section-donations-usd</old>
+			<new>In US-Dollar spenden</new>
+		</text>
+	</part>
+	<part>
+		<name>downloads</name>
+		<text>
+			<old>section-downloads-download-installation-link</old>
+			<new>Web-Installer</new>
+		</text>
+		<text>
+			<old>section-downloads-download-installation-text</old>
+			<new>Verwenden Sie diese Version um ein neues eyeOS-System einzurichten.</new>
+		</text>
+		<text>
+			<old>section-downloads-download-installation-title</old>
+			<new>Neue Installation</new>
+		</text>
+		<text>
+			<old>section-downloads-download-text</old>
+			<new>Wir empfehlen Ihnen die [a requirements]Systemanforderungen[/a] und die [a quickinstall]Installationsanleitung[/a] zu lesen bevor Sie eyeOS installieren. Um die Office-Unterstützung einzurichten folgen Sie bitte den Anweisungen von [a officesupport]dieser Wiki-Seite[/a].</new>
+		</text>
+		<text>
+			<old>section-downloads-download-title</old>
+			<new>eyeOS [version] herunterladen</new>
+		</text>
+		<text>
+			<old>section-downloads-download-preinstalled-link</old>
+			<new>Vorinstalliert</new>
+		</text>
+		<text>
+			<old>section-downloads-download-preinstalled-text</old>
+			<new>Diese Version ist von [a lars] entwickelt, jedoch offiziell nicht vom eyeOS-Team unterstützt.[br /]Verwenden Sie diese Version bitte nur dann, wenn Sie Probleme mit dem eigentlichen eyeOS-Web-Installer haben!</new>
+		</text>
+		<text>
+			<old>section-downloads-download-preinstalled-title</old>
+			<new>Vorinstalliert</new>
+		</text>
+		<text>
+			<old>section-downloads-download-update-link</old>
+			<new>Web-Updater</new>
+		</text>
+		<text>
+			<old>section-downloads-download-update-text</old>
+			<new>Verwenden Sie diese Version um ein bestehendes eyeOS-System zu aktualisieren.</new>
+		</text>
+		<text>
+			<old>section-downloads-download-update-title</old>
+			<new>Update</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-linux-link</old>
+			<new>Für Ubuntu</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-linux-title</old>
+			<new>Linux (Ubuntu und Debian)</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-mac-link</old>
+			<new>Für Mac OS X</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-mac-text</old>
+			<new>Als Mac-Benutzer müssen Sie die QT-Libraries installieren bevor Sie eyeSync nutzen können. Diese können Sie von [a link]hier[/a] herunterladen.</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-mac-title</old>
+			<new>Mac OS X Leopard (Intel)</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-source-link</old>
+			<new>Quellcode</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-source-title</old>
+			<new>Quellcode</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-text</old>
+			<new>Mit eyeSync können Sie automatisch Ihre lokalen Ordner mit eyeOS synchronisieren. eyeSnyc ist für Windows (Vista, XP, 2000, ME und 98), Linux (als Debian-Paket) und für Mac OS X Leopard (Intel) verfügbar.[br /]Bedenken Sie aber bitte, dass sich eyeSync aktuell noch in einem Alpha-Stadium befindet. Daher sollten Sie [a link]diese Anmerkungen[/a] lesen bevor Sie mit eyeSync arbeiten.</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-title</old>
+			<new>eyeSync [version] herunterladen</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-windows-link</old>
+			<new>Für Windows</new>
+		</text>
+		<text>
+			<old>section-downloads-eyesync-windows-title</old>
+			<new>Windows (Vista, XP, 2000, ME und 98)</new>
+		</text>
+		<text>
+			<old>section-downloads-menu-download</old>
+			<new>eyeOS herunterladen</new>
+		</text>
+		<text>
+			<old>section-downloads-menu-eyesync</old>
+			<new>eyeSync herunterladen</new>
+		</text>
+		<text>
+			<old>section-downloads-menu-translations</old>
+			<new>Übersetzungen</new>
+		</text>
+		<text>
+			<old>section-downloads-menu-usermanual</old>
+			<new>Benutzeranleitung</new>
+		</text>
+		<text>
+			<old>section-downloads-text</old>
+			<new>Hier finden Sie Pakete um ein neues eyeOS-System zu installieren oder existierende zu aktualisieren. Mit eyeSync können Sie ganz einfach Ihre Daten mit eyeOS-Servern synchronisieren. Die Benutzeranleitung hilft Ihnen eyeOS kennen zu lernen.</new>
+		</text>
+		<text>
+			<old>section-downloads-title</old>
+			<new>Center für Downloads</new>
+		</text>
+		<text>
+			<old>section-downloads-translations-text</old>
+			<new>Sie erhalten Übersetzungen für Ihren eyeOS-Server einerseits über den Bereich &quot;[a langs]Internationalization[/a]&quot; aus eyeos-apps.org oder über eyeSoft (siehe [a howto]Anleitung im Wiki[/a]).</new>
+		</text>
+		<text>
+			<old>section-downloads-translations-title</old>
+			<new>Übersetzungen</new>
+		</text>
+		<text>
+			<old>section-downloads-usermanual-link</old>
+			<new>Benutzeranleitung</new>
+		</text>
+		<text>
+			<old>section-downloads-usermanual-text</old>
+			<new>Die Benutzeranleitung beschreibt auf 25 Seiten den Einstieg zum eyeOS-System und den Standardprogrammen. Bitte beachten Sie, dass die aktuelle Anleitung noch nicht auf eyeOS 1.5 aktualisiert werden konnte und auch nicht auf Deutsch zur Verfügung steht.</new>
+		</text>
+		<text>
+			<old>section-downloads-usermanual-title</old>
+			<new>Benutzeranleitung</new>
+		</text>
+	</part>
+	<part>
+		<name>home</name>
+		<text>
+			<old>section-home-developers</old>
+			<new>Für Entwickler</new>
+		</text>
+		<text>
+			<old>section-home-developers-text</old>
+			<new>Um bei der Entwicklung von Programmen zu helfen führt eyeOS mit dem eyeOS-Toolkit eine neue Möglichkeit zur Entwicklung von Web-Programmen ein. Vergessen Sie HTML, JavaScript, Benutzerverwaltungen, Dateisysteme und vieles weitere. Werden Sie noch heute zu einem Entwickler in unserer [a dev]Entwickler-Gemeinschaft[/a]!</new>
+		</text>
+		<text>
+			<old>section-home-discover</old>
+			<new>Erleben Sie eyeOS</new>
+		</text>
+		<text>
+			<old>section-home-quicktour</old>
+			<new>eyeOS-1.6-Tour</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-1-text</old>
+			<new>Der neue eyeOS-Desktop bringt zahlreiche Verbesserungen mit sich. Unter anderem wurde der Hintergrund erneuert, neue Panels entwickelt und neue Icons hinzugefügt um die Benutzerfreundlichkeit noch weiter zu steigern.</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-1-title</old>
+			<new>Der neue Desktop</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-2-text</old>
+			<new>Mit dem neuen Flash-Upload-System haben Sie die einzigartige Möglichkeit gleichzeitig so viele Dateien, wie Sie möchten auszuwählen und hochzuladen. Zusätzlich informiert Sie daebi ein Balken über den aktuellen Fortschritt.</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-2-title</old>
+			<new>Verbessertes System zum Hochladen</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-3-text</old>
+			<new>Neu in eyeOS 1.6 ist auch die Drag &amp; Drop-Funktion, die Sie bei allen Dateien anwenden können: Ziehen Sie Ihre Dateien in einen Ordner Ihrer Gruppe, in den Papierkorb oder zu einem weiteren Ordner. Dieses funktioniert mit Dateien und auch mit Ordnern!</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-3-title</old>
+			<new>Drag &amp; Drop</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-4-text</old>
+			<new>eyeOS 1.6 bringt einige neue Programme mit. Dazu gehört auch eyeFeeds, der neue RSS-Feed-Reader, mit dem Sie alle News von Ihren beliebtesten Seiten jederzeit abrufen können.</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-4-title</old>
+			<new>RSS-Reader</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-5-text</old>
+			<new>Sie können ab jetzt Ihre Tabellen als OpenOffice.org- und als Microsoft-Excel-Tabelle speichern. Auf allen eyeOffice-fähigen Servern können Sie mit eyeSheets neue Tabellen erstellen und existierende Tabellen bearbeiten.</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-5-title</old>
+			<new>Neues eyeSheets</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-6-text</old>
+			<new>Sie haben die Möglichkeit Panels über das Zubehör-Menü zu starten. Panels sind kleine Tools, die Ihnen neue Nachrichten, aktuelle Termine oder Ihre Speicherausnutzung anzeigen. So ersparen Sie sich das Öffnen von vielen großen Programmfenstern.</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-6-title</old>
+			<new>Desktop-Panels</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-back</old>
+			<new>Zurück</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-forward</old>
+			<new>Weiter</new>
+		</text>
+		<text>
+			<old>section-home-quicktour-see</old>
+			<new>vollständige Tour</new>
+		</text>
+		<text>
+			<old>section-home-taketour-concept</old>
+			<new>Das Konzept</new>
+		</text>
+		<text>
+			<old>section-home-taketour-download</old>
+			<new>eyeOS 1.6 herunterladen</new>
+		</text>
+		<text>
+			<old>section-home-taketour-welcome</old>
+			<new>Willkommen</new>
+		</text>
+		<text>
+			<old>section-home-users</old>
+			<new>Für Benutzer</new>
+		</text>
+		<text>
+			<old>section-home-users-text</old>
+			<new>eyeOS ist eine neuer Typ der Betriebssysteme, bei dem jede Aktion innerhalb des Browserfensters stattfindet. Mit eyeOS haben Sie Ihren Desktop, Ihre Programme und selbstverständlich auch Ihre Dateien jederzeit erreichbar: zu Hause, am Arbeitsplatz oder bei Freunden. Sie müssen lediglich einen Browser öffnen, sich bei Ihrem eyeOS-System anmelden und schon haben Sie Zugriff auf Ihren Desktop.</new>
+		</text>
+		<text>
+			<old>section-home-whatis</old>
+			<new>Was ist eyeOS?</new>
+		</text>
+	</part>
+	<part>
+		<name>tour</name>
+		<text>
+			<old>section-tour-back</old>
+			<new>Zurück</new>
+		</text>
+		<text>
+			<old>section-tour-next</old>
+			<new>Weiter</new>
+		</text>
+		<text>
+			<old>section-tour-text-1</old>
+			<new>[h3]Der neue Desktop[/h3]Der neue eyeOS-Desktop bringt zahlreiche Verbesserungen mit sich. Unter anderem wurde der Hintergrund erneuert, neue Panels entwickelt und neue Icons hinzugefügt um die Benutzerfreundlichkeit noch weiter zu steigern.</new>
+		</text>
+		<text>
+			<old>section-tour-text-10</old>
+			<new>[h3]eyeOS-Mobile[/h3]Seit eyeOS 1.6 können Sie nun auch von jedem Handy aus ganz einfach auf Ihre eyeOS-Daten zugreifen: Einfach /mobile/ an die URL anhängen, dann haben Sie die Möglichkeit Office-Dateien zu lesen, Fotos ansehen und vieles mehr.[br /][br /]Willkommen zu eyeOS 1.6!</new>
+		</text>
+		<text>
+			<old>section-tour-text-2</old>
+			<new>[h3]Verbessertes System zum Hochladen[/h3]Mit dem neuen Flash-Upload-System haben Sie die einzigartige Möglichkeit gleichzeitig so viele Dateien, wie Sie möchten auszuwählen und hochzuladen. Zusätzlich informiert Sie daebi ein Balken über den aktuellen Fortschritt.</new>
+		</text>
+		<text>
+			<old>section-tour-text-3</old>
+			<new>[h3]Drag &amp; Drop[/h3]Neu in eyeOS 1.6 ist auch die Drag &amp; Drop-Funktion, die Sie bei allen Dateien anwenden können: Ziehen Sie Ihre Dateien in einen Ordner Ihrer Gruppe, in den Papierkorb oder zu einem weiteren Ordner. Dieses funktioniert mit Dateien und auch mit Ordnern!</new>
+		</text>
+		<text>
+			<old>section-tour-text-4</old>
+			<new>[h3]RSS-Reader[/h3]eyeOS 1.6 bringt einige neue Programme mit. Dazu gehört auch eyeFeeds, der neue RSS-Feed-Reader, mit dem Sie alle News von Ihren beliebtesten Seiten jederzeit abrufen können.</new>
+		</text>
+		<text>
+			<old>section-tour-text-5</old>
+			<new>[h3]Neues eyeSheets[/h3]Sie können ab jetzt Ihre Tabellen als OpenOffice.org- und als Microsoft-Excel-Tabelle speichern. Auf allen eyeOffice-fähigen Servern können Sie mit eyeSheets neue Tabellen erstellen und existierende Tabellen bearbeiten.</new>
+		</text>
+		<text>
+			<old>section-tour-text-6</old>
+			<new>[h3]Desktop-Panels[/h3]Sie haben die Möglichkeit Panels über das Zubehör-Menü zu starten. Panels sind kleine Tools, die Ihnen neue Nachrichten, aktuelle Termine oder Ihre Speicherausnutzung anzeigen. So ersparen Sie sich das Öffnen von vielen großen Programmfenstern.</new>
+		</text>
+		<text>
+			<old>section-tour-text-7</old>
+			<new>[h3]Neues Spiel: eyeTetravex[/h3]Nach eyeChess, das bereits seit Version 1.0 zu eyeOS gehört, ist nun ein weiteres Spiel für zwischendurch hinzugekommen: eyeTetravex ermöglicht es Ihnen dank der systemweiten Highscores gegen andere eyeOS-Benutzer anzutreten. Am wichtigsten dabei bleibt jedoch so schnell, wie nur möglich zu sein!</new>
+		</text>
+		<text>
+			<old>section-tour-text-8</old>
+			<new>[h3]Überarbeitetes Zubehör[/h3]Beide, Rechner und Editor, wurden überarbeitet um Ihnen bessere Funktionen zu bieten zu können. Der neue Editor, bietet unter anderem Code-Highlighting für viele bekannte Sprachen (auch eyecode) und zusätzlich eine Autovervollständigungsfunktion für die jeweils bekanntesten Funktionen.</new>
+		</text>
+		<text>
+			<old>section-tour-text-9</old>
+			<new>[h3]Verbesserte Einstellungen[/h3]Auch eyeControl wurde erneut an wichtigen Stellen, besonders für den Administrator, verbessert. So ist der Bereich &quot;System&quot; z.B. in einzelne Tabs unterteilt und wirkt so übersichtlicher als zuvor.</new>
+		</text>
+		<text>
+			<old>section-tour-title</old>
+			<new>eyeOS-1.6-Tour</new>
+		</text>
+	</part>
+</lang>

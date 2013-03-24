@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>eyeSessions, the session management library</title>
+	<general>
+		<name>eyeSessions</name>
+		<tags>
+			<tag>library</tag>
+		</tags>
+	</general>
+	<desc>The purpose of the EyeSessions library is to provide a wrapper for the PHP session features. This allows eyeOS to retain the content of certain variables between page refreshes and postbacks. The practical application of this is that the contents of a variable can be stored for access any time that session (a session can time out or end when the browser window is closed).</desc>
+</info>

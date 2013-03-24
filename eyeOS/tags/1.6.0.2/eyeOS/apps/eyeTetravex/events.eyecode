@@ -1,0 +1,343 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)     
+ */
+
+/**
+ * @author Nanawel (nanawel@eyeos.org)
+ * @version 1.0
+ * @updated 04-Apr-2008
+ */
+
+//only keep in memory the best 100 records per level
+define('EYETETRAVEX_HIGHSCORES_RECORDS_LIMIT', 100);
+define('EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_SERVER', 'server');
+define('EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_PROFILE', 'profile');
+define('EYETETRAVEX_PROFILE_HIGHSCORES_FILE', service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeTetravex/profile_highscores.xml');
+
+
+/**
+ * Called by Flash to load the configuration from the user's profile directory.
+ */
+function eyeTetravex_on_loadConfiguration($params=null) {
+	$file = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeTetravex/conf.xml';
+	$content = eyeTetravex_getXmlFileContent($file);
+
+	$configValues = array();
+	if (is_array($content['eyeTetravex'])
+	&& is_array($content['eyeTetravex'][0])
+	&& is_array($content['eyeTetravex'][0]['configuration'])) {
+		$configValues = $content['eyeTetravex'][0]['configuration'][0];
+	}
+	$return['configuration'][0] = $configValues;
+
+	header('Content-type: text/xml; charset="utf-8"');
+	echo reqLib('eyeXML','array2xml',array($return));
+	exit;
+}
+
+/**
+ * Called by Flash to save the configuration. The data is transfered by POST method,
+ * with the key 'eyeTetravex_xmlData'.
+ */
+function eyeTetravex_on_saveConfiguration($params=null) {
+	if (! isset($_POST['eyeTetravex_xmlData'])) {
+		exit;
+	}
+	$file = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeTetravex/conf.xml';
+	$content = eyeTetravex_getXmlFileContent($file);
+
+	//retrieve XML sent by Flash
+	//(looks like:
+	//	<configuration>
+	//		<parameter_i>value</parameter_i>
+	//		<parameter_j>value</parameter_j>
+	//			...
+	//	</configuration>)
+	$inputXml = reqLib('eyeXML','xml2array',array($_POST['eyeTetravex_xmlData']));
+
+	//set the file's configuration node to the new one
+	$content['eyeTetravex'][0]['configuration'][0] = $inputXml['configuration'][0];
+
+	$myXml = reqLib('eyeXML','array2xml',array($content));
+	eyeTetravex_setXmlFileContent($file, $myXml);
+	exit;
+}
+
+/**
+ * Called by Flash to load the highscores (profile or server).
+ */
+function eyeTetravex_on_loadHighscores($params=null) {
+	if (! isset($_POST['eyeTetravex_xmlData'])) {
+		exit;
+	}
+	$inputXml = reqLib('eyeXML','xml2array',array($_POST['eyeTetravex_xmlData']));
+
+	//global highscores
+	if ($inputXml['eyeTetravex'][0]['useSharedHighscores'][0] == 'true')
+		$storageMethod = EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_SERVER;
+	//profile highscores
+	else
+		$storageMethod = EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_PROFILE;
+
+	header('Content-type: text/xml; charset="utf-8"');
+	echo utf8_encode(eyeTetravex_getHighscores($storageMethod,true));
+	exit;
+}
+
+/**
+ * Called by Flash to save a highscore. The data is transfered by POST method,
+ * with the key 'eyeTetravex_xmlData'.
+ */
+function eyeTetravex_on_saveHighscore($params=null) {
+	if (! isset($_POST['eyeTetravex_xmlData'])) {
+		exit;
+	}
+	//retrieve XML sent by Flash
+	//	<highscore>
+	//		<useSharedHighscores>true</useSharedHighscores>
+	//		<level>X</level>
+	//		<maxNumber>X</maxNumber>
+	//		<time>XX:XX</time>
+	//		<moves>XX</moves>
+	//	</highscore>
+	$inputXml = reqLib('eyeXML','xml2array',array($_POST['eyeTetravex_xmlData']));
+
+	//global highscores
+	if ($inputXml['highscore'][0]['useSharedHighscores'][0] == 'true')
+		$storageMethod = EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_SERVER;
+	//profile highscores
+	else
+		$storageMethod = EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_PROFILE;
+
+	$rank = eyeTetravex_saveHighscore($storageMethod, $inputXml);
+
+	//print return XML with rank
+	$return['eyeTetravex'][0]['rank'][0] = $rank;
+	echo reqLib('eyeXML','array2xml',array($return));
+
+	exit;
+}
+
+/**
+ * @param string $storageMethod
+ * @param array $inputXml
+ * @return int rank
+ */
+function eyeTetravex_saveHighscore($storageMethod, $inputXml) {
+	global $myPid, $currentUser;
+
+	$content = eyeTetravex_getHighscores($storageMethod);
+
+	$existingHighscores = null;
+	$sizesNode = $content['eyeTetravex'][0]['highscores_regular'][0]['size'];
+	foreach($sizesNode as $sizeIndex => $sizeContent) {
+		if ($sizeContent['value'][0] == $inputXml['highscore'][0]['level'][0]) {
+			$existingHighscores = $sizeContent['highscore'];
+			break;
+		}
+	}
+
+	//the size cannot be found, create a new one
+	if ($existingHighscores == null) {
+		$newSizenode['value'][0] = $inputXml['highscore'][0]['level'][0];
+		$content['eyeTetravex'][0]['highscores_regular'][0]['size'][] = $newSizenode;
+		$sizeIndex = count($content['eyeTetravex'][0]['highscores_regular'][0]['size']) -1;
+		$existingHighscores = array();
+	}
+
+	$newHighscore = array();
+	$newHighscore['user'][0] = $currentUser;
+	$newHighscore['date'][0] = date('Y-m-d H:i');
+	$newHighscore['maxNumber'][0] = $inputXml['highscore'][0]['maxNumber'][0];
+	$newHighscore['time'][0] = $inputXml['highscore'][0]['time'][0];
+	$newHighscore['moves'][0] = $inputXml['highscore'][0]['moves'][0];
+	$newHighscore_id = md5(serialize($newHighscore));
+	$newHighscore['internal_id'][0] = $newHighscore_id;
+	$existingHighscores[] = $newHighscore;
+
+	//sort highscores
+	usort($existingHighscores, eyeTetravex_compareRegularHighscores);
+
+	//add "rank" property, cut list to the 100 first ones
+	$newHighscores = array();
+	$newHighscore_rank = null;
+	foreach($existingHighscores as $idx => $highscore) {
+		$newHighscores[$idx] = $highscore;
+		$newHighscores[$idx]['rank'][0] = $idx+1;
+		if ($newHighscores[$idx]['internal_id'][0] == $newHighscore_id)
+			$newHighscore_rank = $idx+1;
+		if (($idx+1) == EYETETRAVEX_HIGHSCORES_RECORDS_LIMIT)
+			break;
+	}
+	if ($newHighscore_rank == null) {
+		$newHighscore_rank = 'Not Ranked...';
+	}
+
+	//replace old highscores ranking
+	$content['eyeTetravex'][0]['highscores_regular'][0]['size'][$sizeIndex]['highscore'] = $newHighscores;
+
+	if ($storageMethod == EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_SERVER) {
+		$content = setConfig('eyeTetravex', 'server_highscores.xml', $content);
+	}
+	elseif ($storageMethod == EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_PROFILE) {
+		$myXml = reqLib('eyeXML','array2xml',array($content));
+		eyeTetravex_setXmlFileContent(EYETETRAVEX_PROFILE_HIGHSCORES_FILE, $myXml);
+	}
+	
+
+	return $newHighscore_rank;
+}
+
+function eyeTetravex_getHighscores($storageMethod, $simpleText = false) {
+	$content = '';
+	
+	if ($storageMethod == EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_SERVER) {
+		$content = getConfig('eyeTetravex', 'server_highscores.xml');
+		if ($simpleText)
+			$content = reqLib('eyeXML','array2xml',array($content));
+	}
+	elseif ($storageMethod == EYETETRAVEX_HIGHSCORES_STORAGE_METHOD_PROFILE) {
+		$content = eyeTetravex_getXmlFileContent(EYETETRAVEX_PROFILE_HIGHSCORES_FILE, $simpleText);
+	}
+
+	if (! $simpleText) {
+		$xml = array();
+		$xml['eyeTetravex'] = array();
+		if (!is_array($content['eyeTetravex']))
+			$content = $xml;
+
+		$xml['eyeTetravex'][0] = array();
+		if (!is_array($content['eyeTetravex'][0]))
+			$content = $xml;
+
+		$xml['eyeTetravex'][0]['highscores_regular'] = array();
+		if (!is_array($content['eyeTetravex'][0]['highscores_regular']))
+			$content = $xml;
+
+		$xml['eyeTetravex'][0]['highscores_regular'][0] = array();
+		if (!is_array($content['eyeTetravex'][0]['highscores_regular'][0]))
+			$content = $xml;
+
+		$xml['eyeTetravex'][0]['highscores_regular'][0]['size'] = array();
+		if (!is_array($content['eyeTetravex'][0]['highscores_regular'][0]['size']))
+			$content = $xml;
+	}
+
+	return $content;
+}
+
+/**
+ * Compare highscores in "regular" mode.
+ * @param array $a
+ * @param array $b
+ * @return int A positive value if $a must be placer after $b,
+ *             and a negative value if $a must be placed before $b
+ */
+function eyeTetravex_compareRegularHighscores($a, $b) {
+	$return = 0;
+
+	if ($a['maxNumber'][0] < $b['maxNumber'][0]) {
+		$return = -1;
+	}
+	elseif ($a['maxNumber'][0] > $b['maxNumber'][0]) {
+		$return = 1;
+	}
+	else {
+		$a_min = intval(substr($a['time'][0], 0, strpos($a['time'][0],':')));
+		$a_sec = intval(substr($a['time'][0], strpos($a['time'][0],':') +1));
+
+		$b_min = intval(substr($b['time'][0], 0, strpos($b['time'][0],':')));
+		$b_sec = intval(substr($b['time'][0], strpos($b['time'][0],':') +1));
+
+		if ($a_min < $b_min) {
+			$return = -1;
+		}
+		elseif ($a_min > $b_min) {
+			$return = 1;
+		}
+		elseif (($a_min == $b_min) && $a_sec < $b_sec) {
+			$return = -1;
+		}
+		elseif (($a_min == $b_min) && $a_sec > $b_sec) {
+			$return = 1;
+		}
+		elseif($a['moves'][0] < $b['moves'][0]) {
+			$return = -1;
+		}
+		elseif($a['moves'][0] > $b['moves'][0]) {
+			$return = 1;
+		}
+		else {
+			$return = 0;
+		}
+	}
+	return $return;
+}
+
+/**
+ * @param string $file
+ * @param $simpleText
+ * @return array/string XML
+ */
+function eyeTetravex_getXmlFileContent($file, $simpleText = false) {
+	if(!vfs('real_fileExists',array($file))) {
+		vfs('real_create',array($file));
+		$myXml['eyeTetravex'] = array();
+		eyeXML('setXMLfile',array($file,$myXml));
+	}
+	$return = '';
+
+	if ($simpleText)
+		$return = vfs('real_getFileContent',array($file));
+	else
+		$return = reqLib('eyeXML','getXMLfile',array($file));
+
+	return $return;
+}
+
+/**
+ * @param string $file
+ * @param array $xml
+ */
+function eyeTetravex_setXmlFileContent($file, $xml) {
+	$fp = service('vfs','real_open',array($file,'w'));
+	fwrite($fp,$xml);
+	fclose($fp);
+}
+
+/*
+ * COULD BE USED TO LOCALIZE STRINGS IN FLASH (TODO...)
+ function eyeTetravex_on_initFlash() {
+ header('Content-type: text/xml; charset="utf-8"');
+ echo utf8_encode('');
+ exit;
+ }*/
+
+function eyeTetravex_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeTetravex_on_Close(){
+	proc('end');
+}
+
+?>

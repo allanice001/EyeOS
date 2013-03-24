@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>addToBuffer</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>mmap</tag>
+		</tags>
+		<shortDesc>Adds a new task to the Buffer.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>addToBuffer</functionName>
+		<syntax>bool mmap('addToBuffer', array(string $content))</syntax>
+		<desc>Adds a new task to the Buffer.</desc>
+		<params>
+			<type>required</type>
+			<name>content</name>
+			<desc>XML containing the task.</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, returns false.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No task is provided.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

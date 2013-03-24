@@ -1,0 +1,214 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Migration Notes (from 0.7.x) &mdash; qooxdoo v1.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.2 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="migration-notes-from-0-7-x">
+<span id="pages-migration-notes-from-07-migration-notes-from-0-7-x"></span><h1>Migration Notes (from 0.7.x)<a class="headerlink" href="#migration-notes-from-0-7-x" title="Permalink to this headline">¶</a></h1>
+<p>Some notes about the things to be careful during the migration of the widgets for qooxdoo 1.2.</p>
+<div class="section" id="xxx">
+<h2>XXX<a class="headerlink" href="#xxx" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simple-renamings">
+<span id="pages-migration-notes-from-07-simple-renamings"></span><h3>Simple Renamings<a class="headerlink" href="#simple-renamings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">addEventListener()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">addListener()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">HorizontalBoxLayout</span></tt> =&gt; <tt class="docutils literal"><span class="pre">HBox</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">VerticalBoxLayout</span></tt> =&gt; <tt class="docutils literal"><span class="pre">VBox</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.core.Border</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.ui.decoration.Single</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.widget.Iframe.getContentDocument()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.ui.widget.Iframe.getDocument()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">createDispatchEvent()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">fireEvent()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">createDispatchDataEvent()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">fireDataEvent()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.event.type.DataEvent</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.event.type.Data</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.core.Object.dispose()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.core.ObjectRegistry.shutdown()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">getParent()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">getLayoutParent()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.io.Alias</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.util.AliasManager</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.embed.Iframe.getContentDocument()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.ui.embed.Iframe.getDocument()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.embed.Iframe.getContentWindow()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.ui.embed.Iframe.getWindow()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.basic.Label.setText()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.ui.basic.Label.setContent()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">#embed</span></tt> =&gt; <tt class="docutils literal"><span class="pre">#asset</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.application.???._postload()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.application.???.finalize()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.selection.RadioManager</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.ui.form.RadioGroup</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">beforeAppear</span></tt> =&gt; <tt class="docutils literal"><span class="pre">appear</span></tt></li>
+</ul>
+</div>
+<div class="section" id="more-elaborate-changes">
+<span id="pages-migration-notes-from-07-more-elaborate-changes"></span><h3>More Elaborate Changes<a class="headerlink" href="#more-elaborate-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">border</span></tt> =&gt; <tt class="docutils literal"><span class="pre">decorator</span></tt></li>
+<li>Layout handling</li>
+<li><tt class="docutils literal"><span class="pre">edge</span></tt> =&gt; <tt class="docutils literal"><span class="pre">left</span></tt>, <tt class="docutils literal"><span class="pre">top</span></tt>, <tt class="docutils literal"><span class="pre">right</span></tt>, <tt class="docutils literal"><span class="pre">bottom</span></tt></li>
+<li>User agent handling<ul>
+<li><tt class="docutils literal"><span class="pre">qx.core.Client.getInstance().getEngine()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.bom.client.Engine.NAME</span></tt></li>
+</ul>
+</li>
+<li>Event handling:<ul>
+<li><tt class="docutils literal"><span class="pre">qx.html.EventRegistration</span></tt> =&gt; <tt class="docutils literal"><span class="pre">qx.event.Manager</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">this.dispatchEvent(new</span> <span class="pre">qx.event.type.DataEvent(&quot;name&quot;,</span> <span class="pre">eventData),</span> <span class="pre">true)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">this.fireDataEvent(&quot;name&quot;,</span> <span class="pre">eventData)</span></tt></li>
+</ul>
+</li>
+<li>mouse capture:<ul>
+<li><tt class="docutils literal"><span class="pre">setCapture(true)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">capture()</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">setCapture(false)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">releaseCapture()</span></tt></li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">getElement</span></tt> =&gt; <tt class="docutils literal"><span class="pre">getContainerElement().getDomElement()</span></tt></li>
+<li>Layout properties</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">_renderRuntimeXXX()</span></tt> =&gt; <tt class="docutils literal"><span class="pre">setUserBounds()</span></tt> or <tt class="docutils literal"><span class="pre">setLayoutProperties({left:</span> <span class="pre">10,</span> <span class="pre">top:</span> <span class="pre">10})</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">setLeft(12)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">setLayoutProperties({left:</span> <span class="pre">12})</span></tt> (in Canvas and Basic layouts)</li>
+<li><tt class="docutils literal"><span class="pre">setTop(12)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">setLayoutProperties({top:</span> <span class="pre">12})</span></tt> (in Canvas and Basic layouts)</li>
+<li><tt class="docutils literal"><span class="pre">setRight(12)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">setLayoutProperties({right:</span> <span class="pre">12})</span></tt> (in Canvas and Basic layouts)</li>
+<li><tt class="docutils literal"><span class="pre">setBottom(12)</span></tt> =&gt; <tt class="docutils literal"><span class="pre">setLayoutProperties({bottom:</span> <span class="pre">12})</span></tt> (in Canvas and Basic layouts)</li>
+</ul>
+</blockquote>
+<ul>
+<li><p class="first">Tree does not generate a root folder by default anymore</p>
+</li>
+<li><p class="first">SplitPane</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">addLeft()</span></tt>, <tt class="docutils literal"><span class="pre">addTop()</span></tt>, <tt class="docutils literal"><span class="pre">addRight()</span></tt>, <tt class="docutils literal"><span class="pre">addBottom()</span></tt> are removed. Use <tt class="docutils literal"><span class="pre">setFirst()</span></tt> and <tt class="docutils literal"><span class="pre">setSecond()</span></tt> to set widgets into the SplitView. The position of first and last is set by the SplitPane&#8217;s orientation property.</li>
+<li><tt class="docutils literal"><span class="pre">getLeftArea()</span></tt>, <tt class="docutils literal"><span class="pre">getTopArea()</span></tt>, <tt class="docutils literal"><span class="pre">getRightArea()</span></tt> and <tt class="docutils literal"><span class="pre">getBottomArea()</span></tt> are removed. Use <tt class="docutils literal"><span class="pre">getFirstArea()</span></tt> and <tt class="docutils literal"><span class="pre">getSecondArea()</span></tt> instead.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Appearance: Some states were renamed:</p>
+</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">over</span></tt> =&gt; <tt class="docutils literal"><span class="pre">hovered</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">focus</span></tt> =&gt; <tt class="docutils literal"><span class="pre">focused</span></tt></li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="deprecated">
+<span id="pages-migration-notes-from-07-deprecated"></span><h3>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Positions in the appearance</li>
+<li><tt class="docutils literal"><span class="pre">ClientDocument</span></tt>. Use <tt class="docutils literal"><span class="pre">this.getRoot()</span></tt> in <tt class="docutils literal"><span class="pre">qx.application.Standalone</span></tt> instead.</li>
+<li><tt class="docutils literal"><span class="pre">qx.util.Mime</span></tt>. Use strings explicitly</li>
+<li><tt class="docutils literal"><span class="pre">addToDocument()</span></tt>. Use <tt class="docutils literal"><span class="pre">application.getRoot()</span></tt> instead</li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.SplitPaneKnob</span></tt>: style Splitter and Slider to show a knob</li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.core.Widget.isMaterialized</span></tt> =&gt; not needed any longer</li>
+<li><tt class="docutils literal"><span class="pre">qx.ui.core.ClientDocument.isMaterialized</span></tt> =&gt; not needed any longer</li>
+<li><tt class="docutils literal"><span class="pre">qx.core.Version</span></tt> no longer exists</li>
+</ul>
+</div>
+<div class="section" id="missing">
+<span id="pages-migration-notes-from-07-missing"></span><h3>Missing<a class="headerlink" href="#missing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">qx.io.local.CookieApi</span></tt> missing in 0.8 and 0.8.1 =&gt; Use native cookie handling. Releases 0.8.2 and beyong include (again) cookie handling.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Migration Notes (from 0.7.x)</a><ul>
+<li><a class="reference internal" href="#xxx">XXX</a><ul>
+<li><a class="reference internal" href="#simple-renamings">Simple Renamings</a></li>
+<li><a class="reference internal" href="#more-elaborate-changes">More Elaborate Changes</a></li>
+<li><a class="reference internal" href="#deprecated">Deprecated</a></li>
+<li><a class="reference internal" href="#missing">Missing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/migration/migration_notes_from_07.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

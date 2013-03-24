@@ -1,0 +1,178 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeString_run($params=null)
+{
+	$myWindow1 = new Window(array(
+									'name' => 'eyeString_wnd',
+									'father' => 'eyeApps',
+									'cent' => 1,
+									'width' => 655,
+									'height' => 510,
+									'title' => 'eyeString',
+									'type' => 3));
+						
+	$myWindow1->SHOW();
+
+	$mySelect = new Select(array(
+									'name' => 'eyeString_slc',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 480,
+									'y' => 40));
+
+
+	$mySelect->SHOW();
+	
+	$mySelect->addOption('Base64 Encode','base64encode',0);
+	$mySelect->addOption('Base64 Decode','base64decode',0);
+	$mySelect->addOption('md5 Hash', 'md5encode', 0);
+	$mySelect->addOPtion('URL Encode', 'urlencode', 0);
+	$mySelect->addOption('URL Decode', 'urldecode', 0);
+	$mySelect->addOption('Ascii to Hexa', 'ascktohex', 0);
+	$mySelect->addOption('Hexa to Ascii', 'hextoasck', 0);
+	//roman numbers
+	$mySelect->addOption('Decimal to Roman', 'NumtoRoman', 0);
+	$mySelect->addOption('Roman to Decimal', 'RomantoNum', 0);
+	//htmlentities/unhtmlentities
+	$mySelect->addOption('Html Entities', 'htmlen', 0);
+	$mySelect->addOption('Remove Html Entities', 'htmlde', 0);
+	$mySelect->addOption('eyeOS hash', 'eyehash', 0);
+
+	$myText1 = new Textarea(array(
+									'name' => 'eyeString_TxtA1',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 10,
+									'y' => 40,
+									'width' => 450,
+									'height' => 163));
+							
+	$myText1->SHOW();
+	$myText1->focus();
+	
+
+	$myText2 =new Textarea(array(
+									'name'=>'eyeString_TxtA2',
+									'father' => 'eyeString_wnd_Content',
+									'x'=> 10,
+									'y' => 230,
+									'width' => 625,
+									'height' => 233));
+									
+	$myText2->SHOW();
+	
+
+	$myLabel1 = new Label(array(
+									'name'=> 'eyeString_Lbl1',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 10,
+									'y' => 25,
+									'text' => 'Input Text'));
+											   
+
+	$myLabel1 -> SHOW();			
+	
+
+
+	$myLabel2 = new Label(array(
+									'name' => 'eyeString_Lbl2',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 10,
+									'y' => 215,
+									'text' => 'Output Text'));
+									
+	$myLabel2 -> SHOW();
+
+
+	$myButton1 = new Button(array(
+									'name' => 'eyeString_Btn1',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 480,
+									'y' => 70,
+									'caption' => 'Ok'));
+									
+	$myButton1->addFriend($myText1);
+	$myButton1->addFriend($mySelect);
+	
+	$myCheck1 = new Checkbox(array(
+									'name' => 'chk1',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 476,
+									'y' => 100,
+									'text' => 'Auto clear input'));
+									
+	$myCheck1->SHOW();
+	
+	$myCheck2 = new Checkbox(array(
+									'name' => 'chk2',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 476,
+									'y' => 120,
+									'text' => 'Concatenate Output'));
+									
+	$myCheck2->SHOW();
+	
+	$myCheck3 = new Checkbox(array(
+									'name' => 'chk3',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 476,
+									'y' => 140,
+									'text' => 'Add new line to end'));
+									
+	$myCheck3->SHOW();
+	
+	$myCheck4 = new Checkbox(array(
+									'name' => 'chk4',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 476,
+									'y' => 160,
+									'text' => 'Add input to output'));
+									
+	$myCheck4->SHOW();
+	
+	$myButton1->addFriend($myCheck1);
+	$myButton1->addFriend($myCheck2);
+	$myButton1->addFriend($myCheck3);
+	$myButton1->addFriend($myCheck4);
+ 	$myButton1->SHOW();
+
+
+	$myButton2 = new Button(array(
+									'name' => 'eyeString_Btn2',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 10,
+									'y' => 70,
+									'horiz'=>1,
+									'caption' => 'Clear'));
+									
+	$myButton2->SHOW();	
+	$myLabel3 = new Label(array(
+									'name' => 'timerlbl',
+									'father' => 'eyeString_wnd_Content',
+									'x' => 480,
+									'y' => 190,
+									'text' => ''));
+									
+	$myLabel3 -> SHOW(0);
+}
+
+?>

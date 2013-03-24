@@ -1,0 +1,190 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	XML library for eyeOS 
+*/
+/*
+	
+	array2xml input: array output: xml text (in memory)
+	
+	xml2array input: xml text output: array
+*/
+
+function lib_eyeXML_xml2array($params) {
+	$content = $params[0];
+	if(!$content) {
+		return false;
+	}
+	return getNodeContent($content);
+}
+
+function lib_eyeXML_array2xml($params){
+	$myArray = $params[0];
+	if(!isset($myArray)) {
+		return false;
+	}
+	if(isset($params[1])) {
+		return lib_eyeXML_getXmlHeader().getArrayText($myArray,-1);
+	}
+	return getArrayText($myArray,-1);
+}
+
+function lib_eyeXML_append($params) {
+	$master = $params[0];
+	$content = $params[1];
+	return "<$master>$content</$master>\n";
+}
+
+function getArrayText($myArray,$loops) {
+	$text = "";	
+	$loops++;
+	$enter = 0;
+	if(!is_array($myArray)) {
+		return htmlentities($myArray,ENT_QUOTES,'UTF-8');
+	}
+	foreach($myArray as $key=>$value) {
+		foreach($value as $current) {
+			if($enter == 0) {
+				$text .= "\n";
+			} else {
+				$enter = 0; 
+			}
+			$text .= str_pad("",$loops,"\t")."<$key>";
+			$temp = getArrayText($current,$loops);
+			if($temp == $current) {
+				$text .= $temp;
+				$text .= "</$key>\n";
+				$enter = 1;
+			} else {
+				$text .= $temp;
+				$text .= str_pad("",$loops-1,"\t")."</$key>";
+			}
+		}
+		
+	}
+	return $text;
+}
+
+function getNodeContent($content) {
+	$return = null;
+	$begin = strstr($content,'<');
+	$end = strstr($begin,'>');
+	if(!$begin || !$end) {
+		return html_entity_decode($content,ENT_QUOTES);
+	}
+	$counter=array();
+	while(strlen($content) > 3) { 
+		if(!$begin || !$end) {
+			break;
+		}
+		$name = substr($begin,1,strlen($begin)-strlen($end)-1);
+		$mySearch = strstr($name," ");
+		if($mySearch) {
+			$subName = substr($name,0,strlen($name)-strlen($mySearch));
+		} else {
+			$subName = $name;
+		}
+		if($name{strlen($name)-1} == '/') {
+			$content = substr($begin,strlen($name)+2);
+			$begin = strstr($content,'<');
+			$end = strstr($begin,'>');
+			if(!isset($counter[$subName])) {
+				$counter[$subName] = 0;
+			}
+			$return[$subName][$counter[$subName]] = "";
+			$counter[$subName]++;
+		} elseif($name{0}=='/') {
+			$content = substr($begin,strlen($name)+2);
+			$begin = strstr($content,'<');
+			$end = strstr($begin,'>');
+		}else {
+			$to = strstr($begin,'</'.$subName.'>');
+			$mySize = strlen($begin)-strlen($to)-strlen($name)-2;
+			$subContent = substr($begin,strlen($name)+2,$mySize);
+			$content = substr($begin,(strlen($name)*2)+5+strlen($subContent));
+			$begin = strstr($content,'<');
+			$end = strstr($begin,'>');
+			if($name) {	
+				if($name{0} == '?') {
+					$return = getNodeContent($subContent);
+				} elseif ($name{0} == '!') {
+					$return = getNodeContent($subContent);
+				}else {
+					if(!isset($counter[$subName])) {
+						$counter[$subName] = 0;
+					}
+					$return[$subName][$counter[$subName]] = getNodeContent($subContent);
+					$counter[$subName]++;
+				}
+			}
+		}	
+	}
+	return $return;
+}
+
+function lib_eyeXML_getXmlHeader($params=null) {
+	return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+}
+
+function lib_eyeXML_getXMLfile($params) {
+	$file = $params[0];
+	$fp = service('vfs','real_open',array($file,'r'));
+	if(!$fp) {
+		return false;
+	}
+	$content = fread($fp,filesize($file));
+	fclose($fp);
+	$xml = lib_eyeXML_xml2array(array($content));
+	return $xml;
+}
+
+function lib_eyeXML_setXMLfile($params) {
+	$file = $params[0];
+	$myArray = $params[1];
+	$fp = service('vfs','real_open',array($file,'w'));
+	if(!$fp) {
+		return false;
+	}
+	$content = lib_eyeXML_array2xml(array($myArray));
+	fwrite($fp,$content);
+	fclose($fp);
+	return true;	
+}
+
+function lib_eyeXML_getXMLconfig($params) {
+	$appname = $params[0];
+	$filename = $params[1];
+	$file = service('um','getCurrentUserDir');
+	$file .= '/'.CONF_USER_DIR.'/'.$appname.'/'.$filename;
+	$fp = service('vfs','real_open',array($file,'r'));
+	if(!$fp) {
+		return false;
+	}
+	$content = fread($fp,filesize($file));
+	fclose($fp);
+	$xml = lib_eyeXML_xml2array(array($content));
+	return $xml;
+}
+
+?>

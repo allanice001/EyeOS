@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>removeListenerServiceCall</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>listener service call</tag>
+		</tags>
+		<shortDesc>Removes a listener service call.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.1</version>
+			<desc>Created</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>removeListenerServiceCall</functionName>
+		<syntax>void removeListenerServiceCall(string $myService, string $myCall [, int $postExecution=0])</syntax>
+		<desc>Removes a previously added listener service call from the session.</desc>
+		<params>
+			<type>required</type>
+			<name>myService</name>
+			<desc>Name of the service where the listened function belongs.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>myCall</name>
+			<desc>Name of the service that contains the function to listen.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>postExecution</name>
+			<desc>Specifies whether or not the listener function must be called before or after the execution of the service call. A value of 1 executes the function after finishing the service call, whereas a value of 0 (the default value) executes the function before performing the service call. </desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

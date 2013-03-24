@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Anti-Patterns &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="anti-patterns">
+<span id="pages-antipatterns-anti-patterns"></span><h1>Anti-Patterns<a class="headerlink" href="#anti-patterns" title="Permalink to this headline">¶</a></h1>
+<p>This page should give you an overview (in no particular order) about programming pattern you should avoid.</p>
+<div class="section" id="don-t-break-encapsulation">
+<span id="pages-antipatterns-dont-break-encapsulation"></span><h2>Don't break encapsulation<a class="headerlink" href="#don-t-break-encapsulation" title="Permalink to this headline">¶</a></h2>
+<p>This is pretty straightforward when you're developing in OO-way. You violate the encapsulation if you call a foreign objects private methods, so you should always refrain from doing it.</p>
+<p>The point to mention this here again is that calling <tt class="docutils literal"><span class="pre">private</span> <span class="pre">methods</span></tt> of other classes can break the build version of a qooxdoo application. Since qooxdoo uses private optimization by default one cannot rely on the names of the private methods of another class. If violate this can end up with a runtime error very difficult to debug.</p>
+</div>
+<div class="section" id="creating-multiple-instances-of-the-same-widget">
+<span id="pages-antipatterns-creating-multiple-instances-of-the-same-widget"></span><h2>Creating multiple instances of the same widget<a class="headerlink" href="#creating-multiple-instances-of-the-same-widget" title="Permalink to this headline">¶</a></h2>
+<p>Do not create multiple instances of a widget which is added/removed multiple times when it is sufficient to e.g. only change the data represented by the widget.</p>
+</div>
+<div class="section" id="synchronous-requests">
+<span id="pages-antipatterns-synchronous-requests"></span><h2>Synchronous requests<a class="headerlink" href="#synchronous-requests" title="Permalink to this headline">¶</a></h2>
+<p>Using synchronous requests will block the whole GUI until the response is received. Always use asynchronous requests to give the control back to the user.</p>
+</div>
+<div class="section" id="long-running-tasks">
+<span id="pages-antipatterns-long-running-tasks"></span><h2>Long-running tasks<a class="headerlink" href="#long-running-tasks" title="Permalink to this headline">¶</a></h2>
+<p>Running intensive tasks on the client should not be an option. Such tasks should reside on the server-side. If it not possible (or not desired) there should be at least a reasonable feedback to the user about the intensive task currently running.  If long-running tasks can be split into a sequence of small tasks, the Progressive (qx.ui.progressive.Progressive) widget may allow you to progressive execute the sequence of small tasks without blocking other operation of your application.  Organizing your application around a finite state machine (qx.util.fsm.FiniteStateMachine) may also help to avoid the pitfalls of long-running tasks.</p>
+</div>
+<div class="section" id="inline-functions">
+<span id="pages-antipatterns-inline-functions"></span><h2>Inline functions<a class="headerlink" href="#inline-functions" title="Permalink to this headline">¶</a></h2>
+<p>Using anonymous inline functions has several disadvantages:</p>
+<ol class="arabic simple">
+<li>they are harder to debug</li>
+<li>API Viewer will not list them, therefore you can not comment them correctly</li>
+<li>other programmers will not find them at first glance</li>
+<li>they might not appear in an IDE's outline view</li>
+</ol>
+<p>So please avoid using them. :-)</p>
+</div>
+<div class="section" id="reference-types-in-member-section">
+<span id="pages-antipatterns-reference-types-in-member-section"></span><h2>Reference types in member section<a class="headerlink" href="#reference-types-in-member-section" title="Permalink to this headline">¶</a></h2>
+<p>Data fields (every data attached to <tt class="docutils literal"><span class="pre">this</span></tt>) can and should be declared in the members section. This makes it easier to find the data fields, which a may otherwise be deeply hidden in the code.</p>
+<p>It is possible to initialize these data fields in the members section with primite data types like <tt class="docutils literal"><span class="pre">String</span></tt> or <tt class="docutils literal"><span class="pre">Number</span></tt> but it should never be initialized with reference types. Reference types are <tt class="docutils literal"><span class="pre">Object</span></tt> (Maps), <tt class="docutils literal"><span class="pre">Array</span></tt>, <tt class="docutils literal"><span class="pre">Date</span></tt> and <tt class="docutils literal"><span class="pre">RegExp</span></tt>. The reason for this is that these references will be shared by all instances of the class. This is typically not the desired behavior. It is better to set the value of these fields in the members section to <tt class="docutils literal"><span class="pre">null</span></tt> and initialize them in the constructor.</p>
+<p>BAD:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">members</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="nx">__myArray</span> <span class="o">:</span> <span class="p">[],</span> <span class="c1">// &lt;-- don&#39;t do this!</span>
+  <span class="nx">__myMap</span> <span class="o">:</span> <span class="p">{},</span>  <span class="c1">// &lt;-- don&#39;t do this!</span>
+
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>GOOD:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">construct</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+  <span class="p">...</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">__myArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">__myMap</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="p">}</span>
+
+<span class="nx">members</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="nx">__myArray</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">__myMap</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For the same reason reference types should not be used as <tt class="docutils literal"><span class="pre">init</span></tt> values in property definitions.</p>
+</div>
+<div class="section" id="abundandly-requiring-other-classes">
+<span id="pages-antipatterns-abundandly-requiring-other-classes"></span><h2>Abundandly &quot;requiring&quot; other classes<a class="headerlink" href="#abundandly-requiring-other-classes" title="Permalink to this headline">¶</a></h2>
+<p>&quot;requires&quot; in the qooxdoo context are dependencies of a class to other classes which have to be available at <em>load-time</em>, i.e. at the time the class code is read and evaluated by qooxdoo's class factory (currently <tt class="docutils literal"><span class="pre">qx.Class.define</span></tt>). This is in contrast to dependencies which come into play only at <em>run-time</em> of the class code, e.g. when its constructor or member functions are invoked. (Run-time dependencies are usually easy to fullfill since they don't impose an order in which classes are loaded into the browser's Javascript interpreter; in general, they just have to be loaded eventually).</p>
+<dl class="docutils">
+<dt>There are exactly 4 ways to establish a load-time requirement of a class:</dt>
+<dd><ul class="first last simple">
+<li><strong>#require() hint</strong>:Explicitly requiring another class by using a <tt class="docutils literal"><span class="pre">#require</span></tt> hint in the source file of the class.</li>
+<li><strong>statics section</strong>:Initializing a <tt class="docutils literal"><span class="pre">statics</span></tt> member in the class definition with a class instance (using the <tt class="docutils literal"><span class="pre">new</span></tt> operator) or by calling a static class method makes the referenced class a requirement of the referencing class.</li>
+<li><strong>properties section</strong>:Instantiating another class or calling one of its static methods, in order to provide a value for the <tt class="docutils literal"><span class="pre">init</span></tt> attribute of a property definition, makes the other class a required class.</li>
+<li><strong>defer section</strong>:All references to other classes (instantiations, static method invocations) in the <tt class="docutils literal"><span class="pre">defer</span></tt> section of a class makes those other classes &quot;requires&quot; of the current class.</li>
+<li><strong>&quot;require&quot; config key</strong>:All classes listed for a particular class in the generator Json configuration file under the &quot;require&quot; key makes those classes requires for the key class.</li>
+</ul>
+</dd>
+</dl>
+<p>All those possibilities should be avoided or at least used as sparingly as possible. Those requires make dependency tracking difficult and furthermore impedes partitioning the application into parts if this is desired.</p>
+</div>
+<div class="section" id="do-not-name-variables-like-native-objects">
+<span id="pages-antipatterns-do-not-name-variables-like-native-objects"></span><h2>Do not name variables like native objects<a class="headerlink" href="#do-not-name-variables-like-native-objects" title="Permalink to this headline">¶</a></h2>
+<p>qooxdoo comes with a powerful variable optimizer to shrink down the size of your javascript code delivered  to the browsers. This optimization is performed with the <tt class="docutils literal"><span class="pre">build</span></tt> version of your application by default.
+To avoid any runtime errors it is recommended to not name your variables like native browser objects.</p>
+<p>Consider the following:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">myIframe</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">embed</span><span class="p">.</span><span class="nx">Iframe</span><span class="p">(</span><span class="nx">mySourceURL</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nb">document</span> <span class="o">=</span> <span class="nx">myIframe</span><span class="p">.</span><span class="nx">getDocument</span><span class="p">();</span>
+
+<span class="c1">// this piece</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">myChildNode</span><span class="p">);</span>
+
+<span class="c1">// will end up in &quot;build&quot; version with</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">myChildNode</span><span class="p">);</span>
+<span class="c1">// assuming the &quot;document&quot; variable is optimized with &quot;p&quot; as variable name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="do-not-use-for-in-loops-for-arrays">
+<span id="pages-antipatterns-do-not-use-for-in-loops-for-arrays"></span><h2>Do not use for-in-loops for arrays<a class="headerlink" href="#do-not-use-for-in-loops-for-arrays" title="Permalink to this headline">¶</a></h2>
+<p>We modified the prototype of the <tt class="docutils literal"><span class="pre">array</span></tt> class to add some  functions to it, but unfortunately this has a side effect: if you try to loop through an array using a for-in-loop you will not only get the content of the array but also the new functions.</p>
+<p>So loop trough an array with an normal loop:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">l</span><span class="o">=</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">l</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Anti-Patterns</a><ul>
+<li><a class="reference internal" href="#don-t-break-encapsulation">Don't break encapsulation</a></li>
+<li><a class="reference internal" href="#creating-multiple-instances-of-the-same-widget">Creating multiple instances of the same widget</a></li>
+<li><a class="reference internal" href="#synchronous-requests">Synchronous requests</a></li>
+<li><a class="reference internal" href="#long-running-tasks">Long-running tasks</a></li>
+<li><a class="reference internal" href="#inline-functions">Inline functions</a></li>
+<li><a class="reference internal" href="#reference-types-in-member-section">Reference types in member section</a></li>
+<li><a class="reference internal" href="#abundandly-requiring-other-classes">Abundandly &quot;requiring&quot; other classes</a></li>
+<li><a class="reference internal" href="#do-not-name-variables-like-native-objects">Do not name variables like native objects</a></li>
+<li><a class="reference internal" href="#do-not-use-for-in-loops-for-arrays">Do not use for-in-loops for arrays</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/development/antipatterns.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

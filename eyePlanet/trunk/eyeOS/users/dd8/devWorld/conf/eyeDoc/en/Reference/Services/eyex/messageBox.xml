@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>messageBox</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+		</tags>
+		<shortDesc>Displays a dialog box.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds.</desc>
+		</trace>
+		<trace>
+			<version>1.5</version>
+			<desc>Added the 'win_style' and 'win_removepid' parameters.</desc>
+		</trace>
+		<trace>
+			<version>1.2</version>
+			<desc>Created the type 3 messages and its configuration parameters.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>messageBox</functionName>
+		<syntax>For message types 1 and 2:
+	boolean eyex('messageBox', array(string 'content' => $content [, int 'type' => $type, array 'tokens' => $tokens]))
+For message type 3:
+	boolean eyex('messageBox', array(int 'type' => 3,
+				 string 'content' => $content,
+				 string 'title' => $title,
+				 string 'win_name' => $win_name,
+				 string 'btn1_name' => $btn1_name,
+				 string 'btn1_capt' => $btn1_capt [,
+				 int 'win_style' => $win_style,
+				 int 'win_removepid' => $win_removepid,
+				 string 'btn2_name' => $btn2_name,
+				 string 'btn2_capt' => $btn2_capt
+				 string 'btn3_name' => $btn3_name,
+				 string 'btn3_capt' => $btn3_capt,
+				 string 'hidden_name' => $hidden_name,
+				 string 'hidden_text' => $hidden_text,
+				 string 'hidden2_name' => $hidden2_name,
+				 string 'hidden2_text' => $hidden2_text,
+				 string 'hidden3_name' => $hidden3_name,
+				 string 'hidden3_text' => $hidden3_text,
+				 string 'father' => $father,
+				 string 'img' => $img,
+				 string 'textbox_name' => $textbox_name,
+				 string 'textbox_text' => $textbox_text,
+				 string 'textbox_password' => $textbox_password,
+				 string 'textbox_events' => $textbox_events]))</syntax>
+		<desc>Displays a dialog to the user with the specified message.</desc>
+		<params>
+			<type>required</type>
+			<name>content</name>
+			<desc>String containing the message to be displayed.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>tokens</name>
+			<desc>Indexed array containing the value of the tokens appearing on 'message'.  Each token in the 'content' parameter is represented by the '%s' string.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>type</name>
+			<desc>The presentation type of the message. A value of 1 uses a custom eyeOS style to display the message, a value of 2 uses a JavaScript alert window, while a value of 3 uses a Window to display a dialog box. The dialog options can be configured with the following parameters. Its default value is 1. </desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>title</name>
+			<desc>Sets the title of the displayed window message.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>win_name</name>
+			<desc>Name of the Window of the dialog box.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>win_style</name>
+			<desc>Specifies the properties of the Window of the dialog. To set multiple properties you must specify the desired properties separated by '+' symbols.
+			TITLE: the Window has a title.
+			LISTED: the Window is listed in the windows list.
+			MIN: the Window can be minimized.
+			MAX: the Window can be maximized.
+			CLOSE: the Window can be closed.
+			RESIZE: the Window can be resized.
+			NODRAG: the Window can't be moved.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>win_removepid</name>
+			<desc>Specifies whether the application must be ended when the dialog is closed (1) or not (0). Default value is 1.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>btn1_name</name>
+			<desc>Name given to the first Button of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>btn1_capt</name>
+			<desc>Text shown in the first Button of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>btn2_name</name>
+			<desc>Name given to the second Button of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>btn2_capt</name>
+			<desc>Text shown in the second Button of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>btn3_name</name>
+			<desc>Name given to the third Button of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>btn3_capt</name>
+			<desc>Text shown in the third Button of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>hidden_name</name>
+			<desc>Name given to the first Hidden field of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>hidden_text</name>
+			<desc>Value of the first Hidden field of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>hidden2_name</name>
+			<desc>Name given to the second Hidden field of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>hidden2_text</name>
+			<desc>Value of the second Hidden field of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>hidden3_name</name>
+			<desc>Name given to the third Hidden field of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>hidden3_text</name>
+			<desc>Value of the third Hidden field of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>father</name>
+			<desc>Parent element of the dialog.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>img</name>
+			<desc>Type of the image displayed in the dialog along with the text. The use of the predefined values 'i', 'x', '!' and '?' will show an icon denoting an information symbol, a cross, a warning or an interrogant, respectively.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>textbox_name</name>
+			<desc>If specified, creates a Textbox to input information in the dialog. The Textbox will use this parameter as its name.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>textbox_text</name>
+			<desc>Default text of the Textbox.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>textbox_password</name>
+			<desc>Specifies whether the text in the Textbox is shown as plain text (0) or masked with asterisks as a password field (1). Default value is 0.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>textbox_events</name>
+			<desc>Name of the signal sent to the system in case the user presses the enter key in the Textbox.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, if some parameter is missing, returns false and sets the error code to INCORRECT_PARAMS.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>Some parameter is not specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

@@ -1,0 +1,59 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeVideo_run($params = '') {
+	global $checknum;
+	global $myPid;
+	if ($params[0]) {
+		$myWindow = new Window(array(
+			'cent' => 1,
+			'father' => 'eyeApps',
+			'height' => 374,
+			'name' => 'eyeVideo_Window',
+			'savePosition' => 1,
+			'showDragContent' => 2,
+			'title' => utf8_basename($params[0]) . ' - eyeVideo',
+			'style' => TITLE + MIN + LISTED + CLOSE,
+			'width' => 470
+		));
+		$myWindow->show();
+		eyex('rawjs',array('js' => 'var e = document.getElementById("' . $myPid . '_eyeVideo_Window_Content"); e.style.display = "block"; e.style.height = "350px"; e.style.width = "468px";'));
+		$myHidden = new Hidden(array(
+			'father' => 'eyeVideo_Window',
+			'name' => 'eyeVideo_Hidden',
+			'text' => $params[0]
+		));
+		$myHidden->show();
+		eyex('loadScript',array('url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&extern=apps/eyeVideo/flowplayer.min.js&type=text'));
+		eyex('rawjs',array('js' => 'sendMsg(' . $checknum . ',"loadVideo","");'));
+	} else {
+		proc('end');
+	}
+}
+
+function eyeVideo_end($params = '') {
+	global $myPid;
+	delShortUrl($myPid . '_eyeVideo');
+	eyeWidgets('unserialize',$params);
+}
+?>

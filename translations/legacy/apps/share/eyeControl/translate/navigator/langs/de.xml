@@ -1,0 +1,103 @@
+<lang>
+	<info>
+		<lang>DEUTSCH</lang>
+		<author>Lars Knickrehm</author>
+		<version>20/05/2008</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>links-blog-desc</old>
+			<new>Offizieller eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>links-blog-title</old>
+			<new>eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>links-forums-desc</old>
+			<new>Offizielles eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>links-forums-title</old>
+			<new>eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>links-localforums-desc</old>
+			<new>Deutsches eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>links-localforums-title</old>
+			<new>eyeOS-Forum</new>
+		</text>
+		<text>
+			<old>links-title</old>
+			<new>eyeOS-Links</new>
+		</text>
+		<text>
+			<old>links-wiki-desc</old>
+			<new>Offizielles eyeOS-Wiki</new>
+		</text>
+		<text>
+			<old>links-wiki-title</old>
+			<new>eyeOS-Wiki</new>
+		</text>
+		<text>
+			<old>news-read</old>
+			<new>Weiterlesen...</new>
+		</text>
+		<text>
+			<old>news-title</old>
+			<new>Aktuelle Nachrichten</new>
+		</text>
+		<text>
+			<old>section-community-localblog-desc</old>
+			<new>Deutscher eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>section-community-localblog-title</old>
+			<new>eyeOS-Blog</new>
+		</text>
+		<text>
+			<old>site-header-dev</old>
+			<new>ENTWICKLER-GEMEINSCHAFT</new>
+		</text>
+		<text>
+			<old>site-header-eyeoscom</old>
+			<new>PROFESSIONELLE SERVICES</new>
+		</text>
+		<text>
+			<old>site-header-eyeosorg</old>
+			<new>EYEOS-HOMEPAGE</new>
+		</text>
+		<text>
+			<old>site-header-lang-by</old>
+			<new>von</new>
+		</text>
+		<text>
+			<old>site-title</old>
+			<new>eyeNav-Startseite | Web Desktop - Web OS - Web Office - Ihre Dateien und Anwendungen überall!</new>
+		</text>
+		<text>
+			<old>welcome-text</old>
+			<new>Besuchen Sie unsere neue [a tour]eyeOS-1.6-Tour[/a]!</new>
+		</text>
+		<text>
+			<old>welcome-title</old>
+			<new>Willkommen!</new>
+		</text>
+		<text>
+			<old>welcome-version-okay</old>
+			<new>Sie benutzen die aktuelle eyeOS-Version.</new>
+		</text>
+		<text>
+			<old>welcome-version-update</old>
+			<new>Eine neue eyeOS-Version ist verfügbar! Sie sollten in Kürze auf [eyeos version] aktualisieren!</new>
+		</text>
+		<text>
+			<old>welcome-version-update-link</old>
+			<new>Web-Updater</new>
+		</text>
+	</part>
+</lang>

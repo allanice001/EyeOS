@@ -1,0 +1,662 @@
+<lang>
+	<info>
+		<lang>Hrvatski</lang>
+		<lang-en>Croatian</lang-en>
+		<author>Vanja Bunjevac</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Linkovi se ne mogu skidati!</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Ažuriraj</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Upravljanje</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Instaliraj aplikacije</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplikacije</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>Ime datoteke</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Datoteka uspješno ekstraktirana.</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Nema otvorene datoteke</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Ovaj tip kompresije nije podržan</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Ekstrakcija datoteke neuspješna.</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Ekstraktiraj</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Ekstraktiraj na...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Kompresiraj na...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Uspješno kompresirano</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Kompresija neuspjela</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Upravljanje arhivom</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Kompresiraj</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Pošalji</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Javna ploča</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Izbriši</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Tekst za ovaj događaj:</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Dca kalendara ne mogu dijeliti isti ID!</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Prethodna</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Molimo unesite ime kalendaru</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Danas</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Rad</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Sljedeći</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Prikaži</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Prozor</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Tjedan</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Dva kalendara ne mogu dijeliti isto ime!</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Molimo unesite ime kalendara:</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Neispravan broj %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendar</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalendari</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalendar uspješno dodan</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Potreban je najmanje jedan kalendar!</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Upravljanje kalendarima</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Neispravna vrijednost kvadratića</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Kalendar s istim imenom već postoji!</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalendar je već pokrenut!</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dan</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Uredi postavke kalendara</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Postavke su ispravno snimljene</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Dodaj kalendar</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Slow</old>
+			<new>Spor</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Nazad</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Top</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Kraljica</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Osrednji</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Skakač</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Lovac</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Šah</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Add</old>
+			<new>Dodaj</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Dodaj novog korisnika u svoj oneye sistem</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>O meni</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s korisnika registrirano.</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s komandi</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s obrazaca</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Upload files</old>
+			<new>Pošalji datoteke</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Ukloni</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Jednostavno</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Šaljem:</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Datoteka je uspješno poslana</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Greška pri slanju datoteke!</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Dodaj datoteke za transfer i pritisnite Pošalji sada!</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Dodaj datoteke</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Napredno</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Nemate potrebno odobrenje!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Please wait...</old>
+			<new>Molimo pričekajte...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Primjer eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Promjeni naslov teksta</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Upload your files</old>
+			<new>Postavi svoje datoteke</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Pošalji internu poruku</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Želite li da se ovaj widget automatski otvori u sljedećoj sesiji?</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Kreiraj novu proračunsku tablicu</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Kreiraj novi dokument</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendar</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Moja kvota</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Subota</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Snimi kao</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Rujan</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Ispiši</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Pozicija</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Otvori</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Snimi</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Utorak</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Veličina tablice</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Srijeda</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Želite isprazniti ćeliju/e?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Četvrtak</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Nedjelja</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stil</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Studeni</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Listopad</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Novo</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Veljača</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formula</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Dodaj stupac</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Obriši stupac</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Prosinac</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopiraj / zaljepi ovaj kod u drugu proračunsku tablicu (npr. Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Petak</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Ožujak</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Dodaj red</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Svibanj</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Ponedjeljak</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Obriši red</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Lipanj</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Srpanj</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Siječanj</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Travanj</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Kolovoz</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Rujan</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Ned</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Listopad</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Sri</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sub</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Uto</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Čet</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TH</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Studeni</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Pon</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Veljača</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Siječanj</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Pet</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Kolovoz</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Srpanj</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Lipanj</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Svibanj</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Ožujak</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Travanj</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Prosinac</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>Uvoz vCarda ne može započeti, kontaktirajte administratora</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Datoteka nije pronađena!</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Niti jedan kontakt nije pronađen u ovoj datoteci!</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Dokument uvezen!</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Direktorij nije pronađen</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Došlo je do greške pri izvozu dokumenta!</new>
+		</text>
+	</part>
+</lang>

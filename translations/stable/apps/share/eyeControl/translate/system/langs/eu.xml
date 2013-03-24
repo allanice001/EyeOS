@@ -1,0 +1,1896 @@
+<lang>
+	<info>
+		<lang>Euskara</lang>
+		<lang-en>Basque</lang-en>
+		<author>Ion Rey, Aida Landera, Oier Alberdi</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Sortu esteka bat</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Sortu</new>
+		</text>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Mesedez, idatzi estekaren izenburua hemen:</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Jeitsi "%s" zip formatuan</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Jeitsi!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Estekak ezin dira jeitsi</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Zerbitzariak ez ditu zip fitxategiak onartzen</new>
+		</text>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Lehio hau itxi ahal duzu orain</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Abian jarzeko komandoa</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Editatu %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Eguneratu</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Accept</old>
+			<new>Onartu</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Ezabatu %s</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Ziur zaude paperontzia hustu nahi duzula?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Ziur zaude "%s" ezabatu nahi duzula?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Hustu paperontzia</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Add new group</old>
+			<new>Gehitu talde berria</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Gehitu</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>Helbide_bilduma</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Fitxategi guztiak</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>Etxeko helbidea</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>Talde guztiak</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Ziur zaude kontaktu hauek (%s) ezabatu nahi dituzula?</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>Ezin da kontaktua sortu</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Kontaktuak ezabatu ditugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Kontaktua aldatu dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>Ezin da kontaktua editatu</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Ezabatu kontaktuak</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Zehaztasunak</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Kontaktuak</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Kontaktuak biltzeko datubasea</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>Helbide elektronikoa</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>Taldea ezabatu dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>Helbide elektronikoa</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Editatu</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Akatsa suertatu da taldea sortzean</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Akatsa suertatu da kontaktuak ezabatzean</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Onartu</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Gehitu kontaktua</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>Esportazioa erabat bete dugu</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Esportatu</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>Familia</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantaila osoan</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Etxea</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Etxeko telefonoa</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>Taldea gehitu dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>Inportazioa erabat bukatu dugu</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Erakundea</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>im</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Erakundearen fax-a</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Inportatu</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>Mobila</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Izena</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>Kontatu berria sortu dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>Kontaktu berria</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>Mesedez, aukeratu kontaktu bakar bat mezua bidaltzeko</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>Laneko fax zenbakia</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Ezizena</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>ezizena</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ez</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Oharrak</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>Mesedez, aukeratu editatzeko kontaktu bat</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>Mesedez, aukeratu talde bat</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>oharrak</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>Mesedez, aukeratu editatzeko kontaktu bakar bat</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>Mesedez, idatzi talde berriaren izena</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>Mesedez, aukeratu kontaktu bat mezua bidali ahal izateko</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>Mesedez, aukeratu kontaktu bat edo gehiago</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>Eginkizun mota</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>Laneko helbide elektronikoa</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>Gorde kontaktua</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Bidali mezua</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Ezarpenak</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Abizena</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>Mobilaren zerbitzaria</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Mobilaren zenbakia</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>Erabiltzailea</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>VoIP</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>voip</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Webgunea</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>Laneko telefonoa</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>Laneko mobila</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>Lantokiaren helbidea</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Bai</new>
+		</text>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>Mesedez, idatzi izena eta abizena</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>Laneko webgunea</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Lantokia</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Norberarena</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Applications</old>
+			<new>Programak</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantaila osoan</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Instalatu programak</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Kudeatu Dock</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Extract</old>
+			<new>Zabaldu</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Fitxategien kudeatzailea</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>BZip fitxategiak</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Fitxategi guztiak</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Konprimitu honetara...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Konprimitu</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Akatsa suertatu da konprimitzean</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Zabaldu honetara...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Konprimitzea bukatu dugu</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Fitxategia zabaldu dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>Zip fitxategiak</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Fitxategiaren izena</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>GZip fitxategiak</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Akatsa suertatu da fitxategia zabaltzean</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Fitxategia ez da ireki</new>
+		</text>
+		<text>
+			<old>Open a folder or file</old>
+			<new>Ireki karpeta edo fitxategi bat</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Tar fitxategiak</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Konprimitze mota hori ez dugu onartzen</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Ireki</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Hustu</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Ohol publikoa</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Bidali</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>C</old>
+			<new>C</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulagailua</new>
+		</text>
+		<text>
+			<old>Adv.</old>
+			<new>Aurr.</new>
+		</text>
+		<text>
+			<old>CE</old>
+			<new>CE</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Division by zero is invalid!</old>
+			<new>Zero-ren zatiketa ez da onargarria</new>
+		</text>
+		<text>
+			<old>Del</old>
+			<new>Ezab.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Add Calendar</old>
+			<new>Gehitu egutegi berria</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Gutxienez, egutegi bat behar dugu</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Konfigurazioa ongi gorde da</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>Konfigurazioa gorde dugu</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Egutegia gehitu dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Egutegia, dagoeneko, abian dago</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Egutegia</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Egutegien kudeatzailea</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Egutegiak</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Ostirala</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Konfiguratu egutegia</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>Eguna bukatzen da:</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>Eguna hasten da:</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Onartu</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Badugu izen berdina duen beste egutegi bat</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Eguna</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantaila osoan</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>Konfigurazio orokorra</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Checkbox balio hori ez dugu onartzen</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Zenbaki onarteziena %s</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Astelehena</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Hurrengoa</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Mesedez, aukeratu egutegiaren izena</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Mesedez, idatzi izen bat egutegi honetarako</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Aurrekoa</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Larunbata</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Erakutsi</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>Osteguna</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Gaur</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Asteartea</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Bi egutegik ezin dute ID bera izan!</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>Astea hasten da:</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Astea</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Bi egutegik ezin dute izen bera izan!</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Asteazkena</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>Astea bukatzen da:</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Lanaldia</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Igandea</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Lehio itxura (window mode)</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>Lanaldi itxuraren konfigurazioa</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>Lanaldi itxura</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>Eginkizun honen testua</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>Ez dugu  komando hori aurkitu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Delete group</old>
+			<new>Ezabatu taldea</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>Ekintza:</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>Helbide elektronikoa</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Editatu</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Mahai-gaina</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Esportatu</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Lortu itzulpen gehiago</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>Ekintza</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Taldea</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Taldearen izena</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Taldeak</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Inportatu</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Pasahitza gaizki dago!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Hizkuntza</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Pasahitz ezberdinak sartu dituzu!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Pasahitza</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Berria</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Pasahitza *</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Erabiltzailea</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Bai</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Gorde</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Ezarpenak</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Izenburua</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Pasahitza (berriz) *</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ez</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Estekak ezin dira kopiatu!</new>
+		</text>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>"%s" itsasi ahal duzu orain beste karpeta batean.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s" ezabatu dugu, problemarik gabe.</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%" mugitu dugu paperontzira</new>
+		</text>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Akatsa suertatu da fitxategia ezabatzean!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Download</old>
+			<new>Jaitsi</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Abiatu</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Egutegia</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiatu</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Editatu</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Hustu paperontzia</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Fitxategi berria</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>Helbide liburua</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programak</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Esploratu</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Etxea</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Jaitsi zip batean</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Karpeta berria</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Eguneratu</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Igo fitxategiak</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Ireki honekin</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Itsasi</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Aldatu izena</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed irakurlea</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Ongi etorri %s,  %s.</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Abiatzaile berria</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Ireki paperontzia</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Share with</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Paperontzia</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Ezarpenak</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ezaugarriak</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Download!</old>
+			<new>Jeitsi!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Estekak ezin dira jaitsi!</new>
+		</text>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Orain lehio hau itxi ahal duzu.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Delete</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Egilea</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Atzera</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Editatu</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Hustu paperontzia</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Jaitsi zip moduan</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Jaitsi</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Esploratu</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Fitxategiaren izena</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>Fitxategien kudeatzailea</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Ekintzak</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiatu</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Fitxategiaren tamaina (B)</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Fitxategiaren data</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Filtroa:</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantaila osoan</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Taldeak</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Laguntza</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Etxea</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Ikonoak</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Itsasi</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Ireki honekin:</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Abiatu</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Karpeta berria</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Hurrengoa</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Erakutsi fitxategiak</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Erakutsi karpetak</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ezaugarriak</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Eguneratu</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Aldatu izena</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Erakutsi guztiak</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Erakutsi estekak</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Fitxategi berria</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>Zerrenda</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Ireki</new>
+		</text>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>Zein URL nahi duzu irekitzea Iframe baten barruan?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>To: %s</old>
+			<new>Nori: %s</new>
+		</text>
+		<text>
+			<old>User:</old>
+			<new>Erabiltzailea</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Accept</old>
+			<new>Onartu</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Nork</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Lotu</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Jeitsi</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Hustu</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Fitxategia gorde dugu, problemarik gabe.</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Hutsik</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Ziur zaude karpeta honen mezu guztiak ezabatu nahi dituzula?</new>
+		</text>
+		<text>
+			<old>(do) Read</old>
+			<new>Irakurri</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Akatsa suertatu da mezua irekitzean</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Benetan hustu?</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantaila osoan</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Inbox</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Mezua berezko karpetara itzuli dugu</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Zerbait ezabatzeko, lehenik mezu bat edo aukeratu behar duzu</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Desegin ezabaketa</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Irakurri mezua</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Bidali</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Erantzun</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Norentzat</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Irakurri gabea</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Gaia</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Berria</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Gure arteko mezuak</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Paperontzia</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Eguneratu</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Zerbait irekitzeko, lehenik mezu bat edo aukeratu behar duzu</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Irakurrita</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Next</old>
+			<new>Hurrengoa</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Atzera</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantaila osoan</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Ireki</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Aurkezpena</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Irekitzeko, fitxategia aukeratu behar duzu, lehenik.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Barkatu, baina baimen maila handiago beahr duzu.</new>
+		</text>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>Ezin zara atzerago joan, lehendabiziko diapositiban zaude eta.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Username</old>
+			<new>Erabiltzailea</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Size</old>
+			<new>Tamaina</new>
+		</text>
+		<text>
+			<old>ZIP file</old>
+			<new>ZIP fitxategia</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>Akatsa suertatu da igotze prozesuan</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ez</new>
+		</text>
+		<text>
+			<old>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</old>
+			<new>&lt;b&gt;Fitxategi batzuk handiegiak dira!&lt;/b&gt;&lt;br&gt;Fitxategien artean batzuk handiegiak dira eta, ziuraski,  zerbitzariak ez ditu onartuko. &lt;br&gt; Kendu nahi al dituzu orain?</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Gehitu fitxategiak. Ondoren, sakatu "Igo" </new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Akatsa suertatu da fitxategia igotzean</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>"%s" igo dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Gehitu fitxategiak</new>
+		</text>
+		<text>
+			<old>%s MB</old>
+			<new>%s MB</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Fitxategia igo dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Fitxategiaren izena</new>
+		</text>
+		<text>
+			<old>Max filesize allowed</old>
+			<new>Fitxategiaren tamaina, gehienez, hauxe izan daiteke:</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Aurreratua</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Igo fitxategiak</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Ez duzu behar adina baimen</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Sinplea</new>
+		</text>
+		<text>
+			<old>Size (KB)</old>
+			<new>Tamaina (KB)</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Igo orain!</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>Mesedez, idatzi fitxategiaren HTTP helbidea:</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>Fitxategia igo dugu, problemarik gabe</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Ezabatu</new>
+		</text>
+		<text>
+			<old>Web</old>
+			<new>Webgunea</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Bai</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>Ez duzu nahiko leku librea!</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Igotzen:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Please wait...</old>
+			<new>Itxaron... mesedez</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Aldatu etiketaren izena</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Kaixo Mundua!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>Ez dugu itxi ez da prozezu bat ere</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Sortu kalkulu-orri berria</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Nahi al duzu gailu hau berez irekitzea hurrengo saio batean?</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Sortu dokumentu berria</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ez</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Igo zure fitxategiak</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Bai</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Bidali barruko mezua</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Egutegia</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Nire erabilpen kopurua</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Gure arteko mezuak</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Accept</old>
+			<new>Onartu</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Sortu fitxategi bat</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Akatsa suertatu da fitxategia sortzean</new>
+		</text>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Mesedez, idatzi fitxategi berriaren izena hemen:</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Karaktere berezi batzuk ezabatu ditugu</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Close</old>
+			<new>Itxi</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Akatsa suertatu da mezua bidaltzean</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Gehitu fitxategia</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Lotu</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Mezua bidali dugu</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Mezu berria</new>
+		</text>
+		<text>
+			<old>To groups</old>
+			<new>Zein talderentzat</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Norentzat</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Bidali</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Gaia</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopiatu / Itsasi  kode hau Excel motako orrietan</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Ostirala</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Martxoa</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Abendua</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Ezab. zutabea</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formula</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Tartek. zutabea</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Tartek. lerroa</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maiatza</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Urtarrila</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Apirila</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Abuztua</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Uztaila</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Ekaina</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Astelehena</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Ezab. lerroa</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Otsaila</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Berria</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Ireki</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Gorde</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Asteartea</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Posizioa</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Inprimatu</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Gorde honela...</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Iraila</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Orriaren tamaina</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Asteazkena</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Estiloa</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Azaroa</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Urria</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Igandea</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Osteguna</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Ziur zaude? Hustu gelaxkak?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Larunbata</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>August</old>
+			<new>Abuztua</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Abendua</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>%s akatsa</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>Aterata</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>O</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Otsaila</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Ost</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Urtarrila</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Beste fitxategi bat</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Apirila</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Uztaila</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Ekaina</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>A</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Martxoa</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maiatza</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Asth</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Iga</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>A</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Urria</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Azaroa</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>L</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>I</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>A</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Azt</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>O</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Ostg</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Astr</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Igo</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Lar</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Iraila</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>Clean</old>
+			<new>Garbitu</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Ziur zaude vCard hau inportatu nahi duzula?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Akatsa fitxategia esportatzean</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Utzi</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Ez dugu karpeta aurkitu</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Fitxategia inportatu dugu!</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Inportatu %s</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Ez dugu fitxategia aurkitu</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>vCardImport ezin izan dugu abian jarri. Hitz egin zure administratzailearekin</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Inportatu</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Ez dugu kontakturik aurkitu fitxategi honetan</new>
+		</text>
+	</part>
+</lang>

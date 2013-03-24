@@ -1,0 +1,1058 @@
+<lang>
+	<info>
+		<lang>Türkçe</lang>
+		<lang-en>Turkish</lang-en>
+		<author>Ömer (Axi)</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Add an eyeLink</old>
+			<new>eyeLink Ekle</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>Dosyanız İndirelemiyor</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Edit link</old>
+			<new>Linki&#039;i Değiştir</new>
+		</text>
+		<text>
+			<old>Invalid link file.</old>
+			<new>Link dosyası</new>
+		</text>
+		<text>
+			<old>Link updated.</old>
+			<new>Link Güncellendi</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Güncelle</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Are you sure you want to empty trash content?</old>
+			<new>Çöp Kutusunu Boşaltmak İstediğine Emin Misin?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Çöp Kutusu Boş</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>Uygulama Yükle</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Tabloyu Düzelt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>Sıkıştır</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Sıkıştırılıyor...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Sıkıştırma Başarıyla Tamamlandı</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Çıkart</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Çıkartılıyor...</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Dosya Başarıyla Çıkarıldı</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Dosya Çıkartılamadı</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Dosya İsmi</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Dosya Açılamadı</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Sıkıştırma Desteklenmiyor</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBar</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>eyeOS Hakkında</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Uygulamalar</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>Oturumu Kapat</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Uygulama Başlat</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Sistem Ayarları</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Temizle</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Yolla</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Add Calendar</old>
+			<new>Takvim Ekle</new>
+		</text>
+		<text>
+			<old>Calendar is already runing</old>
+			<new>Takvim Her Zaman Çalışıyor</new>
+		</text>
+		<text>
+			<old>Calendar Name</old>
+			<new>Takvim Adı</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Takvimler</new>
+		</text>
+		<text>
+			<old>Create Calendar</old>
+			<new>Takvim Oluştur</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Gün</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Tam Ekran</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>İleri</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Geri</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Göster</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Bugün</new>
+		</text>
+		<text>
+			<old>Update Calendars</old>
+			<new>Takvim Güncellendi</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Hafta</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Pencere Modu</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>İş</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeContacts</name>
+		<text>
+			<old>Add Contact</old>
+			<new>Kişi Ekle</new>
+		</text>
+		<text>
+			<old>Address</old>
+			<new>Adres</new>
+		</text>
+		<text>
+			<old>ALL</old>
+			<new>Hepsi</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Şirket</new>
+		</text>
+		<text>
+			<old>Company Address</old>
+			<new>Şirket Adresi</new>
+		</text>
+		<text>
+			<old>Contact deleted successfully.</old>
+			<new>Kişi Başarıyla Silindi</new>
+		</text>
+		<text>
+			<old>Contact updated successfully.</old>
+			<new>Kişi Başarıyla Güncellendi</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-posta</new>
+		</text>
+		<text>
+			<old>Edit Contact</old>
+			<new>Kişi Değiştir</new>
+		</text>
+		<text>
+			<old>Error deleting contact.</old>
+			<new>Hata!Kişi Silinemedi</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>Hata!</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>Format Desteklenmiyor</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Ev Telefonu</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Cep Telefonu</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>İsim</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Takma İsim</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Kişi Notu</new>
+		</text>
+		<text>
+			<old>Phone</old>
+			<new>Telefon</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Mesaj Yolla</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>About me</old>
+			<new>Hakkımda</new>
+		</text>
+		<text>
+			<old>Add language</old>
+			<new>Dil ekle</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Ekle</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Yönetici</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Public Klasörü Herkese Açık</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Geri</new>
+		</text>
+		<text>
+			<old>Change theme</old>
+			<new>Temayı Değştir</new>
+		</text>
+		<text>
+			<old>Create user</old>
+			<new>Kullanıcı Oluştur</new>
+		</text>
+		<text>
+			<old>Created on</old>
+			<new>Oluşturuldu</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Grup Sil</new>
+		</text>
+		<text>
+			<old>Delete language</old>
+			<new>Dil Sil</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>İndir</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>File Copied. You can now paste it in another folder.</old>
+			<new>Dosya Kopyalandı.Yapıştıracağınız Klasöre Gdin ve &quot;Yapıştır&quot;a Basın</new>
+		</text>
+		<text>
+			<old>Links can&#039;t be copied.</old>
+			<new>Link Kopyalanamıyor</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file.</old>
+			<new>Hata Dosya Silinemedi</new>
+		</text>
+		<text>
+			<old>File moved to trash.</old>
+			<new>Dosya Çöp Kutusuna Taşı</new>
+		</text>
+		<text>
+			<old>File removed successfully.</old>
+			<new>Dosya Silindi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>Kopyala</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>İndir</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>Yeni Dosya</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Yapıştır</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Yenile</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Dosyaları Yükle</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Arkaplan</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>İsim</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Seç</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Klasör Seç</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Boyut</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Calculator</old>
+			<new>Hesap Makinesi</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Takvim</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Satranç</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Masaüstü</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>Favorilerim</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Dosya Yöneticisi</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>Ftp Aracı</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Oyunlar</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Gruplar</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Anasayfa</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Online Mesaj</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Mail Aracı</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>İnternet Tarayıcısı</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Ağ</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Ofis</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>Özel</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Çöp Kutusu</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Yazı Editörü</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Döküman Başarıyla Kayıt Edildi</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Özür Dilerim İzniniz Yok</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>İndirilemiyor</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Copy</old>
+			<new>Kopyala</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Klasör Oluştur</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Sil</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>.zip Formatında İndir</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Klasörler</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Yapıştır</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Yüklenecek Dosyalar</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Add host</old>
+			<new>Host Ekle</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Bağlan</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Sil</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>İndir</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Dosya Adı</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Dosya Boyutu</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Yardım</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Ana PC:</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Yeni Klasör</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Şifre:</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Şifre:</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>İzinler</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>İsim Değiştir</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Dosya/Klasör İsim Değiştir</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Değiştir/Taşı</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Yüklenecek Hedefi Seçin:</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Yükle</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Kulanıcı:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Kullanıcı Adı:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Fullscreen</old>
+			<new>Tam Ekran</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>İleri</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Geri</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>Browse</old>
+			<new>Gözat</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Çıkar</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Çıkartılacak Bir Hedef Seçin</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>eyeOS Engineering Team</old>
+			<new>eyeOS Mühendisleri</new>
+		</text>
+		<text>
+			<old>Thanks to</old>
+			<new>Teşekkürler</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>Kabul Et</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Yükleniyor</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Yüklenemiyor</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Paket Yüklemesi Tamamlandı</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run...</old>
+			<new>Çalışıyor...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>eyeMail Configuration</old>
+			<new>eyeMail Ayarları</new>
+		</text>
+		<text>
+			<old>Mail from:</old>
+			<new>Gönderilen:</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>Mesajı sil</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>İsim</new>
+		</text>
+		<text>
+			<old>New Mail</old>
+			<new>Yeni Mail</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Şifre</new>
+		</text>
+		<text>
+			<old>Save Configuration</old>
+			<new>Ayarları Kaydet</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Yolla</new>
+		</text>
+		<text>
+			<old>Server Address</old>
+			<new>Sunucu Adresi</new>
+		</text>
+		<text>
+			<old>Server Port</old>
+			<new>Sunucu Portu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Error creating directory</old>
+			<new>Hata Klasör Oluşturulamadı</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Yeni Klasör</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add</old>
+			<new>Ekle</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Kütüphaneye Ekle</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Uygulamalar</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Geri</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Kütüphane Hakkında</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Kütüphaneler</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Kütüphaneyi Sil</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forumlar</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>İleri</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Resimler</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>İnternet</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Ara</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Ayarlar</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Ana Sayfa</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Websitesi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File not found</old>
+			<new>Dosya Bulunamadı</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Dosya Başarıyla Kaydedildi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>Geri</new>
+		</text>
+		<text>
+			<old>Full</old>
+			<new>Full</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>İleri</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Üzgünüm,Bu İşlem İçin İzniniz yok</new>
+		</text>
+		<text>
+			<old>You have to select a file to open</old>
+			<new>Açmak İstediğiniz Dosyayı Seçin</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Please type a new name here:</old>
+			<new>Lütfen Yeni Bir İsim Girin:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Adını Değiştir</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found</old>
+			<new>Dosya Bulunamadı</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Üzgünüm,Bu İşlem İçin İzniniz Yok.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Accept</old>
+			<new>Kabul Et</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategoriler</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft:Paket Listesi Güncellendi</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Yükle</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Yüklendi</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Ara</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Sil</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Uygulama Sil</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Güncelle</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versiyon</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Clear</old>
+			<new>Temizle</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Tamam</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTrash</name>
+		<text>
+			<old>Actions</old>
+			<new>Fiil</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Çöp Kutusu Boş</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Error uploading file</old>
+			<new>Dosya Yüklenemedi</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Dosya Yükle</new>
+		</text>
+		<text>
+			<old>Upload finished!</old>
+			<new>Dosyanız Başarıyla Yüklendi</new>
+		</text>
+		<text>
+			<old>You can now close this window.</old>
+			<new>Pencereyi Kapatabilirsiniz</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>DEğiştir</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>Üzgünüm,Bunun İçin Yetkiniz Yok</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Bir Metin Seçin</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Örnek</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Merhaba Dünya!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process was killed</old>
+			<new>Hiç Öldüremediniz</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Restore trash</old>
+			<new>Geri Yükle</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Save</old>
+			<new>Kaydet</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stil</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>April</old>
+			<new>Nisan</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Ağustos</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Aralık</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Şubat</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Ocak</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Temmuz</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Haziran</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Mart</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mayıs</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Kasım</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Ekim</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Eylül</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Directory not found</old>
+			<new>Hedef Bulunamadı</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Başarılı</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>Format Desteklenmiyor</new>
+		</text>
+	</part>
+</lang>

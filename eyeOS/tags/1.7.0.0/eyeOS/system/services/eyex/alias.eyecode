@@ -1,0 +1,192 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.7
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	THEMES ALIASES
+*/
+
+$alias[0]['icons/20x20/home.png'] = 'icons/20x20/eyeFiles.png';
+$alias[0]['icons/48x48/autorun.png'] = 'icons/48x48/exec.png';
+$alias[0]['icons/48x48/filemanager.png'] = 'icons/48x48/eyeFiles.png';
+$alias[0]['icons/48x48/home.png'] = 'icons/48x48/eyeFiles.png';
+$alias[0]['icons/48x48/managegroups.png'] = 'icons/48x48/eyeGroups.png';
+$alias[0]['icons/48x48/manageusers.png'] = 'icons/48x48/public.png';
+$alias[0]['icons/48x48/webbrowser.png'] = 'icons/48x48/eyeNav.png';
+$alias[0]['images/widgets/folder.png'] = 'icons/16x16/folder.png';
+$alias[0]['images/widgets/folder_open.png'] = 'icons/16x16/folder_open.png';
+
+/*
+	EXTERN ALIASES
+*/
+
+// eyeCalendar
+$alias[1][APP_DIR . '/eyeCalendar/gfx/deleteNote.gif'] = 'images/' . APP_DIR . '/eyeCalendar/deleteNote.gif';
+$alias[1][APP_DIR . '/eyeCalendar/gfx/deleteNote.png'] = 'images/' . APP_DIR . '/eyeCalendar/deleteNote.png';
+$alias[1][APP_DIR . '/eyeCalendar/gfx/dotted.gif'] = 'images/' . APP_DIR . '/eyeCalendar/dotted.gif';
+$alias[1][APP_DIR . '/eyeCalendar/gfx/dotted.png'] = 'images/' . APP_DIR . '/eyeCalendar/dotted.png';
+$alias[1][APP_DIR . '/eyeCalendar/gfx/widget/plus.png'] = 'images/' . APP_DIR . '/eyeCalendar/widget/plus.png';
+$alias[1][APP_DIR . '/eyeCalendar/gfx/widget/selected.gif'] = 'images/' . APP_DIR . '/eyeCalendar/widget/selected.gif';
+$alias[1][APP_DIR . '/eyeCalendar/gfx/widget/selected.png'] = 'images/' . APP_DIR . '/eyeCalendar/widget/selected.png';
+// eyeChess
+$alias[1][APP_DIR . '/eyeChess/0.png'] = 'images/' . APP_DIR . '/eyeChess/0.png';
+$alias[1][APP_DIR . '/eyeChess/1.png'] = 'images/' . APP_DIR . '/eyeChess/1.png';
+$alias[1][APP_DIR . '/eyeChess/2.png'] = 'images/' . APP_DIR . '/eyeChess/2.png';
+$alias[1][APP_DIR . '/eyeChess/3.png'] = 'images/' . APP_DIR . '/eyeChess/3.png';
+$alias[1][APP_DIR . '/eyeChess/4.png'] = 'images/' . APP_DIR . '/eyeChess/4.png';
+$alias[1][APP_DIR . '/eyeChess/5.png'] = 'images/' . APP_DIR . '/eyeChess/5.png';
+$alias[1][APP_DIR . '/eyeChess/6.png'] = 'images/' . APP_DIR . '/eyeChess/6.png';
+$alias[1][APP_DIR . '/eyeChess/7.png'] = 'images/' . APP_DIR . '/eyeChess/7.png';
+$alias[1][APP_DIR . '/eyeChess/8.png'] = 'images/' . APP_DIR . '/eyeChess/8.png';
+$alias[1][APP_DIR . '/eyeChess/9.png'] = 'images/' . APP_DIR . '/eyeChess/9.png';
+$alias[1][APP_DIR . '/eyeChess/10.png'] = 'images/' . APP_DIR . '/eyeChess/10.png';
+$alias[1][APP_DIR . '/eyeChess/11.png'] = 'images/' . APP_DIR . '/eyeChess/11.png';
+$alias[1][APP_DIR . '/eyeChess/12.png'] = 'images/' . APP_DIR . '/eyeChess/12.png';
+$alias[1][APP_DIR . '/eyeChess/13.png'] = 'images/' . APP_DIR . '/eyeChess/13.png';
+$alias[1][APP_DIR . '/eyeChess/14.png'] = 'images/' . APP_DIR . '/eyeChess/14.png';
+$alias[1][APP_DIR . '/eyeChess/IE/0.png'] = 'images/' . APP_DIR . '/eyeChess/IE/0.png';
+$alias[1][APP_DIR . '/eyeChess/IE/1.png'] = 'images/' . APP_DIR . '/eyeChess/IE/1.png';
+$alias[1][APP_DIR . '/eyeChess/IE/2.png'] = 'images/' . APP_DIR . '/eyeChess/IE/2.png';
+$alias[1][APP_DIR . '/eyeChess/IE/3.png'] = 'images/' . APP_DIR . '/eyeChess/IE/3.png';
+$alias[1][APP_DIR . '/eyeChess/IE/4.png'] = 'images/' . APP_DIR . '/eyeChess/IE/4.png';
+$alias[1][APP_DIR . '/eyeChess/IE/5.png'] = 'images/' . APP_DIR . '/eyeChess/IE/5.png';
+$alias[1][APP_DIR . '/eyeChess/IE/6.png'] = 'images/' . APP_DIR . '/eyeChess/IE/6.png';
+$alias[1][APP_DIR . '/eyeChess/IE/7.png'] = 'images/' . APP_DIR . '/eyeChess/IE/7.png';
+$alias[1][APP_DIR . '/eyeChess/IE/8.png'] = 'images/' . APP_DIR . '/eyeChess/IE/8.png';
+$alias[1][APP_DIR . '/eyeChess/IE/9.png'] = 'images/' . APP_DIR . '/eyeChess/IE/9.png';
+$alias[1][APP_DIR . '/eyeChess/IE/10.png'] = 'images/' . APP_DIR . '/eyeChess/IE/10.png';
+$alias[1][APP_DIR . '/eyeChess/IE/11.png'] = 'images/' . APP_DIR . '/eyeChess/IE/11.png';
+$alias[1][APP_DIR . '/eyeChess/IE/12.png'] = 'images/' . APP_DIR . '/eyeChess/IE/12.png';
+$alias[1][APP_DIR . '/eyeChess/IE/13.png'] = 'images/' . APP_DIR . '/eyeChess/IE/13.png';
+$alias[1][APP_DIR . '/eyeChess/IE/14.png'] = 'images/' . APP_DIR . '/eyeChess/IE/14.png';
+// eyeControl
+$alias[1][APP_DIR . '/eyeControl/gfx/back.png'] = 'icons/16x16/back.png';
+$alias[1][APP_DIR . '/eyeControl/gfx/exec.png'] = 'icons/16x16/exec.png';
+$alias[1][APP_DIR . '/eyeControl/gfx/norepeat.png'] = 'images/' . APP_DIR . '/eyeControl/norepeat.png';
+$alias[1][APP_DIR . '/eyeControl/gfx/repeat.png'] = 'images/' . APP_DIR . '/eyeControl/repeat.png';
+// eyeFeeds
+$alias[1][APP_DIR . '/eyeFeeds/gfx/addfeed.png'] = 'images/' . APP_DIR . '/eyeFeeds/toolbar/addfeed.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/addfeed_menu.png'] = 'images/' . APP_DIR . '/eyeFeeds/16x16/addfeed_menu.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/addfolder_menu.png'] = 'icons/16x16/newfolder.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/delfeed.png'] = 'images/' . APP_DIR . '/eyeFeeds/toolbar/delfeed.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/delfeedfolder.png'] = 'images/' . APP_DIR . '/eyeFeeds/toolbar/delfeedfolder.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/delfeedfolder_menu.png'] = 'images/' . APP_DIR . '/eyeFeeds/16x16/delfeedfolder_menu.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/editfeed.png'] = 'images/' . APP_DIR . '/eyeFeeds/20x20/editfeed.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/editfeedfolder.png'] = 'images/' . APP_DIR . '/eyeFeeds/toolbar/editfeedfolder.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/editfeedfolder_menu.png'] = 'images/' . APP_DIR . '/eyeFeeds/16x16/editfeedfolder_menu.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/editfolder.png'] = 'images/' . APP_DIR . '/eyeFeeds/20x20/editfolder.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/export.png'] = 'images/' . APP_DIR . '/eyeFeeds/20x20/export.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/import.png'] = 'images/' . APP_DIR . '/eyeFeeds/20x20/import.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/item_read.png'] = 'images/' . APP_DIR . '/eyeFeeds/16x16/item_read.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/item_unread.png'] = 'images/' . APP_DIR . '/eyeFeeds/16x16/item_unread.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/newfolder.png'] = 'images/toolbar/newfolder.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/search.png'] = 'images/' . APP_DIR . '/eyeFeeds/16x16/search.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/settings.png'] = 'images/' . APP_DIR . '/eyeFeeds/20x20/settings.png';
+$alias[1][APP_DIR . '/eyeFeeds/gfx/settings_logo.png'] = 'images/' . APP_DIR . '/eyeFeeds/settings.png';
+// eyeFiles
+$alias[1][APP_DIR . '/eyeFiles/gfx/Back.png'] = 'images/' . APP_DIR . '/eyeFiles/back.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/copy.png'] = 'icons/16x16/copy.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/delete.png'] = 'icons/16x16/delete.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/down.png'] = 'icons/16x16/download.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/download.png'] = 'icons/16x16/save.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/downzip.png'] = 'icons/16x16/downzip.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/eyefilesbg.png'] = 'images/' . APP_DIR . '/eyeFiles/eyefilesbg.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/eyegroupsbg.png'] = 'images/' . APP_DIR . '/eyeFiles/eyegroupsbg.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/newfolder.png'] = 'icons/16x16/newfolder.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/Next.png'] = 'images/' . APP_DIR . '/eyeFiles/next.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/paste.png'] = 'icons/16x16/paste.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/PathCenter.png'] = 'images/' . APP_DIR . '/eyeFiles/pathcenter.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/PathGo.png'] = 'images/' . APP_DIR . '/eyeFiles/pathgo.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/PathLeft.png'] = 'images/' . APP_DIR . '/eyeFiles/pathleft.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/properties.png'] = 'icons/16x16/properties.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/rename.png'] = 'icons/16x16/rename.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/save.png'] = 'icons/16x16/save.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/site.png'] = 'icons/16x16/folder.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/Top.png'] = 'images/' . APP_DIR . '/eyeFiles/top.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/upload.png'] = 'icons/16x16/upload.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/newfolder_big.png'] = 'icons/48x48/folder.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/rename_big.png'] = 'icons/48x48/rename.png';
+$alias[1][APP_DIR . '/eyeFiles/gfx/upload_big.png'] = 'icons/48x48/upload.png';
+// eyeFTP
+$alias[1][APP_DIR . '/eyeFTP/gfx/addhost.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/addhost.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/connect.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/connect.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/delete.png'] = 'images/toolbar/delete.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/deletehost.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/deletehost.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/disconnect.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/disconnect.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/download.png'] = 'images/toolbar/download.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/edithost.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/edithost.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/help.png'] = 'images/toolbar/help.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/host.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/host.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/loadhost.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/loadhost.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/log_icons/err.png'] = 'images/' . APP_DIR . '/eyeFTP/10x10/err.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/log_icons/info.png'] = 'images/' . APP_DIR . '/eyeFTP/10x10/info.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/log_icons/norm.png'] = 'images/' . APP_DIR . '/eyeFTP/10x10/norm.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/log_icons/succ.png'] = 'images/' . APP_DIR . '/eyeFTP/10x10/succ.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/log_icons/warn.png'] = 'images/' . APP_DIR . '/eyeFTP/10x10/warn.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/managehosts.png'] = 'images/' . APP_DIR . '/eyeFTP/toolbar/managehosts.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/managehosts_logo.png'] = 'images/' . APP_DIR . '/eyeFTP/managehosts.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/minihost.png'] = 'images/' . APP_DIR . '/eyeFTP/minihost.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/newfolder.png'] = 'images/toolbar/newfolder.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/newfolder_big.png'] = 'icons/48x48/newfolder.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/rename.png'] = 'images/toolbar/rename.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/rename_big.png'] = 'icons/48x48/rename.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/toleft.png'] = 'icons/16x16/back.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/toright.png'] = 'icons/16x16/forward.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/typedefault.png'] = 'icons/16x16/file.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/typefolder.png'] = 'icons/16x16/folder.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/typelink.png'] = 'icons/16x16/link.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/upload.png'] = 'images/toolbar/upload.png';
+$alias[1][APP_DIR . '/eyeFTP/gfx/upload_big.png'] = 'icons/48x48/upload.png';
+// eyeMail (deprecated; left, because of possible dependencies with third-party apps)
+$alias[1][APP_DIR . '/eyeMail/gfx/delete.png'] = 'icons/16x16/message_trash.png';
+$alias[1][APP_DIR . '/eyeMail/gfx/email.png'] = 'images/' . APP_DIR . '/eyeMail/email.png';
+$alias[1][APP_DIR . '/eyeMail/gfx/identify.png'] = 'icons/16x16/unread.png';
+$alias[1][APP_DIR . '/eyeMail/gfx/inbox.png'] = 'icons/16x16/inbox.png';
+$alias[1][APP_DIR . '/eyeMail/gfx/open.png'] = 'icons/16x16/read.png';
+$alias[1][APP_DIR . '/eyeMail/gfx/send.png'] = 'icons/16x16/sent.png';
+// eyeNav
+$alias[1][APP_DIR . '/eyeNav/gfx/delete.png'] = 'images/' . APP_DIR . '/eyeNav/delete.png';
+$alias[1][APP_DIR . '/eyeNav/gfx/link.png'] = 'images/' . APP_DIR . '/eyeNav/link.png';
+// eyeSnow
+$alias[1][APP_DIR . '/eyeSnow/0.png'] = 'images/' . APP_DIR . '/eyeSnow/0.png';
+$alias[1][APP_DIR . '/eyeSnow/1.png'] = 'images/' . APP_DIR . '/eyeSnow/1.png';
+$alias[1][APP_DIR . '/eyeSnow/2.png'] = 'images/' . APP_DIR . '/eyeSnow/2.png';
+$alias[1][APP_DIR . '/eyeSnow/3.png'] = 'images/' . APP_DIR . '/eyeSnow/3.png';
+// eyeSoft
+$alias[1][APP_DIR . '/eyeSoft/gfx/install.png'] = 'icons/16x16/plus.png';
+$alias[1][APP_DIR . '/eyeSoft/gfx/refresh.png'] = 'icons/16x16/refresh.png';
+$alias[1][APP_DIR . '/eyeSoft/gfx/uninstall.png'] = 'icons/16x16/minus.png';
+// eyeTrash
+$alias[1][APP_DIR . '/eyeTrash/gfx/empty.png'] = 'icons/16x16/delete.png';
+$alias[1][APP_DIR . '/eyeTrash/gfx/empty_big.png'] = 'icons/48x48/rename.png';
+$alias[1][APP_DIR . '/eyeTrash/gfx/properties.png'] = 'icons/16x16/properties.png';
+$alias[1][APP_DIR . '/eyeTrash/gfx/restore.png'] = 'icons/16x16/restore.png';
+$alias[1][APP_DIR . '/eyeTrash/gfx/restore_big.png'] = 'icons/48x48/rename.png';
+// miniActions
+$alias[1][APP_DIR . '/miniActions/images/bg.png'] = 'images/' . APP_DIR . '/miniActions/bg.png';
+$alias[1][APP_DIR . '/miniActions/images/button.png'] = 'images/' . APP_DIR . '/miniActions/button.png';
+$alias[1][APP_DIR . '/miniActions/images/close.png'] = 'images/' . APP_DIR . '/miniActions/close.png';
+$alias[1][APP_DIR . '/miniActions/images/document.png'] = 'images/' . APP_DIR . '/miniActions/document.png';
+$alias[1][APP_DIR . '/miniActions/images/message.png'] = 'images/' . APP_DIR . '/miniActions/message.png';
+$alias[1][APP_DIR . '/miniActions/images/spreadsheet.png'] = 'images/' . APP_DIR . '/miniActions/spreadsheet.png';
+$alias[1][APP_DIR . '/miniActions/images/upload.png'] = 'images/' . APP_DIR . '/miniActions/upload.png';
+?>

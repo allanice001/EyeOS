@@ -1,0 +1,11 @@
+.eyeMenuButton, .eyeMenuButton_Img {
+	height: 60px !important;
+	margin: 0px;
+	right: 3px;
+	top: -20px;
+	width: 60px !important;
+}
+
+.minimizedApps {
+	width: expression(this.parentNode.offsetWidth - 100);
+}

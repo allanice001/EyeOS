@@ -1,0 +1,51 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function emptyTrash_run($params = '') {
+	if(is_array($params)) {
+		$callback = $params[0];
+	} else {
+		$callback = "";
+	}
+	service('eyex','messageBox',array(
+		'content' => 'Are you sure you want to empty trash content?',
+		'type' => 3,
+		'title' => 'Empty trash',
+		'win_name' => 'emptyTrash_window',
+		'win_style' => TITLE + LISTED + MIN + CLOSE,
+		'btn1_capt' => 'Yes',
+		'btn1_name' => 'yes',
+		'btn2_capt' => 'No',
+		'btn2_name' => 'no',
+		'hidden_text' => $callback,
+		'hidden_name' => 'nfCallback',
+		'img' => '?'
+	));
+}
+
+function emptyTrash_end($params=null) {
+	eyeWidgets('unserialize');
+}
+
+
+?>

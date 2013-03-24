@@ -1,0 +1,146 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeTrash_run($params=null) {
+	global $checknum;
+	global $myPid;
+	
+	$myWindow = new Window(array('title'=>'eyeTrash','name'=>'WND_1','father' => 'eyeApps',
+		'y'=>35,'x'=>0,'cent'=>2,'width'=>680,'height'=>560));
+	$myWindow->show();
+	$myWindow3 = new Window(array('name'=>'WND_3','father'=>'WND_1_Content','type'=>100,'width'=>200,
+		'height'=>$myWindow->height-60,'x'=>5,'y'=>5));
+	$myWindow3->show();
+	service('eyex','rawjs',array('js'=>'document.getElementById("'.$myPid.'_WND_3").onmousedown="";'));
+	$myWindow2 = new Window(array('name'=>'WND_2','father' => 'WND_1_Content','type'=>100,
+		'width'=>$myWindow->width-($myWindow3->width+18),'height'=>$myWindow->height-60,
+		'x'=>$myWindow3->width+10,'y'=>5));
+	$myWindow2->show();
+	service('eyex','rawjs',array('js'=>'document.getElementById("'.$myPid.'_WND_2").onmousedown="";'));
+	$myBox = new Box(array('name'=>'BOX_1','father'=>'WND_3_Content','x'=>6,'y'=>2,'width'=>170,
+		'height'=>135,'title'=>'Actions'));
+	$myBox->show();
+	
+	$myWindow5 = new Window(array('name'=>'WND_BOX_1','father' => 'BOX_1',
+		'y'=>12,'x'=>0,'width'=>168,'height'=>130,'type'=>100));
+	$myWindow5->show();
+	
+	$myBox2 = new Box(array('name'=>'BOX_2','father'=>'WND_3_Content','x'=>6,'y'=>$myBox->height+22,
+		'width'=>170,'height'=>165,'title'=>'Places'));
+	$myBox2->show();
+	
+	$myWindow4 = new Window(array('name'=>'WND_BOX_2','father' => 'BOX_2',
+		'y'=>12,'x'=>0,'width'=>168,'height'=>148,'type'=>100));
+	$myWindow4->show();
+	
+	$myUserDir = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeTrash/conf.xml';
+	
+	if(is_readable($myUserDir)) {
+		$fp = service('vfs','real_open',array($myUserDir,'r'));
+		if($fp) {
+			$myContent = fread($fp,filesize($myUserDir));
+			fclose($fp); //free the descriptor
+			$xml = reqLib('eyeXML','xml2array',array($myContent));
+			$counter = 0;
+			if(is_array($xml['eyeFiles'][0]['plugin'])) {
+				foreach($xml['eyeFiles'][0]['plugin'] as $value) {
+						$Yofset = $counter * 30;
+						$myContainer = new Container(array('name' =>'action_container_line_'.$counter,
+							'father' => 'WND_BOX_1_Content', 'x' => 2,'y'=>$Yofset,'width'=>160,'height'=>30));
+						$myContainer->show();
+						service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_action_container_line_".$counter."').onmouseover = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#E9E9E9';};}"));
+						service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_action_container_line_".$counter."').onmouseout = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='transparent';};}"));
+						$myImage1 = new Imagebox(array('name'=>'action_img_'.$counter,
+							'father'=>'action_container_line_'.$counter,'url'=>$value['icon'][0],'x'=>10,'y'=>7));
+						$myImage1->show();
+						
+						$myHidden = new Hidden(array('name'=>'action_hid_'.$counter,
+							'father'=>'action_container_line_'.$counter,'text'=>$value['appName'][0]));
+						$myHidden->show();
+						if($value['context'][0] == 'current') {
+							$myLabel1 = new Label(array('name'=>'action_lbl_'.$counter,
+								'father'=>'action_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+								'disablemsg'=>0,'signal'=>'actionExecute'));
+							$myLabel1->addFriend($myHidden);
+							$myLabel1->show();
+						} else  {
+							$myLabel1 = new Label(array('name'=>'action_lbl_'.$counter,
+								'father'=>'action_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+								'disablemsg'=>0,'signal'=>'actionSelect'));
+							$myLabel1->addFriend($myHidden);
+							$myLabel1->show();
+							service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_action_lbl_".$counter."').onmousedown = function(){if(document.getElementById('".$myPid."_action_container_line_".$counter."').className == 'eyeHighlighted') {document.getElementById('".$myPid."_action_container_line_".$counter."').className = '';document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#E9E9E9';}else if(document.getElementById('".$myPid."_action_container_line_".$counter."').className != 'eyeHighlighted') {eyeFiles_clean($myPid);document.getElementById('".$myPid."_action_container_line_".$counter."').className = 'eyeHighlighted';document.getElementById('".$myPid."_action_container_line_".$counter."').style.backgroundColor='#579AFF';};}"));
+						}
+						$myLabel1->setCss(array('font-family'=>'Verdana','font-size'=>'11px',
+							'cursor'=>'Pointer'));
+						$counter++;
+				}
+			}
+		}
+	}
+	
+	$myUserDir = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeFiles/sites.xml';
+	
+	if(is_readable($myUserDir)) {
+		$fp = service('vfs','real_open',array($myUserDir,'r'));
+		if($fp) {
+			$myContent = fread($fp,filesize($myUserDir));
+			fclose($fp); //free the descriptor
+			$xml = reqLib('eyeXML','xml2array',array($myContent));
+			$counter = 0;
+			if(is_array($xml['eyeSites'][0]['site'])) {
+				foreach($xml['eyeSites'][0]['site'] as $value) {
+						$Yofset = $counter * 30;
+						$myContainer = new Container(array('name' =>'site_container_line_'.$counter,
+						'father' => 'WND_BOX_2_Content', 'x' => 2,'y'=>$Yofset,'width'=>160,'height' => 30));
+						$myContainer->show();
+						$myImage1 = new Imagebox(array('name'=>'site_img_'.$counter,
+							'father'=>'site_container_line_'.$counter,'url'=>'index.php?extern=apps/eyeFiles/gfx/site.png','x'=>10,'y'=>7));
+						$myImage1->show();
+						$myHidden = new Hidden(array('name'=>'place_hid_'.$counter,
+							'father'=>'site_container_line_'.$counter,'text'=>$value['path'][0]));
+						$myHidden->show();
+						service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_site_container_line_".$counter."').onmouseover = function(){document.getElementById('".$myPid."_site_container_line_".$counter."').style.backgroundColor='#E9E9E9';};"));
+						service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_site_container_line_".$counter."').onmouseout = function(){document.getElementById('".$myPid."_site_container_line_".$counter."').style.backgroundColor='transparent';};"));
+						$myLabel1 = new Label(array('name'=>'site_lbl_'.$counter,
+							'father'=>'site_container_line_'.$counter,'text'=>$value['label'][0],'y'=>7,'x'=>40,
+							'disablemsg'=>0,'signal'=>'siteExecute'));
+						$myLabel1->addFriend($myHidden);
+						$myLabel1->show();	
+						$myLabel1->setCss(array('font-family'=>'Verdana','font-size'=>'11px',
+							'cursor'=>'Pointer'));
+						$counter++;
+				}
+			}
+		}		
+	}
+	
+	service('eyex','loadScript',array('url' => 'index.php?extern=apps/eyeFiles/js/eyeFiles'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeTrash/events'.EYE_CODE_EXTENSION);
+	eyeTrash_on_openFile(array('size'=>$myWindow2->width));
+}
+
+function eyeTrash_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+
+?>

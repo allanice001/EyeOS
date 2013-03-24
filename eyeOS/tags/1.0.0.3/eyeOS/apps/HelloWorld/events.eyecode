@@ -1,0 +1,34 @@
+<?php
+// We create the NAMEOFAPP_on_NAMEOFBUTTON function.
+// In this case, the app is HelloWorld and the button 
+// is HelloWorld_BTN:
+function HelloWorld_on_HelloWorld_BTN($params="") {
+	// We grab the current text inside the textbox:
+	$myCurrentText = $GLOBALS['HelloWorld_TXTBOX']->text;
+	// We set the text in the textbox in the Label:
+	$GLOBALS['HelloWorld_LBL']->setText($myCurrentText);
+	// Finally, we clean the textbox and focus it again
+	// so the user can continue writting:
+	$GLOBALS['HelloWorld_TXTBOX']->setText('');
+	$GLOBALS['HelloWorld_TXTBOX']->focus();
+}
+
+// If the app we're developing needs to send / receive messages, 
+// it's necessary to update its contents trought the eyeWidgets
+// updateContent method.
+// It's an automatic function, so you can just copy it over
+// your apps that use messages by simply changing the app's name:
+function HelloWorld_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+// Finally, the NAMEOFAPP_on_Close() function will be executed when
+// the user closes the application. It's very recommended to always send
+// to proc the close message with the current process id of the app
+// (can be grab trought $myPid), so the app will be removed from the 
+// processes table:
+function HelloWorld_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+?>

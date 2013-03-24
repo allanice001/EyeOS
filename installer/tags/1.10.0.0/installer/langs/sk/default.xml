@@ -1,0 +1,55 @@
+<translation>
+	<installer-install-allow-creation>Povoliť užívateľom vytváranie účtov</installer-install-allow-creation>
+	<installer-install-continue>Pokračovať...</installer-install-continue>
+	<installer-install-do>Inštalovať eyeOS!</installer-install-do>
+	<installer-install-error-extract>Inštalačné súbory nebolo možné rozbaliť. Pre manuálnu inštaláciu premenujte ''[package]'' na ''package.tar.gz'' a rozbaľte jeho obsah do rovnakého priečinka.</installer-install-error-extract>
+	<installer-install-error-renaming>Nie je možné premenovať priečinok ''./eyeOS/''. Premenujte ho prosím manuálne na ''[hash]''.</installer-install-error-renaming>
+	<installer-install-password-retype>Zopakovať heslo</installer-install-password-retype>
+	<installer-install-password-root>Heslo administrátora</installer-install-password-root>
+	<installer-install-passwords-characters>Heslo administrátora musí obsahovať minimálne 3 znaky!</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>Heslo administrátora sa nezhoduje!</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>Heslo administrátora je nevyhnutné nastaviť!</installer-install-passwords-required>
+	<installer-install-systemname-error>Musíte špecifikovať názov systému!</installer-install-systemname-error>
+	<installer-install-systemname>Názov systému</installer-install-systemname>
+	<installer-install-title>Pre inštalovanie eyeOS vyplňte prosím nasledujúci formulár:</installer-install-title>
+	<installer-lib-check-gzip>Váš server neobsahuje gzip podporu. Pre manuálnu inštaláciu premenujte ''[package]'' na ''package.tar.gz'' a rozbaľte jeho obsah do rovnakého priečinka.</installer-lib-check-gzip>
+	<installer-lib-check-md5>Varovanie: Skontrolujte prosím "[package]", balíček sa javí ako porušený.</installer-lib-check-md5>
+	<installer-lib-check-newer>Aktuálna verzia eyeOS je novšia ako táto aktualizácia. Odstráňte prosím z bezpečnostných dôvodov priečinok ''[installer]''.</installer-lib-check-newer>
+	<installer-lib-check-notexist>Chyba: ''[file]'' neexistuje</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Varovanie: Nastavte prosím plné práva (CHMOD 777) pre súbor "[file]".</installer-lib-check-permissions>
+	<installer-lib-check-php>Váš server aktuálne používa nepodporovanú verziu PHP. Pred inštaláciou eyeOS aktualizujte prosím PHP na verziu 5.0.0 alebo vyššiu.</installer-lib-check-php>
+	<installer-lib-check-safemode>Prepáčte prosím, no eyeOS vyžaduje SAFE_MODE nastavený na OFF. V aktuálnej konfigurácii je SAFE_MODE aktivovaný. Pre deaktiváciu SAFE_MODE modifikujte prosím súbor php.ini alebo sa obráťte na administrátora.</installer-lib-check-safemode>
+	<installer-lib-output-errors>V priebehu inštalácie sa vyskytli problémy:</installer-lib-output-errors>
+	<installer-lib-output-imap>Vaša inštalácia PHP neobsahuje IMAP podporu. Zvážte prosím inštaláciu IMAP modulu, bez ktorého nebudete môcť používať emailového klienta.</installer-lib-output-imap>
+	<installer-lib-output-lang-by>od</installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>Zvolený jazyk</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Jazyky</installer-lib-output-lang-langs>
+	<installer-lib-output-sqlite>Vaša inštalácia PHP neobsahuje SQLite podporu. Zvážte prosím inštaláciu SQLite modulu, bez ktorého nebudete môcť používať emailového klienta.</installer-lib-output-sqlite>
+	<installer-lib-output-title>Inštalácia eyeOS</installer-lib-output-title>
+	<installer-lib-output-utf8>Vaša verzia PHP nemá úplnú podporu UTF-8. Zvážte prosím aktualizáciu PHP alebo inštaláciu modulu mbstring. Ak nedodržite toto odporúčanie, budete môcť pokračovať v inštalácii a aktualizácii eyeOS, ale neskôr sa môžete stretnúť s chybami v lokalizácii častí systému.</installer-lib-output-utf8>
+	<installer-system-action-removeinstaller>Odstrániť inštalátor eyeOS</installer-system-action-removeinstaller>
+	<installer-system-action-resetsystem>Obnoviť systémové súbory</installer-system-action-resetsystem>
+	<installer-system-action-uninstall>Odinštalovať eyeOS</installer-system-action-uninstall>
+	<installer-system-action>Akcia</installer-system-action>
+	<installer-system-back>Späť na menu</installer-system-back>
+	<installer-system-continue>Pokračovať...</installer-system-continue>
+	<installer-system-message-remove>Z bezpečnostných dôvodov odstráňte prosím inštalátor!</installer-system-message-remove>
+	<installer-system-message-translations>Jazykové balíčky sú dostupné na adrese [a link].</installer-system-message-translations>
+	<installer-system-no>Nie</installer-system-no>
+	<installer-system-password-error>Nesprávne heslo administrátora!</installer-system-password-error>
+	<installer-system-password>Heslo administrátora</installer-system-password>
+	<installer-system-removeinstaller-no>[span]Nie[/span] Vás vráti späť na systémovú stranu.</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>Skutočne chcete odstrániť inštalátor eyeOS?</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>[span]Áno[/span] kompletne odstráni inštalačné súbory eyeOS!</installer-system-removeinstaller-yes>
+	<installer-system-title>Zvoľte prosím jednu z nasledujúcich možností:</installer-system-title>
+	<installer-system-uninstall-no>[span]Nie[/span] Vás vráti späť na systémovú stranu.</installer-system-uninstall-no>
+	<installer-system-uninstall-really>Skutočne chcete odinštalovať eyeOS?</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>[span]Áno[/span] kompletne odstráni eyeOS!</installer-system-uninstall-yes>
+	<installer-system-yes>Áno</installer-system-yes>
+	<installer-update-continue>Pokračovať...</installer-update-continue>
+	<installer-update-do>Aktualizovať eyeOS!</installer-update-do>
+	<installer-update-error-extract>Aktualizačné súbory nie je možné rozbaliť. Pre manuálnu aktualizáciu eyeOS, premenujte ''[package]'' na ''package.tar.gz'' a rozbaľte jeho obsah do rovnakého priečinka.</installer-update-error-extract>
+	<installer-update-error-renaming>Nie je možné premenovať priečinok ''./eyeOS/''. Premenujte ho prosím manuálne na ''[hash]'' a prepíšte všetky existujúce súbory.</installer-update-error-renaming>
+	<installer-update-error-under15>Táto aplikácia pre aktualizáciu vyžaduje eyeOS verziu 1.5 a vyššiu. Používate eyeOS [version1]. Aktualizujte prosím eyeOS na verziu 1.5 pred aktualizáciou na eyeOS [version2].</installer-update-error-under15>
+	<installer-update-title>Pokračujte prosím s aktualizáciou inštalácie eyeOS na verziu [version].</installer-update-title>
+</translation>

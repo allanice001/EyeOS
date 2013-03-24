@@ -1,0 +1,76 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeIframize_run($params=null) {
+	if($params[0]) {
+		$url = $params[0];
+		$portion = substr($url,0,strlen('http://'));
+		if($portion != 'http://') {
+			$url = 'http://'.$url;
+		}
+		$myWindow = new Window(array(
+			'name'=>'iframize_WND_1',
+			'father'=>'eyeApps',
+			'type'=>NORMAL_WINDOW,
+			'width'=>450,
+			'height'=>450,
+			'title'=>'iframize',
+			'sendResizeMsg'=>1,
+			'sigResize'=>'Resize',
+			'showDragContent'=>1
+		));
+		$myWindow->show();
+		$myFrame = new Iframe(array(
+			'name'=>'iframize_IFRM_1',
+			'father'=>'iframize_WND_1_Content',
+			'x'=>0,
+			'y'=>0,
+			'height'=>430,
+			'width'=>446,
+			'url'=>$url,
+		));
+		$myFrame->show();
+	} else {
+		eyex('messageBox',array(
+			'content' => 'Type the url to iframize',
+			'type' => 3,
+			'title' => 'Iframize a url',
+			'win_name' => 'newUrlWND',
+			'win_style' => TITLE + CLOSE,
+			'btn1_capt' => 'Accept',
+			'btn1_name' => 'iframeEvent',
+			'btn2_capt' => 'Cancel',
+			'btn2_name' => 'cancel',
+			'textbox_name' => 'iframeUrl',
+			'textbox_event' => 'iframeEvent',
+			'img' => 'index.php?extern=apps/eyeX/themes/default/icons/48x48/file.png'
+		));
+	}
+}
+
+
+function eyeIframize_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

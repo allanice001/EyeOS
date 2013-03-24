@@ -1,0 +1,229 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/**
+*@TODO un-hardcode code this app ?
+*/
+
+function miniActions_run($params=null) {
+	global $myPid;
+
+	foreach (proc('getProcessTable') as $process) {
+		if ($process['appName'] == 'miniActions' && $process['pid'] != $myPid) {
+			eyex('messageBox', array('content' => 'miniActions is already running!'));
+			return proc('end');
+		}
+	}
+
+	//set some common ver
+	$buttonBg = 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/miniApps/miniActions/button.png';
+
+	// set css for each row
+	$myCss = array(
+		"font-size"=>"10px",
+		"color"=>"#000000",
+		"cursor"=>"pointer"
+	);
+
+
+	$width = $_SESSION['SCREEN']['width']-236;
+	// Window
+	$myWindow = new Window(array(
+		'name'=>'miniActionsWND',
+		'father' => 'eyeWidgets',
+		'removeFatherPid' => 1,
+		'type'=>WIN_IMAGE_DRAGGABLE_NOTLISTED, 
+		'title'=>'Actions widget',
+		'background'=>'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/miniApps/miniActions/bg.png',
+		'width'=>196,
+		'height'=>220,
+		'forceSavePosition'=>1,
+		'x'=>$width,
+		'y'=>165,
+	));
+	$myWindow->show();
+
+	// Button 1
+	$myImage1 = new Imagebox(array(
+		'name' => 'miniActions_1',
+		'father' => 'miniActionsWND',
+		'x' => 5,
+		'y' => 28,
+		'url' => $buttonBg,
+		'signal' => 'Launch1',
+		'disableMsg'=>0
+	));
+	$myImage1->show();
+
+	$myImage2 = new Imagebox(array(
+		'name' => 'miniActions_1_img',
+		'father' => 'miniActionsWND',
+		'x' => 15,
+		'y' => 35,
+		'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/16x16/upload.png',
+		'signal' => 'Launch1',
+		'disableMsg'=>0
+	));
+	$myImage2->show();
+
+	$myLabel1 = new Label(array(
+		'name' => 'miniActions_1_lbl',
+		'father' => 'miniActionsWND',
+		'x' => 38,
+		'y' => 37,
+		'signal' => 'Launch1',
+		'text' => 'Upload your files',
+		'disablemsg'=>0
+	));
+	$myLabel1->show();
+	$myLabel1->setCss($myCss);
+
+	// Button 2
+	$myImage3 = new Imagebox(array(
+		'name' => 'miniActions_2',
+		'father' => 'miniActionsWND',
+		'x' => 5,
+		'y' => 64,
+		'url' => $buttonBg,
+		'signal' => 'Launch2',
+		'disableMsg'=>0
+	));
+	$myImage3->show();
+
+	$myImage4 = new Imagebox(array(
+		'name' => 'miniActions_2_img',
+		'father' => 'miniActionsWND',
+		'x' => 15,
+		'y' => 71,
+		'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/16x16/message.png',
+		'signal' => 'Launch2',
+		'disableMsg'=>0
+	));
+	$myImage4->show();
+
+	$myLabel2 = new Label(array(
+		'name' => 'miniActions_2_lbl',
+		'father' => 'miniActionsWND',
+		'x' => 38,
+		'y' => 73,
+		'signal' => 'Launch2',
+		'text' => 'Send an internal message',
+		'disablemsg'=>0
+	));
+	$myLabel2->show();
+	$myLabel2->setCss($myCss);
+
+	// Button 3
+	$myImage5 = new Imagebox(array(
+		'name' => 'miniActions_3',
+		'father' => 'miniActionsWND',
+		'x' => 5,
+		'y' => 100,
+		'url' => $buttonBg,
+		'signal' => 'Launch3',
+		'disableMsg'=>0
+	));
+	$myImage5->show();
+
+	$myImage6 = new Imagebox(array(
+		'name' => 'miniActions_3_img',
+		'father' => 'miniActionsWND',
+		'x' => 15,
+		'y' => 107,
+		'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/16x16/document.png',
+		'signal' => 'Launch3',
+		'disableMsg'=>0
+	));
+	$myImage6->show();
+
+	$myLabel3 = new Label(array(
+		'name' => 'miniActions_3_lbl',
+		'father' => 'miniActionsWND',
+		'x' => 38,
+		'y' => 109,
+		'signal' => 'Launch3',
+		'text' => 'Create a new document',
+		'disablemsg'=>0
+	));
+	$myLabel3->show();
+	$myLabel3->setCss($myCss);
+
+	// Button 4
+	$myImage7 = new Imagebox(array(
+		'name' => 'miniActions_4',
+		'father' => 'miniActionsWND',
+		'x' => 5,
+		'y' => 136,
+		'url' => $buttonBg,
+		'signal' => 'Launch4',
+		'disableMsg'=>0
+	));
+	$myImage7->show();
+
+	$myImage8 = new Imagebox(array(
+		'name' => 'miniActions_4_img',
+		'father' => 'miniActionsWND',
+		'x' => 15,
+		'y' => 143,
+		'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/16x16/spreadsheet.png',
+		'signal' => 'Launch4',
+		'disableMsg'=>0
+	));
+	$myImage8->show();
+
+	$myLabel4 = new Label(array(
+		'name' => 'miniActions_4_lbl',
+		'father' => 'miniActionsWND',
+		'x' => 38,
+		'y' => 145,
+		'signal' => 'Launch4',
+		'text' => 'Create a new spreadsheet',
+		'disablemsg'=>0
+	));
+	$myLabel4->show();
+	$myLabel4->setCss($myCss);
+
+	// Close button
+	$myImage9 = new Imagebox(array(
+		'name' => 'miniActions_close',
+		'father' => 'miniActionsWND',
+		'x' => 90,
+		'y' => 30,
+		'vert'=>1,
+		'url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/12x12/close.png',
+		'signal' => 'closeApp',
+		'disableMsg'=>0
+	));
+	$myImage9->show();
+
+	$myCss5 = array(
+		"cursor"=>"pointer"
+	);
+	$myImage9->setCss($myCss5);
+}
+
+function miniActions_end() {
+	eyeWidgets('unserialize');
+}
+
+?>

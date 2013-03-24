@@ -1,0 +1,300 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+function loadProps($widget) {
+	global $checknum;
+	global $myPid;
+	//put the window object in a variable
+	$wnd = $GLOBALS['eyeDesigner_PropertiesWND'];
+	//clear the window 
+	$wnd->clear();
+
+	$y = 5;
+
+	$myLabel = new Label(array(
+		'name' => 'lbl_name_'.$y,
+		'father' => $wnd->name.'_Content',
+		'text' => 'name:',
+		'x' => 5,
+		'y' => $y
+	));
+	$myLabel->show();
+
+	$myTextBox = new Textbox(array(
+		'name' => 'txt_name_name',
+		'father' => $wnd->name.'_Content',
+		'width' => 110,
+		'x' => 1,
+		'y' => $y,
+		'horiz' => 1,
+		'text' =>$widget->name
+	));
+	$myTextBox->show();
+	$myTextBox->addEnterEventMsg('updateInfo');
+
+	$y += 20;
+
+	$myLabel = new Label(array(
+		'name' => 'lbl_name_'.$y,
+		'father' => $wnd->name.'_Content',
+		'text' => 'father:',
+		'x' => 5,
+		'y' => $y
+	));
+	$myLabel->show();
+
+	$myTextBox = new Textbox(array(
+		'name' => 'txt_name_father',
+		'father' => $wnd->name.'_Content',
+		'width' => 110,
+		'x' => 1,
+		'y' => $y,
+		'horiz' => 1,
+		'text' =>$widget->father
+	));
+	$myTextBox->show();
+	$myTextBox->addEnterEventMsg('updateInfo');
+
+	$y += 20;
+
+	$myLabel = new Label(array(
+		'name' => 'lbl_name_'.$y,
+		'father' => $wnd->name.'_Content',
+		'text' => 'serialize:',
+		'x' => 5,
+		'y' => $y
+	));
+	$myLabel->show();
+	
+	$mySelect = new Select(array(
+		'name' => 'slc_name_serialize',
+		'father' => $wnd->name.'_Content',
+		'width' => 114,
+		'x' => 1,
+		'y' => $y,
+		'horiz' => 1
+	));
+	$mySelect->show();
+					
+	//send from JS the selected chocice in "serialize" selectbox
+	$mySelect->addEvent('onchange','sendMsg('.$checknum.',"updateInfo",eyeParam("slc_name_serialize",this.value));');
+
+	if(!$widget->serializable){
+    	$mySelect->addOption('default','default',1);
+	} else {
+   		$mySelect->addOption('default','default');
+	}
+
+	if($widget->serializable == 1){
+    	$mySelect->addOption('serialize','serialize',1);
+	} else {
+    	$mySelect->addOption('serialize','serialize');
+	}
+	
+	if($widget->serializable == 2 ){
+    	$mySelect->addOption('noserialize','noserialize',1);
+	} else {
+    	$mySelect->addOption('noserialize','noserialize');
+	}
+	
+	$y += 20;
+	
+	$props = getConfig('eyeDesigner','props.xml');
+	foreach($props['widgets'][0]['widget'] as $value) {
+		if(strtolower($value['name'][0]) == strtolower(get_class($widget))) {
+			foreach($value['keys'][0]['key'] as $v) {	
+				$myLabel = new Label(array(
+					'name' => 'lbl_name_'.$y,
+					'father' => $wnd->name.'_Content',
+					'text' => $v['name'][0].':',
+					'x' => 5,
+					'y' => $y
+				));
+				$myLabel->show();
+				if($v['type'][0] == 'string' || $v['type'][0] == 'int') {
+					$myTextBox = new Textbox(array(
+						'name' => 'txt_name_'.$v['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 110,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1,
+						'text' =>$widget->$v['name'][0]
+					));
+					$myTextBox->show();
+					$myTextBox->addEnterEventMsg('updateInfo');
+				} elseif ($v['type'][0]  == 'bool') {
+					$mySelect = new Select(array(
+						'name' => 'slc_name_'.$v['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 114,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1
+					));
+					$mySelect->show();
+					$mySelect->addEvent('onchange','sendMsg('.$checknum.',"updateInfo",eyeParam("slc_name_'.$v['name'][0].'",this.value));');
+					if($widget->$v['name'][0]) {
+						$mySelect->addOption('true',1,1);
+						$mySelect->addOption('false',0);
+					} else {
+						$mySelect->addOption('true',1);
+						$mySelect->addOption('false',0,1);
+					}
+				} elseif ($v['type'][0] == 'select') {
+					$mySelect = new Select(array(
+						'name' => 'slc_name_'.$v['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 114,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1
+					));
+					$mySelect->show();
+					$mySelect->addEvent('onchange','sendMsg('.$checknum.',"updateInfo",eyeParam("slc_name_'.$key['name'][0].'",this.value));');
+					foreach($v['options'][0]['option'] as $opt) {
+						$mySelect->addOption($opt,$opt);
+					}
+				} elseif($v['type'][0] == 'array'){
+              		$myTextBox = new Textbox(array(
+						'name' => 'txt_name_'.$v['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 110,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1,
+						'text' =>implode(",",$widget->$v['name'][0])
+					));
+					$myTextBox->show();
+					$myTextBox->addEnterEventMsg('updateInfo');
+				}
+				$y += 20;
+			}
+		}
+	}
+	$gl = getConfig('eyeDesigner','globals.xml');
+	foreach($gl['globals'][0]['defaults'][0]['default'] as $entry) {
+		if(strtolower($entry['name'][0]) == strtolower(get_class($widget))) {
+			foreach($entry['key'] as $key) {
+				$myLabel = new Label(array(
+					'name' => 'lbl_name_'.$y,
+					'father' => $wnd->name.'_Content',
+					'text' => $key['name'][0].':',
+					'x' => 5,
+					'y' => $y
+				));
+				$type = "";
+				foreach($gl['globals'][0]['props'][0]['prop'] as $pr) {
+					if($pr['name'][0] == $key['name'][0]) {
+						$type = $pr['type'][0];
+					}
+				}
+				if($type == 'string' || $type == 'int') {
+					$myTextBox = new Textbox(array(
+						'name' => 'txt_name_'.$key['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 110,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1,
+						'text' =>$widget->$key['name'][0]
+					));
+					$myTextBox->show();
+					$myTextBox->addEnterEventMsg('updateInfo');
+				} elseif ($type == 'bool') {
+					$mySelect = new Select(array(
+						'name' => 'slc_name_'.$key['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 114,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1
+					));
+					$mySelect->show();
+					$mySelect->addEvent('onchange','sendMsg('.$checknum.',"updateInfo",eyeParam("slc_name_'.$key['name'][0].'",this.value));');
+					if($widget->$key['name'][0]) {
+						$mySelect->addOption('true',1,1);
+						$mySelect->addOption('false',0);
+					} else {
+						$mySelect->addOption('true',1);
+						$mySelect->addOption('false',0,1);
+					}
+				}  elseif ($type == 'select') {
+					$mySelect = new Select(array(
+						'name' => 'slc_name_'.$key['name'][0],
+						'father' => $wnd->name.'_Content',
+						'width' => 114,
+						'x' => 1,
+						'y' => $y,
+						'horiz' => 1
+					));
+					$mySelect->show();
+					$mySelect->addEvent('onchange','sendMsg('.$checknum.',"updateInfo",eyeParam("slc_name_'.$key['name'][0].'",this.value));');
+					foreach($key['options'][0]['option'] as $opt) {
+						$mySelect->addOption($opt,$opt);
+					}
+				}
+				$myLabel->show();
+				$y += 20;
+			}
+		}
+	}	
+}
+
+function getProps($wname,$name) {
+	$props = getConfig('eyeDesigner','props.xml');
+	$arr = array();
+	foreach($props['widgets'][0]['widget'] as $value) {
+		if(strtolower($value['name'][0]) == strtolower($wname)) {
+			foreach($value['keys'][0]['key'] as $v) {
+				if($v['default'][0] != -1 && !empty($v['default'][0])) {
+					if($v['type'][0] == 'array') {
+                    	$arr[$v['name'][0]] = array($v['default'][0]);
+					} elseif($v['default'][0] == '$name$') {
+						$arr[$v['name'][0]] = $name;	
+					} else {
+						$arr[$v['name'][0]] = $v['default'][0];
+					}
+				}
+			}	
+		}
+	}
+	$gl = getConfig('eyeDesigner','globals.xml');
+	foreach($gl['globals'][0]['defaults'][0]['default'] as $entry) {
+		if(strtolower($entry['name'][0]) == strtolower($wname)) {
+			foreach($entry['key'] as $key) {
+				if($key['value'][0] != -1 && !empty($key['value'][0])) {
+					if($key['value'][0] == '$name$') {
+						$arr[$key['name'][0]] = $name;
+					} else {
+						$arr[$key['name'][0]] = $key['value'][0];
+					}
+				}
+			}
+		}
+	}
+	return $arr;
+}
+
+?>

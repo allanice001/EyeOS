@@ -1,0 +1,39 @@
+eyeos 1.9.1.0
+=============
+
+access keys/shout cut keys
+* this is needed for better kiso os & for handicap uses that are needed if going to be in schools
+* the toolkit maybe should have a option to at less assign the buttons and icons a access key like aKey => Alt+D,
+* this is the site with a great script for this http://www.openjs.com/scripts/events/keyboard_shortcuts/v1.php
+
+eyeSoft
+* add all installed apps to even if instaled from eyepackage out side of program and make them removable
+
+eyeDialog
+*group view
+*open eyeUpload from
+
+eyeClipart
+*add a settings to add where it points your self?
+*add the icons in default folder as a category?
+
+eyeHelp
+*add 16x16 img next to each menu item
+*write about more program's & update
+
+groups
+* maybe we can add a skel for group and have each group conf have a conf like users for:
+**eyeAddressBook
+**eyeCalender
+*then mod the apps as such
+
+eyeLogin
+* add cap-lock on warning (this can be easly done after accesskeys)
+* make login bg box resizable to add more or less fields
+
+eyeos app Windows
+*add a fast fade in & out?
+*add a overlay to darken inactive windows if wanted
+
+eyeBugs [new]
+*makes a zip of your browser, sys, & servers php, info you can attach to the bug report

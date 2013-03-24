@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>eyeX, the graphics service</title>
+	<general>
+		<name>eyeX</name>
+		<tags>
+			<tag>service</tag>
+		</tags>
+		<shortDesc>Manages the graphics of the session.</shortDesc>
+	</general>
+	<desc>The eyeX service is the responsible for drawing the contents of the page and the manipulation of CSS and JS files. It is also responsible for the control of the layer system, part of which is the 'eyeApps' layer, in which all the applications and the desktop are drawn.</desc>
+</info>

@@ -1,0 +1,7 @@
+﻿Si vous voulez télécharger un fichier dans votre onEye, rendez-vous dans le répertoire où vous voulez le télécharger, faites un clic-droit et choisissez “Envoyer des fichiers”.
+
+La boîte de dialogue "Déposer des fichiers" apparaîtra et vous pourrez sélectionner un ou plusieurs fichiers à télécharger. Notez que l'administrateur système peut avoir limité la taille de fichiers téléchargeables (en général 20Mo).
+
+Une fois le téléchargement terminé, un message vous confirmera le succès de l'opération. Quand vous fermerez la fenêtre de téléchargement, le fichier téléchargé sera visible dans le répertoire sélectionné.
+
+Notez que, si le serveur le permet, vous verrez des miniatures des images plutôt que des icônes. Si vous souhaitez voir les miniatures à la place des icônes, veuillez vous adresser à l'administrateur pour qu'il installe les librairies GD library et son module pour votre installation PHPn. 

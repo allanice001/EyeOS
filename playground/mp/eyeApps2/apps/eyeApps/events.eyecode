@@ -1,0 +1,229 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+function eyeApps_mkXml(){
+
+	$Config = array(
+		'eyeApps' => array(array(
+			'catagory'=> array(
+				array(
+					'name'=> array('File Management'),
+					'img'=> array('fileopen')
+				),
+				array(
+					'name'=> array('Games'),
+					'img'=> array('eyeChess')
+				),
+				array(
+					'name'=> array('Multimedia'),
+					'img'=> array('eyeMedia')
+				),
+				array(
+					'name'=> array('Networking'),
+					'img'=> array('eyeNav')
+				),
+				array(
+					'name'=> array('Office'),
+					'img'=> array('mail-attach')
+				),
+				array(
+					'name'=> array('Utilities'),
+					'img'=> array('exec')
+				),
+				array(
+					'name'=> array('Widgets'),
+					'img'=> array('desktop_widgets')
+				)
+			)
+		))
+	);
+	eyeXML('setXMLconfig',array('eyeApps','conf.xml',$Config));
+
+}
+
+function eyeApps_on_Close($params = '') {
+	proc('end');
+}
+
+function eyeApps_on_Icon_Clicked($params = '') {
+	proc('launch',array($params['arg0'][0]));
+}
+
+function eyeApps_on_InstallApps($params = '') {
+	proc('launch',array('eyeSoft'));
+	proc('end');
+}
+
+function eyeApps_on_ManageDock($params = '') {
+	proc('launch',array('eyeManageApps'));
+}
+
+function eyeApps_reset_text() {
+	$GLOBALS['eyeApps_run']->setText('');
+}
+
+function eyeApps_on_Action ($params = '') {
+	global $myPid;
+	$GLOBALS['eyeApps_Container']->remove();
+
+	//reset Highlighted catagory
+	$cats = eyeXML('getXMLconfig',array('eyeApps','conf.xml'));
+	foreach ($cats['eyeApps'][0]['catagory'] as $cat) {
+		eyeX('rawjs',array(
+			'js'=> 'var e = xGetElementById("' . $myPid . '_' . $cat['name'][0] . '_container");
+				e.className = "";
+				e.style.backgroundColor = "transparent";
+				e.style.border = "0";
+			'
+		));
+	}
+
+	if(!is_array($params) || empty($params['section'][0])) {
+		$section = $GLOBALS['section']->text;
+	} else {
+		$section = $params['section'][0];
+		$GLOBALS['section']->text = $section;
+	}
+
+	eyeX('rawjs',array(
+		'js'=> 'e = xGetElementById("' . $myPid . '_' . $section . '_container");
+			e.className = "eyeHighlighted";
+			e.style.backgroundColor = "#ffffff";
+			e.style.borderTop = "1px solid #dadada";
+			e.style.borderBottom = "1px solid #eeeeee";
+		'
+	));
+	
+	if ($section == 'File Management'){
+		eyeApps_iconGen('File Management');
+	} elseif ($section == 'Games'){
+		eyeApps_iconGen('Games');
+	} elseif ($section == 'Multimedia'){
+		eyeApps_iconGen('Multimedia');
+	} elseif ($section == 'Networking'){
+		eyeApps_iconGen('Networking');
+	} elseif ($section == 'Office'){
+		eyeApps_iconGen('Office');
+	} elseif ($section == 'Utilities'){
+		eyeApps_iconGen('Utilities');
+	} elseif ($section == 'Widgets'){
+		eyeApps_iconGen('Widgets');
+	}
+
+}
+
+//grabs the icons
+function eyeApps_iconGen ($params=null) {
+
+	$iconContainer = new Container(array(
+		'name' => 'eyeApps_Container',
+		'father' => 'eyeApps_Container_WND',
+		'x' => 143,
+		'y' => 0,
+		'width' => $GLOBALS['eyeApps_Container_WND']->width - 143,
+		'height' => $GLOBALS['eyeApps_Container_WND']->height - 0
+	));
+	$iconContainer->show(0);
+	$iconContainer->setCss(array(
+		'display' => 'block',
+		'overflow' => 'auto',
+		'position' => 'absolute'
+	));
+
+	$conf = eyeXML('getXMLconfig',array('eyeFiles','conf.xml'));
+	if (!isset($conf['eyeFiles'][0]['clickMethod'][0])) {
+		$conf['eyeFiles'][0]['clickMethod'][0] = 1;
+	}
+	$path = EYE_ROOT . '/' . APP_DIR . '/';
+	$folders = scandir($path);
+	$i = 0;
+	$x = 20;
+	$y = 20;
+	foreach ($folders as $folder) {
+		$xml = getAppInfo($folder);
+			if ($xml['package'][0]['category'][0] == $params && $xml['package'][0]['name'][0] != 'eyeApps') {
+			$myIcon = new Icon(array(
+				'content' => array($folder),
+				'draggable' => 0,
+				'father' => 'eyeApps_Container',
+				'image' => $xml['package'][0]['icon'][0],
+				'name' => 'eyeApps_Icon_' . $i,
+				'onclick' => $conf['eyeFiles'][0]['clickMethod'][0],
+				'overClass' => 'eyeFiles_icons',
+				'text' => $xml['package'][0]['name'][0],
+				'useClass' => 1,
+				'x' => $x,
+				'y' => $y
+			));
+			$myIcon->show();
+			eyex('rawjs',array('js' => 'xGetElementById("' . $myPid . '_' . $myIcon->name . '_Container").style.textAlign = "center"; xGetElementById("img_' . $myPid . '_' . $myIcon->name . '").style.marginLeft = "-1px";'));
+			$x += 88;
+			if ($iconContainer->width - $x - 88 < 0) {
+				$x = 20;
+				$y += 88;
+			}
+			$i++;
+			$myWidgetDrag = new widgetDrag(array(
+				'content' => array('app',$folder),
+				'dragAlpha' => 75,
+				'dragCss' => array(array('border'),array('1px #000000 dotted')),
+				'father' => $myIcon->name . '_Container',
+				'name' => $myIcon->name . '_WidgetDrag'
+			));
+			$myWidgetDrag->show();
+		}
+	}
+	
+}
+
+function eyeApps_on_fullScreen(){
+	global $myPid;
+	$GLOBALS['eyeApps_Window']->setFullScreen();
+}
+
+function eyeApps_on_Resize($params = '') {
+	global $myPid;
+	$GLOBALS['eyeApps_Window']->width = $params['arg'][0];
+	$GLOBALS['eyeApps_Window']->height = $params['arg'][1];
+	$GLOBALS['eyeApps_Container_WND']->setHeight(intval($params['arg'][1]) - 84);
+	$GLOBALS['eyeApps_Container_WND']->setWidth(intval($params['arg'][0]) - 4);
+		$GLOBALS['eyeApps_Container']->setHeight($GLOBALS['eyeApps_Container_WND']->height - 0);
+		$GLOBALS['eyeApps_Container']->setWidth($GLOBALS['eyeApps_Container_WND']->width - 143);
+	$GLOBALS['verticalLine']->setHeight(intval($params['arg'][1]) - 83);
+	$GLOBALS['eyeApps_Menu_Content']->setHeight(intval($params['arg'][1]) - 83);
+	
+	eyex('rawjs',array('js' => 'i = 0;
+	x = 20;
+	y = 20;
+	e = xGetElementById("' . $myPid . '_eyeApps_Icon_0_Container");
+	while (e) {
+		xSlideTo("' . $myPid . '_eyeApps_Icon_" + i + "_Container",x,y,500);
+		x += 88;
+		if (xWidth("' . $myPid . '_eyeApps_Container") - x - 88 < 0) {
+			x = 20;
+			y += 88;
+		}
+		i++;
+		e = xGetElementById("' . $myPid . '_eyeApps_Icon_" + i + "_Container");
+	}'));
+}
+?>

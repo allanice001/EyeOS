@@ -1,0 +1,1874 @@
+<lang>
+	<info>
+		<lang>العربية</lang>
+		<lang-en>Arabic</lang-en>
+		<author>Ahmad Gharbeia &amp; Rami J. Ghazal</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>أدخل عنوان الرابط هنا:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>أنشئ</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>أنشئ رابطا</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>ألغِ</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>يمكن صرف هذه النافذة الآن</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>الخادوم لا يدعم ملفات zip!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>يتعذّّر تنزيل الروابط</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>نزِّل</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>نزِّل "%s" في صيغة zip</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>حدِّث</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>حرِّر %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>الأمر المطلوب تنفيذه:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>أتريد حقا حذف "%s"؟</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>أفرغ النفاية</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>أتريد حقا إفراغ النفاية؟</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>احذف %s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>ألغِ</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>موافق</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>notes</old>
+			<new>ملاحظات</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>اختر مجموعة</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>اختر معرفةً لتحرير مُدخلَته</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>اختر معرفة واحدا لتحرير مدخلته</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>أدخل الاسم الجديد للمجموعة</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>الدور</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>اختر معرفة أو أكثر</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>اختر معرفة لترسل رسالة إليه</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>ملاحظات</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>لا</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>معرفة جديدة</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>تمت إضافة المعرفة الجديدة بنجاح</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>الاسم</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>اختر معرفة واحدا لترسل رسالة إليه</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>فاكس العمل</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>الكنية</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>الكنية</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>بريد العمل</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>احفظ المعرفة</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>عنوان العمل</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>محمول العمل</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>هاتف العمل</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>نعم</new>
+		</text>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>أدخل الاسم و اسم العائلة</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>شخصي</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>العمل</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>موقع الوب للعمل</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>الموفع</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>عنوان الاتصال الصوتي عبر الإنترنت</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>اسم العائلة</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>تضبيطات</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>أرسل رسالة</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>محمول العمل</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>الهاتف المحمول</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>المحادثة عبر الإنترنت</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>مستخدم</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>الهاتف المحمول</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>استورد</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>تعذَّر تحرير المعرفة</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>تم تحرير المعرفة بنجاح</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>تم حذف المعرفة بنجاح</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>احذف المعرفة</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>تفاصيل</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>البريد</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>قاعدة البيانات التي تحفظ فيها المعارف:</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>المعارف</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>تعذّر إنشاء معرفة</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>ألغِ</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>كل الملفات</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>دفتر العناوين</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>أضف</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>احذف</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>عنوان المنزل</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>أمتأكد أنك تريد حذف هؤلاء المعارف؟</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>كل المجموعات</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>تم حذف المجموعة بنجاح</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>عنوان البريد</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>تمت إضافة المجموعة بنجاح</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>هاتف المنزل</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>المنزل</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>تم الاستيراد</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>العمل</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>فاكس العمل</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>التراسل الفوري</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>المرسال الفوري</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>في شاشة كاملة</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>العائلة</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>عُطل في حذف المعارف</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>عطل في تحرير مجموعة</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>حرر</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>موافق</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>أضف معرفة</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>صدِّر</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>تم التصدير</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>أضف مجموعة</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>إدارة سطح المكتب</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>تنصيب تطبيقات</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>في الشاشة كاملة</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>التطبيقات</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>تم الاستخراج بنجاح</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>اسم الملف</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>فشل الاستخراج</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>ملفات gzip</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>لا ملفات مفتوحة</new>
+		</text>
+		<text>
+			<old>Open a folder or file</old>
+			<new>افتح ملفا أو دليلا</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>ملفات tar</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>افتح</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>نوع الضغط غير مدعوم</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>استخرج</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>كل الملفات</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>مدير الأرشفة</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>ملفات الأرشيفات</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>ملفات Bzip</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>اضغط إلى...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>اضغط</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>فشل الضغط</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>تم الضغط بنجاح</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>استخرج إلى...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>أرسل</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>المنتدى العام</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>مسح</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>الحاسبة</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>ThursDay</old>
+			<new>الخميس</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>اليوم</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>الثلاثاء</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>لا يمكن أن يكون لرزنامتين المُعرِّفُ ذاته!</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>اعرض</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>السبت</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>اللاحق</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>عيِّن اسم الرزنامة:</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>أدخل اسما للرزنامة</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>السابق</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>الأسبوع يبدأ يوم:</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>أسبوع</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>طور النافذة</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>إعدادات منظور العمل:</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>منظور العمل</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>نص هذا الحدث:</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>الأحد</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>العمل</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>لا يمكن أن يكون لرزنامتين الاسم ذاته!</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>الأربعاء</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>الأسبوع ينتهي يوم:</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>الاثنين</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>رقم غير صحيح %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>الرُّزنامة</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>إدارة الرزنامات</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>الرزنامات</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>ألغِ</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>الرزنامة عاملة بالفعل</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>تمت إضافة الرزنامة بنجاح</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>ينبغي وجود رزنامة واحدة على الاقل</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>تم حفظ الإعدادات بنجاح</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>حُفظت الإعدادات</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>الجمعة</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>احذف</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>اليوم</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>الشاشة بكاملها</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>إعدادات عامة:</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>قيمة مربع التأشير غير صحيحة</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>توجد رزنامة بالاسم ذاته</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>موافق</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>أعدَّ الرزنامة</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>اليوم ينتهي الساعة:</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>اليوم يبدأ الساعة:</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>أضف رزنامة</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Rook</old>
+			<new>طابية</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>بطئ</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>تراجع</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>وزير</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>النقلات</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>لعبة شطرنج</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>حصان</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>تبديل</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>فيل</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>أمر غير معروف</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Mouse</old>
+			<new>فارة</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>أمر جديد</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>المنظر و الاحساس</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>تحميل</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>أخر دخول</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>غير-معرف</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>أخرى</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>صلاحيات *</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>كلمة السر</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>كلمة السر *</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>كلمة السر (كرر) *</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>اللغة</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>كلمة سر غير صحيحة!</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>البريد الالكتروني</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>هل تريد حقا اعادة وصلات البحث للمتصفح أي-ناف الافتراضية؟</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>هل تريد حقا اعادة علامات تأشير المتصفح أي-ناف الافتراضية؟</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>هل تريد حقا اعادة اعدادات أي-دسك الافتراضية؟</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>تحرير الامر</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>تحرير</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>استيراد</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>المجموعات</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>اسم المجموعة</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>تصدير</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>صلاحيات</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>شخصي</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>هيئة النظام</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>فحص</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>نظام</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>افضليات النظام</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>الحيز المستخدم:</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>المستخدم</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>صورة مماثلة</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>رئيسي</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>النوافذ</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>الخلفية</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>صفحة البداية</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>عرض المستخدمين</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>حافظات</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>اعد تسمية</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>الغاء</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>الغاء الأن!</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>rootالجذر</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>ضع كافتراضي</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>عرض المستخدمين ...</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>عرض الاسماء الكاملة</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>عرض الكل</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>اعدادات</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>هل تريد حقا حذف المستخدم من النظام؟</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>هل تريد حقا حذف الصورة المماثلة من أي-سوفت؟</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>السماح بتسجيل المستخدم</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>جميع الفهارس العامة</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>مدير النظام</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>ادارة النظام</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>السماح بالتحميل من الشبكة العنكبوتية</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>مؤلف</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>استعرض المضافات Plugin</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>تم استيراد مؤشرات الوصل بنجاح.</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>تم تصدير محركات البحث ومؤشرات الوصل بنجاح.</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>أوامر الية - تنفيذ مباشر</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>أضف</new>
+		</text>
+		<text>
+			<old>Add, edit or remove your Access Control List settings</old>
+			<new>أضف أو حرر أو أزل تضبيطات قائمة التحكم في النفاذ</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>عنِّي</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>&lt;المستخدم الافتراضي&gt;</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s مستخدم مسجل</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>اسم ق.ت.ن:</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>أضف صورة مماثلة</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>أضف مستخدم جديد في النظام أي-أوأس</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>فِعل:</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>فعل</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>قم بتعديل كلمة السر الحالية</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>قم بتعديل الهيئة  الحالية</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>تم تخصيص الاعدادات الافتراضية بنجاح</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>المجموعة الافتراضية: %s | %s مجموعة</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>تم حفظ المجموعة بنجاح. أعد تشغيل الجلسة الأن.</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>تجهيز صفحة البدء</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>حذف التشغيل الالي</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>حذف مجموعة</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>هل تريد حقا حذف المجموعة من النظام؟</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>هل تريد حقا حذف الامر؟</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>سطح المكتب</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>حذف صور مماثلة</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>قم بتجهيز دعم نظام اوفيس في نظام الوندوز</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>قم بتجهيز دعم نظام اوفيس في نظام لينكس</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>تم حفظ التعديلات بنجاح وتم تحديثها للمستخدم</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>قم بتعديل لغتك المفضلة</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>قم بتعديل اعدادات سطح المكتب</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>قم بتعديل صورة سطح المكتب الحالية</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>تم حفظ التعديلات بنجاح.</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>نظف النظام أي-أوأس</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>الاوامر</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>تم حفظ الامر بنجاح</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>تم حذف الامر بنجاح</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>تم اضافة الامر بنجاح</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s أمر</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s مرآة</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>اسم ق.ت.ن</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>يمكن نسخ "%s" في دليل آخر الآن.</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>لا يمكن نسخ الروابط</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>عطل أثناء حذف الملف.</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>تم وضع "%s" في النفاية بنجاح.</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>تم حذف "%s" بنجاح.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Rename</old>
+			<new>غيِّر الاسم</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>قارئ التلقيمات</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>ألصق</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>افتح باستخدام</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>ارفع ملفات</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>مرحبا بك في %s يا %s</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>مُشغِّل جديد</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>تفضيلات</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>خصائص</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>النفاية</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>شارك مع</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>افتح النفاية</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>أنعش</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>دليل جديد</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>حرِّر</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>أفرغ النفاية</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>انسخ</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>الرُّزنامة</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>شَغِّل</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>ملف جديد</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>دفتر العناوين</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>احذف</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>نزِّل في ملف مضغوط</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>الرئيسي</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>استكشف</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>تطبيقات</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>نزِّل</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Open</old>
+			<new>افتح</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>احفظ</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>احفظ باسم...</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>اختر ملفا لفتحه</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>اختر دليلا</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>اختر</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>ينبغي إدخال اسم</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>نعم</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>ينبغي اختيار ملف</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>لا</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>أتريد حقا استبدال هذا الملف؟</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>تراجع</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>المؤلف</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>توكيد استبدال ملف</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>التاريخ</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>عطل أثناء استعراض الدليل</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>الرئيسي</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>أدلة</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>الاسم</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Network</old>
+			<new>الشبكة</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>المنتدى العام</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>مدير الصيرورات</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>المكتب</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>قارئ التلقيمات</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>جداول ممتدة</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>النظام</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>محرر النصوص</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>لعبة تِترافِكس</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>معالج النصوص</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>المتصفح</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>كماليات</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>لعبة الشطرنج</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>الرُّزنامة</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>الحاسبة</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>مدير المعارف</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>مدير الملفات</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>عميل FTP</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>التراسل الداخلي</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>ألعاب</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>عميل البريد</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Word Processor</old>
+			<new>معالج النصوص</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>معذرة، ليست لديك الصلاحيات المطلوبة!</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>تم حفظ الوثيقة بنجاح.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>يمكن صرف هذه النفاذة الآن.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>لا يمكن تنزيل الروابط</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>نزِّل</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>مع الشكر لكل من...</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>الداعمون</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>المشروعات</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>تم تنصيب الحزمة بنجاح</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>لا شيء لتنصيبه</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>وحده مدير النظام (root) يمكنه تنصيب الحزم</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>يجري التنصيب</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>أتريد فعلا تنصيب هذه الحزمة في النظام؟</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>أقبل</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>تراجع</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>رجاء املأ كل الحقول</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>اسم المستخدم هذا مسجل بالفعل</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>أعد إدخال كلمة السر</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>هذه اللغة غير موجودة!</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>لا يسمح هذا النظام بفتح حسابات جديدة!</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>اسم المستخدم أقصر مما ينبغي!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>اسم المستخدِم</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>ينبغي أن يتألف اسم المستخدم حصرا من أحرف و أرقام</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>حسابك موقوف!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>كلمة السِّر</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>(البدئي)</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>لِج</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>أنشئ حسابا</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>عُطل أثناء إنشاء حساب جديد!</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>اللغة (لهذه الجلسة)</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>اللغة</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>كلمة السر لا تطابق توكيدها!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>مستخدم جديد</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>كلمة السر أقصر مما ينبغي!</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>مرحبا يا عالم</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>مثال eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>غيّر نص العنوان</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>لم يتم وقف اي عملية!!</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Save As</old>
+			<new>احفظ باسم</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>سبتمبر</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>أبعاد الصفحة</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>اطبع</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>موضع</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>احفظ</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>الثلاثاء</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>الأربعاء</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>طراز</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>x</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>أأخلي الخلية حقا؟</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>السبت</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>الخميس</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>الأحد</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>نوفمبر</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>أكتوبر</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>افتح</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>جديد</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>معادلة</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>زِد عمودًا</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>زِد صفًا</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>احذف العمود</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>ديسمبر</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>الجمعة</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>مارس</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>مايو</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>يناير</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>الاثنين</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>احذف الصف</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>فبراير</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>يونيو</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>يوليو</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>أبريل</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>أبريل</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>انسخ و ألصق هذا النص البرمجي في برمجية جداول ممتدة أخرى (مثال اكسل)</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>س</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>ح</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>نوفمبر</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>اكتوبر</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>أحد</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>ث</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>ع</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>أربعاء</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>سبت</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>سبتمبر</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>ارفع</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>ثلاثاء</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>خ</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>خميس</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>اثنين</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>مايو</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>فبراير</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>جمعة</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>ج</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>تم استخراج</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>ديسمبر</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>عطل %s</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>يناير</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>ملف آخر</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>ن</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>مارس</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>يونيو</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>يوليو</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>أبريل</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>أغسطس</new>
+		</text>
+	</part>
+</lang>

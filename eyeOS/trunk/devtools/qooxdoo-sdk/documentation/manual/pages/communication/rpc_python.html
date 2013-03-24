@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RPC with a Python server &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Communication" href="../communication.html" />
+    <link rel="next" title="RPC Server Writer Guide" href="rpc_server_writer_guide.html" />
+    <link rel="prev" title="RPC with a Perl server" href="rpc_perl.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rpc_server_writer_guide.html" title="RPC Server Writer Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rpc_perl.html" title="RPC with a Perl server"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../communication.html" accesskey="U">Communication</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rpc-with-a-python-server">
+<span id="pages-rpc-python-rpc-with-a-python-server"></span><h1>RPC with a Python server<a class="headerlink" href="#rpc-with-a-python-server" title="Permalink to this headline">¶</a></h1>
+<p><em>qooxdoo includes an advanced RPC mechanism for direct calls to server-side methods. It allows you to write true client/server applications without having to worry about the communication details.*</em></p>
+<p>As described in the <a class="reference internal" href="rpc.html"><em>RPC overview</em></a>, qooxdoo RPC is based on <a class="reference external" href="http://json-rpc.org/">JSON-RPC</a> as the serialization and method call protocol. This page describes how to set up and implement a Python-based server.</p>
+<div class="section" id="setup">
+<span id="pages-rpc-python-setup"></span><h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Python 2.4 or 2.5 is required to run a JSON-RPC server. Download and install python from <a class="reference external" href="http://python.org">python.org</a> if you don't have it.</p>
+<p>The JSON-RPC backend itself is based on the <a class="reference external" href="http://python.cx.hu/qxjsonrpc">qxjsonrpc</a> library. Download the qxjsonrpc package from <a class="reference external" href="http://python.cx.hu/qxjsonrpc/#download">here</a>, extract the archive and run python setup.py install as usual. This will install the qxjsonrpc package into the site-packages subdirectory of your python installation.</p>
+<p>The backend requires <a class="reference external" href="http://python.cx.hu/python-cjson">python-cjson</a> or <a class="reference external" href="http://cheeseshop.python.org/pypi/simplejson">simplejson</a> for JSON serialization. Install at least one of them. Building python-cjson requires a C compiler, but it is much faster (10-100x) than the pure python simplejson package.</p>
+<p>A backend based on qxjsonrpc can be run as</p>
+<ul class="simple">
+<li>a standalone HTTP server using the qxjsonrpc.http.HTTPServer class or</li>
+<li>a WSGI application using the qxjsonrpc.wsgi.WSGIApplication class.</li>
+</ul>
+<p>You can find examples in the downloaded qxjsonrpc archive.</p>
+<p><strong>NOTE:</strong> The qxjsonrpc package is very young, it should not be used in production. Bug reports are always welcome. Send your reports to <a class="reference external" href="mailto:python&#37;&#52;&#48;cx&#46;hu?subject=qooxdoo%20wiki">Viktor Ferenczi</a>. Thank you in advance.</p>
+</div>
+<div class="section" id="writing-your-own-services">
+<span id="pages-rpc-python-writing-your-own-services"></span><h2>Writing your own services<a class="headerlink" href="#writing-your-own-services" title="Permalink to this headline">¶</a></h2>
+<p>Let's start by writing our own first service which will add its arguments up. The service will be called example.wiki and have a method called add.</p>
+<p>To do this, we create a service class called ExampleWikiService which will live in a file wiki.py. This file can be created anywhere with the following contents, preserving the indentation of the source code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: ascii -*-</span>
+
+<span class="kn">import</span> <span class="nn">qxjsonrpc</span>
+<span class="kn">import</span> <span class="nn">qxjsonrpc.http</span>
+
+<span class="k">class</span> <span class="nc">ExampleWikiService</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="o">=</span><span class="mi">0</span>
+    <span class="nd">@qxjsonrpc.public</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="o">+=</span><span class="n">value</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">server</span><span class="o">=</span><span class="n">qxjsonrpc</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">HTTPServer</span><span class="p">()</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">setService</span><span class="p">(</span><span class="s">&#39;example.wiki&#39;</span><span class="p">,</span> <span class="n">ExampleWikiService</span><span class="p">())</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&#39;__main__&#39;</span><span class="p">:</span> <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note the <tt class="docutils literal"><span class="pre">&#64;qxjsonrpc.public</span></tt> decorator in the service class. The public decorator makes the decorated method accessible to everyone. Undecorated methods are not accessible by RPC clients.</p>
+<p>The service is just an executable Python script. Running <tt class="docutils literal"><span class="pre">wiki.py</span></tt> will run a JSON-RPC server at localhost:8000 by default. Open the following link in a new browser window or tab:</p>
+<p><a class="reference external" href="http://localhost:8000/?id=1&amp;service=example.wiki&amp;method=add&amp;params=[2">http://localhost:8000/?id=1&amp;service=example.wiki&amp;method=add&amp;params=[2</a>]</p>
+<p>It should show you the JSON-RPC response. The result will be the accumulated total value. Pressing the refresh (<tt class="docutils literal"><span class="pre">F5</span></tt>) key will increment the total value by two as passed in the only argument in the params array.</p>
+<p>The RPC call was actually made using the HTTP GET method. You can achieve the same result by sending the same request arguments using the HTTP POST or the ScriptTransport protocol. The later is used by the qooxdoo library for cross-domain requests. Use qooxdoo's RPC functionality for best results.</p>
+<p>You can change the arguments to be passed to the method by altering the params array in the address bar. Multiple numbers or even floating point values can be added. If you does not add params at all the total won't change.</p>
+</div>
+<div class="section" id="a-more-advanced-example">
+<span id="pages-rpc-python-a-more-advanced-example"></span><h2>A more advanced example<a class="headerlink" href="#a-more-advanced-example" title="Permalink to this headline">¶</a></h2>
+<p>To be done.</p>
+</div>
+<div class="section" id="using-sessions">
+<span id="pages-rpc-python-using-sessions"></span><h2>Using sessions<a class="headerlink" href="#using-sessions" title="Permalink to this headline">¶</a></h2>
+<p>&#64;qxjsonrpc.session</p>
+<p>To be done.</p>
+</div>
+<div class="section" id="running-as-part-of-a-web-server">
+<span id="pages-rpc-python-running-as-part-of-a-web-server"></span><h2>Running as part of a WEB server<a class="headerlink" href="#running-as-part-of-a-web-server" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>WSGI: Apache 2.0 and mod_wsgi</li>
+</ul>
+<p>To be done.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">RPC with a Python server</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#writing-your-own-services">Writing your own services</a></li>
+<li><a class="reference internal" href="#a-more-advanced-example">A more advanced example</a></li>
+<li><a class="reference internal" href="#using-sessions">Using sessions</a></li>
+<li><a class="reference internal" href="#running-as-part-of-a-web-server">Running as part of a WEB server</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="rpc_perl.html"
+                                  title="previous chapter">RPC with a Perl server</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="rpc_server_writer_guide.html"
+                                  title="next chapter">RPC Server Writer Guide</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/communication/rpc_python.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Stores &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Data Binding" href="../data_binding.html" />
+    <link rel="next" title="GUI Toolkit" href="../gui_toolkit.html" />
+    <link rel="prev" title="Controller" href="controller.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../gui_toolkit.html" title="GUI Toolkit"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="controller.html" title="Controller"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../core.html" >Core Framework</a> &raquo;</li>
+          <li><a href="../data_binding.html" accesskey="U">Data Binding</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="stores">
+<span id="pages-data-binding-stores-stores"></span><h1>Stores<a class="headerlink" href="#stores" title="Permalink to this headline">¶</a></h1>
+<p>The main purpose of the store components is to load data from a source and convert that data into a model. The task of loading data and converting the data into a model has been split up. The store itself takes care of loading the data but delegates the creation of model classes and instances to a marshaler.</p>
+<p>The only marshaler currently available is for JSON data and therefore, the only data store available is a JSON store. Both will be described in detail in the following sections.</p>
+<div class="section" id="json-marshaler">
+<span id="pages-data-binding-stores-json-marshaler"></span><h2>JSON Marshaler<a class="headerlink" href="#json-marshaler" title="Permalink to this headline">¶</a></h2>
+<p>NOTE: This class should only be used if you want to write your own data store for your own data types or request.</p>
+<p>The marshaler takes care of converting JavaScript Objects into qooxdoo classes and instances. You can initiate each of the two jobs with a method.</p>
+<div class="section" id="toclass">
+<span id="pages-data-binding-stores-toclass"></span><h3>toClass<a class="headerlink" href="#toclass" title="Permalink to this headline">¶</a></h3>
+<p>This method converts a given JavaScript object into model classes. Every class will be stored and available in the <tt class="docutils literal"><span class="pre">qx.data.model</span></tt> namespace. The name of the class will be generated automatically depending on the data which should be stored in it. As an optional parameter you can enable the inclusion of bubbling events for every change of a property.
+If a model class is already created for the given data object, no new class will be created.</p>
+</div>
+<div class="section" id="tomodel">
+<span id="pages-data-binding-stores-tomodel"></span><h3>toModel<a class="headerlink" href="#tomodel" title="Permalink to this headline">¶</a></h3>
+<p>The method requires that the classes for the models are available. So be sure to call the <tt class="docutils literal"><span class="pre">toClass</span></tt> method before calling this method. The main purpose of this method is to create instances of the created model classes and return the model corresponding to the given data object.</p>
+</div>
+<div class="section" id="createmodel-static">
+<span id="pages-data-binding-stores-createmodel-static"></span><h3>createModel (static)<a class="headerlink" href="#createmodel-static" title="Permalink to this headline">¶</a></h3>
+<p>This method is static and can be used to invoke both methods at once. By that, you can create models for a given JavaScript objects with one line of code:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">model</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">marshal</span><span class="p">.</span><span class="nx">Json</span><span class="p">.</span><span class="nx">createModel</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="p">{</span><span class="nx">c</span><span class="o">:</span> <span class="s2">&quot;test&quot;</span><span class="p">}}});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="json-store">
+<span id="pages-data-binding-stores-json-store"></span><h2>JSON Store<a class="headerlink" href="#json-store" title="Permalink to this headline">¶</a></h2>
+<p>The JSON store takes an URL, fetches the given data from that URL and converts the data using the JSON marshaler to qooxdoo model instances, which will be available in the model property after loading. The state of the loading process is mapped to a state property. For the loading of the data, a <tt class="docutils literal"><span class="pre">qx.io.remote.Request</span></tt> will be used in the store.</p>
+<p>The following code shows how to use the JSON data store.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;json/data.json&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">Json</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>After setting the URL during the creation process, the loading will begin immediately. As soon as the data is loaded and converted, you can access the model with the following code.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">store</span><span class="p">.</span><span class="nx">getModel</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jsonp-store">
+<span id="pages-data-binding-stores-jsonp-store"></span><h2>JSONP Store<a class="headerlink" href="#jsonp-store" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://ajaxian.com/archives/jsonp-json-with-padding">JSONP</a> store is based on the <a class="reference internal" href="#pages-data-binding-stores-json-store"><em>JSON store</em></a> but uses a script tag for loading the data. Therefore, a parameter name for the callback and an URL must be specified.</p>
+<p>The following code shows how to use the JSONP data store.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;json/data.json&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">Jsonp</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;CallbackParamName&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>After setting the URL and the callback parameter name during the creation process, the loading will begin immediately.</p>
+</div>
+<div class="section" id="yql-store">
+<span id="pages-data-binding-stores-yql-store"></span><h2>YQL Store<a class="headerlink" href="#yql-store" title="Permalink to this headline">¶</a></h2>
+<p>YQL is the <a class="reference external" href="http://developer.yahoo.com/yql/">Yahoo! Query Language</a>. Yahoo! describes it as
+<em>&quot;[...] an expressive SQL-like language that lets you query, filter, and join data across Web services.&quot;</em>
+Based on the <a class="reference internal" href="#pages-data-binding-stores-jsonp-store"><em>JSONP store</em></a>, qooxdoo offers a YQL store, where you can specify the YQL queries and qooxdoo handles the rest.</p>
+<p>The following code demonstrates how to fetch some twitter messages.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">&quot;select * from twitter.user.timeline where id=&#39;wittemann&#39;&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">YQL</span><span class="p">(</span><span class="nx">query</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="combining-with-controllers">
+<span id="pages-data-binding-stores-combining-with-controllers"></span><h2>Combining with controllers<a class="headerlink" href="#combining-with-controllers" title="Permalink to this headline">¶</a></h2>
+<p>As described in the section above, you can access the model in the property after loading. The best solution is to use the model with a controller and then bind the the model properties with single value binding together. The code for this could look something like this.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">store</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Using the single value binding, the binding handles all the stuff related with the loading of the model data. That means that the data will be available in the controller as soon as its available in the store.</p>
+</div>
+<div class="section" id="how-to-get-my-own-code-into-the-model">
+<span id="pages-data-binding-stores-how-to-get-my-own-code-into-the-model"></span><h2>How to get my own code into the model?<a class="headerlink" href="#how-to-get-my-own-code-into-the-model" title="Permalink to this headline">¶</a></h2>
+<p>What if you want to to bring your own code to the generated model classes or if you even want to use your own model classes? Thats possible by adding and implementing a delegate to the data store. You can either</p>
+<ul class="simple">
+<li>Add your code by supporting a superclass for the created model classes.</li>
+<li>Add your code as a mixin to the created model classes.</li>
+<li>Use your own class instead of the created model classes.</li>
+</ul>
+<p>Take a look at the API-Documentation of the <tt class="docutils literal"><span class="pre">`qx.data.store.IStoreDelegate</span> <span class="pre">&lt;http://demo.qooxdoo.org/1.3/apiviewer/index.html#qx.data.store.IStoreDelegate&gt;`_</span></tt> to see the available methods and how to implement them.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Stores</a><ul>
+<li><a class="reference internal" href="#json-marshaler">JSON Marshaler</a><ul>
+<li><a class="reference internal" href="#toclass">toClass</a></li>
+<li><a class="reference internal" href="#tomodel">toModel</a></li>
+<li><a class="reference internal" href="#createmodel-static">createModel (static)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#json-store">JSON Store</a></li>
+<li><a class="reference internal" href="#jsonp-store">JSONP Store</a></li>
+<li><a class="reference internal" href="#yql-store">YQL Store</a></li>
+<li><a class="reference internal" href="#combining-with-controllers">Combining with controllers</a></li>
+<li><a class="reference internal" href="#how-to-get-my-own-code-into-the-model">How to get my own code into the model?</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="controller.html"
+                                  title="previous chapter">Controller</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../gui_toolkit.html"
+                                  title="next chapter">GUI Toolkit</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/data_binding/stores.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

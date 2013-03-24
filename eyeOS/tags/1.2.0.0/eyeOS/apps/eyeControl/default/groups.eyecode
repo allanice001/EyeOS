@@ -1,0 +1,110 @@
+﻿<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+// $myTable
+$sortypes = array('String');
+$theader = array('Groupname');
+
+$myTable = new Sortabletable(array(
+	'name' => 'eyeControl_groups_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes,
+	'theader' => $theader,
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 375
+));
+$myTable->show();
+$dir = EYE_ROOT . '/' . GROUPS_DIR . '/';
+$nGroups = 0;
+$openDir = vfs('real_getDirContent',array($dir));
+foreach ($openDir as $folder) {
+	if (is_dir($folder)) {
+		$folder = basename($folder);
+		$nGroups++;
+		$myTable->addRow(array($folder));
+	}
+}
+// New
+$myButton = new Button(array(
+	'name' => 'eyeControl_groups_button_new',
+	'father' => $eyeContainer,
+	'signal' => 'groups_new',
+	'caption' => 'New',
+	'width' => 90,
+	'x' => 10,
+	'y' => 0,
+	'img' => 'index.php?extern=' . THEMES_DIR . '/default/icons/16x16/new.png'
+));
+$myButton->show();
+// Edit
+$myButton = new Button(array(
+	'name' => 'eyeControl_groups_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'groups_edit',
+	'caption' => 'Edit',
+	'width' => 90,
+	'x' => 100,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/paste.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Delete
+$myButton = new Button(array(
+	'name' => 'eyeControl_groups_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'groups_delete',
+	'caption' => 'Delete',
+	'width' => 90,
+	'x' => 190,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/delete.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Set as default
+$myButton = new Button(array(
+	'name' => 'eyeControl_groups_button_default',
+	'father' => $eyeContainer,
+	'signal' => 'groups_default',
+	'caption' => 'Set as default',
+	'width' => 90,
+	'x' => 280,
+	'y' => 0,
+	'img' => 'index.php?extern=' . THEMES_DIR . '/default/icons/16x16/save.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Default group: x | x group(s)
+$myLabel = new Label(array(
+	'name' => 'eyeControl_account_label_groups',
+	'father' => $eyeContainer,
+	'horiz' => 1,
+	'y' => 5,
+	'text' => 'Default group: %s | %s group(s)',
+	'tokens' => array(DEFAULT_GROUP,$nGroups)
+));
+$myLabel->show();
+?>

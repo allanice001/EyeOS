@@ -1,0 +1,119 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Session handling lib for eyeOS
+*/
+
+function lib_eyeSessions_startSession($params=null){
+	return session_start(); 
+}
+
+//single var operations
+
+function lib_eyeSessions_setVar($params) {
+	$varName = $params[0];
+	$varValue = $params[1];
+	if(!isset($_SESSION[$varName])){
+		session_register($varName);
+	}
+	$_SESSION[$varName] = $varValue;
+}
+
+function lib_eyeSessions_getVar($params){
+	$varName = $params[0];
+	return $_SESSION[$varName];
+}
+
+function lib_eyeSessions_delVar($params){
+	$varName = $params[0];
+	unset($_SESSION[$varName]);
+}
+
+function lib_eyeSessions_checkVar($params){
+	$varName = $params[0];
+	if(isset($_SESSION[$varName])){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+//array operations
+function lib_eyeSessions_makeArrayVar($params) {
+	$varName = $params[0];
+	if(!isset($_SESSION[$varName])){
+		session_register($varName);
+	}
+	$_SESSION[$varName] = array();
+}
+
+function lib_eyeSessions_addArrayValue($params) {
+	$varName = $params[0];
+	$varValue = $params[1];
+	if(!isset($_SESSION[$varName]) || !is_array($_SESSION[$varName])){
+		session_register($varName);
+		$_SESSION[$varName] = array();
+	}
+	array_push($_SESSION[$varName],$varValue);
+}
+
+//array with keys
+function lib_eyeSessions_addArrayValueByKey($params) {
+	$varName = $params[0];
+	$varValue = $params[1];
+	$key = $params[2];
+	if(!isset($_SESSION[$varName]) || !is_array($_SESSION[$varName])){
+		session_register($varName);
+		$_SESSION[$varName] = array();
+	}
+	$_SESSION[$varName][$key] = $varValue;
+}
+
+function lib_eyeSessions_delArrayValueByKey($params) {
+	$varName = $params[0];
+	$varKey = $params[1];
+	unset($_SESSION[$varName][$varKey]);
+}
+
+function lib_eyeSessions_getArrayValueByKey($params) {
+	$arrayName = $params[0];
+	$position = $params[1];
+	return $_SESSION[$arrayName][$position];
+}
+
+function lib_eyeSessions_checkArrayValueByKey($params) {
+	$varName = $params[0];
+	$varKey = $params[1];
+	if(isset($_SESSION[$varName][$varKey])) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function lib_eyeSessions_endSession(){
+	return session_destroy();
+}
+
+?>

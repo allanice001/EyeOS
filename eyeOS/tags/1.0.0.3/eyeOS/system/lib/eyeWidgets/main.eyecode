@@ -1,0 +1,128 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	part of eyeWidgets library for eyeos gui apps.
+*/
+/*
+	TODO: WE HAVE TO PUT A MEMORY LIMIT IN THE SESSION
+*/
+
+
+define('WTABLE','wtable');
+
+function lib_eyeWidgets_loadWidgets(){
+	if ($handler = opendir(EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/'.'eyeWidgets/widgets/')) {
+		while (false !== ($file = readdir($handler))) {
+	   		if(($file != '..' || $file != '.')){
+					if(strstr($file,EYE_CODE_EXTENSION)) {
+						include_once(EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/'.'eyeWidgets/widgets/'.$file);
+	   			}
+	   		}
+		}
+	}
+}
+
+function lib_eyeWidgets_checkTable($params=null){
+	if(!reqLib('eyeSessions','checkVar',array(WTABLE))) {
+		reqLib('eyeSessions','makeArrayVar',array(WTABLE));
+	}
+}
+ 
+function lib_eyeWidgets_updateContent($params) {
+	/*
+			<WIDGET_NAME>content</WIDGET_NAME>
+	*/ 
+	global $myPid;
+	if(is_array($params)) {		
+		foreach ($params as $name => $content) {
+			if(isset($_SESSION[WTABLE][$myPid][$name])) {
+				$object = $_SESSION[WTABLE][$myPid][$name];			
+				if(is_object($object)) {				
+					if(method_exists($object,'setValue')) {
+						$object->setValue($content[0]);
+						$_SESSION[WTABLE][$myPid][$name] = $object;
+					}
+				}
+			}
+		}		
+	}
+	globalize();
+}
+
+function lib_eyeWidgets_serialize($params) {
+	global $myPid;
+	$object = $params[0];
+	$name = $params[0]->name;
+	$_SESSION[WTABLE][$myPid][$name] = $object;
+}
+
+function lib_eyeWidgets_unserialize() {
+	global $myPid;
+	if(isset($_SESSION[WTABLE][$myPid]) && is_array($_SESSION[WTABLE][$myPid])) {
+		foreach ($_SESSION[WTABLE][$myPid] as $value) {
+			if(strcasecmp(get_class($value),'window')==0) {
+				service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_".$value->name."'))slideClose(document.getElementById('".$myPid."_".$value->name."').parentNode.id,'".$myPid."_".$value->name."')"));
+				service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_".$value->name."'))document.getElementById('".$myPid."_".$value->name."').parentNode.removeChild(document.getElementById('".$myPid."_".$value->name."'))"));
+			}
+		}
+	}
+	unset($_SESSION[WTABLE][$myPid]);
+}
+
+function lib_eyeWidgets_singleUnserialize($name) {
+	global $myPid;
+	unset($_SESSION[WTABLE][$myPid][$name]);
+}
+
+function lib_eyeWidgets_rawunserialize() {
+	global $myPid;
+	unset($_SESSION[WTABLE][$myPid]);
+}
+
+function globalize() {
+	global $myPid;
+	foreach ($_SESSION[WTABLE][$myPid] as $key => $value) {
+		$GLOBALS[$key] = $_SESSION[WTABLE][$myPid][$key];
+	}
+}
+
+function lib_eyeWidgets_getWidgetList() {
+	$name = "";
+	if ($handler = opendir(EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/'.'eyeWidgets/widgets/')) {
+		while (false !== ($file = readdir($handler))) {
+	   		if(($file != '..' || $file != '.')){
+					if(strstr($file,EYE_CODE_EXTENSION)) {
+						$name[] = str_replace(EYE_CODE_EXTENSION,'',$file);
+	   			}
+	   		}
+		}
+		return $name;	
+	} else {
+		return false;
+	}
+}
+
+
+
+?>

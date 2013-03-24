@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>entityEncode</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+		</tags>
+		<shortDesc>Transforms special characters to HTML entities.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.5</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>entityEncode</functionName>
+		<syntax>eyeXML('entityEncode', array($string))</syntax>
+		<desc>Transforms characters that have HTML entities to their entities.</desc>
+		<params>			
+			<type>required</type>
+			<name>string</name>
+			<desc>Input string.</desc>
+		</params>
+		<return>Returns the result of replacing the special HTML characters to their entities.</return>
+	</definition>
+</info>

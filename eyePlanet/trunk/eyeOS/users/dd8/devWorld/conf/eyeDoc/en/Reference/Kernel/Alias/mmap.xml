@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>Alias mmap</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>alias</tag>
+		</tags>
+		<shortDesc>Allows to call a function of the mmap service.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.1</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>mmap</functionName>
+		<syntax>mixed mmap(string $call [, array $args=null])</syntax>
+		<desc>Allows to call a function of the mmap service.</desc>
+		<params>
+			<type>required</type>
+			<name>call</name>
+			<desc>Name of the function of the mmap service to call.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>args</name>
+			<desc>Array containing the arguments that will be passed to the function. Whether the arguments are expressed as an indexed or associative array depends on the own function's syntax.</desc>
+		</params>
+		<return>The value returned by the mmap function</return>
+		<examples>
+			<ex>
+				<type>Alias usage</type>
+				<desc>$jsArray = mmap('array2jsArg', array($myArray));</desc>
+			</ex>
+		</examples>
+	</definition>
+</info>

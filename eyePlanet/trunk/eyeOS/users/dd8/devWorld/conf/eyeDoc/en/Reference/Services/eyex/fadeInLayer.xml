@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>fadeInLayer</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+			<tag>layer</tag>
+			<tag>container</tag>
+		</tags>
+		<shortDesc>Hides a layer gradually.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>fadeInLayer</functionName>
+		<syntax>boolean eyex('fadeInLayer', array(string 'name' => $name [, int 'time' => $time, int 'startAlpha' => $startAlpha, int 'endAlpha' => $endAlpha]))</syntax>
+		<desc>Hides a layer applying a gradual fade to black effect.</desc>
+		<params>
+			<type>required</type>
+			<name>name</name>
+			<desc>Name of the layer.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>time</name>
+			<desc>Time, expressed in milliseconds, to apply completely the fading effect. Default time value is 1000 ms.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>startAlpha</name>
+			<desc>Initial alpha opacity value for the layer. This value must be an integer contained in the 0-100 opacity range. Default startAlpha value is 100.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>endAlpha</name>
+			<desc>Final alpha opacity value for the layer. This value must be an integer contained in the 0-100 opacity range. Default endAlpha value is 0.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, if no layer name is specified, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No layer name is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

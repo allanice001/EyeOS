@@ -1,0 +1,56 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDesk_extras_run($params=null) {
+	global $myPid;
+	global $checknum;
+	service('eyex','loadScript',array('url'=>'index.php?version='.EXTERN_CACHE_VERSION.'&extern=apps/eyeDesk_extras/js/eyeDesk_extras'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+}
+
+function eyeDesk_extras_end(){
+	global $myPid;
+	$js = "
+			var toRemove = xGetElementById('minimizedApps');
+			toRemove.parentNode.removeChild(toRemove);
+
+			toRemove = xGetElementById('minimizedAppsRight');
+			toRemove.parentNode.removeChild(toRemove);
+
+			toRemove = xGetElementById('minimizedAppsLeft');
+			toRemove.parentNode.removeChild(toRemove);
+			
+			toRemove = xGetElementById('minIconLeft');
+			toRemove.parentNode.removeChild(toRemove);
+
+			toRemove = xGetElementById('minIconRight');
+			toRemove.parentNode.removeChild(toRemove);
+		
+			toRemove = xGetElementById('".$myPid."_eyeClockDiv');
+			toRemove.parentNode.removeChild(toRemove);
+
+			openWindows=new Array();
+			minspace=new Array();
+			";
+	eyeX('rawjs',array('js'=>$js));
+}
+?>

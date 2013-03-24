@@ -1,0 +1,138 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+global $myPid;
+global $checknum;
+global $currentUser;
+$ContentY = 10;
+// Select language
+$mySelect = new Select(array(
+	'name' => 'eyeControl_theme_select',
+	'father' => $eyeContainer,
+	'width' => 150,
+	'x' => 30,
+	'y' => $ContentY
+));
+$mySelect->show();
+$dir = EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/';
+$oldUser = $currentUser;
+$currentUser = ROOTUSER;
+$openDir = vfs('real_getDirContent',array($dir));
+$currentUser = $oldUser;
+foreach ($openDir as $theme) {
+	if (is_dir($theme) && file_exists($theme . '/info.xml')) {
+		$UserThemeXML = eyeXML('getXMLfile',array(um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeDesk/conf.xml'));
+		$oldUser = $currentUser;
+		$currentUser = ROOTUSER;
+		$ThemeXML = eyeXML('getXMLfile',array($theme . '/info.xml'));
+		$currentUser = $oldUser;
+		$theme = basename($theme);
+		if ($theme == $UserThemeXML['eyeDesk'][0]['theme'][0]) {
+			$select = 1;
+			$selectedXML = $ThemeXML['eyeXtheme'][0];
+			$selectedName = $theme;
+		} else {
+			$select = 0;
+		}
+		$mySelect->addOption($ThemeXML['eyeXtheme'][0]['display'][0],$theme,$select);
+	}
+}
+$mySelect->addEvent('onchange','sendMsg(' . $checknum . ',"theme_select",eyeParam("selected",this.value));');
+// Change theme
+$myButton = new Button(array(
+	'name' => 'eyeControl_theme_button_change',
+	'father' => $eyeContainer,
+	'x' => 200,
+	'y' => $ContentY,
+	'caption' => 'Change theme',
+	'signal' => 'theme_change'
+));
+$myButton->addFriend($mySelect);
+$myButton->show();
+$ContentY = $ContentY + 40;
+$myLine = new Line(array(
+	'name' => 'eyeControl_theme_line',
+	'father' => $eyeContainer,
+	'width' => 535,
+	'x' => 10,
+	'y' => $ContentY
+));
+$myLine->show();
+$ContentY = $ContentY + 20;
+// Theme
+$myLabel = new Label(array(
+	'name' => 'eyeControl_theme_label_display_1',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY,
+	'text' => 'Theme'
+));
+$myLabel->show();
+$myLabel = new Label(array(
+	'name' => 'eyeControl_theme_label_display_2',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $selectedXML['display'][0] . ' %s',
+	'tokens' => array($selectedXML['version'][0])
+));
+$myLabel->show();
+$ContentY = $ContentY + 30;
+// Author
+$myLabel = new Label(array(
+	'name' => 'eyeControl_theme_label_author_1',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY,
+	'text' => 'Author'
+));
+$myLabel->show();
+$myLabel = new Label(array(
+	'name' => 'eyeControl_theme_label_author_2',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'text' => $selectedXML['author'][0]
+));
+$myLabel->show();
+$ContentY = $ContentY + 30;
+// Screenshot
+$myLabel = new Label(array(
+	'name' => 'eyeControl_theme_label_screenshot',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY,
+	'text' => 'Screenshot'
+));
+$myLabel->show();
+$myImagebox = new Imagebox(array(
+	'name' => 'eyeControl_theme_imagebox',
+	'father' => $eyeContainer,
+	'width' => 160,
+	'height' => 120,
+	'x' => 160,
+	'y' => $ContentY,
+	'url' => 'index.php?extern='. THEMES_DIR . '/' . $selectedName . '/screenshot.png'
+));
+$myImagebox->show();
+?>

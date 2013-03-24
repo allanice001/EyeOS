@@ -1,0 +1,153 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_groups_new($params = '') {
+	eyex('messageBox',array(
+		'content' => 'Type the name of the group you want to create:',
+		'type' => 3,
+		'title' => 'Create group',
+		'win_name' => 'eyeControl_groups_create_window',
+		'btn1_capt' => 'Create',
+		'btn1_name' => 'groups_create',
+		'btn2_capt' => 'Cancel',
+		'btn2_name' => 'groups_create_cancel',
+		'textbox_event' => 'groups_create',
+		'textbox_name' => 'eyeControl_groups_create_textbox',
+		'father' => 'eyeControl_container_big'
+	));
+}
+
+function eyeControl_on_groups_create($params = '') {
+	$group = $GLOBALS['eyeControl_groups_create_textbox']->text;
+	$dir = EYE_ROOT . '/' . GROUPS_DIR . '/' . $group . '/';
+	if (preg_match("/^[-_a-zA-Z0-9]+$/",$group) && !vfs('fileExists',array($dir))) {
+		vfs('real_mkdir',array($dir));
+		loadContent('only_root','groups');
+	} elseif (vfs('fileExists',array($dir))) {
+		eyex('messageBox',array('content' => 'The chosen group already exists.'));
+	} else {
+		eyex('messageBox',array('content' => 'Please type a correct group name.'));
+	}
+}
+
+function eyeControl_on_groups_create_cancel($params = '') {
+	$GLOBALS['eyeControl_groups_create_window']->close();
+}
+
+function eyeControl_on_groups_edit($params = '') {
+	$group = $GLOBALS['eyeControl_groups_sortabletable']->selected;
+	if ($group && $group != DEFAULT_GROUP) {
+		eyex('messageBox',array(
+			'content' => 'Type the new group name:',
+			'type' => 3,
+			'title' => 'Rename group',
+			'win_name' => 'eyeControl_groups_rename_window',
+			'btn1_capt' => 'Rename',
+			'btn1_name' => 'groups_rename',
+			'btn2_capt' => 'Cancel',
+			'btn2_name' => 'groups_rename_cancel',
+			'textbox_event' => 'groups_rename',
+			'textbox_name' => 'eyeControl_groups_rename_textbox',
+			'textbox_text' => $group,
+			'hidden_name' => 'eyeControl_groups_rename_hidden',
+			'hidden_text' => $group,
+			'father' => 'eyeControl_container_big'
+		));
+	} elseif ($group == DEFAULT_GROUP) {
+		eyex('messageBox',array('content' => 'You can\'t edit the default group!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a group to edit.'));
+	}
+}
+
+function eyeControl_on_groups_rename($params = '') {
+	$group_old = $GLOBALS['eyeControl_groups_rename_hidden']->text;
+	$group_new = $GLOBALS['eyeControl_groups_rename_textbox']->text;
+	$dir_old = EYE_ROOT . '/' . GROUPS_DIR . '/' . $group_old . '/';
+	$dir_new = EYE_ROOT . '/' . GROUPS_DIR . '/' . $group_new . '/';
+	if (preg_match("/^[-_a-zA-Z0-9]+$/",$group_new) && !vfs('fileExists',array($dir_new))) {
+		vfs('real_move',array($dir_old,$dir_new));
+		loadContent('only_root','groups');
+	} elseif (vfs('fileExists',array($dir))) {
+		eyex('messageBox',array('content' => 'The chosen group already exists.'));
+	} else {
+		eyex('messageBox',array('content' => 'Please type a correct group name.'));
+	}
+}
+
+function eyeControl_on_groups_rename_cancel($params = '') {
+	$GLOBALS['eyeControl_groups_rename_window']->close();
+}
+
+function eyeControl_on_groups_default($params = '') {
+	$group = $GLOBALS['eyeControl_groups_sortabletable']->selected;
+	if ($group && $group != DEFAULT_GROUP) {
+		$File = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/' . 'system.xml';
+		$XML = eyeXML('getXMLfile',array($File));
+		$XML['CONFIG'][0]['DEFAULT_GROUP'][0] = $group;
+		eyeXML('setXMLFile',array($File,$XML));
+		eyex('messageBox',array('content' => 'Default group successfully saved. You need to start a new session now.'));
+	} elseif ($group == DEFAULT_GROUP) {
+		eyex('messageBox',array('content' => 'The chosen group is already the default group!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a group to set it as default group.'));
+	}
+}
+
+function eyeControl_on_groups_delete($params = '') {
+	$group = $GLOBALS['eyeControl_groups_sortabletable']->selected;
+	if ($group && $group != DEFAULT_GROUP) {
+		eyex('messageBox',array(
+			'content' => 'Do you really want to remove this group from the system?',
+			'type' => 3,
+			'title' => 'Delete group',
+			'win_name' => 'eyeControl_groups_delete_window',
+			'btn1_capt' => 'Yes',
+			'btn1_name' => 'groups_delete_yes',
+			'btn2_capt' => 'No',
+			'btn2_name' => 'groups_delete_no',
+			'hidden_text' => $group,
+			'hidden_name' => 'groups_delete_hidden',
+			'father' => 'eyeControl_container_big',
+			'img' => '?'
+		));
+	} elseif ($group == DEFAULT_GROUP) {
+		eyex('messageBox',array('content' => 'You can\'t delete the default group!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a group to delete.'));
+	}
+}
+
+function eyeControl_on_groups_delete_yes($params = '') {
+	$group = $GLOBALS['groups_delete_hidden']->text;
+	if ($group && $group != DEFAULT_GROUP) {
+		vfs('real_rmdir',array(EYE_ROOT . '/' . GROUPS_DIR . '/' . $group . '/'));
+		eyex('messageBox',array('content' => 'The group was successfully deleted.'));
+		loadContent('only_root','groups');
+	}
+}
+
+function eyeControl_on_groups_delete_no($params = '') {
+	$GLOBALS['eyeControl_groups_delete_window']->close();
+}
+?>

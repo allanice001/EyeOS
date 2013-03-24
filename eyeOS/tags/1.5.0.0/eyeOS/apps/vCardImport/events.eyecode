@@ -1,0 +1,67 @@
+<?php
+/* 
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+*/
+
+function vCardImport_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function vCardImport_on_Yes($params=null) {
+	$path = $GLOBALS['path']->text;	
+	
+	if(!reqLib('eyeContacts','isReady')){
+		eyeX('messageBox',array('content'=>'vCardImport can\'t initialize, contact with your administrator'));
+		return false;
+	}
+	if(!reqLib('eyeContacts','import',array($path))){
+		$error = errorCodes('getErrorCode');
+		if($error == VFS_FILE_NOT_EXISTS){
+			eyeX('messageBox',array('content'=>'Sorry, the file not found.'));
+			return false;
+		}else if($error == CONTACT_EXISTS){
+			eyeX('messageBox',array('content'=>'Sorry, the contact already exists.'));
+			return false;
+		}else if($error == NO_CONTACT_FOUND){
+			eyeX('messageBox',array('content'=>'Sorry, no contacts found in the file'));
+			return false;
+		}else if($error == NO_SUPPORTED_FORMAT){
+			eyeX('messageBox',array('content'=>'Format unsupported!'));
+			return false;
+		}else{
+			eyeX('messageBox',array('content'=>'Error exporting file.'));
+			return false;
+		}
+	}
+	eyeX('messageBox',array('content'=>'File Imported!'));
+	proc('end');
+}
+
+function vCardImport_on_No($params=null) {
+	proc('end');	
+}
+
+
+function vCardToeyeCard_on_Close(){
+	proc('end');
+}
+
+?>

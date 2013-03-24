@@ -1,0 +1,804 @@
+/* Global */ 
+#background{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(index.php?extern=apps/eyeX/themes/lightdesk/images/wallpapers/lightwallpaper.png);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+#eyeApps{
+	position: absolute;
+	width: auto;
+	height: 100%;
+	right: 10px;
+	z-index: 10;
+	left: 0;
+}
+
+#background{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+}
+.eyeLine {
+	width: 100%;
+	height:1px;
+	background-color: #bababa;
+}
+.multipleSelect {
+	background-color: #6699FF;
+	border: 1px solid blue;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+/* Login Window */
+.eyeLoginWindow {
+	margin-top: -50px;
+}
+
+/* System Bar */ 
+.eyeMenu {
+	position: absolute;
+	z-index: 10000;
+	bottom: 50px;
+	left: -21px;
+	width: 180px;
+	visibility: hidden;
+}
+.eyeMenu_top {
+	height: 20px;
+	width: 180px;
+	background-image: url(index.php?extern=apps/eyeX/themes/lightdesk/images/apps/eyeBar/top_bub.png);
+	background-repeat: no-repeat;
+}
+.eyeMenu_bot {
+	height: 20px;
+	width: 180px;
+	background-image: url(index.php?extern=apps/eyeX/themes/lightdesk/images/apps/eyeBar/bottom_bub.png);
+	background-repeat: no-repeat;
+}
+.eyeMenu_cen {
+	width: 180px;
+	background-image: url(index.php?extern=apps/eyeX/themes/lightdesk/images/apps/eyeBar/center_bub.png);
+	background-repeat: repeat-y;
+}
+.eyeMenu_content {
+	position: absolute;
+	top: 19px;
+	left: 15px;
+	width: 100%;
+}
+.eyeMenuButton {
+	position: absolute;
+	left: 50%;
+	margin-left: -65px;
+	width: 138px;
+	bottom: 70px;
+	height: 38px;
+	visibility: hidden;
+	display: none;
+}
+.eyeMenuButton_Img {
+	cursor: pointer;
+}
+.menuBar_text {
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 11px;
+	/*font-family: Verdana;*/
+}
+.eyeBarItemsText {
+	position:absolute;
+	top:0.3em;
+	left:35px;
+	width:100%;
+	z-index:200;
+	color: #dddddd;
+}
+
+/* eyeBox */
+.eyeBoxSupCent {
+	background-image: url("index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/bg_sup_center.png");
+	height:23px;
+	width: 100%;
+	background-repeat:repeat-x;
+}
+.eyeBoxBottCent {
+	background-image: url("index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/bg_bottom_center.png");
+	height:17px;
+	background-repeat:repeat-x;
+}
+.eyeBoxTable {
+	border: 1px solid #777;
+	background-color: #FFFFFF;
+}
+.eyeBoxText {
+	position:absolute;
+	top:5px;
+	left:10px;
+	font-size:11px;
+	/*font-family:Verdana;*/
+	color:#145689;
+}
+
+/* eyeButton */
+.eyeButtonClass {
+	border-top: 1px solid #858585;
+	border-bottom: 1px solid #858585;
+	border-left: 1px solid #aeaeae;
+	border-right: 1px solid #aeaeae;
+	/*font-family: Verdana;*/
+	font-size: 11px;
+	height: 22px;
+	background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/buttonbg.png');
+}
+.eyeButtonClass:hover {
+	border-top: 1px solid #6fa1e0;
+	border-bottom: 1px solid #6fa1e0;
+	border-left: 1px solid #a1c6f3;
+	border-right: 1px solid #a1c6f3;
+}
+
+/* eyeChess */
+.eyeChess_w {
+	background-color:#cccccc
+}
+.eyeChess_b {
+	background-color:#888
+}
+.eyeChess_t {
+	background: #ddd;
+}
+#PI {
+	position:absolute;
+	left:500px;
+	top:20px
+}
+.eyeChess_Table {
+	position: absolute;
+	left: 460px;
+	top: 5px;
+}
+.eyeChess_Text {
+	position: absolute;
+	left: 10px;
+	top: 480px;
+}
+.eyeChess_TextUndo {
+	position: absolute;
+	left: 180px;
+	top: 460px;
+}
+.eyeChess_textarea {
+	border: 1px solid gray;
+}
+
+/* eyeDesk_extras */
+.eyeClock {
+	visibility: hidden;
+	display: none;
+}
+.eyeDesk_miniCalendar {
+	visibility: hidden;
+	display: none;
+}
+
+/* eyeDock */
+.eyeDock_left {
+	visibility: hidden;
+	display: none;
+}
+.eyeDock_right {
+	visibility: hidden;
+	display: none;
+}
+.eyeDock_center {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockIcon {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockMenuTitle {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockMenu {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockMenuTopRight {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockMenuTopLeft {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockMenuBottonLeft {
+}
+.eyeDockMenuBottonRight {
+}
+.eyeDockMenuBottomCenter {
+}
+.eyeDockMenuTopCenter {
+}
+.eyeDockMenuRightCenter {
+}
+.eyeDockMenuLeftCenter {
+}
+.eyeDockMenuContent {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockMenuIcon {
+	visibility: hidden;
+	display: none;
+}
+.eyeDockItemImg {
+}
+.eyeDockMenuText{
+}
+.eyeDockMenuLine {
+}
+
+/* eyeTab */
+.eyeTab {
+	
+}
+.eyeTabHeader {
+	border-top:1px solid #acacac;
+	border-bottom: 1px solid #acacac;
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:23px;
+	background-image:url(index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/tabbg.png);
+	background-repeat: repeat-x;
+}
+.eyeTabBody {
+	position:absolute;
+	top:23px;
+	left:0px;
+}
+.eyeTabNotSelected {
+	margin-top: -1px;
+	vertical-align: middle;
+	background-color: #fff;
+	border-top: 1px solid #acacac;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;	
+	cursor: pointer;
+}
+.eyeTabSelected {
+	margin-top: -1px;
+	padding-bottom: 1px;
+	background-color: #fff;
+	vertical-align: middle;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;
+	border-bottom: 1px solid #fff;
+	background-image:url(index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/tabtopbg.png);
+	background-repeat: repeat-x;
+	background-position: top;
+	cursor: pointer;
+}
+.eyeTabText {
+	vertical-align: middle;
+	margin-top: 4px;
+	margin-left: 3px;
+	/*font-family:Verdana;*/
+	font-size:11px;
+	font-color: #3e3e3e;
+}
+.eyeTabCross {
+	position:absolute;
+	top:9px;
+	right:5px;
+	/*font-family:Arial,Verdana;*/
+	font-size:11px;
+	font-color: #7f7f7f;
+	width:8px;
+	height:6px;
+	background-image:url(index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/cross.png);
+	cursor:Pointer;
+}
+
+/* eyeTextarea */
+.eyeTextarea {
+	background-color: white;
+	border:1px solid #bcbcbc;
+	/*font-family: Verdana;*/
+	font-size: 11px;
+}
+.eyeTextarea:hover {
+	border:1px solid #858585;
+}
+.eyeTextareaContainer {
+	
+}
+
+/* eyeTextbox */
+.eyeTextbox {
+	background-color: white;
+	border:1px solid #bcbcbc;
+	padding-left:2px;
+	/*font-family: Verdana;*/	
+	font-size: 11px;
+}
+.eyeTextbox:hover {
+	border:1px solid #858585;
+}
+/*eyeSimpleBox*/
+.eyeSimplebox{
+	border: 0.1px solid black;
+}
+.eyeSimpleboxNoBorder{
+	border: none;
+}
+/* icons */
+.eyeIcon {
+
+}
+.eyeIcon_Text {
+  color: #294e82;
+}
+.eyeIcon_Image {
+	margin-left: 8px;
+}
+
+/* message box */
+.eyeMessageBox {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	opacity: 0;
+	width: 208px;
+	height: 69px;
+	background-image: url("index.php?extern=apps/eyeX/themes/lightdesk/images/desktop/messagebox.png");
+	background-repeat: no-repeat;
+	z-index: 100;
+}
+.eyeMessageBoxText {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 18px;
+	font-size: 10pt;
+	color: #fff;
+}
+
+/* eyeSelect */
+.eyeSelect {
+	background-color: white;
+	border: 1px solid #bcbcbc;
+	padding-left: 2px;
+	font-size: 11px;
+}
+
+/* slider */
+.dynamic-slider-control {
+	position: relative;
+	-moz-user-focus: normal;
+	-moz-user-select: none;
+	cursor:	default;
+}
+.horizontal {
+	width: 200px;
+	height: 27px;
+}
+.vertical {
+	width: 29px;
+	height: 200px;
+}
+.dynamic-slider-control input {
+	display: none;
+}
+.dynamic-slider-control .handle {
+	position: absolute;	
+	font-size: 1px;
+	overflow: hidden;
+	-moz-user-select: none;
+	cursor: default;
+}
+.dynamic-slider-control.horizontal .handle {
+	width: 31px;
+	height: 14px;
+	background-image: url("index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/handle.horizontal.png");
+}
+.dynamic-slider-control.horizontal .handle div {}
+.dynamic-slider-control.horizontal .handle.hover {}
+.dynamic-slider-control.vertical .handle {
+	width: 15px;
+	height:	31px;
+	background-image: url("index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/handle.vertical.png");
+}
+.dynamic-slider-control.vertical .handle.hover {}
+.dynamic-slider-control .line {
+	position: absolute;
+	font-size: 0.01mm;
+	overflow: hidden;
+	border:	1px solid rgb(90,97,90);
+	
+	-moz-box-sizing: content-box;
+}
+.dynamic-slider-control.vertical .line {
+	width: 3px;
+}
+.dynamic-slider-control.horizontal .line {
+	height:	3px;
+}
+.dynamic-slider-control .line div {
+	width: 1px;
+	height:	1px;
+	border: 1px solid;
+	border-color: rgb(230,230,230) rgb(189,190,189) rgb(189,190,189) rgb(230,230,230);
+}
+
+/* sortable table */
+.sort-table {
+	font:		Icon;
+	background:	white;
+	color:		WindowText;
+}
+.sort-table thead {
+	background:	ButtonFace;
+	font-size:14px;
+	/*font-family:Verdana;*/
+}
+.sort-table td {
+	padding:	2px 5px;
+	cursor: Pointer;
+	font-size:11px;
+	/*font-family:Verdana;*/
+}
+.sort-table-container {
+	border: 1px Solid ThreeDShadow;
+	overflow:auto;
+}
+.sort-table thead td {
+	border:			1px solid;
+	border-color:	ButtonHighlight ButtonShadow
+					ButtonShadow ButtonHighlight;
+	cursor:			default;
+}
+.sort-table-select {
+	background-color: #3399FF;
+}
+.sort-table thead td:active {
+	border-color:	ButtonShadow ButtonHighlight
+					ButtonHighlight ButtonShadow;
+	padding:		3px 4px 1px 6px;
+}
+.sort-table thead td[_sortType=None]:active {
+	border-color:	ButtonHighlight ButtonShadow
+					ButtonShadow ButtonHighlight;
+	padding:		2px 5px;
+}
+.sort-table thead td[_sortType=HtmlButNoSort]:active {
+	border-color:	ButtonHighlight ButtonShadow
+					ButtonShadow ButtonHighlight;
+	padding:		2px 5px;
+}
+.sort-arrow {
+	width:					11px;
+	height:					11px;
+	background-position:	center center;
+	background-repeat:		no-repeat;
+	margin:					0 2px;
+}
+.sort-arrow.descending {
+	background-image:		url("index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/downsimple.png");
+
+}
+.sort-arrow.ascending {
+	background-image:		url("index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/upsimple.png");
+}
+
+/* Window */
+.eyeWindowMain {
+  position:absolute;
+  overflow:hidden;
+  width:200px;
+  height: 200px;
+  margin:0;
+  padding:0;
+  color:#000;
+}
+.eyeWindowMinimizeButton {
+  position: absolute;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/min.png');
+}
+.eyeWindowMinimizeButton:hover {
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/min_x.png');
+}
+.eyeWindowMaxButton {
+  position: absolute;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/max.png');
+}
+.eyeWindowMaxButton:hover {
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/max_x.png');
+}
+.eyeWindowCloseButton {
+  position: absolute;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/close.png');
+}
+.eyeWindowCloseButton:hover {
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/close_x.png');
+}
+.eyeWindowResizeButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  cursor: se-resize;
+}
+.eyeWindowTitle {
+  overflow:hidden;
+  width: 100%;  
+  height:23px;
+  margin:0;
+  padding:0;
+}
+.eyeWindowTitle_border_right {
+  visibility: hidden;
+  display: none;
+}
+.eyeWindowTitle_border_left {
+  visibility: hidden;
+  display: none;
+}
+.eyeWindowTitle_center {  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border: 0;
+  height:23px;
+  background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/windows/bg_top.png');
+  background-repeat: repeat-x;
+  border-right: 1px solid #424d5f;
+  border-left: 1px solid #424d5f;
+}
+.eyeWindowTitle_text {
+  margin-left: 10px;
+  margin-top: 4px;
+  color:#fff;
+  font-weight: 600;
+  cursor: default;
+}
+.eyeWindowContent {
+  position: absolute;
+  overflow:auto;
+  left: 0;
+  right: 0;
+  top: 23px;
+  bottom: 0;
+  border-right: 1px solid #424d5f;
+  border-left: 1px solid #424d5f;
+  border-bottom: 1px solid #424d5f;
+  background-color: #fff;
+}
+.eyeWindowContentInvisible {
+  position: absolute;
+  overflow:auto;
+  left: 0;
+  right: 0;
+  top: 23px;
+  bottom: 0;
+  background-color: transparent;
+}
+
+/* ized apps dock */
+.minimizedApps {
+	position: absolute;
+	bottom: -6px;
+	right: 15px;
+	left: 235px;
+	height: 30px;
+	overflow: hidden;
+	z-index: 10000;
+}
+.minimizedAppsLeft {
+	visibility: hidden;
+	display: none;
+}
+.minimizedAppsRight {
+	visibility: hidden;
+	display: none;
+}
+.eyeWindowOnBar_Container {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+.eyeWindowOnBar_text {
+	margin-left: 12px;
+	margin-top: 3px;
+}
+.eyeWindowOnBar_On {
+	position: absolute;
+	overflow: hidden;
+	width: 170px;
+	height: 22px;
+	top: -26px;
+	z-index: 20;
+	cursor: pointer;
+	font-weight: 400;
+	background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/minimized/minbar_on.png');
+	background-repeat: no-repeat;
+	background-position: top center;
+	color:#fff;
+}
+.eyeWindowOnBar_Off {
+	position: absolute;
+	overflow: hidden;
+	width: 170px;
+	height: 22px;
+	top: -26px;
+	z-index: 20;
+	cursor: pointer;
+	font-weight: 400;
+	background-image: url('index.php?extern=apps/eyeX/themes/lightdesk/images/minimized/minbar_off.png');
+	background-repeat: no-repeat;
+	background-position: top center;
+	color:#294e82;
+}
+.minIconLeft {
+	position: absolute;
+	bottom: 0;
+	left: 223px;
+	width: 8px;
+	height: 18px;
+	overflow: hidden;
+	display: none;
+	cursor: pointer;
+	z-index: 10000;
+}
+.minIconRight {
+	position: absolute;
+	bottom: 0;
+	right: 2px;
+	width: 8px;
+	height: 18px;
+	overflow: hidden;
+	display: none;
+	cursor: pointer;
+	z-index: 10000;
+}
+.eyeProgressBar {
+	background-color:#80a9d3;
+}
+
+.eyeProgress {
+	border: 1px solid black;
+	height:15px;
+}
+
+.eyeProgressText {
+	margin-top: -1px;
+	font-size:11px;
+	color:#000;
+}
+
+.blockbar {
+	height:58px;
+	width:100%;
+	border-bottom:1px solid #808080;
+	background-color: #F6F6F6;	
+}
+
+.blockbarItem {
+	text-align:center;
+	width:auto;
+	float:left;
+	padding: 5px;
+	cursor:Pointer;
+	margin-top:3px;
+	margin-left:5px;
+	
+	border-right: 1px #F6F6F6 solid;
+	border-bottom: 1px #F6F6F6 solid;
+	border-left: 1px #F6F6F6 solid;
+	border-top: 1px #F6F6F6 solid;
+}
+
+.blockbarItem:hover {
+	text-align:center;
+	width:auto;
+	float:left;
+	padding: 5px;
+	cursor:Pointer;
+	margin-top:3px;
+	margin-left:5px;
+	border-right: 1px #6D9FDC solid;
+	border-bottom: 1px #6D9FDC solid;
+	border-left: 1px #7FA4D6 solid;
+	border-top: 1px #7FA4D6 solid;
+	background-color: white;
+}
+
+.blockbarItemPress {
+	text-align:center;
+	background-color: #EDEDED;
+	width:auto;
+	float:left;
+	padding: 5px;
+	cursor:Pointer;
+	margin-top:5px;
+	margin-left:10px;
+	border-right: 1px #A1C6F3 solid;
+	border-bottom: 1px #A1C6F3 solid;
+	border-left: 1px #6FA1E0 solid;
+	border-top: 1px #6FA1E0 solid;
+}
+
+.blockbarImg {
+
+}
+
+.blockbarText {
+	font-size: 9px;
+	color:#333333;
+	margin-top:5px;
+}
+
+.blockbarline {
+	background-color:#c7c7c7;
+	height:40px;
+	float:left;
+	width:1px;
+	margin-top:10px;
+	margin-left:5px;	
+}
+
+ul.mktree { }
+ul.mktree  li { list-style: none; cursor:Pointer;} 
+ul.mktree, ul.mktree ul , ul.mktree li { margin-left:6px; margin-top: 5px; padding:0px; }
+ul.mktree  li           .bullet { padding-left: 15px; }
+ul.mktree  li.liOpen    .bullet { cursor: pointer; background: url(index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/folder_open.png)  center left no-repeat; }
+ul.mktree  li.liClosed  .bullet { cursor: pointer; background: url(index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/folder.png)   center left no-repeat; }
+ul.mktree  li.liBullet  .bullet { cursor: default; background: url(index.php?extern=apps/eyeX/themes/lightdesk/images/widgets/bullet.gif) center left no-repeat; }
+ul.mktree  li.liOpen    ul { display: block; }
+ul.mktree  li.liClosed  ul { display: none; }
+ul.mktree  li { font-size: 11px; /*font-family:Verdana,Tahoma;*/}
+ul.mktree  li ul li { font-size: 11px; /*font-family:Verdana,Tahoma;*/}
+ul.mktree  li ul li ul li { font-size: 11px; /*font-family:Verdana,Tahoma;*/}
+ul.mktree  li ul li ul li ul li { font-size: 11px; /*font-family:Verdana,Tahoma;*/}
+
+.eyeContextMenu {
+	border:1px solid #999;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:1px;
+	padding-right:1px;
+	width:150px;
+	background-color:white;
+	z-index:1000;
+}
+
+.eyeContextMenuEntry {
+	cursor:Pointer;
+	font-family:Verdana,FreeSans;
+	font-size:11px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;
+}

@@ -1,0 +1,121 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	events resource for eyeLogin 
+*/
+
+
+function eyeLogin_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeLogin_on_doLogin($params="") {
+	global $currentUser;
+	global $myPid;
+	global $checknum;
+	$myUsername = $GLOBALS['eyeLogin_Username']->text;
+	$myPassword = $GLOBALS['eyeLogin_Password']->text;
+	if(service('um','login',array($myUsername,$myPassword))) {
+		$currentUser = $myUsername;
+		service('proc','setProcessUser',array($myPid));
+		service('eyex','rawjs',array('js' => 'eyeLogin_successLogin("'.service('sec','cleanOutPutString',array('var'=>$myUsername,'noreturn' =>1,'nohtml' =>1)).'","'.$checknum.'","'.$myPid.'");'));
+	} else {
+		service('eyex','rawjs',array('js' => 'eyeLogin_badLogin("'.service('sec','cleanOutPutString',array('var'=>$myUsername,'noreturn' =>1,'nohtml' =>1)).'","'.service('sec','cleanOutPutString',array('var'=>$myPassword,'noreturn' =>1,'nohtml' =>1)).'","'.$checknum.'","'.$myPid.'");'));
+	}
+}
+
+function eyeLogin_on_successLogin($params=null) {
+	global $myPid;
+	global $currentUser;
+	loadConfig('eyeLogin');
+	service('eyex','removeWidget',array('name' => 'wnd1_Container','father' => 'eyeApps'));
+	$pid = service('proc','findPidByName',array('eyeX'));
+	service('proc','setProcessUser',array($pid)); //set eyeX to the currentUser
+	service('proc','close',array($myPid));
+	service('eyex','rawjs',array('js'=>"document.title='$currentUser @ ".EYEOS_HOSTNAME."'"));
+	service('proc','launch',array(LOGIN_EXECUTE,'autorun'));
+}
+
+function eyeLogin_on_doCreateUser($params="") {
+	
+	if(ALLOW_USER_REGISTER != 1) {
+		if(is_object($GLOBALS['eyeLogin_HiddenLabel'])) {
+			$GLOBALS['eyeLogin_HiddenLabel']->setText("This system do not allow user registration");
+		}
+		return;
+	}
+	global $myPid;
+	global $checknum;
+	$myUsername = $GLOBALS['eyeLogin_newUser']->text;
+	$pass1 = $GLOBALS['eyeLogin_Pass1']->text;
+	$pass2 = $GLOBALS['eyeLogin_Pass2']->text;
+
+	if(!$myUsername || !$pass1 || !$pass2) {
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("You must provide a new username and a password");
+		$GLOBALS['eyeLogin_newUser']->setText("");
+		$GLOBALS['eyeLogin_Pass1']->setText("");
+		$GLOBALS['eyeLogin_Pass2']->setText("");
+		return false;
+	}
+	
+	if($pass1 != $pass2) {
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("Password fields do not match");
+		$GLOBALS['eyeLogin_Pass1']->setText("");
+		$GLOBALS['eyeLogin_Pass2']->setText("");
+		return false;
+	}
+	
+	if(strlen($pass1) < 4) {
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("Password is too short");
+		return false;
+	}
+
+	if (!preg_match("/^[a-zA-Z0-9]+$/", $pass1)) {
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("Error: username should be alpha-numeric");
+		return false;
+	}
+	
+	if (!preg_match("/^[a-zA-Z0-9]+$/", $myUsername)) {
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("Error: username should be alpha-numeric");
+		return false;
+	}
+	
+	global $currentUser;
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	if(service('um','userExist',array($myUsername))) {
+		$currentUser = $oldUser;
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("That user already exists");
+		$GLOBALS['eyeLogin_newUser']->setText("");
+		return false;
+	}
+	
+	if(service('um','createUser',array('username' => $myUsername,'password' => $pass1))) {
+		$currentUser = $oldUser;
+		service('eyex','rawjs',array('js'=>"eyeLoginCleanWindow($myPid);"));
+		$GLOBALS['eyeLogin_HiddenLabel2']->setText("User created successfully. Please login.");
+		$GLOBALS['eyeLogin_HiddenLabel2']->setY(40);
+		$GLOBALS['eyeLogin_HiddenLabel']->setText('');
+	} else {
+		$currentUser = $oldUser;
+		$GLOBALS['eyeLogin_HiddenLabel']->setText("Error creating new user");
+	}
+}
+
+?>

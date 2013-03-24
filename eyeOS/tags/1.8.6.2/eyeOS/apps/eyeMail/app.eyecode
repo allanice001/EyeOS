@@ -1,0 +1,253 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/mail'.EYE_CODE_EXTENSION);
+
+function eyeMail_run($params=null) {
+	global $myPid, $checknum;
+	// error_reporting(E_ALL);
+	$config = eyeXML('getXMLconfig',array('eyeMail','settings.xml'));
+	$myWindow = new Window(array(
+		'title'=>'eyeMail',
+		'name'=>'eyeMail_WND_1',
+		'father'=>'eyeApps',
+		'cent'=>1,
+		'width'=>670,
+		'height'=> 450,
+		'sendResizeMsg'=>1,
+		'sigResize'=>'Resize',
+		'savePosition' => 1
+	));
+	$myWindow->show();
+	eyeX('rawjs',array('js'=>'xGetElementById("'.$myPid.'_eyeMail_WND_1_Content").style.overflow = "hidden";'));
+
+	$vertLine = new Line(array(
+		'name'=> 'verticalPanel',
+		'father'=>'eyeMail_WND_1_Content',
+		'x'=>140,
+		'y'=>59,
+		'width'=>1,
+		'height'=>$myWindow->height-83
+	));
+	$vertLine->show(0);
+	$vertLine->setCSS(array(
+		'border-right'=>'1px solid #aaaaaa'
+	));
+
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeMail_WND_1_Content'));
+	$myToolbar->show();
+
+	$activityContainer = new Simplebox(array(
+		'name' => 'eyeMail_activityContainer',
+		'father' => 'eyeMail_WND_1_Content',
+		'x' => 0,
+		'y' => 0,
+		'width' => $vertLine->x+1,
+		'height' => 100,
+		'border' => 0,
+		'vert' => 1
+	));
+	$activityContainer->show(0);
+	$activityContainer->setCSS(array(
+		'background-color'=>'#d5dde6',
+		'border-top' => '1px solid #aaaaaa'
+		// 'z-index' => 1
+	));
+
+	$activityLabel = new Label(array(
+		'name'=>'eyeMail_act_lbl',
+		'father'=>'eyeMail_activityContainer',
+		'text'=>'Activity Monitor',
+		'y' => 5,
+		'x' => 20
+	));
+	$activityLabel->show();
+
+	$activityLabel->setCss(array(
+		'color' => '#9999aa',
+		'font-weight' => 'bold'
+	));
+
+	$activityImgContainer = new Simplebox(array(
+		'name' => 'eyeMail_activityImgContainer',
+		'father' => 'eyeMail_activityContainer',
+		'x' => 0,
+		'y' => 0,
+		'width' => $vertLine->x+1,
+		'height' => 75,
+		'border' => 0,
+		'vert' => 1
+	));
+	$activityImgContainer->show(0);
+	$activityImgContainer->setCSS(array(
+		'background-color'=>'#d5dde6',
+	));
+
+	$myImagebox = new Imagebox(array(
+		'cent' => 2,
+		'father' => 'eyeMail_activityImgContainer',
+		'name' => 'eyeMail_act_img',
+		'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/apps/eyeMail/loading.gif',
+		'x' => 0,
+		'y' => 10
+	));
+	$myImagebox->show();
+
+	$activityTextInfo = new Label(array(
+		'name'=>'eyeMail_act_textInfo',
+		'father'=>'eyeMail_activityImgContainer',
+		'text'=>'Sending mail...',
+		'y' => 50,
+		'x' => 30
+	));
+	$activityTextInfo->show();
+
+	$activityImgContainer->hide();
+
+	eyeMail_drawBoxes();
+
+	$mySplit = new Split(array(
+		'name'=>'splitter',
+		'father'=>'eyeMail_WND_1_Content',
+		'width'=>$myWindow->width-144,
+		'height'=>$vertLine->height,
+		'orientation' => SPLIT_HORIZONTAL,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'resizeSplit',
+		'x'=>142,
+		'y'=>60,
+		'position'=>$config['eyeMail'][0]['splitPos'][0]
+	));
+	$mySplit->show(0);
+
+	$mailHeader = new Simplebox(array(
+		'name' => 'eyeMail_mailHeader',
+		'father' => 'splitter_last',
+		'x' => 0,
+		'y' => 0,
+		'width' => $myWindow->width-144,
+		'height' => 95,
+		'border' => 0
+	));
+	$mailHeader->show(0);
+	$mailHeader->setCSS(array(
+		'background-color' => '#EFEFEF'
+	));
+
+	$mailBody = new Textarea(array(
+		'name' => 'eyeMail_mailBody',
+		'father' => 'splitter_last',
+		'x' => 0,
+		'y' => 0,
+		'width' => $myWindow->width-144,
+		'height' => $mySplit->height-$mySplit->position-98,
+		'vert'=>1,
+	));
+	$mailBody->show(0);
+	$mailBody->setCSS(array('border'=>'none'));
+	eyeX('rawjs',array('js'=>'document.getElementById("'.$myPid.'_eyeMail_mailBody").setAttribute("READONLY","READONLY");'));
+
+	$lfrom = new Label(array(
+		'name' => 'eyeMail_lfrom',
+		'father' => 'eyeMail_mailHeader',
+		'text' => 'From:',
+		'x' => 5,
+		'y' => 10,
+	));
+	$lfrom->show(0);
+
+	$lfrom->setCSS(array('width'=>($mailHeader->width-10).'px'));
+
+	$lsubject = new Label(array(
+		'name' => 'eyeMail_lsubject',
+		'father' => 'eyeMail_mailHeader',
+		'text' => 'Subject:',
+		'x' => 5,
+		'y' => 30,
+		'width'=>$mailHeader->width-10
+	));
+	$lsubject->show(0);
+
+	$lfrom->setCSS(array('width'=>($mailHeader->width-10).'px'));
+
+	$ldate = new Label(array(
+		'name' => 'eyeMail_ldate',
+		'father' => 'eyeMail_mailHeader',
+		'text' => 'Date:',
+		'x' => 5,
+		'y' => 50,
+		'width'=>$mailHeader->width-10
+	));
+	$ldate->show(0);
+
+	$lfrom->setCSS(array('width'=>($mailHeader->width-10).'px'));
+
+	$lto = new Label(array(
+		'name' => 'eyeMail_lto',
+		'father' => 'eyeMail_mailHeader',
+		'text' => 'To:',
+		'x' => 5,
+		'y' => 70,
+		'width'=>$mailHeader->width-10
+	));
+	$lto->show(0);
+
+	$lfrom->setCSS(array('width'=>($mailHeader->width-10).'px'));
+
+	$sortypes = array("String","String","Date","Hidden");
+	$myHeader = array('From','Subject','Date',"Hidden");
+
+	$myTable = new Sortabletable(array(
+		'name'=>'mailTable',
+		'father'=>'splitter_first',
+		'sortypes'=>$sortypes,
+		'theader'=>$myHeader,
+		'x'=>0,
+		'y'=>0,
+		'width'=>$myWindow->width-144,
+		'height'=>$mySplit->position,
+		'master' => 3,
+		'signal' => 'openMail',
+		'dblsignal' => 'openMailBig',
+		'border' => 0
+	));
+	$myTable->show(0);
+	$myToolbar->addItem('fetch','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/eyeMail/mail-receive.png','Fetch');
+	$myToolbar->addLine();
+	$myToolbar->addItem('new','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/eyeMail/mail-message-new.png','New');
+	$myToolbar->addItem('delete','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/eyeMail/mail-mark-junk.png','Delete',array($myTable));
+	$myToolbar->addLine();
+	$myToolbar->addItem('reply','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/eyeMail/mail-reply-sender.png','Reply');
+	$myToolbar->addItem('forward','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/eyeMail/mail-forward.png','Forward');
+	$myToolbar->addLine();
+	$myToolbar->addItem('preferences','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/apps/eyeMail/preferences-system.png','Preferences');
+	$myHidden3 = new Hidden(array('name'=>'page','father'=>'eyeApps','text'=>0));
+	reqLib('eyeWidgets','serialize',array($myHidden3));
+	$myHidden4 = new Hidden(array('name'=>'location','father'=>'eyeApps','text'=>'inbox'));
+	reqLib('eyeWidgets','serialize',array($myHidden4));
+	eyeMail_starter();
+}
+
+function eyeMail_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+?>

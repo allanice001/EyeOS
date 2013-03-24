@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getAllUsers</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>um</tag>
+			<tag>user</tag>
+		</tags>
+		<shortDesc>Returns a list of all users.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getAllUsers</functionName>
+		<syntax>array um('getAllUsers')</syntax>
+		<desc>Returns a list with all the users registered in the system.</desc>
+		<return>Returns an array containing the names of all the users.</return>
+	</definition>
+</info>

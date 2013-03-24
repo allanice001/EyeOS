@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Toolbar</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>button</tag>
+		</tags>
+		<shortDesc>Creates a zone that contains buttons for the application's actions.</shortDesc>
+	</general>
+	<name>Toolbar</name>
+	<description>The Toolbar widget creates a row in the upper part of a Window that can contain buttons that handle the actions of an application.</description>
+	<image>Un widget Toolbar con varias acciones, y líneas que actúan como separadores. Las aplicaciones más recientes en eyeOS tienden a usar este widget para mostrar sus acciones.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Nombre unívoco dado al widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Nombre de su elemento padre dentro del cual se crea.</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>paintOnClick</name>
+			<desc>Specifies whether or not an item in the Toolbar changes its style while it is being clicked.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Hace que el sistema ejecute un código JavaScript dado cada vez que se produzca un evento en este widget.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Nombre del evento JS. Ejemplos: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>Código JavaScript que se ejecutará cada vez que se dispare el evento. El código se ejecutará dentro de una función para que puedan recibirse argumentos.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Argumentos pasados a la función del evento.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>addItem(string $itemName, string $img, string $text, array $ofriends=null)</syntax>
+			<desc>Adds a new button to the Toolbar.</desc>
+			<arguments>
+				<arg>
+					<name>itemName</name>
+					<desc>Name of the button added. Every time the button is clicked, a signal with the button's name will be sent to the system.</desc>
+				</arg>
+				<arg>
+					<name>img</name>
+					<desc>URL of the button's displayed image. The URL must point to an image inside the extern directory.</desc>
+				</arg>
+				<arg>
+					<name>text</name>
+					<desc>Text the button will display.</desc>
+				</arg>
+				<arg>
+					<name>ofriends</name>
+					<desc>Array containing the friends of this button.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>addLine()</syntax>
+			<desc>Draws a separator.</desc>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Hace el widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>void remove()</syntax>
+			<desc>Elimina el widget, y con él todos los widgets en su interior.</desc>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Aplica atributos CSS al widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Especifica, en forma de un array asociativo, los atributos a aplicar. La clave del elemento del array corresponde a la propiedad, mientras que el valor representa al valor de la propiedad. Tanto las claves como los valores deben ser válidos en la sintaxis de CSS.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show()</syntax>
+			<desc>Draws the widget in the screen.</desc>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Hace el widget visible.</desc>
+		</method>
+	</methods>
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Added the 'paintOnClick' key. It allows to specify whether or not an item in the Toolbar changes its style while it is being clicked.</desc>
+		</trace>
+	</changelog>
+</info>

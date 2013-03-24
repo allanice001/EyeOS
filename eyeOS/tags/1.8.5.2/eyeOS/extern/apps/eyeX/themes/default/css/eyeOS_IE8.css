@@ -1,0 +1,58 @@
+.activeWindow, .eyeWindowTitle{
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/bg_top.png);
+}
+
+.activeWindow_border_left {} 
+.activeWindow_border_right {}
+
+.eyeClock {
+	bottom: -1px;
+}
+
+.eyeButtonClass {
+	background: url(index.php?version=2EXTERN_CACHE_VERSION&theme=newdefault&extern=images/widgets/buttonbg.png);
+}
+
+.eyeDesk_iconsOver, .eyeFiles_icons, .eyeIcon {
+	border: 0;
+}
+
+.eyeDesk_iconsOver:hover, .eyeFiles_icons:hover, .eyeIcon:hover {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/desktop/iconhover.png) repeat-x ;
+}
+
+.eyeDockIcon {
+	cursor: pointer;
+	margin-right: 5px;
+	margin-top: -4px;
+	padding-right: 10px;
+        padding-top: 4px;
+	margin-left: 5px;
+	color: #ffffff;
+	border-right:1px solid #353B40;
+	width:30px;
+}
+
+.eyeMenuButton {
+	bottom: 19px
+}
+
+.inactiveWindow{
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/bg_top_x.png);
+}
+
+.inactiveWindow_border_left {}
+.inactiveWindow_border_right {}
+
+.minimizedApps {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/minbar_bg.png);
+	bottom: -1px;
+	height: 31px;
+	left: 0px;	
+	position: absolute;
+	width: expression(this.parentNode.offsetWidth - 143);
+}
+
+.minimizedAppsRight {
+	bottom: -1px;
+}

@@ -1,0 +1,93 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+
+function eyeContacts_show_table($letter='',$windowWidth='',$windowHeight=''){
+	if($windowWidth == ''){
+		$windowWidth = $GLOBALS['eyeContactsWND']->width;		
+	}
+	if($windowHeight == ''){
+		$windowHeight = $GLOBALS['eyeContactsWND']->height;
+	}
+	if($letter == ''){
+		$letter == 'ALL';
+	}
+	$sortypes = array("String","String","String","String","String","Hidden");
+	$myHeader = array('Name','Surname','Home Phone','Mobile Phone','E-mail','unserialized');
+	
+	$myTable = new Sortabletable(array('name'=>'eyeContacts_Contacts','father'=>'tableContainer',
+		'sortypes'=>$sortypes,'theader'=>$myHeader,'x'=>0,'y'=>0,'width'=>$windowWidth-5,'height'=>$windowHeight-125,'master'=>5,'dblsignal'=>'EditContact'));
+	$myTable->show();
+	$myPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeContacts";
+	$myFiles = service('vfs', 'real_getDirContent', array($myPath));
+	$contacts = eyeContacts('userList');
+	foreach($contacts as $key=>$myFileContent) {		
+		$md5Name = $myFileContent['name'][0];
+		
+		if($letter == '123'){
+			$first = $md5Name{0};
+			if(!is_numeric($first)){
+				continue;
+			}
+		}else if($letter != 'ALL'){
+			if(utf8_strtoupper($md5Name{0}) != $letter){
+				continue;	
+			}
+		}
+		
+		if(!isset($myFileContent['name'][0]) || empty($myFileContent['name'][0])){ 
+			 $myFileContent['name'][0] = ' ';
+			 $md5Name = '';
+		}
+		$md5Surname = $myFileContent['surname'][0];
+		if(!isset($myFileContent['surname'][0]) || empty($myFileContent['surname'][0])){			
+			$myFileContent['surname'][0] = ' ';
+			$md5Surname = '';
+		}
+		if(!isset($myFileContent['home_phone'][0]) || empty($myFileContent['home_phone'][0])){
+			if(!isset($myFileContent['company_phone'][0]) || empty($myFileContent['company_phone'][0])){
+				 $myFileContent['home_phone'][0] = ' ';
+			} else {
+				 $myFileContent['home_phone'][0] = $myFileContent['company_phone'][0];
+			}
+		}
+		if(!isset($myFileContent['mobile_phone'][0]) || empty($myFileContent['mobile_phone'][0])){
+			 $myFileContent['mobile_phone'][0] = ' ';
+		}
+		if(!isset($myFileContent['email'][0]) || empty($myFileContent['email'][0])){
+			 $myFileContent['email'][0] = ' ';
+		}
+		
+		$arraySerialized = serialize(array($md5Name,$md5Surname,$key));
+		$name = $myFileContent['name'][0];
+		$surname = $myFileContent['surname'][0];
+		$phone = $myFileContent['home_phone'][0];
+		$mob_phone = $myFileContent['mobile_phone'][0];
+		$email = $myFileContent['email'][0];
+		$md5 = $arraySerialized;
+		
+		$myTable->addRow(array($name,$surname,$phone,$mob_phone,$email,$md5));
+	}
+	return $myTable;
+}
+ ?>

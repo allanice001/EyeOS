@@ -1,0 +1,4261 @@
+<lang>
+	<info>
+		<lang>فارسی</lang>
+		<lang-en>Persian</lang-en>
+		<author>Mohammad Abdoli Rad</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Add an eyeLink</old>
+			<new>eyeLink اضافه کردن</new>
+		</text>
+		<text>
+			<old>Please type a correct filename.</old>
+			<new>. لطفا نام فایل را درست تایپ کنید</new>
+		</text>
+		<text>
+			<old>Please type the link name here:</old>
+			<new>: لطفا نام لینک را در اینجا تایپ کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>. لینک را نمی توان دانلود کرد</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>App to be executed:</old>
+			<new>: برنامه در حال اجرا شدن</new>
+		</text>
+		<text>
+			<old>Edit link</old>
+			<new>ویرایش لینک</new>
+		</text>
+		<text>
+			<old>Invalid link file.</old>
+			<new>. لینک فایل معتبر نیست</new>
+		</text>
+		<text>
+			<old>Link updated.</old>
+			<new>. لینک به روز آوری شد</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>به روز کردن</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Are you sure you want to empty trash content?</old>
+			<new>آیا شما می خواهید محتویات سطل زباله خالی شود ؟</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>تخلیه زباله</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>نصب برنامه ها</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>مدیریت سکو</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>فشرده کردن</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>... فشرده کردن در</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>با موفقیت فشرده شد</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>فشرده سازی شکست خورد</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>استخراج کردن</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>... استخراج کردن در</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>. فایل با موفقیت استخراج شد</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>استخراج فایل شکست خورد</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>نام فایل</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>فایل باز نیست</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>فشرده سازی این نوع فایل پشتیبانی نمی شود</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBar</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>eyeOS درباره</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>برنامه ها</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>بستن جلسه</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>راه اندازی برنامه</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>تنظیمات سیستم</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>پاک کردن</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>ارسال</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>A calendar with same name already exists</old>
+			<new>تقویمی با همین نام وجود دارد</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>اضافه کردن تقویم</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>! حداقل یک تقویم نیاز است</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>تقویم با موفقیت اضافه شد</new>
+		</text>
+		<text>
+			<old>Calendar is already runing</old>
+			<new>تقویم در حال اجرا است</new>
+		</text>
+		<text>
+			<old>Calendar Name</old>
+			<new>نام تقویم</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>تقویم ها</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>مدیریت تقویم ها</new>
+		</text>
+		<text>
+			<old>Create Calendar</old>
+			<new>ساختن تقویم</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>روز</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>تمام صفحه</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>مقدار چک باکس بی اعتبار است</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Invalid Num %s</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>بعد</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>لطفا نامی برای تقویم تایپ کنید</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>قبل</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>نمایش</new>
+		</text>
+		<text>
+			<old>Sorry, you can only create 5 different calendars</old>
+			<new>متاسفانه شما فقط ۵ تقویم متفاوت بسازید</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>امروز</new>
+		</text>
+		<text>
+			<old>Two calendars cannot have the same Id.</old>
+			<new>. مثل هم داشته باشند Id دو تقویم نمی تواند یک</new>
+		</text>
+		<text>
+			<old>Two calendars cannot have the same name.</old>
+			<new>. دو تقویم نمی تواند یک نام مثل هم داشته باشند</new>
+		</text>
+		<text>
+			<old>Update Calendars</old>
+			<new>به روز آوری تقویم</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>هفته</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>پنجره ای</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>وظیفه</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCode</name>
+		<text>
+			<old>Applications</old>
+			<new>برنامه ها</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>تخلیه زباله</new>
+		</text>
+		<text>
+			<old>Extern</old>
+			<new>بیرونی</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>. فایل با موفقیت ذخیره شد</new>
+		</text>
+		<text>
+			<old>Libraries</old>
+			<new>مجموع برنامه ها</new>
+		</text>
+		<text>
+			<old>New File</old>
+			<new>فایل جدید</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>پوشه جدید</new>
+		</text>
+		<text>
+			<old>Only root can run this program</old>
+			<new>فقط مدیر می تواند این برنامه را اجرا کند</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Run App</old>
+			<new>اجرا برنامه</new>
+		</text>
+		<text>
+			<old>Services</old>
+			<new>خدمات</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>. متاسفانه شما مجوز قانونی ندارید</new>
+		</text>
+		<text>
+			<old>Type the name of the new file</old>
+			<new>نام فایل جدید را تایپ کنید</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>نام پوشه جدید را تایپ کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeContacts</name>
+		<text>
+			<old>Add Contact</old>
+			<new>افزودن مخاطب</new>
+		</text>
+		<text>
+			<old>Address</old>
+			<new>آدرس</new>
+		</text>
+		<text>
+			<old>ALL</old>
+			<new>همه</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this contact?</old>
+			<new>آیا شما می خواهید این مخاطب پاک شود ؟</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>شرکت</new>
+		</text>
+		<text>
+			<old>Company Address</old>
+			<new>آدرس شرکت</new>
+		</text>
+		<text>
+			<old>Contact deleted successfully.</old>
+			<new>. مخاطب با موفقیت حذف شد</new>
+		</text>
+		<text>
+			<old>Contact updated successfully.</old>
+			<new>. مخاطب با موفقیت به روز رسانی شد</new>
+		</text>
+		<text>
+			<old>Contacts exported in to %s</old>
+			<new>%s صدور مخاطب در</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>خطا در حذف</new>
+		</text>
+		<text>
+			<old>Destination</old>
+			<new>مقصد</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>ایمیل</new>
+		</text>
+		<text>
+			<old>Edit Contact</old>
+			<new>ویرایش مخاطب</new>
+		</text>
+		<text>
+			<old>Error deleting contact.</old>
+			<new>. خطا در حذف مخاطب</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>. خطا در صادر کردن فایل</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>صادر کردن</new>
+		</text>
+		<text>
+			<old>Export all as vCard</old>
+			<new>vCard صدور همه به صورت </new>
+		</text>
+		<text>
+			<old>Export completed successfully.</old>
+			<new>. صدور با موفقیت کامل شد</new>
+		</text>
+		<text>
+			<old>Export Contacts</old>
+			<new>صدور مخاطب</new>
+		</text>
+		<text>
+			<old>Export failed!</old>
+			<new>! صدور شکست خورد</new>
+		</text>
+		<text>
+			<old>Export To File</old>
+			<new>صادر کردن به فایل</new>
+		</text>
+		<text>
+			<old>Export your contacts to vCard format</old>
+			<new>vCard صدور مخاطب شما به شکل</new>
+		</text>
+		<text>
+			<old>eyeContacts can&#039;t initialize, contact with your administrator</old>
+			<new>نمی تواند مقدار دهی کند با مدیر خود تماس بگیرید eyeContacts</new>
+		</text>
+		<text>
+			<old>eyeOS Username</old>
+			<new>eyeOS نام کاربری</new>
+		</text>
+		<text>
+			<old>Fax</old>
+			<new>فکس</new>
+		</text>
+		<text>
+			<old>File &quot;eyeContactsExported.vcf&quot; will be created automatically if you leave this field blank.</old>
+			<new>. به صورت خودکار ایجاد می شود &#039; eyeContactsExported.vcf &#039; اگر شما این فیلد خالی را ترک کنید فایل</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>! فرمت پشتیبانی نمی شود</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>تلفن منزل</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>وارد کردن</new>
+		</text>
+		<text>
+			<old>Import Contacts</old>
+			<new>ورود مخاطب</new>
+		</text>
+		<text>
+			<old>Import contacts from vCard files</old>
+			<new>vCard ورود مخاطب از فایل</new>
+		</text>
+		<text>
+			<old>Import from .vcf file...</old>
+			<new>...  .vcf ورود از فایل</new>
+		</text>
+		<text>
+			<old>Import from vCard</old>
+			<new>vCard ورود از</new>
+		</text>
+		<text>
+			<old>Instant Messenger</old>
+			<new>مسنجر فوری</new>
+		</text>
+		<text>
+			<old>Internet Information</old>
+			<new>اطلاعات اینترنت</new>
+		</text>
+		<text>
+			<old>Manage Contacts</old>
+			<new>مدیریت مخاطب</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>تلفن همراه</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>نام</new>
+		</text>
+		<text>
+			<old>New contact created successfully.</old>
+			<new>. مخاطب جدید با موفقیت افزوده شد</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>نام مستعار</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>یاداشت</new>
+		</text>
+		<text>
+			<old>Personal Information</old>
+			<new>اطلاعات شخصی</new>
+		</text>
+		<text>
+			<old>Phone</old>
+			<new>تلفن</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be deleted first.</old>
+			<new>. لطفا برای حذف مخاطبی را انتخاب کنید</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be edited first.</old>
+			<new>. لطفا برای ویرایش مخاطبی را انتخاب کنید</new>
+		</text>
+		<text>
+			<old>Please choose a contact you want to send an eyeMessage to first.</old>
+			<new>. مخاطبی را انتخاب کنید eyeMessage لطفا برای ارسال</new>
+		</text>
+		<text>
+			<old>Please fill in the eyeOS Username for this contact first.</old>
+			<new>. لطفا نام کاربری این مخاطب را بنویسید</new>
+		</text>
+		<text>
+			<old>Please, fill the name and surname.</old>
+			<new>. لطفا نام و نام خانوادگی را بنویسید</new>
+		</text>
+		<text>
+			<old>Please, select a correct file.</old>
+			<new>. لطفا فایل صحیح را انتخاب کنید</new>
+		</text>
+		<text>
+			<old>Professional Information</old>
+			<new>اطلاعات تخصصی</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>ارسال پیام</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>متاسفانه هیچ مخاطبی در این فایل نیست</new>
+		</text>
+		<text>
+			<old>Sorry, the contact already exists.</old>
+			<new>. متاسفانه این مخاطب قبلا موجود بوده است</new>
+		</text>
+		<text>
+			<old>Source:</old>
+			<new>: منبع</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>نام خانوادگی</new>
+		</text>
+		<text>
+			<old>The contact can&#039;t be added</old>
+			<new>مخاطبی را نمی توان افزود</new>
+		</text>
+		<text>
+			<old>The file was not found.</old>
+			<new>. فایلی پیدا نشد</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>به روز رسانی</new>
+		</text>
+		<text>
+			<old>vCard Import/Export</old>
+			<new>vCard ورود/صدور</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>نمایش</new>
+		</text>
+		<text>
+			<old>View/Edit</old>
+			<new>نمایش/ ویراش</new>
+		</text>
+		<text>
+			<old>Voice Over IP</old>
+			<new>Voice Over IP</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>وب سایت</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>%s command(s)</old>
+			<new>فرمان %s</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>میرور %s</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>. کاربر ثبت شده %s</new>
+		</text>
+		<text>
+			<old>%s% translated! %s from %s texts left.</old>
+			<new>. متن باقیمانده %s از %s !ترجمه شده %s%</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>]کاربر پیش فرض[</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>درباره من</new>
+		</text>
+		<text>
+			<old>Add a new language</old>
+			<new>افزودن زبان جدید</new>
+		</text>
+		<text>
+			<old>Add a new language you want to translate.</old>
+			<new>. شما می خواهید یک زبان جدید برای ترجمه اضافه شود</new>
+		</text>
+		<text>
+			<old>Add a new user to your eyeOS system</old>
+			<new>افزودن کاربر جدید به سیستم شما</new>
+		</text>
+		<text>
+			<old>Add language</old>
+			<new>افزودن زبان</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>افزودن میرور</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>مدیریت</new>
+		</text>
+		<text>
+			<old>All texts are translated!</old>
+			<new>! تمام متن ترجمه شد</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>مجوز مسیر عمومی</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>مجوز عضویت کاربر</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>نویسنده</new>
+		</text>
+		<text>
+			<old>Author (full name)</old>
+			<new>(نویسنده (نام کامل</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>اجرای خودکار فرمان ها</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>عقب</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>. بوک مارک و موتور جستوجو با موفقیت صادر شد</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>. بوک مارک با موفقیت وارد شد</new>
+		</text>
+		<text>
+			<old>Center wallpaper</old>
+			<new>کاغذ دیواری در مرکز</new>
+		</text>
+		<text>
+			<old>Change language</old>
+			<new>تعویض زبان</new>
+		</text>
+		<text>
+			<old>Change password</old>
+			<new>تعویض کلمه عبور</new>
+		</text>
+		<text>
+			<old>Change the language&#039;s information</old>
+			<new>تغییر در اطلاعات زبان</new>
+		</text>
+		<text>
+			<old>Change theme</old>
+			<new>تعویض تم</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>تعویض کلمه عبور فعلی شما</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>تعویض تم فعلی شما</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>تعویض کاغذ دیواری میزکار شما</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>تعویض زبان اصلی شما</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>. تغییرات با موفقیت ذخیره و کاربر به روز شد</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>. تغییرات با موفقیت ذخیره شد</new>
+		</text>
+		<text>
+			<old>Clean eyeOS</old>
+			<new>eyeOS تمیز کردن</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>. فرمان با موفقیت اضافه شد</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>. فرمان با موفقیت ذخیره شد</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>فرمان ها</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>پیکربندی صفحه آغازین</new>
+		</text>
+		<text>
+			<old>Create group</old>
+			<new>ایجاد گروه</new>
+		</text>
+		<text>
+			<old>Create user</old>
+			<new>ایجاد کاربر</new>
+		</text>
+		<text>
+			<old>Created on</old>
+			<new>ایجاد کردن</new>
+		</text>
+		<text>
+			<old>Current password</old>
+			<new>کلمه عبور فعلی</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to start a new session now.</old>
+			<new>. گروه پیشفرض با موفقیت ذخیره شد. شما حال باید یک جلسه جدید شروع کنید</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>گروه %s | %s : گروه پیشفرض</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>. تنظیمات پیشفرض با موفقیت اعمال شد</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>حذف اجرای خودکار</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>حذف گروه</new>
+		</text>
+		<text>
+			<old>Delete language</old>
+			<new>حذف زبان</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>حذف میرور</new>
+		</text>
+		<text>
+			<old>Delete user</old>
+			<new>حذف کاربر</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>میزکار</new>
+		</text>
+		<text>
+			<old>Do you really want to delete the eyeOS system?</old>
+			<new>پاک شود؟ eyeOS آیا شما می خواهید سیستم</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this account from the server?</old>
+			<new>آیا شما می خواهید این مشترک از سرور حذف شود؟</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>آیا شما می خواهید این فرمان حذف شود؟</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>آیا شما می خواهید این گروه از سیستم حذف شود؟</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this language?</old>
+			<new>آیا شما می خواهید این زبان حذف شود؟</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>حذف شود؟ eyeSoft آیا شما می خواهید این میرور از</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>آیا شما می خواهید این کاربر از سیستم حذف شود؟</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeDesk settings?</old>
+			<new>استفاده کنید؟ eyeDesk آیا شما می خواهید از تنظیمات پیشفرض</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav bookmarks?</old>
+			<new>استفاده کنید؟ eyeNav آیا شما می خواهید از بوک مارک پیشفرض</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav search?</old>
+			<new>استفاده کنید؟ eyeNav آیا شما می خواهید از جستوجوی پیشفرض</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>دانلود</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>ایمیل</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>ویرایش</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>ویرایش فرمان</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>ویرایش میرور</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>ویرایش کاربر انتخاب شده</new>
+		</text>
+		<text>
+			<old>Edit translation</old>
+			<new>ویرایش ترجمه</new>
+		</text>
+		<text>
+			<old>Edit user</old>
+			<new>ویرایش کاربر</new>
+		</text>
+		<text>
+			<old>English</old>
+			<new>انگلیسی</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>صدور</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>صادر کردن بوک مارک و موتور جستوجوی پیشفرض</new>
+		</text>
+		<text>
+			<old>eyeOS hostname</old>
+			<new>نام هاست eyeOS</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>. فایل با موفقیت دانلود شد</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>خطا در دانلود . لطفا آدرس صحیح را وارد کنید.</new>
+		</text>
+		<text>
+			<old>Full name</old>
+			<new>نام کامل</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>دریافت بقیه ترجمه ها</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>نام گروه</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>گروه ها</new>
+		</text>
+		<text>
+			<old>ID</old>
+			<new>ID</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>وارد کردن</new>
+		</text>
+		<text>
+			<old>Info</old>
+			<new>اطلاعات</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>زبان</new>
+		</text>
+		<text>
+			<old>Language changed. Please restart eyeOS now.</old>
+			<new>زبان تعویض شد. لطفا حالا eyeOS ری استارت کنید.</new>
+		</text>
+		<text>
+			<old>Language ID</old>
+			<new>ID زبان</new>
+		</text>
+		<text>
+			<old>Language name</old>
+			<new>نام زبان</new>
+		</text>
+		<text>
+			<old>Language succesfully saved.</old>
+			<new>زبان با موفقیت ذخیره شد.</new>
+		</text>
+		<text>
+			<old>Language successfully added.</old>
+			<new>زبان با موفقیت اضافه شد.</new>
+		</text>
+		<text>
+			<old>Language&#039;s information</old>
+			<new>اطلاعات زبان</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>نگاه و احساس</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>اصلی</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>مدیریت بوک مارک پیشفرض</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>مدیریت موتور جستوجوی پیشفرض</new>
+		</text>
+		<text>
+			<old>Manage eyeNav&#039;s startpage, its bookmarks and search engines</old>
+			<new>مدیریت صفحه آغازین eyeNav از قبیل کتاب نشانه ها و موتورهای جستوجو</new>
+		</text>
+		<text>
+			<old>Manage groups</old>
+			<new>مدیریت گروه ها</new>
+		</text>
+		<text>
+			<old>Manage the eyeSoft mirrors</old>
+			<new>مدیریت میرور های eyeSoft</new>
+		</text>
+		<text>
+			<old>Manage users</old>
+			<new>مدیریت کاربران</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>مدیریت فرمان های خودکار شما</new>
+		</text>
+		<text>
+			<old>Manage your system&#039;s groups</old>
+			<new>مدیریت گروه های سیستم شما</new>
+		</text>
+		<text>
+			<old>Manage your system&#039;s users</old>
+			<new>مدیریت کاربران سیستم شما</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>میرور</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>آدرس میرور (مثال: %s(</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>میرور با موفقیت ذخیره شد</new>
+		</text>
+		<text>
+			<old>Native name</old>
+			<new>نام محلی</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>فرمان جدید</new>
+		</text>
+		<text>
+			<old>New password</old>
+			<new>کلمه عبور جدید</new>
+		</text>
+		<text>
+			<old>New password (again)</old>
+			<new>کلمه عبور جدید (تکرار)</new>
+		</text>
+		<text>
+			<old>New user</old>
+			<new>کاربر جدید</new>
+		</text>
+		<text>
+			<old>New wallpaper</old>
+			<new>کاغذ دیواری جدید</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>کاغذ دیواری جدید با موفقیت اعمال شد.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>دیگر موارد</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>کلمه عبور</new>
+		</text>
+		<text>
+			<old>Password (again)</old>
+			<new>کلمه عبور (تکرار)</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>کلمه عبور با موفقیت تعویض شد.</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>مجوز دسترسی</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>شخصی</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>لطفا فرمانی را برای حذف انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>لطفا فرمانی را برای ویرایش انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>لطفا گروهی را برای حذف انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>لطفا گروهی را برای ویرایش انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>لطفا گروهی را به عنوان گروه پیشفرض انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a language to delete.</old>
+			<new>لطفا زبانی را برای حذف انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to create.</old>
+			<new>لطفا زبانی را برای افزودن انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to download.</old>
+			<new>لطفا زبانی را برای دانلود کردن انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to edit.</old>
+			<new>لطفا زبانی را برای ویرایش انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to translate.</old>
+			<new>لطفا زبانی را برای ترجمه انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>لطفا میروری را برای تست کردن انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>لطفا میروری را برای حذف انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>لطفا میروری را برای ویرایش انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>لطفا کاربری را برای حذف انتخاب کنید</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>لطفا کاربری برای ویرایش انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose the text you want to edit.</old>
+			<new>لطفا متنی را برای ویرایش انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>لطفا تنظیمات را صحیح تایپ کنید.</new>
+		</text>
+		<text>
+			<old>Please fill in all needed fields.</old>
+			<new>لطفا فیلدهای مورد نیاز را پرکنید.</new>
+		</text>
+		<text>
+			<old>Please fill in all textboxes!</old>
+			<new>لطفا تمامی تکست باکس ها را پرکنید!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>لطفا فرمان را تایپ کنید!</new>
+		</text>
+		<text>
+			<old>Please type a correct group name.</old>
+			<new>لطفا نام گروه را صحیح تایپ کنید.</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>لطفا یک آدرس تایپ کنید!</new>
+		</text>
+		<text>
+			<old>Please type the correct root password to uninstall eyeOS!</old>
+			<new>لطفا کلمه عبور روت را صحیح تایپ کنید تا eyeOS پاک شود!</new>
+		</text>
+		<text>
+			<old>Please type the new translation here:</old>
+			<new>لطفا ترجمه جدید را اینجا تایپ کنید:</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>لطفا نام کاربری را اینجا تایپ کنید:</new>
+		</text>
+		<text>
+			<old>Please use the list of ISO 639-1 codes!</old>
+			<new>لطفا از کدهای با استاندارد ISO ۶۳۹-۱ استفاده کنید!</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>محافظت جلسه ها بوسیله آی پی ها</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>حالا حذف کردن!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>حذف فایل ها و پوشه های موقتی</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your eyeOS system</old>
+			<new>حذف فایل ها و پوشه ها از سیستم eyeOS شما</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Rename group</old>
+			<new>تغییر نام گروه</new>
+		</text>
+		<text>
+			<old>Repeat wallpaper</old>
+			<new>تکرار کاغذ دیواری</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>مخزن ها</new>
+		</text>
+		<text>
+			<old>Revision</old>
+			<new>تجدید نظر</new>
+		</text>
+		<text>
+			<old>Root password</old>
+			<new>کلمه عبور روت</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>ذخیره تغییرات</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>اسکرین شات</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>موتور جستوجو با موفقیت وارد شد.</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>جستوجوی کاربر...</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>انتخاب</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>انتخاب فایل...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>انتخاب کاربر:</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>به صورت پیشفرض</new>
+		</text>
+		<text>
+			<old>Sorry, but the file does not exist.</old>
+			<new>متاسفانه فایلی موجود نیست.</new>
+		</text>
+		<text>
+			<old>Sorry, the file is not allowed to be a wallpaper.</old>
+			<new>متاسفانه فایل برای کاغذ دیواری غیر مجاز است.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>متاسفانه این فایل برای کاغذ دیواری غیر مجاز است.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be nentered by the default user.</old>
+			<new>Sorry, this page cannot be nentered by the default user.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>متاسفانه این صفحه را نمی توان نصب کرد.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>متاسفانه شما مجوز لازم برای ورود به این صفحه را ندارید.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>متاسفانه شما برای ورود به این صفحه نیاز به یک کاربری عادی دارید.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>صفحه آغازین</new>
+		</text>
+		<text>
+			<old>Statistic</old>
+			<new>آمار</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>سیستم</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>تنظیمات سیستم</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>فایل ها و پوشه های موقتی با موفقیت حذف شد.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>تست</new>
+		</text>
+		<text>
+			<old>Test address</old>
+			<new>آدرس آزمایشی</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>آن کاربر موجود نیست.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>حساب کاربری با موفقیت حذف شد.</new>
+		</text>
+		<text>
+			<old>The chosen file is no correct eyeNav search engines file.</old>
+			<new>The chosen file is no correct eyeNav search engines file.</new>
+		</text>
+		<text>
+			<old>The chosen file is not a correct eyeNav bookmarks file.</old>
+			<new>The chosen file is not a correct eyeNav bookmarks file.</new>
+		</text>
+		<text>
+			<old>The chosen group already exist.</old>
+			<new>گروه انتخابی قبلا وجود داشته است.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>گروه انتخابی قبلا گروه پیشفرض بوده است!</new>
+		</text>
+		<text>
+			<old>The chosen user already exist.</old>
+			<new>کاربر انتخابی قبلا وجود داشته است.</new>
+		</text>
+		<text>
+			<old>The chosen username is too long.</old>
+			<new>نام کاربری انتخابی بیش از حد طولانی است.</new>
+		</text>
+		<text>
+			<old>The chosen username is too small.</old>
+			<new>نام کاربری انتخابی بیش از حد کوچک است.</new>
+		</text>
+		<text>
+			<old>The command does not exist yet.</old>
+			<new>فرمانی تاکنون وجود نداشته است.</new>
+		</text>
+		<text>
+			<old>The command is already configured.</old>
+			<new>فرمان قبلا پیکربندی شده بود.</new>
+		</text>
+		<text>
+			<old>The command was successfully deleted.</old>
+			<new>فرمان با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>The download of %s will start after clicking OK.%sPlease send your translation to %s%sThanks!</old>
+			<new>The download of %s will start after clicking OK.%sPlease send your translation to %s%sThanks!</new>
+		</text>
+		<text>
+			<old>The download of %s will start after clicking OK.%sTo create an .eyepackage file please follow these instructions:%s1. Download the .tar.gz file%s2. Extract the .tar.gz file%s3. Create a .tar.gz file from the content of %s%s4. Rename the new .tar.gz file to %s%sReady!</old>
+			<new>The download of %s will start after clicking OK.%sTo create an .eyepackage file please follow these instructions:%s1. Download the .tar.gz file%s2. Extract the .tar.gz file%s3. Create a .tar.gz file from the content of %s%s4. Rename the new .tar.gz file to %s%sReady!</new>
+		</text>
+		<text>
+			<old>The eyeOS system was successfully deleted.</old>
+			<new>سیستم eyeOS با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>The group was successfully deleted.</old>
+			<new>گروه با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>The language ID is already in use!</old>
+			<new>ID زبان قبلا استفاده شده بود!</new>
+		</text>
+		<text>
+			<old>The language was successfully deleted.</old>
+			<new>زبان با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>The language was successfully updated.</old>
+			<new>زبان با موفقیت به روز رسانی شده بود.</new>
+		</text>
+		<text>
+			<old>The language&#039;s ID could not be renamed.</old>
+			<new>ID زبان را نمی توان تغییر نام داد.</new>
+		</text>
+		<text>
+			<old>The mirror does not exist, yet.</old>
+			<new>میروری تاکنون موجود نیست.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>میرور تاکنون نصب شده است!</new>
+		</text>
+		<text>
+			<old>The mirror was successfully deleted.</old>
+			<new>میرور با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>The password you typed is not correct.</old>
+			<new>کلمه عبور تایپ شده صحیح نمی باشد.</new>
+		</text>
+		<text>
+			<old>The passwords do not match.</old>
+			<new>کلمه های عبور مطابقت ندارد.</new>
+		</text>
+		<text>
+			<old>The translation was successfully updated.</old>
+			<new>ترجمه با موفقیت به روز رسانی شده بود.</new>
+		</text>
+		<text>
+			<old>The user was successfully deleted.</old>
+			<new>کاربر با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>The username is not supported. Please type another one.</old>
+			<new>نام کاربری پشتیبانی نمی شود. لطفا یکی دیگر تایپ کنید.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>تم</new>
+		</text>
+		<text>
+			<old>Theme changed. Please restart your desktop now.</old>
+			<new>تم تعویض شد. لطفا میزکار خود را ری استارت کنید.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>مشکلی در هنگام حذف کردن گروه وجود دارد.</new>
+		</text>
+		<text>
+			<old>Translate eyeOS</old>
+			<new>ترجمه eyeOS</new>
+		</text>
+		<text>
+			<old>Translate eyeOS into your language.</old>
+			<new>ترجمه eyeOS در زبان شما.</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>فرمانی که می خواهید در هنگام ورود به سیستم اجرا شود را تایپ کنید.</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>نام گروهی که می خواهید ساخته شود تایپ کنید:</new>
+		</text>
+		<text>
+			<old>Type the new group name:</old>
+			<new>نام جدید گروه را تایپ کنید:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>آدرس جدید میرور را تایپ کنید:</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>پاک کردن</new>
+		</text>
+		<text>
+			<old>Uninstall eyeOS</old>
+			<new>پاک کردن eyeOS</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>به روز رسانی</new>
+		</text>
+		<text>
+			<old>Update your system&#039;s profile</old>
+			<new>پروفایل سیستم شما به روز رسانی شد</new>
+		</text>
+		<text>
+			<old>Update your system&#039;s settings</old>
+			<new>تنظیمات سیستم شما به روز رسانی شد</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>استفاده از کاغذ دیواری سفارشی</new>
+		</text>
+		<text>
+			<old>Use defaults</old>
+			<new>استفاده ی پیشفرض</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>فضای استفاده شده:</new>
+		</text>
+		<text>
+			<old>Used version</old>
+			<new>نسخه فعلی</new>
+		</text>
+		<text>
+			<old>User quota</old>
+			<new>سهمیه کاربر</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>کاربر با موفقیت ایجاد شد.</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>نام کاربری</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>نسخه</new>
+		</text>
+		<text>
+			<old>Web Browser</old>
+			<new>مرورگر وب</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>شما نمی توانید گروه پیشفرض را حذف کنید!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>شما نمی توانید میرور پیشفرض را حذف کنید!</new>
+		</text>
+		<text>
+			<old>You cannot delete the eyeBar command!</old>
+			<new>شما نمی توانید فرمان eyeBar را حذف کنید!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>شما نمی توانید کاربر روت را حذف کنید!</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>شما نمی توانید میرور پیشفرض را ویرایش کنید!</new>
+		</text>
+		<text>
+			<old>You cannot edit the eyeBar command!</old>
+			<new>شما نمی توانید فرمان eyeBar را ویرایش کنید!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>شما نمی توانید میرور را به عنوان میرور پیشفرض ذخیره کنید!</new>
+		</text>
+		<text>
+			<old>Your eyeOS server does not need to be cleaned.</old>
+			<new>سرور eyeOS شما نیازی به پاک کردن ندارد.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>File Copied. You can now paste it in another folder.</old>
+			<new>فایل کپی شده. حال شما می توانید در پوشه دیگری بچسبانید.</new>
+		</text>
+		<text>
+			<old>Links can&#039;t be copied.</old>
+			<new>لینک ها را نمی توان کپی کرد.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Directory moved to trash.</old>
+			<new>پوشه به سطل زباله منتقل شد.</new>
+		</text>
+		<text>
+			<old>Error deleting file.</old>
+			<new>خطا در حذف کردن فایل.</new>
+		</text>
+		<text>
+			<old>File moved to trash.</old>
+			<new>فایل به سطل زباله منتقل شد.</new>
+		</text>
+		<text>
+			<old>File removed successfully.</old>
+			<new>فایل با موفقیت حذف شد.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory.</old>
+			<new>ناتوانی در حذف کردن پوشه.</new>
+		</text>
+		<text>
+			<old>Unable to delete file.</old>
+			<new>ناتوانی در حذف کردن فایل.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>کپی</new>
+		</text>
+		<text>
+			<old>Delete Launcher</old>
+			<new>حذف نشان دهنده</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>دانلود</new>
+		</text>
+		<text>
+			<old>New File</old>
+			<new>فایل جدید</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>پوشه جدید</new>
+		</text>
+		<text>
+			<old>New Launcher</old>
+			<new>نشان دهنده جدید</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>چسباندن</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>تنظیمات</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>تازه کردن</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>آپلود فایل ها</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>کاغذ دیواری</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>خوش آمدید به %s, %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>نام</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>انتخاب</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>انتخاب پوشه</new>
+		</text>
+		<text>
+			<old>Select destination file</old>
+			<new>انتخاب مقصد فایل</new>
+		</text>
+		<text>
+			<old>Select file to open</old>
+			<new>انتخاب فایل برای باز شدن</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>اندازه</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s پیدا نشد</new>
+		</text>
+		<text>
+			<old>Access to all the groups you are allowed to use</old>
+			<new>Access to all the groups you are allowed to use</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>لوازم</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>فلان چیز عملگرها</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>ماشین حساب</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>تقویم</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>فلان چیز تقویم</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>بازی شطرنج</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>مدیریت مخاطبین</new>
+		</text>
+		<text>
+			<old>Create and edit events and be organized</old>
+			<new>ساخت و ویرایش رویدادها و سازماندهی آنها</new>
+		</text>
+		<text>
+			<old>Create and edit rich sheets</old>
+			<new>ساخت و ویرایش ورقه های توانگر</new>
+		</text>
+		<text>
+			<old>Create and edit rich text documents</old>
+			<new>ساخت و ویرایش اسناد متنی توانگر</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>میزکار</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>برگزیده ها</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>مدیریت فایل</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP سرویس گیرنده</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>بازی ها</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>گروه ها</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>خانه</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>فلان چیز خانه</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>پیام داخلی</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>پست سرویس گیرنده</new>
+		</text>
+		<text>
+			<old>Manage and import/export your contacts</old>
+			<new>مدیریت و ورود/صدور مخاطبین شما</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>فلان چیز پیام ها</new>
+		</text>
+		<text>
+			<old>Navigate through Internet and save your bookmarks</old>
+			<new>هدایت از طریق اینترنت و ذخیره کتاب نشانه های شما</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>هدایت گر</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>شبکه</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>آفیس</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>مکان ها</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentations</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>مدیریت فرآیند</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>عمومی</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>تخته عمومی</new>
+		</text>
+		<text>
+			<old>Public directory to share files with all the system users</old>
+			<new>پوشه عمومی به اشتراک گزاری فایلها با تمامی کاربران سیستم</new>
+		</text>
+		<text>
+			<old>Read and leave messages to all the system users</old>
+			<new>خواندن و واگذاری پیام ها به تمامی کاربران سیستم</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>خواننده RSS Feed</new>
+		</text>
+		<text>
+			<old>Save quick notes and edit text and source files</old>
+			<new>Save quick notes and edit text and source files</new>
+		</text>
+		<text>
+			<old>See which processes are running in your session and kill them</old>
+			<new>See which processes are running in your session and kill them</new>
+		</text>
+		<text>
+			<old>Send and receive e-mails with your usual POP3 mail accounts</old>
+			<new>ارسال و دریافت ایمیل با حساب پستی POP3 خود</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the other eyeOS users</old>
+			<new>ارسال پیامهای خصوصی با ضمیمه ها به دیگر کاربران eyeOS</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the system users</old>
+			<new>ارسال پیامهای خصوصی با ضمیمه ها به دیگر کاربران سیستم</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>صفحه گسترده</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite blogs</old>
+			<new>Stay tuned to the latest news from your favorite blogs</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite sources</old>
+			<new>Stay tuned to the latest news from your favorite sources</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>سیستم</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>بازی تتراوکس</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>ویرایشگر متن</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>سطل زباله</new>
+		</text>
+		<text>
+			<old>unable to open config file for eyeDock</old>
+			<new>ناتوانی بازکردن فایل پیکربندی برای eyeDock</new>
+		</text>
+		<text>
+			<old>Upload, manage and work with your files in eyeOS</old>
+			<new>Upload, manage and work with your files in eyeOS</new>
+		</text>
+		<text>
+			<old>Watch your presentations</old>
+			<new>دیدن presentations خود</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>واژه پرداز</new>
+		</text>
+		<text>
+			<old>Work with any FTP Server in the world</old>
+			<new>کار کردن با هر نوع سرویس دهنده FTP در جهان</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>سند با موفقیت ذخیره شد.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>متاسفانه شما مجوز قانونی ندارید.</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>شما مجوز قانونی ندارید.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>لینک را نمی توان دانلود کرد.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Add Feed</old>
+			<new>افزودن Feed</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>افزودن پوشه</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>اجرا کردن</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this %s?</old>
+			<new>آیا شما مطمئن هستید یرای پاک کردن این %s؟</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>نویسنده</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>کتاب علائم</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>انتخاب یک پوشه برای feed:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>انتخاب یک پوشه برای feed جدید:</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>انتخاب یک پوشه اصلی برای پوشه جدید:</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>انتخاب یک منشأ برای پوشه:</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>تاریخ</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>حذف feed/پوشه</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>ویرایش</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>ویرایش Feed</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>ویرایش پوشه</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>المان با موفقیت حذف شد</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>خطا در افزودن feed</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>خطا در افزودن پوشه</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>خطا در اجرا کردن تغییرات</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>خطا در حذف کردن feed</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>خطا در دریافت feed تعین شده</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>خطا در ذخیره کردن feed</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>خطا در ذخیره کردن پوشه</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Feed با موفقیت اضافه شد</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Feed با موفقیت تغییر کرد</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Feeds</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>پوشه با موفقیت اضافه شد</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>پوشه با موفقیت تغییر کرد</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>کمک</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>تازه کردن</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Select a feed to browse...</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>انتخاب یک آیتم برای خواندن...</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>عنوان</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>تایپ نام برای feed (اختیاری):</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>تایپ نام برای پوشه:</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>تایپ URL برای feed:</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Unable to fetch entered URL</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>شما باید یک نام وارد کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Actions</old>
+			<new>رفتارها</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>کپی</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>ساختن پوشه</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>حذف</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>دانلود</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>دانلود به صورت زیپ</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>پوشه ها</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>فایل جدید</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>پوشه جدید</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>چسباندن</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>آپلود فایلها</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Actions</old>
+			<new>رفتارها</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>افزودن هاست</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>آیا شما می خواهید این فایل/پوشه حذف شود؟</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>نویسنده</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>اتصال</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>تاریخ</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>حذف</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>حذف فایل/پوشه</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>حذف انتخابی ها</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>قطع کردن اتصال</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>دانلود</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>ویرایش انتخابی ها</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>نام فایل</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>سایز فایل</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>طریقه نیروی تاثر پذیر</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>کمک</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>هاست:</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>نام هاست</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>بارگزاری انتخابی ها</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>مدیریت هاست ها</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>نام نباید خالی باشد</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>پوشه جدید</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>مالک</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>کلمه عبور</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>کلمه عبور:</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>مجوز</new>
+		</text>
+		<text>
+			<old>Please specify a hostname to connect to</old>
+			<new>لطفا یک نام هاست برای اتصال تعین کنید</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>لطفا یک نام کاربری تعین کنید</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>پورت</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>پورت:</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>تازه کردن</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>تغییر نام فایل/پوشه</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>تغییر نام/انتقال</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>انتخاب یک فایل برای آپلود در مسیر:</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>تایپ نام برای پوشه جدید</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>تایپ نام/مکان جدید برای فایل/پوشه</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>آپلود</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>آپلود فایل</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>کاربر:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>نام کاربری</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>شما باید اول متصل شوید</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>شما باید اول متصل شوید!</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>شما باید اول یک فایل یا پوشه را نتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>شما باید برای حذف یک هاست را انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>شما باید برای ویرایش یک هاست را انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>شما باید برای بارگذاری یک هاست را انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>شما باید یک فایل محلی انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>شما باید یک فایل ریموت انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>شما باید یک هاست تعیین کنید شامل یک پورت و نام کاربری</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeGroups</name>
+		<text>
+			<old>Actions</old>
+			<new>رفتارها</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>کپی</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>ساختن پوشه</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>حذف</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>دانلود</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>دانلود به صورت زیپ</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>پوشه ها</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>فایل جدید</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>پوشه جدید</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>چسباندن</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>آپلود فایلها</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Fullscreen</old>
+			<new>تمام صفحه</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>بعد</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>قبل</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s فایل وارد شد!</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>جستجو</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>وارد کردن</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>شما باید یک مسیر برای ورود فایلها انتخاب کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Developers</old>
+			<new>توسعه دهنده</new>
+		</text>
+		<text>
+			<old>eyeOS Community Developers</old>
+			<new>انجمن توسعه دهنده های eyeOS</new>
+		</text>
+		<text>
+			<old>eyeOS Engineering Team</old>
+			<new>تیم مهندسی eyeOS</new>
+		</text>
+		<text>
+			<old>Team</old>
+			<new>تیم</new>
+		</text>
+		<text>
+			<old>Thanks</old>
+			<new>تشکر</new>
+		</text>
+		<text>
+			<old>Thanks to</old>
+			<new>با تشکر از</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>قبول</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>آیا شما می خواهید این بسته در سیستم نصب شود؟</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>در حال نصب</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>چیزی برای نصب نیست!</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>بسته با موفقیت نصب شد!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s موجود نیست</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>خطا نام کاربری و کلمه عبور خالی است</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>خطا نام کاربری و کلمه عبور فاقد اعتبار است</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>نام کاربری فاقد اعتبار است</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>کلمه عبور</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>اجرا</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>اجرا برای کاربر متفاوت</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>اجرا...</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>نامی را برای اجرای برنامه یا فرمان تایپ کنید </new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>کاربر</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLightDesk</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>درباره ی eyeOS</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>لوازم</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>فلان چیز رفتارها</new>
+		</text>
+		<text>
+			<old>All Applications</old>
+			<new>تمام برنامه ها</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>برنامه ها</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>ماشین حساب</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>تقویم</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>فلان چیز تقویم</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>بازی شطرنج</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>بستن جلسه</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>مدیریت مخاطبین</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>میزکار</new>
+		</text>
+		<text>
+			<old>Favorite Applications</old>
+			<new>برنامه های برگزیده</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>مدیریت فایل</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP سرویس گیرنده</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>بازی ها</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>گروه ها</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>خانه</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>فلان چیز خانه</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>پیام داخلی</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>اجرا کردن برنامه</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>پست سرویس گیرنده</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>فلان چیز پیام ها</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>هدایت گر</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>شبکه</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>آفیس</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>مکان ها</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentations</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>مدیریت فرآیند</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>عمومی</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>تخته عمومی</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>خواننده RSS Feed</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>صفحه گسترده</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>سیستم</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>تنظیمات سیستم</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>بازی تتراوکس</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>ویرایشگر متن</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>سطل زباله</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>واژه پرداز</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Accounts</old>
+			<new>حساب های کاربری</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>افزودن</new>
+		</text>
+		<text>
+			<old>Configure Later</old>
+			<new>Configure Later</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>تاریخ</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>تاریخ:</new>
+		</text>
+		<text>
+			<old>Error deleting mail</old>
+			<new>خطا در پاک کردن نامه</new>
+		</text>
+		<text>
+			<old>eyeMail Configuration</old>
+			<new>پیکربندی eyeMail</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>پوشه ها</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>از</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>صندوق نامه</new>
+		</text>
+		<text>
+			<old>Inbox (%s)</old>
+			<new>صندوق نامه )%s(</new>
+		</text>
+		<text>
+			<old>Incoming mail</old>
+			<new>نامه وارد شده</new>
+		</text>
+		<text>
+			<old>Mail from:</old>
+			<new>نامه از:</new>
+		</text>
+		<text>
+			<old>Mail sent to %s</old>
+			<new>نامه ارسال شده %s</new>
+		</text>
+		<text>
+			<old>Mail to:</old>
+			<new>نامه به:</new>
+		</text>
+		<text>
+			<old>Manage accounts</old>
+			<new>مدیریت حسابهای کاربری</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>پیام حذف شد</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>نام</new>
+		</text>
+		<text>
+			<old>New Mail</old>
+			<new>نامه جدید</new>
+		</text>
+		<text>
+			<old>No subject</old>
+			<new>بدون موضوع</new>
+		</text>
+		<text>
+			<old>Outgoing mail</old>
+			<new>نامه ارسال شده</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>کلمه عبور</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>تنظیمات</new>
+		</text>
+		<text>
+			<old>Save Configuration</old>
+			<new>ذخیره تغییرات</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>ارسال</new>
+		</text>
+		<text>
+			<old>Server Address</old>
+			<new>آدرس سرور</new>
+		</text>
+		<text>
+			<old>Server Port</old>
+			<new>پورت سرور</new>
+		</text>
+		<text>
+			<old>Server Protocol</old>
+			<new>پروتکل سرور</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>موضوع</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>موضوع:</new>
+		</text>
+		<text>
+			<old>This name will be used by eyeMail to identify this account, and has nothing to do with the server&#039;s configuration.</old>
+			<new>This name will be used by eyeMail to identify this account, and has nothing to do with the server&#039;s configuration.</new>
+		</text>
+		<text>
+			<old>Use Secure Sockets</old>
+			<new>استفاده از حفره های ایمن</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>نام کاربری</new>
+		</text>
+		<text>
+			<old>Welcome to eyeMail. Please, fill this form with your e-mail account data.</old>
+			<new>به eyeMail خوش آمدید لطفا این فرم با داده های پست الکترونیکی خود را پر کنید.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>%s added</old>
+			<new>%s اضافه شده</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>لوازم</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>فلان چیز عملگرها</new>
+		</text>
+		<text>
+			<old>Add an application</old>
+			<new>افزودن برنامه</new>
+		</text>
+		<text>
+			<old>Add Application</old>
+			<new>افزودن برنامه</new>
+		</text>
+		<text>
+			<old>Application %s removed</old>
+			<new>برنامه %s پاک شد</new>
+		</text>
+		<text>
+			<old>Application entry updated</old>
+			<new>برنامه وارد شده به روزرسانی شد</new>
+		</text>
+		<text>
+			<old>Application moved down</old>
+			<new>برنامه به پایین انتقال یافت</new>
+		</text>
+		<text>
+			<old>Application moved to last position</old>
+			<new>برنامه به موقعیت قبلی انتقال یافت</new>
+		</text>
+		<text>
+			<old>Application moved up</old>
+			<new>برنامه به بالا انتقال یافت</new>
+		</text>
+		<text>
+			<old>Application name</old>
+			<new>نام برنامه</new>
+		</text>
+		<text>
+			<old>Application Properties</old>
+			<new>مشخصات برنامه</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>ماشین حساب</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>تقویم</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>فلان چیز تقویم</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>بازی شطرنج</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>بستن</new>
+		</text>
+		<text>
+			<old>Code executed</old>
+			<new>کد اجرا کردن</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>مدیریت مخاطبین</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>ایجاد گروه</new>
+		</text>
+		<text>
+			<old>Create new Group</old>
+			<new>ایجاد گروه جدید</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>توضیحات</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>میزکار</new>
+		</text>
+		<text>
+			<old>Enter the name of the new group:</old>
+			<new>ثبت کردن نام برای گروه جدید:</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>برگزیده ها</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>مدیریت فایل</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>سرویس گیرنده FTP</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>بازی ها</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>گروه</new>
+		</text>
+		<text>
+			<old>Group %s deleted</old>
+			<new>گروه %s حذف شد</new>
+		</text>
+		<text>
+			<old>Group entry updated</old>
+			<new>ورودی های گروه به روز رسانی شد</new>
+		</text>
+		<text>
+			<old>Group moved down</old>
+			<new>گروه به پایین اتقال یافت</new>
+		</text>
+		<text>
+			<old>Group moved to last position</old>
+			<new>گروه به موقعیت قبلی انتقال یافت</new>
+		</text>
+		<text>
+			<old>Group moved up</old>
+			<new>گروه به بالا انتقال یافت</new>
+		</text>
+		<text>
+			<old>Group Name</old>
+			<new>نام گروه</new>
+		</text>
+		<text>
+			<old>Group properties</old>
+			<new>مشخصات گروه</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>گروه ها</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>خانه</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>فلان چیز خانه</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>آیکون</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>پیام داخلی</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>سرویس گیرنده نامه</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>فلان چیز پیام ها</new>
+		</text>
+		<text>
+			<old>Move Down</old>
+			<new>انتقال به پایین</new>
+		</text>
+		<text>
+			<old>Move Up</old>
+			<new>انتقال به بالا</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>هدایت گر</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>شبکه</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>آفیس</new>
+		</text>
+		<text>
+			<old>Parameters</old>
+			<new>پارامترها</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>مکان ها</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentations</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>مدیریت فرآیند</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>عمومی</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>تخته عمومی</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>تازه کردن</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>خواننده RSS Feed</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>ذخیره تغیرات</new>
+		</text>
+		<text>
+			<old>Short description</old>
+			<new>توضیحات کوتاه</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>صفحه گسترده</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>سیستم</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>بازی تتراوکس</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>ویرایشگر متن</new>
+		</text>
+		<text>
+			<old>The code executed by the application must not be left blank</old>
+			<new>The code executed by the application must not be left blank</new>
+		</text>
+		<text>
+			<old>The specified group name is not valid</old>
+			<new>تعین کننده نام گروه معتبر نیست</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>سطل زباله</new>
+		</text>
+		<text>
+			<old>Type the application name in the first text box below, or select an application from the list below and click the &#039;Add&#039; button. You can add multiple applications.</old>
+			<new>نام برنامه در اولین تکست باکس پایین تایپ کنید. یا یک برنامه از لیست پایین انتخاب و بر روی دکمه افزودن کلیک کنید.</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>واژه پرداز</new>
+		</text>
+		<text>
+			<old>You must provide a short description of the application</old>
+			<new>شما باید توضیحات کوتاهی در مورد برنامه تهیه کنید</new>
+		</text>
+		<text>
+			<old>You must select a group for the application</old>
+			<new>شما باید  گروهی را برای برنامه انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must specify the name of the application</old>
+			<new>شما باید نامی را برای برنامه تعین کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Add file</old>
+			<new>افزودن فایل</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>ضمیمه</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>تاریخ</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>دانلود</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>خالی</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>خطا در ارسال پیام</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>فایل با موفقیت ذخیره شد.</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>از</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>صندوق نامه</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>پیام پاک شد</new>
+		</text>
+		<text>
+			<old>Message moved to trash</old>
+			<new>پیام به سطل زباله انتقال یافت</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>پیام به پوشه اصلی بازگشت</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>پیام ارسال شد</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>پیام جدید</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>خواندن</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>خواندن پیام</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>تازه کردن</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>پاسخ</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>پس دادن</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>ارسال</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>فرستاد</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>موضوع</new>
+		</text>
+		<text>
+			<old>The body of the message cannot be left blank</old>
+			<new>بدنه پیام را نمی توان خالی رها کرد</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>به</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>سطل</new>
+		</text>
+		<text>
+			<old>Trash emptied</old>
+			<new>سطل خالی شد</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>خوانده نشده</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>شما باید پیامی را برای حذف انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>شما باید پیامی را برای باز کردن انتخاب کنید</new>
+		</text>
+		<text>
+			<old>You must specify the receiver of the message</old>
+			<new>شما باید دریافت کننده برنامه تعیین کنید</new>
+		</text>
+		<text>
+			<old>You must specify the subject of the message</old>
+			<new>شما باید موضوعی را برای پیام تعیین کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Error creating directory</old>
+			<new>خطا در ایجاد مسیر</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>پوشه جدید</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>برخی از کارکترهای ویژه باید حذف شود.</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>نامی برای پوشه جدید تایپ کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug! Is a problem with flash players!</old>
+			<new>این باگ نیست! مشکلی در پخش کننده فلش وجود دارد!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add</old>
+			<new>افزودن</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>افزودن کتاب علائم</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>برنامه ها</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>عقب</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>عنوان کتاب علائم</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>کتاب علائم</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>حذف کتاب علائم</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>آیا شما واقعا می خواهید این کتاب علائم حذف شود؟</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>انجمن ها</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>جلو</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>عکس ها</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>اینترنت</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>دانش</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>لینک با موفقیت حذف شد.</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>لینک با موفقیت ذخیره شد.</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>باز کردن کتاب علائم</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>باز کردن جستجو</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>جستجو</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>تنظیمات</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>صفحه آغازین</new>
+		</text>
+		<text>
+			<old>The bookmark doesn&#039;t exist!</old>
+			<new>کتاب علائم وجود ندارد!</new>
+		</text>
+		<text>
+			<old>The choosen file is not a correct eyeNav searches file.</old>
+			<new>The choosen file is not a correct eyeNav searches file.</new>
+		</text>
+		<text>
+			<old>The chosen file is not a correct eyeNav bookmarks file.</old>
+			<new>The chosen file is not a correct eyeNav bookmarks file.</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>کتاب علائم دیگری با این عنوان قبلا وجود داشته است!</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>بدون طبقه بندی</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>وب سایت</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>ویکی</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File not found</old>
+			<new>فایل پیدا نشد</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>فایل با موفقیت ذخیره شد.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>متاسفانه شما مجوز قانونی ندارید.</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>ناتوانی در ایجاد فایل</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>عقب</new>
+		</text>
+		<text>
+			<old>Full</old>
+			<new>کامل</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>بعد</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>متاسفانه شما مجوز قانونی ندارید.</new>
+		</text>
+		<text>
+			<old>You are on the first slide, you can&#039;t go back</old>
+			<new>شما در اسلاید اول هستید نمی توانید به عقب باز گردید</new>
+		</text>
+		<text>
+			<old>You have to select a file to open</old>
+			<new>شما باید فایلی را باز شدن انتخاب کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Kill Process</old>
+			<new>کشتن فرآیند</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>فرآیند با موفقیت کشته شد.</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>نام فرآیند</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>نام کاربری</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Author: %s</old>
+			<new>نویسنده: %s</new>
+		</text>
+		<text>
+			<old>Created with: %s</old>
+			<new>ساخته شده توسط:%s</new>
+		</text>
+		<text>
+			<old>Creation date: %s</old>
+			<new>تاریخ ایجاد: %s</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>مسیر</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>اطلاعات فایل</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+		<text>
+			<old>Size: %sbytes</old>
+			<new>سایز: %sبایت</new>
+		</text>
+		<text>
+			<old>Type: %s</old>
+			<new>نوع:%s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Error renaming file.</old>
+			<new>خطا در تغییر نام فایل.</new>
+		</text>
+		<text>
+			<old>Please type a new name here:</old>
+			<new>لطفا نام جدید را اینجا تایپ کنید:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>تغییر نام</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>برخی از کارکترهای ویژه باید حذف شود.</new>
+		</text>
+		<text>
+			<old>You must type a new filename.</old>
+			<new>شما باید نام فایل جدید را تایپ کنید.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found</old>
+			<new>فایلی پیدا نشد</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>متاسفانه شما مجوز قانونی ندارید.</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>صفحه گسترده با موفقیت ذخیره شد.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s download is corrupted! unable to install</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s با موفقیت نصب شد!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>قبول</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>همه</new>
+		</text>
+		<text>
+			<old>App Manager</old>
+			<new>مدیریت برنامه</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>نام برنامه</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>نویسنده: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>طبقه ها</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>طبقه: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Dependencies: %s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>توضیحات: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>میز کار</new>
+		</text>
+		<text>
+			<old>Development</old>
+			<new>توسعه</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>آیا شما می خواهید این برنامه پاک شود؟</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>در حال دانلود و نصب %s ... لطفا صبر کنید</new>
+		</text>
+		<text>
+			<old>Extras</old>
+			<new>Extras</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: لیست بسته به روز رسانی شد</new>
+		</text>
+		<text>
+			<old>File Management</old>
+			<new>مدیریت فایل</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>بازی ها</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>نصب</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>نصب شد</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>در حال نصب</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>لایسنس: %s</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>چند رسانه ای</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>نام: %s</new>
+		</text>
+		<text>
+			<old>Networking</old>
+			<new>شبکه بندی</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>خالی</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>آفیس</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>فقط روت می تواند eyeApps را نصب کند</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>لطفا نرم افزاری را برای نصب انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>لطفا نرم افزاری را برای حذف انتخاب کنید.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>جستجو</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>پیشنهاد: %s</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>سیستم</new>
+		</text>
+		<text>
+			<old>The application can&#039;t be uninstalled.</old>
+			<new>برنامه را نمی توان حذف کرد.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>برنامه با موفقیت حذف شده بود.</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>حذف کردن</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>حذف کردن برنامه</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>به روز رسانی</new>
+		</text>
+		<text>
+			<old>Utilities</old>
+			<new>برنامه های سودمند</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>نسخه</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>نسخه: %s</new>
+		</text>
+		<text>
+			<old>You are installing a new App in your eyeOS system</old>
+			<new>شما در حال نصب برنامه جدید در سیستم eyeOS هستید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Add input to output</old>
+			<new>افزودن ورودی به خروجی</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>افزودن خط جدید به پایان</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii to Hexa</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>تمیز کردن خودکار ورودی</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 Decode</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 Encode</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>پاک کردن</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>الحاق کردن خروجی</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimal to Roman</new>
+		</text>
+		<text>
+			<old>eyeOS hash</old>
+			<new>eyeOS hash</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa to Ascii</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Html Entities</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>متن ورودی</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>آخرین زمان اجرا: %s</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 Hash</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>قبول</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>گزینه ها</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>متن خروجی</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Remove Html Entities</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Roman to Decimal</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL Decode</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL Encode</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTrash</name>
+		<text>
+			<old>Actions</old>
+			<new>رفتارها</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>تخلیه سطل زباله</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+		<text>
+			<old>Restore element</old>
+			<new>بازگشت المان</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Add files</old>
+			<new>افزودن فایلها</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>افزودن فایل ها برای انتقال سپس دکمه آپلود! را فشار دهید!</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>پیشرفته</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>فایل دیگر</new>
+		</text>
+		<text>
+			<old>Error uploading file</old>
+			<new>خطا در آپلود کردن فایل</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>حذف</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>نمونه</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>در حال انتقال:</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>آپلود</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>آپلود فایلها</new>
+		</text>
+		<text>
+			<old>Upload finished!</old>
+			<new>آپلود به پایان رسید!</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>آپلود!</new>
+		</text>
+		<text>
+			<old>You can now close this window.</old>
+			<new>شما حالا می توانید این پنجره را ببندید.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>ویرایش</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>متاسفانه شما مجوز قانونی ندارید</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Unable to save position</old>
+			<new>ناتوانی در ذخیره موقعیت</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>تغییر برچسب متن</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>مثال eyeApp</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process was killed</old>
+			<new>هیچ فرآیندی برای کشتن نیست</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>آیا شما می خواهید این فلان چیز در جلسه بعدی به صورت خودکار باز شود؟</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>ارسال پیام داخلی</new>
+		</text>
+		<text>
+			<old>Start a new document</old>
+			<new>شروع یک سند جدید</new>
+		</text>
+		<text>
+			<old>Start a new spreadsheet</old>
+			<new>شروع یک صفحه گسترده جدید</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>آپلود فایلهای خود</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>تقویم</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>سهمیه من</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>انتقال پیام داخلی</new>
+		</text>
+	</part>
+	<part>
+		<name>moveDrag</name>
+		<text>
+			<old>Error moving file</old>
+			<new>خطا در انتقال فایل</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Error creating file</old>
+			<new>خطا در ایجاد فایل</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>فایل جدید</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>برخی از کارکترهای ویژه باید حذف شود.</new>
+		</text>
+		<text>
+			<old>Type the name of the new file</old>
+			<new>شما باید نام فایل جدید را تایپ کنید</new>
+		</text>
+	</part>
+	<part>
+		<name>propertyTrash</name>
+		<text>
+			<old>Deleted at: %s</old>
+			<new>Deleted at: %s</new>
+		</text>
+		<text>
+			<old>Filename: %s</old>
+			<new>نام فایل: %s</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>مشخصات</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Are you sure you want to restore this element?</old>
+			<new>آیا شما می خواهید این المان بازگردد؟</new>
+		</text>
+		<text>
+			<old>Restore completed successfully.</old>
+			<new>بازگردانی با موفقیت کامل شد.</new>
+		</text>
+		<text>
+			<old>Restore trash</old>
+			<new>بازگرداندن زباله</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>کپی / چسباندن این کد به دیگر برنامه های صفحه گسترده (برای مثال : اکسل)</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>حذف ستون</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>حذف سطر</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>February</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>فرمول</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>جمعه</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>درج ستون</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>درج سطر</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>January</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>July</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>June</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>March</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>May</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>دوشنبه</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>جدید</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>October</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>باز کردن</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>موقعیت</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>پرینت</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>واقعا این سلول خالی شود؟</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>شنبه</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>ذخیره</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>ذخیره در</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>سایز ورقه</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>استایل</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>یکشنبه</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>پنج شنبه</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>سه شنبه</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>چهارشنبه</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>لغو</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>ساختن</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>حذف</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>February</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Fri</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>January</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>July</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>June</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>March</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>May</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Mon</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>جدید</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>خیر</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>October</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>باز کردن</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sat</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>ذخیره</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>ذخیره در</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Sun</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TH</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Thu</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Tue</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Wed</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>بله</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Are you sure you want to import this vCard?</old>
+			<new>آیا شما می خواهید این vCard وارد شدد؟</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>مسیر یافت نشد</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>خطا در صادر کردن فایل</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>فایل وارد شد!</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>فورمت پشتیبانی نمی شود!</new>
+		</text>
+		<text>
+			<old>Import vCard</old>
+			<new>ورود vCard</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>متاسفانه هیچ مخاطبی در این فایل یافت نشد</new>
+		</text>
+		<text>
+			<old>The contact already exists.</old>
+			<new>این مخاطب قبلا موجود بوده است.</new>
+		</text>
+		<text>
+			<old>The file was not found.</old>
+			<new>فایل یافت نشده بود.</new>
+		</text>
+		<text>
+			<old>vCardImport can&#039;t initialize, contact with your administrator</old>
+			<new>vCardImport نمی تواند مقدار دهی شود لطفا با مدیریت تماس بگیرید</new>
+		</text>
+	</part>
+</lang>

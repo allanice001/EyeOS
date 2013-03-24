@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>cleanOutPutString</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>sec</tag>
+		</tags>
+		<shortDesc>Cleans a string.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>cleanOutPutString</functionName>
+		<syntax>string sec('cleanOutPutString', array(string 'var' => $var [, int 'maxLen' => $maxLen, int 'nohtml' => $nohtml, int 'noreturn' => $noreturn]))</syntax>
+		<desc>Cleans a desired string, allowing the possibility to eliminate newline and carriage return characters, replacing HTML special characters to entities or adjusting the string to a given length.</desc>
+		<params>
+			<type>required</type>
+			<name>var</name>
+			<desc>String to be cleaned.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>maxLen</name>
+			<desc>If set, limits the length of the string to the specified value.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>nohtml</name>
+			<desc>If set, converts the special characters to HTML entities.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>noreturn</name>
+			<desc>If set, eliminates all carriage return and newline characters.</desc>
+		</params>
+		<return>Returns the string with the specified clean methods applied.</return>
+	</definition>
+</info>

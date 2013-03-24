@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>startSession</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Starts a session for the current user.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>startSession</functionName>
+		<syntax>eyeSessions('startSession')</syntax>
+		<desc>Starts a session for the current user.</desc>
+		<return>This function always returns true.</return>
+	</definition>
+</info>

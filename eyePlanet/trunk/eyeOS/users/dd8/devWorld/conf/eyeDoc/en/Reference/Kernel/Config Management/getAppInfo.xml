@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getAppInfo</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>info</tag>
+			<tag>applications</tag>
+		</tags>
+		<shortDesc>Returns the content of the 'info.xml' file of an app directory.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.1</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getAppInfo</functionName>
+		<syntax>array getAppInfo(string $app)</syntax>
+		<desc>Returns, in the form of an array, the content of the file named "info.xml" contained in the configuration directory an application's directory.</desc>
+		<params>
+			<type>required</type>
+			<name>app</name>
+			<desc>Name of the application to get the XML file from.</desc>
+		</params>
+		<return>If the file is read successfully, this function returns the content of the file transformed to a PHP array. Else, if the file can't be read, returns false.</return>
+	</definition>
+</info>

@@ -1,0 +1,356 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+/*
+	eyeDesk events file
+*/
+
+/*
+	this function is called when a Icon in the desktop is clicked, takes one argument,
+	containing the path of the object clicked.
+*/
+
+define('DEFAULT_DIR_APP','eyeFiles');
+define('DEFAULT_APP_EXTENSION','.app'); //extensions should include the dot? I think no
+function eyeDesk_on_Icon_Clicked($params=null) {
+	
+	$content = $params['arg0'][0];
+
+	if(!$content) {		
+		return false;
+	}
+	$extension = strrchr($content,'.');
+	
+	//at first, check if is a app launch
+	if($extension == DEFAULT_APP_EXTENSION) { //if is an app launch
+		
+		if(isset($params['arg1']) && is_array($params['arg1'][0])) {
+			$args = $params['arg1'][0];
+		} else {
+			$args="";	
+		}
+		$name = utf8_substr($content,0,utf8_strlen($content)-utf8_strlen($extension));		
+		service('proc','launch',array($name,$args));		
+	}
+	
+	//if not, check dir or file
+	$myUserDir = service('um','getCurrentUserDir');
+	//is a directory?	
+	if(is_dir($myUserDir.'/files/'.$content)) {
+		service('proc','launch',array(DEFAULT_DIR_APP,$content));
+	} else {
+		$info = utf8_pathinfo('/files/Desktop/'.$content);
+		$extension = utf8_strtolower($info['extension']);
+		$asoc = getConfig('filetypes',$extension.'.xml');
+		if(is_array($asoc)) {
+			$execApp = $asoc['fileType'][0]['app'][0];
+			service('proc','launch',array($execApp,$myUserDir.'/files/'.$content));
+		}
+	}
+}
+
+/*
+	this function is called when a Icon is moved, have three arguments, tha path of the icon 
+	moved, the new X and the new Y where is positioned.
+*/
+function eyeDesk_on_Icon_Moved($params=null) {
+	$newX = $params['eyeArg'][0]['newX'][0];
+	$newY = $params['eyeArg'][0]['newY'][0];
+	//TODO: CORRECT?
+	$content = utf8_basename($params['eyeArg'][0]['content'][0]);	
+	$store = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeDesk/icons.xml';
+	if(!service('vfs','real_fileExists',array($store))) {
+		service('vfs','real_create',array($store));
+	}
+	$pos = reqLib('eyeXML','getXMLfile',array($store));
+	
+	if(is_array($pos) && is_array($pos['icon'])) {
+		$found = false;
+		foreach($pos['icon'] as $key=>$value) {
+			if($value['name'][0] == $content) {
+				$pos['icon'][$key]['x'][0] = $newX;
+				$pos['icon'][$key]['y'][0] = $newY;
+				$found = true;
+			}
+		}
+		if(!$found) {
+			$new = array('name'=>array($content),'x'=>array($newX),'y'=>array($newY));
+			array_unshift($pos['icon'],$new);
+		}
+	} else {
+		$new = array('name'=>array($content),'x'=>array($newX),'y'=>array($newY));
+		$pos = array('icon'=>array($new));
+	}
+	reqLib('eyeXML','setXMLfile',array($store,$pos));
+}
+
+function eyeDesk_on_getUserWallpaper() {
+	//TODO: THIS FUNCTION SHOULD USE SERVICE VFS
+	$myUserDir = service('um','getCurrentUserDir');
+	if(is_readable($myUserDir.'/conf/eyeDesk/gfx/wallpaper.jpg')) {
+		header('Content-Type: image/jpg');
+		readfile($myUserDir.'/conf/eyeDesk/gfx/wallpaper.jpg');
+		exit;
+	}
+}
+
+function eyeDesk_on_getWallpaper() {
+	$myUserDir = service('um','getCurrentUserDir');
+	$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','r'));
+	$myContent = fread($myDescriptor,filesize($myUserDir.'conf/eyeDesk/conf.xml'));
+	$mySettings = reqLib('eyeXML','xml2array',array($myContent));
+	fclose($myDescriptor);
+	
+	$path = $mySettings["eyeDesk"][0]["wallpaper"][0];
+	if($path && service('vfs','fileExists',array($path))) {
+		
+		$fp = service('vfs','open',array($path,'r'));
+		if(!$fp){
+			exit;
+		}
+		header('Content-Type: image/jpg');
+		header('Conection: close');
+		while (!feof($fp)) { 
+			echo fgets($fp, 4096); 
+		} 
+		fclose($fp);
+		exit;
+	}
+}
+
+function eyeDesk_on_viewTempImg($params=null) {
+	$file = utf8_basename($params);
+	$udir = um('getCurrentUserDir').'/tmp/';
+	$info = getimagesize($udir.$file);
+	header("Content-type: ".$info['mime']);
+	vfs('printFile',array($udir.$file));
+	exit;
+}
+
+function eyeDesk_on_newFolder($params=null) {
+	global $checknum;
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/Desktop/';
+	proc('launch',array('eyeMkDir',$udir));
+}
+
+function eyeDesk_on_newFile($params=null) {
+	global $checknum;
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/Desktop/';
+	proc('launch',array('newFile',$udir));
+}
+
+function eyeDesk_on_uploadFile($params=null) {
+	global $checknum;
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/Desktop/';
+	$callback = 'sendMsg('.$checknum.',"refreshDesk","");';
+	proc('launch',array('eyeUpload',array($udir,$callback)));
+}
+
+function eyeDesk_on_refreshDesk($params=null) {
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesk/draw'.EYE_CODE_EXTENSION);
+	drawDesktop(true);
+}
+
+function eyeDesk_on_chgwallpaper($params=null) {
+	service('proc','launch',array('eyeControl',array(
+		'category' => 'look_and_feel',
+		'content' => 'desktop',
+		'hidemenu' => 1
+	)));
+}
+
+function eyeDesk_on_preferences($params=null) {
+	proc('launch',array('eyeControl'));
+}
+
+function eyeDesk_on_launcher($params=null) {
+	proc('launch',array('addLink'));	
+}
+
+function eyeDesk_on_download($params=null) {
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+	$file = $udir.$params['arg1'][0];
+	
+	if(realpath($file) == realpath($udir)) {
+		return false;
+	}
+	
+	proc('launch',array('eyeDownload',$file));
+}
+
+function eyeDesk_on_delete($params=null) {
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+	$file = $udir.$params['arg1'][0];
+	global $checknum;
+	
+	if(realpath($file) == realpath($udir)) {
+		return false;
+	}
+	
+	proc('launch',array('eyeDelete',$file));
+}
+
+function eyeDesk_on_copy($params=null) {
+	
+	if($params['arg1'][0]{0} == 'g'){
+		$file = utf8_substr($params['arg1'][0],1,utf8_strlen($params['arg1'][0]));
+		$file = eyeDesk_parsePath($file,1);
+		$udir = EYE_ROOT.'/'.GROUPS_DIR.'/';
+		$file = $udir.$file;		
+	}else{
+		$file = $params['arg1'][0];
+		$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+		$file = $udir.$file;
+	}		
+	
+	if(realpath($file) == realpath($udir)) {
+		return false;
+	}
+	
+	proc('launch',array('eyeCopy',$file));
+}
+
+function eyeDesk_on_rename($params=null) {
+	if($params && $params['arg1'][0]) {
+		global $checknum;
+		
+		$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+		$file = $udir.$params['arg1'][0];
+		$callback = 'sendMsg('.$checknum.', "refreshDesk");';
+		proc('launch', array('eyeRename', array($file, $callback)));
+	}
+}
+
+function eyeDesk_on_paste($params=null) {
+	if($params && $params['arg1'][0]){
+		$udir = $udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/'.$params['arg1'][0];		
+	}else{
+		$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/Desktop/';	
+	}
+	
+	proc('launch',array('eyePaste',$udir));
+	eyeX('sendMessage',array('msg'=>'refreshDesk'));
+}
+
+function eyeDesk_on_properties($params=null) {
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+	$file = $udir.$params['arg1'][0];
+	
+	if(realpath($file) == realpath($udir)) {
+		return false;
+	}
+	
+	proc('launch',array('eyeProperties',$file));
+}
+
+function eyeDesk_on_deleteLink($params=null) {
+	$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+	$file = $udir.$params['arg1'][0].'.'.EYEOS_LINK_EXT;
+	
+	if(realpath($file) == realpath($udir)) {
+		return false;
+	}
+	if(is_dir($file)) {
+		return false;
+	}
+	vfs('real_delete',array($file));	
+	eyeX('sendMessage',array('msg'=>'refreshDesk'));
+}
+
+function eyeDesk_on_eyeTrashDroped($params=null){	
+	if($params==null){
+		return false;
+	}
+	if($params['arg0'][0]{0} == 'g'){
+		$file = utf8_substr($params['arg0'][0],1,utf8_strlen($params['arg0'][0]));
+		$file = eyeDesk_parsePath($file,1);
+		$udir = EYE_ROOT.'/'.GROUPS_DIR.'/';
+		$file = $udir.$file;		
+	}else{
+		$file = $params['arg0'][0];
+		$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+		$file = $udir.$file;
+	}
+	
+	proc('launch',array('eyeDelete',$file));
+	eyeX('sendMessage',array('msg'=>'refreshDesk'));
+}
+
+function eyeDesk_on_moveDrag($params=null){
+	global $myPid,$checknum;
+	$from = $params['arg0'][0];
+	$dest = $params['arg4'][0];
+	
+	$pid = $params['arg2'][0];
+	$check = $params['arg3'][0];
+			
+	
+	if($from{0} == 'g'){
+		$file = utf8_substr($from,1,utf8_strlen($from));
+		$file = eyeDesk_parsePath($file,1);
+		$udir = EYE_ROOT.'/'.GROUPS_DIR.'/';
+		$fromPath = $udir.$file;
+		if(!vfs('fileExists',array($fromPath))){
+			$file = $from;
+			$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+			$fromPath = $udir.$file;
+		}		
+	}else{
+		$file = $from;
+		$udir = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+		$fromPath = $udir.$file;
+	}
+	
+	$destPath = um('getCurrentUserDir').'/'.FILES_USER_DIR.'/'.$dest.'/'.utf8_basename($from);
+			
+	$callback = "eyeFiles_reloadFiles($pid,$check);";
+		
+	proc('launch',array('moveDrag',array($fromPath,$destPath,$callback)));		
+	eyeX('sendMessage',array('msg'=>'refreshDesk','checknum'=>$checknum));
+}
+
+function eyeDesk_parsePath($file,$res=null){
+	if($file == '/'){
+		return $file;
+	}
+	if($file{0} != '/'){
+		$file = '/'.$file;
+	}
+	$path = dirname($file);
+	if($path == '/' || $path == '\\'){
+		$realFileToShow = '/'.basename($file).'/'.FILES_GROUP_DIR;
+		$group = utf8_basename($file);		
+	}else{
+		$rPath = utf8_substr($file,1,utf8_strlen($file));
+		$group = utf8_substr($rPath,0,utf8_strpos($rPath,'/'));
+		$dirname = utf8_substr($rPath,utf8_strpos($rPath,'/'),utf8_strlen($rPath));		
+		$realFileToShow = '/'.$group.'/'.FILES_GROUP_DIR.$dirname;		
+	}
+	if($res == null){
+		return array($realFileToShow,$group);	
+	}elseif($res == 1){
+		return $realFileToShow;
+	}elseif($res == 2){
+		return $group;
+	}
+}
+?>

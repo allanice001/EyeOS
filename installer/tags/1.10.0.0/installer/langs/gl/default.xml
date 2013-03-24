@@ -1,0 +1,49 @@
+<translation>
+	<installer-install-allow-creation>Permitir ós usuarios crear contas</installer-install-allow-creation>
+	<installer-install-continue>Continuar</installer-install-continue>
+	<installer-install-do>¡Instalar eyeOS!</installer-install-do>
+	<installer-install-error-extract>Os arquivos de instalación non foron extraídas. Para instalar eyeOS manualmente, renomee "[package]" como "package.tar.gz" e extrae o contido na mesma carpeta.</installer-install-error-extract>
+	<installer-install-error-renaming>Non se pode renomear a carpeta "./eyeOS/". Por favor, renomeao manualmente a "[hash]"</installer-install-error-renaming>
+	<installer-install-password-retype>Repita a contrasinal</installer-install-password-retype>
+	<installer-install-password-root>Contrasinal de root</installer-install-password-root>
+	<installer-install-passwords-characters>¡A contrasinal de root ten que ser de máis de tres caracteres!</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>¡As contrasinais de root non coinciden!</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>¡A contrasinal de root é precisa!</installer-install-passwords-required>
+	<installer-install-title>Por favor, cubre o seguinte formulario para instalar eyeOS:</installer-install-title>
+	<installer-lib-check-gzip>O teu servidor semella non ter soporte gzip. Para instalar eyeOS manualmente renomea "[package]" como "package.tar.gz" e exrae o contido na mesma carpeta.</installer-lib-check-gzip>
+	<installer-lib-check-md5>Atención: Por favor, comproba "[package]" porque semella estar corrupto.</installer-lib-check-md5>
+	<installer-lib-check-newer>A instalación activa de eyeOS é máis recente que esta actualización. Por favor, elimina a carpeta "[installer]" por razóns de seguridade.</installer-lib-check-newer>
+	<installer-lib-check-notexist>Erro: "[arquivo]" non existe.</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Atención: Por favor, dalle permiso total (CHMOD 777) ó "[file]"</installer-lib-check-permissions>
+	<installer-lib-check-php>O teu servidor está empregando unha versión non soportada de PHP. Por favor, actualiza a PHP 5.0 ou superior antes de instalar eyeOS.</installer-lib-check-php>
+	<installer-lib-check-safemode>Sintoo, pero eyeOS precisa SAFE_MODE OFF. A túa configuración actual ten activado SAFE_MODE. Por favor, modifica o arquivo php.ini para cambiar SAFE_MODE a off ou pide axuda ó administrador do teu sistema.</installer-lib-check-safemode>
+	<installer-lib-output-errors>Houbo problemas durante a instalación:</installer-lib-output-errors>
+	<installer-lib-output-lang-by>por</installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>Idioma actual</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Idiomas</installer-lib-output-lang-langs>
+	<installer-lib-output-title>Instalación eyeOS</installer-lib-output-title>
+	<installer-lib-output-utf8>A versión de PHP non ten completo soporte UTF-8. POr favor, considera actualizar PHP ou instala o módulo mbstring. Sen el serás capaz de instalar e actualizar o teu eyeOS, pero atoparás prblemas nalgunhas áreas do sistema que requiren soporte internacional.</installer-lib-output-utf8>
+	<installer-system-action-removeinstaller>Eliminar o instalador eyeOS</installer-system-action-removeinstaller>
+	<installer-system-action-uninstall>Desinstalar eyeOS</installer-system-action-uninstall>
+	<installer-system-action>Acción</installer-system-action>
+	<installer-system-continue>Continuar...</installer-system-continue>
+	<installer-system-message-remove>¡Por favor, elimina o instalador por motivos de seguridade!</installer-system-message-remove>
+	<installer-system-message-translations>Traduccións poden ser descagadas dende [a link]</installer-system-message-translations>
+	<installer-system-no>Non</installer-system-no>
+	<installer-system-password-error>¡Contrasinal de root incorrecta!</installer-system-password-error>
+	<installer-system-password>Contrasinal de root</installer-system-password>
+	<installer-system-removeinstaller-no>[spam]Non[/spam] te levarán á páxina do sistema.</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>¿Desexas eliminar o instalador de eyeOS?</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>[spam]Si[/spam] eliminará as arquivos de instalación.</installer-system-removeinstaller-yes>
+	<installer-system-title>Por favor, escolle unha das seguintes accións:</installer-system-title>
+	<installer-system-uninstall-no>[spam]Non[/spam] Levarate de regreso á páxina do sistema.</installer-system-uninstall-no>
+	<installer-system-uninstall-really>¿Realmente desexas desinstalar eyeOS?</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>[spam]Si[/spam] eliminará eyeOS completamente.</installer-system-uninstall-yes>
+	<installer-system-yes>Si</installer-system-yes>
+	<installer-update-continue>Continuar...</installer-update-continue>
+	<installer-update-do>¡Actualizar eyeOS!</installer-update-do>
+	<installer-update-error-extract>Os arquivos de actualización no puideron ser extraídas. Para actualizar eyeOS manualmente renomea "[package]" como "package.tar.gz" e extrae o contido na mesma carpeta.</installer-update-error-extract>
+	<installer-update-error-renaming>Non poido renomear a carpeta "./eyeOS/". Por favor, renomea manualmente como "[hash]" e sobreescribe os arquivos existentes.</installer-update-error-renaming>
+	<installer-update-error-under15>Etsa actualización é somentes para versións de eyeOS 1.5 ou superiores. Estás empregando eyeOS [version1]. Por favor, actualiza a eyeOS 1.5 antes de actualizar a eyeOS [version2]</installer-update-error-under15>
+	<installer-update-title>Por favor, continua actualizando a túa instalación eyeOS á versión [version].</installer-update-title>
+</translation>

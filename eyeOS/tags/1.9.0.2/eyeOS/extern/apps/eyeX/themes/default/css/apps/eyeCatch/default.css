@@ -1,0 +1,20 @@
+.eyeCatch_deafult_enemy {
+	background-color: #000099;
+	position: absolute;
+}
+
+.eyeCatch_deafult_field {
+	background-color: #ffffff;
+	overflow: hidden;
+	position: absolute;
+}
+
+.eyeCatch_deafult_hole {
+	background-color: #000000;
+	position: absolute;
+}
+
+.eyeCatch_deafult_player {
+	background-color: #990000;
+	position: absolute;
+}

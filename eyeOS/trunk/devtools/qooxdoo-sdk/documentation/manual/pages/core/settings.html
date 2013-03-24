@@ -1,0 +1,281 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Settings &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Core Framework" href="../core.html" />
+    <link rel="next" title="Variants" href="variants.html" />
+    <link rel="prev" title="Property features summarized" href="property_features.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="variants.html" title="Variants"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="property_features.html" title="Property features summarized"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../core.html" accesskey="U">Core Framework</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="settings">
+<span id="pages-core-settings-defining-and-using-settings"></span><h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<p>One of the major problems of JavaScript frameworks is that you, as the user of such a framework, cannot easily control one of the initial settings. For example the framework may have defaults which can only be changed after the framework is loaded, but not before. Most of the time this restriction is not problematic. Most applications are only interested in settings once their main routine gets processed. But there are exceptions when things must be configured at or before load time.</p>
+<div class="section" id="what-are-settings">
+<span id="pages-core-settings-what-are-settings"></span><h2>What are settings?<a class="headerlink" href="#what-are-settings" title="Permalink to this headline">¶</a></h2>
+<p>This is where qooxdoo's settings come in. They are directly built into the core of qooxdoo. This means that many intial settings are easily controllable using a simple hash map structure or generator settings.</p>
+<p>For example you can control the following things in qooxdoo:</p>
+<ul class="simple">
+<li>All type of themes (colors, icons, widgets, appearance)</li>
+<li>Default log level and appender</li>
+<li>Resource-URLs of standard qooxdoo icons and widgets images</li>
+<li>Timeout of the image preloader</li>
+<li>The init component (graphical or non-graphical)</li>
+<li>Different debugging options for json, remote io, etc.</li>
+</ul>
+<p>This list shows you some of your possibilities.</p>
+</div>
+<div class="section" id="when-to-use-settings-and-when-not">
+<span id="pages-core-settings-when-to-use-settings-and-when-not"></span><h2>When to use settings (and when not)<a class="headerlink" href="#when-to-use-settings-and-when-not" title="Permalink to this headline">¶</a></h2>
+<p>Generally settings are not meant to replace the properties which exist in qooxdoo. <strong>Settings are immutable</strong>. There is only a default value, defined by the class which declares the setting, and a optional user value which overrides this default value. The only possiblity to change this user value is to use the generator option or to define a global map <tt class="docutils literal"><span class="pre">qxsettings</span></tt> before including the qooxdoo JavaScript file(s). It is not possible to modify the value later.</p>
+<p>As a class developer it is quite important to not use settings for everything. The intention is to reduce the number of settings to a minimum. They are only meant to control loadtime relevant stuff. Other things should be resolved with other available technologies like properties. Properties have a much greater set of features and possibilities.</p>
+</div>
+<div class="section" id="defining-new-settings">
+<span id="pages-core-settings-defining-new-settings"></span><h2>Defining new settings<a class="headerlink" href="#defining-new-settings" title="Permalink to this headline">¶</a></h2>
+<p>New settings can be defined in this way:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Setting</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;ns.key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In contrast to <a class="reference internal" href="variants.html"><em>Variants</em></a> there is no array of available values. Settings are not limited in this way. You can even store any JS-Type in a setting. But normally it is better to just use primitive types like Boolean, String and Number values.</p>
+<p>The qooxdoo class definition allows you to integrate settings directly in the defining map:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;myapp.ClassA&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="p">[...]</span>
+
+  <span class="nx">settings</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;myapp.key&quot;</span> <span class="o">:</span> <span class="nx">value</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The key should always contain a namespace. This protects the application developer from creating conflicting settings with the framework and maybe other qooxdoo-based libraries. The namespace could be something short. All qooxdoo settings use &quot;qx&quot;, like the toplevel namespace. If you have a &quot;myapp.Application&quot; you may want to prefix all your settings with &quot;myapp&quot; (but deeper nested namespaces are also possible).</p>
+<p>Even if settings (and variants) are defined in the class where they are used, they are stored in a more &quot;global&quot; manner and may be accessed from everywhere.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Important:</strong>
+You must be sure that the class defining --which is using a setting-- is loaded before the first access to this setting. Also you must not redefine settings.</p>
+</div>
+</div>
+<div class="section" id="selecting-settings">
+<span id="pages-core-settings-selecting-settings"></span><h2>Selecting settings<a class="headerlink" href="#selecting-settings" title="Permalink to this headline">¶</a></h2>
+<p>You can select a new value for a settings using the generator or a global map defined before loading qooxdoo.</p>
+<div class="section" id="using-the-generator">
+<span id="pages-core-settings-using-the-generator"></span><h3>Using the generator<a class="headerlink" href="#using-the-generator" title="Permalink to this headline">¶</a></h3>
+<p>Use the config.json <a class="reference internal" href="../tool/generator_config_ref.html#pages-tool-generator-config-ref-settings"><em>settings</em></a> config key:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="p">...</span>
+  <span class="s2">&quot;settings&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;myapp.key&quot;</span> <span class="o">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-a-map">
+<span id="pages-core-settings-using-a-map"></span><h3>Using a map<a class="headerlink" href="#using-a-map" title="Permalink to this headline">¶</a></h3>
+<p>Use a map named <tt class="docutils literal"><span class="pre">qxsettings</span></tt> which is globally defined in the loading HTML page</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nb">window</span><span class="p">.</span><span class="nx">qxsettings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;myapp.key&quot;</span> <span class="o">:</span> <span class="nx">value</span><span class="p">,</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because of the namespace-like dot you must be sure to put the whole hash map key into quotes.</p>
+</div>
+</div>
+</div>
+<div class="section" id="predefined-settings">
+<span id="pages-core-settings-predefined-settings"></span><h2>Predefined Settings<a class="headerlink" href="#predefined-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings are known in the qooxdoo framework:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="45%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Setting</th>
+<th class="head">Recognized Values</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>qx.allowUrlSettings</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr><td>qx.allowUrlVariants</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr><td>qx.application</td>
+<td>&lt;string&gt;</td>
+<td>&lt;undefined&gt;</td>
+</tr>
+<tr><td>qx.bom.htmlarea.HtmlArea.debug</td>
+<td>&quot;on&quot;/&quot;off&quot;</td>
+<td>&quot;off&quot;</td>
+</tr>
+<tr><td>qx.disposerDebugLevel</td>
+<td>0, 1, ...</td>
+<td>0</td>
+</tr>
+<tr><td>qx.globalErrorHandling</td>
+<td>&quot;on&quot;/&quot;off&quot;</td>
+<td>&quot;on&quot;</td>
+</tr>
+<tr><td>qx.ioRemoteDebug</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr><td>qx.ioRemoteDebugData</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr><td>qx.jsonEncodeUndefined</td>
+<td>true/false</td>
+<td>true</td>
+</tr>
+<tr><td>qx.jsonDebugging</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr><td>qx.nativeScrollBars</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr><td>qx.propertyDebugLevel</td>
+<td>0, 1, ...</td>
+<td>0</td>
+</tr>
+<tr><td>qx.tableResizeDebug</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Settings</a><ul>
+<li><a class="reference internal" href="#what-are-settings">What are settings?</a></li>
+<li><a class="reference internal" href="#when-to-use-settings-and-when-not">When to use settings (and when not)</a></li>
+<li><a class="reference internal" href="#defining-new-settings">Defining new settings</a></li>
+<li><a class="reference internal" href="#selecting-settings">Selecting settings</a><ul>
+<li><a class="reference internal" href="#using-the-generator">Using the generator</a></li>
+<li><a class="reference internal" href="#using-a-map">Using a map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#predefined-settings">Predefined Settings</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="property_features.html"
+                                  title="previous chapter">Property features summarized</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="variants.html"
+                                  title="next chapter">Variants</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/core/settings.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

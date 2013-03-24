@@ -1,0 +1,121 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/   eyePlanet, based on eyeOS 1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDoc_formatWidget($info) {
+	eyex('resetDiv', array('name' => 'eyeContent', 'usepid' => 1));	
+	$info = $info['info'][0];
+
+	//Translate strings
+	$description = i18n('translate', array('Description'));
+	$genericKeys = i18n('translate', array('Constructor Generic Keys'));
+	$specifickeys = i18n('translate', array('Constructor Specific Keys'));
+	$methods = i18n('translate', array('Methods'));
+	$arguments = i18n('translate', array('Arguments'));
+	$none = i18n('translate', array('none'));
+	$changelog = i18n('translate', array('Changelog'));
+	$version = i18n('translate', array('Version'));
+	$changeDesc = i18n('translate', array('Change description'));
+	$examples = i18n('translate', array('Examples'));
+	
+	//Description section
+	$html = '<h1 class="headerText">'.$info['name'][0].'</h1><div class="section"><p class="title">'.$description.'</p><p>'.$info['description'][0].'</p>';
+	
+	if(is_array($info['image'])) {
+		$html .= '<p align="center" style="font-style: italic;"><img src="index.php?extern=apps/eyeDoc/Widgets/'.$info['name'][0].'.png" /><br />'.$info['image'][0].'</p>';
+	}
+	
+	$html .= '</div>';
+	
+	eyeX('setDiv', array('name' => 'eyeContent', 'content' => $html));
+	//Generic keys section
+	if(is_array($info['generic_keys'])) {
+		$html = '<div class="section"><p class="title">'.$genericKeys.'</p>';
+
+		foreach($info['generic_keys'][0]['key'] as $key) {
+			$paramDesc = str_replace("\n", "<br />", trim($key['desc'][0]));
+			$html.= '<p class="paramName">'.$key['name'][0].'</p><p class="paramDesc">'.$paramDesc.'</p>';
+		}
+		$html.= '</div>';
+		
+		eyeX('concatDiv', array('name' => 'eyeContent', 'value' => $html, 'usepid' => 1));
+	}
+	
+	
+	//Specific keys section
+	if(is_array($info['specific_keys'])) {
+		$html = '<div class="section"><p class="title">'.$specifickeys.'</p>';
+		
+		foreach($info['specific_keys'][0]['key'] as $key) {
+			$paramDesc = str_replace("\n", "<br />", trim($key['desc'][0]));
+			$html.= '<p class="paramName">'.$key['name'][0].'</p><p class="paramDesc">'.$paramDesc.'</p>';
+		}
+		$html.= '</div>';
+		
+		eyeX('concatDiv', array('name' => 'eyeContent', 'value' => $html, 'usepid' => 1));
+	}
+	
+	//Methods section
+	if(is_array($info['methods'])) {
+		$html = '<div class="section"><p class="title">'.$methods.'</p>';
+
+		foreach($info['methods'][0]['method'] as $method) {
+			$html.= '<p class="code">'.$method['syntax'][0].'</p><p><b>'.$description.': </b>'.$method['desc'][0].'</p><b>'.$arguments.': </b>';
+			
+			if(is_array($method['arguments'])) {
+				foreach($method['arguments'][0]['arg'] as $arg) {
+					$html.= '<br /><b style="margin-left: 20px">'.$arg['name'][0].': </b>'.$arg['desc'][0];
+				}
+			} else {
+				$html.= $none;
+			}
+		}
+		$html.= '<p />';
+		
+		eyeX('concatDiv', array('name' => 'eyeContent', 'value' => $html, 'usepid' => 1));
+	}
+
+	//Changelog section
+	if(is_array($info['changelog'][0])) {
+		$html = '<div class="section"><p class="title">'.$changelog.'</p><table border=1 class="eyeDocTable" cellpadding=5><thead><tr><td>'.$version.'</td><td>'.$changeDesc.'</td></tr></thead>';
+
+		foreach($info['changelog'][0]['trace'] as $trace) {
+			$html.= '<tr><td>'.$trace['version'][0].'</td><td>'.$trace['desc'][0].'</td></tr>';
+		}
+		$html.= '</table><p /></div>';
+		
+		eyeX('concatDiv', array('name' => 'eyeContent', 'value' => $html, 'usepid' => 1));
+	}
+	
+		
+	//Examples section
+	if(is_array($info['examples'][0]['ex'])) {
+		foreach($info['examples'][0]['ex'] as $example) {
+			$html = '<div class="section"><p class="title">Example: '.$example['type'][0].'</p>';
+			$html.= '<p class="code">'.highlight_string("<?php".$example['desc'][0]."\n?>", true).'</p>';
+			$html.= '</div>';
+			eyeX('concatDiv', array('name' => 'eyeContent', 'value' => $html, 'usepid' => 1));
+		}
+	}
+}
+
+?>

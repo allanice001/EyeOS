@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>createWidget</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+		</tags>
+		<shortDesc>Draws a new widget in the screen.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>createWidget</functionName>
+		<syntax> 
+void eyex('createWidget', array(string 'name' => $name,
+                                string 'father' => $father [,
+                                string 'widgetname' => $widgetname,
+                                array 'params' => $params,
+                                int 'horiz' => $horiz,
+                                int 'vert' => $vert,
+                                int 'removepid' => $removepid,
+                                int 'center' => $center,
+                                int 'x' => $x,
+                                int 'y' => $y]))
+		</syntax>
+		<desc>Draws a new widget in the screen.</desc>
+		<params>
+			<type>required</type>
+			<name>name</name>
+			<desc>Name of the widget.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>father</name>
+			<desc>Name of the father (containing) element of the widget.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>widgetname</name>
+			<desc>Class (type) of the widget. This value must have one of the names found in the  existing widgets.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>params</name>
+			<desc>Associative array containing specific parameters of the widget.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>horiz</name>
+			<desc>Specifies whether the horizontal coordinate of the new widget must be counted from the left (0) or the right (1) border of its container element. The default value is 0 (left).</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>vert</name>
+			<desc>Specifies whether the vertical coordinate of the new widget must be counted from the top (0) or from the bottom (1) border of its container element. The default value is 0 (top).</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>removepid</name>
+			<desc>If set to 1, appends to the start of the 'father' parameter the current process ID.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>center</name>
+			<desc>Specifies how the widget should be centered inside its container element. Possible values are:
+				0: no centering. This is the default value.
+ 				1: center both horizontal and vertically.
+				2: center horizontally.
+				3: center vertically.
+				4: place the widget at the horizontal and vertical center of its container element.
+				5: place the widget at the horizontal center of its container element.
+				6: place the widget at the vertical center of its container element.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>x</name>
+			<desc>Specifies, in pixels, the horizontal coordinate inside its father element.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>y</name>
+			<desc>Specifies, in pixels, the vertical displacement inside its father element.</desc>
+		</params>
+		<return>If some parameter is not specified, returns false and sets the error code accordingly. Otherwise, it does not return any value. Otherwise, it does not return any value.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No widget name is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

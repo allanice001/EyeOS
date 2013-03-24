@@ -1,0 +1,84 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+
+function lib_i18n_loadLang($params) {
+	$app = basename($params[0]);
+	if(!$app) {
+		return false;
+	}
+	if(isset($_SESSION['lang'])){
+		$lang = $_SESSION['lang'];
+		if(file_exists(EYE_ROOT.'/'.APP_DIR.'/'.$app.'/lang/'.$lang.EYE_CODE_EXTENSION) &&
+		is_readable(EYE_ROOT.'/'.APP_DIR.'/'.$app.'/lang/'.$lang.EYE_CODE_EXTENSION)) {
+			include_once(EYE_ROOT.'/'.APP_DIR.'/'.$app.'/lang/'.$lang.EYE_CODE_EXTENSION);
+		}
+	}else{
+		return false;		
+	}	
+}
+
+function lib_i18n_translate($params) {
+	$string = $params[0];
+	if(isset($params[1])) {
+		$tokens = $params[1];
+	} else {
+		$tokens=null;
+	}
+	//todo: parse tokens
+	global $language;
+	if(isset($language[$string]) && !$tokens) {
+		return $language[$string];
+	} else {
+		if(isset($language[$string])) {
+			$string = $language[$string];
+		}
+		if(isset($tokens) && !empty($tokens)) {
+			$pieces = explode("%s",$string);
+			$string = "";
+			$i = 0;
+			foreach($pieces as $value) {
+				$string .= $pieces[$i];
+				if(isset($tokens[$i])) {
+					$string .= $tokens[$i];
+				}
+				$i++;
+			}
+		} 
+		return $string;
+	}
+}
+
+function lib_i18n_getLang($params=null) {
+	return $_SESSION['lang'];
+}
+
+function lib_i18n_setLang($params) {
+	$lang = basename($params[0]);
+	if(!$lang) {
+		return false;
+	}
+	$_SESSION['lang'] = $lang;
+}
+
+?>

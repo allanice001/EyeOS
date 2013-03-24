@@ -1,0 +1,87 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/**
+ * @author Nanawel (nanawel@eyeos.org)
+ * @version 1.1
+ * @updated 16-Nov-2008
+ */
+ 
+function eyeTetravex_run($params=null) {
+	global $myPid;
+	global $checknum;
+
+	$myWindow = new Window(array(
+		'name'=>'eyeTetravex_WND',
+		'father'=>'eyeApps',
+		'style'=>TITLE+LISTED+MIN+CLOSE,
+		'cent'=>1,
+		'width'=>702,
+		'height'=>424,
+		'title'=>'Tetravex Game',
+		'showDragContent'=>2,
+		'savePosition' => 1
+	));
+	$myWindow->show();
+
+	$flashParamsNames[] = 'flashvars';
+	$flashParamsValues[] = "autostart=yes"
+							."&loop=no"
+							."&jscontrol=true"
+							."&scriptUrl=index.php"
+							."&checknum=".$checknum
+							."&allowFullScreen=true";
+	$flashParamsNames[] = 'scriptUrl';
+	$flashParamsValues[] = 'index.php';
+	$flashParamsNames[] = 'checknum';
+	$flashParamsValues[] = $checknum;
+	$flashParamsNames[] = 'allowFullScreen';
+	$flashParamsValues[] = 'true';
+
+	$myFlash = new Flash(array(
+		'name'=>'eyeTetravex_SWF',
+		'title' => 'eyeTetravex',
+		'father' => 'eyeTetravex_WND_Content',
+		'x' => 0,
+		'y' => 0,
+		'width' => 700,
+		'height' => 400,
+		'src' => "index.php?version=".EXTERN_CACHE_VERSION."&extern=apps/eyeTetravex/swf/eyeTetravex.swf&type=swf",
+		'flashParamsNames' => $flashParamsNames,
+		'flashParamsValues' => $flashParamsValues
+	));
+
+	$myFlash->show();
+
+	//check the user's configuration directory and create it if needed 
+	$confDir = um('getCurrentUserDir').CONF_USER_DIR.'/eyeTetravex';
+	if(!vfs('real_fileExists',array($confDir))) {
+		vfs('real_mkdir',array($confDir));
+	}
+}
+
+function eyeTetravex_end($params=null) {
+	eyeWidgets('unserialize');
+}
+
+?>

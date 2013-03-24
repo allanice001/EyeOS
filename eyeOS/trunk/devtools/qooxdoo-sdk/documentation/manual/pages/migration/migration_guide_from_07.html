@@ -1,0 +1,410 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Migration Guide (from 0.7.x) &mdash; qooxdoo v1.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.2 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="migration-guide-from-0-7-x">
+<span id="pages-migration-guide-from-07-migration-guide-from-0-7-x"></span><h1>Migration Guide (from 0.7.x)<a class="headerlink" href="#migration-guide-from-0-7-x" title="Permalink to this headline">¶</a></h1>
+<p>In order to help in migrating your existing application qooxdoo 1.2 includes a legacy qooxdoo 0.7. This allows you to startup your app in a &#8220;hybrid&#8221; qooxdoo runtime when doing the actual migration. This hybrid mode is to support migration, it should not be used to deploy your application. Most of your
+existing 0.7 app should run ok in this hybrid environment (despite some GUI glitches). So you can actually start with a <em>working</em> app for migration instead of a broken one, i.e. one which would only work at some point in the
+future - after a lot of probably vague code changes. Being able to use a running app as a starting point should be a big plus.</p>
+<p>In order to let your existing 0.7 app run in this hybrid environment, you use the migration tools as explained below, that basically rename the existing framework namespaces from <tt class="docutils literal"><span class="pre">qx.Foo</span></tt> to <tt class="docutils literal"><span class="pre">qx.legacy.Foo</span></tt>.</p>
+<p>Since the GUI-related API often changes significantly in 1.2, you can isolate &#8220;islands&#8221; of 0.7
+GUI code, and wrap that into so-called &#8220;Future Embeds&#8221;. Within
+those embeds you rewrite your code manually to 1.2 code where necessary.</p>
+<p>When no <tt class="docutils literal"><span class="pre">qx.legacy.*</span></tt> namespace is left in your application code, you can remove
+the legacy qooxdoo 0.7 code from the qooxdoo 1.2 framework. If your app still works, you have successfully migrated your app. ;-)</p>
+<p><a class="reference external" href="http://demo.qooxdoo.org/1.2/demobrowser/index.html#legacy~EmbedFuture_Layout.html">Future Embed</a> (<a class="reference external" href="http://demo.qooxdoo.org/1.2/apiviewer/#qx.legacy.ui.embed.Future">API</a>)</p>
+<p><a class="reference internal" href="migration_notes_from_07.html"><em>Migration Notes (from 0.7.x)</em></a></p>
+<div class="section" id="porting-an-application">
+<span id="pages-migration-guide-from-07-porting-an-application"></span><h2>Porting an application<a class="headerlink" href="#porting-an-application" title="Permalink to this headline">¶</a></h2>
+<p>The following step-by-step tutorial demonstrates how to migrate an 0.7 app to qooxdoo 1.2. The feedreader demo application is used as a real-life example. Watch the various milestones in this process that you should get to successfully.</p>
+<div class="section" id="create-a-new-application">
+<span id="pages-migration-guide-from-07-create-a-new-application"></span><h3>Create a new application<a class="headerlink" href="#create-a-new-application" title="Permalink to this headline">¶</a></h3>
+<p>The best way to start porting your existing application is to create an empty 1.2 application.
+Run the <tt class="docutils literal"><span class="pre">create-application.py</span></tt> from your <tt class="docutils literal"><span class="pre">tool/bin</span></tt> folder and specify name and type of your application. The additional parameter ensures that this app is properly configured to hold an app for migration.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">..</span><span class="o">/</span><span class="nx">tool</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">create</span><span class="o">-</span><span class="nx">application</span><span class="p">.</span><span class="nx">py</span> <span class="o">-</span><span class="nx">n</span> <span class="nx">feedreader</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">migration</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nx">Copy</span> <span class="nx">skeleton</span> <span class="nx">into</span> <span class="nx">the</span> <span class="nx">output</span> <span class="nx">directory</span><span class="o">:</span> <span class="p">.</span><span class="o">/</span><span class="nx">feedreader</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">Patching</span> <span class="nx">file</span> <span class="s1">&#39;./feedreader/config.json&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">Patching</span> <span class="nx">file</span> <span class="s1">&#39;./feedreader/generate.py&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">Patching</span> <span class="nx">file</span> <span class="s1">&#39;./feedreader/Manifest.json&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">Patching</span> <span class="nx">file</span> <span class="s1">&#39;./feedreader/source/index.html&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">Patching</span> <span class="nx">file</span> <span class="s1">&#39;./feedreader/source/class/feedreader/Application.js&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">Patching</span> <span class="nx">file</span> <span class="s1">&#39;./feedreader/source/class/feedreader/test/DemoTest.js&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">DONE</span>
+</pre></div>
+</div>
+<p>The generator will create a new folder named <em>feedreader</em> inside your application folder.</p>
+</div>
+<div class="section" id="generate-a-source-version">
+<span id="pages-migration-guide-from-07-generate-a-source-version"></span><h3>Generate a source version<a class="headerlink" href="#generate-a-source-version" title="Permalink to this headline">¶</a></h3>
+<p>qooxdoo 1.2 comes with a new build process for generating your application. Instead of calling <tt class="docutils literal"><span class="pre">make</span> <span class="pre">source</span></tt> in your application&#8217;s folder, you now have to enter <tt class="docutils literal"><span class="pre">./generate.py</span> <span class="pre">source</span></tt>:</p>
+<div class="highlight-javascript"><pre>cd ~/workspace/qooxdoo.trunk/application/feedreader/
+./generate.py source</pre>
+</div>
+<p>After running this command open the file <tt class="docutils literal"><span class="pre">index.html</span></tt> in the <tt class="docutils literal"><span class="pre">source</span></tt> folder in your web browser.</p>
+<p><strong>Checkpoint 1</strong>: You should see a button named <em>First button</em>.</p>
+</div>
+<div class="section" id="modify-the-config-json">
+<span id="pages-migration-guide-from-07-modify-the-config-json"></span><h3>Modify the config.json<a class="headerlink" href="#modify-the-config-json" title="Permalink to this headline">¶</a></h3>
+<p>With the new generator come new configuration files. A file named <tt class="docutils literal"><span class="pre">config.json</span></tt> replaces the <tt class="docutils literal"><span class="pre">Makefile</span></tt>. Open the <tt class="docutils literal"><span class="pre">config.json</span></tt> and enter your settings. You can check the <a class="reference internal" href="migration_makefile.html"><em>Makefile migration</em></a> for changes in these settings. If in doubt, leave this step for later and continue using the pre-configured <tt class="docutils literal"><span class="pre">config.json</span></tt>.</p>
+</div>
+<div class="section" id="copy-the-application-s-files">
+<span id="pages-migration-guide-from-07-copy-the-applications-files"></span><h3>Copy the application&#8217;s files<a class="headerlink" href="#copy-the-application-s-files" title="Permalink to this headline">¶</a></h3>
+<p>An application&#8217;s folder structure does not change in 1.2, so you can just copy all your JavaScript classes or application resources to your new application.</p>
+<div class="highlight-javascript"><pre>cp -r ~/workspace/qooxdoo.legacy_0_7_x/frontend/application/feedreader/source ./</pre>
+</div>
+</div>
+<div class="section" id="choose-a-way-of-migrating">
+<span id="pages-migration-guide-from-07-choose-a-way-of-migrating"></span><h3>Choose a way of migrating<a class="headerlink" href="#choose-a-way-of-migrating" title="Permalink to this headline">¶</a></h3>
+<p>To migrate your application to qooxdoo 1.2, you have two choices:</p>
+<ol class="arabic simple">
+<li>Generate a legacy application and port it part by part</li>
+<li>Start with a 1.2 application and rewrite the GUI part of your application</li>
+</ol>
+<p>Path 1. involves running the migration job (which is detailed further down). This job will re-write parts of your application to use the compatibility classes from the <tt class="docutils literal"><span class="pre">qx.legacy.*</span></tt> name space. After that your application should be (mostly) runnable with qooxdoo 1.2 without much manual code changes since the old APIs are retained in the <tt class="docutils literal"><span class="pre">qx.legacy.*</span></tt> name space.</p>
+<p>Path 2. skips the migration job. Rather, you will have to re-write all affected parts of your application by hand until the whole code uses the new 1.2 class APIs.</p>
+<p>Most likely the application&#8217;s GUI part is the most difficult of all parts. Maintaining GUI code often results in many little changes which can lead to unattractive code. The migration to qooxdoo 1.2 might be the chance to start from the scratch and rewrite this section in a clean and modern way. But this is also a tedious procedure, and might take some time before you have a working application again.</p>
+<p>On the other hand, creating a legacy application has the advantage of changing the most important parts automatically and keep your application running during the migration. You can then port your code to the new APIs step by step. But you want to make sure you get rid of the compatibility layer eventually.</p>
+<p>The remainder of this document assumes that you are using path 1. and are transforming your project into a legacy application. If you decide to go with alternative 2. and do a fully manual port, the <a class="reference internal" href="migration_notes_from_07.html"><em>migration notes</em></a> might be of help.</p>
+</div>
+<div class="section" id="running-the-migration-script">
+<span id="pages-migration-guide-from-07-running-the-migration-script"></span><h3>Running the migration script<a class="headerlink" href="#running-the-migration-script" title="Permalink to this headline">¶</a></h3>
+<p>The generator will traverse your classes and add the prefix <em>legacy</em> to all qooxdoo classes. This will result in a <em>working</em> qooxdoo 0.7 application inside the new 1.2 environment. Here is a sample run of the migration job:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">migration</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">NOTE</span><span class="o">:</span>    <span class="nx">To</span> <span class="nx">apply</span> <span class="nx">only</span> <span class="nx">the</span> <span class="nx">necessary</span> <span class="nx">changes</span> <span class="nx">to</span> <span class="nx">your</span> <span class="nx">project</span><span class="p">,</span> <span class="nx">we</span>
+         <span class="nx">need</span> <span class="nx">to</span> <span class="nx">know</span> <span class="nx">the</span> <span class="nx">qooxdoo</span> <span class="nx">version</span> <span class="nx">it</span> <span class="nx">currently</span> <span class="nx">works</span> <span class="kd">with</span><span class="p">.</span>
+
+<span class="nx">Please</span> <span class="nx">enter</span> <span class="nx">your</span> <span class="nx">current</span> <span class="nx">qooxdoo</span> <span class="nx">version</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">.</span><span class="mi">3</span><span class="p">]</span> <span class="o">:</span>
+</pre></div>
+</div>
+<p>Enter your qooxdoo version or just hit return if you are using the latest version.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">MIGRATION</span> <span class="nx">SUMMARY</span><span class="o">:</span>
+
+<span class="nx">Current</span> <span class="nx">qooxdoo</span> <span class="nx">version</span><span class="o">:</span>   <span class="mf">0.7</span><span class="p">.</span><span class="mi">3</span>
+<span class="nx">Upgrade</span> <span class="nx">path</span><span class="o">:</span>              <span class="mf">1.2</span><span class="o">-</span><span class="nx">pre1</span> <span class="o">-&gt;</span> <span class="mf">1.2</span><span class="o">-</span><span class="nx">pre2</span> <span class="o">-&gt;</span> <span class="mf">1.2</span><span class="o">-</span><span class="nx">beta1</span> <span class="o">-&gt;</span> <span class="mf">1.2</span><span class="o">-</span><span class="nx">rc1</span> <span class="o">-&gt;</span> <span class="mf">1.2</span>
+
+<span class="nx">Affected</span> <span class="nx">Classes</span><span class="o">:</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">Header</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">Article</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">Tree</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">PreferenceWindow</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">ToolBar</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">FeedParser</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">Table</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">Application</span>
+    <span class="nx">feedreader</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">DemoTest</span>
+
+<span class="nx">NOTE</span><span class="o">:</span>    <span class="nx">It</span> <span class="nx">is</span> <span class="nx">advised</span> <span class="nx">to</span> <span class="k">do</span> <span class="nx">a</span> <span class="s1">&#39;make distclean&#39;</span> <span class="nx">before</span> <span class="nx">migrating</span> <span class="nx">any</span> <span class="nx">files</span><span class="p">.</span>
+         <span class="nx">If</span> <span class="nx">you</span> <span class="nx">choose</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="nx">a</span> <span class="nx">subprocess</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">invoked</span> <span class="nx">to</span> <span class="nx">run</span> <span class="nx">distclean</span><span class="p">,</span>
+         <span class="nx">and</span> <span class="nx">after</span> <span class="nx">completion</span> <span class="nx">you</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">prompted</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span>
+         <span class="k">continue</span> <span class="kd">with</span> <span class="nx">the</span> <span class="nx">migration</span><span class="p">.</span> <span class="nx">If</span> <span class="nx">you</span> <span class="nx">choose</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">making</span> <span class="nx">distclean</span>
+         <span class="nx">step</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">skipped</span> <span class="p">(</span><span class="nx">which</span> <span class="nx">might</span> <span class="nx">result</span> <span class="k">in</span> <span class="nx">potentially</span> <span class="nx">unnecessary</span>
+         <span class="nx">files</span> <span class="nx">being</span> <span class="nx">migrated</span><span class="p">).</span>
+
+<span class="nx">Do</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">run</span> <span class="s1">&#39;make distclean&#39;</span> <span class="nx">now</span><span class="o">?</span> <span class="p">[</span><span class="nx">yes</span><span class="p">]</span> <span class="o">:</span>
+</pre></div>
+</div>
+<p>Enter &#8220;yes&#8221;.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">WARNING</span><span class="o">:</span> <span class="nx">The</span> <span class="nx">migration</span> <span class="nx">process</span> <span class="nx">will</span> <span class="nx">update</span> <span class="nx">the</span> <span class="nx">files</span> <span class="k">in</span> <span class="nx">place</span><span class="p">.</span> <span class="nx">Please</span> <span class="nx">make</span>
+         <span class="nx">sure</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">have</span> <span class="nx">a</span> <span class="nx">backup</span> <span class="nx">of</span> <span class="nx">your</span> <span class="nx">project</span><span class="p">.</span> <span class="nx">The</span> <span class="nx">complete</span> <span class="nx">output</span> <span class="nx">of</span> <span class="nx">the</span>
+         <span class="nx">migration</span> <span class="nx">process</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">logged</span> <span class="nx">to</span> <span class="s1">&#39;migration.log&#39;</span><span class="p">.</span>
+
+<span class="nx">Do</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">start</span> <span class="nx">the</span> <span class="nx">migration</span> <span class="nx">now</span><span class="o">?</span> <span class="p">[</span><span class="nx">no</span><span class="p">]</span> <span class="o">:</span>
+</pre></div>
+</div>
+<p>Enter &#8220;yes&#8221;.</p>
+<p>Check <tt class="docutils literal"><span class="pre">migration.log</span></tt> for messages that contain <em>foo.js has been modified. Storing modifications ...</em> to insure that the migration process worked.</p>
+</div>
+<div class="section" id="manual-work">
+<span id="pages-migration-guide-from-07-manual-work"></span><h3>Manual work<a class="headerlink" href="#manual-work" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is only needed for qooxdoo 1.2. If you are using 0.8.1 or higher (trunk version as well) just skip this part.</p>
+</div>
+<p>Open <tt class="docutils literal"><span class="pre">config.json</span></tt> and add this block of code in the <tt class="docutils literal"><span class="pre">jobs</span></tt> section:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;common&quot;</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="s2">&quot;include&quot;</span> <span class="o">:</span>
+  <span class="p">[</span>
+    <span class="s2">&quot;${APPLICATION}.Application&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;${QXTHEME}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;qx.legacy.theme.ClassicRoyale&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;settings&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;qx.legacy.theme&quot;</span> <span class="o">:</span> <span class="s2">&quot;qx.legacy.theme.ClassicRoyale&quot;</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Then change</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;extend&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;appconf::build&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;extend&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;common&quot;</span><span class="p">,</span> <span class="s2">&quot;appconf::build&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;extend&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;appconf::source&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;extend&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;common&quot;</span><span class="p">,</span> <span class="s2">&quot;appconf::source&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="porting-parts">
+<span id="pages-migration-guide-from-07-porting-parts"></span><h3>Porting parts<a class="headerlink" href="#porting-parts" title="Permalink to this headline">¶</a></h3>
+<p>Run <tt class="docutils literal"><span class="pre">./generate.py</span> <span class="pre">source</span></tt> once again.</p>
+<p><strong>Checkpoint 2</strong>: You should see your completely working application.</p>
+<p>Congratulations, you have a 0.7 application inside a qooxdoo 1.2 environment.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please note that your application runs in quirks mode since this is needed to render legacy widgets correctly. The document mode <em>shouldn&#8217;t be</em> a problem if you have a single page application (RIA). If you want to work with HTML just add a valid doctype to the index.html.</p>
+</div>
+<div class="section" id="adjust-the-application-class">
+<span id="pages-migration-guide-from-07-adjust-the-application-class"></span><h4>Adjust the application class<a class="headerlink" href="#adjust-the-application-class" title="Permalink to this headline">¶</a></h4>
+<p>You can now replace widgets inside your application with 1.2 widgets by putting them into “Future Embeds”. To be able to use 1.2 widgets you have to change your legacy application to a qooxdoo 1.2 compat application which allows you to use 0.7 and 1.2 widgets.</p>
+<p>In order to use the &#8220;Future Embeds&#8221; widgets you have to change the <tt class="docutils literal"><span class="pre">Application.js</span></tt>.</p>
+<p>Change</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">legacy</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">Gui</span>
+</pre></div>
+</div>
+<p>into</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">Inline</span><span class="p">,</span>
+<span class="nx">include</span> <span class="o">:</span> <span class="p">[</span><span class="nx">qx</span><span class="p">.</span><span class="nx">legacy</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">MGuiCompat</span><span class="p">],</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>into</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">compat</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>In our demo application (Feedreader), we have to change the name of the overridden method <tt class="docutils literal"><span class="pre">postload()</span></tt> to <tt class="docutils literal"><span class="pre">finalize()</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please note that the application lifecycle has changed:
+In 0.8 <tt class="docutils literal"><span class="pre">close()</span></tt> and <tt class="docutils literal"><span class="pre">terminate()</span></tt> are <strong>not</strong> called by the framework.
+In 0.8.1 <tt class="docutils literal"><span class="pre">close()</span></tt> will be called during when a <tt class="docutils literal"><span class="pre">onbeforeunload</span></tt> event is fired by the browser. It is possible to stop the unload process if the application&#8217;s <tt class="docutils literal"><span class="pre">close()</span></tt> method returns an string. (This string will be shown in a <tt class="docutils literal"><span class="pre">confirm()</span></tt> dialog to inform the user about the unload process.)</p>
+</div>
+<p>We have a list of <a class="reference internal" href="migration_notes_from_07.html"><em>GUI Changes</em></a> (currently work in progress) containing detailed information.</p>
+<p>Run <tt class="docutils literal"><span class="pre">./generate.py</span> <span class="pre">source</span></tt> once again, since some classes (e.g. <tt class="docutils literal"><span class="pre">MGuiCompat</span></tt>) have been added to the application.</p>
+<p><strong>Checkpoint 3</strong>: Your application should still be working.</p>
+</div>
+<div class="section" id="migrate-the-tree-widget">
+<span id="pages-migration-guide-from-07-migrate-the-tree-widget"></span><h4>Migrate the tree widget<a class="headerlink" href="#migrate-the-tree-widget" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="add-a-future-embed">
+<span id="pages-migration-guide-from-07-add-a-future-embed"></span><h5>Add a Future-Embed<a class="headerlink" href="#add-a-future-embed" title="Permalink to this headline">¶</a></h5>
+<p>All 1.2 widgets have to be placed inside a <tt class="docutils literal"><span class="pre">qx.legacy.embed.Future</span></tt>.</p>
+<p>So replace</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">_treeView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">Tree</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="nx">horSplitPane</span><span class="p">.</span><span class="nx">addLeft</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_treeView</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">_treeView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedreader</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">Tree</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">future</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">legacy</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">embed</span><span class="p">.</span><span class="nx">Future</span><span class="p">().</span><span class="nx">set</span><span class="p">({</span>
+  <span class="nx">width</span> <span class="o">:</span> <span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+  <span class="nx">height</span> <span class="o">:</span> <span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+  <span class="nx">content</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_treeView</span>
+<span class="p">});</span>
+
+<span class="nx">horSplitPane</span><span class="p">.</span><span class="nx">addLeft</span><span class="p">(</span><span class="nx">future</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This will create a widget that uses all available space for its content, the <tt class="docutils literal"><span class="pre">feedreader.view.Tree</span></tt>.</p>
+</div>
+<div class="section" id="apply-widget-specific-changes">
+<span id="pages-migration-guide-from-07-apply-widget-specific-changes"></span><h5>Apply widget-specific changes<a class="headerlink" href="#apply-widget-specific-changes" title="Permalink to this headline">¶</a></h5>
+<p>Now open <tt class="docutils literal"><span class="pre">feedreader/view/Tree.js</span></tt> and replace</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">legacy</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">Tree</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">Tree</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">folder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">legacy</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">TreeFolder</span><span class="p">(</span><span class="nx">db</span><span class="p">[</span><span class="nx">url</span><span class="p">].</span><span class="nx">title</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">folder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">TreeFolder</span><span class="p">(</span><span class="nx">db</span><span class="p">[</span><span class="nx">url</span><span class="p">].</span><span class="nx">title</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span>
+<span class="p">{</span>
+  <span class="nx">height</span>   <span class="o">:</span> <span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+  <span class="nx">width</span>    <span class="o">:</span> <span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+  <span class="nx">padding</span>  <span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">border</span>   <span class="o">:</span> <span class="s2">&quot;line-right&quot;</span><span class="p">,</span>
+  <span class="nx">overflow</span> <span class="o">:</span> <span class="s2">&quot;auto&quot;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">setDecorator</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">TreeFolder</span><span class="p">(</span><span class="s2">&quot;Feeds&quot;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">_root</span> <span class="o">=</span> <span class="nx">root</span><span class="p">;</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">setRoot</span><span class="p">(</span><span class="nx">root</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">root</span><span class="p">);</span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">setOpen</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">getManager</span><span class="p">().</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;changeSelection&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onChangeSelection</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSelection&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onChangeSelection</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and finally</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">folder</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">_root</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">folder</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Again, run <tt class="docutils literal"><span class="pre">./generate.py</span> <span class="pre">source</span></tt> and reload the application.</p>
+<p><strong>Checkpoint 4:</strong> Your application should contain a 1.2 tree widget.</p>
+<p>Congratulations, you have just embedded a qooxdoo 1.2 widget into an 1.2 compat application! ;-)</p>
+<p>You can continue replacing widgets one by one until no more <tt class="docutils literal"><span class="pre">qx.legacy.*</span></tt> classes are used in your application.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Migration Guide (from 0.7.x)</a><ul>
+<li><a class="reference internal" href="#porting-an-application">Porting an application</a><ul>
+<li><a class="reference internal" href="#create-a-new-application">Create a new application</a></li>
+<li><a class="reference internal" href="#generate-a-source-version">Generate a source version</a></li>
+<li><a class="reference internal" href="#modify-the-config-json">Modify the config.json</a></li>
+<li><a class="reference internal" href="#copy-the-application-s-files">Copy the application&#8217;s files</a></li>
+<li><a class="reference internal" href="#choose-a-way-of-migrating">Choose a way of migrating</a></li>
+<li><a class="reference internal" href="#running-the-migration-script">Running the migration script</a></li>
+<li><a class="reference internal" href="#manual-work">Manual work</a></li>
+<li><a class="reference internal" href="#porting-parts">Porting parts</a><ul>
+<li><a class="reference internal" href="#adjust-the-application-class">Adjust the application class</a></li>
+<li><a class="reference internal" href="#migrate-the-tree-widget">Migrate the tree widget</a><ul>
+<li><a class="reference internal" href="#add-a-future-embed">Add a Future-Embed</a></li>
+<li><a class="reference internal" href="#apply-widget-specific-changes">Apply widget-specific changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/migration/migration_guide_from_07.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

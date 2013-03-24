@@ -1,0 +1,252 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFeeds/app'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFeeds/func'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFeeds/dialogs'.EYE_CODE_EXTENSION);
+
+//<eyeFeeds>
+//	<base>
+//		<feed>
+//			<id>myFolderMD5Id</id>
+//			<type>folder</type>
+//			<name>myFolder</name>
+//			<feed>
+//				<id>myFeedMD5Id1</id>
+//				<type>feed</type>
+//				<name>myFeedName1</name>
+//				<url>...</url>
+//			</feed>
+//		</feed>
+//		<feed>
+//			<id>myFeedMD5Id2</id>
+//			<type>feed</type>
+//			<name>myFeedName2</name>
+//			<url>...</url>
+//		</feed>
+//	</base>
+//</eyeFeeds>
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*					FUNCTIONS TRIGGERED BY SIGNALS RAISED BY THE INTERFACE					 */
+/*********************************************************************************************/
+/*********************************************************************************************/
+
+/*********************************************************************************************/
+//		EVENTS RAISED DIRECTLY BY WIDGETS
+/*********************************************************************************************/
+
+function eyeFeeds_on_initComplete($params=null) {
+	eyeFeeds_clearFeedItems();
+	eyeFeeds_clearItemContent();
+	$tree = eyeFeeds_drawFeedsTree(eyeFeeds_getSavedFeeds());
+	$tree->expandTree();
+}
+
+//TOOLBAR
+function eyeFeeds_on_addFeed_ITM($params=null) {
+	eyeFeeds_createAddFeedDialog();
+}
+function eyeFeeds_on_addFolder_ITM($params=null) {
+	eyeFeeds_createAddFolderDialog();
+}
+function eyeFeeds_on_editFeedFolder_ITM($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$selectedFeed = eyeFeeds_getFeedFromId($feeds['feed'], $GLOBALS['selectedFeedId_HID']->text);
+	if ($selectedFeed) {
+		if ($selectedFeed['type'][0] == 'folder') {
+			eyeFeeds_createEditFolderDialog($selectedFeed);
+		}
+		else {
+			eyeFeeds_createEditFeedDialog($selectedFeed);
+		}
+	}
+}
+function eyeFeeds_on_delFeedFolder_ITM($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$selectedFeed = eyeFeeds_getFeedFromId($feeds['feed'], $GLOBALS['selectedFeedId_HID']->text);
+	if ($selectedFeed)
+		eyeFeeds_createConfirmDeleteDialog($selectedFeed);
+}
+function eyeFeeds_on_refreshFeed_ITM($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$selectedFeed = eyeFeeds_getFeedFromId($feeds['feed'], $GLOBALS['selectedFeedId_HID']->text);
+	if (!$selectedFeed)
+		return;
+	
+	eyeFeeds_clearFeedItems();
+	eyeFeeds_displayFeedItems($selectedFeed, true);
+}
+
+function eyeFeeds_on_help_ITM($params="") {
+	service('proc','launch',array('eyeNav','http://wiki.eyeos.org/EyeFeeds'));
+}
+
+function eyeFeeds_on_feeds_TREE($params=null) {
+	if (isFromBouncedRequest($params)) {
+		$feeds = eyeFeeds_getSavedFeeds();
+		$feed = eyeFeeds_getFeedFromId($feeds['feed'], $params['feedId'][0]);
+		eyeFeeds_displayFeedItems($feed);
+		$GLOBALS['itemsList_BOX']->setTitle($feed['name'][0]);
+		$GLOBALS['itemContent_BOX']->setTitle('Select an item to read...');
+		return;
+	}
+	
+	//the name of an item of the tree is 'typeOfNode_feedId'
+	//(the first underscore separates the type of the node from the feed's id)
+	$feedId = substr($params['itemName'][0], stripos($params['itemName'][0], '_')+1);
+	$feeds = eyeFeeds_getSavedFeeds();
+	$feed = eyeFeeds_getFeedFromId($feeds['feed'], $feedId);
+	
+	$GLOBALS['selectedFeedId_HID']->setText($feedId);
+	
+	if ($feed !== false && $feed['type'][0] != 'folder') {
+		$GLOBALS['loading_LBL']->unhide();
+		$GLOBALS['currentFeedUrl_HID']->setText(serialize($feed['url'][0]));
+		
+		eyeFeeds_clearFeedItems();
+		eyeFeeds_clearItemContent();
+		$bouncedRequestParams = array(
+			'__signal' => 'feeds_TREE',
+			'feedId' => $feedId
+		);
+		bounceRequest($bouncedRequestParams);
+	}
+}
+
+function eyeFeeds_on_feeds_CMN_addFeed_ENT($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$feed = eyeFeeds_getFeedFromId($feeds['feed'], $params);
+	$GLOBALS['selectedFeedId_HID']->setText($params);
+	$GLOBALS['feeds_TREE']->selectItem('feeds#item_'.$params);
+	eyeFeeds_on_addFeed_ITM();
+}
+function eyeFeeds_on_feeds_CMN_addFolder_ENT($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$feed = eyeFeeds_getFeedFromId($feeds['feed'], $params);
+	$GLOBALS['selectedFeedId_HID']->setText($params);
+	$GLOBALS['feeds_TREE']->selectItem('feeds#item_'.$params);
+	eyeFeeds_on_addFolder_ITM();
+}
+function eyeFeeds_on_feeds_CMN_edit_ENT($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$feed = eyeFeeds_getFeedFromId($feeds['feed'], $params);
+	$GLOBALS['selectedFeedId_HID']->setText($params);
+	$GLOBALS['feeds_TREE']->selectItem('feeds#item_'.$params);
+	eyeFeeds_on_editFeedFolder_ITM();
+}
+function eyeFeeds_on_feeds_CMN_del_ENT($params=null) {
+	$feeds = eyeFeeds_getSavedFeeds();
+	$feed = eyeFeeds_getFeedFromId($feeds['feed'], $params);
+	$GLOBALS['selectedFeedId_HID']->setText($params);
+	$GLOBALS['feeds_TREE']->selectItem('feeds#item_'.$params);
+	eyeFeeds_on_delFeedFolder_ITM();
+}
+
+function eyeFeeds_on_feedItemClick($params=null) {
+	$item = eyeFeeds_getSelectedFeedItem();
+	eyeFeeds_displayItemContent($item);
+}
+
+function eyeFeeds_on_feedItemDblClick($params=null) {
+	$item = eyeFeeds_getSelectedFeedItem();
+	service('proc', 'launch', array('eyeNav', $item['permalink']));
+}
+
+function eyeFeeds_on_openEnclosure($params=null) {	
+	global $myPid;
+	$itemId = $params['itemId'][0];
+	$enc = $params['enc'][0];
+	$item = eyeFeeds_getFeedItem($itemId);
+	
+	//prevent opening several times the same window
+	if ($GLOBALS['enclosure_WND_'.$itemId]) {
+		$GLOBALS['enclosure_WND_'.$itemId]->close();
+	}
+	
+	$enclosureWindow = new Window(array(
+		'name' => 'enclosure_WND_'.$itemId,
+		'father' => 'eyeApps',
+		'type' => NORMAL_WINDOW,
+		'style' => TITLE+MIN+MAX+CLOSE+RESIZE,
+		'cent' => 1,
+		'width' => 500,
+		'height' => 410,
+		'title' => 'eyeFeeds - Enclosure',
+		'removepid' => 0
+	));
+	$enclosureWindow->show();
+	$enclosureWindow->setRawContent($item['enclosures'][$enc]['embed']);
+}
+
+function eyeFeeds_on_contentLinkClick($params=null) {
+	if (! is_array($params) || !$params['url'])
+		return;
+	$url = urldecode($params['url'][0]);
+	service('proc', 'launch', array('eyeNav', $url));
+}
+
+
+/*********************************************************************************************/
+//		OTHER EVENTS
+/*********************************************************************************************/
+
+function eyeFeeds_on_windowResize($params=null) {
+	global $myPid;
+	
+	$newWidth = intval($params['arg'][0]);
+	$newHeight = intval($params['arg'][1]);
+		
+	//update window properties
+	$GLOBALS['eyeFeeds_WND']->setWidth($newWidth);
+	$GLOBALS['eyeFeeds_WND']->setHeight($newHeight);
+
+	$dWidth = $newWidth - EYEFEEDS_WIN_WIDTH;
+	$dHeight = $newHeight - EYEFEEDS_WIN_HEIGHT;
+	
+	//LEFT PANEL - BOX
+	$GLOBALS['left_BOX']->setHeight(504 + $dHeight);
+	
+	//RIGHT PANEL - ITEMS BOX
+	$GLOBALS['itemsList_BOX']->setHeight(300 + ($dHeight / 2));
+	$GLOBALS['itemsList_BOX']->setWidth(580 + $dWidth);
+	$GLOBALS['feedItems_TAB']->setWidth(574 + $dWidth);
+	$GLOBALS['feedItems_TAB']->setHeight(270 + ($dHeight / 2));
+	
+	//RIGHT PANEL - CONTENT BOX
+	$GLOBALS['itemContent_BOX']->setY(304 + ($dHeight / 2));
+	$GLOBALS['itemContent_BOX']->setHeight(200 + ($dHeight / 2));
+	$GLOBALS['itemContent_BOX']->setWidth(580 + $dWidth);
+	service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_content_LBL_Container").style.height="'.(150 + ($dHeight / 2)).'px";'));
+}
+
+function eyeFeeds_on_Message($params="") {
+	reqLib('eyeWidgets', 'updateContent', $params);
+}
+
+function eyeFeeds_on_Close(){
+	proc('end');
+}
+
+?>

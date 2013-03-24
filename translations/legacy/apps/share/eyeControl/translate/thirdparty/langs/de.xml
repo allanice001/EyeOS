@@ -1,0 +1,261 @@
+<lang>
+	<info>
+		<lang>Deutsch</lang>
+		<lang-en>German</lang-en>
+		<author>Lars Knickrehm</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>eyeEditor</name>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Datei erfolgreich gespeichert.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sie haben keine ausreichenden Berechtigungen.</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Die Datei konnte nicht erstellt werden.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeGames</name>
+		<text>
+			<old>Game not found</old>
+			<new>Spiel nicht gefunden.</new>
+		</text>
+		<text>
+			<old>Incorrect params passed</old>
+			<new>Ungültige Argumente angegeben.</new>
+		</text>
+		<text>
+			<old>Invalid configuration data</old>
+			<new>Ungültige Konfiguration</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeGamesAdmin</name>
+		<text>
+			<old>Add</old>
+			<new>Hinzufügen</new>
+		</text>
+		<text>
+			<old>Add Game</old>
+			<new>Spiel hinzufügen</new>
+		</text>
+		<text>
+			<old>Add new game</old>
+			<new>Spiel hinzufügen</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Beschreibung</new>
+		</text>
+		<text>
+			<old>Error deleting game from list</old>
+			<new>Fehler beim Löschen des Spiels</new>
+		</text>
+		<text>
+			<old>Error loading configuration. Cancelling add</old>
+			<new>Fehler beim Laden der Konfiguration</new>
+		</text>
+		<text>
+			<old>Error loading configuration. Cancelling update</old>
+			<new>Fehler beim Laden der Konfiguration</new>
+		</text>
+		<text>
+			<old>First time information</old>
+			<new>Informationen</new>
+		</text>
+		<text>
+			<old>Height</old>
+			<new>Höhe</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Name</new>
+		</text>
+		<text>
+			<old>None of the fields can be left blank.</old>
+			<new>Sie müssen alle Felder ausfüllen.</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Okay</new>
+		</text>
+		<text>
+			<old>pixels</old>
+			<new>Pixel</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Löschen</new>
+		</text>
+		<text>
+			<old>This form shows the parameters of a game. In case of editing them, please remember not to leave any field empty or with an incorrect value.</old>
+			<new>In diesem Fenster sehen Sie die aktuellen Argumente des Spiels. Bitte achten Sie auf die Vollständigkeit und Richtigkeit der Eingaben.</new>
+		</text>
+		<text>
+			<old>This is the administration tool of eyeGamesGallery. You are the only one who can add games. To add one, make sure you add the URL to the .SWF game in the form, and NOT the webpage that contains it</old>
+			<new>Dies ist das Verwaltongstool für eyeGamesGallery. Bitte achten Sie darauf wirklich die URL zur SWF-Datei und nicht zur Homepage anzugeben.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Übernehmen</new>
+		</text>
+		<text>
+			<old>URL</old>
+			<new>URL</new>
+		</text>
+		<text>
+			<old>View/Edit</old>
+			<new>Bearbeiten</new>
+		</text>
+		<text>
+			<old>View/Edit game</old>
+			<new>Spiel bearbeiten</new>
+		</text>
+		<text>
+			<old>Width</old>
+			<new>Breite</new>
+		</text>
+		<text>
+			<old>With this form you can add a new game. Please make sure you fill all the fields, the URL field points to an accessible SWF flash game and the Width and Height fields are numeric and according to the values given to the Flash in its original page.</old>
+			<new>Hier können Sie ein neues Spiel hinzufügen. Bitte beachten Sie, dass alle Felder ausgefüllt werden. In das URL-Feld gehört die URL zu einem SWF-Spiel. In die Höhe- und Breite-Felder gehören ganze Zahlen.</new>
+		</text>
+		<text>
+			<old>You must be the root user to run this application</old>
+			<new>Sie müssen Root sein um dieses Programm auszuführen!</new>
+		</text>
+		<text>
+			<old>You must select a game to edit</old>
+			<new>Sie müssen ein Spiel auswählen.</new>
+		</text>
+		<text>
+			<old>You must select a game to launch</old>
+			<new>Sie müssen ein Spiel auswählen.</new>
+		</text>
+		<text>
+			<old>You must select a game to remove</old>
+			<new>Sie müssen ein Spiel auswählen.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeGamesGallery</name>
+		<text>
+			<old>Add in eyeDock</old>
+			<new>Im Menü einfügen</new>
+		</text>
+		<text>
+			<old>Error adding game to Dock</old>
+			<new>Fehler beim Hinzufügen des Spiels zum Menü.</new>
+		</text>
+		<text>
+			<old>Gamme successfully added. Please refresh your Dock</old>
+			<new>Spiel erfolgreich hinzugefügt. Bitte laden Sie das Menü neu.</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Starten</new>
+		</text>
+		<text>
+			<old>There are no flash games installed yet</old>
+			<new>Aktuell sind keine Flash-Spiele installiert.</new>
+		</text>
+		<text>
+			<old>This application will let you play all flash games installed by your system administrator</old>
+			<new>Mit diesem Programm können Sie Flash-Spiele spielen, die der System-Administrator installiert hat.</new>
+		</text>
+		<text>
+			<old>This game has already been added</old>
+			<new>Dieses Spiel ist bereits im Menü.</new>
+		</text>
+		<text>
+			<old>Welcome to eyeGamesGallery!</old>
+			<new>Willkommen zu eyeGamesGallery!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSnow</name>
+		<text>
+			<old>eyeSnow is already runing</old>
+			<new>eyeSnow läuft bereits.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeXMLviewer</name>
+		<text>
+			<old>File not found</old>
+			<new>Die Datei konnte nicht gefunden werden.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sie haben keine ausreichenden Berechtigungen.</new>
+		</text>
+	</part>
+	<part>
+		<name>publicMon</name>
+		<text>
+			<old>Check Config</old>
+			<new>Konfig. prüfen</new>
+		</text>
+		<text>
+			<old>Check User</old>
+			<new>Benutzer prüfen</new>
+		</text>
+		<text>
+			<old>Del Config</old>
+			<new>Konfig. löschen</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Name</new>
+		</text>
+		<text>
+			<old>Refresh Config</old>
+			<new>Neu laden</new>
+		</text>
+		<text>
+			<old>Sub Files</old>
+			<new>Dateien</new>
+		</text>
+	</part>
+	<part>
+		<name>userInfo</name>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Current user information</old>
+			<new>Aktuelle Benutzerinformationen</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Name</new>
+		</text>
+		<text>
+			<old>Privileges:</old>
+			<new>Rechte:</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Benutzer</new>
+		</text>
+		<text>
+			<old>user information</old>
+			<new>Benutzerinformationen</new>
+		</text>
+		<text>
+			<old>Username: </old>
+			<new>Benutzername:</new>
+		</text>
+	</part>
+</lang>

@@ -1,0 +1,75 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	events resource for eyeX
+*/
+
+function eyeX_on_baseapp($params=null){
+	$width = intval($params['width'][0]);
+	$height = intval($params['height'][0]);
+	$_SESSION['SCREEN']['width'] = $width; //TODO: MAYBE EYESESSIONS?
+	$_SESSION['SCREEN']['height'] = $height;
+	$pid = service('proc','findPidByName',array(BASE_APP));
+	
+	if(!$pid) {
+		service('proc','launch',array(BASE_APP));
+	} else {		
+		service('proc','getTask',array($pid));
+	}
+}
+
+function eyeX_on_saveWinPosition($params=''){	
+	//Top  and lef are arrays!
+	$top = 	$params['top'];
+	$left = $params['left'];
+	$appChecknum = $params['appChecknum'][0];
+	$winName = $params['winName'][0];		
+	$appName = service('proc','findNameByChecknum',array($appChecknum));	
+	
+	$filePath = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyex/';//Getting the user eyeX conf dir
+	$filePath .=$appName.'.xml';//Adding the appName
+	
+	//Parsing winName.
+	$winName = substr($winName,strpos($winName,'_')+1);
+	$currentArray = reqLib('eyeXML','getXMLconfig',array('eyex',$appName.'.xml'));
+	if(!$currentArray){
+		//At the moment, use real_create etc, TODO: put setXMLfile.
+		$fp = service('vfs','real_create',array($filePath));	
+		if(!$fp){
+			service('eyex','messageBox',array('content'=>'Unable to save position','type'=>1));		
+			return;
+		}else{
+			//Creating array
+			$saveInfo[$winName][0] = array('top'=>$top,'left'=>$left);
+			$xml = reqLib('eyeXML','array2xml',array($saveInfo));				
+			$fp = service('vfs','real_open',array($filePath,'w'));
+			fwrite($fp,$xml);
+			fclose($fp);											
+		}
+	}elseif(is_array($currentArray)){
+		$currentArray[$winName][0] = array('top'=>$top,'left'=>$left);		
+		$xml = reqLib('eyeXML','array2xml',array($currentArray));				
+		$fp = service('vfs','real_open',array($filePath,'w'));
+		fwrite($fp,$xml);
+		fclose($fp);	
+	}
+	
+}
+
+?>

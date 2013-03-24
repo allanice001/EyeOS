@@ -1,0 +1,46 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDock_run($params=null) {
+	global $myPid,$checknum;
+		
+	$checkPid = proc('findPidByName', array('eyeDock'));
+	if($checkPid != false && $checkPid != $myPid) {
+		proc('end');
+		return false;
+	}
+	
+	if(is_array($params) && isset($params[0]['redraw'])) {
+		eyeWidgets('unserialize');
+		eyeX('sendMessage', array('msg' => 'Launch', 'params' => '.'));
+	} else {
+		//Load js if it wasn't loaded
+		eyeX('loadScript',array('url'=>'index.php?extern=apps/eyeDock/js/eyeDock'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+	}
+}
+
+function eyeDock_end($params=null) {
+	eyeWidgets('unserialize');
+}
+
+?>

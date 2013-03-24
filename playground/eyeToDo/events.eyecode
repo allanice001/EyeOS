@@ -1,0 +1,377 @@
+<?php
+
+//Al presionar el boton Add de la venta principal, emitimos la señal
+//addNoteSignal que crea una ventana cuyo contenido es el del formulario
+function eyeToDo_on_addNoteSignal(){
+
+	$myWindow = new Window(array(
+		'title' => 'Add Your To Do Note',
+		'name' => 'addNote_WND',
+		'father' => 'eyeApps',
+		'cent' => 1,
+		'width' => 400,
+		'height' => 315,
+		'style' => TITLE + MIN + MAX + CLOSE,
+		'x' => 10,
+		'y' => 70,
+		'removepid' => 0
+	));
+	$myWindow->show();
+	
+	//Le decimos que incluya el formulario con la ventana
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeToDo/forms/new_note_form'.EYE_CODE_EXTENSION);	
+}
+
+//Funcion generada por el boton View del toolbar de la ventana principal
+function eyeToDo_on_viewNoteSignal(){
+	//Obtenemos el primer campo de la fila seleccionada de lasortabletable (que es el id en hidden)
+	//y lo almacenamos en la variable $id (Por omisión cuando usamos el método selected obtenemos 
+	//el primer campo. Se puede modificar este comportamiento)
+	$id = $GLOBALS['eyeToDo_Sortabletable']->selected;
+	
+	//Si el valor de $id es NULL significa que no ha elegido ninguna fila 
+	if(empty($id)){
+		eyeX('messageBox',array('content'=>"Please choose a note title"));
+		return true;
+	}
+	
+	//Creamos un hidden con el valor id de la nota seleccionada 
+	$myHidden = new Hidden(array(
+		'name' => 'id',
+		'father' => 'viewNote_WND',
+		'text' => $id//es el id que hemos obtenido mediante el uso de $GLOBALS
+	));
+	
+	//Serializamos la variable $myHidden para poder acceder desde la funcion update
+	eyeWidgets('serialize',array($myHidden));
+
+	//Leemos el archivo notes.xml y lo guardamos en la variable $viewNote_CNT
+	$viewNote_CNT = eyeXML('getXMLconfig',array('eyeToDo','notes.xml'));
+	
+	//Si $viewNote_CNT esta vacío significa que no ha elegido ningún título,
+	//por lo que le mostramos el siguiente mensage
+	if(!$viewNote_CNT){
+		eyeX('messageBox',array('content'=>"Please choose a note title"));
+		return false;
+	}
+
+	foreach($viewNote_CNT['notes'][0]['note'] as $note){
+		if($note['id'][0] == $id){
+			//seleccionamos el titulo de la nota en questión
+			$title = $note['title'][0];
+			//seleccionamos el contenido de la nota en questión
+			$cnt = $note['content'][0];
+			$priority = $note['priority'][0];	
+		}
+	}
+
+	$myWindow = new Window(array(
+		'title' => $title,
+		'name' => 'viewNote_WND',
+		'father' => 'eyeApps',
+		'cent' => 1,
+		'width' => 400,
+		'height' => 315,
+		'style' => TITLE + MIN + MAX + CLOSE,
+		'x' => 10,
+		'y' => 70,
+		'removepid' => 0 //Para que al cerrar la ventana no se cierre la aplicación principal
+	));
+	$myWindow->show();
+	
+	$myLabel = new Label(array(
+		'name' => 'eyeToDo_lbl',
+		'father' => 'viewNote_WND_Content',
+		'text' => "Title",
+		'x' => 11,
+		'y' => 10
+	));
+	$myLabel->show();
+	
+	$myTextBox = new Textbox(array(
+		'name' => 'eyeToDo_txtB',
+		'father' => 'viewNote_WND_Content',
+		'x' => 38,
+		'y' => 8,
+		'width' => 247,
+		'text' => $title
+	));
+	$myTextBox->show();
+	$myTextBox->focus();
+
+	$myLabel2 = new Label(array(
+		'name' => 'eyeToDo_lbl2',
+		'father' => 'viewNote_WND_Content',
+		'text' => "Priority",
+		'horiz' => 1,
+		'x' => 57,
+		'y' => 10
+	));
+	$myLabel2->show();
+
+	$myTextBox2 = new Textbox(array(
+		'name' => 'eyeToDo_txtB2',
+		'father' => 'viewNote_WND_Content',
+		'x' => 12,
+		'y' => 8,
+		'horiz' => 1,
+		'width' => 30,
+		'text' => $priority,
+	));
+	$myTextBox2->show();
+
+	$myTextArea = new Textarea(array(
+		'name' => 'eyeToDo_txtA',
+		'father' => 'viewNote_WND_Content',
+		'x' => 10,
+		'y' => 35,
+		'width' => 375,
+		'height' => 220,
+		'text' => $cnt
+	));
+	$myTextArea->show();
+	
+	$myButton = new Button(array(
+		'name' => 'updateNote',
+		'father' => 'viewNote_WND_Content',
+		'caption' => 'Update Note',
+		'x' => 11,
+		'y' => 263,
+		'horiz' => 1,
+		'signal' => 'updateNote_SGNL'
+	));
+	
+	//$myButton debe ser amigo de $myTextBox y $myTextArea
+	//para poder enviar su contenido
+	$myButton->addFriend($myTextBox);
+	$myButton->addFriend($myTextBox2);
+	$myButton->addFriend($myTextArea);
+	$myButton->show();
+}
+
+function eyeToDo_on_deleteNoteSignal() {
+	//Obtenemos el primer campo de la fila seleccionada de lasortabletable (que es el id en hidden)
+	//y lo almacenamos en la variable $id (Por omisión cuando usamos el método selected obtenemos 
+	//el primer campo. Se puede modificar este comportamiento)
+	$noteId = $GLOBALS['eyeToDo_Sortabletable']->selected;
+	
+	//Si el valor de $id es NULL significa que no ha elegido ninguna fila 
+	if(empty($noteId)){
+		eyeX('messageBox',array('content'=>'Please choose a note'));
+	return true;
+	}
+	
+	//Mostramos el messagebox siguiente con los botones Yes/No
+	//que generan una señal que trataremos posteriormente
+	eyex('messageBox',array(
+		'content' => 'Are you sure you want to delete this note?',
+		'type' => 3,
+		'title' => 'Delete warning',
+		'win_name' => 'delete_warning',
+		'win_style' => TITLE + MIN + CLOSE,
+		'btn1_capt' => 'Yes',
+		'btn1_name' => 'yDelete',
+		'btn2_capt' => 'No',
+		'btn2_name' => 'nDelete',
+		'img' => '?',
+		'win_removepid' => 0
+	
+	));
+}
+
+function eyeToDo_on_yDelete(){
+	//Obtenemos el primer campo de la fila seleccionada de lasortabletable (que es el id en hidden)
+	//y lo almacenamos en la variable $id (Por omisión cuando usamos el método selected obtenemos 
+	//el primer campo. Se puede modificar este comportamiento)
+	$noteId = $GLOBALS['eyeToDo_Sortabletable']->selected;
+
+	//Leemos el archivo notex.xml y lo guardamos en la variable $config
+	$config = eyeXML('getXMLconfig',array('eyeToDo','notes.xml'));
+	$i=0;
+	foreach($config['notes'][0]['note'] as $note){
+		if($note['id'][0] == $noteId){
+			unset($config['notes'][0]['note'][$i]);
+			eyeXML('setXMLconfig',array('eyeToDo','notes.xml',$config));
+			//Leemos el archivo con lso cambios ya realizados
+			$config = eyeXML('getXMLconfig',array('eyeToDo','notes.xml'));
+			$trimd = trim($config['notes'][0]);
+			$file = um('getCurrentUserDir') .'/'. CONF_USER_DIR .'/eyeToDo/notes.xml';
+			// Si es la ultima nota borramos el archivo
+			if(empty($trimd)){
+				vfs('real_delete',array($file));
+			}
+			//Eliminamos la fila que contiene el Id seleccionado
+			$GLOBALS['eyeToDo_Sortabletable']->delRow($noteId);
+			//Cerramos el messagebox anterior
+			$GLOBALS['delete_warning']->close();
+		}
+		$i++;
+	}
+	return true;
+}
+
+function eyeToDo_on_nDelete(){
+	//Cerramos el messagebox anterior
+	$GLOBALS['delete_warning']->close();
+	return true;
+}
+
+function eyeToDo_on_Add($params) {
+	
+	//Seleccionamos el texto  del textBox (el titulo de la nota) del formulario
+	$NoteTitle = $GLOBALS['eyeToDo_txtB']->text;
+	//Seleccioamos el texto del textArea (el contenido de la nota) del formulario
+	$NoteArea = $GLOBALS['eyeToDo_txtA']->text;
+
+	$NotePriority = $GLOBALS['eyeToDo_txtB2']->text;
+
+	//Eliminamos todos los espacios y miramos si el texto es NULL
+	if (utf8_trim($NoteTitle) == "") {
+		eyex('messageBox',array('content'=>'Title field is empty.'));
+		return;
+	}
+	//Eliminamos todos los espacios y miramos si el texto es NULL
+	if (utf8_trim($NoteArea) == "") {
+		eyex('messageBox',array('content'=>'Note field is empty.'));
+		return;
+	}
+
+	if (utf8_trim($NotePriority) == "") {
+		eyex('messageBox',array('content'=>'Priority field is empty.'));
+		return;
+	}
+	
+	if (!is_numeric($NotePriority)) {
+		eyex('messageBox',array('content'=>'Priority field is not a number.'));
+		return;
+	}
+
+	//Generamos un id aleatorio y lo almacenamos en la variable $id
+	$id = uniqid();
+	//Creamos un array con el título y el contenido de lo que será la nota
+	//y lo almacenamos en la variable $note
+	$note = array(
+		'id' => array($id),
+		'title' => array($NoteTitle),
+		'priority' => array($NotePriority),
+		'content' => array($NoteArea),
+	);
+	
+	//Leemos el archivo notex.xml y lo guardamos en la variable $config
+	$config = eyeXML('getXMLconfig',array('eyeToDo','notes.xml'));
+	
+	//Si config no existe significa que no hay ningun xml por lo tanto creamos
+	//la estructura de lo que será el xml
+	if(!$config){
+		$config = array('notes' => array(array(
+			'note' => array()
+		)));
+		//Añadimos el array con el nodo $id que contiene el array $note
+		$config['notes'][0]['note'] = array($note);
+	} else {
+		$config['notes'][0]['note'][] = $note;
+	}	
+
+	//Guardamos el valor de $config a notes.xml
+	eyeXML('setXMLconfig',array('eyeToDo','notes.xml',$config));
+	
+	//Creamos un array con el valor de $id y de $NoteTitle
+	$arr = array($id,$NoteTitle,$NotePriority);
+	
+	//Añadimos el array anterior a la sortabletable 
+	$GLOBALS['eyeToDo_Sortabletable']->addRow($arr);
+	
+	//Cerramos la ventana
+	$GLOBALS['addNote_WND']->close();
+
+	//Mostramos el messagebox para informar que la nota ha sido añadida
+	eyex('messageBox',array('content'=>'New note created successfully.'));
+	return true;
+}
+
+function eyeToDo_on_updateNote_SGNL($params){
+
+	//Obtenemos el id de la nota que hemos seleccionado para ver
+	//mediante $GLOBALS. Esto lo podemso ahcer gracias a la serializacion
+	//del $myHidden que contenia el id de la nota seleccionada en viewNoteSignal
+	$id = $GLOBALS['id']->text;
+	
+	//Accedemos al texto del textBox (título de la nota)
+	$NoteTitle = $GLOBALS['eyeToDo_txtB']->text;
+	//Accedemos al texto del textArea (contenido de la nota)
+	$NoteArea = $GLOBALS['eyeToDo_txtA']->text;
+	
+	$NotePriority = $GLOBALS['eyeToDo_txtB2']->text;
+
+	//Eliminamos todos los espacios y miramos si el texto es NULL
+	if (utf8_trim($NoteTitle) == "") {
+		eyex('messageBox',array('content'=>'Title field is empty.'));
+		return;
+	}
+	
+	//Eliminamos todos los espacios y miramos si el texto es NULL
+	if (utf8_trim($NoteArea) == "") {
+		eyex('messageBox',array('content'=>'Note field is empty.'));
+		return;
+	}
+	
+	if (utf8_trim($NotePriority) == "") {
+		eyex('messageBox',array('content'=>'Priority field is empty.'));
+		return;
+	}
+	
+	if (!is_numeric($NotePriority)) {
+		eyex('messageBox',array('content'=>'Priority field is not a number.'));
+		return;
+	}
+	
+	//Leemos el archivo notex.xml y lo guardamos en la variable $config
+	$config = eyeXML('getXMLconfig',array('eyeToDo','notes.xml'));
+	$i=0;
+	foreach($config['notes'][0]['note'] as $note){
+		if($note['id'][0] == $GLOBALS['id']->text){
+			//Añadimos el título de la nota modificado
+			$config['notes'][0]['note'][$i]['title'][0] = $NoteTitle;
+			$config['notes'][0]['note'][$i]['priority'][0] = $NotePriority;
+			//Añadimos el contenido de la nota modificado
+			$config['notes'][0]['note'][$i]['content'][0] = $NoteArea;
+			//Guardamos el valor de $config a notes.xml
+			eyeXML('setXMLconfig',array('eyeToDo','notes.xml',$config));
+			//Eliminamos la fila sin modificar
+			$GLOBALS['eyeToDo_Sortabletable']->delRow($id);
+			//Añadimos la fila de la nota modificada, con el mismo id y nuevo título 
+			$GLOBALS['eyeToDo_Sortabletable']->addRow(array($id,$NoteTitle,$NotePriority));
+			//Cerramos la ventana
+			$GLOBALS['viewNote_WND']->close();
+		}
+		$i++;
+	}
+	return true;
+}
+
+function eyeToDo_on_winResize($params){
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	//en el caso de que $width y $height nos ean un entero, los convierte
+	$width = intval($width);
+	$height = intval($height);
+
+	//Getting the different between the old and the new window size
+	$diffWidth = $width - $GLOBALS['eyeToDo_WND']->width;
+	$diffHeight = $height -$GLOBALS['eyeToDo_WND']->height;
+
+	//Setting the new width and height without setXXX to now send the js
+	$GLOBALS['eyeToDo_WND']->width = $width;
+	$GLOBALS['eyeToDo_WND']->height = $height;
+
+	//Calculating the new sorttable sizes adding the diff	
+	$newWidth = $GLOBALS['eyeToDo_Sortabletable']->width + $diffWidth;
+	$newHeight = $GLOBALS['eyeToDo_Sortabletable']->height + $diffHeight;
+	$GLOBALS['eyeToDo_Sortabletable']->setWidth($newWidth);
+	$GLOBALS['eyeToDo_Sortabletable']->setHeight($newHeight);
+}
+
+function eyeToDo_on_Close(){
+	proc('end');
+}
+?>

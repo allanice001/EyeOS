@@ -1,0 +1,53 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeProcess_run($params=null) {
+	$sortypes = array("number","String","String");
+	$myWindow = new Window(array('name'=>'wnd1','title'=>'Process Manager','father'=>'eyeApps',
+		'type'=>NORESIZE_WINDOW,'width'=>300,'height'=>450,'x'=>20,'y'=>20));
+	$myWindow->show();
+	$myHeader = array('Pid','Process Name','Username');
+
+	$myContainer = new Container(array('father'=>'wnd1_Content','name'=>'tableContainer',
+		'width' =>273,'height'=>380,'x'=>10,'y'=>6));
+	$myContainer->show();
+	
+	$myTable = new Sortabletable(array('name'=>'table_1','father'=>'tableContainer',
+		'sortypes'=>$sortypes,'theader'=>$myHeader,'x'=>0,'y'=>0,'width'=>273,'height'=>380));
+	$procTable = service('proc','getProcessTable');
+	$myTable->show();
+	foreach($procTable as $key => $value) {
+		$myTable->addRow(array($key,$value['appName'],$value['currentUser']));
+	}
+	
+	$myButton = new Button(array('name'=>'button_close','father'=>'wnd1_Content','signal'=>'kill',
+		'caption'=>'Kill Process','vert'=>1,'horiz'=>1,'x'=>11,'y'=>10));
+	$myButton->addFriend($myTable);
+	$myButton->show();
+	addListenerServiceCall('onKill','proc','close',1);
+	addListenerServiceCall('onLaunch','proc','launch',1);
+}
+
+function eyeProcess_end($params=null) {
+	removeListenerServiceCall('proc','close',1);
+	removeListenerServiceCall('proc','launch',1);
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

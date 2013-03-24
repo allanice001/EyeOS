@@ -1,0 +1,71 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+		$myCssText = array(
+			'font-family'=>'Verdana',
+			'font-size'=>'11px',
+			'font-weight'=>'bold'
+		);
+		
+		$block1x = 100;
+		$text1x = 250;
+		$block1y = 50;
+		
+		$myLabel1 = new Label(array ('name' => "eyeControl_lbl_1",'father' => $generalTab,
+			'text' =>"Change Password",'x' => 25,'y' => 20));
+		$myLabel1->show();
+		$myLabel1->setCss($myCssText);
+		
+		$myText1 = new Label(array ('name' => "eyeControl_txt_1",'father' => $generalTab,
+			'text' =>"Actual password",'x' => $block1x,'y' => $block1y+4));
+		$myText1->show();
+		$myTextbox1 = new Textbox(array('name'=>'eyeControl_upd_1','father' => $generalTab,
+			'x' => $text1x,'y' => $block1y,'width'=>120,'password'=>1));
+		$myTextbox1->show();
+		$block1y = $block1y + 25;
+		
+		$myText2 = new Label(array ('name' => "eyeControl_txt_2",'father' => $generalTab,
+			'text' =>"New Password",'x' => $block1x,'y' => $block1y+4));
+		$myText2->show();
+		$myTextbox2 = new Textbox(array('name'=>'eyeControl_upd_2','father' => $generalTab,
+			'x' => $text1x,'y' => $block1y,'width'=>120,'password'=>1));
+		$myTextbox2->show();
+		$block1y = $block1y + 25;
+		
+		$myText3 = new Label(array ('name' => "eyeControl_txt_3",'father' => $generalTab,
+			'text' =>"New Password (again)",'x' => $block1x,'y' => $block1y+4));
+		$myText3->show();		
+		$myTextbox3 = new Textbox(array('name'=>'eyeControl_upd_3','father' => $generalTab,
+			'x' => $text1x,'y' => $block1y,'width'=>120,'password'=>1));
+		$myTextbox3->show();
+		$block1y = $block1y + 25;
+		
+		$myImage = new Imagebox(array('name'=>'eyeControl_imggen','father'=>$generalTab,
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/rename_big.png',
+		'x'=>30,'y'=>60));
+		$myImage->show();
+	
+		$myButton = new Button(array('name'=>'UpdatePwd','father'=>$generalTab,
+		'x'=>22,'y'=>130,'horiz'=>1,'caption'=>'Update'));
+		
+		$myButton->addFriend($myTextbox1);
+		$myButton->addFriend($myTextbox2);
+		$myButton->addFriend($myTextbox3);
+		$myButton->show();
+	
+?>

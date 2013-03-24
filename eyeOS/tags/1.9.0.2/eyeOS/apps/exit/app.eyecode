@@ -1,0 +1,44 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/*
+	This application is a "logout" app and is a part of eyeOS utils.
+	When this app is executed, eyeOS end current session and relaunch the base_app,
+	normally eyeLogin, by refreshing the current page.
+*/
+
+/*
+	Entry point for exit app, this function is called when the app exit is launched,
+	the only two actions performed by this application are:
+
+	1. Play logout sound or not
+	2. Delete the current session via eyeSessions lib
+	3. refresh the page using service eyex, function rawjs
+*/
+function exit_run($params=null) {
+	eyex('systemSound', array('logout'));
+	eyeSessions('endSession'); //delete session
+	eyex('rawjs',array('js' => 'window.onbeforeunload = ""'));
+	eyeX('rawjs',array('js'=>'location.reload();')); //refresh the page
+}
+?>

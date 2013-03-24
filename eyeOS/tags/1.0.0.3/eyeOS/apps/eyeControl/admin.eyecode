@@ -1,0 +1,103 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+	$myCssText = array(
+		'font-family'=>'Verdana',
+		'font-size'=>'11px',
+		'font-weight'=>'bold'
+	);
+	
+	$block1x = 100;
+	$text1x = 250;
+	$block1y = 50;
+	
+	$myLabel5 = new Label(array ('name' => "eyeControl_lbl_1",'father' => $adminTab,
+		'text' =>"Create user",'x' => 25,'y' => 20));
+	$myLabel5->show();
+	$myLabel5->setCss($myCssText);
+	
+	$myAdmText1 = new Label(array ('name' => "eyeControl_admtxt_1",'father' => $adminTab,
+		'text' =>"New username",'x' => $block1x,'y' => $block1y+4));
+	$myAdmText1->show();
+	$myAdmTextbox1 = new Textbox(array('name'=>'eyeControl_adm_1','father' => $adminTab,
+		'x' => $text1x,'y' => $block1y,'width'=>120));
+	$myAdmTextbox1->show();
+	$block1y = $block1y + 25;
+	
+	$myAdmText2 = new Label(array ('name' => "eyeControl_admtxt_2",'father' => $adminTab,
+		'text' =>"User's password",'x' => $block1x,'y' => $block1y+4));
+	$myAdmText2->show();
+	$myAdmTextbox2 = new Textbox(array('name'=>'eyeControl_adm_2','father' => $adminTab,
+		'x' => $text1x,'y' => $block1y,'width'=>120,'password'=>1));
+	$myAdmTextbox2->show();
+	$block1y = $block1y + 25;
+	
+	$myImage = new Imagebox(array('name'=>'eyeControl_imgrename','father'=>$adminTab,
+	'url'=>'index.php?extern=apps/eyeFiles/gfx/rename_big.png',
+	'x'=>30,'y'=>60));
+	$myImage->show();
+			
+	$myButton = new Button(array('name'=>'CreateUser','father'=>$adminTab,
+	'x'=>22,'y'=>100,'horiz'=>1,'caption'=>'Create'));
+	
+	$myButton->addFriend($myAdmTextbox1);
+	$myButton->addFriend($myAdmTextbox2);
+	$myButton->show();
+	
+	
+	$block1y = $block1y + 60;
+	
+	$myLabel6 = new Label(array ('name' => "eyeControl_lbl_1",'father' => $adminTab,
+		'text' =>"Delete user",'x' => 25,'y' => 130));
+	$myLabel6->show();
+	$myLabel6->setCss($myCssText);
+	
+	$myAdmText1 = new Label(array ('name' => "eyeControl_admtxt_1",'father' => $adminTab,
+		'text' =>"Root's password",'x' => $block1x,'y' => $block1y+4));
+	$myAdmText1->show();
+	$myAdmTextbox3 = new Textbox(array('name'=>'eyeControl_adm_3','father' => $adminTab,
+		'x' => $text1x,'y' => $block1y,'width'=>120,'password'=>1));
+	$myAdmTextbox3->show();
+	$block1y = $block1y + 25;
+	
+	$myAdmText2 = new Label(array ('name' => "eyeControl_admtxt_2",'father' => $adminTab,
+		'text' =>"User name",'x' => $block1x,'y' => $block1y+4));
+	$myAdmText2->show();
+	$myAdmTextbox4 = new Textbox(array('name'=>'eyeControl_adm_4','father' => $adminTab,
+		'x' => $text1x,'y' => $block1y,'width'=>120));
+	$myAdmTextbox4->show();
+	$block1y = $block1y + 25;
+	
+	$myImage = new Imagebox(array('name'=>'eyeControl_imgrename2','father'=>$adminTab,
+	'url'=>'index.php?extern=apps/eyeFiles/gfx/rename_big.png',
+	'x'=>30,'y'=>170));
+	$myImage->show();
+
+	$myButton = new Button(array('name'=>'DeleteUser','father'=>$adminTab,
+	'x'=>22,'y'=>210,'horiz'=>1,'caption'=>'Delete'));
+	
+	$myButton->addFriend($myAdmTextbox3);
+	$myButton->addFriend($myAdmTextbox4);
+	$myButton->show();
+	
+	$myButton = new Button(array('name'=>'LauncheyeSoft','father'=>$adminTab,
+	'x'=>20,'y'=>10,'horiz'=>1,'caption'=>'Launch eyeSoft'));
+	$myButton->show();
+		
+?>

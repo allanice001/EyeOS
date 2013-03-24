@@ -1,0 +1,87 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+/**
+ * @author Nanawel (nanawel@eyeos.org)
+ * @version 2.0 beta
+ * @updated 04-Apr-2008
+ * 
+ * @see eyeUpload (most of the PHP code comes directly from it)
+ */
+global $myPid;
+global $checknum;
+global $sessionId;
+
+$flashParamsNames[] = 'flashvars';
+$flashParamsValues[] = "autostart=yes"
+						."&loop=no"
+						."&jscontrol=true"
+						."&scriptUrl=index.php"
+						."&sid=".$sessionId
+						."&checknum=".$checknum
+						."&signal=uploadComplete"
+						."&flashFix=".FLASH_UPLOAD_FIX;
+$flashParamsNames[] = 'scriptUrl';
+$flashParamsValues[] = 'index.php';
+$flashParamsNames[] = 'sid';
+$flashParamsValues[] = $sessionId;
+$flashParamsNames[] = 'checknum';
+$flashParamsValues[] = $checknum;
+$flashParamsNames[] = 'signal';
+$flashParamsValues[] = 'uploadComplete';
+$flashParamsNames[] = 'flashFix';
+$flashParamsValues[] = FLASH_UPLOAD_FIX;
+
+$myFlash = new Flash(array(
+	'name'=>'eyeUploadX_SWF',
+	'title' => 'eyeUploadX',
+	'father' => $flashTab,
+	'x' => 35,
+	'y' => 10,
+	'height' => 175,
+	'width' => 400,
+	'src' => "index.php?extern=apps/eyeUpload/swf/eyeuploadx.swf&type=swf",
+	'flashParamsNames' => $flashParamsNames,
+	'flashParamsValues' => $flashParamsValues
+));
+
+if($path) {
+	$myHidden = new Hidden(array(
+		'name'=>'eyeUploadX_upPath_HID',
+		'father'=>$flashTab,
+		'text'=>$path)
+	);
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+if($callback) {
+	$myHidden = new Hidden(array(
+		'name'=>'eyeUploadX_upCallback_HID',
+		'father'=>$flashTab,
+		'text'=>$callback)
+	);
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+$myFlash->show();
+
+?>

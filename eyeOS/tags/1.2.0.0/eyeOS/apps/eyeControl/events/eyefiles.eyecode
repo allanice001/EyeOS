@@ -1,0 +1,159 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_eyefiles_new($params = '') {
+	loadContent('apps','newsite');
+}
+
+function eyeControl_on_eyefiles_edit($params = '') {
+	$selected = $GLOBALS['eyeControl_eyefiles_sortabletable']->selected;
+	if ($selected) {
+		loadContent('apps','editsite',array($selected));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a site to be edited.'));
+	}
+}
+
+function eyeControl_on_eyefiles_default($params = '') {
+	eyex('messageBox',array(
+		'content' => 'Do you really want to use the default eyeFiles site settings?',
+		'type' => 3,
+		'title' => 'Use defaults',
+		'win_name' => 'eyeControl_eyefiles_default_window',
+		'btn1_capt' => 'Yes',
+		'btn1_name' => 'eyefiles_default_yes',
+		'btn2_capt' => 'No',
+		'btn2_name' => 'eyefiles_default_no',
+		'father' => 'eyeControl_container_big',
+		'img' => '?'
+	));
+}
+
+function eyeControl_on_eyefiles_default_yes($params = '') {
+	global $currentUser;
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$xmlDef = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/def_files/eyeFiles.xml'));
+	$currentUser = $oldUser;
+	$xmlNew = eyeXML('getXMLfile',array(um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeFiles/sites.xml'));
+	$xmlNew['eyeSites'][0]['site'] = $xmlDef['eyeSites'][0]['site'];
+	eyeXML('setXMLfile',array(um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeFiles/sites.xml',$xmlNew));
+	eyex('messageBox',array('content' => 'Default settings successfully set.'));
+	loadContent('apps','eyefiles');
+}
+
+function eyeControl_on_eyefiles_default_no($params = '') {
+	$GLOBALS['eyeControl_eyefiles_default_window']->close();
+}
+
+function eyeControl_on_eyefiles_delete($params = '') {
+	$site = $GLOBALS['eyeControl_eyefiles_sortabletable']->selected;
+	if ($site) {
+		eyex('messageBox',array(
+			'content' => 'Do you really want to remove this site from eyeFiles?',
+			'type' => 3,
+			'title' => 'Delete site',
+			'win_name' => 'eyeControl_eyefiles_delete_window',
+			'btn1_capt' => 'Yes',
+			'btn1_name' => 'eyefiles_delete_yes',
+			'btn2_capt' => 'No',
+			'btn2_name' => 'eyefiles_delete_no',
+			'hidden_text' => $site,
+			'hidden_name' => 'eyefiles_delete_hidden',
+			'father' => 'eyeControl_container_big',
+			'img' => '?'
+		));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a site to be deleted.'));
+	}
+}
+
+function eyeControl_on_eyefiles_delete_yes($params = '') {
+	$site = $GLOBALS['eyefiles_delete_hidden']->text;
+	if ($site) {
+		$file = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeFiles/sites.xml';
+		$siteXML = eyeXML('getXMLfile',array($file));
+		$x = array_findIdByText(array($siteXML['eyeSites'][0]['site'],$site,array('label',0)));
+		$x = $x[0];
+		unset($siteXML['eyeSites'][0]['site'][$x]);
+		eyeXML('setXMLFile',array($file,$siteXML));
+		eyex('messageBox',array('content' => 'The site was successfully deleted.'));
+		loadContent('apps','eyefiles');
+	}
+}
+
+function eyeControl_on_eyefiles_delete_no($params = '') {
+	$GLOBALS['eyeControl_eyefiles_delete_window']->close();
+}
+
+function eyeControl_on_eyefiles_eyeupload_save($params = '') {
+	if(!is_int($GLOBALS['eyeControl_eyefiles_checkbox_eyeupload']->checked)){
+		eyex('messageBox',array('content' => 'Error saving the changes'));
+		return false;
+	}	
+	$value = $GLOBALS['eyeControl_eyefiles_checkbox_eyeupload']->checked;
+	$File = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeUpload/conf.xml';
+	$XML = eyeXML('getXMLfile',array($File));	
+	$XML['eyeUpload'][0]['forceFlash'][0] = $value;
+	eyeXML('setXMLfile',array($File,$XML));
+	eyex('messageBox',array('content' => 'Changes successfully saved!'));
+}
+
+function eyeControl_on_eyefiles_up($params = '') {
+	$selected = $GLOBALS['eyeControl_eyefiles_sortabletable']->selected;
+	if ($selected) {
+		$file = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeFiles/sites.xml';
+		$xml = eyeXML('getXMLfile',array($file));
+		$x = array_findIdByText(array($xml['eyeSites'][0]['site'],$selected,array('label',0)));
+		$x = $x[0];
+		if (isset($xml['eyeSites'][0]['site'][$x - 1])) {
+			$upper = $xml['eyeSites'][0]['site'][$x - 1];
+			$xml['eyeSites'][0]['site'][$x - 1] = $xml['eyeSites'][0]['site'][$x];
+			$xml['eyeSites'][0]['site'][$x] = $upper;
+		}
+		eyeXML('setXMLFile',array($file,$xml));
+		loadContent('apps','eyefiles');
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a site.'));
+	}
+}
+
+function eyeControl_on_eyefiles_down($params = '') {
+	$selected = $GLOBALS['eyeControl_eyefiles_sortabletable']->selected;
+	if ($selected) {
+		$file = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeFiles/sites.xml';
+		$xml = eyeXML('getXMLfile',array($file));
+		$x = array_findIdByText(array($xml['eyeSites'][0]['site'],$selected,array('label',0)));
+		$x = $x[0];
+		if (isset($xml['eyeSites'][0]['site'][$x + 1])) {
+			$down = $xml['eyeSites'][0]['site'][$x + 1];
+			$xml['eyeSites'][0]['site'][$x + 1] = $xml['eyeSites'][0]['site'][$x];
+			$xml['eyeSites'][0]['site'][$x] = $down;
+		}
+		eyeXML('setXMLFile',array($file,$xml));
+		loadContent('apps','eyefiles');
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a site.'));
+	}
+}
+?>

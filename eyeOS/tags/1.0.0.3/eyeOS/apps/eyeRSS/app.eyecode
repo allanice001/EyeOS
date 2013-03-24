@@ -1,0 +1,91 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeRSS_run($params=null) {
+	
+	$myWindow = new Window(array('name'=>'eyeRSS','father'=>'eyeApps',
+		'type'=>NORESIZE_WINDOW,'cent'=>1,'width'=>700,'height'=>500,'title'=>'eyeRSS'));
+	$myWindow->show();
+	
+	$myBox = new Box(array('name'=>'BOX_1','father'=>'eyeRSS_Content','x'=>10,'y'=>10,'width'=>170,
+		'height'=>130,'title'=>'Actions'));
+	$myBox->show();
+	
+	$action = "add";
+	
+	$myImage = new Imagebox(array('name'=>$action.'_img','father'=>'BOX_1',
+		'url'=>'index.php?extern=apps/eyeRSS/gfx/'.$action.'.png',
+		'x'=>10,'y'=>35,'signal'=>$action.'Feed','disableMsg'=>0));
+	$myImage->show();
+
+	$myLabel = new Label(array('name'=>$action.'_label','father'=>'BOX_1',
+		'text'=>'Add feed','y'=>37,'x'=>35,'signal'=>$action.'Feed','disablemsg'=>0));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor'=>'Pointer'));
+	
+	$action = "update";
+	
+	$myImage = new Imagebox(array('name'=>$action.'_img','father'=>'BOX_1',
+		'url'=>'index.php?extern=apps/eyeRSS/gfx/'.$action.'.png',
+		'x'=>10,'y'=>65,'signal'=>$action.'Feed','disableMsg'=>0));
+	$myImage->show();
+
+	$myLabel = new Label(array('name'=>$action.'_label','father'=>'BOX_1',
+		'text'=>'Update feed','y'=>67,'x'=>35,'signal'=>$action.'Feed','disablemsg'=>0));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor'=>'Pointer'));
+	
+	$action = "delete";
+	
+	$myImage = new Imagebox(array('name'=>$action.'_img','father'=>'BOX_1',
+		'url'=>'index.php?extern=apps/eyeRSS/gfx/'.$action.'.png',
+		'x'=>10,'y'=>95,'signal'=>$action.'Feed','disableMsg'=>0));
+	$myImage->show();
+
+	$myLabel = new Label(array('name'=>$action.'_label','father'=>'BOX_1',
+		'text'=>'Delete feed','y'=>97,'x'=>35,'signal'=>$action.'Feed','disablemsg'=>0));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor'=>'Pointer'));
+	
+	$myBox = new Box(array('name'=>'BOX_2','father'=>'eyeRSS_Content','x'=>10,'y'=>155,'width'=>170,
+		'height'=>310,'title'=>'Feeds'));
+	$myBox->show();
+	
+	$myWindow = new Window(array('name'=>'eyeFeeds','father'=>'BOX_2',
+		'type'=>100,'width'=>168,'height'=>285,'x'=>1,'y'=>5));
+	$myWindow->show();
+	
+	$myWindow = new Window(array('name'=>'feedBody','father'=>'eyeRSS_Content',
+		'type'=>100,'width'=>500,'height'=>465,'x'=>190,'y'=>0));
+	$myWindow->show();
+	
+	$myHidden = new Hidden(array('name'=>'feedSelected','father'=>'eyeApps','text'=>""));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeRSS/events'.EYE_CODE_EXTENSION);
+	$GLOBALS['eyeFeeds'] = $myWindow;
+	eyeRSS_on_loadFeeds();
+}
+
+function eyeRSS_end($params=null) {
+	
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

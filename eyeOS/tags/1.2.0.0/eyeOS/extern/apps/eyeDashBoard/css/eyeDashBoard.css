@@ -1,0 +1,22 @@
+.dashBoardLayerClassAlpha{
+	background-color: black;
+	opacity: 0.8;
+	height:100%;
+	position:absolute;
+	width:100%;
+	z-index:1;
+}
+.dashBoardLayerClassImage{
+	background-image: url(index.php?extern=/apps/eyeDashBoard/gfx/bg.png);	
+	height:100%;
+	position:absolute;
+	width:100%;
+	z-index:1;
+}
+.dashBoardLayerClassNoAlpha{
+	background-color: black;
+	height:100%;
+	position:absolute;
+	width:100%;
+	z-index:1;
+}

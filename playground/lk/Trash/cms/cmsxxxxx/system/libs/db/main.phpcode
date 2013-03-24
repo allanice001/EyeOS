@@ -1,0 +1,3 @@
+<?php
+include_once(PATH_ROOT . '/' . PATH_SYSTEM . '/' . PATH_LIBS . '/db/modules/' . MODULE_DATABASE . '.' . EXT_CODE);
+?>

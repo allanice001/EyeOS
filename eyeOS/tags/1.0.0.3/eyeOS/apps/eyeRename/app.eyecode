@@ -1,0 +1,72 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeRename_run($params=null) {
+	global $myPid;
+	$path=null;
+	$callback=null;
+	$name = null;
+	if(is_array($params)) {
+		$path = $params[0][0];
+		$callback = $params[0][1];
+		$inGroup = $params[0][2];
+	}
+	$name = basename($path);
+	$myWindow = new Window(array('name'=>'eyeRename','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>350,'height'=>170,
+		'title'=>'Rename'));
+	$myWindow->show();
+
+	$myLabel = new Label(array('name'=>'rnLabel','father'=>'eyeRename_Content',
+		'text'=>'Type a new name','y'=>25,'x'=>105));
+	$myLabel->show();
+	$myTextBox = new Textbox(array('name'=>'rnTextbox','father'=>'eyeRename_Content',
+		'x'=>105,'y'=>55,'width'=>200,'text'=>$name));
+	$myTextBox->show();
+	$myTextBox->select();
+	$myTextBox->focus();
+	if($inGroup) {
+		$myUserDir = EYE_ROOT.'/'.GROUPS_DIR.'/'.$path;
+	} else {
+		$myUserDir = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$path;
+	}
+	if($path) {
+		$myHidden = new Hidden(array('name'=>'rnPath','father'=>'eyeRename_Content','text'=>$myUserDir));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	if($callback) {
+		$myHidden = new Hidden(array('name'=>'rnCallback','father'=>'eyeRename_Content','text'=>$callback));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	$myTextBox->addEnterEventMsg('rename');
+	$myButton = new Button(array('name'=>'nfButton','father'=>'eyeRename_Content',
+		'caption'=>'Rename','x'=>105,'y'=>94,'signal'=>'rename'));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();	
+	$myImage = new Imagebox(array('name'=>'image_rename','father'=>'eyeRename_Content',
+		'url'=>'index.php?extern=apps/eyeFiles/gfx/rename_big.png',
+		'x'=>30,'y'=>43));
+	$myImage->show();
+}
+
+function eyeRename_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

@@ -1,0 +1,40 @@
+SVN PATH                                                  | NAME                                | VERSION        | WEB ADDRESS                                                     | MAINTAINED | EYEOS CHANGES
+==========================================================|=====================================|================|=================================================================|============|==============
+eyeOS/apps/eyeFeeds/simplepie.eyecode                     | SimplePie                           | 1.2            | http://simplepie.org/                                           | 8/09       | none
+eyeOS/apps/eyeMail/                                       | PHPMailer                           | 5.0.2          | http://phpmailer.sf.net/                                        | 8/09       | none
+eyeOS/apps/eyeSoft/libCompress.eyecode                    | PclTar (Mambo package)              | 4.6.5          | http://mambo-foundation.org/                                    | no         | utf8, marked
+eyeOS/apps/eyeString/lib/Roman.eyecode                    | Numbers_Roman                       | 1.0.2          | http://pear.php.net/package/numbers_roman                       | no         | utf8, marked
+eyeOS/extern/apps/eyeMp3/swf/webplayer.swf                | WebMinster WebPlayer                | 2.0.1          | http://webminster.org/                                          | no         | none
+eyeOS/extern/apps/eyeSheets/                              | Simple Spreadsheet                  | 0.520          | http://simple-groupware.de/                                     | 8/09       | yes
+eyeOS/extern/apps/eyeVideo/                               | Flowplayer                          | 3.1.2          | http://flowplayer.org/                                          | 8/09       | none
+eyeOS/extern/apps/eyeX/js/eyeX.js                         | Flash Detect                        | 1.0.4          | http://featureblend.com/javascript-flash-detection-library.html | no         | none
+eyeOS/extern/apps/eyeX/js/eyeX.js                         | htmlspecialchars (PHP.JS)           | 907.503        | http://phpjs.org/functions/htmlspecialchars:426                 | 8/09       | none
+eyeOS/extern/apps/eyeX/js/eyeX.js                         | get_html_translation_table (PHP.JS) | 908.406        | http://phpjs.org/functions/get_html_translation_table:416       | 8/09       | none
+eyeOS/extern/apps/eyeX/js/eyeX.js                         | md5 (PHP.JS)                        | 908.406        | http://phpjs.org/functions/md5:469                              | 8/09       | none
+eyeOS/extern/apps/eyeX/js/eyeX.js                         | utf8_encode (PHP.JS)                | 908.406        | http://phpjs.org/functions/utf8_encode:577                      | 8/09       | none
+eyeOS/extern/apps/eyeX/js/eyeX.js                         | xLibrary                            | 4.18           | http://cross-browser.com/x/                                     | 8/09       | yes
+eyeOS/extern/libs/eyeSound/                               | SoundManager 2                      | 2.95a.20090501 | http://schillmania.com/projects/soundmanager2/                  | 8/09       | marked
+eyeOS/extern/libs/eyeWidgets/codepress/                   | CodePress                           | 0.9.6          | http://codepress.sf.net/                                        | no         | yes
+eyeOS/extern/libs/eyeWidgets/tiny_mce/                    | TinyMCE                             | 3.2.5          | http://tinymce.moxiecode.com/                                   | 8/09       | yes
+eyeOS/system/lib/eyeAddressBook/lib/vcard_builder.eyecode | Contact_Vcard_Build                 | 1.1.2          | http://pear.php.net/package/contact_vcard_build                 | 8/09       | utf8, marked
+eyeOS/system/lib/eyeAddressBook/lib/vcard_parser.eyecode  | Contact_Vcard_Parse                 | 1.31.0         | http://pear.php.net/package/contact_vcard_parse                 | no         | utf8, marked
+eyeOS/system/lib/eyeCompress/main.eyecode                 | PclTar (PhpZip package)             | 2.0 RC 1       | http://phpconcept.net/phpzip/index.en.php                       | no         | utf8, marked, ["TrFctEnd", "TrFctMessage", "TrFctStart"]
+eyeOS/system/lib/eyeContacts/lib/vcard_builder.eyecode    | Contact_Vcard_Build                 | 1.1.2          | http://pear.php.net/package/contact_vcard_build                 | 8/09       | utf8, marked
+eyeOS/system/lib/eyeContacts/lib/vcard_parser.eyecode     | Contact_Vcard_Parse                 | 1.31.0         | http://pear.php.net/package/contact_vcard_parse                 | no         | utf8, marked
+eyeOS/system/lib/eyeCrypt/lib/rc4.eyecode                 | Crypt_RC4                           | 1.0.2          | http://pear.php.net/package/crypt_rc4                           | no         | utf8, marked
+eyeOS/system/lib/eyeCrypt/lib/xxtea.eyecode               | Crypt_XXTEA                         | 0.9.0          | http://pear.php.net/package/crypt_xxtea                         | no         | utf8, marked
+eyeOS/system/lib/eyeFileArchive/lib/                      | File_Archive                        | 1.5.4          | http://pear.php.net/package/file_archive                        | no         | marked
+eyeOS/system/lib/eyeFileArchive/lib/MIME/                 | MIME_Type                           | 1.2.0          | http://pear.php.net/package/mime_type                           | 8/09       | utf8, marked
+eyeOS/system/lib/eyeIPC/                                  | System_SharedMemory                 | 0.9.0 RC 1     | http://pear.php.net/package/system_sharedmemory                 | no         | utf8, marked
+eyeOS/system/lib/eyePear/main.eyecode                     | PEAR                                | 1.8.1          | http://pear.php.net/package/pear                                | 8/09       | utf8, marked
+eyeOS/system/lib/eyeSmtp/plain_sasl_client.eyecode        | Plain SASL Client                   | 2004-11-22     | http://phpclasses.org/browse/package/1888.html                  | no         | utf8
+eyeOS/system/lib/eyeSmtp/sasl.eyecode                     | SASL                                | 2005-10-31     | http://phpclasses.org/browse/package/1888.html                  | no         | utf8
+eyeOS/system/lib/eyeSmtp/smtp.eyecode                     | SMTP E-mail sending class           | 2009-04-11     | http://phpclasses.org/browse/package/14.html                    | 8/09       | utf8
+eyeOS/system/lib/eyeSockets/main.eyecode                  | Net_Socket                          | 1.0.9          | http://pear.php.net/package/net_socket                          | no         | marked
+eyeOS/system/lib/eyeString/                               | PHP UTF-8                           | 0.5            | http://sf.net/projects/phputf8/                                 | no         | marked
+eyeOS/system/lib/eyeURL/main.eyecode                      | HTTP_Request                        | 1.4.4          | http://pear.php.net/package/http_request                        | no         | utf8, marked
+eyeOS/system/lib/eyeURL/main.eyecode                      | Net_URL                             | 1.0.15         | http://pear.php.net/package/net_url                             | no         | utf8
+eyeOS/system/lib/eyeZip/main.eyecode                      | PclZip                              | 2.8            | http://phpconcept.net/pclzip/index.en.php                       | no         | utf8, marked
+eyeOS/system/lib/simpleZip/main.eyecode                   | zipfile (GFM package)               | 1.0            | http://gamingg.net/downloads.php                                | no         | none
+eyeOS/xml-rpc/                                            | XML-RPC                             | 2.2            | http://phpxmlrpc.sf.net/                                        | 8/09       | none
+iphone/eyeOs_files/                                       | iui                                 | 0.30           | http://code.google.com/p/iui/                                   | 8/09       | none

@@ -1,0 +1,323 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.7
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_groups_new($params = '') {
+	eyex('messageBox',array(
+		'content' => 'Type the name of the group you want to create:',
+		'type' => 3,
+		'title' => 'Create group',
+		'win_name' => 'eyeControl_groups_create_window',
+		'win_style' => TITLE + CLOSE,
+		'win_removepid' => 0,
+		'btn1_capt' => 'Create',
+		'btn1_name' => 'groups_create',
+		'btn2_capt' => 'Cancel',
+		'btn2_name' => 'groups_create_cancel',
+		'textbox_event' => 'groups_create',
+		'textbox_name' => 'eyeControl_groups_create_textbox',
+		'father' => 'eyeControl_container_big'
+	));
+}
+
+function eyeControl_on_groups_create($params = '') {
+	global $currentUser;
+	
+	if ($currentUser != ROOTUSER && !um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+		eyex('messageBox',array('content' => 'You are not allowed to manage groups!'));
+		eyeControl_lib_loadContent();
+		return;
+	}
+	
+	$group = $GLOBALS['eyeControl_groups_create_textbox']->text;
+	$dir = EYE_ROOT . '/' . GROUPS_DIR . '/' . $group . '/';
+	if (preg_match("/^[-_a-zA-Z0-9]+$/",$group) && !vfs('real_fileExists',array($dir))) {
+		$oldUser = $currentUser;
+		if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+			$currentUser = ROOTUSER;
+			$xml['eyeUser'][0]['group'][] = $group;
+			$xml['eyeUser'][0]['maintain'][] = $group;
+			um('updateUser',array(
+				'username' => $oldUser,
+				'groups' => $xml['eyeUser'][0]['group'],
+				'maintain' => $xml['eyeUser'][0]['maintain']
+			));
+			if ($oldUser == eyeControl_lib_getConfigUser()) {
+				$_SESSION['groups'][$group] = 1;
+			}
+		}
+		vfs('real_mkdir',array($dir));
+		vfs('real_mkdir',array($dir . CONF_GROUP_DIR . '/'));
+		vfs('real_mkdir',array($dir . FILES_GROUP_DIR . '/'));
+		$currentUser = $oldUser;
+		eyeControl_lib_loadContent('only_root','groups');
+	} elseif (vfs('real_fileExists',array($dir))) {
+		eyex('messageBox',array('content' => 'The selected group already exists!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please type a correct group name!'));
+	}
+}
+
+function eyeControl_on_groups_create_cancel($params = '') {
+	$GLOBALS['eyeControl_groups_create_window']->close();
+}
+
+function eyeControl_on_groups_edit($params = '') {
+	$group = $GLOBALS['eyeControl_groups_sortabletable']->selected;
+	if ($group) {
+		eyex('messageBox',array(
+			'content' => 'Type the new group\'s name:',
+			'type' => 3,
+			'title' => 'Rename group',
+			'win_name' => 'eyeControl_groups_rename_window',
+			'win_style' => TITLE + CLOSE,
+			'win_removepid' => 0,
+			'btn1_capt' => 'Rename',
+			'btn1_name' => 'groups_rename',
+			'btn2_capt' => 'Cancel',
+			'btn2_name' => 'groups_rename_cancel',
+			'textbox_event' => 'groups_rename',
+			'textbox_name' => 'eyeControl_groups_rename_textbox',
+			'textbox_text' => $group,
+			'hidden_name' => 'eyeControl_groups_rename_hidden',
+			'hidden_text' => $group,
+			'father' => 'eyeControl_container_big'
+		));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a group to edit.'));
+	}
+}
+
+function eyeControl_on_groups_rename($params = '') {
+	global $currentUser;
+	
+	if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+		$myUserXml = um('retrieveUser',array(eyeControl_lib_getConfigUser()));
+	}
+	
+	$group_old = $GLOBALS['eyeControl_groups_rename_hidden']->text;
+	
+	if ($currentUser != ROOTUSER && !um('checkMaintainer',array(eyeControl_lib_getConfigUser())) || um('checkMaintainer',array(eyeControl_lib_getConfigUser())) && !in_array($group_old,$myUserXML['eyeUser'][0]['maintain'])) {
+		eyex('messageBox',array('content' => 'You are not allowed to manage groups!'));
+		eyeControl_lib_loadContent();
+		return;
+	}
+	
+	$group_new = $GLOBALS['eyeControl_groups_rename_textbox']->text;
+	$dir_old = EYE_ROOT . '/' . GROUPS_DIR . '/' . $group_old . '/';
+	$dir_new = EYE_ROOT . '/' . GROUPS_DIR . '/' . $group_new . '/';
+	if (preg_match("/^[-_a-zA-Z0-9]+$/",$group_new) && !vfs('real_fileExists',array($dir_new))) {
+		$oldUser = $currentUser;
+		if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+			$currentUser = ROOTUSER;
+			foreach ($xml['eyeUser'][0]['group'] as $value) {
+				if ($value != $group_old) {
+					$array[] = $value;
+				}
+			}
+			$array[] = $group_new;
+			foreach ($xml['eyeUser'][0]['maintain'] as $value) {
+				if ($value != $group_old) {
+					$maintain[] = $value;
+				}
+			}
+			$maintain[] = $group_new;
+			um('updateUser',array(
+				'username' => $oldUser,
+				'group' => $array,
+				'maintain' => $maintain
+			));
+		}
+		
+		// We need a fix for this before it can be used productive!
+		/*$xml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . GROUPS_DIR . '/' . $group_old . '/' . CONF_GROUP_DIR . '/users.xml'));
+		if ($xml['group'][0]['user']) {
+			foreach ($xml['group'][0]['user'] as $temp_user) {
+				$xml2 = um('retrieveUser',array($temp_user));
+				if ($xml2) {
+					$temp_array['username'] = $temp_user;
+					foreach ($xml2['eyeUser'][0]['group'] as $temp_group) {
+						if ($temp_group != $group_old) {
+							$temp_array['group'][] = $temp_group;
+						}
+					}
+					$temp_array['group'][] = $group_new;
+					if (is_array($xml2['eyeUser'][0]['maintain'])) {
+						foreach ($xml2['eyeUser'][0]['maintain'] as $temp_group) {
+							if ($temp_group != $group_old) {
+								$temp_array['maintain'][] = $temp_group;
+							}
+						}
+					}
+					$temp_array['maintain'][] = $group_new;
+					um('updateUser',$temp_array);
+					unset($temp_array);
+				}
+			}
+		}*/
+		
+		vfs('real_move',array($dir_old,$dir_new));
+		if ($group_old == DEFAULT_GROUP) {
+			$file = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/' . 'system.xml';
+			$XML = eyeXML('getXMLfile',array($file));
+			$XML['CONFIG'][0]['DEFAULT_GROUP'][0] = $group_new;
+			eyeXML('setXMLFile',array($file,$XML));
+		}
+		if ($_SESSION['groups'][$group_old] && $oldUser == eyeControl_lib_getConfigUser()) {
+			unset($_SESSION['groups'][$group_old]);
+			$_SESSION['groups'][$group_new] = 1;
+		}
+		$currentUser = $oldUser;
+		eyeControl_lib_loadContent('only_root','groups');
+	} elseif (vfs('real_fileExists',array($dir))) {
+		eyex('messageBox',array('content' => 'The selected group already exists!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please type a correct group name!'));
+	}
+}
+
+function eyeControl_on_groups_rename_cancel($params = '') {
+	$GLOBALS['eyeControl_groups_rename_window']->close();
+}
+
+function eyeControl_on_groups_default($params = '') {
+	$group = $GLOBALS['eyeControl_groups_sortabletable']->selected;
+	if ($group && $group != DEFAULT_GROUP) {
+		$File = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/' . 'system.xml';
+		$XML = eyeXML('getXMLfile',array($File));
+		$XML['CONFIG'][0]['DEFAULT_GROUP'][0] = $group;
+		eyeXML('setXMLFile',array($File,$XML));
+		eyex('messageBox',array('content' => 'Default group successfully saved. You need to restart your session now.'));
+	} elseif ($group == DEFAULT_GROUP) {
+		eyex('messageBox',array('content' => 'The chosen group is already the default group!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a group to set it as default group.'));
+	}
+}
+
+function eyeControl_on_groups_delete($params = '') {
+	$group = $GLOBALS['eyeControl_groups_sortabletable']->selected;
+	if ($group && $group != DEFAULT_GROUP) {
+		eyex('messageBox',array(
+			'content' => 'Do you really want to remove this group from the system?',
+			'type' => 3,
+			'title' => 'Delete group',
+			'win_name' => 'eyeControl_groups_delete_window',
+			'win_style' => TITLE + CLOSE,
+			'win_removepid' => 0,
+			'btn1_capt' => 'Yes',
+			'btn1_name' => 'groups_delete_yes',
+			'btn2_capt' => 'No',
+			'btn2_name' => 'groups_delete_no',
+			'hidden_text' => $group,
+			'hidden_name' => 'groups_delete_hidden',
+			'father' => 'eyeControl_container_big',
+			'img' => '?'
+		));
+	} elseif ($group == DEFAULT_GROUP) {
+		eyex('messageBox',array('content' => 'You cannot delete the default group!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a group to delete.'));
+	}
+}
+
+function eyeControl_on_groups_delete_yes($params = '') {
+	global $currentUser;
+	
+	if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+		$myUserXml = um('retrieveUser',array(eyeControl_lib_getConfigUser()));
+	}
+	
+	$group = $GLOBALS['groups_delete_hidden']->text;
+	
+	if ($currentUser != ROOTUSER && !um('checkMaintainer',array(eyeControl_lib_getConfigUser())) || um('checkMaintainer',array(eyeControl_lib_getConfigUser())) && !in_array($group,$myUserXML['eyeUser'][0]['maintain'])) {
+		eyex('messageBox',array('content' => 'You are not allowed to manage groups!'));
+		eyeControl_lib_loadContent();
+		return;
+	}
+	
+	if ($group && $group != DEFAULT_GROUP) {
+		$oldUser = $currentUser;
+		if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+			$currentUser = ROOTUSER;
+		}
+		
+		// We need a fix for this before it can be used productive!
+		/*$xml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . GROUPS_DIR . '/' . $group . '/' . CONF_GROUP_DIR . '/users.xml'));
+		if ($xml['group'][0]['user']) {
+			foreach ($xml['group'][0]['user'] as $temp_user) {
+				$xml2 = um('retrieveUser',array($temp_user));
+				if ($xml2) {
+					$temp_array['username'] = $temp_user;
+					foreach ($xml2['eyeUser'][0]['group'] as $temp_group) {
+						if ($temp_group != $group) {
+							$temp_array['group'][] = $temp_group;
+						}
+					}
+					if (is_array($xml2['eyeUser'][0]['maintain'])) {
+						foreach ($xml2['eyeUser'][0]['maintain'] as $temp_group) {
+							if ($temp_group != $group) {
+								$temp_array['maintain'][] = $temp_group;
+							}
+						}
+					}
+					um('updateUser',$temp_array);
+					unset($temp_array);
+				}
+			}
+		}*/
+		
+		if (vfs('real_rmdir',array(EYE_ROOT . '/' . GROUPS_DIR . '/' . $group . '/'))) {
+			if ($oldUser != ROOTUSER) {
+				foreach ($xml['eyeUser'][0]['group'] as $value) {
+					if ($value != $group) {
+						$array[] = $value;
+					}
+				}
+				foreach ($xml['eyeUser'][0]['maintain'] as $value) {
+					if ($value != $group_old) {
+						$maintain[] = $value;
+					}
+				}
+				um('updateUser',array(
+					'username' => $oldUser,
+					'group' => $array,
+					'maintain' => $maintain
+				));
+			}
+			if ($_SESSION['groups'][$group] && $oldUser == eyeControl_lib_getConfigUser()) {
+				unset($_SESSION['groups'][$group]);
+			}
+			eyex('messageBox',array('content' => 'Group successfully deleted.'));
+			$currentUser = $oldUser;
+			eyeControl_lib_loadContent('only_root','groups');
+		} else {
+			eyex('messageBox',array('content' => 'There was a problem while deleting the group.'));
+			$currentUser = $oldUser;
+		}
+	}
+}
+
+function eyeControl_on_groups_delete_no($params = '') {
+	$GLOBALS['eyeControl_groups_delete_window']->close();
+}
+?>

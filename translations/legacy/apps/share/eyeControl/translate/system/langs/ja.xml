@@ -1,0 +1,2686 @@
+<lang>
+	<info>
+		<lang>日本語</lang>
+		<lang-en>Japanese</lang-en>
+		<author>Kazuya Masuda</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Add an eyeLink</old>
+			<new>eyeLinkに追加</new>
+		</text>
+		<text>
+			<old>Please type a correct filename.</old>
+			<new>正しいファイル名を入力して下さい。</new>
+		</text>
+		<text>
+			<old>Please type the link name here:</old>
+			<new>リンク名を入力して下さい:</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>リンクはダウンロードできません。</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>App to be executed:</old>
+			<new>実行するアプリ:</new>
+		</text>
+		<text>
+			<old>Edit link</old>
+			<new>リンクを編集</new>
+		</text>
+		<text>
+			<old>Invalid link file.</old>
+			<new>不正なリンクファイル</new>
+		</text>
+		<text>
+			<old>Link updated.</old>
+			<new>リンクが更新されました。</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Are you sure you want to empty trash content?</old>
+			<new>本当にごみ箱の中身を空にしますか？</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>空のごみ箱</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>アプリをインストール</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Dockを管理</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>圧縮</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>名前を付けて圧縮</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>圧縮完了</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>解凍</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>場所を指定して解凍</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>解凍完了</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>解凍失敗</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>ファイル名</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>ファイルを開いていません</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>圧縮形式がサポートされていません</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBar</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>eyeOSについて</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>アプリケーション</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>セッションの終了</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>アプリの実行</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>システム設定</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>クリア</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>送信</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>A calendar with same name already exists</old>
+			<new>既に同じ名前のカレンダーが存在します</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>カレンダーを追加</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>少なくとも1つのカレンダーが必要です！</new>
+		</text>
+		<text>
+			<old>Calendar is already runing</old>
+			<new>カレンダーは既に起動しています</new>
+		</text>
+		<text>
+			<old>Calendar Name</old>
+			<new>カレンダー名</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>カレンダー</new>
+		</text>
+		<text>
+			<old>Create Calendar</old>
+			<new>カレンダーの作成</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>日</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>フルスクリーン</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>不正なチェックボックスの値</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>次</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>前</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>表示</new>
+		</text>
+		<text>
+			<old>Sorry, you can only create 5 different calendars</old>
+			<new>カレンダーは5つまでしか作成できません</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>今日</new>
+		</text>
+		<text>
+			<old>Update Calendars</old>
+			<new>カレンダーを更新</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>週</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>ウィンドウモード</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>営業日</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeContacts</name>
+		<text>
+			<old>Add Contact</old>
+			<new>コンタクト追加</new>
+		</text>
+		<text>
+			<old>Address</old>
+			<new>住所</new>
+		</text>
+		<text>
+			<old>ALL</old>
+			<new>全て</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>会社</new>
+		</text>
+		<text>
+			<old>Company Address</old>
+			<new>会社の住所</new>
+		</text>
+		<text>
+			<old>Contact deleted successfully.</old>
+			<new>コンタクトは削除されました。</new>
+		</text>
+		<text>
+			<old>Contact updated successfully.</old>
+			<new>コンタクトを更新しました。</new>
+		</text>
+		<text>
+			<old>Contacts exported in to %s</old>
+			<new>コンタクトを %s にエクスポートしました。</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Edit Contact</old>
+			<new>コンタクト編集</new>
+		</text>
+		<text>
+			<old>Error deleting contact.</old>
+			<new>コンタクト削除エラー</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>ファイルエクスポートエラー</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>エクスポート</new>
+		</text>
+		<text>
+			<old>Export all as vCard</old>
+			<new>全てをvCardとしてエクスポート</new>
+		</text>
+		<text>
+			<old>Export completed successfully.</old>
+			<new>エクスポートが完了しました。</new>
+		</text>
+		<text>
+			<old>Export Contacts</old>
+			<new>コンタクトをエクスポート</new>
+		</text>
+		<text>
+			<old>Export failed!</old>
+			<new>エクスポート失敗！</new>
+		</text>
+		<text>
+			<old>Export To File</old>
+			<new>ファイルにエクスポート</new>
+		</text>
+		<text>
+			<old>Export your contacts to vCard format</old>
+			<new>コンタクトをvCard形式でエクスポート</new>
+		</text>
+		<text>
+			<old>eyeContacts can&#039;t initialize, contact with your administrator</old>
+			<new>eyeContactを初期化できません、管理者に問合せて下さい</new>
+		</text>
+		<text>
+			<old>eyeOS Username</old>
+			<new>eyeOSユーザ名</new>
+		</text>
+		<text>
+			<old>Fax</old>
+			<new>FAX</new>
+		</text>
+		<text>
+			<old>File &quot;eyeContactsExported.vcf&quot; will be created automatically if you leave this field blank.</old>
+			<new>フィールドを空にすると&quot;eyeContactsExported.vcf&quot;というファイルが自動的に作成されます。</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>サポートしていない形式です！</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>自宅の電話</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>インポート</new>
+		</text>
+		<text>
+			<old>Import Contacts</old>
+			<new>コンタクトをインポート</new>
+		</text>
+		<text>
+			<old>Import contacts from vCard files</old>
+			<new>vCardファイルからコンタクトをインポート</new>
+		</text>
+		<text>
+			<old>Import from .vcf file...</old>
+			<new>vcfファイルからインポート...</new>
+		</text>
+		<text>
+			<old>Import from vCard</old>
+			<new>vCardからインポート</new>
+		</text>
+		<text>
+			<old>Instant Messenger</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Internet Information</old>
+			<new>インターネット情報</new>
+		</text>
+		<text>
+			<old>Manage Contacts</old>
+			<new>コンタクトの管理</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>携帯電話</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>名</new>
+		</text>
+		<text>
+			<old>New contact created successfully.</old>
+			<new>新しいコンタクトを作成しました。</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>ニックネーム</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>ノート</new>
+		</text>
+		<text>
+			<old>Personal Information</old>
+			<new>個人情報</new>
+		</text>
+		<text>
+			<old>Phone</old>
+			<new>電話</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be deleted first.</old>
+			<new>削除する前にコンタクトを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be edited first.</old>
+			<new>編集する前にコンタクトを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a contact you want to send an eyeMessage to first.</old>
+			<new>先にeyeMessageを送りたい相手のコンタクトを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please fill in the eyeOS Username for this contact first.</old>
+			<new>先にこのコンタクトにeyeOSユーザ名を入力して下さい。</new>
+		</text>
+		<text>
+			<old>Please, fill the name and surname.</old>
+			<new>名前(姓、名)を入力して下さい。</new>
+		</text>
+		<text>
+			<old>Please, select a correct file.</old>
+			<new>正しいファイルを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Professional Information</old>
+			<new>仕事情報</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>メッセージ送信</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>そのファイル中にコンタクトが見つかりません。</new>
+		</text>
+		<text>
+			<old>Sorry, the contact already exists.</old>
+			<new>そのコンタクトは既に存在します。</new>
+		</text>
+		<text>
+			<old>Source:</old>
+			<new>ソース:</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>姓</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>vCard Import/Export</old>
+			<new>vCardのインポート/エクスポート</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>表示</new>
+		</text>
+		<text>
+			<old>View/Edit</old>
+			<new>表示/編集</new>
+		</text>
+		<text>
+			<old>Voice Over IP</old>
+			<new>IP電話</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Webサイト</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s個のコマンド</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s個のミラー</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s人の登録ユーザ</new>
+		</text>
+		<text>
+			<old>%s% translated! %s from %s texts left.</old>
+			<new>%s%が翻訳済みです! 残りのテキストは%s/%s個。</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>自分の情報</new>
+		</text>
+		<text>
+			<old>Add a new language</old>
+			<new>新しい言語を追加</new>
+		</text>
+		<text>
+			<old>Add a new language you want to translate.</old>
+			<new>翻訳したい言語を新しく追加できます。</new>
+		</text>
+		<text>
+			<old>Add language</old>
+			<new>言語追加</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>ミラー追加</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>管理</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>公開ディレクトリを許す</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>ユーザ登録を許す</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作成者</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>自動実行コマンド</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>戻る</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>ブックマークと検索エンジンがエクスポートされました。</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>ブックマークをインポートしました。</new>
+		</text>
+		<text>
+			<old>Center wallpaper</old>
+			<new>壁紙を中央寄せ</new>
+		</text>
+		<text>
+			<old>Change language</old>
+			<new>言語を変更</new>
+		</text>
+		<text>
+			<old>Change password</old>
+			<new>パスワード変更</new>
+		</text>
+		<text>
+			<old>Change the language&#039;s information</old>
+			<new>言語情報の変更</new>
+		</text>
+		<text>
+			<old>Change theme</old>
+			<new>テーマの変更</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>変更を保存してユーザを更新しました。</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>変更を保存しました。</new>
+		</text>
+		<text>
+			<old>Clean eyeOS</old>
+			<new>eyeOSを掃除</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>コマンドを追加しました。</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>コマンドを保存しました。</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>コマンド</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>スタートページを設定</new>
+		</text>
+		<text>
+			<old>Create group</old>
+			<new>グループ作成</new>
+		</text>
+		<text>
+			<old>Create user</old>
+			<new>ユーザ作成</new>
+		</text>
+		<text>
+			<old>Created on</old>
+			<new>作成日時</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to start a new session now.</old>
+			<new>標準のグループが保存されました。今すぐ再ログインする必要があります。</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>標準グループ: %s | %s個のグループ</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>標準の設定に戻されました。</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>グループ削除</new>
+		</text>
+		<text>
+			<old>Delete language</old>
+			<new>言語削除</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>ミラー削除</new>
+		</text>
+		<text>
+			<old>Delete user</old>
+			<new>ユーザ削除</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>デスクトップ</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>本当にこのコマンドを削除しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>本当のこのグループをシステムから削除しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this language?</old>
+			<new>本当のこの言語を削除しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>本当のこのミラーをeyeSoftから削除しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>本当にこのユーザをシステムから削除しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeDesk settings?</old>
+			<new>本当にeyeDesk標準の設定に戻しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav bookmarks?</old>
+			<new>本当にeyeNav標準のブックマークに戻しますか？</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav search?</old>
+			<new>本当にeyeNav標準の検索エンジンに戻しますか？</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>ダウンロード</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編集</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>コマンド編集</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>ミラー編集</new>
+		</text>
+		<text>
+			<old>Edit translation</old>
+			<new>翻訳編集</new>
+		</text>
+		<text>
+			<old>Edit user</old>
+			<new>ユーザ編集</new>
+		</text>
+		<text>
+			<old>English</old>
+			<new>English</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>エクスポート</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>標準のブックマークと検索エンジンをエクスポート</new>
+		</text>
+		<text>
+			<old>eyeOS hostname</old>
+			<new>eyeOSのホスト名</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>ファイルが正しくダウンロードできました。</new>
+		</text>
+		<text>
+			<old>Full name</old>
+			<new>フルネーム</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>グループ名</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>グループ</new>
+		</text>
+		<text>
+			<old>ID</old>
+			<new>ID</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>インポート</new>
+		</text>
+		<text>
+			<old>Info</old>
+			<new>情報</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>言語</new>
+		</text>
+		<text>
+			<old>Language ID</old>
+			<new>言語ID</new>
+		</text>
+		<text>
+			<old>Language succesfully saved.</old>
+			<new>言語を保存しました。</new>
+		</text>
+		<text>
+			<old>Language successfully added.</old>
+			<new>言語を追加しました。</new>
+		</text>
+		<text>
+			<old>Language&#039;s information</old>
+			<new>言語情報</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>表示設定</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>メイン</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>標準のブックマークを管理</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>標準の検索エンジンを管理</new>
+		</text>
+		<text>
+			<old>Manage groups</old>
+			<new>グループ管理</new>
+		</text>
+		<text>
+			<old>Manage users</old>
+			<new>ユーザ管理</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>ミラー</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>ミラーアドレス(例: %s)</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>ミラーを保存しました。</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>新規コマンド</new>
+		</text>
+		<text>
+			<old>New password</old>
+			<new>新しいパスワード</new>
+		</text>
+		<text>
+			<old>New password (again)</old>
+			<new>新しいパスワード(確認)</new>
+		</text>
+		<text>
+			<old>New user</old>
+			<new>新規ユーザ</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>新しい壁紙を設定しました。</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>その他</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>パスワード</new>
+		</text>
+		<text>
+			<old>Password (again)</old>
+			<new>パスワード(確認)</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>パスワードを変更しました。</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>個人設定</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>削除するコマンドを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>編集するコマンドを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>削除するグループを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>編集するグループを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>標準にするグループを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a language to delete.</old>
+			<new>削除する言語を選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to create.</old>
+			<new>作成したい言語を選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to download.</old>
+			<new>ダウンロードしたい言語を選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to edit.</old>
+			<new>編集したい言語を選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to translate.</old>
+			<new>翻訳したい言語を選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>テストするミラーを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>削除するミラーを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>編集するミラーを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>削除するユーザを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>編集するユーザを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>正しい設定を入力して下さい。</new>
+		</text>
+		<text>
+			<old>Please fill in all textboxes!</old>
+			<new>全てのテキストボックスを埋めて下さい！</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>コマンドを入力して下さい！</new>
+		</text>
+		<text>
+			<old>Please type a correct group name.</old>
+			<new>グループ名を入力して下さい。</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>アドレスを入力して下さい！</new>
+		</text>
+		<text>
+			<old>Please type the new translation here:</old>
+			<new>新しい翻訳を入力して下さい:</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>今すぐ削除！</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>一時ファイルとフォルダを削除</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>リネーム</new>
+		</text>
+		<text>
+			<old>Rename group</old>
+			<new>グループのリネーム</new>
+		</text>
+		<text>
+			<old>Repeat wallpaper</old>
+			<new>壁紙を並べる</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>リポジトリ</new>
+		</text>
+		<text>
+			<old>Root password</old>
+			<new>rootパスワード</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>変更を保存</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>スクリーンショット</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>検索エンジンをインポートしました。</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>ファイルを選択...</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>標準に設定</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>このファイルは壁紙にできません。</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>スタートページ</new>
+		</text>
+		<text>
+			<old>Statistic</old>
+			<new>統計</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>システム</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>システム設定</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>テスト</new>
+		</text>
+		<text>
+			<old>Test address</old>
+			<new>アドレスをテスト</new>
+		</text>
+		<text>
+			<old>The chosen file is no correct eyeNav search engines file.</old>
+			<new>そのファイルは正しいeyeNav検索エンジンファイルではありません。</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>そのグループは既に標準のグループです！</new>
+		</text>
+		<text>
+			<old>The chosen username is too long.</old>
+			<new>ユーザ名が長過ぎます。</new>
+		</text>
+		<text>
+			<old>The chosen username is too small.</old>
+			<new>ユーザ名が短か過ぎます。</new>
+		</text>
+		<text>
+			<old>The command was successfully deleted.</old>
+			<new>コマンドを削除しました。</new>
+		</text>
+		<text>
+			<old>The eyeOS system was successfully deleted.</old>
+			<new>eyeOSシステムは削除されました。</new>
+		</text>
+		<text>
+			<old>The group was successfully deleted.</old>
+			<new>グループを削除しました。</new>
+		</text>
+		<text>
+			<old>The language was successfully deleted.</old>
+			<new>言語を削除しました。</new>
+		</text>
+		<text>
+			<old>The language was successfully updated.</old>
+			<new>言語を更新しました。</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>そのミラーは既にインストールされています！</new>
+		</text>
+		<text>
+			<old>The mirror was successfully deleted.</old>
+			<new>ミラーを削除しました。</new>
+		</text>
+		<text>
+			<old>The translation was successfully updated.</old>
+			<new>翻訳を更新しました。</new>
+		</text>
+		<text>
+			<old>The user was successfully deleted.</old>
+			<new>ユーザを削除しました。</new>
+		</text>
+		<text>
+			<old>The username is not supported. Please type another one.</old>
+			<new>そのユーザ名はサポートされていません。別のものを入力して下さい。</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>テーマ</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>グループ削除中に問題が発生しました。</new>
+		</text>
+		<text>
+			<old>Translate eyeOS</old>
+			<new>eyeOSを翻訳</new>
+		</text>
+		<text>
+			<old>Translate eyeOS into your language.</old>
+			<new>eyeOSをあなたの言語に翻訳します。</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>ログイン時に実行したいコマンドを入力して下さい。</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>作成したいグループの名前を入力して下さい:</new>
+		</text>
+		<text>
+			<old>Type the new group name:</old>
+			<new>新しいグループ名を入力して下さい:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>新しいミラーアドレスを入力して下さい:</new>
+		</text>
+		<text>
+			<old>Uninstall eyeOS</old>
+			<new>eyeOSをアンインストール</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>自分の壁紙を使う</new>
+		</text>
+		<text>
+			<old>Use defaults</old>
+			<new>標準に戻す</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>使用領域:</new>
+		</text>
+		<text>
+			<old>Used version</old>
+			<new>使用中のバージョン</new>
+		</text>
+		<text>
+			<old>User quota</old>
+			<new>ユーザのquota</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>ユーザを作成しました。</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>ユーザ名</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>バージョン</new>
+		</text>
+		<text>
+			<old>Web Browser</old>
+			<new>Webブラウザ</new>
+		</text>
+		<text>
+			<old>Your eyeOS server does not need to be cleaned.</old>
+			<new>あなたのeyeOSシステムは掃除する必要がありません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>File Copied. You can now paste it in another folder.</old>
+			<new>ファイルをコピーしました。別のフォルダに貼り付けできます。</new>
+		</text>
+		<text>
+			<old>Links can&#039;t be copied.</old>
+			<new>リンクはコピーできません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file.</old>
+			<new>ファイル削除中にエラーが発生しました。</new>
+		</text>
+		<text>
+			<old>File moved to trash.</old>
+			<new>ファイルをゴミ箱に移動しました。</new>
+		</text>
+		<text>
+			<old>File removed successfully.</old>
+			<new>ファイルを削除しました。</new>
+		</text>
+		<text>
+			<old>Unable to delete directory.</old>
+			<new>ディレクトリが削除できません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>コピー</new>
+		</text>
+		<text>
+			<old>Delete Launcher</old>
+			<new>ランチャの削除</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>ダウンロード</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>新しいフォルダ</new>
+		</text>
+		<text>
+			<old>New Launcher</old>
+			<new>新しいランチャ</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>貼り付け</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>プロパティ</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>ファイルアップロード</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>壁紙</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>ようこそ %s へ、%s さん。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>名前</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>選択</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>フォルダ選択</new>
+		</text>
+		<text>
+			<old>Select destination file</old>
+			<new>保存先選択</new>
+		</text>
+		<text>
+			<old>Select file to open</old>
+			<new>開くファイルを選択</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>サイズ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>%s not found</old>
+			<new>%sが見付かりません</new>
+		</text>
+		<text>
+			<old>Access to all the groups you are allowed to use</old>
+			<new>あなたが使用を許可されたグループにアクセス</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>電卓</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>カレンダー</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>チェスゲーム</new>
+		</text>
+		<text>
+			<old>Create and edit rich text documents</old>
+			<new>リッチテキスト文書の作成と編集</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>デスクトップ</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>お気に入り</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>ファイルマネージャ</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTPクライアント</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>ゲーム</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>グループ</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>ホーム</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>内部メッセージング</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>メールクライアント</new>
+		</text>
+		<text>
+			<old>Manage and import/export your contacts</old>
+			<new>コンタクトの管理とインポート/エクスポート</new>
+		</text>
+		<text>
+			<old>Navigate through Internet and save your bookmarks</old>
+			<new>インターネットのナビゲートとブックマークの保存</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>ナビゲータ</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>ネットワーク</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>オフィス</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>場所</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>プレゼンテーション</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>プロセスマネージャ</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>公開フォルダ</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>掲示板</new>
+		</text>
+		<text>
+			<old>Public directory to share files with all the system users</old>
+			<new>システム全体のユーザとファイル共有できる公開ディレクトリ</new>
+		</text>
+		<text>
+			<old>Read and leave messages to all the system users</old>
+			<new>システム全体のユーザが読み書きできる掲示板</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the other eyeOS users</old>
+			<new>他のeyeOSユーザにファイル付きプライベートメッセージを送信</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite blogs</old>
+			<new>お気に入りのblogから最新ニュースを取得</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>ごみ箱</new>
+		</text>
+		<text>
+			<old>unable to open config file for eyeDock</old>
+			<new>eyeDockのコンフィグファイルが開けません</new>
+		</text>
+		<text>
+			<old>Upload, manage and work with your files in eyeOS</old>
+			<new>ファイルのアップロード、管理及び仕事をeyeOSで</new>
+		</text>
+		<text>
+			<old>Watch your presentations</old>
+			<new>あなたのプレゼンテーションを見る</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>ワードプロセッサ</new>
+		</text>
+		<text>
+			<old>Work with any FTP Server in the world</old>
+			<new>世界中のFTPサーバと動作</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>文書を保存しました。</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>あなたには必要な権限がありません。</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>あなたには必要な権限がありません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>リンクはダウンロードできません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Fullscreen</old>
+			<new>フルスクリーン</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>次</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>前</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s個のファイルをインポートしました！</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>ブラウズ</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>インポート</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>ファイルをインポートするためにディレクトリを選択して下さい。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>eyeOS Engineering Team</old>
+			<new>eyeOS エンジニアリング チーム</new>
+		</text>
+		<text>
+			<old>Thanks to</old>
+			<new>感謝</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>承諾</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>このパッケージを本当にシステムにインストールしますか？</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>インストール中</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>インストールするものがありません！</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>パッケージをインストールしました！</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s が見付かりません</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>実行...</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>実行するアプリ名やコマンドを入力して下さい。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Accounts</old>
+			<new>アカウント</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>追加</new>
+		</text>
+		<text>
+			<old>Configure Later</old>
+			<new>あとで設定する</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日付</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>日付:</new>
+		</text>
+		<text>
+			<old>Error deleting mail</old>
+			<new>メール削除エラー</new>
+		</text>
+		<text>
+			<old>eyeMail Configuration</old>
+			<new>eyeMail設定</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>フォルダ</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>送信者</new>
+		</text>
+		<text>
+			<old>Inbox (%s)</old>
+			<new>受信箱 (%s)</new>
+		</text>
+		<text>
+			<old>Incoming mail</old>
+			<new>受信メール</new>
+		</text>
+		<text>
+			<old>Mail from:</old>
+			<new>送信者:</new>
+		</text>
+		<text>
+			<old>Mail sent to %s</old>
+			<new>%s にメールを送信しました</new>
+		</text>
+		<text>
+			<old>Mail to:</old>
+			<new>宛先:</new>
+		</text>
+		<text>
+			<old>Manage accounts</old>
+			<new>アカウント管理</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>メッセージを削除しました。</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>名前</new>
+		</text>
+		<text>
+			<old>New Mail</old>
+			<new>新規メール</new>
+		</text>
+		<text>
+			<old>Outgoing mail</old>
+			<new>送信メール</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>パスワード</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Save Configuration</old>
+			<new>設定保存</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>送信</new>
+		</text>
+		<text>
+			<old>Server Address</old>
+			<new>サーバアドレス</new>
+		</text>
+		<text>
+			<old>Server Port</old>
+			<new>サーバポート</new>
+		</text>
+		<text>
+			<old>Server Protocol</old>
+			<new>サーバプロトコル</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>件名</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>件名:</new>
+		</text>
+		<text>
+			<old>This name will be used by eyeMail to identify this account, and has nothing to do with the server&#039;s configuration.</old>
+			<new>この名前はeyeMailによってアカウントを識別するために使われ、サーバの設定とは関係ありません。</new>
+		</text>
+		<text>
+			<old>Use Secure Sockets</old>
+			<new>SSLを使用</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>ユーザ名</new>
+		</text>
+		<text>
+			<old>Welcome to eyeMail. Please, fill this form with your e-mail account data.</old>
+			<new>ようこそeyeMailへ。このフォームにあなたのeメールアカウント情報を入力して下さい。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>%s added</old>
+			<new>%s を追加しました</new>
+		</text>
+		<text>
+			<old>Add an application</old>
+			<new>アプリケーションを追加</new>
+		</text>
+		<text>
+			<old>Add Application</old>
+			<new>アプリ追加</new>
+		</text>
+		<text>
+			<old>Application name</old>
+			<new>アプリケーション名</new>
+		</text>
+		<text>
+			<old>Application Properties</old>
+			<new>アプリケーションプロパティ</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>閉じる</new>
+		</text>
+		<text>
+			<old>Code executed</old>
+			<new>実行するコード</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>グループ作成</new>
+		</text>
+		<text>
+			<old>Create new Group</old>
+			<new>新規グループ作成</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>説明</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>デスクトップ</new>
+		</text>
+		<text>
+			<old>Enter the name of the new group:</old>
+			<new>新規グループの名前を入力して下さい:</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>お気に入り</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>ゲーム</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>グループ</new>
+		</text>
+		<text>
+			<old>Group Name</old>
+			<new>グループ名</new>
+		</text>
+		<text>
+			<old>Group properties</old>
+			<new>グループプロパティ</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>グループ</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>ホーム</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>アイコン</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>ネットワーク</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>オフィス</new>
+		</text>
+		<text>
+			<old>Parameters</old>
+			<new>引数</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>場所</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>プロパティ</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>公開</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>リフレッシュ</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>変更の保存</new>
+		</text>
+		<text>
+			<old>Short description</old>
+			<new>短い説明</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>システム</new>
+		</text>
+		<text>
+			<old>The code executed by the application must not be left blank</old>
+			<new>アプリケーションで実行されるコードは空にできません。</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>ごみ箱</new>
+		</text>
+		<text>
+			<old>You must provide a short description of the application</old>
+			<new>アプリケーションの短い説明を入力して下さい。</new>
+		</text>
+		<text>
+			<old>You must select a group for the application</old>
+			<new>アプリケーションのグループを選択して下さい。</new>
+		</text>
+		<text>
+			<old>You must specify the name of the application</old>
+			<new>アプリケーションの名前を指定して下さい。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Add file</old>
+			<new>ファイル追加</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>添付</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日付</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>ダウンロード</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>空</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>メッセージ送信エラー</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>ファイルを保存しました。</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>差出人</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>受信箱</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>メッセージを削除しました</new>
+		</text>
+		<text>
+			<old>Message moved to trash</old>
+			<new>メッセージをごみ箱に移動しました</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>メッセージを元のフォルダに戻しました</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>メッセージを送信しました</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>新規メッセージ</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>読む</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>メッセージを読む</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>返信</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>戻す</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>送信</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>送信済み</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>件名</new>
+		</text>
+		<text>
+			<old>The body of the message cannot be left blank</old>
+			<new>本文は空にできません</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>宛先</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>ごみ箱</new>
+		</text>
+		<text>
+			<old>Trash emptied</old>
+			<new>ごみ箱を空にしました</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>未読</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>削除するメッセージを選択する必要があります</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>開くメッセージを選択する必要があります</new>
+		</text>
+		<text>
+			<old>You must specify the receiver of the message</old>
+			<new>メッセージの宛先を指定する必要があります</new>
+		</text>
+		<text>
+			<old>You must specify the subject of the message</old>
+			<new>メッセージの件名を指定する必要があります</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Error creating directory</old>
+			<new>ディレクトリ作成エラー</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新規フォルダ</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>特殊文字を削除しました。</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>新しいフォルダ名を入力して下さい</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add</old>
+			<new>追加</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>ブックマーク追加</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>アプリケーション</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>ブックマークタイトル</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>ブックマーク</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>ブックマーク削除</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>本当にこのブックマークを削除しますか？</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>フォーラム</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>画像</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>インターネット</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>知識</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>リンクを削除しました。</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>リンクを保存しました。</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>ブックマークを開く</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>検索エンジンを開く</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>検索</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>スタートページ</new>
+		</text>
+		<text>
+			<old>The bookmark doesn&#039;t exist!</old>
+			<new>ブックマークが存在しません！</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>既に同じタイトルのブックマークがあります！</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Webサイト</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File not found</old>
+			<new>ファイルが見つかりません</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>ファイルを保存しました。</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>あなたには必要な権限がありません。</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>ファイルを作成できません</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>戻る</new>
+		</text>
+		<text>
+			<old>Full</old>
+			<new>フル</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>次</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>あなたには必要な権限がありません。</new>
+		</text>
+		<text>
+			<old>You are on the first slide, you can&#039;t go back</old>
+			<new>最初のスライドです、戻れません</new>
+		</text>
+		<text>
+			<old>You have to select a file to open</old>
+			<new>開くファイルを選択する必要があります</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Kill Process</old>
+			<new>プロセスをkill</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>プロセスをkillしました</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>プロセス名</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>ユーザ名</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Author: %s</old>
+			<new>作成者: %s</new>
+		</text>
+		<text>
+			<old>Created with: %s</old>
+			<new>作成ツール: %s</new>
+		</text>
+		<text>
+			<old>Creation date: %s</old>
+			<new>作成日時: %s</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>ディレクトリ</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>ファイル情報</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>プロパティ</new>
+		</text>
+		<text>
+			<old>Size: %sbytes</old>
+			<new>サイズ: %sバイト</new>
+		</text>
+		<text>
+			<old>Type: %s</old>
+			<new>形式: %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Error renaming file.</old>
+			<new>ファイルリネームエラー</new>
+		</text>
+		<text>
+			<old>Please type a new name here:</old>
+			<new>新しい名前を入力して下さい:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>リネーム</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>特殊文字を削除しました。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found</old>
+			<new>ファイルが見付かりません</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>あなたには必要な権限がありません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s のダウンロードは壊れています！イントールできません</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s をインストールしました！</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>承諾</new>
+		</text>
+		<text>
+			<old>App Manager</old>
+			<new>アプリマネージャ</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>アプリ名</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>作成者: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>カテゴリ</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>カテゴリ: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>依存: %s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>説明: %s</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>本当にこのアプリケーションをアンインストールしますか？</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>%s をダウンロードしてインストールしています... お待ち下さい</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: パッケージリストを更新しました</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>インストール</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>インストール済み</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>インストール中</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>ライセンス: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>名前: %s</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>root以外はeyeAppをインストールできません</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>インストールするアプリケーションを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>アンインストールするアプリケーションを選択して下さい。</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>検索</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>提案: %s</new>
+		</text>
+		<text>
+			<old>The application can&#039;t be uninstalled.</old>
+			<new>アプリケーションをアンインストールできません。</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>アプリケーションをアンインストールしました。</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>アンインストール</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>アプリケーションをアンインストール</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>バージョン</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>バージョン: %s</new>
+		</text>
+		<text>
+			<old>You are installing a new App in your eyeOS system</old>
+			<new>新しいアプリをeyeOSシステムにインストールしています</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Add input to output</old>
+			<new>出力に入力も含める</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>末尾に改行を付ける</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>ASCIIから16進表現へ</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>入力の自動クリア</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64デコード</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64エンコード</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>クリア</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>出力の結合</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>10進表現からローマ数字へ</new>
+		</text>
+		<text>
+			<old>eyeOS hash</old>
+			<new>eyeOSハッシュ</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>16進表現からASCIIへ</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>HTMLエンティティ</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>入力テキスト</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>実行時間: %s</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>MD5ハッシュ</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>OK</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>出力テキスト</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>HTMLエンティティの除去</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>ローマ数字から10進表現へ</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URLデコード</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URLエンコード</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTrash</name>
+		<text>
+			<old>Actions</old>
+			<new>アクション</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>ごみ箱を空にする</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Another file</old>
+			<new>別のファイル</new>
+		</text>
+		<text>
+			<old>Error uploading file</old>
+			<new>ファイルアップロードエラー</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>アップロード</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>ファイルアップロード</new>
+		</text>
+		<text>
+			<old>Upload finished!</old>
+			<new>アップロード完了！</new>
+		</text>
+		<text>
+			<old>You can now close this window.</old>
+			<new>このウィンドウを閉じて下さい。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>編集</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>あなたには必要な権限がありません。</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Unable to save position</old>
+			<new>位置が保存できません</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>ラベルテキスト変更</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>eyeAppの例</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process was killed</old>
+			<new>killされたプロセスはありません</new>
+		</text>
+	</part>
+	<part>
+		<name>propertyTrash</name>
+		<text>
+			<old>Deleted at: %s</old>
+			<new>削除日時: %s</new>
+		</text>
+		<text>
+			<old>Filename: %s</old>
+			<new>ファイル名: %s</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>プロパティ</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Restore trash</old>
+			<new>ごみ箱の中身を元に戻す</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>April</old>
+			<new>4月</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>8月</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>このコードを別のスプレッドシートアプリケーションにコピー/貼り付けして下さい(例: Excel)</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>12月</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>列の削除</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>行の削除</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>2月</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>数式</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>金曜日</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>列の挿入</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>行の挿入</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>1月</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>7月</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>6月</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>3月</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>5月</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>月曜日</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>新規</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>11月</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>10月</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>開く</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>位置</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>印刷</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>本当にセルを空にしますか？</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>土曜日</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>保存</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>9月</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>シートサイズ</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>スタイル</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>日曜日</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>木曜日</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>火曜日</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>水曜日</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>April</old>
+			<new>4月</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>8月</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>12月</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>金</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>2月</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>1月</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>7月</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>6月</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>月</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>3月</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>5月</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>11月</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>10月</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>土</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>日</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>9月</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>火</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>木</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>水</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Are you sure you want to import this vCard?</old>
+			<new>本当にこのvCardをインポートしますか？</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>ファイルエクスポートエラー</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>ファイルをインポートしました！</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>未サポートの形式です！</new>
+		</text>
+		<text>
+			<old>Import vCard</old>
+			<new>vCardをインポート</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>そのファイル中にコンタクトが見付かりません</new>
+		</text>
+		<text>
+			<old>vCardImport can&#039;t initialize, contact with your administrator</old>
+			<new>vCardImportを初期化できません、管理者に問合せて下さい</new>
+		</text>
+	</part>
+</lang>

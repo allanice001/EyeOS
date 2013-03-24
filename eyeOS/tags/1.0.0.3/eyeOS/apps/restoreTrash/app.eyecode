@@ -1,0 +1,62 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function restoreTrash_run($params=null) {
+	if(is_array($params)) {
+		$file = $params[0][0];
+		$callback = $params[0][1];
+	}
+	$myWindow = new Window(array('name'=>'restoreTrashWND','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>350,'height'=>170,
+		'title'=>'New folder'));
+	$myWindow->show();
+
+	$myLabel = new Label(array('name'=>'emLabel','father'=>'restoreTrashWND_Content',
+		'text'=>'Are you sure you want to restore this file?','y'=>25,'x'=>105));
+	$myLabel->show();
+
+	$myHidden = new Hidden(array('name'=>'nfFile','father'=>'restoreTrashhWND_Content','text'=>$file));
+	reqLib('eyeWidgets','serialize',array($myHidden));	
+	
+	if($callback) {
+		$myHidden = new Hidden(array('name'=>'nfCallback','father'=>'restoreTrashhWND_Content','text'=>$callback));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+
+	$myButton = new Button(array('name'=>'emButton','father'=>'restoreTrashWND_Content',
+		'caption'=>'Yes','x'=>145,'y'=>70,'signal'=>'yes'));
+	$myButton->show();
+
+        $myButton = new Button(array('name'=>'emButton2','father'=>'restoreTrashWND_Content',
+                'caption'=>'No','x'=>235,'y'=>70,'signal'=>'no'));
+        $myButton->show();
+
+
+	$myImage = new Imagebox(array('name'=>'image_folder','father'=>'restoreTrashWND_Content',
+		'url'=>'index.php?extern=apps/eyeTrash/gfx/restore_big.png',
+		'x'=>30,'y'=>58));
+	$myImage->show();
+}
+
+function restoreTrash_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

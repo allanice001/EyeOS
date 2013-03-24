@@ -1,0 +1,27 @@
+.eyeCalendar_day, .eyeCalendar_hour, .eyeCalendar_part {
+	float: left;
+	position: relative;
+}
+
+.eyeCalendar_day {
+	height: 100%;
+}
+
+.eyeCalendar_halfHour {
+	border-top:1px dotted #cccccc;
+	height: 1px;
+	position: absolute;
+}
+
+.eyeCalendar_halfHour, .eyeCalendar_hour, .eyeCalendar_part {
+	width: 100%;
+}
+
+.eyeCalendar_hover:hover {
+	text-decoration: underline;
+}
+
+.eyeCalendar_part {
+	height: 25%;
+	z-index: 2;
+}

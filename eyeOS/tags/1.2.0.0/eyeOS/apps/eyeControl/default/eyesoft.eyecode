@@ -1,0 +1,118 @@
+﻿<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+// $myTable
+$sortypes = array('String');
+$theader = array('Mirror');
+
+$myTable = new Sortabletable(array(
+	'name' => 'eyeControl_eyesoft_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes,
+	'theader' => $theader,
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 375
+));
+$myTable->show();
+$nMirrors = 0;
+$mirrorXML = eyeXML('getXMLfile',array(EYE_ROOT . '/' . SYSTEM_DIR . '/' . CONF_USER_DIR . '/ports.xml'));
+foreach($mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'] as $mirror) {
+	$nMirrors++;
+	$myTable->addRow(array($mirror));
+}
+// New
+$myButton = new Button(array(
+	'name' => 'eyeControl_eyesoft_button_new',
+	'father' => $eyeContainer,
+	'signal' => 'eyesoft_new',
+	'caption' => 'New',
+	'width' => 90,
+	'x' => 10,
+	'y' => 0,
+	'img' => 'index.php?extern=' . THEMES_DIR . '/default/icons/16x16/new.png'
+));
+$myButton->show();
+// Edit
+$myButton = new Button(array(
+	'name' => 'eyeControl_eyesoft_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'eyesoft_edit',
+	'caption' => 'Edit',
+	'width' => 90,
+	'x' => 100,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/paste.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Test
+$myButton = new Button(array(
+	'name' => 'eyeControl_eyesoft_button_test',
+	'father' => $eyeContainer,
+	'signal' => 'eyesoft_test',
+	'caption' => 'Test',
+	'width' => 90,
+	'x' => 190,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/paste.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Delete
+$myButton = new Button(array(
+	'name' => 'eyeControl_eyesoft_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'eyesoft_delete',
+	'caption' => 'Delete',
+	'width' => 90,
+	'x' => 280,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/delete.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Launch eyeSoft
+$myButton = new Button(array(
+	'name' => 'eyeControl_eyesoft_button_launch',
+	'father' => $eyeContainer,
+	'signal' => 'eyesoft_launch',
+	'caption' => 'Launch eyeSoft',
+	'width' => 100,
+	'x' => 370,
+	'y' => 0,
+	'img' => 'index.php?extern=apps/eyeFiles/gfx/upload.png'
+));
+$myButton->show();
+// x mirror (s)
+$myLabel = new Label(array(
+	'name' => 'eyeControl_eyesoft_label_mirrors',
+	'father' => $eyeContainer,
+	'horiz' => 1,
+	'y' => 5,
+	'text' => '%s mirror(s)',
+	'tokens' => array($nMirrors),
+));
+$myLabel->show();
+?>

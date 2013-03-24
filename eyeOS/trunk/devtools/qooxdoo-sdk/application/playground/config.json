@@ -1,0 +1,76 @@
+{
+  "name"    : "Playground config.json",
+
+  "include" :
+  [
+    {
+      "path" : "${QOOXDOO_PATH}/tool/data/config/application.json"
+    }
+  ],
+  
+  "default-job" : "source",
+
+  "let" :
+  {
+    "APPLICATION"  : "playground",
+    "QOOXDOO_PATH" : "../..",
+    "CACHE"        : "${TMPDIR}/cache",
+    "QXTHEME"      : "qx.theme.Modern",
+    "LOCALES"      : [ "en", "de","ro"],
+    "TEST_INCLUDE" : "${APPLICATION}.test.*",
+    "API_EXCLUDE"  : ["${APPLICATION}.test.*"],
+    "ROOT"         : "."
+  },
+  
+  "jobs" :
+  {
+    // this one so that source, build-script and build-resources use common settings
+    "playground-compile" :
+    {
+      "include" :     
+      [
+        "${APPLICATION}.*",
+        "qx.*"
+      ],
+
+      "exclude" :
+      [
+        "qx.test.*",
+        "qx.dev.unit.*",
+        "playground.test.*"
+      ],
+
+      "variants" :
+      {
+        "=qx.debug" : ["on"]
+      }
+    },
+
+    "build-script" :
+    {
+      "extend" : [ "playground-compile" ],
+
+      "settings" :
+      {
+        "qx.nativeScrollBars" : true
+      }
+    },
+
+
+    "build-resources" :
+    {
+      "extend" : [ "playground-compile" ]
+    },
+
+    
+    "source" :
+    {
+      "extend" : [ "playground-compile" ],
+
+      "settings" :
+      {
+        "qx.nativeScrollBars" : true
+      }
+    }    
+  }
+}

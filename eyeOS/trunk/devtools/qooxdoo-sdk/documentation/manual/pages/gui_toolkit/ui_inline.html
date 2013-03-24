@@ -1,0 +1,240 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Inline Widgets &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="GUI Toolkit" href="../gui_toolkit.html" />
+    <link rel="next" title="Custom Widgets" href="ui_develop.html" />
+    <link rel="prev" title="Drag & Drop" href="ui_dragdrop.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ui_develop.html" title="Custom Widgets"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ui_dragdrop.html" title="Drag & Drop"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../gui_toolkit.html" accesskey="U">GUI Toolkit</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inline-widgets">
+<span id="pages-gui-toolkit-ui-inline-inline-widgets"></span><h1>Inline Widgets<a class="headerlink" href="#inline-widgets" title="Permalink to this headline">¶</a></h1>
+<p>This page describes how you can use qooxdoo widgets inside HTML-dominated pages. This use case is different from creating a regular, &quot;standalone&quot; qooxdoo application.</p>
+<div class="section" id="target-audience">
+<span id="pages-gui-toolkit-ui-inline-target-audience"></span><h2>Target Audience<a class="headerlink" href="#target-audience" title="Permalink to this headline">¶</a></h2>
+<p>Integrating qooxdoo widgets into existing HTML pages could be interesting to all users who already have (many) existing pages, often some kind of &quot;portal&quot;,  and therefore don't want to transform these into a standalone rich Internet application (RIA).</p>
+</div>
+<div class="section" id="online-demos">
+<span id="pages-gui-toolkit-ui-inline-online-demos"></span><h2>Online Demos<a class="headerlink" href="#online-demos" title="Permalink to this headline">¶</a></h2>
+<p>Take a look at the online demos to see the use of inline widgets in action.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.3/demobrowser/demo/root/Page.html">Absolute positioning demo</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.3/demobrowser/demo/root/Inline.html">Page flow using Inline</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.3/demobrowser/demo/root/Inline_Dynamic_Resize.html">Dynamic resize for Inline</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.3/demobrowser/demo/root/Inline_Window.html">Inline window</a></li>
+</ul>
+</div>
+<div class="section" id="set-up-an-inline-application">
+<span id="pages-gui-toolkit-ui-inline-setup-an-inline-application"></span><h2>Set Up An Inline Application<a class="headerlink" href="#set-up-an-inline-application" title="Permalink to this headline">¶</a></h2>
+<p>An inline application is set up by using the <tt class="docutils literal"><span class="pre">create-application</span></tt> script described in the <a class="reference internal" href="../getting_started/helloworld.html#pages-getting-started-helloworld-create-your-application"><em>Hello World</em></a> section. You just have to add the additional option <tt class="docutils literal"><span class="pre">-t</span></tt> with the value <tt class="docutils literal"><span class="pre">inline</span></tt> and you're done.</p>
+<div class="highlight-javascript"><pre>/opt/qooxdoo-sdk/tool/bin/create_application.py -n myapp -t inline</pre>
+</div>
+<p>Once executed you get a skeleton application which is ready-to-use to develop an inline application. The skeleton also demostrates the different integration approaches which are described in the next section.</p>
+</div>
+<div class="section" id="ways-of-integration">
+<span id="pages-gui-toolkit-ui-inline-ways-of-integration"></span><h2>Ways of Integration<a class="headerlink" href="#ways-of-integration" title="Permalink to this headline">¶</a></h2>
+<p>There are basically two ways to integrate a qooxdoo widget into an existing HTML-dominated page:</p>
+<ul class="simple">
+<li>positioning a widget with absolute coordinates (maybe overlaying existing content)</li>
+<li>adding the widget within the page flow by using an existing DOM node as an isle</li>
+</ul>
+<p>Which way you should choose depends on what you wish to achieve. Technically both share the same foundation.</p>
+<p>Instead of using <tt class="docutils literal"><span class="pre">qx.application.Standalone</span></tt> as a base application class you need to extend from <tt class="docutils literal"><span class="pre">qx.application.Inline</span></tt> as a starting point. So basically your (empty) application looks like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;myPortal.Application&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">Inline</span><span class="p">,</span>
+
+  <span class="nx">members</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="nx">main</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+
+      <span class="c1">// your code follows here</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="section" id="absolute-positioning">
+<span id="pages-gui-toolkit-ui-inline-absolute-positioning"></span><h3>Absolute Positioning<a class="headerlink" href="#absolute-positioning" title="Permalink to this headline">¶</a></h3>
+<p>Adding a widget to the page without regarding the page flow is a no-brainer. Just create the desired widget and add it to the application root. As the application root is an instance of <a class="reference external" href="http://demo.qooxdoo.org/1.3/apiviewer/#qx.ui.layout.Basic">qx.ui.layout.Basic</a> you can only use <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">top</span></tt> coordinates to position your widgets.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Absolute positioning requires no existing DOM node in the target document.</p>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;myPortal.Application&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">Inline</span><span class="p">,</span>
+
+  <span class="nx">members</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="nx">main</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+
+      <span class="c1">// add a date chooser widget</span>
+      <span class="kd">var</span> <span class="nx">dateChooser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">DateChooser</span><span class="p">();</span>
+
+      <span class="c1">// add the date chooser widget to the page</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="nx">dateChooser</span><span class="p">,</span> <span class="p">{</span> <span class="nx">left</span> <span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">top</span> <span class="o">:</span> <span class="mi">100</span> <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="page-flow">
+<span id="pages-gui-toolkit-ui-inline-page-flow"></span><h3>Page Flow<a class="headerlink" href="#page-flow" title="Permalink to this headline">¶</a></h3>
+<p>However, the former solution won't fit for e.g. a portal where the page is divided into several parts. In this case you won't have any absolute coordinates you could work with reliably.</p>
+<p>To add widgets at certain locations inside the page you can create or reuse DOM nodes which act as islands where the qooxdoo widgets live in regard to the page flow.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to define specific DOM nodes in your document which act as islands for the qooxdoo widgets.</p>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;myPortal.Application&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">Inline</span><span class="p">,</span>
+
+  <span class="nx">members</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="nx">main</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+
+      <span class="c1">// create the island by connecting it to the existing</span>
+      <span class="c1">// &quot;dateChooser&quot; DOM element of your HTML page.</span>
+      <span class="c1">// Typically this is a DIV as in &lt;div id=&quot;dateChooser&quot;&gt;&lt;/div&gt;</span>
+      <span class="kd">var</span> <span class="nx">dateChooserIsle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">Inline</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;dateChooser&quot;</span><span class="p">));</span>
+
+      <span class="c1">// create the date chooser widget and add it to the inline widget (=island)</span>
+      <span class="kd">var</span> <span class="nx">dateChooser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">DateChooser</span><span class="p">();</span>
+      <span class="nx">dateChooserIsle</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">dateChooser</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Inline Widgets</a><ul>
+<li><a class="reference internal" href="#target-audience">Target Audience</a></li>
+<li><a class="reference internal" href="#online-demos">Online Demos</a></li>
+<li><a class="reference internal" href="#set-up-an-inline-application">Set Up An Inline Application</a></li>
+<li><a class="reference internal" href="#ways-of-integration">Ways of Integration</a><ul>
+<li><a class="reference internal" href="#absolute-positioning">Absolute Positioning</a></li>
+<li><a class="reference internal" href="#page-flow">Page Flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="ui_dragdrop.html"
+                                  title="previous chapter">Drag &amp; Drop</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="ui_develop.html"
+                                  title="next chapter">Custom Widgets</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/gui_toolkit/ui_inline.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

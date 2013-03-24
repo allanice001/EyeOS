@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>fileExists</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+			<tag>real</tag>
+		</tags>
+		<shortDesc>Checks if a file exists.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>fileExists</functionName>
+		<syntax>bool vfs('real_fileExists', array(string $file))</syntax>
+		<desc>Checks if a specified real file exists or not.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the file to check.</desc>
+		</params>	
+		<return>If the file exists, returns true. Otherwise, returns false and in case there is some error, sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No file has been specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

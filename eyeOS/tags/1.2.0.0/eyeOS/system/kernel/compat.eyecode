@@ -1,0 +1,84 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	this file is used to emulate php functions when it are not availables on the current php installation/version
+*/
+
+if ( !function_exists('sys_get_temp_dir') )
+{
+    function sys_get_temp_dir()
+    {
+        // Try to get from environment variable
+        if ( !empty($_ENV['TMP']) )
+        {
+            return realpath( $_ENV['TMP'] );
+        }
+        else if ( !empty($_ENV['TMPDIR']) )
+        {
+            return realpath( $_ENV['TMPDIR'] );
+        }
+        else if ( !empty($_ENV['TEMP']) )
+        {
+            return realpath( $_ENV['TEMP'] );
+        }
+
+        // Detect by creating a temporary file
+        else
+        {
+            // Try to use system's temporary directory
+            // as random name shouldn't exist
+            $temp_file = tempnam( md5(uniqid(rand(), TRUE)), '' );
+            if ( $temp_file )
+            {
+                $temp_dir = realpath( dirname($temp_file) );
+                unlink( $temp_file );
+                return $temp_dir;
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+    }
+}
+
+function ini_get_size($sName)
+{
+    $sSize = ini_get($sName);
+    $sUnit = substr($sSize, -1);
+    $iSize = (int) substr($sSize, 0, -1);
+    switch (strtoupper($sUnit))
+    {
+        case 'Y' : $iSize *= 1024; // Yotta
+        case 'Z' : $iSize *= 1024; // Zetta
+        case 'E' : $iSize *= 1024; // Exa
+        case 'P' : $iSize *= 1024; // Peta
+        case 'T' : $iSize *= 1024; // Tera
+        case 'G' : $iSize *= 1024; // Giga
+        case 'M' : $iSize *= 1024; // Mega
+        case 'K' : $iSize *= 1024; // kilo
+    };
+    return $iSize;
+}
+?>

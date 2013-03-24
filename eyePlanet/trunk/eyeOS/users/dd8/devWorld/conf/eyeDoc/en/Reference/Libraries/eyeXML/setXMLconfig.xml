@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>setXMLconfig</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+			<tag>config</tag>
+		</tags>
+		<shortDesc>Updates an application's user config file.</shortDesc>	
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>setXMLconfig</functionName>
+		<syntax>eyeXML('setXMLconfig', array($appname, $filename, $newConfig))</syntax>
+		<desc>Updates the configuration file of an application with a specified content.</desc>
+		<params>
+			<type>required</type>
+			<name>appname</name>
+			<desc>Name of the application.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>filename</name>
+			<desc>Name of the configuration file.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>newConfig</name>
+			<desc>PHP array to save as the content of the file.</desc>
+		</params>
+		<return>If the configuration file is written successfully, returns true. Otherwise returns false.</return>
+	</definition>
+</info>

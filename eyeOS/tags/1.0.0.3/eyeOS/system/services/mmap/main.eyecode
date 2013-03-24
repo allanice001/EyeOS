@@ -1,0 +1,207 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Message Map eyeOS service
+*/
+
+/***
+* 
+* Description: add a message to the output buffer
+*
+*
+* Arguments:
+* 	+ content: content to add into the buffer, should be in xml format
+* 
+* Return: -
+*
+* 
+* Last update 2007-02-19
+***/
+function service_mmap_addToBuffer($params) {
+	$content = $params[0];
+
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	global $outputBuffer;
+	$outputBuffer .= $content;
+	return true;
+}
+
+/***
+* 
+* Description: return the output buffer
+*
+*
+* Arguments: -
+* 
+* Return: -
+*
+* 
+* Last update 2007-02-19
+***/
+function service_mmap_releaseBuffer() {
+	//this function release output buffer
+	global $outputBuffer;
+	
+	//Making the xml response.
+	$temp = reqLib('eyeXML','append',array('eyeMessage',$outputBuffer));
+	$temp = reqLib('eyeXML','getXmlHeader').$temp;
+	return $temp;
+}
+
+/***
+* 
+* Description: execute the event of the app associated with the given checknum
+*
+*
+* Arguments:
+* 	+ checknum: the checknum of the app who sends the message
+* 	+ action: the action to execute into the events table of the app
+*	+ args: arguments to the action
+* 
+* Return: the output buffer of the system
+*
+*
+* Notes: this function is for internal purposes only and should not be used
+*
+* 
+* Last update 2007-02-19
+***/
+function service_mmap_routemsg($params) {
+	global $checknum;
+	global $currentUser;
+	global $myPid;
+	$checknum = $params[0];
+	$action = $params[1];
+	$args = $params[2];
+
+	if(!isset($_SESSION['AUTH_IP']) || empty($_SESSION['AUTH_IP'])) {
+		$_SESSION['AUTH_IP'] = $_SERVER['REMOTE_ADDR'];
+	} else {
+		if($_SESSION['AUTH_IP'] != $_SERVER['REMOTE_ADDR']) {
+			reqLib('eyeSessions','endSession'); //delete session
+			service('eyex','messageBox',array('content'=>'Your session has expired','type'=>2));
+			service('eyex','rawjs',array('js'=>'location.reload(true);')); //refresh the page
+			return service('mmap','releaseBuffer');
+		}
+	}
+	if($args) {
+		$args = reqLib('eyeXML','xml2array',array($args));
+	}
+	
+	global $procInfo;
+	$procInfo = service('proc','getProcByChecknum',array($checknum));
+	
+	
+	
+	$currentUser = $procInfo['currentUser'];
+	$myPid = $procInfo['pid'];
+	
+	$procInfo['checknum'] = $checknum;//Remove this? maybe 
+	
+	//If app don't exists...
+	if(!$procInfo['appName']) {
+		exit;
+	} 
+	//unset($messageTable);
+	//If events.eyecode can't be include, include it, else exit.
+	if(is_readable(EYE_ROOT.'/'.APP_DIR.'/'.$procInfo['appName'].'/'.'events'.EYE_CODE_EXTENSION)) {
+		include_once(EYE_ROOT.'/'.APP_DIR.'/'.$procInfo['appName'].'/'.'events'.EYE_CODE_EXTENSION);
+	} else {
+		exit;
+	}
+	
+	global $outputBuffer;
+	$outputBuffer = "";
+	
+	//First call on_Message event if it exists (for example for friends).
+	if(function_exists($procInfo['appName'].'_on_Message')) {
+		call_user_func($procInfo['appName'].'_on_Message',$args);
+	}
+	
+	if(isset($messageTable[$action])) {
+		call_user_func($messageTable[$action]['function'],$messageTable[$action]['args']);
+	} else {
+		//Call the especific event.
+		if(function_exists($procInfo['appName'].'_on_'.$action)) {
+			call_user_func($procInfo['appName'].'_on_'.$action,$args);
+		} else {
+			exit;
+		}
+	}
+
+	return service('mmap','releaseBuffer');
+}
+
+/***
+* 
+* Description: convert an array into an array prepared for javascript
+*
+*
+* Arguments:
+* 	+ arrayinphp: array to convert
+* 
+* Return: -
+*
+* 
+* Last update 2007-02-19
+***/
+function service_mmap_array2js($params) {
+	$arrayinphp = $params[0];
+	if(!$arrayinphp) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$code = "{";
+	foreach ($arrayinphp as $k => $v) {
+		$key = addslashes($k);
+		$value = addslashes($v);
+		$code .= "'$key' : '$value',";
+	}
+	$code = substr($code,0,-1);
+	$code .= "}";
+	return $code;
+}
+
+function service_mmap_array2jsArg($params) {
+	$arrayinphp = $params[0];
+	if(!is_array($arrayinphp)) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$code = '';
+	$loops=0;
+	foreach ($arrayinphp as $v) {
+		$value = str_replace("\\","\\\\",$value);
+		$value = str_replace('"','\\"',$v);
+		$value = str_replace("'","\\'",$value);
+		$code .= $value.'""';
+		$loops++;
+	}
+	$code = substr($code,0,-2);
+	return $code;
+}
+?>

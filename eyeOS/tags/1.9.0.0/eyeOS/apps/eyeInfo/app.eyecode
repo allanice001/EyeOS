@@ -1,0 +1,171 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeInfo_run($params = '') {
+	$myWindow = new Window(array(
+		'cent' => 1,
+		'father' => 'eyeApps',
+		'height' => 400,
+		'name' => 'eyeInfo_Window',
+		'title' => 'About eyeOS',
+		'savePosition' => 1,
+		'style' => TITLE + LISTED + CLOSE + MIN,
+		'width' => 400
+	));
+	$myWindow->show();
+
+	$myImagebox = new Imagebox(array(
+		'cent' => 2,
+		'cssClass' => 'cPointer',
+		'disableMsg' => 0,
+		'father' => 'eyeInfo_Window_Content',
+		'name' => 'eyeInfo_Imagebox_Logo',
+		'signal' => 'Navigate',
+		'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&extern=apps/eyeX/gfx/logo.png',
+		'x' => 0,
+		'y' => 15
+	));
+	$myImagebox->show();
+
+	$myLabel = new Label(array(
+		'father' => 'eyeInfo_Window_Content',
+		'name' => 'eyeInfo_Label_Version',
+		'text' => 'eyeOS ' . EYEOS_VERSION,
+		'x' => 0,
+		'y' => 75
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('font-weight' => 'bold','text-align' => 'center','width' => '398px'));
+
+	$myTab = new Tab(array(
+		'father' => 'eyeInfo_Window_Content',
+		'name' => 'eyeInfo_Tab',
+		'height' => 270,
+		'tabwidth' => 100,
+		'width' => 398,
+		'x' => 0,
+		'y' => 100
+	));
+	$myTab->show();
+	$teamTab = $myTab->addTab('eyeOS Team',1);
+	$supportersTab = $myTab->addTab('Supporters',1);
+	$projectsTab = $myTab->addTab('Projects',1);
+	$myTab->selectByName('eyeOS Team');
+
+	$myImagebox = new Imagebox(array(
+		'father' => 'eyeInfo_Tab',
+		'horiz' => 1,
+		'name' => 'eyeInfo_Imagebox_Doowee',
+		'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/doowee/doowee.png',
+		'vert' => 1,
+		'x' => 10,
+		'y' => 10
+	));
+	$myImagebox->show();
+
+	$team = array('Alejandro Fiestas','Anaël Ollier','Daniel Gil','Jordi Ferrer','José Carlos Norte','Lars Knickrehm','Marc Cercós','Matthew Powell','Pau Garcia-Milà','Pau Peris','Pol Watine','Adrián Norte','Julia Garcia');
+	shuffle($team);
+	$y = 246 / (2 + count($team));
+
+	$myLabel = new Label(array(
+		'father' => $teamTab,
+		'name' => 'eyeInfo_Label_Team',
+		'text' => 'The eyeOS Crowd (randomly displayed)',
+		'x' => 10,
+		'y' => $y - 10
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('font-weight' => 'bold'));
+
+	$i = 2;
+	foreach ($team as $value) {
+		$myLabel = new Label(array(
+			'father' => $teamTab,
+			'name' => 'eyeInfo_Label_Team_' . $i,
+			'text' => $value,
+			'x' => 20,
+			'y' => $i * $y - 7
+		));
+		$myLabel->show();
+		$i++;
+	}
+
+	$supporters = array('Alexandre Mejat','David Comuñas','Edouard Daubin','François Bocquet');
+	shuffle($supporters);
+	$y = 246 / (2 + count($supporters));
+
+	$myLabel = new Label(array(
+		'father' => $supportersTab,
+		'name' => 'eyeInfo_Label_Supporters',
+		'text' => 'eyeOS Community Developers',
+		'x' => 10,
+		'y' => $y - 10
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('font-weight' => 'bold'));
+
+	$i = 2;
+	foreach ($supporters as $value) {
+		$myLabel = new Label(array(
+			'father' => $supportersTab,
+			'name' => 'eyeInfo_Label_Supporters_' . $i,
+			'text' => $value,
+			'x' => 20,
+			'y' => $i * $y - 7
+		));
+		$myLabel->show();
+		$i++;
+	}
+
+	$projects = array('CodePress','Oxygen Icons','PHP UTF8','TinyMCE (Moxiecode)','X Library (Cross-Browser.com)');
+	shuffle($projects);
+	$y = 246 / (2 + count($projects));
+
+	$myLabel = new Label(array(
+		'father' => $projectsTab,
+		'name' => 'eyeInfo_Label_Projects',
+		'text' => 'Thanks to...',
+		'x' => 10,
+		'y' => $y - 10
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('font-weight' => 'bold'));
+
+	$i = 2;
+	foreach ($projects as $value) {
+		$myLabel = new Label(array(
+			'father' => $projectsTab,
+			'name' => 'eyeInfo_Label_Projects_' . $i,
+			'text' => $value,
+			'x' => 20,
+			'y' => $i * $y - 7
+		));
+		$myLabel->show();
+		$i++;
+	}
+}
+
+function eyeInfo_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

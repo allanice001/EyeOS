@@ -1,0 +1,185 @@
+<?php
+function eyeDashPanel_run($params=null) {	
+	global $myPid;
+	// We create the window:
+	service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeDashPanel/css/eyeDashPanel.css&type=css','id'=>'eyeDashPanel.css'));
+	$myWindow1 = new Window(array(
+		'name' => 'dashBoardPanel',
+		'father' => 'eyeApps',
+		'cent' => 1,
+		'width' => 465,
+		'height' => 360,
+		'title' => 'eyeDashBoard Control Panel',
+	));
+	$myWindow1->show();
+	
+	$myTab = new Tab(array('name'=>'eyeDashPAnel_TabGRP','father'=>'dashBoardPanel_Content','width'=>462,'height'=>320,
+		'x'=>0,'y'=>7,'caption'=>'eyeDashPanel','signal'=>'tabClosed'));
+	$myTab->show();
+
+	/* General Tab */
+	$generalTab = $myTab->addTab("General",1);
+
+	//Options section	 
+	$optionBox= new Box(array('name'=>'optionBox','father'=>$generalTab,'x'=>5,'y'=>7,
+		'width'=>453,'height'=>295,'title'=>'eyeDashBoard Options'));
+	$optionBox->show();
+	
+	$optionsBox = new Simplebox(array('name'=>'optionsContent','father'=>'optionBox','width'=>442,'height'=>190,'x'=>5,'y'=>30));
+	$optionsBox->show();
+	
+	$text = 'Image Render';
+	$imageRenderTitle = new Label(array('name'=>'imageRenderTitle','text'=>$text,'father'=>'optionsContent','x'=>5,'y'=>2));
+	$imageRenderTitle->show();
+	
+	$imageRenderBox = new SimpleBox(array('name'=>'imageRender','father'=>'optionsContent','width'=>140,'height'=>80,'x'=>5,'y'=>20));
+	$imageRenderBox->show(0);
+	
+	$imageRenderDescContent = new SimpleBox(array('name'=>'imageRenderDescContent','father'=>'imageRender','width'=>130,'height'=>70,'x'=>5,'y'=>5,'border'=>0));
+	$imageRenderDescContent->show();
+	
+	$text = 'This render type work nice with firefox browser';
+	$imageRenderDesc = new Label(array('name'=>'imageRenderDesc','text'=>$text,'father'=>'imageRenderDescContent','x'=>0,'y'=>0));
+	$imageRenderDesc->show();
+	
+	$text = 'Alpha Render';
+	$alphaRenderTitle = new Label(array('name'=>'alphaRenderTitle','text'=>$text,'father'=>'optionsContent','x'=>152,'y'=>2));
+	$alphaRenderTitle->show();
+	
+	$imageRenderBox = new SimpleBox(array('name'=>'alphaRender','father'=>'optionsContent','width'=>140,'height'=>80,'x'=>150,'y'=>20));
+	$imageRenderBox->show(0);
+	
+	$imageRenderDescContent = new SimpleBox(array('name'=>'alphaRenderDescContent','father'=>'alphaRender','width'=>130,'height'=>70,'x'=>5,'y'=>5,'border'=>0));
+	$imageRenderDescContent->show();
+	
+	$text = 'This render type work nice with firefox and opera browser';
+	$imageRenderDesc = new Label(array('name'=>'alphaRenderDesc','text'=>$text,'father'=>'alphaRenderDescContent','x'=>0,'y'=>0));
+	$imageRenderDesc->show();
+	
+	$text = 'No alpha Render';
+	$noalphaRenderTitle = new Label(array('name'=>'noalphaRenderTitle','text'=>$text,'father'=>'optionsContent','x'=>295,'y'=>2));
+	$noalphaRenderTitle->show();
+	
+	$imageRenderBox = new SimpleBox(array('name'=>'noalphaRender','father'=>'optionsContent','width'=>140,'height'=>80,'x'=>295,'y'=>20));
+	$imageRenderBox->show(0);
+	
+	$imageRenderDescContent = new SimpleBox(array('name'=>'noalphaRenderDescContent','father'=>'noalphaRender','width'=>130,'height'=>70,'x'=>5,'y'=>5,'border'=>0));
+	$imageRenderDescContent->show();
+	
+	$text = 'This render type work nice with all browser but don\'t have transparent effect';
+	$imageRenderDesc = new Label(array('name'=>'noalphaRenderDesc','text'=>$text,'father'=>'noalphaRenderDescContent','x'=>0,'y'=>0));
+	$imageRenderDesc->show();
+	
+	//Render buttons section
+	$imageRenderButton = new Button(array('name'=>'renderType','caption'=>'Image Render','father'=>'optionsContent','x'=>25,'y'=>120,'forceMsg'=>'image'));
+	$imageRenderButton->show();
+	
+	$alphaRenderButton = new Button(array('name'=>'renderType','caption'=>'Alpha Render','father'=>'optionsContent','x'=>170,'y'=>120,'forceMsg'=>'alpha'));
+	$alphaRenderButton->show();
+	
+	$noalphaRenderButton = new Button(array('name'=>'renderType','caption'=>'No alpha Render','father'=>'optionsContent','x'=>310,'y'=>120,'forceMsg'=>'noalpha'));
+	$noalphaRenderButton->show();
+	
+	//Stop and Start section	
+	$myButton = new Button(array('name'=>'startDash','caption'=>'Start DashBoard','father'=>$generalTab,'x'=>40,'y'=>20,'vert'=>1));
+	$myButton->show();
+	$myButton2 = new Button(array('name'=>'stopDash','caption'=>'Stop DashBoard','father'=>$generalTab,'x'=>40,'y'=>20,'vert'=>1,'horiz'=>1));
+	$myButton2->show();
+	
+	/* Widget List Tab */
+	$widgetListTab = $myTab->addTab("Widgets",2);
+	$listBox = new Box(array('name'=>'listBox','father'=>$widgetListTab,'x'=>5,'y'=>7,
+		'width'=>452,'height'=>295,'title'=>'Widget List'));
+	$listBox->show();
+	
+	$winContent = new Window(array('name'=>'listBoxContent','father' => 'listBox',
+		'y'=>0,'x'=>0,'width'=>452,'height'=>295,'type'=>100));
+	$winContent->show();		
+	service('eyex','rawjs',array('js'=>"document.getElementById('$myPid'+'_listBoxContent_Content').style.overflow = 'auto';"));
+	
+	//$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgets.xml'));
+	//new widget info store system
+	$dir = EYE_ROOT.'/'.APP_DIR.'/'.APP_CONF_SHARE.'/eyeDashBoard/'; 	
+	$widgetArray = vfs('real_getDirContent',array($dir,'widget_*.xml'));
+	
+	$count = 0;//Count for widget Y in list	
+	//Adding widgets from widgetList
+	$myWidgets = array();
+	foreach ($widgetArray as $widgetPath){
+		//Getting the widget info.
+		$info = getConfig('eyeDashBoard',basename($widgetPath));
+		
+		addWidgetInList(array('name'=>$info['widgetInfo'][0]['name'][0],'count'=>$count,'info'=>$info['widgetInfo']));
+		$count++;
+	}
+}
+//This will be in theme section, at the moment is here
+function addWidgetInList($params){
+	
+	$name = $params['name'];
+	$count = $params['count'];
+	$nameWidget = 'widget_'.$name;
+	//Getting info
+	$widgetRealName = $params['info'][0]['name'][0];
+	
+	$widgetDesc = $params['info'][0]['desc'][0];
+	$widgetDesc = $params['info'][0]['desc'][0];
+	$img = $params['info'][0]['img'][0];
+
+	$y = 10;
+	if($count > 0){
+		$y = $count*160;	
+	}
+	
+	$mySimpleBox = new Simplebox(array('name'=>$nameWidget,'father'=>'listBoxContent_Content','width'=>375,'height'=>135,'x'=>5,'y'=>$y));
+	$mySimpleBox->show();		
+	
+	$myNameContent = new Simplebox(array('name'=>$name.'_widgetNameContent','father'=>$nameWidget,'width'=>260,'height'=>20,'x'=>5,'y'=>5));
+	$myNameContent->show();
+
+	$myName = new Label(array('name'=>$name.'_label','father'=>$name.'_widgetNameContent','cent'=>3,'x'=>10,'text'=>$name));
+	$myName->show();
+
+	$myDescContent = new Simplebox(array('name'=>$name.'_widgetDescContent','father'=>$nameWidget,'width'=>260,'height'=>65,'x'=>5,'y'=>30));
+	$myDescContent->show();
+
+	$myDesc = new Label(array('name'=>$name.'_descLabel','father'=>$name.'_widgetDescContent','cent'=>3,'x'=>10,'text'=>$widgetDesc));
+	$myDesc->show();
+	
+	$myImgContent = new Simplebox(array('name'=>$name.'_widgetImgContent','father'=>$nameWidget,'width'=>95,'height'=>90,'x'=>5,'y'=>5,'horiz'=>1));
+	$myImgContent->show();
+	
+	$myImgBox = new Imagebox(array('name'=>$name.'_widgetPreview','father'=>$name.'_widgetImgContent','x'=>0,'y'=>0,'url'=>'index.php?extern=apps/'.$name.'/'.$img,'cent'=>1));
+	$myImgBox->show();
+	
+	$myButtonContent = new Simplebox(array('name'=>$name.'_widgetButtonContent','father'=>$nameWidget,'width'=>260,'height'=>30,'x'=>5,'y'=>5,'vert'=>1));
+	$myButtonContent->show();	
+
+	$myCountContent = new Simplebox(array('name'=>$name.'_widgetCountContent','father'=>$nameWidget,'width'=>95,'height'=>30,'x'=>5,'y'=>5,'horiz'=>1,'vert'=>1));
+	$myCountContent->show();
+
+	$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+	$count = count($myWidgets['widgetsLoaded'][0][$name]);
+	if($count === 0 || !isset($myWidgets['widgetsLoaded'][0][$name]) || !is_array($myWidgets['widgetsLoaded'][0][$name])){
+		$count = 'N/A';	 
+	}
+	$myCount = new Label(array('name'=>$name.'_countText','text'=>$count,'father'=>$name.'_widgetCountContent','x'=>43,'y'=>5));
+	$myCount->show(0);
+	
+	$addButton = new Button(array('name'=>$name.'_addWidget','caption'=>'Add','forceMsg'=>$name,'father'=>$name.'_widgetButtonContent','x'=>5,'y'=>5,'signal'=>'addWidget'));
+	$addButton->show(0);
+	
+	if($count == 'N/A'){
+		$enabled = 0;
+	}else{
+		$enabled = 1;
+	}
+	$rmButton = new Button(array('name'=>$name.'_rmWidget','caption'=>'Remove','forceMsg'=>$name,'father'=>$name.'_widgetButtonContent','x'=>5+50,'y'=>5,'enabled'=>$enabled,'signal'=>'rmWidget'));
+	$rmButton->show(0);
+}
+function eyeDashPanel_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

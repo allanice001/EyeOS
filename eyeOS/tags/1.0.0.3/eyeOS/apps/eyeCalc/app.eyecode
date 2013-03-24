@@ -1,0 +1,111 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+
+function eyeCalc_run($params=null) {
+	global $myPid;
+	global $checknum;
+	
+	$myWindow = new Window(array('name'=>'calcWND','father'=>'eyeApps','type'=>WIN_IMAGE_DRAGGABLE,'cent'=>1,
+	'title'=>'eyeCalc','background'=>'index.php?extern=apps/eyeCalc/img/back.png','width'=>173,'height'=>250));
+	$myWindow->show();
+	
+	
+	$myBut_Number_1 = new Imagebox(array('name'=>'but_number_1','father'=>'calcWND',
+		'x'=>26,'y'=>162,'url'=>'index.php?extern=apps/eyeCalc/img/1.png'));
+	$myBut_Number_1->show();
+	$myBut_Number_2 = new Imagebox(array('name'=>'but_number_2','father'=>'calcWND',
+		'x'=>58,'y'=>162,'url'=>'index.php?extern=apps/eyeCalc/img/2.png'));
+	$myBut_Number_2->show();
+	$myBut_Number_3 = new Imagebox(array('name'=>'but_number_3','father'=>'calcWND',
+		'x'=>91,'y'=>162,'url'=>'index.php?extern=apps/eyeCalc/img/3.png'));
+	$myBut_Number_3->show();
+	$myBut_Number_4 = new Imagebox(array('name'=>'but_number_4','father'=>'calcWND',
+		'x'=>26,'y'=>137,'url'=>'index.php?extern=apps/eyeCalc/img/4.png'));
+	$myBut_Number_4->show();
+	$myBut_Number_5 = new Imagebox(array('name'=>'but_number_5','father'=>'calcWND',
+		'x'=>58,'y'=>137,'url'=>'index.php?extern=apps/eyeCalc/img/5.png'));
+	$myBut_Number_5->show();
+	$myBut_Number_6 = new Imagebox(array('name'=>'but_number_6','father'=>'calcWND',
+		'x'=>91,'y'=>137,'url'=>'index.php?extern=apps/eyeCalc/img/6.png'));
+	$myBut_Number_6->show();
+	$myBut_Number_7 = new Imagebox(array('name'=>'but_number_7','father'=>'calcWND',
+		'x'=>26,'y'=>111,'url'=>'index.php?extern=apps/eyeCalc/img/7.png'));
+	$myBut_Number_7->show();
+	$myBut_Number_8 = new Imagebox(array('name'=>'but_number_8','father'=>'calcWND',
+		'x'=>58,'y'=>111,'url'=>'index.php?extern=apps/eyeCalc/img/8.png'));
+	$myBut_Number_8->show();
+	$myBut_Number_9 = new Imagebox(array('name'=>'but_number_9','father'=>'calcWND',
+		'x'=>91,'y'=>111,'url'=>'index.php?extern=apps/eyeCalc/img/9.png'));
+	$myBut_Number_9->show();
+	$myBut_Number_0 = new Imagebox(array('name'=>'but_number_0','father'=>'calcWND',
+		'x'=>26,'y'=>189,'url'=>'index.php?extern=apps/eyeCalc/img/0.png'));
+	$myBut_Number_0->show();
+	$myBut_Symbol_Dot = new Imagebox(array('name'=>'but_symbol_dot','father'=>'calcWND',
+		'x'=>58,'y'=>189,'url'=>'index.php?extern=apps/eyeCalc/img/dot.png'));
+	$myBut_Symbol_Dot->show();
+	$myBut_Symbol_Equal = new Imagebox(array('name'=>'but_symbol_equal','father'=>'calcWND',
+		'x'=>123,'y'=>137,'url'=>'index.php?extern=apps/eyeCalc/img/equal.png'));
+	$myBut_Symbol_Equal->show();
+	$myBut_Op_Divide = new Imagebox(array('name'=>'but_op_divide','father'=>'calcWND',
+		'x'=>58,'y'=>85,'url'=>'index.php?extern=apps/eyeCalc/img/divide.png'));
+	$myBut_Op_Divide->show();
+	$myBut_Op_Multiply = new Imagebox(array('name'=>'but_op_multiply','father'=>'calcWND',
+		'x'=>26,'y'=>85,'url'=>'index.php?extern=apps/eyeCalc/img/multiply.png'));
+	$myBut_Op_Multiply->show();
+	$myBut_Op_Substract = new Imagebox(array('name'=>'but_op_substract','father'=>'calcWND',
+		'x'=>91,'y'=>85,'url'=>'index.php?extern=apps/eyeCalc/img/substract.png'));
+	$myBut_Op_Substract->show();
+	$myBut_Op_Add = new Imagebox(array('name'=>'but_op_add','father'=>'calcWND',
+		'x'=>123,'y'=>85,'url'=>'index.php?extern=apps/eyeCalc/img/add.png'));
+	$myBut_Op_Add->show();
+	$myBut_Clear = new Imagebox(array('name'=>'but_clear','father'=>'calcWND',
+		'x'=>91,'y'=>189,'url'=>'index.php?extern=apps/eyeCalc/img/c.png'));
+	$myBut_Clear->show();	
+	$myBut_Exit = new Imagebox(array('name'=>'but_exit','father'=>'calcWND',
+		'x'=>79,'y'=>23,'url'=>'index.php?extern=apps/eyeCalc/img/close.png'));
+	$myBut_Exit->show();	
+
+	$myDisplay_Div = new Imagebox(array('name'=>'but_display','father'=>'calcWND',
+		'x'=>25,'y'=>43,'url'=>'index.php?extern=apps/eyeCalc/img/display.png'));
+	$myDisplay_Div->show();	
+	
+	$myDisplay = new Textbox(array('name'=>'display','father'=>'calcWND','x'=>29,'y'=>48,'noborder'=>1));
+	$myDisplay->show();
+	$myDisplay->setAlign('right');
+	
+	$myCss = array(
+		'border' => 'none',
+		'background-color' => 'transparent',
+		'color' => '#EEE',
+		'font-size' => '12pt',
+		'width' => '115px'
+	);
+	$myDisplay->setCss($myCss);
+
+	
+	service('eyex','loadScript',array('url'=>'index.php?extern=apps/eyeCalc/eyeCalc'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+
+}
+
+function eyeCalc_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

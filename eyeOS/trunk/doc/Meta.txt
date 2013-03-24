@@ -1,0 +1,125 @@
+VIRTUAL FILES
+=============
+
+	"activity" (array): The list of all the operation performed on the file since its creation.
+			Used in EyeosAbstractVirtualFile and subclasses.
+		+ "type" => (string): The type of the activity (creation, edition, startsharing, stopsharing, ...)
+		+ "by" => (string): The name of the principal that performed the activity
+		+ "with" => (string): (optional) The name of the related principal
+		+ "time" => (int): The UNIX timestamp
+		
+	"creationTime" (int): The UNIX timestamp of the files's creation.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	"group" (string): The name of the group which is the owner of the file.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	"id" (string): The unique ID of the object.
+			Used in all classes implementing IShareableFile.
+			
+	"linkTarget" (string): The full path/URL to the target of the virtual link.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	"listeners" (array): The list of all the class names (singleton) observing an object.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	"modificationTime" (int): The UNIX timestamp of the last files's modification.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	"owner" (string): The name of the user who owns the file.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	"permissions" (int): The octal permissions (e.g. 0777) for a virtual file.
+			Used in EyeosAbstractVirtualFile and subclasses.
+			
+	...
+
+
+EYEOS USERS
+===========
+	CONFIGURATION
+	"eyeos.user.firstname" (string)
+	"eyeos.user.lastname" (string)
+	"eyeos.user.username" (string)
+	"eyeos.user.email" (string)
+	"eyeos.user.id" (string)
+	"eyeos.user.files.places" (array):
+		+ <place_name> => <place_path> (string)
+	
+	PROFILE
+		PERSONAL
+	"eyeos.user.picture.url" (string)
+	"eyeos.user.sex" (string)
+	"eyeos.user.birth.date" (string): ISO format (YYYY-MM-DD)
+	"eyeos.user.birth.country" (string)
+	"eyeos.user.birth.city" (string)
+	"eyeos.user.currentlife.country" (string)
+	"eyeos.user.currentlife.city" (string)
+        "eyeos.user.language" (string)
+	
+		PROFESSIONAL
+	"eyeos.user.professional.current.company" (string)
+	"eyeos.user.professional.current.city" (string)
+	"eyeos.user.professional.current.position" (string)
+	"eyeos.user.professional.current.description" (string)
+	"eyeos.user.professional.previous.companies" (string): Serialized array?
+	
+		EDUCATIONAL
+	"eyeos.user.educational.current.school" (string)
+	"eyeos.user.educational.current.city" (string)
+	"eyeos.user.educational.current.degree" (string)
+	"eyeos.user.educational.current.information" (string)
+	"eyeos.user.educational.previous.schools" (string): Serialized array?
+	
+	PASSWORD
+	"eyeos.user.password" (string)
+	"eyeos.user.newpassword" (string)
+	
+	DESKTOP/DASHBOARD
+	"eyeos.desktop.mode" (string): "classic" or "dashboard"
+	"eyeos.desktop.dashboard.nbcolumns" (int)
+	
+	APPEARANCE
+	"eyeos.appearance.desktop.background.image.url" (string)
+	"eyeos.appearance.desktop.background.color" (string)
+	"eyeos.appearance.desktop.fonts.icons.color" (string)
+	"eyeos.appearance.desktop.fonts.widgets.color" (string)
+	
+	APPLICATIONS
+	"eyeos.user.applications.favorite" (array)
+	"eyeos.user.applications.installed" (array)			// Will be moved outside of the metadata
+	
+	...
+
+
+EYEOS WORKGROUPS
+================
+	CONFIGURATION
+	...
+	
+	PROFILE
+	"eyeos.workgroup.picture.type" (string)
+	"eyeos.workgroup.picture.url" (string)
+	"eyeos.workgroup.tags" (array)
+	"eyeos.workgroup.description" (string)
+
+
+EYEOS APPLICATIONS
+==================
+	"eyeos.application.name" (string)
+	"eyeos.application.author" (string)
+	"eyeos.application.version" (string)
+	"eyeos.application.description" (string)
+	"eyeos.application.license" (string)
+	"eyeos.application.category" (string)
+	"eyeos.application.iconUrl" (string): URL of the icon
+	"eyeos.application.iconPath" (string): Path of the icon, relative to the application directory
+	"eyeos.application.iconData" (string): Base64 encoded icon data
+	"eyeos.application.systemParameters" (array):
+		+ "listable"	=> boolean
+		+ "owner"		=> string
+		+ "group"		=> string
+		+ "permissions"	=> string: UNIX-like permissions (---x--x--x)
+		+ "suid"		=> boolean: If TRUE, the application will be run with the privileges of the owner
+		+ "anonymous"	=> boolean: If TRUE, the application can be run with the special "anonymous" checknum -1
+

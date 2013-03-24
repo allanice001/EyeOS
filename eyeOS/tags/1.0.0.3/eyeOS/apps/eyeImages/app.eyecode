@@ -1,0 +1,56 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+define('MAX_IMAGE_SIZE_W',600);
+define('MAX_IMAGE_SIZE_H',500);
+
+function eyeImages_run($params=null) {
+	global $myPid;
+	global $checknum;
+	if($params[0]) {
+		$file = $params[0];
+		$rfile = service('vfs','getRealName',array($file));
+		$info = getimagesize($rfile.'.'.EYEOS_FILE_EXT);
+		if($info[0] > MAX_IMAGE_SIZE_W) {
+			$info[0] = MAX_IMAGE_SIZE_W;
+		} 
+		if($info[1] > MAX_IMAGE_SIZE_H) {
+			$info[1] = MAX_IMAGE_SIZE_H;
+		}
+		$myHidden = new Hidden(array('name'=>'iPath','father'=>'eyeApps','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		$myWindow = new Window(array('name'=>'eyeImagesWND','father'=>'eyeApps',
+			'cent'=>1,'title'=>'eyeImages','width'=>$info[0]+30,'height'=>$info[1]+60,
+			'sendResizeMsg'=>1,'sigResize'=>'Resize'));
+		$myWindow->show();
+		$myFrame = new Iframe(array('name'=>'imgFrame','father'=>'eyeImagesWND_Content','x'=>5,
+		'y'=>5,'height'=>$myWindow->height-30,'width'=>$myWindow->width-15,
+		'url'=>"index.php?checknum=$checknum&msg=getImage",
+		'scroll'=>1));
+		$myFrame->show();
+	} else {
+		service('proc','close',array($myPid));
+	}
+}
+
+function eyeImages_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

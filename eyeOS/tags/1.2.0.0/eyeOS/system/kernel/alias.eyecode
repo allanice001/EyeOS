@@ -1,0 +1,81 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+
+function eyex($call,$args=null) {
+	return service('eyex',$call,$args);
+}
+
+function mmap($call,$args=null) {
+	return service('mmap',$call,$args);
+}
+
+function proc($call,$args=null) {
+	return service('proc',$call,$args);
+}
+
+function sec($call,$args=null) {
+	return sec('sec',$call,$args);
+}
+
+function um($call,$args=null) {
+	return service('um',$call,$args);
+}
+
+function vfs($call,$args=null) {
+	return service('vfs',$call,$args);
+}
+
+function errorCodes($call,$args=null) {
+	return reqLib('errorCodes',$call,$args);
+}
+
+function eyeSessions($call,$args=null) {
+	return reqLib('eyeSessions',$call,$args);
+}
+
+function eyeURL($call,$args=null) {
+	return reqLib('eyeURL',$call,$args);
+}
+
+function eyeWidgets($call,$args=null) {
+	return reqLib('eyeWidgets',$call,$args);
+}
+
+function eyeXML($call,$args=null) {
+	return reqLib('eyeXML',$call,$args);
+}
+
+function eyeZip($call,$args=null) {
+	return reqLib('eyeZip',$call,$args);
+}
+
+function i18n($call,$args=null) {
+	return reqLib('i18n',$call,$args);
+}
+
+function eyeWv($call,$args=null) {
+	return reqLib('eyeWv',$call,$args);
+}
+
+?>

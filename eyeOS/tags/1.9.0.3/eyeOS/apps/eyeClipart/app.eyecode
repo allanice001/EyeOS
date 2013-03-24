@@ -1,0 +1,96 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeClipart_run($params=null) {
+	global $myPid;
+	global $checknum ;
+	$content = "";
+
+// Défini la taille de la fenêtre
+	$windowWidth = 870;
+	$windowHeight = 605;
+// Crée la fenêtre
+	$myWindow = new Window(array('name'=>'eyeClipartWND','father'=>'eyeApps','style'=>TITLE + MIN + LISTED + CLOSE,
+	'cent'=>1,'width'=>$windowWidth,'height'=>$windowHeight,'title'=>'eyeClipart'));
+	$myWindow->show();
+
+// Crée la barre de tâches
+//	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeClipartWND_Content'));
+//	$myToolbar->show();
+//	$myToolbar->addItem('Clip','index.php?extern=apps/eyePrimers/gfx/addprimer.png','Go');
+
+	$myWindow3 = new Window(array('name'=>'Menu','father'=>'eyeClipartWND_Content','type'=>100,'width'=>200,
+		'height'=>$myWindow->height-50,'x'=>5,'y'=>15));
+	$myWindow3->show();
+	$myWindow3->setCSS(array('border'=>'1px solid black'));
+
+	$myWindow2 = new Window(array('name'=>'Cliparts','father' => 'eyeClipartWND_Content','type'=>100,
+		'width'=>$myWindow->width-($myWindow3->width+18),'height'=>$myWindow->height-50,
+		'x'=>$myWindow3->width+10,'y'=>15));
+	$myWindow2->show();
+	$myWindow2->setCSS(array('border'=>'1px solid black','overflow-y'=>'auto'));
+
+	$myTree = new Tree(array(
+		'name'=>'filesTree',
+		'father'=>'Menu_Content',
+		'width'=>155,
+		'height'=>$myWindow->height-120,
+		'x'=>0,
+		'y'=>0,
+		'clickTree'=>1,
+		'signal'=>'goDir'
+	));
+	$myTree->show();
+
+	$myTree->addItem('filesTree','home_item','Cliparts');
+	$myTree->addSubList('home_item','home_list');
+	drawTree($myTree,'home_list','');
+	$myTree->processList();
+//	$myTree->expandTree();
+
+}
+
+function eyeClipart_Gallery($params=null) {
+
+
+}
+
+function eyeClipart_end($params=null) {
+	eyeWidgets('unserialize');
+}
+
+function drawTree($object,$tree,$dir) {
+	$file = "http://clipart.eyeos.org/index.php?dir=".$dir ;
+	$content = eyeXML('getXMLfile', array($file)) ;
+
+	if(is_array($content)) {
+		foreach($content['cliparts'][0]['dir'] as $value)	{
+				$rnd = uniqid(time());
+				$object->addItem($tree,'item_'.utf8_basename($value).$rnd,utf8_basename($value));
+				$object->addSubList('item_'.utf8_basename($value).$rnd,'list_'.utf8_basename($value).$rnd);
+				drawTree($object,'list_'.utf8_basename($value).$rnd,$value);
+		}
+	}
+}
+
+?>

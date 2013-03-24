@@ -1,0 +1,42 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function theme_lightdesk_unload() {
+	$config = um('getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeDesk/conf.xml';
+	$xml = eyeXML('getXMLfile',array($config));
+	$defaultAutorunApps = array("eyeDock","eyeBar","eyeDesk_extras","miniActions");
+	$autorun = $xml['eyeDesk'][0]['autolaunch'];
+	for($i=0;$i < count($autorun);$i++) {
+		if($autorun[$i] == 'eyeLightDesk'){
+			unset($xml['eyeDesk'][0]['autolaunch'][$i]);
+		}
+	}
+	foreach ($defaultAutorunApps as $app) {
+		if (!in_array($app,$autorun)) {
+			$xml['eyeDesk'][0]['autolaunch'][] = $app;
+		}
+	}
+	eyeXML('setXMLfile',array($config,$xml));
+}
+
+?>

@@ -1,0 +1,199 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+class Flash {
+	//pid controller
+
+	var $creatorPid;
+
+	//global widgets options without default
+	var $name;
+	var $father;
+
+	//generic widget options with default
+	var $x;
+	var $y;
+	var $horiz;
+	var $vert;
+	var $cent;
+
+	var $showed = 0;
+
+	//custom widget options
+	var $src;
+	var $visible;
+	var $width;
+	var $height;
+	var $flashParamsNames;
+	var $flashParamsValues;
+	//constructor
+	function Flash($params) {
+		global $myPid;
+		$this->creatorPid = $myPid;
+		//generic widget options without default
+		$this->name = $params['name'];
+		isset($params['father']) ? $this->father = $params['father'] : $this->father = 'eyeApps';
+		//generic widget options with default
+		isset($params['horiz']) ? $this->horiz = $params['horiz'] : $this->horiz = 0;
+		isset($params['vert']) ? $this->vert = $params['vert'] : $this->vert = 0;
+		isset($params['cent']) ? $this->cent = $params['cent'] : $this->cent = 0;
+		isset($params['x']) ? $this->x = $params['x'] : $this->x = 20;
+		isset($params['y']) ? $this->y = $params['y'] : $this->y = 20;
+		//especific options
+		isset($params['src']) ? $this->src = $params['src'] : $this->src = "";
+		isset($params['visible']) ? $this->visible = $params['visible'] : $this->visible = 1;
+		isset($params['width']) ? $this->width = $params['width'] : $this->width = -1;
+		isset($params['height']) ? $this->height = $params['height'] : $this->height = -1;
+
+		if(isset($params['flashParamsNames']) || isset($params['flashParamsValues'])){
+			//Every value need name
+			if(count($params['flashParamsNames']) != count($params['flashParamsValues'])){
+				$this->flashParamsNames = "";
+				$this->flashParamsValues = "";
+			}else{
+				$this->flashParamsNames = $params['flashParamsNames'];
+				$this->flashParamsValues = $params['flashParamsValues'];
+			}
+		}
+	}
+
+	//widget show method, send a createWidget message
+
+	function show($noserialize=1) {
+		global $myPid;
+		if(is_array($this->flashParamsNames) && is_array($this->flashParamsValues)){
+			$flashParamsNames =mmap('array2jsArg',array($this->flashParamsNames,1));
+			$flashParamsValues =mmap('array2jsArg',array($this->flashParamsValues,1));
+		}else{
+			$flashParamsNames = '';
+			$flashParamsValues ='';
+		}
+		$widgetsparams = array(
+			'src' => $this->src,
+			'visible' => $this->visible,
+			'width' => $this->width,
+			'height' => $this->height,
+			'flashParamsNames' => $flashParamsNames,
+			'flashParamsValues'=>$flashParamsValues
+		);
+		$widgetsparams = mmap('array2js',array($widgetsparams));
+
+		$myFlash = array(
+			'name' => $this->name,
+			'x' => $this->x,
+			'y' => $this->y,
+			'horiz' => $this->horiz,
+			'vert' => $this->vert,
+			'father' => $this->father,
+			'widgetname' => 'Flash',
+			'params' => $widgetsparams,
+			'center' => $this->cent
+		);
+		eyex('createWidget',$myFlash);
+		$this->showed=1;
+		if($noserialize == 0) {
+			eyeWidgets('serialize',array($this));
+		}
+	}
+
+
+	//event handling
+	function addEvent($eventName,$eventFunc,$args='') {
+		global $myPid;
+		$myname = $myPid.'_'.$this->name.'_Container';
+		if($this->showed == 0) {
+			$this->show();
+		}
+		eyex('addEvent',array('name' => $myname, 'action' => $eventFunc, 'event' => $eventName,'args'=>$args));
+	}
+
+	function setCss($params) {
+		global $myPid;
+		if(is_array($params)) {
+			foreach($params as $key => $value) {
+				eyex('updateCss',array('name' => $myPid.'_'.$this->name,'property' => $key,'value' => $value));
+			}
+		}
+	}
+
+	//set properties functions.
+	function hide() {
+		global $myPid;
+		$this->visible = 0;
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.display="none"'));
+	}
+
+	function unhide() {
+		global $myPid;
+		$this->visible = 1;
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.display="block"'));
+	}
+
+	function setSrc($newUrl) {
+		global $myPid;
+		$this->src = $newUrl;
+		$tokens[] = $this->src;
+		eyex('runjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").src= %s ','tokens'=>$tokens));
+	}
+
+	function validSrc($url) {
+		$extension = utf8_substr($url, -4);
+
+		return ($extension === ".swf");
+	}
+
+	function setWidth($width) {
+		global $myPid;
+		$this->width = intval($width);
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.width="'.$this->width.'px";'));
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.width="'.$this->width.'px";'));
+	}
+
+	function setHeight($height) {
+		global $myPid;
+		$this->height = intval($height);
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.height="'.$this->height.'px";'));
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.height="'.$this->height.'px";'));
+	}
+
+	function setX($x) {
+		global $myPid;
+		$this->x = intval($x);
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.left="'.$this->x.'px";'));
+	}
+
+	function setY($y) {
+		global $myPid;
+		$this->y = intval($y);
+		eyex('rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.top="'.$this->y.'px";'));
+	}
+
+	function remove() {
+		global $myPid;
+		$name = $this->name.'_Container';
+		eyex('removeWidget',array('name'=>$name));
+		eyeWidgets('singleUnserialize',array($this->name));
+	}
+}
+
+?>

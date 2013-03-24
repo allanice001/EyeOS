@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>mkdir</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Creates a directory.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>mkdir</functionName>
+		<syntax>bool vfs('mkDir', array(string $dir))</syntax>
+		<desc>Creates a directory in the user's abstract files.</desc>
+		<params>
+			<type>required</type>
+			<name>dir</name>
+			<desc>Name of the directory to create.</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No directory is specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions to create the directory.</desc>
+			</error>
+			<error>
+				<type>PHP_ERROR_ON_MKDIR</type>
+				<desc>There is a PHP error creating the directory.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

@@ -1,0 +1,54 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeMovies_run($params=null) {
+	global $myPid;
+	global $checknum;
+	if(isset($params[0])){
+		$vFilePath = $params[0];
+	}else{
+		proc('end');
+		return;
+	}
+	$uri = $_SERVER['SCRIPT_NAME'];
+	$myHidden = new Hidden(array('name'=>'vPath','father'=>'eyeApps','text'=>$vFilePath));
+	eyeWidgets('serialize',array($myHidden));
+	$myWindow = new Window(array('name'=>'win1','title'=>utf8_basename($vFilePath).' - eyeMovies','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'width'=>762,'height'=>518,'cent'=>1,'savePosition'=>1,'showDragContent'=>2));
+	$myWindow->show();
+	addShortUrl($myPid.'.divx','getMovie');
+	$content = '<object codebase="http://download.divx.com/player/DivXBrowserPlugin.cab" height="576" width="1024" classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616">
+	<param name="autoplay" value="false">
+	<param name="src" value="'.$uri.'/'.$myPid.'.divx" />
+	<param name="custommode" value="stage6" />
+	<param name="showpostplaybackad" value="false" />
+	<embed type="video/divx" src="'.$uri.'/'.$myPid.'.divx" pluginspage="http://go.divx.com/plugin/download/" showpostplaybackad="false" custommode="Stage6" autoplay="false" height="490" width="760" />
+	</object>';
+	$myWindow->setRawContent($content);
+}
+
+function eyeMovies_end($params=null) {
+	global $myPid;
+	delShortUrl($myPid.'.divx');
+	eyeWidgets('unserialize');
+}

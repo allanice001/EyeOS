@@ -1,0 +1,178 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/**
+* Transforms the content of a XML string to a PHP array.
+* 
+* @param $params array(content)
+* @param $content String containing a XML text. If the XML content has
+*	attributes in its tags, they will be ignored.
+* @return If the function succeeds, returns true. Otherwise, returns
+*	false.
+* @date 2008/03/11
+*/
+function lib_eyeXML_xml2array($params) {
+	if(!isset($params[0])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$content = $params[0];
+	if(!$content) {
+		return false;
+	}
+	return getNodeContent($content);
+}
+
+/**
+* Converts an array to a string in the XML format. Each key of every
+* array element will be transformed to a XML tag, being the value of the
+* key the value of the tag.
+* 
+* @param $params array(myArray,[myHeader])
+* @param $myArray Array to be converted. It must have a structure with the
+*	same notation the function xml2array uses.
+* @param $myHeader If set, precedes the returned text with a XML header.
+* @return If the function succeeds, returns the resulting XML content.
+*	Otherwise, returns false.
+* @date 2008/03/11
+*/
+function lib_eyeXML_array2xml($params){
+	if(!isset($params[0])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$myArray = $params[0];
+	if(!isset($myArray)) {
+		return false;
+	}
+	if(isset($params[1]) && $params[1] == 1) {
+		return lib_eyeXML_getXmlHeader().getArrayText($myArray,-1,1);
+	}
+	return getArrayText($myArray);
+}
+
+/**
+* Returns a string containing a XML tag with a value inside.
+* 
+* @param $params array(master,content)
+* @param $master Name of the XML tag.
+* @param $content Value inside the tag.
+* @return Returns the result of embedding the value 'content' inside
+*	the tag 'master'.
+* @date 2008/03/11
+*/
+function lib_eyeXML_append($params) {
+	if(!isset($params[0]) || !isset($params[1])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$master = $params[0];
+	$content = $params[1];
+	return "<$master>$content</$master>\n";
+}
+
+function getArrayText($array,$tabs = -1) {
+	$tabs++;
+	// foreach for the key
+	foreach ($array as $key => $value) {
+		// html encode the key
+		$key = htmlspecialchars($key,ENT_NOQUOTES,'UTF-8');
+		$key = str_replace('?','&#63;',$key);
+		$key = str_replace('!','&#33;',$key);
+		$key = str_replace(' ','&nbsp;',$key);
+		$key = str_replace('/','&#47;',$key);
+		if (is_array($value)) {
+			// foreach for the value
+			foreach ($value as $current) {
+				// return + key-begin
+				$return .= utf8_str_pad('',$tabs,"\t") . '<' . $key . '>';
+				// if array continue
+				if (is_array($current)) {
+					$return .= "\n" . getArrayText($current,$tabs) . "\n" . utf8_str_pad('',$tabs,"\t");
+				} else {
+					// return + html encoded value
+					$return .= htmlspecialchars($current,ENT_NOQUOTES,'UTF-8');
+				}
+				// return + key-end
+				$return .= '</' . $key . '>' . "\n";
+			}
+		}
+	}
+	return utf8_trim($return,"\n");
+}
+
+function getNodeContent($content) {
+	$content_old = $content;
+	// set content and end 
+	$content = strstr($content,'<');
+	$end = strstr($content,'>');
+	if (!$content || !$end) {
+		// if content and end are not set return value (content old)
+		return html_entity_decode($content_old,ENT_QUOTES,'UTF-8');
+	}
+	// while content and end are set continue
+	while ($content && $end) {
+		// full tag: a href="http://eyeos.org/"
+		$full_tag = utf8_substr($content,1,-utf8_strlen($end));
+		if (utf8_strpos($full_tag,' ')) {
+			// tag: a
+			$tag = utf8_substr($full_tag,0,utf8_strpos($full_tag,' '));
+		} else {
+			$tag = $full_tag;
+		}
+		// if the Tag is </a> or the Full Tag is <img src="eyeos.png" />
+		if ($tag{0} == '/' || $full_tag{utf8_strlen($full_tag) - 1} == '/') {
+			$content = utf8_substr($end,1);
+		// if the Tag is < ?xml version="1.0" encoding="UTF-8" ? >
+		} elseif ($tag{0} == '?') {
+			$content = utf8_substr(strstr($content,'?>'),2);
+		// if the Tag is <!--  Not this! -->
+		} elseif (utf8_substr($tag,0,3) == '!--') {
+			$content = utf8_substr(strstr($content,'-->'),3);
+		// if the Tag is okay
+		} else {
+			// get tag end
+			$tag_end = strstr($content,'</' . $tag . '>');
+			// get tag content
+			$tag_content = utf8_substr($end,1,utf8_strlen($end) - 1 - utf8_strlen($tag_end));
+			$tag_end = utf8_substr($tag_end,utf8_strlen('</' . $tag . '>'));
+			// check for all sub Tags with the same key; If tag end is nothing break
+			while ((substr_count($tag_content,'<' . $tag . '>') + substr_count($tag_content,'<' . $tag . ' ') - substr_count($tag_content,'</' . $tag . '>')) && utf8_strpos($tag_end,'</' . $tag . '>')) {
+				// get tag end
+				$tag_end = strstr($tag_end,'</' . $tag . '>');
+				// get tag content
+				$tag_content = utf8_substr($end,1,utf8_strlen($end) - 1 - utf8_strlen($tag_end));
+				$tag_end = utf8_substr($tag_end,utf8_strlen('</' . $tag . '>'));
+			}
+			$content = $tag_end;
+			// set array entry for the tag
+			$tag = html_entity_decode($tag,ENT_QUOTES,'UTF-8');
+			$return[$tag][] = getNodeContent($tag_content);
+		}
+		// set content and end 
+		$content = strstr($content,'<');
+		$end = strstr($content,'>');
+	}
+	return $return;
+}
+?>

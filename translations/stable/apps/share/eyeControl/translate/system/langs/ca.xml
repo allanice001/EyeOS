@@ -1,0 +1,5288 @@
+<lang>
+	<info>
+		<lang>Català</lang>
+		<lang-en>Catalan</lang-en>
+		<author>Jordi Sànchez, Sandra Fernández &amp; Daniel Gil</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Crea un enllaç</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Crea</new>
+		</text>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Si us plau, escriu el títol de l'enllaç aquí:</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Descarrega "%s" en format zip</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Descarrega!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Els enllaços no es poden descarregar!</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>El servidor no permet els arxius zip</new>
+		</text>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Ja pots tancar aquesta finestra.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Ordre que serà executada:</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Edita %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Actualitza</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Elimina %s</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Realment vols buidar les escombraries?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Buidar escombraries</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Realment vols eliminar "%s"?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Add</old>
+			<new>Afegeix</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>Agenda</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots els arxius</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>Adreça personal</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>Grup eliminat satisfactòriament</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>Tots els grups</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Estàs segur que vols eliminar aquests contactes(%s)?</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>No s'ha pogut crear elcontacte</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Elimina contactes</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Contactes eliminats satisfactòriament</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Contacte editat satisfactòriament</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Detalls</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>Correu electrònic</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Contactes</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Base de dades d'emmagatzement de contactes:</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>Correu electrònic</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>Grup afegit satisfactòriament</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Error en crear un grup</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Error en eliminar els contactes</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Afegeix contacte</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>Afegeix un nou grup</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>Exportació completada</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exporta</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>Família</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>Importació completada</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Casa</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Telèfon personal</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Empresa</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Fax d'empresa</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>Miss. Inst.</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>miss. inst.</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>No s'ha pogut editar el contacte</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importa</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nom</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>Nou contacte creat satisfactòriament</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>Contacte nou</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>Si us plau, seleccioneu només un contacte per enviar-li un missatge</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>Fax professional</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>Correu electrònic professional</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Sobrenom</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>sobrenom</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Anotacions</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>Si us plau, seleccioneu només un contacte per a editar-lo</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>Si us plau, seleccioneu un contacte per a editar-lo</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>Si us plau, seleccioneu un grup</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>Si us plau, escriviu un nom nou pel grup</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>Rol</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>Si us plau, seleccioneu un contacte per a enviar-li un missatge</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>Si us plau, seleccioneu un o més contactes</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>Guarda el contacte</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>Adreça professional</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Guarda el missatge</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Configuració</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Cognom</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>Companyia mòbil</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Telèfon mòbil</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>Mòbil</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>usuari</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>VeuIP</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>veuip</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Pàgina web</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>Telèfon professional</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>Mòbil professional</new>
+		</text>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>Si us plau, ompliu el nom i el cognom</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Personal</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>Web professional</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Feina</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>anotacions</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Applications</old>
+			<new>Aplicacions</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Instal·la aplicacions</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Gestiona el panell</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Extract to...</old>
+			<new>Extreu a...</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>Arxiva fitxers</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Gestor de l'Arxiu</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>Arxius BZip</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>La compressió ha fallat</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Comprimit satisfactòriament</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Comprimeix</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Comprimeix a...</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots els arxius</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Extreu</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Arxiu extret satisfactòriament.</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>L'extracció de l'arxiu ha fallat</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Nom de l'arxiu</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>Arxius GZip</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Arxius Tar</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>No suportem el tipus de compressió</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>Arxius Zip</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Cap arxiu obert</new>
+		</text>
+		<text>
+			<old>Open a folder or file</old>
+			<new>Obrir una carpeta o un fitxer</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Obrir</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Neteja</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Taulell públic</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Envia</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Calculadora</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Com a mínim es necessita un calendari!</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>La configuració s'ha guardat correctament</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>Configuració guardada</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Divendres</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Calendari afegit satisfactòriament</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Aquest calendari ja s'està executant!</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendari</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Gestió de calendaris</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Calendaris</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dia</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Configura el calendari</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>El dia acaba:</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>El dia comença:</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Nou calendari</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Ja existeix un calendari amb el mateix nom</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>Configuració General:</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Valor de la casella invàlid</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Número invàlid %s</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>DIlluns</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Següent</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Especifica el nom del calendari:</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Si us plau, escriu un nom pel calendari</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Anterior</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Dissabte</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Mostra</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Avui</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Dimarts</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>No hi poden haver dos calendaris amb la mateixa ID!</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>La setmana comença:</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Setmana</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Feina</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>No hi poden haver dos calendaris amb el mateix nom!</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Dimecres</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>La setmana acaba:</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Diumenge</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>El text d'aquest esdeveniment:</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Mode pantalla</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>Configuració de la vista de feina:</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>Vista de Feina</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>Dijous</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Knight</old>
+			<new>Cavall</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Mitjà</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Alfil</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Joc d'escacs</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>Moviments</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Lent</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Desfés</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Reina</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Torre</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>Comanda no trobada</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>[Default user]</old>
+			<new>[Usuari per defecte]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Sobre mi</new>
+		</text>
+		<text>
+			<old>Add, edit or remove your Access Control List settings</old>
+			<new>Afegeix, edita o elimina les opcions de la Llista de Control d'Accessos (LCA)</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Afegeix</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this target?</old>
+			<new>Estàs segur que vols eliminar aquest objectiu?</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>Nom LCA</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>Nom LCA:</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>Acció</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>Acció:</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Afegeix un nou usuari al teu sistema oneye</new>
+		</text>
+		<text>
+			<old>Add ACL</old>
+			<new>Afegeix LCA</new>
+		</text>
+		<text>
+			<old>Add an ACL target to your oneye system</old>
+			<new>Afegeix una LCA al teu sistema oneye</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Afegeix un mirall</new>
+		</text>
+		<text>
+			<old>Add Rule</old>
+			<new>Afegeix normes</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this param?</old>
+			<new>Estàs segur que vols eliminar aquest paràmetre?</new>
+		</text>
+		<text>
+			<old>Admin</old>
+			<new>Admin</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administració</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrador</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Carpetes públiques</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Manteniment</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Segur que vols eliminar aquesta ordre?</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Escriptori</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Registre dels usuaris</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this ACL?</old>
+			<new>Estàs segur que vols eliminar aquesta LCA?</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Permet pujar a través de la web</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Auto-ordres</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Adreces d'interès exportades satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Adreces d'interès i cercadors exportats satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Extensió de navegació</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Canvia les teves preferències de l'eyeBoard</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Canvia el teu fons d'escriptori</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Canvis guardats i usuari actualitzat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Canvia el teu tema actual</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Canvia el teu idioma preferit</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Canvia la teva contrasenya actual</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Canvis guardats satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Ordre esborrada correctament.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Ordre guardada satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Ordres</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Neteja l'oneye</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Ordre afegida satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Configura el suport d'oficina en un servidor Linux</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Configura el suport d'oficina per a un servidor Windows</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Configura la pàgina d'inici</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Grup per defecte guardat satisfactòriament. Has de reiniciar la teva sessió.</new>
+		</text>
+		<text>
+			<old>Create Target</old>
+			<new>Crea objectiu</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Opcions per defecte establertes satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Create an ACL rule for your oneye system</old>
+			<new>Crea una norma LCA al teu sistema oneye</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Grup per defecte: %s | %s grups(s)</new>
+		</text>
+		<text>
+			<old>Create ACL</old>
+			<new>Crea LCA</new>
+		</text>
+		<text>
+			<old>Delete ACL</old>
+			<new>Elimina LCA</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Elimina el mirall</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Elimina advertència</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Elimina l'autoexecució</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Elimina el grup</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Descripció</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Usuari de manteniment</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Principal</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Segur que vols eliminar aquest grup del sistema?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Segur que vols eliminar el mirall de l'eyeSoft?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Segur que vols eliminar aquest usuari del sistema?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Segur que vols aplicar la configuració per defecte a eyeDesk?</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>De</new>
+		</text>
+		<text>
+			<old>Expiration Date</old>
+			<new>Data d'expiració</new>
+		</text>
+		<text>
+			<old>Expiration (dd/mm/yyyy)</old>
+			<new>Expiració (dd/mm/yyyy)</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Segur que vols restaurar les adreces d'interès per defecte a eyeNav?</new>
+		</text>
+		<text>
+			<old>Done</old>
+			<new>Fet</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Segur que vols restaurar els cercadors per defecte d'eyeNav?</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Edita el mirall</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Edita l'usuari triat</new>
+		</text>
+		<text>
+			<old>Function</old>
+			<new>Funció</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Fixes: les icones no es poden moure</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Exporta les adreces d'interès i els cercadors per defecte</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exporta</new>
+		</text>
+		<text>
+			<old>Extension</old>
+			<new>Extensió</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>Taulell de l'oneye</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s usuari(s) registrat(s).</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s mirall(s)</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s ordre(s)</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Quadrícula: les icones s'alineen automàticament</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>L'arxiu no s'ha pogut descarregar. Si us plau, corregeix l'adreça.</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>L'arxiu s'ha descarregat correctament.</new>
+		</text>
+		<text>
+			<old>Function:</old>
+			<new>Funció:</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Grup esborrat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Aconsegueix més traduccions!</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>Correu electrònic</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Edita l'ordre</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grups</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importa</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Contrasenya incorrecta!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Idioma</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Nova ordre</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Gestiona els grups del sistema</new>
+		</text>
+		<text>
+			<old>Manage your security settings</old>
+			<new>Gestiona la configuració de seguretat</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Última sessió</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Aparença</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Carrega</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Gestiona les adreces d'interès per defecte</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Gestiona les ordres d'autoexecució</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Gestiona els cercadors per defecte</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Nou fons de pantalla configurat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Never</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Gestiona els usuaris del sistema</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Adreça del mirall (exemple: %s)</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>El mirall no existeix!</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Mirall esborrar satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Edit ACL</old>
+			<new>Edita LCA</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Grup</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Nom del grup</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Mirall guardat correctament.</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Ratolí</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Mirall</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nou</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>No s'han trobat usuaris registrats</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>cap</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Suport d'oficina</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Contrasenya*</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Contrasenya (torna-hi)*</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Contrasenya</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Altres</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Contrasenya canviada correctament.</new>
+		</text>
+		<text>
+			<old>OpenOffice program folder:</old>
+			<new>Carpeta de l'OpenOffice:</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Les contrasenyes no coincideixen!</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Personal</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Si us plau, tria una ordre per eliminar-la.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Si us plau, tria una ordre per editar-la.</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Permisos*</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Permisos</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Si us plau, tria un grup per eliminar-lo.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Si us plau, tria un grup per editar-lo.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Si us plau, tria un grup per a posar-lo per defecte.</new>
+		</text>
+		<text>
+			<old>Please choose a target to delete</old>
+			<new>Si us plau, tria l'objectiu que vols eliminar</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Si us plau, tria un mirall per editar-lo.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Si us plau, tria un usuari per editar-lo.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Si us plau, tria un mirall per eliminar-lo</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Si us plau, tria un usuari per eliminar-lo.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Si us plau, tria un mirall per provar-lo.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to delete</old>
+			<new>Si us plau, tria la LCA que vols eliminar</new>
+		</text>
+		<text>
+			<old>Please fill and select all fields</old>
+			<new>Si us plau, omple i selecciona tots els camps</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Si us plau, omple tots els camps necessaris!</new>
+		</text>
+		<text>
+			<old>Please fill in and select the proper fields to add params</old>
+			<new>Si us plau, omplei selecciona els camps adequats per a afegir els paràmetres</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to edit from the list</old>
+			<new>Si us plau, tria la LCA que vols editar</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Si us plau, corregeix les opcions escrites.</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Si us plau, omple els camps obligatoris marcats amb *.</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Si us plau, escriu una ordre!</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Si us plau, escriu un nom de grup vàlid!</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Si us plau, tria una adreça!</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Si us plau, escriu l'usuari aquí:</new>
+		</text>
+		<text>
+			<old>Please type your password to remove this account.</old>
+			<new>Si us plau, escriu la teva contrasenya per a eliminar la compta.</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Protecció IP de sessió</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Elimina ara!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Elimina els arxius i carpetes temporals del sistema oneye</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Elimina els arxius i carpetes temporals</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Reinicia les posicions de les icones</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>Guarda les posicions de les finestres</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Guarda</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Reinicia les posicions de les finestres</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Cercadors importats correctament.</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Captura de pantalla</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Selecciona l'usuari:</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Mostra tot</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Selecciona</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Cerca l'usuari...</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Selecciona un arxiu...</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>Seguretat</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Mostra noms complets</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Mostra usuaris...</new>
+		</text>
+		<text>
+			<old>Service</old>
+			<new>Servei</new>
+		</text>
+		<text>
+			<old>Service:</old>
+			<new>Servei:</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Per defecte</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Configuració</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Mostra usuaris</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Perdona, però no existeix cap arxiu així</new>
+		</text>
+		<text>
+			<old>SMTP</old>
+			<new>SMTP</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Perdona, no tens permisos per entrar a aquesta pàgina.</new>
+		</text>
+		<text>
+			<old>Target</old>
+			<new>Objectiu</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Perdona, has d'iniciar com a usuari normal per entrar a aquesta pàgina.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Perdona, l'arxiu no pot ser un fons de pantalla.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Perdona, aquesta pàgina no està instal·lada.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be entered by the default user.</old>
+			<new>Perdona, aquesta pàgina no es pot accedir com a usuari per defecte</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Arxius i carpetes temporals eliminats correctament.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Perdona, has de connectar-te com a usuari per entrar en aquesta pàgina</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Pàgina d'inici</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Preferències del sistema</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistema</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>L'ordre no existeix!</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Aquest usuari no existeix.</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>L'ordre ja es troba configurada!</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>El mirall ja s'ha instal·lat.</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>El nom d'usuari triat és massa curt!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>L'arxiu seleccionat no és un arxiu d'adreces d'interès d'eyeNav.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>La compta ha estat eliminada correctament.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>El grup triat ja és el grup per defecte!</new>
+		</text>
+		<text>
+			<old>The category does not exist!</old>
+			<new>La categoria no existeix!</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>L'usuari no existeix.</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>Tema canviat. Has de reiniciar l'escriptori perquè els canvis tinguin efecte.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>L'arxiu seleccionat no és un arxiu de cercadors d'eyeNav.</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>El grup escollit ja existeix!</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>El grup escollit ja existeix!</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>El nom d'usuari triat és massa llarg!</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Tema</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Escriu l'ordre que vulguis executar a l'inici.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Hi ha hagut un problema per eliminar el grup.</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Desinstal·la</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Espai utilitzat:</new>
+		</text>
+		<text>
+			<old>Update Rule</old>
+			<new>Actualitza normes</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Escriu el nom del grup que vols crear:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Escriu la direcció del nou mirall:</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Escriu el nom del nou grup:</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Usuari creat correctament.</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>Usuari esborrat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Actualitza el perfil del sistema</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Actualitza les configuracions del sistema</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Utilitza un fons de pantalla personalitzat</new>
+		</text>
+		<text>
+			<old>Use SSL</old>
+			<new>Utilitza SSL</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Usuari</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Fons</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>El nom d'usuari conté caràcters no vàlids. Si us plau, tria'n un altre!</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>No pots gestionar els grups!</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>No pots editar el mirall per defecte!</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>No pots gestionar usuaris!</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>Les finestres s'han restaurat correctament. Si us plau, reinicia les aplicacions ara.</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>Finestres</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>No pots guardar un mirall com a mirall per defecte!</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Reanomena</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>Pots usar /a (final), /b (inici) i /c (counts) per llistar els usuaris</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>No pots eliminar el grup per defecte!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>No pots eliminar el mirall per defecte!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>No pots eliminar l'usuari administrador root!</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Repositoris</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Els enllaços no es poden copiar.</new>
+		</text>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>Ara pots enganxar "%s" a una altra carpeta.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s" ha estat eliminat amb èxit.</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s" mogut a les escombraries amb èxit.</new>
+		</text>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Error en eliminar l'arxiu!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Launch</old>
+			<new>Executa</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nou arxiu</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendari</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Copia</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Buida escombraries</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>Agenda</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplicacions</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarrega</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Explora</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Inici</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Descarrega comprimit</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nova carpeta</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Carrega arxius</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Benvingut a %s, %s.</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Obre amb</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Enganxa</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>Lector canals RSS</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Nou accés directe</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Preferències</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Obre escombraries</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Comparteix amb</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Escombraries</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Propietats</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Reanomena</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>Confirma substitució d'arxiu</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>Error a l'hora de navegar per la carpeta</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nom</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Carpetes</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Inici</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>Estàs convençut que vols substituir aquest arxiu?</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Selecciona un arxiu per obrir-lo</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>Desa com...</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Guarda</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Selecciona una carpeta</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Selecciona</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>Has de triar un arxiu</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Has d'escriure un nom</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Obre</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Contact Manager</old>
+			<new>Gestió de contactes</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Calculadora</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendari</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Escacs</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Gestió d'arxius</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>Client FTP</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Client de correu</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Jocs</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Missatgeria interna</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Accessoris</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navegador</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>Lector RSS</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Oficina</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Gestió processos</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Taulell públic</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Full de càlcul</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistema</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Proces. textos</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Joc Tetravex</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Editor de text</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Xarxa</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Vols guardar els canvis?</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Document guardat satisfactòriament</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>No guardis</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots els arxius</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Eliminar advertència</new>
+		</text>
+		<text>
+			<old>Error - Document not saved. Please try again.</old>
+			<new>Error - Document no guardat. Torneu-ho a provar.</new>
+		</text>
+		<text>
+			<old>Error creating file.</old>
+			<new>Error en crear l'arxiu.</new>
+		</text>
+		<text>
+			<old>Error saving file.</old>
+			<new>Error en guardar l'arxiu.</new>
+		</text>
+		<text>
+			<old>oneye document file</old>
+			<new>Document d'oneye</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Processador de textos</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Perdona, no tens prou permisos!</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Guardar</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Document de text d'Open Document</new>
+		</text>
+		<text>
+			<old>MS Word document file</old>
+			<new>Document de MS Word</new>
+		</text>
+		<text>
+			<old>Sorry, you need to enable OpenOffice Support to view this document.</old>
+			<new>Perdona, has d'habilitar el suport d'OpenOffice.</new>
+		</text>
+		<text>
+			<old>The file does not exist.</old>
+			<new>L'arxiu no existeix.</new>
+		</text>
+		<text>
+			<old>File not found.</old>
+			<new>Arxiu no trobat.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Download!</old>
+			<new>Descarrega!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Els enllaços no es poden descarregar!</new>
+		</text>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Ja pots tancar aquesta finestra.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Add feed</old>
+			<new>Afegeix canal</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Afegeix canal</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Error en rebre el canal especificat</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Afegeix carpeta</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Error en guardar el canal</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots els arxius</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Tria una nova carpeta principal per la nova carpeta:</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Estàs segur que vols esborrar aquest canal?</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Tria una principal per a la nova carpeta:</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Adreces d'interès</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Tria un arxiu a importar</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Edita el canal</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Tria una carpeta pel nou canal:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>Tria una carpeta pels canals importats:</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Element eliminat correctament</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Error en afegir la carpeta</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina-ho</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Elimina el canal o la carpeta</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Afegeix carpeta</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Edita la carpeta</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Aplica-ho</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(Nom desconegut)</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Error en afegir el canal</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Error en aplicar els canvis</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Error en eliminar el canal</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Error en importar els canals</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Tria una carpeta pel canal:</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Error en guardar les preferències</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Error en guardar la carpeta</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Estàs segur que vols esborrar aquesta carpeta?</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exporta</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Duració mem. cau canals (seg.):</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Canal afegit satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Canal canviat satisfactòriament</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Impossible d'exportar la llista a la direcció especificada</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Canals importats satisfactòriament</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Impossible d'importar els canals de l'arxiu especificat</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Canals</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Carpeta canviada satisfactòriament</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>Lector RSS</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Ajuda</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Importa canals des d'OPML</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Carregant, si us plau espera...</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Preferències guardades amb èxit</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>Duració mem. cau articles (dies):</new>
+		</text>
+		<text>
+			<old>OPML files</old>
+			<new>Arxius OPML</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Títol</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Escriu el nom de la carpeta a crear (opcional):</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Selecciona arxiu</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Selecciona un canal per navegar-hi...</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Selecciona un element per llegir-lo...</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Llista de canals exportada satisfactòriament</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Preferències</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Carpeta afegida satisfactòriament</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Longitud de la vista prèvia (car.):</new>
+		</text>
+		<text>
+			<old>eyeFeeds - Enclosure</old>
+			<new>eyeFeeds</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Escriu el nom del canal (opcional):</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importa</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Escriu el nom de la carpeta:</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Escriu la URL del canal:</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Impossible de recollir la URL especificada</new>
+		</text>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Títols mostrats a la llista:</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Has d'entrar un nom</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>És possible que hagis de reiniciar l'aplicació per aplicar els canvis.</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Ajuda</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Copia</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Icones</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Nom arxiu</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Detalls</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>Gestor d'arxius</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Data arxiu</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Explora</new>
+		</text>
+		<text>
+			<old>Folders at first</old>
+			<new>Carpetes primer</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grups</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Mida (B)</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Enrere</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Filtre:</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Accions</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarrega</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Inici</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Buida escombraries</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Obre</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Descarrega comprimit</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>Llista</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nova carpeta</new>
+		</text>
+		<text>
+			<old>Update view</old>
+			<new>Actualitza vista</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Obre amb</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>Usuaris</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Mostra-ho tot</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Propietats</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Mostra arxius</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Reanomena</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Mostra enllaços</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Comparteix</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>Mostra només</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>Arbre</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Mostra carpetes</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Següent</new>
+		</text>
+		<text>
+			<old>Show not</old>
+			<new>No mostris</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Enganxa</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nou arxiu</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Escombraries</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Carrega arxius</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Restaura</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>Visualitza</new>
+		</text>
+		<text>
+			<old>Real</old>
+			<new>Real</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Authenticating user...</old>
+			<new>Autentificant l'usuari...</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Crea</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Connexió acceptada</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Estàs segur que vols eliminar aquest arxiu o carpeta?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>Ha fallat l'autenticació. Nom d'usuari/contrasenya incorrectes!</new>
+		</text>
+		<text>
+			<old>Error while downloading file "%s"! Transfer aborted.</old>
+			<new>Error en descarregar l'arxiu "%s"! Transferència abortada.</new>
+		</text>
+		<text>
+			<old>Attempting to delete "%s"...</old>
+			<new>Intentant eliminar "%s"...</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Ajuda</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Host:</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Connecta't</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>Intentant crear la carpeta "%s" a "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>Intentant reanomenar/moure "%s"...</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>Desconnectant de %s:%s</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>Descarregant: "%s" cap a "%s"</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Directori "%s" creat satisfactòriament</new>
+		</text>
+		<text>
+			<old>Download of directory "%s" finished.</old>
+			<new>La descàrrega del directori "%s" ha acabat.</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>Descàrrega finalitzada satisfactòriament, %s bytes transferits</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Elimina l'arxiu o la carpeta</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>Error intentant navegar per la carpeta local!</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Download of file "%s" finished.</old>
+			<new>La descàrrega de l'arxiu "%s" ha acabat.</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarrega</new>
+		</text>
+		<text>
+			<old>Error while uploading file "%s"! Transfer aborted.</old>
+			<new>Error en carregar l'arxiu "%s"! Transferència abortada.</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>Error connectant al host especificat!</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Nom de l'amfitrió</new>
+		</text>
+		<text>
+			<old>File "%s" already exists, overwriting.</old>
+			<new>L'arxiu "%s" ja existeix, sobreescrivint.</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Nom de l'arxiu</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>Error descarregant l'arxiu! Transferència avortada. (Ja tens prou permisos?)</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted.</old>
+			<new>Error en carregar l'arxiu! Transferència abortada.</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>Error, no es pot carregar l'arxiu "%s" al servidor FTP</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP v.%s iniciat</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>Arxiu/carpeta reanomenat satisfactòriament</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>Arxiu "%s" carregat satisfactòriament a "%s"</new>
+		</text>
+		<text>
+			<old>File "%s" deleted successfully</old>
+			<new>Arxiu "%s" eliminat satisfactòriament</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Afegeix</new>
+		</text>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>Hi ha hagut un error resolent la ruta, avortant...</new>
+		</text>
+		<text>
+			<old>Add -a to LIST command</old>
+			<new>Afegir -a al fer la ordre LIST</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Mida (B)</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Mida de l'arxiu</new>
+		</text>
+		<text>
+			<old>Folder "%s" deleted successfully</old>
+			<new>Carpeta "%s" eliminat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Força el mode passiu</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>Client FTP</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>Ajuda i FAQ disponibles al Wiki d'eyeos: %s</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>Gestió de hosts</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Carrega</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Gestiona</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nova carpeta</new>
+		</text>
+		<text>
+			<old>Listing directory "%s"...</old>
+			<new>Llistant directori "%s"...</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Desconnecta</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>Llistat amb èxit el directori "%s" (%s arxiu(s) trobat(s))</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>El nom no pot deixar-se buit</new>
+		</text>
+		<text>
+			<old>Disconnected - FTP Client</old>
+			<new>Desconnectat - Client FTP</new>
+		</text>
+		<text>
+			<old>no</old>
+			<new>no</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Permisos</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Reanomena l'arxiu o la carpeta</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>Mode passiu acceptat</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Si us plau, especifica un nom d'usuari</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>Si us plau, especifica un amfitrió per connectar-t'hi</new>
+		</text>
+		<text>
+			<old>Unable to download directory, error occured</old>
+			<new>No s'ha pogut descarregar el directori, hi ha hagut un error.</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Contra.</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Primer t'has de connectar!</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Primer t'has de connectar</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>Mode passiu ha fallat! Les transferències es faran en mode actiu</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Contra.:</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Reanomena/Mou</new>
+		</text>
+		<text>
+			<old>Unable to create directory "%s".</old>
+			<new>No s'ha pogut crear el directori "%s".</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>Incapaç d'esborrar la carpeta, hi ha hagut un error. (Ja tens prou permisos?)</new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>Incapaç d'esborrar l'arxiu, hi ha hagut un error. (Ja tens prou permisos?)</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Escriu el nom de la nova carpeta</new>
+		</text>
+		<text>
+			<old>Unable to create file "%s".</old>
+			<new>No s'ha pogut crear l'arxiu "%s".</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>Incapaç de crear el directori, hi ha hagut un error. Ja tens prou permisos?</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Reanomena</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>Incapaç de carregar l'arxiu, hi ha hagut un error</new>
+		</text>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>Intentant connectar-se a %s:%s (usuari "%s")...</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Selecciona un arxiu per carregar-lo:</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>Incapaç de crear l'arxiu temporal! Descàrrega avortada.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory's content at "%s".</old>
+			<new>No s'ha pogut eliminar el contingut del directori "%s"</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured. (Do you have sufficient permissions?)</old>
+			<new>No s'ha pogut llistar els fitxers, hi ha hagut un error. Tens permisos suficients?</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>Incapaç de carregar l'arxiu, hi ha hagut un error</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Primer has de seleccionar un arxiu o una carpeta</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>Incapaç d'escriure l'arxiu, comprova els permisos.</new>
+		</text>
+		<text>
+			<old>Upload of file "%s" finished.</old>
+			<new>Càrrega de l'arxiu "%s" finalitzada.</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>Incapaç de llistar els arxius, hi ha hagut un error</new>
+		</text>
+		<text>
+			<old>Unable to read file "%s"</old>
+			<new>No s'ha pogut llegir l'arxiu "%s"</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>Incapaç de llegir l'arxiu temporal! Càrrega avortada.</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>Incapaç de reanomenar la sel·lecció, hi ha hagut un error. (Ja tens prou permisos?)</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>Càrrega completada satisfactòriament, %s bytes transferits</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Carrega un arxiu</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>Hi ha hagut un error desconegut durant la càrrega</new>
+		</text>
+		<text>
+			<old>Only files can be downloaded</old>
+			<new>Només es poden descarregar arxius</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Propietari</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Carrega</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>Carregant: "%s" cap a "%s"</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>Usuari "%s" autentificat satisfactòriament</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Usuari:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Nom d'usuari</new>
+		</text>
+		<text>
+			<old>yes</old>
+			<new>sí</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Has de seleccionar un amfitrió per eliminar-lo</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Has de seleccionar un amfitrió per carregar-lo</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Has de seleccionar un arxiu local</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Has d'especificar un nom d'amfitrió, un port i un usuari</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Has de seleccionar un amfitrió per editar-lo</new>
+		</text>
+		<text>
+			<old>Unable to browse directory's content at "%s".</old>
+			<new>No s'ha pogut navegar pel contingut del director "%s".</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Escriu el nou nom o localització d'aquest arxiu o carpeta</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Has de seleccionar un arxiu remot</new>
+		</text>
+		<text>
+			<old>Unable to connect to %s</old>
+			<new>No s'ha pogut connectar a %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>Preferències d'eyeHelp</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Preferències</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>Demana ajuda</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>Canvis aplicats amb èxit.</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>Envia</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>Usuari a contactar per demanar ajuda:</new>
+		</text>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>No pots fer aquesta acció.</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>El camp no es pot deixar en blanc.</new>
+		</text>
+		<text>
+			<old>Topics</old>
+			<new>Temes</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Obra</new>
+		</text>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>Quina URL vols obrir a l'Iframe?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>BMP files</old>
+			<new>Arxius BMP</new>
+		</text>
+		<text>
+			<old>GIF files</old>
+			<new>Arxius GIF</new>
+		</text>
+		<text>
+			<old>Image formats</old>
+			<new>Formats d'imatge</new>
+		</text>
+		<text>
+			<old>JPEG files</old>
+			<new>Arxius JPEG</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots elsarxius</new>
+		</text>
+		<text>
+			<old>JPG files</old>
+			<new>Arxius JPG</new>
+		</text>
+		<text>
+			<old>PNG files</old>
+			<new>Arxius PNG</new>
+		</text>
+		<text>
+			<old>No image could be found.</old>
+			<new>No s'han pogut trobar imatges.</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Anterior</new>
+		</text>
+		<text>
+			<old>TIFF files</old>
+			<new>Arxius TIFF</new>
+		</text>
+		<text>
+			<old>View Images</old>
+			<new>Visualitza imatges</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Següent</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>Arxius %s importats!</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Navega</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importa</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Has de seleccionar una carpeta per importar-hi els arxius</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Projects</old>
+			<new>Projectes</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Col·laborad.</new>
+		</text>
+		<text>
+			<old>Thanks to...</old>
+			<new>Gràcies a...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Segur que vols instal·lar aquest paquet al sistema?</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instal·lant</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>No hi ha res a instal·lar!</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Només l'administrador root pot instal·lar paquets</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Paquet instal·lat correctament!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Error! L'usuari i la contrasenya són invàlids.</new>
+		</text>
+		<text>
+			<old>%s has had an unknow problem and could not be executed</old>
+			<new>%s ha tingut un problema i no s'ha pogut obrir.</new>
+		</text>
+		<text>
+			<old>%s has had a problem and could not be executed</old>
+			<new>%s ha tingut un problema i no s'ha pogut obrir.</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s no s'ha trobat!</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Error! L'usuari i la contrasenya estan buits.</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Usuari invàlid</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Contrasenya</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Usuari diferent?</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Usuari</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Executa...</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Executa</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Escriu el nom de l'aplicació de l'ordre que vulguis executar</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Error en crear el nou usuari!</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Crea compta</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Entra</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Idioma (aquesta sessió)</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Idioma</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>La contrasenya és massa curta!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Nou usuari</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Els camps de contrasenya no coincideixen!</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>( Defecte )</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Contrasenya</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>L'idioma no existeix!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Reescriu la contrasenya</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>Aquest usuari ja existeix!</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Aquest sistema no permet el registre d'usuaris!</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>El nom d'usuari és massa curt!</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>La teva compta ha estat deshabilitada!</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>El nom d'usuari ha de ser alfanumèric!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Usuari</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Si us plau, omple tots els camps!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Activity Monitor</old>
+			<new>Activitat</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Avançat</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots els arxius</new>
+		</text>
+		<text>
+			<old>Are you sure you want to remove the account "%s"?</old>
+			<new>Estàs segur que vols eliminar la compta "%s"?</new>
+		</text>
+		<text>
+			<old>Are you sure?</old>
+			<new>N'estàs segur?</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Adjunt</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Endarrera</new>
+		</text>
+		<text>
+			<old>Account Name:</old>
+			<new>Compta:</new>
+		</text>
+		<text>
+			<old>Account Type:</old>
+			<new>Tipus:</new>
+		</text>
+		<text>
+			<old>Accounts</old>
+			<new>Comptes</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>CC:</old>
+			<new>CC:</new>
+		</text>
+		<text>
+			<old>CCO:</old>
+			<new>CCO:</new>
+		</text>
+		<text>
+			<old>Check for new mail:</old>
+			<new>Comprova nou correu:</new>
+		</text>
+		<text>
+			<old>Check mail at startup</old>
+			<new>Comprova el correu en iniciar</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Contactes</new>
+		</text>
+		<text>
+			<old>Email account has been created.</old>
+			<new>Compta de correu creada</new>
+		</text>
+		<text>
+			<old>Enter the name you would like to appear in the "From" field of your outgoing messages (for example, "John Doe").</old>
+			<new>Entre el nom que vulguis que aparegui al camp "De" dels missatges sortints.</new>
+		</text>
+		<text>
+			<old>Downloading all mails...</old>
+			<new>Descarregant tots els correus</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Date: %s</old>
+			<new>Data: %s</new>
+		</text>
+		<text>
+			<old>Create a new account</old>
+			<new>Crea un nou compte</new>
+		</text>
+		<text>
+			<old>Enter your email address and password. This is the address others will use to send email to you (for example, "user@server.net").</old>
+			<new>Entra el teu correu electrònic i contrasenya. Serà el correu on els altres escriuen.</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Email account has been updated.</old>
+			<new>Compte de correu actualitzada.</new>
+		</text>
+		<text>
+			<old>Email Address:</old>
+			<new>Correu electrònic</new>
+		</text>
+		<text>
+			<old>Email:</old>
+			<new>Correu:</new>
+		</text>
+		<text>
+			<old>Enter an account name to be identified later.</old>
+			<new>Entra un nom d'usuari per a identificar-te.</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this mail?</old>
+			<new>Segur que vols eliminar aquest correu?</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>Data:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMedia</name>
+		<text>
+			<old>No file selected.</old>
+			<new>No s'ha seleccionat cap fitxer.</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Afegeix carpeta</new>
+		</text>
+		<text>
+			<old>Clear List</old>
+			<new>Nateja la llista</new>
+		</text>
+		<text>
+			<old>Error opening: %s</old>
+			<new>Error en obrir: %s</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Següent</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>Reproductor</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Nom d'arxiu</new>
+		</text>
+		<text>
+			<old>Add File</old>
+			<new>Afegeix arxiu</new>
+		</text>
+		<text>
+			<old>No folder selected.</old>
+			<new>No s'ha seleccionat cap carpeta.</new>
+		</text>
+		<text>
+			<old>Nothing Playing.</old>
+			<new>No s'està reproduint res.</new>
+		</text>
+		<text>
+			<old>Paused.</old>
+			<new>Pausat.</new>
+		</text>
+		<text>
+			<old>Play</old>
+			<new>Reprodueix</new>
+		</text>
+		<text>
+			<old>Playing: %s</old>
+			<new>Reproduint: %s</new>
+		</text>
+		<text>
+			<old>Shuffle</old>
+			<new>Aleatori</new>
+		</text>
+		<text>
+			<old>Stop</old>
+			<new>Atura</new>
+		</text>
+		<text>
+			<old>Successfully opened: %s</old>
+			<new>Obert satisfactòriament: %s</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Anterior</new>
+		</text>
+		<text>
+			<old>Remove File</old>
+			<new>Elimina arxius</new>
+		</text>
+		<text>
+			<old>Repeat</old>
+			<new>Repeteix</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Delete</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>L'arxiu s'ha guardat correctament.</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>De</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Adjunt</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Buida</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarrega</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Buidat</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>(do) Read</old>
+			<new>Llegeix</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Estàs segur que vols esborrar tots els missatges d'aquesta carpeta?</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Error en obrir el missatge</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Confirma que vols buidar</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Safata d'entrada</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Restaura</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Sense llegir</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Has de triar un missatge per eliminar-lo</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Llegeix el missatge</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>A</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Enviat</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Assumpte</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Has de triar un missatge per obrir-lo</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Missatgeria interna</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Missatge restaurat a la seva carpeta original</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nou</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Escombraries</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Llegeix</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Contesta</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Crea carpeta</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Error en crear el directori!</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Escriu el nom de la nova carpeta</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>S'han eliminat alguns caràcters especials.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug. Unfortunately it is a problem with your Flash player!</old>
+			<new>Això no és un error de l'oneye, sinó un problema amb el teu reproductor de Flash!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Elimina l'adreça d'interès</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Realment vols eliminar aquesta adreça d'interès?</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>L'adreça d'interès no existeix!</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Títol de l'adreça d'interès</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Adreces d'interès</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Coneixement</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Imatges</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Afegeix una adreça d'interès</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Enrere</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Següent</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Fòrums</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Enllaç eliminat correctament.</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Enllaç guardat correctament.</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navegador</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Obra les adreces d'interès</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Obra les cerques</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Pàgina d'inici</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>L'arxiu sel·leccionat no és un arxiu d'adreces d'interès d'eyeNav vàlid!</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>L'arxiu sel·leccionat no és un arxiu de cercadors d'eyeNav vàlid!</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Ja hi ha una altra adreça d'interès amb aquest títol!</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Sense categoria</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Web</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Cerca</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Configuració</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Delete warning</old>
+			<new>Elimina advertència</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Vols guardar els canvis?</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>No guardis</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla completa</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Arxiu guardat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Tots els arxius</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nou</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Guarda</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Guarda com</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Ho sentim, no tens suficients permissos.</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Editor de text</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Impossible crear l'arxiu</new>
+		</text>
+		<text>
+			<old>Text files</old>
+			<new>Arxius de text</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Obra</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Obre "%s" amb...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>Endarrera</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Pantalla sencera</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Següent</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Obra</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentacions</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Perdona, no tens permisos suficients.</new>
+		</text>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>Ja estàs a la primera diapositiva, no pots anar més endarrera!</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Has de seleccionar un arxiu per obrir-lo</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Kill process</old>
+			<new>Finalitza el procés</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>Nou procés</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>IDP</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Procés finalitzat satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Gestor de processos</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Nom del process</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Nom d'usuari</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Bitmap</old>
+			<new>Mapa de bits</new>
+		</text>
+		<text>
+			<old>C sharp source</old>
+			<new>Codi C sharp</new>
+		</text>
+		<text>
+			<old>C source</old>
+			<new>Codi C</new>
+		</text>
+		<text>
+			<old>C++ source</old>
+			<new>Codi C++</new>
+		</text>
+		<text>
+			<old>Command</old>
+			<new>Comanda</new>
+		</text>
+		<text>
+			<old>Created with</old>
+			<new>Creat amb</new>
+		</text>
+		<text>
+			<old>Creation date</old>
+			<new>Data de creació</new>
+		</text>
+		<text>
+			<old>Creation information</old>
+			<new>Informació de creació</new>
+		</text>
+		<text>
+			<old>CSS file</old>
+			<new>Arxiu CSS</new>
+		</text>
+		<text>
+			<old>CSV sheet file</old>
+			<new>Full de CSV</new>
+		</text>
+		<text>
+			<old>Deletion date</old>
+			<new>Data d'eliminació</new>
+		</text>
+		<text>
+			<old>Deletion information</old>
+			<new>Informació d'eliminació</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>Directori</new>
+		</text>
+		<text>
+			<old>eyeDocument file</old>
+			<new>Arxiu eyeDocument</new>
+		</text>
+		<text>
+			<old>eyeInstaller package</old>
+			<new>Paquet eyeInstaller</new>
+		</text>
+		<text>
+			<old>oneye source</old>
+			<new>Codi oneye</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>Informació d'arxiu</new>
+		</text>
+		<text>
+			<old>File</old>
+			<new>Arxiu</new>
+		</text>
+		<text>
+			<old>%s file</old>
+			<new>Arxiu %s</new>
+		</text>
+		<text>
+			<old>%sBytes</old>
+			<new>%s bytes</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Temps</new>
+		</text>
+		<text>
+			<old>FLV file</old>
+			<new>Arxiu FLV</new>
+		</text>
+		<text>
+			<old>Graphics Interchange Format</old>
+			<new>Format de Gràfics Intercanviables</new>
+		</text>
+		<text>
+			<old>Hypertext Markup Language</old>
+			<new>Llenguatge de marcatge d'hipertext</new>
+		</text>
+		<text>
+			<old>Java source</old>
+			<new>Codi Java</new>
+		</text>
+		<text>
+			<old>Joint Photographic Experts Group</old>
+			<new>JPEG</new>
+		</text>
+		<text>
+			<old>JS source</old>
+			<new>Codi JS</new>
+		</text>
+		<text>
+			<old>Microsoft Excel file</old>
+			<new>Full de càlcul de Microsoft Excel</new>
+		</text>
+		<text>
+			<old>Microsoft Powerpoint file</old>
+			<new>Presentació de Microsoft Powerpoint</new>
+		</text>
+		<text>
+			<old>Microsoft Word file</old>
+			<new>Arxiu de Microsoft Word</new>
+		</text>
+		<text>
+			<old>Mp3 audio file</old>
+			<new>Àudio MP3</new>
+		</text>
+		<text>
+			<old>Perl source</old>
+			<new>Codi Perl</new>
+		</text>
+		<text>
+			<old>OpenOffice Writer file</old>
+			<new>Arxiu de l'OpenOffice Writer</new>
+		</text>
+		<text>
+			<old>Path</old>
+			<new>Directori</new>
+		</text>
+		<text>
+			<old>Rich Text Format</old>
+			<new>Text amb format</new>
+		</text>
+		<text>
+			<old>VBS source</old>
+			<new>Codi VBS</new>
+		</text>
+		<text>
+			<old>Ruby source</old>
+			<new>Codi Ruby</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Arxiu de text Open Document</new>
+		</text>
+		<text>
+			<old>Open Document Presentation file</old>
+			<new>Presentació Open Document</new>
+		</text>
+		<text>
+			<old>Python source</old>
+			<new>Codi Python</new>
+		</text>
+		<text>
+			<old>PSW file</old>
+			<new>Arxiu PSW</new>
+		</text>
+		<text>
+			<old>PWD file</old>
+			<new>Arxiu PWD</new>
+		</text>
+		<text>
+			<old>Plain text</old>
+			<new>Text Pla</new>
+		</text>
+		<text>
+			<old>Open Document Sheet file</old>
+			<new>Full de càlcul Open Document</new>
+		</text>
+		<text>
+			<old>PHP source</old>
+			<new>Codi PHP</new>
+		</text>
+		<text>
+			<old>The file does not exist!</old>
+			<new>L'arxiu no existeix!</new>
+		</text>
+		<text>
+			<old>vCard</old>
+			<new>vCard</new>
+		</text>
+		<text>
+			<old>Shockwave file</old>
+			<new>Arxiu Shockwave</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Pes</new>
+		</text>
+		<text>
+			<old>SQL source</old>
+			<new>Codi SQL</new>
+		</text>
+		<text>
+			<old>Tagged Image File Format</old>
+			<new>TIFF</new>
+		</text>
+		<text>
+			<old>Tar file</old>
+			<new>Arxiu Tar</new>
+		</text>
+		<text>
+			<old>Tar.Bz file</old>
+			<new>Arxiu Tar.Bz</new>
+		</text>
+		<text>
+			<old>Tar.Bz2 file</old>
+			<new>Arxiu Tar.Bz2</new>
+		</text>
+		<text>
+			<old>Tar.Gz file</old>
+			<new>Arxiu Tar.Gz</new>
+		</text>
+		<text>
+			<old>ZIP file</old>
+			<new>Arxiu ZIP</new>
+		</text>
+		<text>
+			<old>XML file</old>
+			<new>Arxiu XML</new>
+		</text>
+		<text>
+			<old>Portable Network Graphics</old>
+			<new>PNG</new>
+		</text>
+		<text>
+			<old>Portable Document Format</old>
+			<new>PDF</new>
+		</text>
+		<text>
+			<old>XSL source</old>
+			<new>Codi XSL</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Propietats</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Rename %s</old>
+			<new>Reanomena %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShare</name>
+		<text>
+			<old>Choose the groups to share with</old>
+			<new>Triar els grups amb qui vols compartir</new>
+		</text>
+		<text>
+			<old>Share "%s" with...</old>
+			<new>Comparteix "%s" amb...</new>
+		</text>
+		<text>
+			<old>Share</old>
+			<new>Comparteix</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found!</old>
+			<new>No hem trobat l'arxiu!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Ho sentim, no tens suficients permisos.</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Full de càlcul guardat correctament.</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Full de càlcul</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s s'ha instal·lat satisfactòriament!</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Instal·la</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administració</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Instal·lat</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Descripció: %s</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Nom de l'aplicació</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Escriptori</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Categories</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Realment vols desinstal·lar aquesta aplicació?</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Dependències: %s</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Descarregant i instal·lant %s... siusplau esperi</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instal·lant</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Educació</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>La descàrrega %s s'ha interromput! Impossible d'instal·lar</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Tot</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: la llista de paquets s'ha actualitzat</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Jocs</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Categoria: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Autor: %s</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Llicència: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Nom: %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Actualitza</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>cap</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versió</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Suggeriments: %s</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Només l'administrador root pot instal·lar l'eyeApps</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>Aquesta aplicació no es pot instal·lar.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Siusplau, escull una aplicació per instalar.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Hem desinstal·lat l'aplicació satisfactòriament.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Cerca</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>Temes</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Versió: %s</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>Traduccions</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimèdia</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Oficina</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Desinstal·la l'aplicació</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Desinstal·la</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>Packages Manager</old>
+			<new>Gestió de paquets</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Siusplau, escull una aplicació per desinstal·lar.</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>Altres aplicacions</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Auto clear input</old>
+			<new>Neteja automàticament l'entrada</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Descodifica Base64</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Codifica Base64</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Neteja</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Afegeix de l'entrada a la sortida</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Afegeix una nova línia al final</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>De Ascii a Hexa </new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Concatena la sortida</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>De decimal a romà</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>Hash oneye</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>De Hexa a Ascii</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Entitat d'html</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>Codifica la URL</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Elimina les entitats d'html</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Sortida de text</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Entrada de text</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Opcions</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>Hash md5</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>De romà a decimal</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Comença</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>Descodifica la URL</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Moment de l'última execució: %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>Finished!</old>
+			<new>Acabat!</new>
+		</text>
+		<text>
+			<old>Maybe you should try a higher level...</old>
+			<new>Potser hauries de triar un nivell superior...</new>
+		</text>
+		<text>
+			<old>Maximum</old>
+			<new>Màxim</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Tanca</new>
+		</text>
+		<text>
+			<old>Fullscreen</old>
+			<new>Pant. Completa</new>
+		</text>
+		<text>
+			<old>Level / board size (%s-%s):</old>
+			<new>Nivell/tamany tauler (%s-%s):</new>
+		</text>
+		<text>
+			<old>Highscores</old>
+			<new>Millors puntuacions</new>
+		</text>
+		<text>
+			<old>Moves</old>
+			<new>Moviments</new>
+		</text>
+		<text>
+			<old>[Unknown string]</old>
+			<new>[Cadena desconeguda]</new>
+		</text>
+		<text>
+			<old>Board size :</old>
+			<new>Tamany tauler:</new>
+		</text>
+		<text>
+			<old>Always remember my last configuration</old>
+			<new>Recorda sempre la meva darrera configuració</new>
+		</text>
+		<text>
+			<old>Maximum value on edges:</old>
+			<new>Valor màxim:</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Configuration</old>
+			<new>Configuració</new>
+		</text>
+		<text>
+			<old>Do you want to start a new game?</old>
+			<new>Vols començar un nou joc?</new>
+		</text>
+		<text>
+			<old>Network problem</old>
+			<new>Problema de xarxa</new>
+		</text>
+		<text>
+			<old>Tip used! Ranking disabled...</old>
+			<new>Ajuda usada. Rànquing deshabilitat</new>
+		</text>
+		<text>
+			<old>Your rank:</old>
+			<new>El teu rànquing:</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>Rank</old>
+			<new>Rànquing</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Guarda</new>
+		</text>
+		<text>
+			<old>Unable to connect to the host server.</old>
+			<new>No s'ha pogut connectar al servidor host.</new>
+		</text>
+		<text>
+			<old>Use shared highscores on server (all users)</old>
+			<new>Compartir puntuacions al servidor (tots els usuaris)</new>
+		</text>
+		<text>
+			<old>Use colored numbers on tiles</old>
+			<new>Mostrar els números en color</new>
+		</text>
+		<text>
+			<old>Your time:</old>
+			<new>El teu temps:</new>
+		</text>
+		<text>
+			<old>New game</old>
+			<new>Nou joc</new>
+		</text>
+		<text>
+			<old>Number of moves:</old>
+			<new>Moviments:</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Usuari</new>
+		</text>
+		<text>
+			<old>These options won't be applied until you start a new game.</old>
+			<new>Aquestes opcions no s'aplicaràn fins que no comencis un joc nou.</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Joc Tetravex</new>
+		</text>
+		<text>
+			<old>Time</old>
+			<new>Temps</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Advanced</old>
+			<new>Avançat</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Afegeix arxius per transferir, després clica el botó Carrega-ho ara!</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Afegeix arxius</new>
+		</text>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>Hi ha hagut un error durant el procés de càrrega!</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Error en carregar l'arxiu!</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>Si us plau, escriu l'adreça HTTP de l'arxiu:</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Arxiu penjat satisfactòriament</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>"%s" ha estat carregat amb èxit.</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Elimina</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Carrega arxius</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>L'arxiu ha estat carregat amb èxit.</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Transferint:</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Carrega-ho ara!</new>
+		</text>
+		<text>
+			<old>Web</old>
+			<new>Web</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>No tens prou permisos!</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>No tens prou espai lliure!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Senzill</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>Edita</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>No tens els permisos suficients!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Please wait...</old>
+			<new>Si us plau, espera...</new>
+		</text>
+		<text>
+			<old>Unable to save position!</old>
+			<new>Impossible guardar la posició</new>
+		</text>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Benvingut a %s</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Canvia el text de l'etiqueta</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Exemple d'eyeApp</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hola, món!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>No s'ha finalitzat cap procés!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Create a new document</old>
+			<new>Crea un nou document</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Crea un nou full de càlcul</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Vols que aquest widget s'obri automàticament en la següent sessió?</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Envia un missatge intern</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Carrega els teus arxius</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Sí</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Calendari</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>La meva quota</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Missatgeria interna</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Crea un arxiu</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Error en crear l'arxiu!</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Alguns caràcters especials han estat eliminats.</new>
+		</text>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Si us plau, escriu el nom del nou arxiu:</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Close</old>
+			<new>Tanca</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Error enviant missatge</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Adjunta</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Adjunt</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Missatge enviat</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Assumpte</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>A</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Nou missatge</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Envia</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>No s'ha pogut restaurar "%s"!</new>
+		</text>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>"%s" ha estat restaurat a la teva carpeta d'inici!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accepta</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>Estàs segur que vols restaurar "%s"?</new>
+		</text>
+		<text>
+			<old>Restore %s</old>
+			<new>Restaura %s</new>
+		</text>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>No pots restaurar "%s" a una carpeta real!</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Friday</old>
+			<new>Divendres</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Març</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maig</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Desembre</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Supr. columna</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Ins. columna</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Ins. fila</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Gener</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Dilluns</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Abril</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Agost</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Copia / enganxa aquest codi a una altra aplicació de fulls de càlcul (per exemple, l'Excel)</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juliol</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juny</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Supr. fila</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Febrer</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Fórmula</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nou</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Desa</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Dimarts</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Dimecres</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Posició</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Imprimeix</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Setembre</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Mida del full de càlcul</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Estil</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Novembre</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Octubre</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Obre</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Diumenge</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Dijous</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Segur que vols esborrar les cel·les?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Dissabte</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Desa com...</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>December</old>
+			<new>Desembre</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Error %s</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>extret</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>Dv</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Febrer</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Dv</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Gener</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Un altre arxiu</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Abril</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Agost</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juliol</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juny</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>Dll</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Març</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maig</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Dll</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>Dm</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>Dc</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Dg</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Octubre</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>Dg</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Novembre</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Dc</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Ds</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>Dj</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Dj</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Dm</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Carrega</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Setembre</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>Ds</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>Clean</old>
+			<new>Neteja</new>
+		</text>
+		<text>
+			<old>System console log</old>
+			<new>Log de la consola del sistema</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Error exportant l'arxiu!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel·la</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>No s'ha trobat el directori</new>
+		</text>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Estàs segur que vols importar aquesta vCard?</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Arxiu importat!</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Importa %s</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>vCardImport no pot iniciar-se, contacta amb el teu administrador</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importa</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>No s'han trobat contactes a l'arxiu!</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>L'arxiu no s'ha trobat!</new>
+		</text>
+	</part>
+</lang>

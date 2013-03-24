@@ -1,0 +1,90 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+global $currentUser;
+// Select language
+$mySelect = new Select(array(
+	'name' => 'eyeControl_lang_select',
+	'father' => $eyeContainer,
+	'width' => 150,
+	'horiz' => 1,
+	'x' => 300,
+	'y' => 23
+));
+$mySelect->show();
+$mySelect->addOption('English','en');
+$UserLangXML = eyeControl_lib_getXMLconfig(array('i18n','lang.xml'));
+$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/i18n/';
+$oldUser = $currentUser;
+$currentUser = ROOTUSER;
+$openDir = vfs('real_getDirContent',array($dir));
+if (is_array($openDir)) {
+	foreach ($openDir as $file) {
+		if (strrchr($file,'.xml') == '.xml') {
+			$lang = utf8_basename($file,'.xml');
+			if ($lang == $UserLangXML['lang'][0]) {
+				$select = 1;
+			} else {
+				$select = 0;
+			}
+			$LangXML = eyeXML('getXMLfile',array($file));
+			$display = $LangXML['lang'][0]['name'][0];
+			if ($LangXML['lang'][0]['name2'][0]) {
+				$display .= ' (' . $LangXML['lang'][0]['name2'][0] . ')';
+			}
+			$mySelect->addOption($display,$lang,$select);
+		}
+	}
+}
+$currentUser = $oldUser;
+$mySelect->focus();
+$mySelect->addEnterEventMsg('lang_change');
+// Change language
+$myButton = new Button(array(
+	'name' => 'eyeControl_lang_button',
+	'father' => $eyeContainer,
+	'x' => 300,
+	'y' => 20,
+	'caption' => 'Change Language',
+	'signal' => 'lang_change'
+));
+$myButton->addFriend($mySelect);
+$myButton->show();
+if ($currentUser == ROOTUSER) {
+	// Get more translations
+	$myLabel = new Label(array(
+		'name' => 'eyeControl_lang_label',
+		'father' => $eyeContainer,
+		'x' => 175,
+		'y' => 75,
+		'text' => 'Get more translations',
+		'disablemsg' => 0,
+		'signal' => 'lang_eyeosorg'
+	));
+	$myLabel->show();
+	$myLabel->setCss(array(
+		'color' => '#004488',
+		'cursor' => 'Pointer'
+	));
+}
+?>

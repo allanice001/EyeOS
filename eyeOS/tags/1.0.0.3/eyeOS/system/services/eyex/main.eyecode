@@ -1,0 +1,891 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	eyeOS X system, for visual tasks
+*/
+/*
+	eyeX is a wrapper service, its function is to add messages in the output buffer
+	located at the mmap service.
+
+	The messages added to the buffer by this service, are related to the screen
+	management.
+*/
+
+define('GLOBAL_FATHER','eyeApps');
+
+function service_eyex_init() {
+	header("Content-type:text/xml");//override header type
+}
+
+/***
+* 
+* Description: set a new content into a specified div tag
+*
+* Arguments:
+* 	+ name: name of the div where set the new content
+* 	+ content: new content to set
+*
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_setDiv($params) {
+	global $procInfo;
+	if($params == null || count($params) < 2){
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$myDiv = $params['name'];
+	$myContent = $params['content'];
+	
+	if(!$myDiv || !$myContent) {
+		return INCORRECT_PARAMS;
+	}
+	
+	$atribs = array(
+		'task' => array('setDiv'),
+		'name' => array($procInfo['pid'].'_'.$myDiv),
+		'content' => array($myContent)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: load a JS script
+*
+*
+* Arguments:
+* 	+ url: string containing the url to load
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_loadScript($params) {
+	$myScript = $params['url'];
+	if(!$myScript) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$atribs = array(
+		'task' => array('loadScript'),
+		'url' => array($myScript),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: load as CSS into the screen
+*
+* Arguments:
+* 	+ url: string with the url of the CSS file
+* 	+ id: id to set into the dom tree
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_loadCSS($params) {
+	$myScript = $params['url'];
+	$myID = $params['id'];
+	if(!$myScript || !$myID) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$atribs = array(
+		'task' => array('loadCSS'),
+		'url' => array($myScript),
+		'id' => array($myID)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));	
+}
+
+/***
+* 
+* Description: remove a CSS from the screen
+*
+* Arguments:
+* 	+ id: string with the id to remove
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_removeCSS($params) {
+	$myID = $params['id'];
+	if(!$myID) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$atribs = array(
+		'task' => array('removeCSS'),
+		'id' => array($myID),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: set a new wallpaper
+*
+* Arguments:
+* 	+ path: string containing the path of the image
+*	- repeat: a flag to activate the repeating of the image if needed, default: 0
+* 	- center: this flag center the image in the screen, default: 1
+* 
+* Return: none
+*
+* Last update 2007-02-19
+***/
+function service_eyex_setWallpaper($params) {
+	$wallp = $params['path'];
+	$repeat = $params['repeat'];
+	$center = $params['center'];
+	
+	if(!$wallp) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if(!$repeat) {
+		$repeat=0;
+	}
+	
+	if(!$center) {
+		$center=1;
+	}
+	
+	$atribs = array(
+		'task' => array('setWallpaper'),
+		'url' => array($wallp),
+		'repeat' => array($repeat),
+		'center' => array($center)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));	
+
+}
+
+/***
+* 
+* Description: create a new div into the dom tree of the screen
+*
+* Arguments:
+* 	+ name: name of the div, in the screen will be the id
+* 	+ father: the tag father where append the new div 
+*
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_createDiv($params) {
+	global $procInfo;
+	$name = $params['name'];
+	$class = $params['class'];
+	if(!$class) {
+		$class = ' '; 
+	}
+	$father = $params['father'];
+	
+	if(!isset($name) || !isset($father)) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($father != 'eyeApps' && !isset($params['removepid'])) {
+		$father = $procInfo['pid'].'_'.$father;
+	}
+	if(!isset($params['nopid'])) {
+		$name = $procInfo['pid'].'_'.$name;
+	}
+	
+	$atribs = array(
+		'task' => array('createDiv'),
+		'name' => array($name),
+		'class' => array($class),
+		'father' => array($father)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: create a new widget, this function is normally used by the widget library
+* 			
+* Arguments:
+* 	+ name: string containing the name of the widget to create
+* 	+ father: father of the widget
+*	+ x: horizontal position where set the widget
+*	+ y: vertical position where set the widget 
+*	+ widgetname: the name of the widget into the widget library
+*	+ widgetparams: internal params for the widget
+*	+ horiz: attach to the left or the right in the screen
+*	+ vert: attach to the top or the bottom in the screen
+*	- cent: center in the father
+*
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_createWidget($params) {
+	if(!is_array($params)) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	
+	if(!$params['name'] || !$params['father']) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	global $checknum;
+	global $procInfo;
+	
+	
+	$name = $params['name'];
+	$father = $params['father'];
+	$x = $params['x'];
+	$y = $params['y'];
+	$widgetname = $params['widgetname'];
+	$widgetparams = $params['params'];
+	$horiz = $params['horiz'];
+	$vert = $params['vert'];
+	if($father != GLOBAL_FATHER && !isset($params['removepid'])) {
+		$father = $procInfo['pid'].'_'.$father;
+	}
+	if(!isset($params['center'])) {
+		$cent = 0;
+	} else {
+		$cent = $params['center'];
+	}
+	$atribs = array(
+		'task' => array('createWidget'),
+		'position' => array(
+			array(
+				'x' => array($x),
+				'y' => array($y),
+				'horiz' => array($horiz),
+				'vert' => array($vert)
+			)
+		),
+		'checknum' => array($checknum),
+		'name' => array($procInfo['pid'].'_'.$name),
+		'father' => array($father),
+		'widgetname' => array($widgetname),
+		'params' => array($widgetparams),
+		'cent' => array($cent)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: remove a widget from the screen
+*
+* Arguments:
+* 	+ name: name of the widget to remove
+*	+ father: name of the father of the widget to remove
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_removeWidget($params) {
+	global $procInfo;
+	if($params['name'] && $params['father']) {
+		$name = $procInfo['pid'].'_'.$params['name'];
+		$father = $params['father'];
+		if($father != GLOBAL_FATHER) {
+			$father = $procInfo['pid'].'_'.$father;
+		}
+	} else {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	} 
+	
+	$atribs = array(
+		'task' => array('removeWidget'),
+		'name' => array($name),
+		'father' => array($father)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: show a message into a box for a notification purposes
+*
+* Arguments:
+* 	+ content: the content for the message
+* 	- type: the type for the message, default: normal
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_messageBox($params) {
+
+	if($params['content']) {
+		$content = $params['content'];
+	}
+	
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($params['type'])	{
+		$type = $params['type'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('messageBox'),
+		'content' => array($content),
+		'type' => array($type)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+function service_eyex_setValue($params) {
+
+	if($params['value']) {
+		$content = $params['value'];
+	}
+	
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('setValue'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+function service_eyex_setValueB64($params) {
+
+	if($params['value']) {
+		$content = $params['value'];
+	}
+	
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('setValueB64'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+function service_eyex_concatValueB64($params) {
+
+	if($params['value']) {
+		$content = $params['value'];
+	}
+	
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('concatValueB64'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+function service_eyex_concatValue($params) {
+
+	if($params['value']) {
+		$content = $params['value'];
+	}
+	
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('concatValue'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+function service_eyex_concatRich($params) {
+
+	if($params['value']) {
+		$content = $params['value'];
+	}
+	
+	if(!$content) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('concatRich'),
+		'content' => array($content)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: execute javasript code in the content of the browser
+*
+* Arguments:
+* 	+ js: the javascript to execute
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_rawjs($params) { //util for widgets
+	
+	if($params['js']) {
+		$js = $params['js'];
+	} else {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$js = str_replace("\n","",$js);
+	$js = str_replace("\r","",$js);
+
+	$atribs = array(
+		'task' => array('rawjs'),
+		'js' => array($js)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));
+}
+
+/***
+* 
+* Description: change the position of a widget in the screen
+*
+* Arguments:
+* 	+ name: the name of the widget to move
+* 	+ x: new horizontal position
+*	+ y: new vertical position 
+*
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_moveWidget($params) {
+	
+	if(!$params['name'] || !$params['x'] || !$params['y']) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$name = $params['name'];
+	$x = $params['x'];
+	$y = $params['y'];
+	
+	$atribs = array(
+		'task' => array('moveWidget'),
+		'name' => array($name),
+		'x' => array($x),
+		'y' => array($y)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));	
+}
+
+/***
+* 
+* Description: change the size of a given widget
+*
+* Arguments:
+* 	+ name: name of the widget to resize
+* 	+ x: new width to set
+* 	+ y: new height to set
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_resizeWidget($params) {
+	if(!$params['name'] || !$params['width'] || !$params['height']) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$name = $params['name'];
+	$x = $params['width'];
+	$y = $params['height'];
+	
+	$atribs = array(
+		'task' => array('resizeWidget'),
+		'name' => array($name),
+		'width' => array($x),
+		'height' => array($y)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));		
+}
+
+/***
+* 
+* Description: make a widget draggable
+*
+* Arguments:
+* 	+ name: name of the widget to make draggable
+* 	+ father: name of the father of the widget to make draggable
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_makeDrag($params) {
+	if(!$params['name'] || !$params['father']) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$atribs = array(
+		'task' => array('makeDrag'),
+		'name' => array($params['name']),
+		'father' => array($params['father'])
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));		
+}
+
+/***
+* 
+* Description: update a css property with a given value
+*
+* Arguments:
+* 	+ name: id of the element where apply the new property
+* 	+ property: string containing the property to update
+* 	+ value: new value for the property
+*
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_eyex_updateCss($params)
+{
+	$prop = $params['property'];
+	while(strstr($prop,'-')) {
+		$prop = camelize($prop);
+	}
+	
+	$name = $params['name'];
+	$value = $params['value'];
+	
+	if(!$name || !$prop || !$value) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+
+	$atribs = array(
+		'task' => array('updateCss'),
+		'name' => array($name),
+		'property' => array($prop),
+		'value' => array($value)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));	
+}
+
+function service_eyex_addEvent($params)
+{
+	$name = $params['name'];
+	$func = $params['action'];
+	$event = $params['event'];
+	$args = $params['args'];
+
+	if(!$args) {
+		$args = 0;
+	}
+
+	$atribs = array(
+		'task' => array('addEvent'),
+		'name' => array($name),
+		'event' => array($event),
+		'func' => array($func),
+		'args' => array($args)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));	
+}
+
+function service_eyex_sendMessage($params) {
+	$msg = $params['msg'];
+	if(!$msg) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	global $checknum;
+	
+	if(isset($params['params'])) {
+		$par = $params['params'];
+	} else {
+		$par = " ";
+	}
+	
+	$atribs = array(
+		'task' => array('rawSendMessage'),
+		'msg' => array($msg),
+		'par' => array($par),
+		'checknum' => array($checknum)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = reqLib('eyeXML','array2xml',array($task));
+	service('mmap','addToBuffer',array($myAction));	
+}
+
+/***
+* 
+* Description: remove the first occurrence of "-" character and uppercase the letter next to it
+*
+* Arguments:
+* 	+ prop: string to camelize
+*
+* Return: none
+*
+* Notes: this function is for internal purposes, normally to change the css propertys
+* 			names, because javascript dom use this notation
+* 
+* Last update 2007-02-19
+***/
+function camelize($prop) {
+	$find = strstr($prop,'-');
+	$ant = substr($prop,0,strlen($prop)-strlen($find));
+	$find = substr($find,1,strlen($find));
+	$find{0} = strtoupper($find{0});
+	return $ant.$find;
+}
+
+?>

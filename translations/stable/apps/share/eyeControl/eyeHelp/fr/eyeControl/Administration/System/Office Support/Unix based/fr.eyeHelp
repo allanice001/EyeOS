@@ -1,0 +1,46 @@
+﻿    [b]Vous trouverez, ci-dessous, tout ce qui est nécessaire. La manière de procéder diffère d'une distribution à l'autre. Référez-vous à la distribution qui vous concerne, SVP[/b]
+
+Installez OpenOffice (onEye utilise OpenOffice pour la conversion des formats). 
+Installez xvfb (OpenOffice nécessite un serveur X pour s'exécuter).
+ 
+	Assurez-vous que le propriétaire du répertoire home de l'utilisateur apache (www-data ou personne dans certaines installations) est l'utilisateur apache. Par exemple, dans les installations de Debian l'utilisateur apache est www-data et home, pour l'utilisateur, est /var/www, mais ce répertoire est la propriété de root. Vous pouvez changer home pour l'utilisateur apache à /tmp si vous ne voulez pas changer le propriétaire ou créer un nouveau répertoire. 
+
+[b]Copiez[/b] 
+[code] 
+youronEyeDir/onEyexxxxxx/extras/OpenOffice/onEye.xba 
+[/code]
+de votre répertoire d'installation d'onEye vers 
+
+[code]  
+/usr/lib/openoffice/share/basic/Tools/
+[/code]
+
+[b]Editez[/b] 
+
+[code]  
+/usr/lib/openoffice/share/basic/Tools/script.xlb
+[/code]
+
+et ajoutez 
+
+[code]library:element library:name="onEye"/[/code]
+
+après
+
+[code]library:element library:name="Debug"/[/code]
+
+... cela devrait ressembler à:
+
+[code]library:element library:name="Debug"/
+library:element library:name="onEye"/[/code]
+
+Puis ouvrez le terminal et tappez 
+
+[code]  
+Xvfb :1 -ac -screen 0 800x600x16 -fbdir /tmp &
+[/code]
+
+respectez bien la casse: xvfb ne fonctionnerait pas, il faut bien taper Xvfb 
+
+
+Vous pouvez visiter [url=http://wiki.eyeos.org/Setting_Up_Office_Linux]notre page wiki[/url] pour obtenir plus d'informations et des exemples.

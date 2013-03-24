@@ -1,0 +1,111 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+	$myLocalBox = new Box(array(
+		'name'=>'crossShare_box_local',
+		'father'=>$crossShareTab,
+		'title'=>'Local',
+		'x'=>2,
+		'y'=>2,
+		'width'=>$myWindow->width / 2 - 6,
+		'height'=>$myWindow->height - 56
+	));
+	$myLocalBox->show();
+	
+	$myRemoteBox = new Box(array(
+		'name'=>'crossShare_box_remote',
+		'father'=>$crossShareTab,
+		'title'=>'Remote',
+		'horiz'=>1,
+		'x'=>2,
+		'y'=>2,
+		'width'=>$myWindow->width / 2 - 6,
+		'height'=>$myWindow->height - 57
+	));
+	$myRemoteBox->show();
+	
+	$myLocalIframe = new Iframe(array(
+		'name'=>'crossShare_iframe_local',
+		'father'=>$myLocalBox->name,
+		'url'=>EYE_ROOT .'/crossShare/index.php',
+		'x'=>2,
+		'y'=>25,
+		'width'=>$myLocalBox->width - 4,
+		'height'=>$myLocalBox->height - 27
+	));
+	$myLocalIframe->show();
+	
+	$myRemoteIframe = new Iframe(array(
+		'name'=>'crossShare_iframe_remote',
+		'father'=>$myRemoteBox->name,
+		'x'=>2,
+		'y'=>25,
+		'width'=>$myRemoteBox->width - 4,
+		'height'=>$myRemoteBox->height - 27
+	));
+	$myRemoteIframe->show(0);
+	$myRemoteIframe->hide();
+	
+	$myRemoteText = new Textbox(array(
+		'name'=>'crossShare_remote_address',
+		'father'=>$myRemoteBox->name,
+		'text'=>'http://',
+		'x'=>8,
+		'y'=>48,
+		'width'=>$myRemoteBox->width - 20
+	));
+	$myRemoteText->show();
+	$myRemoteText->addEnterEventMsg('crossShare_connect');
+	
+	$myRemoteButton1 = new Button(array(
+		'name'=>'crossShare_remote_connect',
+		'father'=>$myRemoteBox->name,
+		'y'=>80,
+		'cent'=>2,
+		'caption'=>'Connect',
+		'signal'=>'crossShare_connect'
+	));
+	$myRemoteButton1->addFriend($myRemoteText);
+	$myRemoteButton1->show(0);
+	
+	$myRemoteButton2 = new Button(array(
+		'name'=>'crossShare_remote_disconnect',
+		'father'=>$crossShareTab,
+		'horiz'=>1,
+		'x'=>6,
+		'y'=>6,
+		'caption'=>'',
+		'signal'=>'crossShare_disconnect',
+		'img' => 'index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/16x16/delete.png'
+	));
+	$myRemoteButton2->show(0);
+	$myRemoteButton2->hide();
+	
+	$myRemoteLabel = new Textarea(array(
+		'name'=>'crossShare_remote_status',
+		'father'=>$myRemoteBox->name,
+		'y'=>128,
+		'x'=>8,
+		'width'=>$myRemoteBox->width - 20,
+		'height'=>64,
+		'text'=>'-',
+		'enabled'=>0
+	));
+	$myRemoteLabel->show(0);
+	$myRemoteLabel->setCss(array('text-align'=>'center','font-family'=>'Verdana,Arial,sans-serif,FreeSans','border'=>'none'));
+	
+	eyex('loadScript',array('url' => 'index.php?extern=apps/eyeUpload/crossShare.js&type=text'));
+
+?>

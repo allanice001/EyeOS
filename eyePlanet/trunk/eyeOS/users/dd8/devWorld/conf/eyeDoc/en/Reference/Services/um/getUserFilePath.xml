@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getUserFilePath</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>um</tag>
+			<tag>user</tag>
+		</tags>
+		<shortDesc>Returns path to user's parameters dir/file.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getUserFilePath</functionName>
+		<syntax>string um('getUserFilePath', array(string $username [, int $file]))</syntax>
+		<desc>Returns the path to a user's account directory or the user's parameters file.</desc>
+		<params>
+			<type>required</type>
+			<name>username</name>
+			<desc>String containing the name of the user.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>file</name>
+			<desc>If set to 1, appends to the output string the filename of the user's parameters file.</desc>
+		</params>
+		<return>If the $file parameter is set to 1, returns the path to the XML user's account info file. Else, returns the path to the parent directory of the file.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No username is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

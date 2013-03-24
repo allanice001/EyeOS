@@ -1,0 +1,1042 @@
+.activeWindow, .eyeWindowTitle, .inactiveWindow {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/bg_top.png)repeat-x;
+	border: 1px solid #214e79;
+	height: 21px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+}
+
+.activeWindow_border_left {}
+.activeWindow_border_right {}
+
+#background {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/wallpapers/default.jpg) no-repeat;
+	height: 100%;
+	min-height: 400px;
+	min-width: 500px;
+	position: absolute;
+	width: 100%;
+}
+
+.blockbar {
+	background-color: #eeeeee;
+	border-bottom: 2px ridge #ffffff;
+	height: 57px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.blockbarImg {}
+
+.blockbarItem, .blockbarItem_right {
+	border: 1px solid #eeeeee;
+	cursor: pointer;
+	margin-top: 6px;
+	padding: 2px 7px 5px;
+	text-align: center;
+	width: auto;
+}
+
+.blockbarItem, .blockbarItem:hover, .blockbarItemPress {
+	margin-left: 5px;
+	float: left;
+}
+
+.blockbarItem_right, .blockbarItem_right:hover, .blockbarItemPress_right {
+	margin-right: 5px;
+	float: right;
+}
+
+.blockbarItem:hover, .blockbarItem_right:hover, .blockbarItemPress, .blockbarItemPress_right {
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-opera-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color:#eeeeee;
+	border-color: #a5a6ad;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	font-size: 20px;
+	margin-top: 6px;
+	padding: 2px 7px 5px;
+	text-align: center;
+	width: auto;
+}
+
+.blockbarItemPress, .blockbarItemPress_right {
+	background-color: #e7e7e7;
+	border-color: #84848a #909197 #a5a6ad #909197;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 2px 2px 1px 2px;
+	margin-top: 5px;
+	padding: 2px 6px 5px;
+}
+
+.blockbarline, .blockbarline_right {
+	border-left: 1px solid #c7c7c7;
+	float: left;
+	height: 40px;
+	margin-left: 5px;
+	margin-top: 10px;
+	width: 1px;
+}
+
+.blockbarText {
+	color: #333333;
+	font-size: 9px;
+	margin-top: 5px;
+}
+
+.eyeListbox_box {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.eyeListbox_over {
+    background-color: #EAEAEA;
+}
+
+.eyeListbox_focus {
+    background-color: #D5DDE6;
+}
+
+.eyeListbox_out {
+    background-color: transparent;
+}
+
+.eyeListbox_txt {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.eyeListbox_img {
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.dynamic-slider-control {
+	-moz-user-focus: normal;
+	-moz-user-select: none;
+	cursor: default;
+	position: relative;
+}
+
+.dynamic-slider-control input {
+	display: none;
+}
+
+.dynamic-slider-control.handle {
+	-moz-user-select: none;
+	cursor: default;
+	font-size: 1px;
+	overflow: hidden;
+	position: absolute;
+}
+
+.dynamic-slider-control.horizontal.handle {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/handle.horizontal.png);
+	height: 14px;
+	width: 31px;
+}
+
+.dynamic-slider-control.horizontal.handle div {}
+.dynamic-slider-control.horizontal.handle.hover {}
+
+.dynamic-slider-control.horizontal.line {
+	height: 3px;
+}
+
+.dynamic-slider-control.line {
+	border: 1px solid #5a615a;
+	-moz-box-sizing: content-box;
+	font-size: 0.01mm;
+	overflow: hidden;
+	position: absolute;
+}
+
+.dynamic-slider-control.line div {
+	border: 1px solid;
+	border-color: #e6e6e6 #bdbebd #bdbebd #e6e6e6;
+	height: 1px;
+	width: 1px;
+}
+
+.dynamic-slider-control.vertical.handle {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/handle.vertical.png);
+	height: 31px;
+	width: 15px;
+}
+
+.dynamic-slider-control.vertical.handle.hover {}
+
+.dynamic-slider-control.vertical.line {
+	width: 3px;
+}
+
+.eyeBarItemsText {
+	color: #333333;
+	border-bottom: 1px solid #efefef;
+	height: 18px !important;
+	left: -2px;
+	padding-left: 37px;
+	padding-top: 3px;
+	position: absolute;
+	top: 0px;
+	width: 120px;
+	z-index: 200;
+}
+
+.eyeBarItemsText:hover {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/apps/eyeBar/select.png);
+	color: #333333;
+	height: 19px !important;
+	left: -2px;
+	padding-left: 37px;
+	padding-top: 4px;
+	top: -1px;
+}
+
+.eyeBoxBottCent {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/bg_bottom_center.png) repeat-x;
+	height: 17px;
+}
+
+.eyeBoxSupCent {}
+
+.eyeBoxTable, .eyeBoxText {
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	background-color: #ffffff;
+	border: 1px solid #acacac;
+}
+
+.eyeBoxText {
+	background: #ffffff url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/boxbg.png) repeat-x top;
+	color: #0046a6;
+	font-size: 11px;
+	left: 0;
+	padding: 4px 0px 3px 8px;
+	position: absolute;
+	right: 0;
+	top: 0px;
+	height: 16px;
+}
+
+.eyeButtonClass {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background: #ffffff url(index.php?version=EXTERN_CACHE_VERSION&theme=newdefault&extern=images/widgets/buttonbg.png) repeat-x top;
+	border-bottom: 1px solid #7f7f7f;
+	border-left: 1px solid #aeaeae;
+	border-right: 1px solid #7f7f7f;
+	border-top: 1px solid #aeaeae;
+	cursor: pointer;
+	font-size: 11px;
+	padding: 1px;
+}
+
+.eyeButtonClass:hover {
+	border-bottom: 1px solid #6a9bd8;
+	border-left: 1px solid #a1c6f3;
+	border-right: 1px solid #6a9bd8;
+	border-top: 1px solid #a1c6f3;
+}
+
+.eyeClock {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/minbar_bg.png);
+	bottom: 0;
+	color: #0968b0;
+	cursor: pointer;
+	height: 31px;
+	position: absolute;
+	right: 0;
+	width: 97px;
+	z-index: 10000;
+}
+
+.eyeClock:hover {
+	background: #dddddd url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/bar.png) no-repeat left ;
+	border-left: 1px solid #4e92c5;
+	color: #333333;
+	filter:alpha(opacity=90);
+	padding-left: 1px;
+	opacity: 0.9;
+}
+
+.eyeClockText {
+	font-size: 11px !important;
+	font-weight: bold;
+	margin-right: 6px;
+	margin-top: 8px;
+	text-align: center;
+}
+
+.eyeContextMenu {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #ffffff;
+	border: 1px solid #999999;
+	font-weight: normal;
+	padding: 5px 1px;
+	width: 150px;
+	z-index: 1000;
+}
+
+.eyeContextMenuEntry {
+	color: #000000;
+	cursor: pointer;
+	font-family: Verdana,Arial,sans-serif,FreeSans;
+	font-size: 11px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: left;
+}
+
+.eyeContextMenuEntry:hover {
+	background-color: #dddddd;
+}
+
+.eyecursor {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&&theme=default&extern=images/desktop/loadingcursor/loading.png&theme=default);
+	display: none;
+	height: 30px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 32px;
+	z-index: 50000;
+}
+
+.eyeDesk_miniCalendar {
+	background: #dddddd;
+	border-left: 2px groove #ffffff;
+	border-top:2px groove #ffffff;
+	bottom: 31px;
+	display: none;
+	filter:alpha(opacity=90);
+	height: 140px;
+	opacity: 0.9;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: absolute;
+	right: 0px;
+	width: 170px;
+	z-index: 9999;
+}
+
+.eyeDesk_iconsOver, .eyeFiles_icons {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: #333333;
+	cursor: pointer;
+	margin-top: -7px;
+	padding-top: 7px;
+}
+
+.eyeDesk_iconsOver:hover, .eyeIcon:hover, .eyeFiles_icons:hover {
+	-icab-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	background:transparent  url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/desktop/iconhover.png)repeat-x top;
+	border-radius: 7px;
+}
+
+/*old eyeDock pre 1.8.5*/
+.eyeDock_center {/* using .eyeDockText_center */}
+.eyeDock_left {}
+.eyeDock_right {}
+
+.eyeDockIcon {
+	cursor: pointer;
+	 margin-top:-4px;
+	 padding-top:4px;
+}
+
+.eyeDockIcon:hover {
+	background: #dddddd;
+	border-left:1px solid #ffffff;
+	border-right:1px solid #ffffff;
+	height: 24px;
+	margin-left: -4px;
+	padding:4px 4px 0px 4px;
+}
+
+.eyeDockMenu {
+	display: none;
+	position: absolute;
+	top: 39px;
+	z-index: 10000;
+}
+
+.eyeDockMenuBottomCenter {}
+.eyeDockMenuBottonLeft {}
+.eyeDockMenuBottonRight {}
+
+.eyeDockMenuContent {
+	background: #dddddd;
+	border-bottom: 2px ridge #ffffff;
+	border-left: 2px groove #ffffff;
+	border-right: 2px ridge #ffffff;
+	filter:alpha(opacity=90);
+	height: 100%;
+	left: -8px;
+	opacity: 0.9;
+	padding-bottom: 35px;
+	position: absolute;
+	top: -11px;
+	width: 170px;
+}
+
+.eyeDockMenuIcon {
+	cursor: pointer;
+	border-bottom: 1px solid #efefef;
+	height: 27px;
+	left: 10px;
+	margin-top:18px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top:3px;
+	position: absolute;
+	right: 10px;
+}
+
+.eyeDockMenuIcon:hover {
+	color: #000000;
+	cursor: pointer;
+	background: #ffffff;
+	filter:alpha(opacity=80);
+	opacity: 0.8;
+	position: absolute;
+}
+
+.eyeDockItemImg {
+	cursor: pointer;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.eyeDockMenuLeftCenter {}
+.eyeDockMenuLine {}
+.eyeDockMenuRightCenter {}
+
+.eyeDockMenuText {
+	color: #333333;
+	font-size: 10px;
+	left: 35px;
+	position: absolute;
+	top: 9px;
+}
+
+.eyeDockMenuTitle {
+	display: none;
+	font-size: 12px;
+	font-weight:bold;
+	position: absolute;
+	top: 31px;
+	z-index: 10000;
+}
+
+.eyeDockMenuTopCenter {}
+.eyeDockMenuTopLeft {}
+.eyeDockMenuTopRight {}
+
+/*eyeDock 1.8.5*/
+.eyeDockText_center, .minimizedAppsLeft, .eyeDock_center {
+	background:#232d34 url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/apps/eyeDock/center.png) bottom repeat-x;
+	height: 31px;
+	left: 0px;
+	position: absolute;
+	top: 0;
+}
+
+.eyeDockText_center {}
+.eyeDockText_left {}
+.eyeDockText_right {}
+.eyeDockTextIcon {}
+.eyeDockTextIcon:hover {}
+.eyeDockTextIcon_active {}
+.eyeDockTextIcon_active img{}
+.eyeDockTextIcon img{}
+.eyeDockTextMenu {}
+.eyeDockTextMenuBottomCenter {}
+.eyeDockTextMenuBottonLeft {}
+.eyeDockTextMenuBottonRight {}
+.eyeDockTextMenuContent {}
+.eyeDockTextMenuIcon {}
+.eyeDockTextMenuIcon:hover {}
+.eyeDockTextItemImg {}
+.eyeDockTextMenuLeftCenter {}
+.eyeDockTextMenuLine {}
+.eyeDockTextMenuRightCenter {}
+.eyeDockTextMenuText {}
+.eyeDockTextMenuTitle {}
+.eyeDockTextMenuTopCenter {}
+.eyeDockTextMenuTopLeft {}
+.eyeDockTextMenuTopRight {}
+
+.eyeFiles_icons {
+	color: #000000;
+}
+
+.eyeFiles_icons:hover {/*look in .eyeDesk_iconsOver:hover*/}
+
+.eyeIcon {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: #ffffff;
+	margin-top: -5px;
+	padding: 5px 0 0 0;
+}
+
+.eyeIcon:hover {/*look in .eyeDesk_iconsOver:hover*/}
+.eyeIcon_blank {}
+
+.eyeIcon_Image {
+	margin-left: 8px;
+}
+
+.eyeIcon_Text {
+	font-size: 11px;
+}
+
+.eyeLine {
+	background-color: #dddddd;
+}
+
+.eyeLoginWindow {
+	margin-left: -150px;
+	margin-top: -210px;
+}
+
+.eyeMenu {
+	bottom: 31px;
+	left: -55px;
+	position: absolute;
+	visibility: hidden;
+	width: 200px;
+	z-index: 10000;
+}
+
+.eyeMenu_bot {}
+
+.eyeMenu_cen {
+	background: #dddddd;
+	border-left: 2px groove #ffffff;
+	filter:alpha(opacity=90);
+	opacity: 0.9;
+	padding-bottom: 10px;
+}
+
+.eyeMenu_content {
+	left: 15px;
+	position: absolute;
+	width: 100%;
+}
+
+.eyeMenu_top {
+	background: #dddddd;
+	border-left: 2px groove #ffffff;
+	border-top:2px groove #ffffff;
+	filter:alpha(opacity=90);
+	height: 10px;
+	opacity: 0.9;
+}
+
+.eyeMenuButton, .eyeMenuButton_Img, .eyeMenuButton_clicked{
+	bottom: 20px;
+	color: #000000;
+	cursor: pointer;
+	height: 31px !important;
+	right: 105px;
+	margin: 0;
+	position: absolute;
+	width: 32px !important;
+	z-index: 10000;
+}
+
+.eyeMessageBox {}
+
+.eyeMessageBoxText {
+	-icab-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: #ffffff;
+	border: 1px solid #214e79;
+	border-radius: 10px;
+	bottom: 40px;
+	color: #000000;
+	filter: alpha(opacity=90);
+	font-size: 10pt;
+	max-width: 280px;
+	min-height: 20px;
+	opacity: 0.9; 
+	padding: 15px;
+	position: absolute;
+	right: 10px;
+	z-index: 100;
+}
+
+.eyeProgress {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-width: 1px;
+	border-color: #dddddd #e7e7e7 #e7e7e7 #dddddd;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	height: 15px;
+}
+
+.eyeProgressBar {
+	background-color: #80a9d3;
+	filter:alpha(opacity=80);
+	opacity: 0.8;
+}
+
+.eyeProgressText {
+	color: #333333;
+	font-size: 11px;
+	margin-top: -1px;
+}
+
+.eyeSelect {
+	background-color: #ffffff;
+	border: 1px solid #bcbcbc;
+	font-size: 11px;
+	padding-left: 2px;
+}
+
+.eyeSimplebox {
+	border: 0.1px solid #000000;
+}
+
+.eyeSimpleboxNoBorder {
+	border: none;
+}
+
+.eyeSplit {}
+
+.eyeSplitter_horizontal, .eyeSplitter_vertical {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/dimple.png) no-repeat center center;
+	margin-top:-1px;
+	padding:1px;
+}
+
+.eyeTab {}
+
+
+.eyeTabArrowRight, .eyeTabArrowLeft {
+	position: absolute;
+	top: 0px;
+	cursor: Pointer;
+	width: 9px;
+	height: 24px;
+}
+
+.eyeTabArrowRight {
+	right: 0px;
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/arrow_right.png);
+}
+
+.eyeTabArrowLeft {
+	left: 0px;
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/arrow_left.png);
+}
+
+.eyeTabBody {
+	left: 0;
+	position: absolute;
+	top: 23px;
+}
+
+.eyeTabCross {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/cross.png);
+	color: #7f7f7f;
+	cursor: pointer;
+	font-size: 11px;
+	height: 6px;
+	position: absolute;
+	right: 5px;
+	top: 9px;
+	width: 8px;
+}
+
+.eyeTabHeader {
+	background: #f6f6f6;
+	border-bottom: 1px solid #acacac;
+	height: 23px;
+	left: 9px;
+	position: absolute;
+	top: 0;
+}
+
+.eyeTabNotSelected {
+	border-top: 1px solid #acacac;
+	height: 19px !important;
+	margin-top: 3px;
+}
+
+.eyeTabNotSelected, .eyeTabSelected {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #ffffff;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;
+	cursor: pointer;
+	cursor: -moz-grab;
+	vertical-align: middle;
+}
+
+.eyeTabSelected {
+	border-top: 1px solid #89d0fd;
+	font-style: italic;
+}
+
+.eyeTabText {
+	color: #3e3e3e;
+	font-size: 11px;
+	margin-left: 5px;
+	margin-top: 3px;
+	vertical-align: middle;
+}
+
+.eyeTextarea {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #ffffff;
+	border: 1px solid #bcbcbc;
+	font-size: 11px;
+}
+
+.eyeTextarea:hover, .eyeTextbox:hover {
+	border: 1px solid #858585;
+}
+
+.eyeTextareaContainer {}
+
+.eyeTextbox {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #ffffff;
+	border: 1px solid #bcbcbc;
+	font-size: 11px;
+	padding-left: 2px;
+}
+
+.eyeTextbox:hover {}
+
+.eyeWindowCloseButton, .eyeWindowMaxButton, .eyeWindowMinimizeButton {
+	cursor: pointer;
+	height: 22px;
+	position: absolute;
+	top: 1px;
+	width: 23px;
+}
+
+.eyeWindowCloseButton {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/close.png) no-repeat;
+}
+
+.eyeWindowCloseButton:hover {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/close_x.png) no-repeat;
+}
+
+.eyeWindowContent, .eyeWindowMainDrag {
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #acacac;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	overflow: auto;
+	right: 0;
+	top: 23px;
+}
+
+.eyeWindowContentInvisible {
+	background-color: transparent;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	position: absolute;
+	right: 0;
+	top: 23px;
+}
+
+.eyeWindowMain {
+	color: #000000;
+	height: 200px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 200px;
+}
+
+.eyeWindowMainDrag {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #a1bfe6;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+.eyeWindowMaxButton {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/max.png) no-repeat;
+	padding-right: 7px;
+}
+
+.eyeWindowMaxButton:hover {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/max_x.png) no-repeat;
+}
+
+.eyeWindowMinimizeButton {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/min.png) no-repeat;
+	padding-right: 12px;
+}
+
+.eyeWindowMinimizeButton:hover {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/min_x.png) no-repeat;
+}
+
+.eyeWindowOnBar_Container {
+	bottom: 0;
+	left: 13px;
+	right: 0;
+	position: absolute;
+	z-index: 10000;
+}
+
+.eyeWindowOnBar_Off, .eyeWindowOnBar_On {
+	color: #000000;
+	cursor: pointer;
+	height: 28px;
+	margin-right:3px;
+	overflow: hidden;
+	position: absolute;
+	top: -29px;
+	width: 157px;
+	z-index: 20;
+}
+
+.eyeWindowOnBar_Off{
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/minbar_off.png) top center no-repeat;
+}
+
+.eyeWindowOnBar_On {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/minbar_on.png) top center no-repeat;
+}
+
+.eyeWindowOnBar_text {
+	font-size:11px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 6px;
+	white-space: nowrap;
+}
+
+.eyeWindowResizeButton {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/resizebutton.png);
+	bottom: 0;
+	cursor: se-resize;
+	height: 12px;
+	position: absolute;
+	right: 0;
+	width: 12px;
+}
+
+.eyeWindowTitle { /* look at .activeWindow */ }
+.eyeWindowTitle_center {}
+.eyeWindowTitle_border_left {}
+.eyeWindowTitle_border_right {}
+
+.eyeWindowTitle_text {
+	color: #ffffff;
+	cursor: move;
+	font-weight: 600;
+	margin-left: 10px;
+	margin-top: 4px;
+	white-space: nowrap;
+}
+
+.horizontal {
+	height: 27px;
+	width: 200px;
+}
+
+.inactiveWindow{
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/bg_top_x.png)repeat-x;
+	border: 1px solid #acacac;
+}
+
+.inactiveWindow_border_left {}
+.inactiveWindow_border_right {}
+
+.menuBar_text {
+	cursor: pointer;
+	font-size: 11px;
+}
+
+.minIconLeft, .minIconRight {
+	bottom: 3px;
+	cursor: pointer;
+	display: none;
+	height: 18px;
+	overflow: hidden;
+	position: absolute;
+	width: 12px;
+	z-index: 10000;
+}
+
+.minIconLeft {
+	left: 0;
+}
+
+.minIconRight {
+	right: 128px;
+}
+
+.minimizedApps, .minimizedAppsRight {
+	bottom: 0px;
+	height: 31px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 10000;
+}
+
+.minimizedApps {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/minbar_bg.png)repeat-x;
+	left: 0px;
+	right: 142px;
+}
+
+.minimizedAppsLeft {
+	right: 0px;
+}
+
+.minimizedAppsRight {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/minimized/minbar_bg.png) repeat-x;
+	right: 127px;
+	width: 16px;
+}
+
+.multipleSelect {
+	background-color: #6699ff;
+	border: 1px solid #ffffff;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+#PI {
+	left: 500px;
+	position: absolute;
+	top: 20px
+}
+
+.shadowLayer {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/bg.png);
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.sort-arrow {
+	background-position: 3px 5px;
+	background-repeat: no-repeat;
+	height: 11px !important;
+	margin: 0 2px;
+	width: 11px;
+}
+
+.sort-arrow.ascending {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/upsimple.png);
+}
+
+.sort-arrow.descending {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/downsimple.png);
+}
+
+.sort-table {
+	background:transparent;
+	color: WindowText;
+	font: Icon;
+}
+
+.sort-table td {
+	cursor: pointer;
+	font-size: 11px;
+	padding: 1px 5px;
+}
+
+.sort-table thead {
+	background: ButtonFace;
+	font-size: 14px;
+}
+
+.sort-table thead td {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/widgets/bg_sortable.png) repeat-x top;
+	border-color: #96979e;
+	border-style: solid;
+	border-width: 1px;
+	cursor: context-menu;
+}
+
+.sort-table thead td:active {
+	border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+}
+
+.sort-table thead td[_sortType=HtmlButNoSort]:active, .sort-table thead td[_sortType=None]:active {
+	border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+	padding: 2px 5px;
+}
+
+.sort-table-container {
+	border: 1px Solid ThreeDShadow;
+	overflow: auto;
+}
+
+.sort-table-select {
+	background-color: #dddddd;
+}
+
+.vertical {
+	height: 200px;
+	width: 29px;
+}

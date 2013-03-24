@@ -1,0 +1,27 @@
+<eyeBar>
+	<item>
+		<text>System preferences</text>
+		<app>eyeControl</app>
+		<icon>preferences</icon>
+	</item>
+	<item>
+		<text>Applications</text>
+		<app>eyeApps</app>
+		<icon>apps</icon>
+	</item>
+	<item>
+		<text>About eyeOS</text>
+		<app>eyeInfo</app>
+		<icon>info</icon>
+	</item>
+	<item>
+		<text>Launch App</text>	
+		<app>eyeLaunch</app>
+		<icon>launch</icon>
+	</item>
+	<item>
+		<text>Close session</text>
+		<app>exit</app>	
+		<icon>exit</icon>
+	</item>
+</eyeBar>

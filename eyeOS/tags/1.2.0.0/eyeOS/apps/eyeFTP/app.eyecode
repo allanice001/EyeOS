@@ -1,0 +1,428 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+/**
+ * @author Nanawel (nanawel@gmail.com)
+ * @version 2.0.2
+ * @updated ...-2007
+ */
+
+function eyeFTP_run($params=null) {
+	global $checknum;
+	
+	$version = '2.0.1';
+	
+	eyeX('messageBox',array('content'=>'Welcome to eyeFTP!'));
+	$welcomeConsoleMessage =
+		'['.date('H:i:s',mktime()).'] eyeFTP v.'.$version.' started'
+		."\n".'['.date('H:i:s',mktime()).'] Informations available on the eyeOS wiki: http://wiki.eyeos.org/EyeFTP';
+	
+	$mainWindow = new Window(array(
+		'name' => 'eyeFTP_WND',
+		'father' => 'eyeApps',
+		'type' => NORESIZE_WINDOW,
+		'cent' => 1,
+		'width' => 750,
+		'height' => 560,
+		'title' => 'eyeFTP'
+	));
+	$mainWindow->show();
+
+	
+	$logTextarea = new Textarea(array(
+		'name' => 'eyeFTP_log_TXTAREA',
+		'father' => 'eyeFTP_WND_Content',
+		'x'	=> 8,
+		'y' => 5,
+		'width' => 730,
+		'height' => 70,
+		'enabled' => 0,
+		'text' => $welcomeConsoleMessage
+	));
+	$logTextarea->show();
+	
+	/**********************************************************/
+	//		CONNECTION WIDGETS
+	/**********************************************************/
+	
+	/* MANAGE HOSTS IMAGE BUTTON */
+	$manageHostsIcon = new Imagebox(array(
+		'name' => 'eyeFTP_manageHosts_IMG',
+		'father' => 'eyeFTP_WND_Content',
+		'url' => 'index.php?extern=apps/eyeFTP/gfx/managehosts.png',
+		'x' => 16,
+		'y' => 84,
+		'disableMsg'=>0,
+		'signal' => 'eyeFTP_manageHosts_IMG',
+		'alt' => 'Open Hosts Manager'
+	));
+	$manageHostsIcon->show();
+	$manageHostsIcon->setCss(array('cursor'=>'Pointer'));
+	
+	/**
+	 * CONTAINER (CONNECTION FORM ELEMENTS)
+	 */
+	$connectionDataContainer = new Container(array(
+		'name' => 'eyeFTP_connectionData_CTNR',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 50,
+		'y' => 82,
+		'width' => 680,
+		'height' => 30
+	));
+	$connectionDataContainer->show();
+	
+	/* HOST LABEL/TEXTBOX */
+	$hostLabel = new Label(array(
+		'name' => 'eyeFTP_host_LBL',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 0,
+		'y' => 7,
+		'text' => 'Host: '
+	));
+	$hostLabel->show();
+	$hostTextbox = new Textbox(array(
+		'name' => 'eyeFTP_host_TXTBOX',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 30,
+		'y' => 4,
+		'width' => 120
+	));
+	$hostTextbox->show();
+	$hostTextbox->focus();
+	
+	/* PORT LABEL/TEXTBOX */
+	$portLabel = new Label(array(
+		'name' => 'eyeFTP_port_LBL',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 164,
+		'y' => 7,
+		'text' => 'Port: '
+	));
+	$portLabel->show();
+	$portTextbox = new Textbox(array(
+		'name' => 'eyeFTP_port_TXTBOX',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 192,
+		'y' => 4,
+		'width' => 36,
+		'text' => '21'
+	));
+	$portTextbox->show();
+	
+	/* USER LABEL/TEXTBOX */
+	$usernameLabel = new Label(array(
+		'name' => 'eyeFTP_username_LBL',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 244,
+		'y' => 7,
+		'text' => 'User: '
+	));
+	$usernameLabel->show();
+	$usernameTextbox = new Textbox(array(
+		'name' => 'eyeFTP_username_TXTBOX',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 276,
+		'y' => 4,
+		'width' => 80,
+		'text' => 'anonymous'
+	));
+	$usernameTextbox->show();
+	
+	/* PASSWORD LABEL/TEXTBOX */
+	$passwordLabel = new Label(array(
+		'name' => 'eyeFTP_password_LBL',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 372,
+		'y' => 7,
+		'text' => 'Password: '
+	));
+	$passwordLabel->show();
+	$passwordTextbox = new Textbox(array(
+		'name' => 'eyeFTP_password_TXTBOX',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'x' => 432,
+		'y' => 4,
+		'width' => 80,
+		'text' => 'eyeftp@eyeos.org',
+		'password' => 1
+	));
+	$passwordTextbox->show();
+
+	/* CONNECT BUTTON */
+	$connectButton = new Button(array(
+		'name' => 'eyeFTP_connect_BTN',
+		'father' => 'eyeFTP_connectionData_CTNR',
+		'caption' => 'Connect',
+		'x' => 580,
+		'y' => 0
+	));
+	$connectButton->addFriend($hostTextbox);
+	$connectButton->addFriend($portTextbox);
+	$connectButton->addFriend($usernameTextbox);
+	$connectButton->addFriend($passwordTextbox);
+	$connectButton->show(0);
+
+	/* PATH LABEL/TEXTBOX */
+	$pathLabel = new Label(array(
+		'name' => 'eyeFTP_path_LBL',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 120,
+		'y' => 115,
+		'text' => 'Path: '
+	));
+	$pathLabel->show();
+	$pathTextbox = new Textbox(array(
+		'name' => 'eyeFTP_path_TXTBOX',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 150,
+		'y' => 112,
+		'width' => 586,
+		'text' => '',
+		'enabled' => 0
+	));
+	$pathTextbox->show();
+	
+	/* TABLE FOR REMOTE FILES LIST */
+	$filesTable = new Sortabletable(array(
+		'name' => 'eyeFTP_ftpFiles_TAB',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 118,
+		'y' => 132,
+		'width' => 620,
+		'height' => 396,
+		'sortypes' => array('Hidden','Html','String','String','String','String'),
+		'master' => 0,
+		'theader' => array('id',' ','Filename','Filesize','Date','Permissions'),
+		'signal' => 'ClickTable'	//FIXME: bug in eyeOS widgets libs (?), unable to customize name of signal
+	));
+	$filesTable->show();
+	
+	/**********************************************************/
+	//		ACTION WIDGETS
+	/**********************************************************/
+	/* BOX (ACTIONS) */
+	$actionsContainer = new Box(array(
+		'name' => 'eyeFTP_actions_CTNR',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 8,
+		'y' => 112,
+		'width' => 106,
+		'height' => 390,
+		'title' => 'Actions'
+	));
+	$actionsContainer->show();
+	
+	
+	/* PARENT DIRECTORY BUTTON */
+	$actionBrowseParentButton = new Button(array(
+		'name' => 'eyeFTP_actionBrowseParent_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Browse Parent',
+		'x' => 8,
+		'y' => 30,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/browseparentfolder.png'
+	));
+	$actionBrowseParentButton->show(0);
+	
+	/* PARENT DIRECTORY BUTTON */
+	$actionRefreshButton = new Button(array(
+		'name' => 'eyeFTP_actionRefresh_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Refresh',
+		'x' => 8,
+		'y' => 64,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/refresh.png'
+	));
+	$actionRefreshButton->show(0);
+	
+	$separatorImage = new Imagebox(array(
+		'name' => 'eyeFTP_actionSeparator_IMG',
+		'father' => 'eyeFTP_actions_CTNR',
+		'url' => 'index.php?extern=apps/eyeFTP/gfx/separator.png',
+		'x' => 8,
+		'y' => 86
+	));
+	$separatorImage->show();
+	
+	/* BROWSE BUTTON */
+	$actionBrowseButton = new Button(array(
+		'name' => 'eyeFTP_actionBrowse_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Browse Directory',
+		'x' => 8,
+		'y' => 96,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/browsefolder.png'
+	));
+	$actionBrowseButton->addFriend($filesTable);
+	$actionBrowseButton->show(0);
+	
+	/* DOWNLOAD TO EYEOS BUTTON */
+	$actionDownloadEyeosButton = new Button(array(
+		'name' => 'eyeFTP_actionDownloadEyeos_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Download to eyeOS',
+		'x' => 8,
+		'y' => 130,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/download.png'
+	));
+	$actionDownloadEyeosButton->addFriend($filesTable);
+	$actionDownloadEyeosButton->show(0);
+	
+	/* DOWNLOAD BUTTON */
+	$actionDownloadButton = new Button(array(
+		'name' => 'eyeFTP_actionDownload_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Download',
+		'x' => 8,
+		'y' => 166,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/download.png'
+	));
+	$actionDownloadButton->addFriend($filesTable);
+	$actionDownloadButton->show(0);
+	
+	/* UPLOAD FROM EYEOS BUTTON */
+	$actionUploadEyeosButton = new Button(array(
+		'name' => 'eyeFTP_actionUploadEyeos_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Upload from eyeOS',
+		'x' => 8,
+		'y' => 192,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/upload.png'
+	));
+	$actionUploadEyeosButton->show(0);
+	
+	/* UPLOAD BUTTON */
+	$actionUploadButton = new Button(array(
+		'name' => 'eyeFTP_actionUpload_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Upload',
+		'x' => 8,
+		'y' => 242,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/upload.png'
+	));
+	$actionUploadButton->show(0);
+	
+	/* CREATE FOLDER BUTTON */
+	$actionCreateFolderButton = new Button(array(
+		'name' => 'eyeFTP_actionCreateFolder_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Create Folder',
+		'x' => 8,
+		'y' => 270,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/newfolder.png'
+	));
+	$actionCreateFolderButton->show(0);
+	
+	/* RENAME FILE/FOLDER BUTTON */
+	$actionRenameButton = new Button(array(
+		'name' => 'eyeFTP_actionRename_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Rename / Move Selection',
+		'x' => 8,
+		'y' => 304,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/rename.png'
+	));
+	$actionRenameButton->show(0);
+	
+	/* DELETE FILE/FOLDER BUTTON */
+	$actionDeleteButton = new Button(array(
+		'name' => 'eyeFTP_actionDelete_BTN',
+		'father' => 'eyeFTP_actions_CTNR',
+		'caption' => 'Delete Selection',
+		'x' => 8,
+		'y' => 352,
+		'enabled' => 0,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/delete.png'
+	));
+	$actionDeleteButton->show(0);
+	
+	/* DOWNLOAD DUMMY FRAME
+	 * (used to show the 'save as' dialog when transfer from server to eyeOS is finished) */
+	$downloadFrame = new Iframe(array(
+		'name' => 'eyeFTP_download_FRM',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 0,
+		'y' => 0,
+		'height' => 1,
+		'width' => 1,
+		'url' => "index.php?checknum=$checknum&msg=downloadFinished",
+		'scroll' => 0
+	));
+	$downloadFrame->show();
+	
+	/* LINK TO WIKI LABEL */
+	$wikiLinkLabel = new Label(array(
+		'name' => 'eyeFTP_wikiLink_LBL',
+		'father' => 'eyeFTP_WND_Content',
+		'x' => 28,
+		'y' => 510,
+		'text' => 'Help - FAQ',
+		'disablemsg' => 0
+	));
+	$wikiLinkLabel->show(0);
+	$wikiLinkLabel->setCss(array('cursor'=>'Pointer','color' => '#0000FF'));
+
+	
+	
+	/* HIDDEN ELEMENTS */
+	$arraySerializedFilesData = new Hidden(array(
+		'name' =>'eyeFTP_serializedFilesData_HID',
+		'father' => 'eyeFTP_WND_Content',
+		'text' => ''
+	));
+	reqLib('eyeWidgets','serialize',array($arraySerializedFilesData));
+	$isConnectionActive = new Hidden(array(
+		'name' => 'eyeFTP_isFTPConnectionActive_HID',
+		'father' => 'eyeFTP_WND_Content',
+		'text' => '0'
+	));
+	reqLib('eyeWidgets','serialize',array($isConnectionActive));
+	$currentDir = new Hidden(array(
+		'name' => 'eyeFTP_currentDir_HID',
+		'father' => 'eyeFTP_WND_Content',
+		'text' => ''
+	));
+	reqLib('eyeWidgets','serialize',array($currentDir));
+	
+	//check the user's configuration directory and create it if needed 
+	$confDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeFTP';
+	if(!vfs('real_fileExists',array($confDir))) {
+		vfs('real_mkdir',array($confDir));
+	}
+}
+
+
+function eyeFTP_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+?>

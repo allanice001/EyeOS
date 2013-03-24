@@ -1,0 +1,72 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_account_password($params = '') {
+	eyeControl_lib_loadContent('account','password');
+}
+
+function eyeControl_on_account_save($params = '') {
+	global $currentUser;
+	um('updateUser',array(
+		'username' => eyeControl_lib_getConfigUser(),
+		'email' => $GLOBALS['eyeControl_account_textbox_email']->text,
+		'fullname' => $GLOBALS['eyeControl_account_textbox_fullname']->text
+	));
+	eyex('messageBox',array('content' => 'Changes successfully saved and user updated.'));
+}
+
+function eyeControl_on_account_delete($params = '') {
+	eyex('messageBox',array(
+		'content' => 'Do you really want to remove this account from the server?',
+		'type' => 3,
+		'title' => 'Delete user',
+		'win_name' => 'eyeControl_account_delete_window',
+		'win_style' => TITLE + CLOSE,
+		'win_removepid' => 0,
+		'btn1_capt' => 'Yes',
+		'btn1_name' => 'account_delete_yes',
+		'btn2_capt' => 'No',
+		'btn2_name' => 'account_delete_no',
+		'father' => 'eyeControl_container_big',
+		'img' => '?'
+	));
+}
+
+function eyeControl_on_account_delete_yes($params = '') {
+	global $currentUser;
+	if (eyeControl_lib_getConfigUser() != ROOTUSER) {
+		um('deleteUser',array(eyeControl_lib_getConfigUser()));
+		eyex('messageBox',array('content' => 'The account was successfully deleted.','type' => 2));
+		if ($currentUser == ROOTUSER) {
+			proc('launch',array('eyeControl'));
+			proc('end');
+		} else {
+			proc('launch',array('exit'));
+		}
+	}
+}
+
+function eyeControl_on_account_delete_no($params = '') {
+	$GLOBALS['eyeControl_account_delete_window']->close();
+}
+?>

@@ -1,0 +1,138 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDashBoard_run($params=null) {	
+	global $myPid;
+//If eyeDashBoard is running	
+	$processTable = service('proc','getProcessTable');
+	$count = 0;
+	foreach($processTable as $process){
+		if($process['appName'] == 'eyeDashBoard'){
+			if($count > 0) {
+				service('eyex','messageBox',array("content"=>"eyeDashBoard is already runing"));
+				proc('end');
+				return;
+			}
+			$count++;
+		}
+	}
+	
+//Checking if configs files and path exists, if didn't create it.
+	$confPath = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeDashBoard/';
+	if(!service('vfs','real_fileExists',array($confPath))){		
+		service('vfs','real_mkdir',array($confPath));
+	}
+	
+	$confPath = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeDashBoard/';
+	if(!service('vfs','real_fileExists',array($confPath.'widgets.xml'))){
+		$confPathFull = $confPath.'widgets.xml';
+		$fileContent = array('widgets'=>array(''));
+		$fileXml = reqLib('eyeXML','array2xml',array($fileContent));
+		if(service('vfs','real_create',array($confPathFull))){
+			$fp = service('vfs','real_open',array($confPathFull,'w'));
+			fwrite($fp,$fileXml);
+			fclose($fp);	
+		}
+	}
+	if(!service('vfs','real_fileExists',array($confPath.'widgetsLoaded.xml'))){
+		$confPathFull = $confPath.'widgetsLoaded.xml';
+		$fileContent = array('widgetsLoaded'=>array(''));
+		$fileXml = reqLib('eyeXML','array2xml',array($fileContent));
+		if(service('vfs','real_create',array($confPathFull))){
+			$fp = service('vfs','real_open',array($confPathFull,'w'));
+			fwrite($fp,$fileXml);
+			fclose($fp);	
+		}
+		
+	}
+	
+	//Loading options
+	$options = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','eyeDashBoard.xml'));
+	//TODO: put a default value?
+	service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeDashBoard/css/eyeDashBoard.css&type=css','id'=>'eyeDashBoard.css'));
+	if($options['options'][0]['background_type'][0] == 'IMAGE'){
+		//Adding the new layer in system		
+		//service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeDashBoard/css/eyeDashBoard_image.css&type=css','id'=>'eyeDashBoard_image.css'));
+		service('eyex','createLayer',array('name'=>'dashBoardLayer','class'=>'dashBoardLayerClassImage'));	
+	}elseif($options['options'][0]['background_type'][0] == 'ALPHA'){
+		//service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeDashBoard/css/eyeDashBoard_alpha.css&type=css','id'=>'eyeDashBoard_alpha.css'));
+		service('eyex','createLayer',array('name'=>'dashBoardLayer','class'=>'dashBoardLayerClassAlpha'));	
+	}elseif($options['options'][0]['background_type'][0] == 'NOALPHA'){
+		//service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeDashBoard/css/eyeDashBoard_no_alpha.css&type=css','id'=>'eyeDashBoard_no_alpha.css'));
+		service('eyex','createLayer',array('name'=>'dashBoardLayer','class'=>'dashBoardLayerClassNoAlpha'));	
+	}else{
+		//Adding the new layer in system
+		//service('eyex','loadCss',array('url' => 'index.php?extern=apps/eyeDashBoard/css/eyeDashBoard_image.css&type=css','id'=>'eyeDashBoard_image.css'));
+		service('eyex','createLayer',array('name'=>'dashBoardLayer','class'=>'dashBoardLayerClassImage'));
+	}
+		
+	//Adding provisional control buttons
+	$myWindow1 = new Window(array(
+		'name' => 'buttonContent',
+		'father' => 'eyeApps',
+		'width' => 115,
+		'height' => 24,
+		'x'=>0,
+		'y'=>0,	
+		'type'=>100
+	));
+	$myWindow1->show();
+
+	$myButton = new Button(array('name'=>'showDesktop','caption'=>'Show Desktop','father'=>'dashBoardLayer','x'=>40,'y'=>20,'vert'=>1));
+	$myButton->show();
+	
+	$myButton1 = new Button(array('name'=>'showDashBoard','caption'=>'Show DashBoard','father'=>'buttonContent','x'=>0,'y'=>0,'vert'=>0));
+	$myButton1->show();
+	//Adding the loaded widgets if have any	
+	$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));	
+	//Getting the widget pid and remove widted	
+	foreach ($myWidgets['widgetsLoaded'][0] as $widgetName => $widgetInstances){		
+		$count = 0;
+		foreach($widgetInstances as $widgetInfo){
+			//This is for "support" refresh in eyeos, but this not is officially supported for this reason, this is a little hack but not the solution.
+			service('proc','close',array($widgetInfo['pid'][0]));
+			//Small hack for version 0.1 remove old widget directly from the session
+			service('proc','launch',array($widgetName,array('dashBoardLayer',array('left'=>$widgetInfo['left'][0],'top'=>$widgetInfo['top'][0]))));
+			global $newWidgetPid;
+			$myWidgets['widgetsLoaded'][0][$widgetName][$count]['pid'][0] = $newWidgetPid;
+			$count++;
+		}		
+	}
+	//Writing the loaded widgets with news pids.
+	reqLib('eyeXML','setXMLconfig',array('eyeDashBoard','widgetsLoaded.xml',$myWidgets));//Writing the widget tables
+}
+
+function eyeDashBoard_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+	$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+	//Getting the widget pid and remove widted
+	foreach ($myWidgets['widgetsLoaded'][0] as $widget){
+		foreach($widget as $widgetInfo){
+			if(!service('proc','close',array($widgetInfo['pid'][0]))){
+				service('eyex','messageBox',array("content"=>"Error closing widget with this pid %s",'tokens' => array($widgetInfo['pid'][0])));
+			}
+		}		
+	}
+	service('eyex','removeLayer',array('name'=>'dashBoardLayer'));	
+}
+?>

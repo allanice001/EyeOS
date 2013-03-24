@@ -1,0 +1,160 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Calendar widget abstraction
+*/
+
+class Calendar{
+	//pid controller
+	
+	var $creatorPid;
+	//global widgets options without default
+	var $name;
+	var $father;
+
+	//generic widget options with default
+	var $x;
+	var $y;
+	var $horiz;
+	var $vert;
+	var $cent;
+	var $widgetColors;
+	
+	var $showed = 0;
+	
+	//custom widget options
+	var $width;
+	var $height;
+	var $selectFunc;
+	function Calendar($params) {	
+		global $myPid;
+		$this->creatorPid = $myPid;
+		//generic widget options without default
+		$this->name = $params['name'];
+		$this->father = $params['father'];
+
+		//generic widget options with default
+		isset($params['horiz']) ? $this->horiz = $params['horiz'] : $this->horiz = 0;
+		isset($params['vert']) ? $this->vert = $params['vert'] : $this->vert = 0;
+		isset($params['cent']) ? $this->cent = $params['cent'] : $this->cent = 0;
+		isset($params['x']) ? $this->x = $params['x'] : $this->x = 20;
+		isset($params['y']) ? $this->y = $params['y'] : $this->y = 20;
+		isset($params['rowsAndDate']) ? $this->rowsAndDate = $params['rowsAndDate'] : $this->rowsAndDate = '#519eda';
+		isset($params['workDays']) ? $this->workDays = $params['workDays'] : $this->workDays= 'white';
+		isset($params['preMonthDays']) ? $this->preMonthDays = $params['preMonthDays'] : $this->preMonthDays = '#bbbbbb';
+		isset($params['nextMonthDays']) ? $this->nextMonthDays = $params['nextMonthDays'] : $this->nextMonthDays = '#bbbbbb';
+		isset($params['weekEnd']) ? $this->weekEnd = $params['weekEnd'] : $this->weekEnd = '#519eda';
+		isset($params['todayBorder']) ? $this->todayBorder = $params['todayBorder'] : $this->todayBorder = '#7186a4';
+				
+		//especific window options
+		isset($params['width']) ? $this->width = $params['width'] : $this->width = 200;
+		isset($params['height']) ? $this->height = $params['height'] : $this->height = 200;
+		isset($params['selectFunc']) ? $this->selectFunc = $params['selectFunc'] : $this->selectFunc = 'changeDate';
+	}
+	
+	//event handling
+	function addEvent($eventName,$eventFunc,$args="") {
+		global $myPid;
+		$name = $myPid.'_'.$this->name;
+		if($this->showed == 0) {
+			$this->show();
+		}
+		service('eyex','addEvent',array('name' => $name, 'action' => $eventFunc, 'event' => $eventName,'args'=>$args));
+	}
+
+	function show() {
+		$colors = service('mmap','array2jsArg',array($this->widgetColors));
+		$this->widgetColors['rowsAndDate'] = '#519eda';
+				$this->widgetColors['workDays'] = '#519eda';
+				$this->widgetColors['nextMonthDays'] = '#519eda';
+				$this->widgetColors['preMonthDays'] = '#519eda';			
+				$this->widgetColors['weekEnd'] = '#519eda';
+				$this->widgetColors['todayBorder'] = '#519eda';
+		$widgetsparams = array(
+			'height' => $this->height,
+			'width' => $this->width,
+			'selectFunc' => $this->selectFunc,
+			'widgetColors'=>$colors,
+			'rowsAndDate'=>$this->rowsAndDate,
+			'workDays'=>$this->workDays,
+			'nextMonthDays'=>$this->nextMonthDays,
+			'preMonthDays'=>$this->preMonthDays,
+			'weekEnd'=>$this->weekEnd,
+			'todayBorder'=>$this->todayBorder
+		);
+		$widgetsparams = service("mmap","array2js",array($widgetsparams));
+		
+		$myBox = array(
+			'name' => $this->name,
+			'x' => $this->x,
+			'y' => $this->y,
+			'horiz' => $this->horiz,
+			'vert' => $this->vert,
+			'father' => $this->father,
+			'widgetname' => 'Calendar',
+			'params' => $widgetsparams,
+			'center' => $this->cent
+		);
+		$this->showed=1;
+		service('eyex','createWidget',$myBox);
+	}
+	
+		
+	function setCss($params) {
+		global $myPid;
+		if(is_array($params)) {
+			foreach($params as $key => $value) {
+				service('eyex','updateCss',array('name' => $myPid.'_'.$this->name,'property' => $key,'value' => $value));
+			}
+		}
+	}
+
+	function setWidth($width) {
+		global $myPid;
+		$this->width = intval($width);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.width="'.$this->width.'px";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.width="'.$this->width.'px";'));
+	}
+	
+	function setHeight($height) {
+		global $myPid;
+		$this->height = intval($height);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.height="'.$this->height.'px";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.height="'.$this->height.'px";'));
+	}
+	
+	function setX($x) {
+		global $myPid;
+		$this->x = intval($x);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.left="'.$this->x.'px";'));
+	}
+	
+	function setY($y) {
+		global $myPid;
+		$this->y = intval($y);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.top="'.$this->y.'px";'));
+	}
+	
+}
+?>

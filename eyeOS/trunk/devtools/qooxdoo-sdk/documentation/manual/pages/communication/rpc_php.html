@@ -1,0 +1,171 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PHP RPC &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Communication" href="../communication.html" />
+    <link rel="next" title="RPC with a Perl server" href="rpc_perl.html" />
+    <link rel="prev" title="Java RPC" href="rpc_java.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rpc_perl.html" title="RPC with a Perl server"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rpc_java.html" title="Java RPC"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../communication.html" accesskey="U">Communication</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="php-rpc">
+<span id="pages-rpc-php-php-rpc"></span><h1>PHP RPC<a class="headerlink" href="#php-rpc" title="Permalink to this headline">¶</a></h1>
+<p><em>qooxdoo includes an advanced RPC mechanism for direct calls to server-side methods. It allows you to write true client/server applications without having to worry about the communication details.</em></p>
+<p>As described in the <a class="reference internal" href="rpc.html"><em>RPC overview</em></a>, qooxdoo RPC is based on <a class="reference external" href="http://json-rpc.org/">JSON-RPC</a> as the serialization and method call protocol. This page describes how to set up and implement a PHP-based server.</p>
+<div class="section" id="setup">
+<span id="pages-rpc-php-setup"></span><h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The following information is from the <a class="reference external" href="http://qooxdoo-contrib.svn.sourceforge.net/viewvc/qooxdoo-contrib/trunk/qooxdoo-contrib/RpcPhp/trunk/README.CONFIGURE?view=markup">README.CONFIGURE</a> file of the <a class="reference external" href="http://qooxdoo.org/contrib/project#rpcphp">RpcPhp</a> contribution.</p>
+</div>
+<p>The simplest configuration of the PHP JSON-RPC server requires these steps:</p>
+<ul>
+<li><p class="first">Copy the services directory to the root of your web server's data directory, e.g. <tt class="docutils literal"><span class="pre">/var/www</span></tt></p>
+</li>
+<li><p class="first">Ensure that PHP is properly configured.  Try placing a file in the services directory called <tt class="docutils literal"><span class="pre">test.php</span></tt> which contains this data:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+  <span class="nx">phpinfo</span><span class="p">();</span>
+<span class="o">?&gt;</span>
+</pre></div>
+</div>
+<p>You should then be able to access <tt class="docutils literal"><span class="pre">http://your.domain.com/services/test.php</span></tt> and see the <tt class="docutils literal"><span class="pre">phpinfo()</span></tt> output.  If not, you have a web server / php configuration problem to work out.</p>
+</li>
+<li><p class="first">Configure your web server to load index.php if it's found in a directory specified by the URL.  By default, the web server probably looks only for <tt class="docutils literal"><span class="pre">index.html</span></tt> and <tt class="docutils literal"><span class="pre">index.htm</span></tt>, but you want it also to look for <tt class="docutils literal"><span class="pre">index.php</span></tt>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="example">
+<span id="pages-rpc-php-example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Please see <a class="reference external" href="http://qooxdoo.org/contrib/project#rpcexample">RpcExample</a> for an example of how to use an RPC backend.</p>
+<p>To set up the RPC Example application:</p>
+<ol class="arabic simple">
+<li>Change directory into qooxdoo-contrib/trunk/RpcExample</li>
+<li>Edit config.json such that the &quot;path&quot; inside of the &quot;include&quot; key properly points to the framework's application.json file, and the QOOXDOO_PATH variable inside of the &quot;let&quot; key properly points to the root of the framework source tree.</li>
+<li>Type &quot;generate.py build&quot;. That will create a &quot;build&quot; qooxdoo-contrib/trunk/RpcExample/build directory</li>
+<li>Copy the contents of the build directory to the web server root directory called &quot;test&quot;, so your root contains 'test' and 'services'. If you're on Linux, the best way is with rsync:</li>
+</ol>
+<blockquote>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># mkdir /var/www/test</span>
+<span class="c"># rsync -av ./build/ /var/www/test/</span>
+</pre></div>
+</div>
+</blockquote>
+<p>Note the slash after 'build' so that it copies the <strong>contents</strong> of 'build' into 'test', but not the directory 'build' itself.</p>
+<ol class="arabic simple">
+<li>Browse to <tt class="docutils literal"><span class="pre">http://your.domain.com/test/index.html</span></tt> and ensure that the echo test in the first tab runs, and then try the Rpc Server Functionality (async) test in the fourth tab.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">PHP RPC</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="rpc_java.html"
+                                  title="previous chapter">Java RPC</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="rpc_perl.html"
+                                  title="next chapter">RPC with a Perl server</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/communication/rpc_php.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

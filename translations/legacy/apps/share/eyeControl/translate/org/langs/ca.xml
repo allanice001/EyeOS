@@ -1,0 +1,327 @@
+<lang>
+	<info>
+		<lang>CATALÀ</lang>
+		<author>Jordi Vivancos</author>
+		<version>20/05/2008</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>community</name>
+		<text>
+			<old>section-community-blog-desc</old>
+			<new>Blog oficial en anglès</new>
+		</text>
+		<text>
+			<old>section-community-blog-title</old>
+			<new>Blog</new>
+		</text>
+		<text>
+			<old>section-community-ca</old>
+			<new>Comunitat de Catalunya</new>
+		</text>
+		<text>
+			<old>section-community-cn</old>
+			<new>Comunitat de la Xina</new>
+		</text>
+		<text>
+			<old>section-community-cz</old>
+			<new>Comunitat de la República Txeca</new>
+		</text>
+		<text>
+			<old>section-community-de</old>
+			<new>Comunitat d&#039;Alemanya</new>
+		</text>
+		<text>
+			<old>section-community-es</old>
+			<new>Comunitat d&#039;Espanya</new>
+		</text>
+		<text>
+			<old>section-community-forums-desc</old>
+			<new>Fòrum d&#039;eyeOS en anlès</new>
+		</text>
+		<text>
+			<old>section-community-forums-title</old>
+			<new>eyeOS Forums Fòrum</new>
+		</text>
+		<text>
+			<old>section-community-fr</old>
+			<new>Comunitat de França</new>
+		</text>
+		<text>
+			<old>section-community-it</old>
+			<new>Comunitat d&#039;Itàlia</new>
+		</text>
+		<text>
+			<old>section-community-localforums-desc</old>
+			<new>Fòrum d&#039;eyeOS en català</new>
+		</text>
+		<text>
+			<old>section-community-localforums-title</old>
+			<new>eyeOS Forums Fòrum</new>
+		</text>
+		<text>
+			<old>section-community-nl</old>
+			<new>Comunitat de Noruega</new>
+		</text>
+		<text>
+			<old>section-community-official</old>
+			<new>Comunitats oficials</new>
+		</text>
+		<text>
+			<old>section-community-pt</old>
+			<new>Comunitat de Portugal</new>
+		</text>
+		<text>
+			<old>section-community-sites</old>
+			<new>Recursos de la comunitat</new>
+		</text>
+		<text>
+			<old>section-community-text</old>
+			<new>La comunitat d&#039;eyeOS és la millor manera de col·laborar, demanar ajuda o comunicar-te amb altres usuaris i desenvolupadors d&#039;eyeOS.</new>
+		</text>
+		<text>
+			<old>section-community-unofficial</old>
+			<new>Comunitats no oficials</new>
+		</text>
+		<text>
+			<old>section-community-wiki-desc</old>
+			<new>Wiki d&#039;eyeOS en anglès</new>
+		</text>
+		<text>
+			<old>section-community-wiki-title</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>section-community-wolrdwid-text</old>
+			<new>Totes les comunitats oficials estan gestionades per usuaris d&#039;eyeOS que volen ajudar a créixer el projecte creant pàgines web específiques pel seu país. Si tu també vols fundar una comunitat en el teu país, si et plau [a mail]contacta amb nosaltres[/a].</new>
+		</text>
+		<text>
+			<old>section-community-wolrdwide</old>
+			<new>eyeOS en el món</new>
+		</text>
+	</part>
+	<part>
+		<name>concept</name>
+		<text>
+			<old>section-concept-idea</old>
+			<new>Què hi ha darrera d&#039;eyeOS</new>
+		</text>
+		<text>
+			<old>section-concept-idea-list</old>
+			<new>[li]Poder treballar des de qualsevol lloc, sense que importi si utilitzes un ordinador modern d&#039;altes prestacions, un mòbil o pda, o un ordinador completament antiquat.[/li][li]Compartint recursos de forma senzilla entre diferents oficines de la mateixa empresa, o treballant en els mateixos projectes des de diferents llocs de diversos països.[/li][li]Utilizant sempre les mateixes aplicacions amb els mateixos formats compatibles entre sí, i oblidant els problemes de compatibilitat tan comuns en els sistemes operatius i programes d&#039;ofimàtica tradicionals.[/li][li]Podent continuar amb el teu treball fins i tot si per algun motiu el teu ordinador deixa de funcionar, simplement accedint al teu eyeOS des d&#039;un altre ordinador, sense perdre dades ni temps solucionant problemes.[/li]</new>
+		</text>
+		<text>
+			<old>section-concept-idea-text</old>
+			<new>eyeOS aconsegueix unir el treball i l&#039;oci en un mateix lloc, eyeOS aconsegueix eliminar els problemes de compatibilitat entre aplicacions i sistemes operatius, eyeOS aconsegueix portar la teva vida allà on estàs.[br /][br /]Como pots veure, el propòsit d&#039;eyeOS no és tenir un sistema operatiu dins d&#039;un altre sistema operatiu, o un navegador dins d&#039;un altre navegador. eyeOS és un altre pas en l&#039;era digital:</new>
+		</text>
+		<text>
+			<old>section-concept-presentation</old>
+			<new>Descarregar en [strong][a ppt]format Microsoft Powerpoint[/a][/strong] | [strong][a odp]OpenOffice Impress[/a][/strong] | [strong][a pdf]PDF[/a][/strong]</new>
+		</text>
+		<text>
+			<old>section-concept-video</old>
+			<new>eyeOS en acció</new>
+		</text>
+		<text>
+			<old>section-concept-video-download</old>
+			<new>Descarrega el vídeo en MP4 i millor resolució</new>
+		</text>
+		<text>
+			<old>section-concept-welcome</old>
+			<new>Concepte</new>
+		</text>
+		<text>
+			<old>section-concept-welcome-text</old>
+			<new>eyeOS és una plataforma lliure i de codi obert, dissenyada per disposar d&#039;una àmplia gamma d&#039;Aplicacions Web. Un nou concepte de sistema operatiu, en el qual tot està sempre disponible des de la xarxa i tot el què necessites per veure el teu escriptori, utilitzar les teves aplicacions i editar els teus arxius, és un navegador web.[br /][br /]El sistema base d&#039;eyeOS inclou un complert conjunt d&#039;aplicacions per a ús privat, com el gestor d&#039;arxius, processador de textos, reproductor de música i vídeo, calendari, bloc de notes i agenda de contactes, entre molts altres. A més a més, disposa d&#039;aplicacions pel treball col.laboratiu i en equip, com el gestor de grups que permet compartir els teus arxius, el plafó d&#039;anuncis i moltes altres.[br /][br /]eyeOS és un projecte lliure i de codi obert, es distribueix sota els termes de la GNU Affero General Public License Version 3 (AGPL3), cosa que significa que pots instal.lar el teu propi eyeOS privat per a la teva família i amics o per a la teva empresa de forma totalment gratuïta. A més a més pots examinar el codi font i accedir a les eines de desenvolupament d&#039;eyeOS per personalitzar el teu sistema i crear noves aplicacions que cubreixin totes les teves necessitats.[br /][br /]Si vols començar a utilitzar eyeOS, pots registrar-te en el nostre servidor internacional, o bé crear el teu propi servidor de forma fàcil i ràpida, podent decidir qui pot registrar-se en el teu eyeOS i disposant de la possibilitat d&#039;adaptar-lo a les teves necessitats.[br /][br /]Crear el teu propi servidor és molt senzill. Tot el què necessites és un servidor web amb suport per a PHP, i si no el tens, existeixen solucions molt complertes que instal.laran en pocs minuts tot el què necessites per començar a utilitzar eyeOS. </new>
+		</text>
+	</part>
+	<part>
+		<name>default</name>
+		<text>
+			<old>site-footer-1</old>
+			<new>[b]Projecte eyeOS 2008[/b]. Sistema Operatiu Web de Codi Obert &amp; Web Office. [a mail]Contacta amb nosaltres[/a]</new>
+		</text>
+		<text>
+			<old>site-footer-2</old>
+			<new>El Hosting i els Servidors d&#039;eyeOS són proporcionats per [b][a interdominios]Interdominios[/a][/b]. Comunicació visual per &lt;a href=&quot;http://lafactoria.eu/&quot; onclick=&quot;window.open(this.href); return false;&quot;&gt;La Factoria&lt;/a&gt;. [a partners]Llegir més[/a].</new>
+		</text>
+		<text>
+			<old>site-footer-3</old>
+			<new>Traducció d&#039;aquesta web per [b][author][/b] i Farràs.</new>
+		</text>
+		<text>
+			<old>site-header-dev</old>
+			<new>COMUNITAT DE DESENVOLUPADORS</new>
+		</text>
+		<text>
+			<old>site-header-eyeoscom</old>
+			<new>SOLUCIONS EMPRESARIALS</new>
+		</text>
+		<text>
+			<old>site-header-eyeosorg</old>
+			<new>EYEOS INICI</new>
+		</text>
+		<text>
+			<old>site-header-lang-by</old>
+			<new>per</new>
+		</text>
+		<text>
+			<old>site-menu-apps</old>
+			<new>Aplicacions</new>
+		</text>
+		<text>
+			<old>site-menu-blog</old>
+			<new>Blog</new>
+		</text>
+		<text>
+			<old>site-menu-concept</old>
+			<new>Concepte</new>
+		</text>
+		<text>
+			<old>site-menu-demo</old>
+			<new>Demo</new>
+		</text>
+		<text>
+			<old>site-menu-downloads</old>
+			<new>Descàrregues</new>
+		</text>
+		<text>
+			<old>site-menu-forums</old>
+			<new>Fòrum</new>
+		</text>
+		<text>
+			<old>site-menu-home</old>
+			<new>Inici</new>
+		</text>
+		<text>
+			<old>site-menu-use</old>
+			<new>Utilitza eyeOS</new>
+		</text>
+		<text>
+			<old>site-menu-wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>site-sidebar-community</old>
+			<new>Comunitat</new>
+		</text>
+		<text>
+			<old>site-sidebar-community-text</old>
+			<new>Uneix-te per formar part de la comunitat d&#039;eyeOS!</new>
+		</text>
+		<text>
+			<old>site-sidebar-donations</old>
+			<new>Donacions</new>
+		</text>
+		<text>
+			<old>site-sidebar-donations-text</old>
+			<new>eyeOS és un projecte lliure, tots podem ajudar.</new>
+		</text>
+		<text>
+			<old>site-sidebar-download</old>
+			<new>Descarregar</new>
+		</text>
+		<text>
+			<old>site-sidebar-download-text</old>
+			<new>Obté l&#039;últim eyeOS per instal·lar el teu propi servidor.</new>
+		</text>
+		<text>
+			<old>site-sidebar-news</old>
+			<new>Últimes notícies</new>
+		</text>
+		<text>
+			<old>site-sidebar-news-read</old>
+			<new>Seguir leyendo...</new>
+		</text>
+		<text>
+			<old>site-sidebar-signup</old>
+			<new>Regístra&#039;t, és gratuït!</new>
+		</text>
+		<text>
+			<old>site-sidebar-signup-text</old>
+			<new>Pots utilitzar eyeOS des del nostre servidor gratuït!</new>
+		</text>
+		<text>
+			<old>site-sidebar-stickers</old>
+			<new>Aconsegueix els teus propis adhesius d&#039;eyeOS!</new>
+		</text>
+		<text>
+			<old>site-sidebar-use</old>
+			<new>¡Utilitza eyeOS!</new>
+		</text>
+		<text>
+			<old>site-title</old>
+			<new>eyeOS | Escriptori Web - Sistema Operatiu Web - Web Office - La teva vida digital amb tu, arreu</new>
+		</text>
+	</part>
+	<part>
+		<name>donations</name>
+		<text>
+			<old>section-donations-euros</old>
+			<new>Donar en euros</new>
+		</text>
+		<text>
+			<old>section-donations-introduction</old>
+			<new>Introducció</new>
+		</text>
+		<text>
+			<old>section-donations-stickers-text</old>
+			<new>Si vols rebre adhesius (n&#039;enviem a qualsevol lloc del món), només has d&#039;enviar un correu electrònic a [a mail /a] després de fer el teu donatiu i te&#039;ls enviarem a on ens diguis.</new>
+		</text>
+		<text>
+			<old>section-donations-stickers-title</old>
+			<new>¿T&#039;agradaria tenir adhesius d&#039;eyeOS?</new>
+		</text>
+		<text>
+			<old>section-donations-text</old>
+			<new>El projecte eyeOS té l&#039;objectiu de disposar d&#039;una plataforma lliure i de codi obert juntament amb les seves aplicacions. eueOS allibera el seu codi font sota els termes de la GNU General Public License i permet a qualsevol modificar-lo i utilitzar-lo lliurement i de forma completament gratuïta.[br /][br /]Acceptem donacions a través de PayPal, però si no tens un compte a PayPal, també pots fer la teva donació amb la teva Visa/Mastercard directament, en el amteix enllaç.[br /][br /]Por favor, elige tu moneda, y serás redirigido a una página segura donde efectuar la donación:</new>
+		</text>
+		<text>
+			<old>section-donations-thanks</old>
+			<new>Moltes gràcies!</new>
+		</text>
+		<text>
+			<old>section-donations-title</old>
+			<new>Donacions a eyeOS</new>
+		</text>
+		<text>
+			<old>section-donations-usd</old>
+			<new>Donar en dòlars</new>
+		</text>
+	</part>
+	<part>
+		<name>home</name>
+		<text>
+			<old>section-home-developers</old>
+			<new>Per a desenvolupadors</new>
+		</text>
+		<text>
+			<old>section-home-developers-text</old>
+			<new>eyeOS disposa d&#039;un nou mètode per desenvolupar aplicacions web usant l&#039;eyeOS Toolkit, una llibreria de classes per facilitar el desenvolupament i un grup de funcions per interactuar amb el sistema. Oblida l&#039;HTML, el JavaScript, la gestió d&#039;usuaris, la gestió d&#039;arxius, etc... Pots afegir-te al projecte i començar a desenvolupar aplicacions avui mateix, perquè eyeOS és lliure i de codi obert! [a dev]Go to developers community...[/a]</new>
+		</text>
+		<text>
+			<old>section-home-discover</old>
+			<new>Descubreix eyeOS</new>
+		</text>
+		<text>
+			<old>section-home-taketour-concept</old>
+			<new>El concepte</new>
+		</text>
+		<text>
+			<old>section-home-taketour-welcome</old>
+			<new>Benvingut</new>
+		</text>
+		<text>
+			<old>section-home-users</old>
+			<new>Per a usuaris</new>
+		</text>
+		<text>
+			<old>section-home-users-text</old>
+			<new>eyeOS és una nova forma de sistema operatiu, on tot està disponible des del navegador. Amb eyeOS pots tenir el teu escriptori, les teves aplicacions i arxius sempre amb tu, a casa, a la universitat, a l&#039;oficina o a casa dels teus veïns. Podràs accedir al teu escriptori i als teus arxius simplement obrint un navegador i connectant amb el teu servidor eyeOS.</new>
+		</text>
+		<text>
+			<old>section-home-whatis</old>
+			<new>Què és eyeOS?</new>
+		</text>
+	</part>
+</lang>

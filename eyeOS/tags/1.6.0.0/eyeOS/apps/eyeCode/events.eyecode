@@ -1,0 +1,566 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeCode_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeCode_on_Open($params=null) {
+	global $checknum;
+	$options = array(
+		0,
+		'SelectFileOpen',
+		$checknum,
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeCode_on_selectedSite($params=null) {
+	$where = $params['arg0'][0];
+	$myHidden = new Hidden(array('name'=>'whereAre','father'=>'eyeNotesWND','text'=>$where));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	global $myPid;
+	global $currentuser;
+	$GLOBALS['filesTree']->remove();
+	$myTree = new Tree(array(
+		'name'=>'filesTree',
+		'father'=>'wndInv_Content',
+		'width'=>165,
+		'height'=> 455,
+		'x'=>0,
+		'y'=>10,
+		'clickTree'=>1,
+		'signal'=>'gotoFile'
+	));
+	$myTree->show();
+	$myUdir = $where;
+	$myTree->addItem('filesTree','home_item','/');
+	$myTree->addSubList('home_item','home_list');
+	eyeCode_drawTree($myTree,'home_list',$myUdir);
+	$myTree->processList();
+}
+
+function eyeCode_refreshList($whereTo=null) {
+	$where = $GLOBALS['whereAre']->text;
+	$GLOBALS['filesTree']->remove();
+	$myTree = new Tree(array(
+		'name'=>'filesTree',
+		'father'=>'wndInv_Content',
+		'width'=>165,
+		'height'=> 455,
+		'x'=>0,
+		'y'=>10,
+		'clickTree'=>1,
+		'signal'=>'gotoFile'
+	));
+	$myTree->show();
+	$myUdir = $where;
+	$myTree->addItem('filesTree','home_item','/');
+	$myTree->addSubList('home_item','home_list');
+	eyeCode_drawTree($myTree,'home_list',$myUdir);
+	$myTree->processList();	
+	if($where) {
+		$myTree->expandTree('item_'.md5($whereTo));
+	} else {
+		$myTree->expandTree();
+	}
+}
+
+function eyeCode_on_gotoFile($params=null) {
+	global $myPid;
+	$file = $GLOBALS['filesTree']->selected;
+	$where = $GLOBALS['whereAre']->text;
+	$file = $where.$file;
+	
+	if(is_dir($file)) {
+		return false;
+	} 
+	
+	if($GLOBALS['editing']->text == $file) {
+		return false;
+	}
+	
+	$info = pathinfo($file);
+	$ext = strtolower($info['extension']);
+	if($ext == 'asp') {
+		$lang = 'asp';
+	} else if($ext == 'cs') {
+		$lang = 'csharp';
+	} else if($ext == 'css') {
+		$lang = 'css';
+	} else if($ext == 'html') {
+		$lang = 'html';
+	} else if($ext == 'java') {
+		$lang = 'java';
+	} else if($ext == 'js') {
+		$lang = 'javascript';
+	} else if($ext == 'pl') {
+		$lang = 'perl';
+	} else if($ext == 'php') {
+		$lang = 'php';
+	} else if($ext == 'rb') {
+		$lang = 'ruby';
+	} else if($ext == 'sql') {
+		$lang = 'sql';
+	} else if($ext == 'vbs') {
+		$lang = 'vbscript';
+	} else if($ext == 'xsl') {
+		$lang = 'xsl';
+	} else if($ext == 'c' || $ext == 'cc' || $ext == 'cpp') {
+		$lang = 'c';
+	} else if($ext == 'eyecode') {
+		$lang = 'eyecode';
+	} else {
+		$lang = 'text';
+	}
+	$fp = fopen($file,'r');
+	if(!$fp) {
+		return;
+	}
+	
+	if(!empty($GLOBALS['editing']->text)) {
+		$myHidden = new Hidden(array('name'=>md5($GLOBALS['editing']->text),'father'=>'eyeNotesWND','text'=>$GLOBALS['noteContent']->text));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	
+	if(is_array($_SESSION[$myPid]['files'])) {
+		foreach($_SESSION[$myPid]['files'] as $fnow) {
+			if($fnow == $file) {
+				return false;
+			}
+		}
+	}
+	addFileToList($file);
+	$myHidden = new Hidden(array('name'=>'editing','father'=>'eyeNotesWND','text'=>$file));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	$size = filesize($file);
+	$content = fread($fp,$size);
+	fclose($fp);
+	$GLOBALS['noteContent']->remove();
+	$width = $GLOBALS['myWidth']->text;
+	$height = $GLOBALS['myHeight']->text;
+	$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeNotesWND_Content',
+		'width'=>$width-390,'height'=>$height-90,'x'=>200,'y'=>60,'code'=>1,'lang'=>$lang));
+	$myTextArea->show();
+	$myTextArea->focus();
+	$GLOBALS['noteContent']->setText($content);
+}
+
+function eyeCode_on_currentFile($params=null) {
+	$get = $params['itemName'][0];
+	$hash = substr($get,0,32);
+	$file = substr($get,33);
+	
+	if($GLOBALS['editing']->text == $file) {
+		return false;
+	}
+	
+	if(!is_file($file) || is_dir($file)) {
+		return false;
+	}
+	
+	
+	if(!empty($GLOBALS['editing']->text)) {
+		$myHidden = new Hidden(array('name'=>md5($GLOBALS['editing']->text),'father'=>'eyeNotesWND','text'=>$GLOBALS['noteContent']->text));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+
+	$info = pathinfo($file);
+	$ext = strtolower($info['extension']);
+	if($ext == 'asp') {
+		$lang = 'asp';
+	} else if($ext == 'cs') {
+		$lang = 'csharp';
+	} else if($ext == 'css') {
+		$lang = 'css';
+	} else if($ext == 'html') {
+		$lang = 'html';
+	} else if($ext == 'java') {
+		$lang = 'java';
+	} else if($ext == 'js') {
+		$lang = 'javascript';
+	} else if($ext == 'pl') {
+		$lang = 'perl';
+	} else if($ext == 'php') {
+		$lang = 'php';
+	} else if($ext == 'rb') {
+		$lang = 'ruby';
+	} else if($ext == 'sql') {
+		$lang = 'sql';
+	} else if($ext == 'vbs') {
+		$lang = 'vbscript';
+	} else if($ext == 'xsl') {
+		$lang = 'xsl';
+	} else if($ext == 'c' || $ext == 'cc' || $ext == 'cpp') {
+		$lang = 'c';
+	} else if($ext == 'eyecode') {
+		$lang = 'eyecode';
+	} else {
+		$lang = 'text';
+	}
+	
+	$GLOBALS['noteContent']->remove();
+	$width = $GLOBALS['myWidth']->text;
+	$height = $GLOBALS['myHeight']->text;
+	$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeNotesWND_Content',
+		'width'=>$width-390,'height'=>$height-90,'x'=>200,'y'=>60,'code'=>1,'lang'=>$lang));
+	$myTextArea->show();
+	$myTextArea->focus();
+	$myHidden = new Hidden(array('name'=>'editing','father'=>'eyeNotesWND','text'=>$file));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	$GLOBALS['noteContent']->setText($GLOBALS[md5($file)]->text);
+}
+
+function addFileToList($file) {
+	global $myPid;
+	$_SESSION[$myPid]['files'][] = $file;
+	$GLOBALS['openFiles']->remove();
+	$myTreeR = new Tree(array(
+		'name'=>'openFiles',
+		'father'=>'wndInvR_Content',
+		'width'=>165,
+		'height'=>intval($GLOBALS['myHeight']->text)-130,
+		'x'=>0,
+		'y'=>10,
+		'clickTree'=>1,
+		'signal'=>'currentFile',
+		'horiz'=>1
+	));
+	$myTreeR->addFriend($GLOBALS['noteContent']);
+	$myTreeR->show();
+	foreach($_SESSION[$myPid]['files'] as $value) {
+		$myTreeR->addItem('openFiles',md5($value).'_'.$value,basename($value));
+	}
+	$myTreeR->processList();
+}
+
+//this function takes a directory and a tree, and draws the directory contents into the tree
+if(!function_exists('eyeCode_drawTree')) {
+	function eyeCode_drawTree($object,$tree,$dir) {
+		foreach (glob($dir."/*") as $fileName) {
+			$content[] = $fileName;
+		}
+		if(is_array($content)) {
+			foreach($content as $value)	{
+				$id = md5(realpath($value));
+				if(is_dir($value)) {
+					$object->addItem($tree,'item_'.$id,utf8_basename($value));
+					$object->addSubList('item_'.$id,'list_'.$id);
+					eyeCode_drawTree($object,'list_'.$id,$value);
+					eyeCode_drawTree_addContextMenu('MENU_'.$id,'item_'.$id,$value);
+				} else {
+					$object->addItem($tree,'item_'.$id,utf8_basename($value));
+					eyeCode_drawTree_addContextMenu('MENU_'.$id,'item_'.$id,$value);
+				}
+			}
+		}
+	}
+}
+
+if(!function_exists('eyeCode_drawTree_addContextMenu')) {
+	function eyeCode_drawTree_addContextMenu($menuName, $nodeName, $arg) {
+		//add context menu
+		$myMenu = new ContextMenu(array(
+			'name' => $menuName,
+			'father' => $nodeName,
+			'searchFather' => 1,
+			'rfather' => $nodeName,
+			'mfather' => 'eyeNotesWND'
+		));
+		$myMenu->show();
+		
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/rename.png" /> &nbsp; Rename',
+			'rename',
+			'rename',
+			$arg
+		);
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png" /> &nbsp; New Folder',
+			'nfolder',
+			'nfolder',
+			$arg
+		);
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/file.png" /> &nbsp; New File',
+			'nfile',
+			'nfile',
+			$arg
+		);
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/delete.png" /> &nbsp; Delete',
+			'delete',
+			'delete',
+			$arg
+		);
+	}
+}
+
+function eyeCode_on_rename($params=null) {
+	
+}
+
+function eyeCode_on_nfolder($params=null) {
+	if(!is_dir($params)) {
+		return false;
+	}
+	
+	eyex('messageBox',array(
+		'content' => 'Type the name of the new folder',
+		'type' => 3,
+		'title' => 'New folder',
+		'win_name' => 'evtWindow',
+		'win_style' => TITLE,
+		'btn1_capt' => 'Create',
+		'btn1_name' => 'newfolder',
+		'btn2_capt' => 'Cancel',
+		'btn2_name' => 'cancel',
+		'textbox_name' => 'nfTextbox',
+		'textbox_event' => 'newfolder',
+		'hidden_text' => $params,
+		'hidden_name' => 'nfPath',
+		'img' => 'index.php?extern=apps/eyeX/themes/default/icons/48x48/folder.png'
+	));
+}
+
+function eyeCode_on_newfolder($params=null) {
+	$GLOBALS['evtWindow']->close();
+	$text = $GLOBALS['nfTextbox']->text;
+	$path = $GLOBALS['nfPath']->text;
+	mkdir($path.'/'.$text);
+	eyeCode_refreshList(realpath($path.'/'.$text));
+}
+
+function eyeCode_on_Cancel($params=null) {
+	$GLOBALS['evtWindow']->close();
+}
+
+function eyeCode_on_newfile($params=null) {
+	$GLOBALS['evtWindow']->close();
+	$text = $GLOBALS['nfTextbox']->text;
+	$path = $GLOBALS['nfPath']->text;
+	if(is_file($path.'/'.$text) || is_dir($path.'/'.$text)) {
+		return false;
+	}
+	$fp = fopen($path.'/'.$text,'w');
+	fclose($fp);
+	eyeCode_refreshList(realpath($path.'/'.$text));	
+}
+
+function eyeCode_on_nfile($params=null) {
+	if(!is_dir($params)) {
+		return false;
+	}
+	
+	eyex('messageBox',array(
+		'content' => 'Type the name of the new file',
+		'type' => 3,
+		'title' => 'New file',
+		'win_name' => 'evtWindow',
+		'win_style' => TITLE,
+		'btn1_capt' => 'Create',
+		'btn1_name' => 'newfile',
+		'btn2_capt' => 'Cancel',
+		'btn2_name' => 'cancel',
+		'textbox_name' => 'nfTextbox',
+		'textbox_event' => 'newfile',
+		'hidden_text' => $params,
+		'hidden_name' => 'nfPath',
+		'img' => 'index.php?extern=apps/eyeX/themes/default/icons/48x48/file.png'
+	));	
+}
+
+function eyeCode_on_delyes($params=null)  {
+	$GLOBALS['emptyTrash_window']->close();
+	$tdelpath = $GLOBALS['delpath']->text;
+	$dir = dirname($tdelpath);
+	if(is_dir($tdelpath)) {
+		vfs('rmdir',array($tdelpath));
+	}
+	unlink($tdelpath);
+	eyeCode_refreshList(realpath($dir));
+}
+
+function eyeCode_on_delno($params=null) {
+	$GLOBALS['emptyTrash_window']->close();
+}
+
+function eyeCode_on_delete($params=null) {
+	$file = basename($params);
+	service('eyex','messageBox',array(
+		'content' => 'Are you sure you want to delete '.$file.'?',
+		'type' => 3,
+		'title' => 'Empty trash',
+		'win_name' => 'emptyTrash_window',
+		'win_style' => TITLE,
+		'btn1_capt' => 'Yes',
+		'btn1_name' => 'delyes',
+		'btn2_capt' => 'No',
+		'btn2_name' => 'delno',
+		'hidden_text' => $params,
+		'hidden_name' => 'delpath',
+		'img' => '?'
+	));	
+}
+
+function eyeCode_on_Resize($params=null) {
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$myHidden = new Hidden(array('name'=>'myWidth','father'=>'eyeNotesWND','text'=>$width));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	$myHidden = new Hidden(array('name'=>'myHeight','father'=>'eyeNotesWND','text'=>$height));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	$GLOBALS['noteContent']->setWidth($width-390);
+	$GLOBALS['noteContent']->setHeight($height-90);
+	$GLOBALS['wndInv']->setHeight($height-90);
+	$GLOBALS['wndInvR']->setHeight($height-90);
+	$GLOBALS['filesTree']->setHeight($height-130);
+	$GLOBALS['verticalPanel']->setHeight($height-85);
+	$GLOBALS['openFiles']->setHeight($height-130);
+}
+
+function eyeCode_on_Save($params=null) {
+	global $checknum;
+	$options = array(
+		1,
+		'SelectFileSave',
+		$checknum,
+	);
+	if(is_object($GLOBALS['editing']) && $GLOBALS['editing']->text) {
+		$fp = fopen($GLOBALS['editing']->text,'w');
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		fwrite($fp,$GLOBALS['noteContent']->text);
+		fclose($fp);
+		service('eyex','messageBox',array('content'=>'File saved successfully.'));
+	} else {
+		service('proc','launch',array('eyeDialog',$options));
+	}
+}
+
+function eyeCode_on_SaveAs($params=null) {
+	global $checknum;
+	$options = array(
+		1,
+		'SelectFileSave',
+		$checknum,
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+
+function eyeCode_on_SelectFileSave($params=null) {
+	$file = $params['arg'][0];
+	if($file) {
+		$posPoint = utf8_strpos($file, ".");
+		if ($posPoint === false) {
+			$file = $file.".eyecode";
+		}
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		$fp = fopen($file,'w');
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		fwrite($fp,$GLOBALS['noteContent']->text);
+		fclose($fp);
+		$myHidden = new Hidden(array('name'=>'editing','father'=>'eyeNotesWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		service('eyex','messageBox',array('content'=>'File saved successfully.'));
+	}
+}
+
+function eyeCode_on_SelectFileOpen($params=null) {
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		$info = pathinfo($file);
+		$ext = strtolower($info['extension']);
+		if($ext == 'asp') {
+			$lang = 'asp';
+		} else if($ext == 'cs') {
+			$lang = 'csharp';
+		} else if($ext == 'css') {
+			$lang = 'css';
+		} else if($ext == 'html') {
+			$lang = 'html';
+		} else if($ext == 'java') {
+			$lang = 'java';
+		} else if($ext == 'js') {
+			$lang = 'javascript';
+		} else if($ext == 'pl') {
+			$lang = 'perl';
+		} else if($ext == 'php') {
+			$lang = 'php';
+		} else if($ext == 'rb') {
+			$lang = 'ruby';
+		} else if($ext == 'sql') {
+			$lang = 'sql';
+		} else if($ext == 'vbs') {
+			$lang = 'vbscript';
+		} else if($ext == 'xsl') {
+			$lang = 'xsl';
+		} else if($ext == 'c' || $ext == 'cc' || $ext == 'cpp') {
+			$lang = 'c';
+		} else if($ext == 'eyecode') {
+			$lang = 'eyecode';
+		} else {
+			$lang = 'text';
+		}
+		$fp = fopen($file,'r');
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		$myHidden = new Hidden(array('name'=>'editing','father'=>'eyeNotesWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		$size = filesize($file);
+		$content = fread($fp,$size);
+		fclose($fp);
+		$GLOBALS['noteContent']->remove();
+		$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeNotesWND_Content',
+			'width'=>$myWindow->width-206,'height'=>$myWindow->height-90,'x'=>200,'y'=>60,'code'=>1,'lang'=>$lang));
+		$myTextArea->show();
+		$myTextArea->focus();
+		$GLOBALS['noteContent']->setText($content);
+	}
+}
+
+function eyeCode_on_runApp($params=null) {
+	proc('launch',array('eyeLaunch'));
+}
+
+function eyeCode_on_runProcess($params=null) {
+	proc('launch',array('eyeProcess'));
+}
+
+function eyeCode_on_Close($params=null){
+	proc('end');
+}
+
+?>

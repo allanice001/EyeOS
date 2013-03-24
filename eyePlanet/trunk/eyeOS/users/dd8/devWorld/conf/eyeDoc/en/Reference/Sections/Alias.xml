@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>Services and Libraries aliases</title>
+	<general>
+		<name>Alias</name>
+		<shortDesc>Contains aliases to shorten the calling of services or libraries functions.</shortDesc>
+	</general>
+	<desc>The aliases are a way to call services or libraries functions writing less code than using the service() and reqLib() functions.</desc>
+</info>

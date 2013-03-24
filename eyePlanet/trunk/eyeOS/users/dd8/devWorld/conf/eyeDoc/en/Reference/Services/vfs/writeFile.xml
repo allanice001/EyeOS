@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>writeFile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Sets the content of an abstract file.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>writeFile</functionName>
+		<syntax>bool vfs('writeFile', array(string $file, string $content))</syntax>
+		<desc>Writes the content of an abstract file to a given value. This function is the equivalent of the real_putFileContent() function for abstract files.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the abstract file.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>content</name>
+			<desc>New content of the file.</desc>
+		</params>	
+		<return>If the function succeeds, returns true. If it fails, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No file has been specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions to write the file.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

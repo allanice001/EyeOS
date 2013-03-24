@@ -1,0 +1,43 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeContacts_execute() {
+	$contacts = eyeContacts('userList');
+	$cinit=false;
+	echo '<ul id="eyeContacts" title="Contacts" selected="true">';
+	foreach($contacts as $key=>$user) {
+		if (!$cinit) {
+			$letra=utf8_substr($user['name'][0],0,1);
+			echo '<li class="group">'.utf8_strtoupper($letra).'</li>';
+			$cinit=true;
+		}
+		if ($letra!=utf8_substr($user['name'][0],0,1)) {
+			$letra=utf8_substr($user['name'][0],0,1);
+			echo '<li class="group">'.utf8_strtoupper($letra).'</li>';
+		}
+		echo '<li><a href="index.php?action=eyeContacts&do=showContact&contact[0]='.$user['name'][0].'&contact[1]='.$user['surname'][0].'&contact[2]='.$key.'">'.$user['name'][0].' '.$user['surname'][0].'</a></li>';
+	} 
+	echo '<a href="index.php?action=eyeContacts&do=new"><input type="button" style="margin-top:25px;" value="New Contact"/></a>';
+	echo '</ul>';
+}
+?>

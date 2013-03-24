@@ -1,0 +1,103 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/   eyePlanet, based on eyeOS 1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDoc_run($params=null) {
+	global $myPid;
+	global $checknum;
+	
+	eyex('createDiv', array('name' => 'eyeWebMenu', 'father' => 'menu1Page', 'removepid' => 1, 'class' => 'eyeWebMenu'));
+	eyex('createDiv', array('name' => 'eyeTree', 'father' => 'eyeApps', 'removepid' => 1, 'class' => 'eyeDocTree'));
+	eyex('createDiv', array('name' => 'eyeContent', 'father' => 'eyeApps', 'removepid' => 1, 'class' => 'eyeContent'));
+	
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeWebMenu'));
+	$myToolbar->show();
+	$myToolbar->addItem('Widgets', null, 'Widgets');
+	$myToolbar->addItem('Services',null,'Services');
+	$myToolbar->addItem('Libraries',null,'Libraries');
+	$myToolbar->addItem('Kernel',null,'Kernel');
+	$myToolbar->addLink('DeveloperManual', 'Developer Manual', 'http://doc.eyeos.org/manual');
+
+	$myLabel = new Label(array(
+		'name' => 'lblSearch',
+		'father' => 'eyeWebMenu',
+		'horiz' => 1,
+		'x' => 360,
+		'y' => 6,
+		'text' => 'Search'
+	));
+	$myLabel->show();
+	$myTextbox = new Textbox(array(
+		'name' => 'tboxSearch',
+		'father' => 'eyeWebMenu',
+		'horiz' => 1,
+		'x' => 230,
+		'y' => 4
+	));
+	$myTextbox->show();
+	$myTextbox->addEnterEventMsg('Search');
+	
+	$myLabel2 = new Label(array(
+		'name' => 'lblLanguage',
+		'father' => 'eyeWebMenu',
+		'horiz' => 1,
+		'x' => 160,
+		'y' => 6,
+		'text' => 'Language'
+	));
+	$myLabel2->show();
+	$mySelect = new Select(array(
+		'name' => 'selectLanguage',
+		'father' => 'eyeWebMenu',
+		'horiz' => 1,
+		'x' => 20,
+		'y' => 2,
+		'width' => 130
+	));
+	$mySelect->show();
+	$lang = i18n('getLang');
+	$mySelect->addOption('English', 'en', $lang == 'en');
+	//Ordered alphabetically.
+	$mySelect->addOption('Català', 'ca', $lang == 'ca');
+	$mySelect->addOption('Español', 'es', $lang == 'es');
+	$mySelect->addEvent('onchange','sendMsg('.$checknum.', "changeLanguage", eyeParam("selectLanguage", this.value));');
+
+	$motd = "<p><h1 align=\"center\" style=\"color: #044d85; font: bold 22pt;\">Welcome to the eyeOS Documentation Center!</h1></p>
+             <p>This center provides documentation and references for every <a href=\"http://www.eyeos.org\">eyeOS</a> system part including widgets, kernel functions, libraries and services. You can navigate through all the contents by selecting the category tab, and selecting which reference would you like to see to the tree menus that will appear for each tab when selected.</p>
+             <p>This Documentation System uses the eyeOS core as its base, and it's a live demonstration of how eyeOS can be used to develop web systems non related to the classical \"Web Desktop\" type of interface in eyeOS.</p>
+             <p>This Documentation system is released under the <a href=\"http://www.gnu.org/licenses/agpl-3.0.txt\">GNU Affero General Public License (GNU AGPL)</a>. You can check the latest source from Subversion at the <a href=\"http://eyeos.svn.sourceforge.net/viewvc/eyeos/eyePlanet/\">eyeOS repository</a>.</p>
+             <p>Note that the tarballs include all the eyeOS documentation, but can be easily changed to any project's documentation through the XML-based file system. The XML documentation files for this Documentation Center are available under <a href=\"http://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-No Derivative Works 3.0 License.</a></p>";
+	
+	eyeX('setDiv', array('name' => 'eyeContent', 'content' => $motd));
+	eyeX('loadScript',array('url' => 'index.php?extern=apps/eyeDoc/js/eyeDoc.eyecode&type=dynamic&params[]='.$checknum));
+	if(!empty($_SESSION['getInfo'])){		
+		include EYE_ROOT.'/'.APP_DIR.'/eyeDoc/events.eyecode';
+		eyeDoc_on_Search(array($_SESSION['getInfo']));
+	}
+}
+
+function eyeDoc_end($params=null) {
+	eyex('removeDiv', array('name' => 'eyeContent', 'usepid' => 1));
+	eyex('removeDiv', array('name' => 'eyeDoc', 'usepid' => 1));
+}
+
+?>

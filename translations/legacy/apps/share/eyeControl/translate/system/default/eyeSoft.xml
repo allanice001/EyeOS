@@ -1,0 +1,50 @@
+<lang>
+	<info>
+		<revision>20/05/2008</revision>
+	</info>
+	<texts>
+		<text>%s download is corrupted! unable to install</text>
+		<text>%s installed succesfully!</text>
+		<text>Accept</text>
+		<text>All</text>
+		<text>App Manager</text>
+		<text>App Name</text>
+		<text>Author: %s</text>
+		<text>Categories</text>
+		<text>Category: %s</text>
+		<text>Dependencies: %s</text>
+		<text>Description: %s</text>
+		<text>Desktop</text>
+		<text>Development</text>
+		<text>Do you really want to uninstall this application?</text>
+		<text>Downloading and Installing %s ... please wait</text>
+		<text>Extras</text>
+		<text>File Management</text>
+		<text>Games</text>
+		<text>Install</text>
+		<text>Installed</text>
+		<text>Installing</text>
+		<text>License: %s</text>
+		<text>Multimedia</text>
+		<text>Name: %s</text>
+		<text>Networking</text>
+		<text>Office</text>
+		<text>Only root can install eyeApps</text>
+		<text>Please choose an applictaion to be installed.</text>
+		<text>Please choose an applictaion to be uninstalled.</text>
+		<text>Search</text>
+		<text>Suggestions: %s</text>
+		<text>System</text>
+		<text>The application can&#039;t be uninstalled.</text>
+		<text>The application was successfully uninstalled.</text>
+		<text>Uninstall</text>
+		<text>Uninstall application</text>
+		<text>Update</text>
+		<text>Utilities</text>
+		<text>Version</text>
+		<text>Version: %s</text>
+		<text>You are installing a new App in your eyeOS system</text>
+		<text>eyeSoft: Package list updated</text>
+		<text>none</text>
+	</texts>
+</lang>

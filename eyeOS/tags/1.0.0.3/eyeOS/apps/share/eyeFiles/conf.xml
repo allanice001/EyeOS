@@ -1,0 +1,74 @@
+<Plugins>
+	<plugin>
+		<name>eyeUpload</name>
+		<appName>eyeUpload</appName>
+		<description>Plugin for upload files</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/upload.png</icon>
+		<label>Upload file</label>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<name>eyeMkDir</name>
+		<appName>eyeMkDir</appName>
+		<description>Plugin for create folders</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/newfolder.png</icon>
+		<label>Create folder</label>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<name>eyeDelete</name>
+		<appName>eyeDelete</appName>
+		<description>Delete files plugin</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/delete.png</icon>
+		<label>Delete</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>eyeRename</name>
+		<appName>eyeRename</appName>
+		<description>Rename files plugin</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/rename.png</icon>
+		<label>Rename</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>eyeCopy</name>
+		<appName>eyeCopy</appName>
+		<description>Copy files plugin</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/copy.png</icon>
+		<label>Copy</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>eyePaste</name>
+		<appName>eyePaste</appName>
+		<description>Paste</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/paste.png</icon>
+		<label>Paste</label>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<name>eyeProperties</name>
+		<appName>eyeProperties</appName>
+		<description>Get properties from a file or folder</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/properties.png</icon>
+		<label>Properties</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>eyeDownload</name>
+		<appName>eyeDownload</appName>
+		<description>Download file</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/download.png</icon>
+		<label>Download file</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<name>downZip</name>
+		<appName>downZip</appName>
+		<description>Download file or folders as zip</description>
+		<icon>index.php?extern=apps/eyeFiles/gfx/downzip.png</icon>
+		<label>Download as zip</label>
+		<context>select</context>
+	</plugin>
+</Plugins>

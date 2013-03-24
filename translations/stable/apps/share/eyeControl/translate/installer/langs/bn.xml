@@ -1,0 +1,223 @@
+<lang>
+	<info>
+		<lang>বাংলা</lang>
+		<author>Moin Uddin Rahim</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>রুট পাসওয়ার্ড</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>ট্রান্সলেশনগুলো একটি লিংক থেকে ডাউনলোড করা যাবে।</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]না[/span], আপনাকে সিসটেম পেজ-এ ফেরত নেওয়া হবে।</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>নিরাপত্তার কারণে দয়া করে ইন্সটলারটি অপসারণ করুন।</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]হ্যা[/span], আই ও.এস. এর সকল ইন্সটলার ফাইলগুলো মুছে ফেলা হবে!</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>রুট পাসওয়ার্ডটি সঠিক নয়!</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>চালিয়ে যান (কন্টিনিউ) ...</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>একশন</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>আই ও.এস. ইন্সটলারটি মুছে ফেলুন</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>মেনুতে ফেরত</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>আপনি কি সত্যিকার ভাবেই আই ও.এস. ইন্সটলারটি মুছে ফেলতে চান?</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>সিসটেম ফাইলগুলো রিসেট করুন</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>আপডেট ফাইলটি এক্সট্রাক্ট করা সম্ভব হচ্ছে না। আই ও.এস. ম্যানুয়ালি আপডেট করার জন্য, "[package]" ফাইলটির নাম "[package.tar.gz]" নামে পরিবর্তন করুন এবং একই ফোল্ডারে এর কন্টেন্টগুলো এক্সট্রাক্ট করুন।</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]না[/span], আপনাকে সিসটেম পেজ-এ ফেরত নেওয়া হবে।</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>"./eyeOS/" ডাইরেক্টরীটির নাম পরিবর্তন করা যাচ্ছে না। অনুগ্রহপূর্বক, ফোল্ডারটির নাম "[hash]"-এ পরিবর্তন করুন।</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>আই ও.এস. আপডেট!</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>এই আপডেটারটি শুধুমাত্র আই ও.এস. ভার্সন ১.৫ বা তার পরবর্তী ভার্সনগুলোর জন্য। আপনি আই ও.এস. ভার্সন ১ ব্যবহার করছেন। দয়া করে, আপনার বর্তমান আই ও.এস.-টি ভার্সন ২ তে আপডেট করার আগে ভার্সন ১.৫-এ আপডেট করে নিন।</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>দয়া করে, আপনার আই ও.এস. টিকে ভার্সন [version] -এ আপডেট করার জন্য আই ও.এস. এর ইন্সটলেশনটি চালিয়ে যান।</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>না</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>চালিয়ে যান (কন্টিনিউ) ...</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>হ্যা</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>দয়া করে, যে কোন একটি একশন পছন্দ করুন:</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>আপনি কি সত্যিকার ভাবেই আই ও.এস. আনইন্সটল করতে চান?</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]হ্যা[/span], আই ও.এস. টি সম্পূর্ণরুপে মুছে ফেলা হবে।</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>আপনার পি.এইচ.পি. ভার্সনটিতে ইউ.টি.এফ-৮ এর জন্য সম্পূর্ণ সাপোর্ট নেই। দয়া করে, আপনার পি.এইচ.পি এর ভার্সনটি আপডেট করুন অথবা mbstring মডিউলটি আপডেট করুন।</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>আই ও.এস. আনইন্সটল</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>আই ও.এস. ইন্সটলেশন</new>
+		</text>
+		<text>
+			<old>installer-install-systemname</old>
+			<new>সিসটেমের নাম</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>রুট পাসওয়ার্ডটি মিলছে না।</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>দয়া করে, আই ও.এস. ইন্সটল করার জন্য ফর্মটি পূরণ করুন:</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>রুট পাসওয়ার্ডটি সর্বনিম্ন তিনটি অক্ষরের হতে হবে!</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>সতর্কবাণী: দয়া করে, "[package]" ফাইলটি চেক করুন, ফাইলটি সম্ভবত করাপ্টেড হয়ে গেছে।</new>
+		</text>
+		<text>
+			<old>installer-install-systemname-error</old>
+			<new>আপনি অবশ্যই একটি সিস্টেমর নাম উল্লেখ করবেন!</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>রুট পাসওয়ার্ড</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>"./eyeOS/" ডাইরেক্টরীটির নাম পরিবর্তন করা যাচ্ছে না। অনুগ্রহপূর্বক, ফোল্ডারটির নাম "[hash]"-এ পরিবর্তন করুন।</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>চালিয়ে যান (কন্টিনিউ) ...</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>পাসওয়ার্ডটি পুনরায় টাইপ করুন</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>আপনার সার্ভারটি মনে হয়না জি.জিপ (gzip) সাপোর্ট করে। ম্যানুয়ালী আই ও.এস. ইন্সটল করার জন্য, “[package]” নামক ফাইলটি “[package.tar.gz]” নামে নামকরণ করুন এবং একই ফোল্ডারে এটিকে এক্সট্রাক্ট করুন।</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>আই ও.এস. ইনস্টল করুন!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>by</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>ভূল: "[file]" টির অস্তিত্ব নেই।</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>বর্তমান ভাষা</new>
+		</text>
+		<text>
+			<old>installer-lib-output-imap</old>
+			<new>আপনার পি.এইচ.পি ইন্সটলেশনে IMAP মডিউলটি বিদ্যমান নেই। দয়া করে, মডিউলটি ইন্সটল করুন। এটি ছাড়া, আপনি মেইল ক্লায়েন্ট ব্যবহার করতে পারবেন না।</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>ভাষাসমূহ</new>
+		</text>
+		<text>
+			<old>installer-lib-output-sqlite</old>
+			<new>আপনার পি.এইচ.পি ইন্সটলেশনে SQLite মডিউলটি নেই। দয়া করে, মডিউলটি ইন্সটল করে নিন। এটি ছাড়া আপনি মেইল ক্লায়েন্ট ব্যবহার করতে পারবেন না।</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>রুট পার্সওয়ার্ডটি আবশ্যক!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>ইন্সটলশনের সময় কিছু সমস্যা ছিল:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>দু:খিত, কিন্তু আই ও.এস. ব্যবহারের জন্য SAFE_MODE টি OFF করে রাখতে হবে। আপনার বর্তমানে কনফিগারেশনে SAFE_MODE টি সচল করা আছে। দয়া করে, php.ini ফাইলটি খুলে SAFE_MODE টি বন্ধ করুন, অথবা আপনার সিসটেম এডমিনিট্রেটরকে আরও সাহায্যের জন্য জিজ্ঞাসা করুন।</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>বর্তমান আই ও.এস. ইন্সটলেশনটি এই আপডেট থেকে নতুন। দয়া করে "installer" ফোল্ডারটি নিরাপত্তার জন্য মছে ফেলুন।</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>সাবধানবাণী: দয়া করে, "[file]" -টিকে ফুল পারমিশন [CHMOD 777] দিন।</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>আপনার সার্ভারটিতে অগ্রহনযোগ্য ভার্সনের পি.এইচ.পি ব্যবহৃত হচ্ছে। আই ও.এস. ইন্সটল করার পূর্বে দয়া করে পি.এইচ.পি ৫.০ বা এর পরবর্তী ভার্সনগুলোর একটিতে আপডেট করুন।</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>ব্যবহারকারীদের অ্যাকাউন্ট তৈরি করতে অনুমতি প্রদান করুন</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>ইন্সটলার ফাইলটি এক্সট্রাক্ট করা সম্ভব হচ্ছে না। আই ও.এস. ম্যানুয়ালি ইন্সটল করার জন্য, "[package]" ফাইলটির নাম "[package.tar.gz]" নামে পরিবর্তন করুন এবং একই ফোল্ডারে এর কন্টেন্টগুলো এক্সট্রাক্ট করুন।</new>
+		</text>
+	</part>
+</lang>

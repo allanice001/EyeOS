@@ -1,0 +1,90 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+
+function eyeContacts_run($params=null) {
+	global $myPid;
+	$content = "";	
+			
+	if(!reqLib('eyeContacts','isReady')){
+		eyeX('messageBox',array('content'=>'eyeContacts can\'t initialize, contact with your administrator'));
+		return false;
+	}	
+	
+	$windowWidth = 870;
+	$windowHeight = 605;
+	
+	$myWindow = new Window(array('name'=>'eyeContactsWND','father'=>'eyeApps','style'=>TITLE + MIN + LISTED + CLOSE,
+	'cent'=>1,'width'=>$windowWidth,'height'=>$windowHeight,'title'=>'eyeContacts'));
+	$myWindow->show();
+	
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeContactsWND_Content'));
+	$myToolbar->show();
+	$myToolbar->addItem('AddContact','index.php?extern=apps/eyeX/themes/default/images/toolbar/addcontact.png','Add Contact');		
+		
+	//58 = toolbar height
+	$abc = array('123','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+	$buttonsContainer = new Simplebox(array('name'=>'buttonsContainer','father'=>'eyeContactsWND_Content','x'=>0,'y'=>58,'width'=>$windowWidth-2,'height'=>20,'border'=>0));
+	$buttonsContainer->show(0);
+	
+	$x = 0;
+	$myHidden = new Hidden(array('name'=>'contactsHiddenALL','father'=>'buttonsContainer','text'=>'ALL'));
+	$myHidden->show();
+	$myButton = new Button(array('name'=>'contactsBtn_ALL','father'=>'buttonsContainer','x'=>$x,'y'=>0,'caption'=>'ALL','width'=>31,'signal'=>'sortContacts'));
+	$myButton->addFriend($myHidden);
+	$myButton->show();
+	service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_contactsBtn_ALL").style.width="31px";'));
+	$x += 31;
+	
+	foreach($abc as $btn){
+		$myHidden = new Hidden(array('name'=>'contactsHidden'.$btn,'father'=>'buttonsContainer','text'=>$btn));
+		$myHidden->show();
+		$myButton = new Button(array('name'=>'contactsBtn_'.$btn,'father'=>'buttonsContainer','x'=>$x,'y'=>0,'caption'=>'%s','tokens'=>array($btn),'width'=>31,'signal'=>'sortContacts'));		
+		$myButton->addFriend($myHidden);
+		$myButton->show();		
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_contactsBtn_'.$btn.'").style.width="31px";'));
+		$x += 31;	
+	}	
+	
+	$myContainer = new Simplebox(array('name'=>'tableContainer','father'=>'eyeContactsWND_Content','x'=>0,'y'=>58+30,'width'=>$windowWidth-2,'height'=>$windowHeight-112,'border'=>0));
+	$myContainer->show(0);
+	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/forms/show_contact_table'.EYE_CODE_EXTENSION);	
+	$myTable = eyeContacts_show_table('ALL',$windowWidth,$windowHeight);
+	$myToolbar->addItem('EditContact','index.php?extern=apps/eyeX/themes/default/images/toolbar/editcontact.png','View/Edit',array($myTable));
+	$myToolbar->addItem('Delete','index.php?extern=apps/eyeX/themes/default/images/toolbar/deletecontact.png','Delete',array($myTable));
+	$myToolbar->addLine();
+	$myToolbar->addItem('Import','index.php?extern=apps/eyeX/themes/default/images/toolbar/importcontact.png','Import');
+	$myToolbar->addItem('Export','index.php?extern=apps/eyeX/themes/default/images/toolbar/exportcontact.png','Export');
+	$myToolbar->addLine();
+	$myToolbar->addItem('SendMessage','index.php?extern=apps/eyeX/themes/default/images/toolbar/sendmessage.png','Send Message',array($myTable));
+	
+	return true;	
+}
+
+function eyeContacts_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

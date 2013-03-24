@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>addArrayValue</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Adds a new value to a session variable.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>addArrayValue</functionName>
+		<syntax>eyeSessions('addArrayValue', array($varName, $varValue))</syntax>
+		<desc>Adds a new value to an array session variable named 'varName'.</desc>
+		<params>
+			<type>required</type>
+			<name>varName</name>
+			<desc>Name of the session variable.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>varValue</name>
+			<desc>Value to insert in the session variable.</desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

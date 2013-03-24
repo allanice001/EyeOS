@@ -1,0 +1,673 @@
+<?php
+/**
+* @version $Id: ucfirst.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to ucfirst
+* Make a string's first character uppercase
+* Note: requires utf8_strtoupper
+* @param string
+* @return string with first character as upper case (if applicable)
+* @see http://www.php.net/ucfirst
+* @see utf8_strtoupper
+* @package utf8
+* @subpackage strings
+*/
+function utf8_ucfirst($str){
+    switch ( utf8_strlen($str) ) {
+        case 0:
+            return '';
+        break;
+        case 1:
+            return utf8_strtoupper($str);
+        break;
+        default:
+            preg_match('/^(.{1})(.*)$/us', $str, $matches);
+            return utf8_strtoupper($matches[1]).$matches[2];
+        break;
+    }
+}
+
+/**
+* @version $Id: trim.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware replacement for ltrim()
+* Note: you only need to use this if you are supplying the charlist
+* optional arg and it contains UTF-8 characters. Otherwise ltrim will
+* work normally on a UTF-8 string
+* @author Andreas Gohr <andi@splitbrain.org>
+* @see http://www.php.net/ltrim
+* @see http://dev.splitbrain.org/view/darcs/dokuwiki/inc/utf8.php
+* @return string
+* @package utf8
+* @subpackage strings
+*/
+function utf8_ltrim( $str, $charlist = FALSE ) {
+    if($charlist === FALSE) return ltrim($str);
+    
+    //quote charlist for use in a characterclass
+    $charlist = preg_replace('!([\\\\\\-\\]\\[/^])!','\\\${1}',$charlist);
+    
+    return preg_replace('/^['.$charlist.']+/u','',$str);
+}
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware replacement for rtrim()
+* Note: you only need to use this if you are supplying the charlist
+* optional arg and it contains UTF-8 characters. Otherwise rtrim will
+* work normally on a UTF-8 string
+* @author Andreas Gohr <andi@splitbrain.org>
+* @see http://www.php.net/rtrim
+* @see http://dev.splitbrain.org/view/darcs/dokuwiki/inc/utf8.php
+* @return string
+* @package utf8
+* @subpackage strings
+*/
+function utf8_rtrim( $str, $charlist = FALSE ) {
+    if($charlist === FALSE) return rtrim($str);
+    
+    //quote charlist for use in a characterclass
+    $charlist = preg_replace('!([\\\\\\-\\]\\[/^])!','\\\${1}',$charlist);
+  
+    return preg_replace('/['.$charlist.']+$/u','',$str);
+}
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware replacement for trim()
+* Note: you only need to use this if you are supplying the charlist
+* optional arg and it contains UTF-8 characters. Otherwise trim will
+* work normally on a UTF-8 string
+* @author Andreas Gohr <andi@splitbrain.org>
+* @see http://www.php.net/trim
+* @see http://dev.splitbrain.org/view/darcs/dokuwiki/inc/utf8.php
+* @return string
+* @package utf8
+* @subpackage strings
+*/
+function utf8_trim( $str, $charlist = FALSE ) {
+    if($charlist === FALSE) return trim($str);
+    return utf8_ltrim(utf8_rtrim($str, $charlist), $charlist);
+}
+
+/**
+* @version $Id: substr_replace.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware substr_replace.
+* Note: requires utf8_substr to be loaded
+* @see http://www.php.net/substr_replace
+* @see utf8_strlen
+* @see utf8_substr
+*/
+function utf8_substr_replace($str, $repl, $start , $length = NULL ) {
+    preg_match_all('/./us', $str, $ar);
+    preg_match_all('/./us', $repl, $rar);
+    if( $length === NULL ) {
+        $length = utf8_strlen($str);
+    }
+    array_splice( $ar[0], $start, $length, $rar[0] );
+    return join('',$ar[0]);
+}
+
+/**
+* @version $Id: strspn.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to strspn
+* Find length of initial segment matching mask
+* Note: requires utf8_strlen and utf8_substr (if start, length are used)
+* @param string
+* @return int
+* @see http://www.php.net/strspn
+* @package utf8
+* @subpackage strings
+*/
+function utf8_strspn($str, $mask, $start = NULL, $length = NULL) {
+    
+    $mask = preg_replace('!([\\\\\\-\\]\\[/^])!','\\\${1}',$mask);
+    
+    if ( $start !== NULL || $length !== NULL ) {
+        $str = utf8_substr($str, $start, $length);
+    }
+        
+    preg_match('/^['.$mask.']+/u',$str, $matches);
+    
+    if ( isset($matches[0]) ) {
+        return utf8_strlen($matches[0]);
+    }
+    
+    return 0;
+
+}
+
+/**
+* @version $Id: str_split.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to str_split
+* Convert a string to an array
+* Note: requires utf8_strlen to be loaded
+* @param string UTF-8 encoded
+* @param int number to characters to split string by
+* @return string characters in string reverses
+* @see http://www.php.net/str_split
+* @see utf8_strlen
+* @package utf8
+* @subpackage strings
+*/
+function utf8_str_split($str, $split_len = 1) {
+    
+    if ( !preg_match('/^[0-9]+$/',$split_len) || $split_len < 1 ) {
+        return FALSE;
+    }
+    
+    $len = utf8_strlen($str);
+    if ( $len <= $split_len ) {
+        return array($str);
+    }
+    
+    preg_match_all('/.{'.$split_len.'}|[^\x00]{1,'.$split_len.'}$/us', $str, $ar);
+    return $ar[0];
+    
+}
+
+/**
+* @version $Id: strrev.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to strrev
+* Reverse a string
+* @param string UTF-8 encoded
+* @return string characters in string reverses
+* @see http://www.php.net/strrev
+* @package utf8
+* @subpackage strings
+*/
+function utf8_strrev($str){
+    preg_match_all('/./us', $str, $ar);
+    return join('',array_reverse($ar[0]));
+}
+
+/**
+* @version $Id: str_pad.php,v 1.1 2006/09/03 09:25:13 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* Replacement for str_pad. $padStr may contain multi-byte characters.
+*
+* @author Oliver Saunders <oliver (a) osinternetservices.com>
+* @param string $input
+* @param int $length
+* @param string $padStr
+* @param int $type ( same constants as str_pad )
+* @return string
+* @see http://www.php.net/str_pad
+* @see utf8_substr
+* @package utf8
+* @subpackage strings
+*/
+function utf8_str_pad($input, $length, $padStr = ' ', $type = STR_PAD_RIGHT) {
+    
+    $inputLen = utf8_strlen($input);
+    if ($length <= $inputLen) {
+        return $input;
+    }
+    
+    $padStrLen = utf8_strlen($padStr);
+    $padLen = $length - $inputLen;
+    
+    if ($type == STR_PAD_RIGHT) {
+        $repeatTimes = ceil($padLen / $padStrLen);
+        return utf8_substr($input . str_repeat($padStr, $repeatTimes), 0, $length);
+    }
+    
+    if ($type == STR_PAD_LEFT) {
+        $repeatTimes = ceil($padLen / $padStrLen);
+        return utf8_substr(str_repeat($padStr, $repeatTimes), 0, floor($padLen)) . $input;
+    }
+    
+    if ($type == STR_PAD_BOTH) {
+        
+        $padLen/= 2;
+        $padAmountLeft = floor($padLen);
+        $padAmountRight = ceil($padLen);
+        $repeatTimesLeft = ceil($padAmountLeft / $padStrLen);
+        $repeatTimesRight = ceil($padAmountRight / $padStrLen);
+        
+        $paddingLeft = utf8_substr(str_repeat($padStr, $repeatTimesLeft), 0, $padAmountLeft);
+        $paddingRight = utf8_substr(str_repeat($padStr, $repeatTimesRight), 0, $padAmountLeft);
+        return $paddingLeft . $input . $paddingRight;
+    }
+    
+    trigger_error('utf8_str_pad: Unknown padding type (' . $type . ')',E_USER_ERROR);
+}
+
+/**
+* @version $Id: stristr.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to stristr
+* Find first occurrence of a string using case insensitive comparison
+* Note: requires utf8_strtolower
+* @param string
+* @param string
+* @return int
+* @see http://www.php.net/strcasecmp
+* @see utf8_strtolower
+* @package utf8
+* @subpackage strings
+*/
+function utf8_stristr($str, $search) {
+    
+    if ( strlen($search) == 0 ) {
+        return $str;
+    }
+    
+    $lstr = utf8_strtolower($str);
+    $lsearch = utf8_strtolower($search);
+    preg_match('/^(.*)'.preg_quote($lsearch).'/Us',$lstr, $matches);
+    
+    if ( count($matches) == 2 ) {
+        return substr($str, strlen($matches[1]));
+    }
+    
+    return FALSE;
+}
+
+/**
+* @version $Id: str_ireplace.php,v 1.2 2007/08/12 01:20:46 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to str_ireplace
+* Case-insensitive version of str_replace
+* Note: requires utf8_strtolower
+* Note: it's not fast and gets slower if $search / $replace is array
+* Notes: it's based on the assumption that the lower and uppercase
+* versions of a UTF-8 character will have the same length in bytes
+* which is currently true given the hash table to strtolower
+* @param string
+* @return string
+* @see http://www.php.net/str_ireplace
+* @see utf8_strtolower
+* @package utf8
+* @subpackage strings
+*/
+function utf8_ireplace($search, $replace, $str, $count = NULL){
+    
+    if ( !is_array($search) ) {
+        
+        $slen = strlen($search);
+        if ( $slen == 0 ) {
+            return $str;
+        }
+        
+        $lendif = strlen($replace) - strlen($search);
+        $search = utf8_strtolower($search);
+        
+        $search = preg_quote($search);
+        $lstr = utf8_strtolower($str);
+        $i = 0;
+        $matched = 0;
+        while ( preg_match('/(.*)'.$search.'/Us',$lstr, $matches) ) {
+            if ( $i === $count ) {
+                break;
+            }
+            $mlen = strlen($matches[0]);
+            $lstr = substr($lstr, $mlen);
+            $str = substr_replace($str, $replace, $matched+strlen($matches[1]), $slen);
+            $matched += $mlen + $lendif;
+            $i++;
+        }
+        return $str;
+        
+    } else {
+        
+        foreach ( array_keys($search) as $k ) {
+            
+            if ( is_array($replace) ) {
+                
+                if ( array_key_exists($k,$replace) ) {
+                    
+                    $str = utf8_ireplace($search[$k], $replace[$k], $str, $count);
+                    
+                } else {
+                
+                    $str = utf8_ireplace($search[$k], '', $str, $count);
+                    
+                }
+                
+            } else {
+            
+                $str = utf8_ireplace($search[$k], $replace, $str, $count);
+                
+            }
+        }
+        return $str;
+        
+    }
+
+}
+
+/**
+* @version $Id: strcspn.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to strcspn
+* Find length of initial segment not matching mask
+* Note: requires utf8_strlen and utf8_substr (if start, length are used)
+* @param string
+* @return int
+* @see http://www.php.net/strcspn
+* @see utf8_strlen
+* @package utf8
+* @subpackage strings
+*/
+function utf8_strcspn($str, $mask, $start = NULL, $length = NULL) {
+    
+    if ( empty($mask) || strlen($mask) == 0 ) {
+        return NULL;
+    }
+    
+    $mask = preg_replace('!([\\\\\\-\\]\\[/^])!','\\\${1}',$mask);
+    
+    if ( $start !== NULL || $length !== NULL ) {
+        $str = utf8_substr($str, $start, $length);
+    }
+        
+    preg_match('/^[^'.$mask.']+/u',$str, $matches);
+    
+    if ( isset($matches[0]) ) {
+        return utf8_strlen($matches[0]);
+    }
+    
+    return 0;
+    
+}
+
+/**
+* @version $Id: ucwords.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to ucwords
+* Uppercase the first character of each word in a string
+* Note: requires utf8_substr_replace and utf8_strtoupper
+* @param string
+* @return string with first char of each word uppercase
+* @see http://www.php.net/ucwords
+* @package utf8
+* @subpackage strings
+*/
+function utf8_ucwords($str) {
+    // Note: [\x0c\x09\x0b\x0a\x0d\x20] matches;
+    // form feeds, horizontal tabs, vertical tabs, linefeeds and carriage returns
+    // This corresponds to the definition of a "word" defined at http://www.php.net/ucwords
+    $pattern = '/(^|([\x0c\x09\x0b\x0a\x0d\x20]+))([^\x0c\x09\x0b\x0a\x0d\x20]{1})[^\x0c\x09\x0b\x0a\x0d\x20]*/u';
+    return preg_replace_callback($pattern, 'utf8_ucwords_callback',$str);
+}
+
+//---------------------------------------------------------------
+/**
+* Callback function for preg_replace_callback call in utf8_ucwords
+* You don't need to call this yourself
+* @param array of matches corresponding to a single word
+* @return string with first char of the word in uppercase
+* @see utf8_ucwords
+* @see utf8_strtoupper
+* @package utf8
+* @subpackage strings
+*/
+function utf8_ucwords_callback($matches) {
+    $leadingws = $matches[2];
+    $ucfirst = utf8_strtoupper($matches[3]);
+    $ucword = utf8_substr_replace(ltrim($matches[0]),$ucfirst,0,1);
+    return $leadingws . $ucword;
+}
+
+/**
+* @version $Id: strcasecmp.php,v 1.1 2006/02/25 13:50:17 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to strcasecmp
+* A case insensivite string comparison
+* Note: requires utf8_strtolower
+* @param string
+* @param string
+* @return int
+* @see http://www.php.net/strcasecmp
+* @see utf8_strtolower
+* @package utf8
+* @subpackage strings
+*/
+function utf8_strcasecmp($strX, $strY) {
+    $strX = utf8_strtolower($strX);
+    $strY = utf8_strtolower($strY);
+    return strcmp($strX, $strY);
+}
+
+/**
+* @version $Id: ord.php,v 1.4 2006/09/11 15:22:54 harryf Exp $
+* @package utf8
+* @subpackage strings
+*/
+
+//---------------------------------------------------------------
+/**
+* UTF-8 aware alternative to ord
+* Returns the unicode ordinal for a character
+* @param string UTF-8 encoded character
+* @return int unicode ordinal for the character
+* @see http://www.php.net/ord
+* @see http://www.php.net/manual/en/function.ord.php#46267
+*/
+function utf8_ord($chr) {
+    
+    $ord0 = ord($chr);
+    
+    if ( $ord0 >= 0 && $ord0 <= 127 ) {
+        return $ord0;
+    }
+    
+    if ( !isset($chr{1}) ) {
+        trigger_error('Short sequence - at least 2 bytes expected, only 1 seen');
+        return FALSE;
+    }
+    
+    $ord1 = ord($chr{1});
+    if ( $ord0 >= 192 && $ord0 <= 223 ) {
+        return ( $ord0 - 192 ) * 64 
+            + ( $ord1 - 128 );
+    }
+    
+    if ( !isset($chr{2}) ) {
+        trigger_error('Short sequence - at least 3 bytes expected, only 2 seen');
+        return FALSE;
+    }
+    $ord2 = ord($chr{2});
+    if ( $ord0 >= 224 && $ord0 <= 239 ) {
+        return ($ord0-224)*4096 
+            + ($ord1-128)*64 
+                + ($ord2-128);
+    }
+    
+    if ( !isset($chr{3}) ) {
+        trigger_error('Short sequence - at least 4 bytes expected, only 3 seen');
+        return FALSE;
+    }
+    $ord3 = ord($chr{3});
+    if ($ord0>=240 && $ord0<=247) {
+        return ($ord0-240)*262144 
+            + ($ord1-128)*4096 
+                + ($ord2-128)*64 
+                    + ($ord3-128);
+    
+    }
+    
+    if ( !isset($chr{4}) ) {
+        trigger_error('Short sequence - at least 5 bytes expected, only 4 seen');
+        return FALSE;
+    }
+    $ord4 = ord($chr{4});
+    if ($ord0>=248 && $ord0<=251) {
+        return ($ord0-248)*16777216 
+            + ($ord1-128)*262144 
+                + ($ord2-128)*4096 
+                    + ($ord3-128)*64 
+                        + ($ord4-128);
+    }
+    
+    if ( !isset($chr{5}) ) {
+        trigger_error('Short sequence - at least 6 bytes expected, only 5 seen');
+        return FALSE;
+    }
+    if ($ord0>=252 && $ord0<=253) {
+        return ($ord0-252) * 1073741824 
+            + ($ord1-128)*16777216 
+                + ($ord2-128)*262144 
+                    + ($ord3-128)*4096 
+                        + ($ord4-128)*64 
+                            + (ord($c{5})-128);
+    }
+    
+    if ( $ord0 >= 254 && $ord0 <= 255 ) { 
+        trigger_error('Invalid UTF-8 with surrogate ordinal '.$ord0);
+        return FALSE;
+    }
+    
+}
+
+function utf8_wordwrap($str,$width=75,$break='\n',$cut=false){
+
+	$newString = '';
+	if($cut == true){
+		$y = 1;
+		for($x=0;$x < utf8_strlen($str);$x++){
+			$newString .= utf8_substr($str,$x,1);
+			if($y == $width){
+				$newString .= $break;
+				$y = 1;
+			}else{
+				$y++;
+			}
+		}
+		return $newString;
+	}
+
+	$y = 1;
+	for($x=0;$x < utf8_strlen($str);$x++){
+		$newString .= utf8_substr($str,$x,1);
+		if($str{$x} == ' '){
+			if($y >= $width){
+				$newString .= $break;
+				$y = 1;
+			}else{
+				$y++;
+			}
+		}
+	}
+
+	return $newString;
+}
+
+function utf8_pathinfo($string){
+	$info['basename'] = utf8_basename($string);
+	$info['dirname'] = dirname($string);
+	$info['filename'] = utf8_getFileName($string);
+	$info['extension'] = utf8_getExtension($string);
+
+	return $info;
+}
+
+function utf8_basename($string,$suffix=''){
+	//Checking if path are from windows...\
+	if(utf8_strpos($string,'\\') !== false){
+		//Replacing all \ with /
+		$string = utf8_ireplace('\\','/',$string);
+	}
+
+	//Remove the last character if it is a slash
+	if(utf8_strrpos($string,'/') == utf8_strlen($string)-1){
+		$string = utf8_substr($string,0,utf8_strlen($string)-1);
+	}
+	//TODO: check if dirname is more speed than utf8_str*** functions.
+	//If is a directory
+	if(utf8_strpos($string,'/') && utf8_strrpos($string,'/') == utf8_strlen($string)-1){
+		while(utf8_strrpos($string,'/') == utf8_strlen($string)-1){
+			$string = utf8_substr($string,0,utf8_strrpos($string,'/'));
+		}
+	}
+
+	if(utf8_strpos($string,'/') !== false){
+		$string =  utf8_substr($string,utf8_strrpos($string,'/')+1,utf8_strlen($string));
+	}
+
+	if($suffix != ''){
+		$pos = utf8_strrpos($string,$suffix);
+		if($pos === false){
+			return $string;
+		}else{
+			return utf8_substr($string,0,utf8_strrpos($string,$suffix));
+		}
+	}
+
+	return $string;
+}
+
+function utf8_getFileName($string){
+	$name = utf8_basename($string);
+ 	return utf8_substr($name,0,utf8_strrpos($name,'.'));
+}
+
+function utf8_getExtension($string){
+	return utf8_substr($string, utf8_strrpos($string, '.') + 1);
+}
+?>

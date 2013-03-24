@@ -1,0 +1,19 @@
+.eyeFTP_logStyle_err {
+	color: #ff0000;
+}
+
+.eyeFTP_logStyle_info {
+	color: #3333ff;
+}
+
+.eyeFTP_logStyle_norm {
+	color: #333333;
+}
+
+.eyeFTP_logStyle_succ {
+	color: #00aa00;
+}
+
+.eyeFTP_logStyle_warn {
+	color: #ee9900;
+}

@@ -1,0 +1,70 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+	$myToolbar->addItem('sel_web','index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/eyeNav.png','Web');
+
+	$myContainer = new Container(array(
+		'father'=>$myWindow->name . '_Content',
+		'name' => 'eyeUpload_container_web',
+		'x' => 2,
+		'y' => 60,
+		'height' => $myWindow->height - 86,
+		'width' => $myWindow->width - 6
+	));
+	$myContainer->show();
+	$myContainer->hide();
+	
+	$myImagebox = new Imagebox(array(
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_web_Imagebox',
+		'url' => 'index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/48x48/upload.png',
+		'x' => 16,
+		'y'=> 16
+	));
+	$myImagebox->show();
+
+	$myLabel = new Label(array(
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_web_Label',
+		'text' => 'Please enter the HTTP address to a file:',
+		'x' => 75,
+		'y' => 8
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('text-align' => 'center','width' => '390px'));
+
+	$myTextbox = new Textbox(array(
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_web_Textbox',
+		'width' => 300,
+		'x' => 120,
+		'y' => 28
+	));
+	$myTextbox->show();
+	$myTextbox->addEnterEventMsg('web_Do');
+
+	$myButton = new Button(array(
+		'caption' => 'Upload',
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_web_Button',
+		'signal' => 'web_Do',
+		'width' => 100,
+		'x' => 210,
+		'y' => 68
+	));
+	$myButton->addFriend($myLabel);
+	$myButton->addFriend($myTextbox);
+	$myButton->show();
+?>

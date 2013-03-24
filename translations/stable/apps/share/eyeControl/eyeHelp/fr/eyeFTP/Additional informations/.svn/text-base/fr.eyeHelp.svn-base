@@ -1,0 +1,10 @@
+﻿[list]
+[*]Les transferts de données s'effectuent en mode passif pour les versions de 2.0.3 à 2.0.5 d'eyeFTP, mais le mode de transfert peut être choisi dans les versions 3.x.x .
+
+[*]Les mots de passe sont stockés dans le fichier de configuration de l'Utilisateur sans aucun cryptage. Soyez-y attentif!
+
+[*]Les actions effectuées par eyeFTP répondent au standard PHP API, qui est assez limité. Ce qui explique les limitations de l'application.
+
+[*]Si un problème apparait lors d'une action (liste des fichiers mal rafraîchie, etc.), fermez eyeFTP et relancez-le. C'est, la plupart du temps, dû à une mauvaise interprétation des caractères spéciaux dans les noms de fichiers.
+[/list]
+

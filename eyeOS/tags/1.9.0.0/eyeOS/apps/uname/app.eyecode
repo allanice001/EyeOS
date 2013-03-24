@@ -1,0 +1,40 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function uname_run($params=null) {
+	if(count($params) == 0) {
+		eyeX('print',array('eyeOS'));
+	} else {
+		if($params[0] == '-a') {
+			eyeX('print',array('eyeOS '.EYEOS_VERSION.' '.EYEOS_HOSTNAME));
+		} elseif($params[0] == '-s') {
+			eyeX('print',array('eyeOS'));
+		} elseif($params[0] == '-v') {
+			eyeX('print',array(EYEOS_VERSION));
+		} elseif($params[0] == '-n') {
+			eyeX('print',array(EYEOS_HOSTNAME));
+		}
+	}
+	proc('end');
+}
+?>

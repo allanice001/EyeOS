@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>delArrayValueByKey</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Unsets an element of a session var.</shortDesc>
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>delArrayValueByKey</functionName>
+		<syntax>eyeSessions('delArrayValueByKey', array($varName, $varKey))</syntax>
+		<desc>Unsets the element varKey of the varName session variable.</desc>
+		<params>
+			<type>required</type>
+			<name>varName</name>
+			<desc>Name of the variable.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>varKey</name>
+			<desc>Name of the key to delete.</desc>
+		</params>
+		<return>None.</return>
+	</definition>
+</info>

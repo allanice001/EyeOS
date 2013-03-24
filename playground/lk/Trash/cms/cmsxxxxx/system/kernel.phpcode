@@ -1,0 +1,47 @@
+<?php
+class kernel {
+	function getBrowserInfo() {
+		$list['firefox'] = array('Mozilla Firefox','firefox/',' ');
+		$list['konqueror'] = array('Konqueror','konqueror/',' ');
+		$list['netscape'] = array('Netscape','netscape/',' ');
+		$list['opera'] = array('Opera','opera/',' ');
+		$list['safari'] = array('Apple Safari','version/',' ');
+		$list['seamonkey'] = array('SeaMonkey','seamonkey/',' ');
+		$list['msie'] = array('Microsoft Internet Explorer','msie ',';');
+		$list['mozilla'] = array('Mozilla','rv:',')');
+		
+		foreach ($list as $shortcut => $value) {
+			if (stripos($_SERVER['HTTP_USER_AGENT'],$shortcut) !== false) {
+				$version = substr($_SERVER['HTTP_USER_AGENT'],stripos($_SERVER['HTTP_USER_AGENT'],$value[1]) + strlen($value[1]));
+				if (stripos($version,$value[2]) !== false) {
+					$version = substr($version,0,stripos($version,$value[2]));
+				}
+				return array('shortcut' => $shortcut,'name' => $value[0],'version' => $version);
+			}
+		}
+		return array('shortcut' => 0,'name' => 0,'version' => 0);
+	}
+	
+	function loadLibraries() {
+		$path = PATH_ROOT . '/' . PATH_SYSTEM . '/' . PATH_LIBS . '/';
+		$libs = scandir($path);
+		foreach ($libs as $lib) {
+			if ($lib{0} != '.' && is_dir($path . $lib . '/') && file_exists($path . $lib . '/main.' . EXT_CODE)) {
+				include_once($path . $lib . '/main.' . EXT_CODE);
+			}
+		}
+	}
+}
+
+$browserInfo = kernel::getBrowserInfo();
+define('BROWSER',$browserInfo['shortcut']);
+define('BROWSER_NAME',$browserInfo['name']);
+define('BROWSER_VERSION',$browserInfo['version']);
+unset($browserInfo);
+
+kernel::loadLibraries();
+
+output::prepareOutput();
+
+output::doOutput();
+?>

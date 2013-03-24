@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Box</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>container</tag>
+		</tags>
+		<shortDesc>A container widget with a title.</shortDesc>
+	</general>
+	<name>Box</name>
+	<description>Box is a container consisting of a descriptive title about its content and blank space below used normally to place the actions of an application. From eyeOS version 1.6 it can be serialized and accessed from others parts of an application.</description>
+	<image>A Box which has been set the title 'Feeds'. It acts as a container and has a Tree widget inside.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Unique name given to the widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Parent element inside of which the widget is created.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Specifies whether its horizontal coordinate must be taken from the left (0) or the right (1) border of its father element. Default value is 0 (left positioning).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Specifies whether its vertical coordinate must be taken from the upper (0) or from the bottom (1) border of its father element. Default value is 0 (upper positioning).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Specifies the horizontal displacement inside its father element, in pixels. Default value is 10 pixels.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Specifies the vertical displacement inside its father element, in pixels. Default value is 10 pixels.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Specifies how the widget should be centered. Possible values are:
+			 0: no centering. This is the default value.
+			 1: center both horizontal and vertically.
+			 2: center horizontally.
+			 3: center vertically.
+			 4: place the widget at the horizontal and vertical center of its container element.
+			 5: place the widget at the horizontal center of its container element.
+			 6: place the widget at the vertical center of its container element. 
+
+			Please note the difference between options 1-3 and options 4-6. Options 1-3 calculate the size of the widget to ensure that the center of the widget is placed at the central point of its container, while options 4-6 set the central point coordinates as the widget's position, thus making the widget displaced from the central point.
+			</desc>
+		</key>
+		<key>
+			<name>visible</name>
+			<desc>Sets the widget visibility. Possible values are 0 (hidden) or 1 (visible). Default value is 1.</desc>
+		</key>
+		<key>
+			<name>width</name>
+			<desc>Sets the width of the widget, in pixels. Default width is 200 pixels.</desc>
+		</key>
+		<key>
+			<name>height</name>
+			<desc>Sets the height of the widget, in pixels. Default height is 200 pixels.</desc>
+		</key> 
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>title</name>
+			<desc>String that sets the title of the Box.</desc>
+		</key>
+		<key>
+			<name>titleCSS</name>
+			<desc>Name of the CSS class applied to the title of the Box. The default class applied is 'eyeBoxText'.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Makes the system execute a given JavaScript code every time certain event of this widget is triggered.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Name of the JS event. Examples: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>JavaScript code inside the function of the event.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Arguments passed to the function of the event.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Makes the widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>void remove()</syntax>
+			<desc>Removes this widget, along with its child widgets.</desc>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Sets CSS atributes to a widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Specifies, in the form of an associative array, the CSS attributes to be applied. Both the key and value of each element must be valid CSS properties and values respectively.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setHeight(int $height)</syntax>
+			<desc>Changes the height of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>New height, in pixels.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setTitle(string $newTitle)</syntax>
+			<desc>Changes the title of the Box.</desc>
+			<arguments>
+				<arg>
+					<name>newTitle</name>
+					<desc>New title for the Box.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>void setWidth(int $width)</syntax>
+			<desc>Changes the width of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>New width, in pixels.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setX(int $x)</syntax>
+			<desc>Changes the horizontal position of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>New X coordinate.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setY(int $y)</syntax>
+			<desc>Changes the vertical position of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>New Y coordinate.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void show(int $noserialize = 1)</syntax>
+			<desc>Draws the widget in the screen. This widget can be serialized since eyeOS 1.6.</desc>
+			<arguments>
+				<arg>
+					<name>noserialize</name>
+					<desc></desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Makes the widget visible.</desc>
+		</method>
+	</methods>
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>The show() method now allows the widget to be serialized. Also, there is a new method called setTitle().</desc>
+		</trace>
+	</changelog>
+		<examples>
+		<ex>
+			<type>basic Box usage</type>
+			<desc>	
+	//We create a basic Box
+	$myBox = new Box(array(
+		'name' => 'myBox',
+		'father' => 'WND1',
+		'x' => 10,
+		'y' => 10,
+		'width' => 200,
+		'height' => 400,
+		'title' => 'Test box'
+	));
+	$myBox->show();
+	//Now we change its title
+	$myBox->setTitle('Hello, World!');</desc>
+		</ex>
+		<ex>
+			<type>using Box as a container</type>
+			<desc>
+	$myBox = new Box(array(
+		'name' => 'myBox',
+		'father' => 'WND1',
+		'x' => 10,
+		'y' => 10,
+		'width' => 200,
+		'height' => 400,
+		'title' => 'Test box'
+	));
+	$myBox->show();
+	
+	//We create a text inside the box
+	$myLabel = new Label(array(
+		'name' => 'myLabel',
+		'father' => 'myBox',
+		'x' => 5,
+		'y' => 35,
+		'text' => 'This text is inside a Box!'
+	));
+	$myLabel->show();</desc>
+		</ex>
+	</examples>
+</info>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>PROC, the process manager service</title>
+	<general>
+		<name>proc</name>
+		<tags>
+			<tag>service</tag>
+		</tags>
+		<shortDesc>Manages the running processes in the system.</shortDesc>
+	</general>
+	<desc>The proc service gives the possibility to manage and get information about running processes.</desc>
+</info>

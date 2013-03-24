@@ -1,0 +1,40 @@
+<lang>
+	<info>
+		<revision>20/05/2008</revision>
+	</info>
+	<texts>
+		<section-downloads-download-text>Please use this version to install a new eyeOS system.</section-downloads-download-text>
+		<section-downloads-download-installation-link>Web Installer</section-downloads-download-installation-link>
+		<section-downloads-download-installation-title>New Installation</section-downloads-download-installation-title>
+		<section-downloads-download-installation-text>Verwenden Sie diese Version um ein neues eyeOS-System einzurichten.</section-downloads-download-installation-text>
+		<section-downloads-title>eyeOS Downloads Center</section-downloads-title>
+		<section-downloads-text>Here you can find packages to install a new eyeOS system and updating an existing one. With eyeSync you can easily synchronize your local files with any eyeOS server. The User Manual is a document teaching how eyeOS works, and the basics of using it.</section-downloads-text>
+		<section-downloads-download-preinstalled-link>Preinstalled</section-downloads-download-preinstalled-link>
+		<section-downloads-download-preinstalled-title>Preinstalled</section-downloads-download-preinstalled-title>
+		<section-downloads-download-preinstalled-text>This version is maintained by [a lars], but not officially supported by the eyeOS Team.[br /]Please use this version only if you noticed problems with the original eyeOS web installer!</section-downloads-download-preinstalled-text>
+		<section-downloads-download-update-link>Web Updater</section-downloads-download-update-link>
+		<section-downloads-download-update-title>Update</section-downloads-download-update-title>
+		<section-downloads-download-update-text>Please use this version to update an existing eyeOS system.</section-downloads-download-update-text>
+		<section-downloads-download-title>Download eyeOS [version]</section-downloads-download-title>
+		<section-downloads-eyesync-windows-link>For Windows</section-downloads-eyesync-windows-link>
+		<section-downloads-eyesync-windows-title>Windows (Vista, XP, 2000, ME, 98)</section-downloads-eyesync-windows-title>
+		<section-downloads-eyesync-linux-link>Ubuntu/Debian based</section-downloads-eyesync-linux-link>
+		<section-downloads-eyesync-linux-title>Linux (Ubuntu/Debian based)</section-downloads-eyesync-linux-title>
+		<section-downloads-eyesync-mac-text>Mac users need to install QT Libraries before they can use eyeSync. You can download it from [a link]here[/a].</section-downloads-eyesync-mac-text>
+		<section-downloads-eyesync-mac-link>For Mac OS X</section-downloads-eyesync-mac-link>
+		<section-downloads-eyesync-mac-title>Mac OS X Leopard (Intel)</section-downloads-eyesync-mac-title>
+		<section-downloads-eyesync-source-link>Source code</section-downloads-eyesync-source-link>
+		<section-downloads-eyesync-source-title>Source code</section-downloads-eyesync-source-title>
+		<section-downloads-eyesync-text>With eyeSync you can automatically and transparently synchronize your local folders with your eyeOS server. It is currently available for Microsoft Windows (Vista, XP, 2000, ME, 98), Linux (in .deb format) and for Mac OS X Leopard (Intel).[br /]Note that eyeSync is still in Alpha stage. Please read carefully [a link]these notes[/a] when using it.</section-downloads-eyesync-text>
+		<section-downloads-eyesync-title>Download eyeSync [version]</section-downloads-eyesync-title>
+		<section-downloads-translations-text>You can download translations for your eyeOS system from the [a langs]Internationalization section[/a] at eyeos-apps.org, or install them using eyeSoft (see [a howto]instructions in the Wiki[/a]).</section-downloads-translations-text>
+		<section-downloads-translations-title>Translations</section-downloads-translations-title>
+		<section-downloads-usermanual-link>User Manual</section-downloads-usermanual-link>
+		<section-downloads-usermanual-text>The User Manual does describe on 25 pages how to start using eyeOS and the common usage of its bundled applications. Please note that the current manual is not yet updated to eyeOS 1.6, and you may find undocumented parts on it.</section-downloads-usermanual-text>
+		<section-downloads-usermanual-title>User Manual</section-downloads-usermanual-title>
+		<section-downloads-menu-usermanual>User Manual</section-downloads-menu-usermanual>
+		<section-downloads-menu-download>Download eyeOS</section-downloads-menu-download>
+		<section-downloads-menu-eyesync>Download eyeSync</section-downloads-menu-eyesync>
+		<section-downloads-menu-translations>Translations</section-downloads-menu-translations>
+	</texts>
+</lang>

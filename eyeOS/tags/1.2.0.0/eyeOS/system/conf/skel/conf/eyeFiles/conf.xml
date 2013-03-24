@@ -1,0 +1,56 @@
+<eyeFiles>
+	<plugin>
+		<appName>eyeUpload</appName>
+		<label>Upload file</label>
+		<icon>index.php?extern=apps/eyeFiles/gfx/upload.png</icon>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<appName>eyeDownload</appName>
+		<icon>index.php?extern=apps/eyeFiles/gfx/download.png</icon>
+		<label>Download</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>downZip</appName>
+		<icon>index.php?extern=apps/eyeFiles/gfx/downzip.png</icon>
+		<label>Download as zip</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyeMkDir</appName>
+		<label>Create folder</label>
+		<icon>index.php?extern=apps/eyeFiles/gfx/newfolder.png</icon>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<appName>eyeDelete</appName>
+		<label>Delete</label>
+		<icon>index.php?extern=apps/eyeFiles/gfx/delete.png</icon>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyeRename</appName>
+		<icon>index.php?extern=apps/eyeFiles/gfx/rename.png</icon>
+		<label>Rename</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyeCopy</appName>
+		<icon>index.php?extern=apps/eyeFiles/gfx/copy.png</icon>
+		<label>Copy</label>
+		<context>select</context>
+	</plugin>
+	<plugin>
+		<appName>eyePaste</appName>
+		<icon>index.php?extern=apps/eyeFiles/gfx/paste.png</icon>
+		<label>Paste</label>
+		<context>current</context>
+	</plugin>
+	<plugin>
+		<appName>eyeProperties</appName>
+		<icon>index.php?extern=apps/eyeFiles/gfx/properties.png</icon>
+		<label>Properties</label>
+		<context>select</context>
+	</plugin>
+</eyeFiles>

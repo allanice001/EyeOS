@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>move</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Moves a virtual file.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>move</functionName>
+		<syntax>bool vfs('move', array(string $orig, string $dest))</syntax>
+		<desc>Moves a virtual file.</desc>
+		<params>
+			<type>required</type>
+			<name>orig</name>
+			<desc>Path to the file to move.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>dest</name>
+			<desc>Destination path where the file must be moved.</desc>
+		</params>	
+		<return>If the function succeeds, returns true. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>One or both parameters have not been specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions to move the file.</desc>
+			</error>
+			<error>
+				<type>VFS_FILE_NOT_EXISTS</type>
+				<desc>The file to move does not exist.</desc>
+			</error>
+			<error>
+				<type>VFS_FILE_ALREADY_EXISTS</type>
+				<desc>There already exists a file in the same path as the destination file.</desc>
+			</error>
+			<error>
+				<type>PHP_ERROR_ON_UNLINK</type>
+				<desc>There is a PHP error moving the file.</desc>
+			</error>
+			<error>
+				<type>PHP_ERROR_ON_COPY</type>
+				<desc>There is a PHP error moving the file.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

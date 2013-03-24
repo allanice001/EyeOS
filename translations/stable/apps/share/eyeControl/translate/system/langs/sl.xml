@@ -1,0 +1,5125 @@
+<lang>
+	<info>
+		<lang>Slovene</lang>
+		<lang-en>Slovenian</lang-en>
+		<author>Luka Urisk</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Prosim vstavite naslov povezave tukaj:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Ustvari</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Ustvari povezavo</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Zdaj lahko zaprete to okno.</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Strežnik ne podpira zip datotek.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Povezave ni mogoče prenesti!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Prenesi!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Prenesi "%s" kot zip</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Posodobi</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Uredi %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Ukaz, ki se naj izvede:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Resnično želite odstraniti %s?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Izprazni koš</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Resnično želite izprazniti koš?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Izbriši %s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Sprejmi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>Prosim vstavite ime in priimek</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>beležke</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Beležke</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>Prosim izberite skupino</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>Prosim izberite stik za urejanje</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>Prosim izberite le en stik za urejanje</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>Prosim izberite en ali več stikov</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>Prosim izberite stik za pošiljanje sporočila</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>vzdevek</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>Mobilno</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Mobilni telefon</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>Podjetje mobilni</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Ime</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>Nov stik uspešno ustvarjen</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Vzdevek</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>Nov stik</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>Prosim izberite le en stik za pošiljanje sporočila</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>Prosim vpišite ime nove skupine</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>Služben faks</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>Službena E-pošta</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>Služben naslov</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>Služben mobilni</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>Služben telefon</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>Službena spletna stran</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Spletna stran</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>voip</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Pošlji sporočilo</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>Shrani stik</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>Vloga</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Priimek</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>VoIP</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>uporabnik</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Uvozi</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>Uvoz končan</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Podjetje</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Podjetje faks</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>Ni mogoče urediti stika</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Stik uspešno urejen</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Stiki uspešno izbrisani</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Podatkovna baza za hranjenje stikov:</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Stiki</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>Ni mogoče ustvariti stika</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Dodaj</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>Dodaj novo skupino</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Dodaj stik</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>Adresar</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Vse datoteke</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Ste prepričani da želite izbrisati te stike (%s)?</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>Vse skupine</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Izbriši stike</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>Domači naslov</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>Skupina uspešno izbrisana</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>Skupina uspešno dodana</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Domači telefon</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Doma</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>im</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Izvozi</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-pošta</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>E-pošta</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Podrobnosti</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Napaka pri ustvarjanju skupine</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>Izvoz končan</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Napaka pri brisanju stikov</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Sprejmi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Upravljaj opravilno vrstico</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Namesti aplikacije</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplikacije</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>No file open</old>
+			<new>Ni odprtih datotek</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>GZip datoteke</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Ime datoteke</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Razširjanje datotek spodletelo</new>
+		</text>
+		<text>
+			<old>Open a folder or file</old>
+			<new>Odpri mapo ali datoteko</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Odpri</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>Zip datoteke</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Vrsta arhiva ni podprta</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Tar datoteke</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Datoteke uspešno razširjene.</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Razširi</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>BZip datoteke</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Upravljalec arhivov</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>Arhiviraj datoteke</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Stisni v...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Stisni</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Razširi v...</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Stiskanje spodletelo</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Uspešno stisnjeno</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Vse datoteke</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Pošlji</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Javna deska</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Počisti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Sunday</old>
+			<new>Nedelja</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>Besedilo za ta dogodek:</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>Četrtek</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Danes</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Prikaži</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Sobota</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Naslednji</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Prosim določite ime koledarja:</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Prosim vstavite ime koledarja</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Prejšnji</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Torek</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Dva koledarja ne moreta imeti enak ID!</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Način okna</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>Nastavitev delovnega pogleda:</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>Delovni pogled</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Delo</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Teden</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>Teden se konča v:</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Dva koledarja ne moreta imeti istega imena!</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Sreda</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>Teden se začne v:</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Ponedeljek</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Napačno število %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Koledar</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Upravljanje koledarjev</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Koledarji</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Koledar je že zagnan</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Koledar uspešno dodan</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Sprejmi</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Dodaj koledar</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Vsaj en koledar je zahtevan</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Nastavitve shranjene pravilno</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>Nastavitve shranjene</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Petek</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>Splošne nastavitve:</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Napačna vrednost potrditvenega polja</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dan</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Nastavi koledar</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>Dan se konča ob:</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>Dan se začne ob:</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Koledar z istim imenom že obstaja!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Rook</old>
+			<new>Top</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Počasno</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Razveljavi</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Kraljica</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>Poteze</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Šah</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Konj</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Srednje</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Tekač</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>Neznan ukaz</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Rename</old>
+			<new>Preimenuj</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Odstrani</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Zbirke</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Ponastavi pozicije ikon</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Ponastavi pozicije oken</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Odstrani začasne datoteke in mape</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Odstrani začasne datoteke in mape iz vašega oneye sistema</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Prosim vnesite vaše uporabniško ime:</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Prosim vnesite naslov!</new>
+		</text>
+		<text>
+			<old>Please type your password to remove this account.</old>
+			<new>Prosim vnesite vaše geslo za odstranitev tega računa.</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Vrata</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Odstrani zdaj!</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Varuj seje po IPju</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>Shrani pozicije oken</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Shrani</new>
+		</text>
+		<text>
+			<old>Service:</old>
+			<new>Storitev:</new>
+		</text>
+		<text>
+			<old>Service</old>
+			<new>Storitev</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Nastavi za privzeto</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Prikaži polna imena</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Prikaži vse</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Izberi</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Izberi uporabnika:</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Iskalniki uspešno uvoženi.</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Zajem zaslona</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Išči uporabnika...</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>Varnost</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Izberi datoteko...</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Prosim vnesite pravilno ime skupine!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Prosim vnesite ukaz!</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Dovoljenja</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Dovoljenja *</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Osebno</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Prosim izberite ukaz za izbris.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Prosim izberite skupino za izbris.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Prosim izberite ukaz za urejanje.</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Gesli se ne ujemata</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Geslo</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Drugo</new>
+		</text>
+		<text>
+			<old>OpenOffice program folder:</old>
+			<new>OpenOffice mapa:</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Geslo (ponovno) *</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Geslo *</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Geslo uspešno shranjeno</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Prosim izberite skupino za urejanje.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Prosim izberite skupino za nastavitev privzete skupine.</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Prosim popravite vnešene nastavitve.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to edit from the list</old>
+			<new>Prosim izberite ACL s seznama za urejanje.</new>
+		</text>
+		<text>
+			<old>Please fill and select all fields</old>
+			<new>Prosim izpolnite in izberite vsa polja.</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Prosim izpolnite vsa potrebna polja!</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Prosim izpolnite vsa polja označena s *.</new>
+		</text>
+		<text>
+			<old>Please fill in and select the proper fields to add params</old>
+			<new>Prosim izpolnite in izberite vsa polja za dodajanje parametrov.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to delete</old>
+			<new>Prosim izberite ACL za izbris.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Prosim izberite uporabnika za urejanje.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Prosim izberite zrcalni strežnik za izbris.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Prosim izberite zrcalni strežnik za testiranje.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Prosim izberite zrcalni strežnik za urejanje.</new>
+		</text>
+		<text>
+			<old>Please choose a target to delete</old>
+			<new>Prosim izberite tarčo za izbris.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Prosim izberite uporabnika za izbris.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Prikaži uporabnike...</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Prikaži uporabnike</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Posodobi sistemske nastavitve</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Posodobi sistemski profil</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Uporabi poljubno ozadje</new>
+		</text>
+		<text>
+			<old>Use SSL</old>
+			<new>Uporabi SSL</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Uporabnik uspešno ustvarjen.</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Zaseden prostor:</new>
+		</text>
+		<text>
+			<old>Update Rule</old>
+			<new>Posodobi pravilo</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Odstrani</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Vnesite ukaz, katerega želite izvesti ob prijavi.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Napaka pri brisanju skupine.</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Vnesite ime skupine, katero želite ustvariti:</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Vnesite ime nove skupine:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Vnesite nov naslov zrcalnega strežnika:</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>Uporabnik uspešno izbrisan.</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Uporabnik</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>Ne morete izbrisati privzete skupine!</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>Uporabite lahko /a (konec), /b (začetek) in /c (štetje) za seznam uporabnikov.</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>Ne morete izbrisati privzetega zrcalnega strežnika!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>Ne morete izbrisati root uporabnika!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>Ne morete shraniti zrcalnega strežnika kot privzetega!</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>Ne morete urejati privzetega zrcalnega strežnika!</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>Nimate pravic za urejanje uporabnikov!</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>Nimate pravic za urejanje skupin!</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Ozadje</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>Uporabniško ime vsebuje napačne znake, prosim izberite drugo!</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>Okna uspešno obnovljena. Prosim ponovno zaženite aplikacije.</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>Okna</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Tema</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>Sprememba teme. Za aktivacijo je potrebno namizje ponovno zagnati.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Začetna stran</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Žal se morate prijaviti kot ta uporabnik za ogled te strani.</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Nastavitve sistema</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistem</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Začasne datoteke in mape uspešno odstranjene.</new>
+		</text>
+		<text>
+			<old>Target</old>
+			<new>Tarča</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Žal se morate prijaviti kot navadni uporabnik za ogled te strani.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Žal nimate ustreznih pravic za ogled te strani.</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Žal ta datoteka ne obstaja.</new>
+		</text>
+		<text>
+			<old>SMTP</old>
+			<new>SMTP</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Žal ta datoteka ni dovoljena za ozadje.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be entered by the default user.</old>
+			<new>Žal ta stran ne more biti obiskana od privzetega uporabnika.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Žal ta stran ni nameščena.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>Ta ukaz ne obstaja!</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>Izbrana skupina že obstaja!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>Izbrana datoteka ni ustrezna datoteka eyeNav iskalnikov.</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>Izbran uporabnik že obstaja!</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>Izbrano uporabniško ime je predolgo!</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>Uporabnik ne obstaja.</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>Izbrano uporabniško ime je prekratko!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>Izbrana datoteka ni ustrezna datoteka eyeNav zaznamkov.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Zrcalni strežnik je nameščen!</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Ta uporabnik ne obstaja.</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>Ta ukaz je že nastavljen!</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Račun je bil uspešno izbrisan.</new>
+		</text>
+		<text>
+			<old>The category does not exist!</old>
+			<new>Kategorija ne obstaja!</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Izbrana skupina je že privzeta skupina!</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Office podpora</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>brez</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Ukaz uspešno dodan.</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Počisti oneye</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Ukaz uspešno izbrisan.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Ukaz uspešno shranjen.</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Nastavi office podporo na Linux strežniku</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Ukazi</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Spremembe uspešno shranjene.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Spremembe uspešno shranjene ter uporabnik posodobljen.</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Spremeni trenutno temo</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Spremeni trenutno geslo</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Spremeni vaše ozadje</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Spremeni eyeBoard nastavitve</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Spremeni željeni jezik</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Nastavi office podporo na Windows strežniku</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Nastavi začetno stran</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Izbriši skupino</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Izbriši autorun</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Izbriši zrcalni strežnik</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Izbriši opozorilo</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Opis</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Delete ACL</old>
+			<new>Izbriši ACL</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Privzete nastavitve uspešno uporabljene.</new>
+		</text>
+		<text>
+			<old>Create an ACL rule for your oneye system</old>
+			<new>Ustvari ACL pravilo za vaš oneye sistem</new>
+		</text>
+		<text>
+			<old>Create ACL</old>
+			<new>Ustvari ACL</new>
+		</text>
+		<text>
+			<old>Create Target</old>
+			<new>Ustvari tarčo</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Privzeta skupina uspešno shranjena. Ponovno se morate prijaviti.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Privzeta skupina: %s | %s skupin(a)</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Brskaj za vtičnik</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Dodaj novega uporabnika</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>Dejanje:</new>
+		</text>
+		<text>
+			<old>Add ACL</old>
+			<new>Dodaj ACL</new>
+		</text>
+		<text>
+			<old>Add an ACL target to your oneye system</old>
+			<new>Dodaj ACL tarčo</new>
+		</text>
+		<text>
+			<old>Add Rule</old>
+			<new>Dodaj pravilo</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Dodaj zrcalni strežnik</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>Dejanje</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>ACL Ime:</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s uporabnik(ov) registriranih.</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s zrcalnih strežnikov</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Privzeti uporabnik]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>O meni</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>ACL Ime</new>
+		</text>
+		<text>
+			<old>Add, edit or remove your Access Control List settings</old>
+			<new>Dodaj, uredi ali odstrani ACL nastavitve</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Dodaj</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this target?</old>
+			<new>Ste prepričani da želite izbrisati to tarčo?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this param?</old>
+			<new>Ste prepričani da želite izbrisati ta parameter?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Avtor</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Ukazi ob zagonu</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Zaznamki uspešno izvoženi.</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Zaznamki in iskalniki uspešno izvoženi.</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this ACL?</old>
+			<new>Ste prepričani da želite izbrisati ta ACL?</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Dovoli spletno nalaganje</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administracija</new>
+		</text>
+		<text>
+			<old>Admin</old>
+			<new>Admin</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Dovoli javne mape</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Dovoli registracijo uporabnikov</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Namizje</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Ste prepričani da želite odstraniti ta ukaz?</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Vzdrževanje</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Osrednje</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Vzdrževalec</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Uredi privzete zaznamke</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Upravljaj samodejni zagon</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Uredi privzete iskalnike</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Izgled in uporaba</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Naloži</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Uvozi</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Skupine</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Nepravilno geslo!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Jezik</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Zadnja prijava</new>
+		</text>
+		<text>
+			<old>Manage your security settings</old>
+			<new>Upravljaj varnostne nastavitve</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Upravljaj sistemske skupine</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Nov ukaz</new>
+		</text>
+		<text>
+			<old>Never</old>
+			<new>Nikoli</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Novo ozadje uspešno nastavljeno.</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Novo</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne.</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Registriranih uporabnikov ni bilo mogoče najti.</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Miška</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Zrcalni strežnik</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Naslov zrcalnega strežnika (primer: %s)</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Upravljaj sistemske uporabnike</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Zrcalni strežnik ne obstaja!</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Zrcalni strežnik uspešno izbrisan.</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Zrcalni strežnik uspešno shranjen.</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Ime skupine</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Skupina</new>
+		</text>
+		<text>
+			<old>Edit ACL</old>
+			<new>Uredi ACL</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-pošta</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Uredi ukaz</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Uredi zrcalni strežnik</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Uredi izbranega uporabnika</new>
+		</text>
+		<text>
+			<old>Done</old>
+			<new>Končano</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Ste prepričani da želite obnoviti privzeta eyeNav iskanja?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Ste prepričani da želite odstraniti ta zrcalni strežnik?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Ste prepričani da želite odstraniti skupino?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Ste prepričani da želite odstraniti tega uporabnika?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Ste prepričani da želite obnoviti privzete eyeDesk nastavitve?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Ste prepričani da želite obnoviti privzete eyeNav zaznamke?</new>
+		</text>
+		<text>
+			<old>Expiration (dd/mm/yyyy)</old>
+			<new>Potek (dd/mm/yyyy)</new>
+		</text>
+		<text>
+			<old>Expiration Date</old>
+			<new>Datum poteka</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Od</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Fiksno: Ikon ni možno premikati</new>
+		</text>
+		<text>
+			<old>Function</old>
+			<new>Funkcija</new>
+		</text>
+		<text>
+			<old>Function:</old>
+			<new>Funkcija:</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Skupina uspešno izbrisana.</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Dobi več prevodov</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Datoteke ni mogoče prenesti. Prosim preverite naslov.</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Datoteko je možno uspešno prenesti.</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Izvozi</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Izvozi privzete zaznamke in iskalnike</new>
+		</text>
+		<text>
+			<old>Extension</old>
+			<new>Pripona</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye deska</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Polja: Ikone so poravnane samodejno</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>% ukaz(ov)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>"%s" lahko zdaj prilepite v drugo mapo.</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Povezav ni mogoče kopirati!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Napaka izbrisa datoteke!</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>Premik "%s" v koš uspešno.</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>Brisanje "%s" uspešno.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Preferences</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Lastnosti</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Prilepi</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Za odpiranje uporabi</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Odpri koš</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Preimenuj</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Naloži datoteke</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Dobrodošel v %s, %s.</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Koš</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Daj v skupno rabo</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS klient</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Nov zaganjalec</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nova mapa</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Prenesi kot zip</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiraj</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Koledar</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplikacije</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Prenesi</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Zaženi</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nova datoteka</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Domača mapa</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Razišči</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Izprazni koš</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>Adresar</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select a file to open</old>
+			<new>Izberi datoteko za odpiranje</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Shrani</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>Shrani kot...</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Izberi mapo</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Izberi</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>Potrebno je izbrati datoteko</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Potrebno je vpisati ime</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Odpri</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>Potrdi zamenjavo</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Avtor</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>Napaka pri branju mape</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Ime</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Doma</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Mape</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>Ste prepričani da želite zamenjati datoteko?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS klient</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Javna deska</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Upravitelj procesov</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Pisarna</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Preglednica</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistem</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Urejevalnik besedil</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Beležnica</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Omrežje</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Brskalnik</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Šah</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Koledar</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Adresar</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Raziskovalec</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Sporočanje</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Igre</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP klient</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Pripomočki</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Odpri dokument</new>
+		</text>
+		<text>
+			<old>MS Word document file</old>
+			<new>MS Word dokument</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Shrani</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Oprostite, nimate ustreznih pravic!</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Urejevalnik besedil</new>
+		</text>
+		<text>
+			<old>oneye document file</old>
+			<new>oneye dokument</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Ne shrani</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Izbriši opozorilo</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Želite shraniti spremembe?</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Dokument uspešno shranjen.</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Vse datoteke</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>To okno lahko zdaj zaprete.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Povezav ni mogoče prenesti!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Prenesi!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Import</old>
+			<new>Uvozi</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Uvozi vire iz OPML-a</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pomoč</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Nalagam, prosim počakajte...</new>
+		</text>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Število naslovov prikazanih v seznamu:</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>Predpomnenje zgodovine branja (dni):</new>
+		</text>
+		<text>
+			<old>OPML files</old>
+			<new>OPML datoteke</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Mapa uspešno spremenjena</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Predpomnenje virov (sec.):</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Vir uspešno spremenjen</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Vir uspešno dodan</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Seznam virov uspešno izvožen</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Viri uspešno uvoženi</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Mapa uspešno dodana</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Viri</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS klient</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Seznama ni bilo mogoče izvoziti v to lokacijo</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Vnesite URL vira:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Vnesite ime mape:</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>URL-a ni bilo mogoče pridobiti.</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Virov ni bilo mogoče uvoziti.</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Vpisati morate ime</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>Ponovno zaženite aplikacijo za uveljavitev sprememb</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Vnesite ime nove mape (opcijsko):</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Vnesite ime vira (opcijsko):</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Izberi datoteko</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Izberi za branje...</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Izberi vir za brskanje...</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Nastavitve uspešno shranjene</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Naslov</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Velikost predogleda (char.):</new>
+		</text>
+		<text>
+			<old>eyeFeeds - Enclosure</old>
+			<new>eyeFeeds</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Izvozi</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Zaznamki</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Avtor</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Izberite datoteko za uvoz</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Izberite mapo za vir:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Izberite mapo za nov vir:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>Izberite mapo za uvožene vire:</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Ste prepričani da želite izbrisati to mapo?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Ste prepričani da želite izbrisati ta vir?</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Dodaj vir</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Dodaj Vir</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Dodaj Mapo</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Dodaj mapo</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Uporabi</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Vse datoteke</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Izberite nadrejeno mapo za nov feed:</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Izberite nadrejeno mapo:</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Napaka pri pridobivanju vira</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Napaka pri brisanju vira</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Napaka pri uveljavljanju sprememb.</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Napaka pri uvozu virov</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Napaka pri shranjevanju vira</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Napaka pri shranjevanju nastavitev</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Napaka pri shranjevanju mape</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Napaka pri dodajanju mape</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Napaka pri dodajanju vira</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Izbriši vir/mapo</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Uredi vir</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Uredi mapo</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Element uspešno izbrisan</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(Neznano ime)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Preimenuj</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Obnovi</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Deli</new>
+		</text>
+		<text>
+			<old>Real</old>
+			<new>Dejansko</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Lastnosti</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nova mapa</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Naslednji</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Za odpiranje uporabi</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Prilepi</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Prikaži vse</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Prikaži datoteke</new>
+		</text>
+		<text>
+			<old>Update view</old>
+			<new>Posodobi pogled</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Naloži datoteke</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>Uporabniki</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>Pogled</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>Drevo</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Koš</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Prikaži mape</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Prikaži povezave</new>
+		</text>
+		<text>
+			<old>Show not</old>
+			<new>Ne prikaži</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>Prikaži le</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nova datoteka</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>Seznam</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Prenesi</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Izprazni koš</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Razišči</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Prenesi kot zip</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Podrobnosti</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Avtor</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Nazaj</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiraj</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Ime datoteke</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>Raziskovalec</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pomoč</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Domača mapa</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Ikone</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Zaženi</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Skupine</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Velikost (B)</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Čas</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Filter:</new>
+		</text>
+		<text>
+			<old>Folders at first</old>
+			<new>Najprej mape</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Dejanja</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Unable to browse directory's content at "%s".</old>
+			<new>Vsebine mape na "%s" ni mogoče prikazati.</new>
+		</text>
+		<text>
+			<old>Unable to connect to %s</old>
+			<new>Povezava na "%s" ni mogoča.</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Vnesite novo ime/lokacijo datoteke/mape.</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Vpišite ime nove mape</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Izberi datoteko za nalaganje v mapo:</new>
+		</text>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>Poskus povezave na %s:%s (uporabnik "%s")...</new>
+		</text>
+		<text>
+			<old>Unable to create directory "%s".</old>
+			<new>Mape "%s" ni mogoče ustvariti.</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>Mape ni mogoče ustvariti, napaka (imate ustrezne pravice?)</new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>Datoteke ni mogoče izbrisati, napaka (imate ustrezne pravice?)</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>Mape ni mogoče izbrisati, napaka (imate ustrezne pravice?)</new>
+		</text>
+		<text>
+			<old>Unable to delete directory's content at "%s".</old>
+			<new>Vsebine mape na "%s" ni mogoče izbrisati.</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>Začasne datoteke ni mogoče ustvariti! Prenos prekinjen.</new>
+		</text>
+		<text>
+			<old>Unable to create file "%s".</old>
+			<new>Datoteke "%s" ni mogoče ustvariti.</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Preimenuj</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Preimenuj/Premakni</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Geslo</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Geslo:</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>Pasivni način spodletel! Prenos podatkov bo izveden v aktivnem načinu.</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>Pasivni način sprejet</new>
+		</text>
+		<text>
+			<old>Only files can be downloaded</old>
+			<new>Prenašajo se lahko le datoteke</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Lastnik</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Pravice</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>Prosim izberite strežnik</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Preimenuj datoteko/mapo</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Vrata:</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Vrata</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Prosim določite uporabniško ime</new>
+		</text>
+		<text>
+			<old>Unable to download directory, error occured</old>
+			<new>Mape ni mogoče prenesti, napaka.</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>Datoteke ni mogoče prenesti, napaka.</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Najprej se morate povezati!</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Najprej se morate povezati</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>yes</old>
+			<new>da</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Uporabnik:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Uporabniško ime</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Izbrati morate datoteko ali mapo.</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Izbrati morate strežnik za izbris.</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Izbrati morate oddaljeno datoteko.</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Določiti je potrebno strežnik, vrata in uporabniško ime.</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Izbrati morate lokalno datoteko.</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Izbrati morate strežnik za nalaganje.</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Izbrati morate strežnik za urejanje.</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>Uporabnik "%s" uspešno avtenticiran.</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>Nalaganje: "%s" v "%s".</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>Začasne datoteke ni mogoče prebrati! Nalaganje prekinjeno.</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>Izbora ni mogoče preimenovati, napaka (imate ustrezne pravice?)</new>
+		</text>
+		<text>
+			<old>Unable to read file "%s"</old>
+			<new>Datoteke "%s" ni mogoče prebrati.</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>Seznama datotek ni mogoče izpisati, napaka.</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured. (Do you have sufficient permissions?)</old>
+			<new>Seznama datotek ni mogoče izpisati, napaka (imate ustrezne pravice?)</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>Datoteke ni možno naložiti, napaka.</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>Datoteke ni mogoče zapisati, preverite pravice.</new>
+		</text>
+		<text>
+			<old>Upload of file "%s" finished.</old>
+			<new>Nalaganje datoteke "%s" končano.</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Naloži</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>Nalaganje uspešno končano, %s bytov prenešeno.</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Naloži datoteko</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>Neznana napaka med nalaganjem.</new>
+		</text>
+		<text>
+			<old>no</old>
+			<new>ne</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Prekini povezavo</new>
+		</text>
+		<text>
+			<old>Disconnected - FTP Client</old>
+			<new>Ni povezave - FTP klient</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>Pridobivanje seznama mape "%s" uspešno (%s datotek)</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Mapa "%s" uspešno ustvarjena.</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Izbriši izbor</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>Prekinjanje povezave %s:%s</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>Prenos končan uspešno, %s bytov prenešeno.</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>Prenašanje "%s" v "%s"</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Uredi izbor</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Prenesi</new>
+		</text>
+		<text>
+			<old>Download of file "%s" finished.</old>
+			<new>Prenos datoteke "%s" končan.</new>
+		</text>
+		<text>
+			<old>Download of directory "%s" finished.</old>
+			<new>Prenos mape "%s" končan.</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Izbriši datoteko/mapo</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Attempting to delete "%s"...</old>
+			<new>Poskušam brisati "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>Poskušam preimenovati/premakniti "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>Poskušam ustvariti mapo "%s" v "%s"...</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Ste prepričani da želite izbrisati to datoteko/mapo?</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Dodaj strežnik</new>
+		</text>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>Napaka pri razreševanju poti, preklic</new>
+		</text>
+		<text>
+			<old>Authenticating user...</old>
+			<new>Avtentikacija uporabnika...</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>Avtentikacija spodletela. Napačen uporabnik/geslo!</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Povezava sprejeta</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Ustvari</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Poveži</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Avtor</new>
+		</text>
+		<text>
+			<old>Error while downloading file "%s"! Transfer aborted.</old>
+			<new>Napaka pri prenosu datoteke "%s"! Prenos prekinjen.</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>Napaka pri brskanju lokalne mape!</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pomoč</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Strežnik:</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>Pomoč in pogosta vprašanja na eyeos wikiju: %s</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Vsili pasivni način.</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP klient</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Ime strežnika</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>Upravljanje strežnikov</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Ime ne sme bit prazno</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nova mapa</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Urejaj strežnike</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Naloži izbor</new>
+		</text>
+		<text>
+			<old>Listing directory "%s"...</old>
+			<new>Izpisujem mapo "%s"...</new>
+		</text>
+		<text>
+			<old>Folder "%s" deleted successfully</old>
+			<new>Mapa "%s" uspešno izbrisana.</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Velikost datoteke</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>Napaka, datoteke "%s" ni mogoče naložiti na strežnik.</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP v.%s zagnan</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted.</old>
+			<new>Napaka pri nalaganju datoteke! Prenos prekinjen.</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>Napaka pri nalaganju datoteke! Prenos prekinjen. (Imate ustrezne pravice?)</new>
+		</text>
+		<text>
+			<old>Error while uploading file "%s"! Transfer aborted.</old>
+			<new>Napaka pri nalaganju datoteke "%s"! Prenos prekinjen.</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>Povezava na strežnik spodletela!</new>
+		</text>
+		<text>
+			<old>File "%s" already exists, overwriting.</old>
+			<new>Datoteka "%s" že obstaja, prepisujem.</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Ime datoteke</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Velikost datoteke (B)</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>Datoteka/mapa uspešno preimenovana.</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>Datoteka "%s" uspešno naložena na "%s".</new>
+		</text>
+		<text>
+			<old>File "%s" deleted successfully</old>
+			<new>Datoteka "%s" uspešno izbrisana.</new>
+		</text>
+		<text>
+			<old>Add -a to LIST command</old>
+			<new>Dodaj -a LIST ukazu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>Topics</old>
+			<new>Teme</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>Kontaktiranje uporabnika za pomoč:</new>
+		</text>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>Nimate dovoljenja za to.</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>Polje nesme biti prazno.</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>Pošlji</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>Spremembe uspešno nastavljene.</new>
+		</text>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>eyeHelp nastavitve</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>Prosite za pomoč</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>Kateri URL želite odpreti v Iframe okvirju?</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Odpri</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>PNG files</old>
+			<new>PNG datoteke</new>
+		</text>
+		<text>
+			<old>No image could be found.</old>
+			<new>Slik ni mogoče najti.</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Prejšnji</new>
+		</text>
+		<text>
+			<old>TIFF files</old>
+			<new>TIFF datoteke</new>
+		</text>
+		<text>
+			<old>View Images</old>
+			<new>Poglej slike</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Naslednji</new>
+		</text>
+		<text>
+			<old>JPG files</old>
+			<new>JPG datoteke</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>BMP files</old>
+			<new>BMP datoteke</new>
+		</text>
+		<text>
+			<old>GIF files</old>
+			<new>GIF slike</new>
+		</text>
+		<text>
+			<old>Image formats</old>
+			<new>Format slik</new>
+		</text>
+		<text>
+			<old>JPEG files</old>
+			<new>JPEG datoteke</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Vse datoteke</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Izbrati morate mapo za uvoz datotek</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Uvozi</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Brskaj</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s datotek uvoženih!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>Zahvaljujoč...</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Podpora</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>Projekti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Le root lahko namešča pakete.</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Paket uspešno nameščen!</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Ničesar ni za namestitev.</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Nameščanje</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Ste prepričani da želite namestiti ta paket?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run...</old>
+			<new>Zaženi...</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Zaženi kot drug uporabnik</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Zaženi</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Vnesite ime aplikacije ali ukaza za zagon</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Uporabnik</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Geslo</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Napačni uporabnik</new>
+		</text>
+		<text>
+			<old>%s has had an unknow problem and could not be executed</old>
+			<new>Neznana napaka pri zagonu %s. Ni bilo mogoče zagnati.</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>Ne najdem %s</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Napaka, prazno uporabniško ime ali geslo</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Napaka, napačni uporabnik ali geslo</new>
+		</text>
+		<text>
+			<old>%s has had a problem and could not be executed</old>
+			<new>Napaka pri zagonu %s. Ni bilo mogoče zagnati.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>The language does not exist!</old>
+			<new>Jezik ne obstaja!</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>Ta uporabnik že obstaja!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Ponovno vnesite geslo</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Registracija uporabnikov ni dovoljena!</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>Uporabniško ime je prekratko!</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Vaš račun je onemogočen!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Uporabnik</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>Uporabniško ime mora biti alfanumerično!</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Prosim izpolnite vsa polja!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Geslo</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Napaka pri ustvarjanju novega uporabnika!</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Vstopi</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Ustvari račun</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Jezik (za to sejo)</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Jezik</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Geslo je prekratko!</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Gesli se ne ujemata!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Nov uporabnik</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>(Privzeto)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMedia</name>
+		<text>
+			<old>Previous</old>
+			<new>Prejšnji</new>
+		</text>
+		<text>
+			<old>Playing: %s</old>
+			<new>Predvajam: %s</new>
+		</text>
+		<text>
+			<old>Play</old>
+			<new>Predvajaj</new>
+		</text>
+		<text>
+			<old>Paused.</old>
+			<new>Pavzirano.</new>
+		</text>
+		<text>
+			<old>Remove File</old>
+			<new>Odstrani datoteko</new>
+		</text>
+		<text>
+			<old>Repeat</old>
+			<new>Ponavljanje</new>
+		</text>
+		<text>
+			<old>Successfully opened: %s</old>
+			<new>Uspešno odprto: %s</new>
+		</text>
+		<text>
+			<old>Stop</old>
+			<new>Stop</new>
+		</text>
+		<text>
+			<old>Shuffle</old>
+			<new>Naključno</new>
+		</text>
+		<text>
+			<old>Nothing Playing.</old>
+			<new>Ne predvajam.</new>
+		</text>
+		<text>
+			<old>No folder selected.</old>
+			<new>Ni izbranih map.</new>
+		</text>
+		<text>
+			<old>Error opening: %s</old>
+			<new>Napaka pri odpiranju: %s</new>
+		</text>
+		<text>
+			<old>Clear List</old>
+			<new>Počisti seznam</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Dodaj mapo</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Ime datoteke</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>No file selected.</old>
+			<new>Ni izbranih datotek.</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Naslednji</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>Media Player</new>
+		</text>
+		<text>
+			<old>Add File</old>
+			<new>Dodaj datoteko</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Odgovori</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Beri</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Beri sporočilo</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Sporočilo obnovljeno v prvotno mapo</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Novo</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Obnovi</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Poslano</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Izbrati morate sporočilo za brisanje</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Izbrati morate sporočilo za odpiranje</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Neprebrano</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Koš</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Zadeva</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Za</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Notranje sporočanje</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Prejeto</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Potrdi prazno</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Priloži</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Ste prepričani da želite odstraniti vsa sporočila iz te mape?</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Izbriši</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Prenesi</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Od</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Datoteka uspešno shranjena.</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Napaka pri odpiranju</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Izpraznjeno</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Prazno</new>
+		</text>
+		<text>
+			<old>(do) Read</old>
+			<new>Beri</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Določeni znaki so bili odstranjeni.</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Vnesite ime nove mape</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Napaka pri ustvarjanju mape!</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Ustvari mapo</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug. Unfortunately it is a problem with your Flash player!</old>
+			<new>To ni hrošč, ampak težava z vašim Flash predvajalnikom!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Refresh</old>
+			<new>Osveži</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Išči</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Odpri iskanje</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Odpri zaznamke</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Začetna stran</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>Izbrana datoteka ni ustrezna eyeNav datoteka zaznamkov!</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Spletna stran</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Nekategorizirano</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>Izbrana datoteka ni ustrezna eyeNav datoteka iskanja!</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Zaznamek s tem imenom že obstaja!</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Povezava uspešno shranjena.</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Povezava uspešno izbrisana.</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Zaznamki</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Naslov zaznamka</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>Zaznamek ne obstaja!</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Dodaj zaznamek</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Nazaj</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Izbriši zaznamek</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Ste prepričani da želite izbrisati zaznamek?</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Znanje</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Slike</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forumi</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Posreduj</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Save</old>
+			<new>Shrani</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Shrani kot</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Oprostite, nimate ustreznih pravic.</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Urejevalnik besedil</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Datoteke ni mogoče ustvariti</new>
+		</text>
+		<text>
+			<old>Text files</old>
+			<new>Besedilne datoteke</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Odpri</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Novo</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Izbriši opozorilo</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Želite shraniti spremembe?</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Ne shrani</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Datoteke uspešno shranjene.</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Vse datoteke</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Za odpiranje "%s" uporabi...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Oprostite, nimate ustreznih pravic.</new>
+		</text>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>Nahajate se na prvem listu.</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Izberite datoteko za odpiranje!</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Predstavitve</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Odpri</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Naprej</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Nazaj</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Process Name</old>
+			<new>Ime procesa</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Uporabniško ime</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Upravitelj procesov</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Proces uspešno končan.</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>Nov proces</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>PID</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>Končaj proces</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Portable Network Graphics</old>
+			<new>PNG datoteka</new>
+		</text>
+		<text>
+			<old>Portable Document Format</old>
+			<new>PDF datoteka</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Lastnosti</new>
+		</text>
+		<text>
+			<old>PSW file</old>
+			<new>PSW datoteka</new>
+		</text>
+		<text>
+			<old>Python source</old>
+			<new>Python izvorna koda</new>
+		</text>
+		<text>
+			<old>PWD file</old>
+			<new>PWD datoteka</new>
+		</text>
+		<text>
+			<old>Plain text</old>
+			<new>Tekstovna datoteka</new>
+		</text>
+		<text>
+			<old>PHP source</old>
+			<new>PHP izvorna koda</new>
+		</text>
+		<text>
+			<old>Open Document Sheet file</old>
+			<new>Odpri preglednico</new>
+		</text>
+		<text>
+			<old>Open Document Presentation file</old>
+			<new>Odpri predstavitveno datoteko</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Odpri dokument</new>
+		</text>
+		<text>
+			<old>OpenOffice Writer file</old>
+			<new>Odpri OpenOffice Writer dokument</new>
+		</text>
+		<text>
+			<old>Perl source</old>
+			<new>Perl izvorna koda</new>
+		</text>
+		<text>
+			<old>Path</old>
+			<new>Pot</new>
+		</text>
+		<text>
+			<old>Rich Text Format</old>
+			<new>Obogateno besedilo</new>
+		</text>
+		<text>
+			<old>Ruby source</old>
+			<new>Ruby izvorna koda</new>
+		</text>
+		<text>
+			<old>VBS source</old>
+			<new>VBS izvorna koda</new>
+		</text>
+		<text>
+			<old>The file does not exist!</old>
+			<new>Datoteka ne obstaja!</new>
+		</text>
+		<text>
+			<old>vCard</old>
+			<new>vCard</new>
+		</text>
+		<text>
+			<old>XML file</old>
+			<new>XML datoteka</new>
+		</text>
+		<text>
+			<old>ZIP file</old>
+			<new>ZIP arhiv</new>
+		</text>
+		<text>
+			<old>XSL source</old>
+			<new>XSL izvorna koda</new>
+		</text>
+		<text>
+			<old>Tar.Gz file</old>
+			<new>Tar.Gz arhiv</new>
+		</text>
+		<text>
+			<old>Tar.Bz2 file</old>
+			<new>Tar.Bz2 arhiv</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Velikost</new>
+		</text>
+		<text>
+			<old>Shockwave file</old>
+			<new>Shockwave datoteka</new>
+		</text>
+		<text>
+			<old>SQL source</old>
+			<new>SQL izvorna koda</new>
+		</text>
+		<text>
+			<old>Tagged Image File Format</old>
+			<new>TIF datoteka</new>
+		</text>
+		<text>
+			<old>Tar.Bz file</old>
+			<new>Tar.Bz arhiv</new>
+		</text>
+		<text>
+			<old>Tar file</old>
+			<new>Tar arhiv</new>
+		</text>
+		<text>
+			<old>Mp3 audio file</old>
+			<new>MP3 datoteka</new>
+		</text>
+		<text>
+			<old>Microsoft Word file</old>
+			<new>Microsoft Word datoteka</new>
+		</text>
+		<text>
+			<old>Creation information</old>
+			<new>Informacija o ustvaritvi</new>
+		</text>
+		<text>
+			<old>Creation date</old>
+			<new>Ustvarjeno dne</new>
+		</text>
+		<text>
+			<old>CSS file</old>
+			<new>CSS datoteka</new>
+		</text>
+		<text>
+			<old>CSV sheet file</old>
+			<new>CSV datoteka</new>
+		</text>
+		<text>
+			<old>Deletion information</old>
+			<new>Informacija o izbrisu</new>
+		</text>
+		<text>
+			<old>Deletion date</old>
+			<new>Datum izbrisa</new>
+		</text>
+		<text>
+			<old>Created with</old>
+			<new>Ustvarjeno v</new>
+		</text>
+		<text>
+			<old>Command</old>
+			<new>Ukaz</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Avtor</new>
+		</text>
+		<text>
+			<old>%sBytes</old>
+			<new>%sBytov</new>
+		</text>
+		<text>
+			<old>Bitmap</old>
+			<new>Bitna slika</new>
+		</text>
+		<text>
+			<old>C sharp source</old>
+			<new>C sharp izvorna koda</new>
+		</text>
+		<text>
+			<old>C++ source</old>
+			<new>C++ izvorna koda</new>
+		</text>
+		<text>
+			<old>C source</old>
+			<new>C izvorna koda</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>Mapa</new>
+		</text>
+		<text>
+			<old>eyeDocument file</old>
+			<new>eyeDocument datoteka</new>
+		</text>
+		<text>
+			<old>Java source</old>
+			<new>Java izvorna koda</new>
+		</text>
+		<text>
+			<old>Hypertext Markup Language</old>
+			<new>HTML datoteka</new>
+		</text>
+		<text>
+			<old>Joint Photographic Experts Group</old>
+			<new>JPEG datoteka</new>
+		</text>
+		<text>
+			<old>JS source</old>
+			<new>JS izvorna koda</new>
+		</text>
+		<text>
+			<old>Microsoft Powerpoint file</old>
+			<new>Microsoft Powerpoint datoteka</new>
+		</text>
+		<text>
+			<old>Microsoft Excel file</old>
+			<new>Microsoft Excel datoteka</new>
+		</text>
+		<text>
+			<old>Graphics Interchange Format</old>
+			<new>GIF datoteka</new>
+		</text>
+		<text>
+			<old>FLV file</old>
+			<new>FLV datoteka</new>
+		</text>
+		<text>
+			<old>oneye source</old>
+			<new>oneye izvorna koda</new>
+		</text>
+		<text>
+			<old>eyeInstaller package</old>
+			<new>eyeInstaller paket</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>Informacije o datoteki</new>
+		</text>
+		<text>
+			<old>File</old>
+			<new>Datoteka</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Čas datoteke</new>
+		</text>
+		<text>
+			<old>%s file</old>
+			<new>%s datoteka</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Rename %s</old>
+			<new>Preimenuj %s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShare</name>
+		<text>
+			<old>Share</old>
+			<new>Deli</new>
+		</text>
+		<text>
+			<old>Share "%s" with...</old>
+			<new>Deli %s s/z...</new>
+		</text>
+		<text>
+			<old>Choose the groups to share with</old>
+			<new>Izberite skupine za deljenje datotek</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Preglednica</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Preglednica uspešno shranjena.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Oprostite, nimate ustreznih pravic.</new>
+		</text>
+		<text>
+			<old>File not found!</old>
+			<new>Datoteke ni mogoče najti!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Packages Manager</old>
+			<new>Upravljalec paketov</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Prosim izberite aplikacijo za namestitev.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Prosim izberite aplikacijo za odstranitev.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Iskanje</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>Druge aplikacije</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Le root uporabnik lahko namešča eyeApps</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Ime: %s</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>brez</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Pisarna</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Predlogi: %s</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>Te aplikacije ni mogoče odstraniti.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Posodobi</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Verzija</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Verzija: %s</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Odstrani</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Odstrani aplikacijo</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Aplikacija uspešno odstranjena.</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>Teme</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>Prevodi</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedija</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Licenca: %s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategorije</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Kategorija: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Odvisnosti: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Avtor: %s</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Ime aplikacije</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>% namestitev uspešna!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administracija</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Vse</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Opis: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Namizje</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Namesti</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Nameščeno</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Nameščanje</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Igre</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Seznam paketov posodobljen</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Ste prepričani da želite odstraniti to aplikacijo?</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Prenašanje in nameščanje %s... prosim počakajte</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Izobraževanje</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s prenos je poškodovan. Instalacija ni mogoča.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Options</old>
+			<new>Možnosti</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 hash</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Zadnji čas izvajanja: %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Vnesi besedilo</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Izhodno besedilo</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Odstrani HTML</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL kodiranje</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL dekodiranje</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Začni</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Latinsko v decimalno</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>HTML </new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Šestnajstiško v ASCII</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 dekodiranje</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Samodejno počisti vnos</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>ASCII v šestnajstiško</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Dodaj novo linijo na konec</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 kodiranje</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Počisti</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye hash</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimalno v latinsko</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Združi izhodno besedilo</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Dodaj vnos izhodu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>These options won't be applied until you start a new game.</old>
+			<new>Te opcije bodo uporabljene v novi igri.</new>
+		</text>
+		<text>
+			<old>Time</old>
+			<new>Čas</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Shrani</new>
+		</text>
+		<text>
+			<old>Rank</old>
+			<new>Rang</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>Number of moves:</old>
+			<new>Število premikov:</new>
+		</text>
+		<text>
+			<old>Tip used! Ranking disabled...</old>
+			<new>Namig uporabljen! Stopnje onemogočene...</new>
+		</text>
+		<text>
+			<old>Unable to connect to the host server.</old>
+			<new>Povezava na strežnik ni mogoča.</new>
+		</text>
+		<text>
+			<old>Your rank:</old>
+			<new>Vaš rang:</new>
+		</text>
+		<text>
+			<old>Your time:</old>
+			<new>Vaš čas:</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Uporabnik</new>
+		</text>
+		<text>
+			<old>Use colored numbers on tiles</old>
+			<new>Uporabite barvne številke na ploščicah.</new>
+		</text>
+		<text>
+			<old>Use shared highscores on server (all users)</old>
+			<new>Uporabi skupne rezultate na strežniku (vsi uporabniki)</new>
+		</text>
+		<text>
+			<old>New game</old>
+			<new>Nova igra</new>
+		</text>
+		<text>
+			<old>Network problem</old>
+			<new>Napaka omrežja</new>
+		</text>
+		<text>
+			<old>Configuration</old>
+			<new>Nastavitve</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Datum</new>
+		</text>
+		<text>
+			<old>Do you want to start a new game?</old>
+			<new>Želite začeti novo igro?</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Zapri</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Always remember my last configuration</old>
+			<new>Vedno si zapomni moje zadnje nastavitve</new>
+		</text>
+		<text>
+			<old>Board size :</old>
+			<new>Velikost deske:</new>
+		</text>
+		<text>
+			<old>Finished!</old>
+			<new>Končano!</new>
+		</text>
+		<text>
+			<old>Fullscreen</old>
+			<new>Celi zaslon</new>
+		</text>
+		<text>
+			<old>Maybe you should try a higher level...</old>
+			<new>Mogoče bi poskusili višjo stopnjo...</new>
+		</text>
+		<text>
+			<old>Moves</old>
+			<new>Premakni</new>
+		</text>
+		<text>
+			<old>Maximum</old>
+			<new>Maksimum</new>
+		</text>
+		<text>
+			<old>Maximum value on edges:</old>
+			<new>Maksimalna vrednost na robovih:</new>
+		</text>
+		<text>
+			<old>Highscores</old>
+			<new>Najboljši rezultati</new>
+		</text>
+		<text>
+			<old>Level / board size (%s-%s):</old>
+			<new>Stopnja / velikost deske (%s-%s):</new>
+		</text>
+		<text>
+			<old>[Unknown string]</old>
+			<new>[neznano]</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Upload files</old>
+			<new>Naloži datoteke</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Nalaganje:</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>Datoteka uspešno naložena.</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Naloži zdaj!</new>
+		</text>
+		<text>
+			<old>Web</old>
+			<new>Splet</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Nimate ustreznih pravic!</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>Ni dovolj prostora!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Enostavno</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Odstrani</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Napredno</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Dodaj datoteke</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Dodajte datoteke za prenos, nato izberite Naloži zdaj!</new>
+		</text>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>Napaka med nalaganjem!</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Napaka pri nalaganju datoteke!</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>Prosim vnesite url naslov datoteke:</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Datoteka uspešno naložena.</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>Nalaganje "%s" je bilo uspešno.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Nimate ustreznih pravic!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Uredi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Dobrodošli v %s</new>
+		</text>
+		<text>
+			<old>Unable to save position!</old>
+			<new>Pozicije ni možno shraniti!</new>
+		</text>
+		<text>
+			<old>Please wait...</old>
+			<new>Prosim počakajte...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Pozdravljen svet!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Primer eyeApp-a</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Spremeni besedilo oznake</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>Noben proces si bil končan!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Upload your files</old>
+			<new>Naloži datoteke</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Da</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Pošlji interno sporočilo</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Ustvari novo preglednico</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Želite da se to okno avtomatično odpre v novi seji?</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Ustvari nov dokument</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Koledar</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Moja kvota</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interno sporočanje</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Prosim vnesite ime nove datoteke:</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Določeni znaki so bili odstranjeni.</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Napaka pri ustvarjanju datoteke!</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Ustvari datoteko</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Send</old>
+			<new>Pošlji</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Zadeva</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Za</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Novo sporočilo</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Sporočilo poslano</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Priloži</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Zapri</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Napaka pri pošiljanju sporočila</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Dodaj datoteko</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Restore %s</old>
+			<new>Obnovi %s</new>
+		</text>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>"%s" ni mogoče obnoviti v dejansko mapo!</new>
+		</text>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>Ali želite obnoviti "%s"?</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>Datoteka "%s" je bila obnovljena v vašo domačo mapo!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Potrdi</new>
+		</text>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>"%s" ni bilo mogoče obnoviti!</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Izbrišem celice?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Sobota</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Shrani kot</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Natisni</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Pozicija</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Odpri</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Shrani</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Torek</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Sreda</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Četrtek</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Nedelja</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Velikost lista</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Slog</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Novo</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Izbriši vrstico</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februar</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Enačba</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Izbriši stolpec</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Avgust</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopiraj / prilepi</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Petek</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Vstavi stolpec</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Marec</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maj</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Ponedeljek</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Junij</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Julij</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Vstavi vrstico</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januar</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>Sat</old>
+			<new>So</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>N</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Ned</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Sr</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Naloži</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>To</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>Č</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Če</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Ponedeljek</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maj</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>razpakirano</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>P</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Napaka %s</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Avgust</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februar</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Pet</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>P</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Marec</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Junij</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Julij</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januar</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Druga datoteka</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>System console log</old>
+			<new>Log sistemske konzole</new>
+		</text>
+		<text>
+			<old>Clean</old>
+			<new>Počisti</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Import</old>
+			<new>Uvozi</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Noben stik ni bil najden v datoteki!</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Datoteke ni mogoče najti!</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>Uvoz vCard se ne more izvesti, kontaktirajte administratorja</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Uvozi %s</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Datoteka uvožena!</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Direktorija ni mogoče najti!</new>
+		</text>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Ali želite uvoziti ta vCard?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Napaka pri izvozu datoteke!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Prekliči</new>
+		</text>
+	</part>
+</lang>

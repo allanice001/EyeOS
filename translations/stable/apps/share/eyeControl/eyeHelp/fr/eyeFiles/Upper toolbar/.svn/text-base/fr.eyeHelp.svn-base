@@ -1,0 +1,14 @@
+﻿La barre supérieure se divise en 3 parties ( 4 pour les administrateurs = root user).
+
+La 1ère partie contient les boutons de navigation. Vous y trouvez les boutons "retour" et "suivant".
+
+Dans la 2ème partie se trouvent les boutons:
+[list][*]Mes documents: qui affichera vos fichiers
+[*]Groupes: qui affichera les groupes auxquels vous appartenez et leurs fichiers partagés
+[*]Corbeille: où se trouvent les fichiers que vous avez supprimés.[/list]
+
+La 3ème partie, uniquement visible par les administrateurs, propose 2 boutons:
+[list][*]Utilisateurs: qui permet d'afficher les fichiers de chaque utilisateur
+[*]Vue réelle: qui permet d'accéder aux fichiers système[/list]
+
+La dernière partie propose des boutons d'actions générales.

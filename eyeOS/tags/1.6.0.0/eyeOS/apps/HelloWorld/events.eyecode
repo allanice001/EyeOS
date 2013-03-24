@@ -1,0 +1,55 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+// We create the NAMEOFAPP_on_NAMEOFBUTTON function.
+// In this case, the app is HelloWorld and the button 
+// is HelloWorld_BTN:
+function HelloWorld_on_HelloWorld_BTN($params="") {
+	// We grab the current text inside the textbox:
+	$myCurrentText = $GLOBALS['HelloWorld_TXTBOX']->text;
+	// We set the text in the textbox in the Label:
+	$GLOBALS['HelloWorld_LBL']->setText($myCurrentText);
+	// Finally, we clean the textbox and focus it again
+	// so the user can continue writting:
+	$GLOBALS['HelloWorld_TXTBOX']->setText('');
+	$GLOBALS['HelloWorld_TXTBOX']->focus();
+}
+
+// If the app we're developing needs to send / receive messages, 
+// it's necessary to update its contents trought the eyeWidgets
+// updateContent method.
+// It's an automatic function, so you can just copy it over
+// your apps that use messages by simply changing the app's name:
+function HelloWorld_on_Message($params="") {
+	eyeWidgets('updateContent',$params);
+}
+
+// Finally, the NAMEOFAPP_on_Close() function will be executed when
+// the user closes the application. It's very recommended to always send
+// to proc the close message with the current process id of the app
+// (can be grab trought $myPid), so the app will be removed from the 
+// processes table:
+function HelloWorld_on_Close(){
+	proc('end');
+}
+?>

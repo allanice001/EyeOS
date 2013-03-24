@@ -1,0 +1,51 @@
+<translation>
+	<installer-install-allow-creation>Gi brukerne rettigheter til å opprette kontoer</installer-install-allow-creation>
+	<installer-install-continue>Fortsett...</installer-install-continue>
+	<installer-install-do>Installer eyeOS!</installer-install-do>
+	<installer-install-error-extract>Klarte ikke å pakke ut installasjonsfilene. For å installere eyeOS manuelt kan du endre navnet "[package]" til "package.tar.gz" og pakke ut innholdet i den samme mappen.</installer-install-error-extract>
+	<installer-install-error-renaming>Klarte ikke å endre navnet på mappen "./eyeOS/". Du må endre navnet manuelt til "[hash]".</installer-install-error-renaming>
+	<installer-install-password-retype>Gjenta passord</installer-install-password-retype>
+	<installer-install-password-root>Rotpassord</installer-install-password-root>
+	<installer-install-passwords-characters>Rotpassordet må  være på mer enn tre tegn!</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>Rotpassordene er ikke like!</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>Rotpassord er påkrevet!</installer-install-passwords-required>
+	<installer-install-title>Fyll ut følgende skjema for å installere eyeOS:</installer-install-title>
+	<installer-lib-check-gzip>Serveren ser ikke ut til å ha støtte for gzip. Du kan installere eyeOS manuelt ved å endre "[package]" til "package.tar.gz" og pakke ut innholdet i den samme mappen.</installer-lib-check-gzip>
+	<installer-lib-check-md5>Advarsel: Det ser ut til at filen "[package]" er ødelagt. Du må kontrollere filen.</installer-lib-check-md5>
+	<installer-lib-check-newer>Den installerte versjonen av eyeOS er nyere enn denne oppdateringen. Du bør slette mappen "[installer]" av sikkerhetsårsaker.</installer-lib-check-newer>
+	<installer-lib-check-notexist>Feil: "[file]" eksisterer ikke.</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Advarsel: Du må gi fulle rettigheter (CHMOD 777) til "[file]".</installer-lib-check-permissions>
+	<installer-lib-check-php>Serveren bruker en versjon av PHP som ikke er støttet. Du må oppdatere til PHP 5.0 eller nyere før du installerer eyeOS.</installer-lib-check-php>
+	<installer-lib-check-safemode>Beklager, men eyeOS krever at SAFE_MODE er satt til OFF. På denne serveren er SAFE_MODE aktivert. Du må slå av SAFE_MODE i php.ini eller kontakt systemadministrator for mer hjelp.</installer-lib-check-safemode>
+	<installer-lib-output-errors>Det oppstod problemer under installasjonen:</installer-lib-output-errors>
+	<installer-lib-output-lang-by>av</installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>Gjeldende språk</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Språkpakker</installer-lib-output-lang-langs>
+	<installer-lib-output-title>eyeOS installasjon</installer-lib-output-title>
+	<installer-lib-output-utf8>Din versjon av PHP har ikke full støtte for UTF-8. Du bør vurdere å oppdatere PHP eller installere modulen mbstring. Uten dette vil du kunne installere og oppdatere eyeOS, men det kan oppstå problemer i deler av systemet i forbindelse med utenlandske tegn.</installer-lib-output-utf8>
+	<installer-system-action-removeinstaller>Fjerne installasjonsfiler</installer-system-action-removeinstaller>
+	<installer-system-action-resetsystem>Tilbakestille systemfiler</installer-system-action-resetsystem>
+	<installer-system-action-uninstall>Avinstallere eyeOS</installer-system-action-uninstall>
+	<installer-system-action>Handling</installer-system-action>
+	<installer-system-back>Tilbake til menyen</installer-system-back>
+	<installer-system-continue>Fortsett</installer-system-continue>
+	<installer-system-message-remove>Du bør fjerne installasjonsfilene av sikkerhetsårsaker.</installer-system-message-remove>
+	<installer-system-message-translations>Språkpakker kan lastes ned fra [a link].</installer-system-message-translations>
+	<installer-system-no>Nei</installer-system-no>
+	<installer-system-password-error>Ugyldig rotpassord!</installer-system-password-error>
+	<installer-system-password>Rotpassord</installer-system-password>
+	<installer-system-removeinstaller-no>[span]Nei[/span] tar deg tilbake til systemsiden.</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>Ønsker du virkelig å fjerne installasjonsfilene?</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>[span]Ja[/span] vil fjerne alle installasjonsfiler! </installer-system-removeinstaller-yes>
+	<installer-system-title>Velg en av følgende handlinger:</installer-system-title>
+	<installer-system-uninstall-no>[span]Nei[/span] tar deg tilbake til systemsiden.</installer-system-uninstall-no>
+	<installer-system-uninstall-really>Er du sikker på at du vil avinstallere eyeOS?</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>[span]Ja[/span] vil slette eyeOS fullstendig!</installer-system-uninstall-yes>
+	<installer-system-yes>Ja</installer-system-yes>
+	<installer-update-continue>Fortsett...</installer-update-continue>
+	<installer-update-do>Oppdater eyeOS!</installer-update-do>
+	<installer-update-error-extract>Klarte ikke å pakke ut oppdateringsfilene. Du kan oppdatere eyeOS manuelt ved å endre navnet på "[package]" til "package.tar.gz" og pakke ut innholdet i den samme mappen.</installer-update-error-extract>
+	<installer-update-error-renaming>Kunne ikke endre navn på mappen "./eyeOS/". Du må endre navnet manuelt til "[hash]" og overskrive alle eksisterende filer.</installer-update-error-renaming>
+	<installer-update-error-under15>Denne oppdateringen er laget for eyeOS versjon 1.5 og nyere. Du bruker eyeOS [version1]. Du må oppdatere til eyeOS 1.5 før du kan oppdatere til eyeOS [version2].</installer-update-error-under15>
+	<installer-update-title>Fortsett for å oppdatere installasjonen til versjon [version].</installer-update-title>
+</translation>

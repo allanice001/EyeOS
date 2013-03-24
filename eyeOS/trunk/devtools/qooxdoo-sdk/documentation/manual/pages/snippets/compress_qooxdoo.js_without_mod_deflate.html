@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Compress qooxdoo without mod_deflate &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="<no title>" href="toctree.html" />
+    <link rel="next" title="Demo Browser" href="demobrowser.html" />
+    <link rel="prev" title="How to center a window on screen?" href="centering_a_window.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="demobrowser.html" title="Demo Browser"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="centering_a_window.html" title="How to center a window on screen?"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../development.html" >Development</a> &raquo;</li>
+          <li><a href="../snippets.html" >User Snippets</a> &raquo;</li>
+          <li><a href="toctree.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="compress-qooxdoo-without-mod-deflate">
+<span id="pages-snippets-compress-qooxdoo-js-without-mod-deflate-compress-qooxdoo-without-mod-deflate"></span><h1>Compress qooxdoo without mod_deflate<a class="headerlink" href="#compress-qooxdoo-without-mod-deflate" title="Permalink to this headline">¶</a></h1>
+<p>This explains how to enable a gzipped qooxdoo.js without having this possibility directly built in to your webserver.</p>
+<p>If you have php at the server, you can write in your html file:</p>
+<div class="highlight-javascript"><pre>&lt;script type="text/javascript" src="&lt;&lt;path&gt;&gt;/qooxdoo.php"&gt;&lt;/script&gt;</pre>
+</div>
+<p>Then you create a file called qooxdoo.php with this content:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+   <span class="sd">/**</span>
+<span class="sd">   * @author     Oliver Vogel &lt;o.vogel@muv.com&gt;</span>
+<span class="sd">   * @since      05.03.2006</span>
+<span class="sd">   */</span>
+   <span class="nv">$encodings</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_ACCEPT_ENCODING&#39;</span><span class="p">]))</span>
+   <span class="p">{</span>
+       <span class="c1">// Get all available encodings</span>
+       <span class="nv">$encodings</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nb">preg_replace</span><span class="p">(</span><span class="s2">&quot;/\s+/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_ACCEPT_ENCODING&#39;</span><span class="p">])));</span>
+         <span class="c1">// Check for gzip header</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="nv">$encodings</span><span class="p">))</span>
+       <span class="p">{</span>
+           <span class="c1">// found: send the zip-ed file</span>
+           <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Encoding: gzip&quot;</span><span class="p">);</span>
+           <span class="k">echo</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s1">&#39;DOCUMENT_ROOT&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;&lt;&lt;path&gt;&gt;/qooxdoo.js.gz&#39;</span><span class="p">);</span>
+           <span class="k">die</span><span class="p">;</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="c1">// Encoding not found or gzip not accepted -&gt; send &quot;normal&quot; file</span>
+   <span class="k">echo</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s1">&#39;DOCUMENT_ROOT&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;&lt;&lt;path&gt;&gt;/qooxdoo.js&#39;</span><span class="p">);</span>
+   <span class="k">die</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<p>This page checks if the browser supports gzip. If this is true, the server sends the gzip file to the client. This solution needs no gzip-support at the server-side!</p>
+<p>Also, if you are writing your own webserver it is trivial to include this feature directly.</p>
+<p>I know, it is NOT JavaScript but maybe it is a good idea to add this to the qooxdoo distribution (and it may be a good idea if one with Python or Perl or other experience ports this script to another server-side programming language).</p>
+<p>Contributed by <a class="reference external" href="http://www.nabble.com/speed-up-loading-time-of-qooxdoo-t1234762.html">Oliver Vogel</a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="centering_a_window.html"
+                                  title="previous chapter">How to center a window on screen?</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="demobrowser.html"
+                                  title="next chapter">Demo Browser</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/snippets/compress_qooxdoo.js_without_mod_deflate.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

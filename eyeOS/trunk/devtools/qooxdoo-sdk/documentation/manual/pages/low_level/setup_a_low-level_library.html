@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Setup a low-level library &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Low Level Framework" href="../low_level.html" />
+    <link rel="next" title="Low-Level APIs" href="low_level_apis.html" />
+    <link rel="prev" title="Low Level Framework" href="../low_level.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="low_level_apis.html" title="Low-Level APIs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../low_level.html" title="Low Level Framework"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../low_level.html" accesskey="U">Low Level Framework</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="setup-a-low-level-library">
+<span id="pages-setup-a-low-level-library-setup-a-low-level-library"></span><h1>Setup a low-level library<a class="headerlink" href="#setup-a-low-level-library" title="Permalink to this headline">¶</a></h1>
+<p>A low-level library is interesting for all those who like to use the <a class="reference internal" href="low_level_apis.html"><em>low-level APIs</em></a> of qooxdoo. Such a library consists of a pre-build javascript file that contains only the low-level classes of qooxdoo. For instance, no GUI toolkit (widgets, layouts, theming) is included.</p>
+<div class="section" id="create-a-low-level-skeleton">
+<span id="pages-setup-a-low-level-library-create-a-low-level-skeleton"></span><h2>Create a low-level skeleton<a class="headerlink" href="#create-a-low-level-skeleton" title="Permalink to this headline">¶</a></h2>
+<p>To create your low-level application skeleton you can let do the tool-chain the heavy lifting and use the <tt class="docutils literal"><span class="pre">create-application.py</span></tt> script to generate the skeleton.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">$QOOXDOO_PATH</span><span class="o">/</span><span class="nx">tool</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">create</span><span class="o">-</span><span class="nx">application</span><span class="p">.</span><span class="nx">py</span> <span class="o">-</span><span class="nx">n</span> <span class="nx">appName</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">bom</span> <span class="o">-</span><span class="nx">o</span> <span class="nx">$OUTPUT</span><span class="o">-</span><span class="nx">DIR</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">t</span></tt> parameter is the important one to define the application as a <tt class="docutils literal"><span class="pre">bom</span></tt> type application. To show all available options of this mighty script just type</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">$QOOXDOO_PATH</span><span class="o">/</span><span class="nx">tool</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">create</span><span class="o">-</span><span class="nx">application</span><span class="p">.</span><span class="nx">py</span> <span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-qooxdoo-build">
+<span id="pages-setup-a-low-level-library-generate-qooxdoo-build"></span><h2>Generate qooxdoo build<a class="headerlink" href="#generate-qooxdoo-build" title="Permalink to this headline">¶</a></h2>
+<p>Looking at the output of your generated low-level library skeleton you first realize that no <tt class="docutils literal"><span class="pre">source</span></tt> folder exists. The simple reason for this is, that you can easily use the low-level APIs without creating your own application classes. Instead you add your logic directly into the given <tt class="docutils literal"><span class="pre">index.html</span></tt> or in whatever HTML file you like to.</p>
+<p>Before you can descend to the low-levels you have to generate a javascript file containing the qooxdoo low-level classes.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">build</span>
+</pre></div>
+</div>
+<p>This pre-defined job is all you have to execute to start right away.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The generated build script is a compilation of low-level classes, but it does <strong>not</strong> provide all classes of the <em>qx.bom</em> or <em>qx.dom</em> namespace. Please take a look at the provide <em>config.json</em> file to determine which file is included. The low-level wrapper of the XmlHttpRequest object ( <em>qx.bom.Request</em> ) is <strong>not</strong> provided by default.</p>
+</div>
+</div>
+<div class="section" id="ready-to-code">
+<span id="pages-setup-a-low-level-library-ready-to-code"></span><h2>Ready to code<a class="headerlink" href="#ready-to-code" title="Permalink to this headline">¶</a></h2>
+<p>As already mentioned implementing your logic is a no-brainer. Just grab the existing <tt class="docutils literal"><span class="pre">index.html</span></tt> file and start right away.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.2//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">xml:lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;qx-bom.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="c1">// get informed about startup</span>
+    <span class="nx">qx</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">Registration</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s2">&quot;ready&quot;</span><span class="p">,</span> <span class="nx">onReady</span><span class="p">);</span>
+
+    <span class="kd">function</span> <span class="nx">onReady</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c">&lt;!--</span> <span class="nx">your</span> <span class="nx">application</span> <span class="nx">code</span> <span class="nx">resides</span> <span class="nx">here</span> <span class="o">--&gt;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="c">&lt;!-- more HTML --&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Setup a low-level library</a><ul>
+<li><a class="reference internal" href="#create-a-low-level-skeleton">Create a low-level skeleton</a></li>
+<li><a class="reference internal" href="#generate-qooxdoo-build">Generate qooxdoo build</a></li>
+<li><a class="reference internal" href="#ready-to-code">Ready to code</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../low_level.html"
+                                  title="previous chapter">Low Level Framework</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="low_level_apis.html"
+                                  title="next chapter">Low-Level APIs</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/low_level/setup_a_low-level_library.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

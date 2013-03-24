@@ -1,0 +1,101 @@
+{
+  "info" : 
+  {
+    "name" : "qooxdoo framework",
+
+    "summary" : "The qooxdoo framework library",
+    "description" : "This library contains the qooxdoo Javascript framework classes, including widgets, DOM/BOM abstraction classes, and I/O (Ajax) classes.",
+    
+    "keywords" : ["qooxdoo", "framework", "widget", "cross-browser", "ajax"],
+    "homepage" : "http://qooxdoo.org/about/framework",
+
+    "license" : "LGPL/EPL",
+    "authors" : 
+    [
+     {
+       "name" : "Alexander Steitz (aback)",
+       "email" : "alexander DOT steitz AT 1und1 DOT de"
+     },
+     {
+       "name" : "Adrian Olaru (adrianolaru)",
+       "email" : "adrian DOT olaru AT 1and1 DOT ro"
+     },
+     {
+       "name" : "Christian Hagendorn (chris_schmidt)",
+       "email" : "christian DOT hagendorn AT 1und1 DOT de"
+     },
+     {
+       "name" : "Derrell Lipman (derrell)",
+       "email" : "derrell DOT lipman AT unwireduniverse DOT com"
+     },
+     {
+       "name" : "Daniel Wagner (d_wagner)",
+       "email" : "daniel DOT wagner AT 1und1 DOT de"
+     },
+     {
+       "name" : "Andreas Ecker (ecker)",
+       "email" : "andreas DOT ecker AT 1und1 DOT de"
+     },
+     {
+       "name" : "Gabriel Munteanu (gabios)",
+       "email" : "gabriel DOT munteanu AT 1and1 DOT ro"
+     },
+     {
+       "name" : "Martin Wittemann (martinwittemann)",
+       "email" : "martin DOT wittemann AT 1und1 DOT de"
+     },
+     {
+       "name" : "Tino Butz (tbtz)",
+       "email" : "tino DOT butz AT 1und1 DOT de"
+     },
+     {
+       "name" : "Thomas Herchenröder (thron7)",
+       "email" : "thron7 AT users DOT sourceforge DOT net"
+     },
+     {
+       "name" : "Tristan Koch (tristankoch)",
+       "email" : "tristan DOT koch AT 1und1 DOT de"
+     }
+    ],
+
+    "version"         : "1.3",
+    "qooxdoo-versions": ["1.3"]
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "qx",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "library"
+  },
+  
+  "setup" :
+  {
+    "qx.debug" : 
+    {
+      "values" : [ "on", "off" ],
+      "default" : "on"  
+    },
+    
+    "qx.aspects" : 
+    {
+      "values" : [ "on", "off" ],
+      "default" : "off"  
+    },
+    
+    "qx.dynlocale" : 
+    {
+      "values" : [ "on", "off" ],
+      "default" : "off"  
+    },
+    
+    "qx.theme" :
+    {
+      "default" : "qx.theme.Modern"
+    }
+  }
+}
+

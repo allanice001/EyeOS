@@ -1,0 +1,61 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	events resource for eyeLaunch
+*/
+
+function eyeMp3_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeMp3_on_Launch($params=""){
+	global $myPid,$checknum;
+	//TODO: I need this for when i make the eyeos GUI (playlist, random etc...);
+}
+
+function eyeMp3_on_getSound($params=""){
+	global $checknum,$myPid;
+	$soundPath = $GLOBALS['soundPath']->text;	
+	$fp = service('vfs','open',array($soundPath,'r'),1);
+	$size = service('vfs','filesize',array($soundPath),1);	
+	$content = fread($fp,$size);
+	fclose($fp);
+	header('Content-Type: audio/mpeg');
+	header("Content-Length: $size");
+	echo $content;	
+	reqLib('eyeWidgets','rawunserialize');
+	
+	$shortUrl = basename($soundPath).'.mp3';
+	delShortUrl($shortUrl);
+	exit;								
+}
+
+function eyeMp3_on_putSound(){
+	global $myPid,$checknum;	
+	$mp3Name = basename($GLOBALS['soundPath']->text);
+	$url = "index.php/$mp3Name";
+	service('eyex','rawjs',array('js'=>"eyeMp3_loadSound($myPid,'$url');"));	
+	return;
+}
+
+function eyeMp3_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+?>

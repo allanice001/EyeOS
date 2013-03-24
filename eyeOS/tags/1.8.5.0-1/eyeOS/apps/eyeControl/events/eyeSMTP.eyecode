@@ -1,0 +1,51 @@
+<?php
+
+function eyeControl_on_save_signal($params = ""){
+
+	$file = EYE_ROOT .'/'. SYSTEM_DIR .'/'. SYSTEM_CONF_DIR .'/'. "smtp.xml";
+	$config = eyeXML('getXMLfile', array($file));
+
+	$host = $GLOBALS['eyeControl_smtp_hostname_txtb']->text;
+	$port = $GLOBALS['eyeControl_smtp_port_txtb']->text;
+	$username = $GLOBALS['eyeControl_smtp_username_txtb']->text;
+	$from = $GLOBALS['eyeControl_smtp_from_txtb']->text;
+	$password = $GLOBALS['eyeControl_smtp_password_txtb']->text;
+
+	if (empty($host) ||empty($port) ||empty($username) ||empty($from) ||empty($password)) {
+		eyeX('messageBox',array('content'=>'Please fill all fields before save'));
+	} elseif ($GLOBALS['eyeControl_smtp_ssl_select']->selected == 1){
+		eyeX('messageBox',array('content'=>'Please enable or disable SSL SMTP usage'));
+	} else {
+		if($GLOBALS['eyeControl_smtp_ssl_select']->selected == 2){
+			$ssl=1;
+		} else{
+			$ssl=0;
+		}
+		$smtp = array(
+			'SMTP_HOST' => array($host),
+			'SMTP_PORT' => array($port),
+			'SMTP_SSL' => array($ssl),
+			'SMTP_USERNAME' => array($username),
+			'SMTP_FROM' => array($from),
+			'SMTP_PASSWORD' => array($password)
+		);
+
+		if(!$config){
+			$config = array('CONFIG' => array()
+			);
+			$config['CONFIG'] = array($smtp);
+			eyeXML('setXMLfile', array($file,$config));
+			eyeX('messageBox',array('content'=>'Settings has been saved successfully'));
+		} else {
+			$config['CONFIG'][0]['SMTP_HOST'][0] = $host;
+			$config['CONFIG'][0]['SMTP_PORT'][0] = $port; 
+			$config['CONFIG'][0]['SMTP_SSL'][0] = $ssl;
+			$config['CONFIG'][0]['SMTP_USERNAME'][0] =  $username;
+			$config['CONFIG'][0]['SMTP_FROM'][0] = $from;
+			$config['CONFIG'][0]['SMTP_PASSWORD'][0] =  $password;
+			eyeXML('setXMLfile', array($file,$config));
+			eyeX('messageBox',array('content'=>'Settings has been saved successfully'));
+		}
+	}
+}
+?>

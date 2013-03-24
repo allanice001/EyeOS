@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>Alias eyeWv</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>alias</tag>
+		</tags>
+		<shortDesc>Allows to call a function of the eyeWv library. This alias, and the library, has been deleted in the following releases of eyeOS 1.2 in favor of the eyeConverter library.</shortDesc>	
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.5</version>
+			<desc>Deleted. This library is deprecated and it is recommended not to use it.</desc>
+		</trace>
+		<trace>
+			<version>1.2</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>eyeWv</functionName>
+		<syntax>mixed eyeWv(string $call [, array $args=null])</syntax>
+		<desc>Allows to call a function of the eyeWv library.</desc>
+		<params>
+			<type>required</type>
+			<name>call</name>
+			<desc>Name of the function of the eyeWv library to call.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>args</name>
+			<desc>Array containing the arguments that will be passed to the function. Whether the arguments are expressed as an indexed or associative array depends on the own function's syntax.</desc>
+		</params>
+		<return>The value returned by the eyeWv function.</return>
+		<examples>
+			<ex>
+				<type>Alias usage</type>
+				<desc>$myDoc = eyeWv('convert', array('example.doc'));</desc>
+			</ex>
+		</examples>
+	</definition>
+</info>

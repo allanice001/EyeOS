@@ -1,0 +1,581 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeMail_on_goToAccount($params=null) {
+	$name = null;
+	foreach($params as $key=>$value) {
+		if(strstr($key,'_acc_')){
+			$name = $value[0];
+			break;
+		}
+	}
+	if(!$name) {
+		return;
+	}
+	if(is_object($GLOBALS['selectAccount']) && $GLOBALS['selectAccount']->text == $name) {
+		return;
+	}
+	$myHidden = new Hidden(array('name'=>'selectAccount','father'=>'eyeApps','text'=>$name));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	$GLOBALS['folder_WND']->clear();
+	$myImage = new Imagebox(array('name'=>'img_inbox','father'=>'folder_WND_Content','x'=>10,'y'=>0,
+				'url'=>'index.php?extern=apps/eyeMail/gfx/inbox.png'));
+	$myImage->show();
+	$myLabel = new Label(array('name'=>'inbox','father'=>'folder_WND_Content','x'=>40,'y'=>0,
+		'text'=>'Inbox','signal'=>'inbox','disablemsg'=>0));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor'=>'Pointer'));	
+}
+
+function eyeMail_on_inbox($params=null) {
+	$name = $GLOBALS['selectAccount']->text;
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	$myConf = null;
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if($value['name'][0] == $name) {
+					$myConf = $value;
+				}
+			}
+		}
+	}
+	if(!$myConf) {
+		return;
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/pop3'.EYE_CODE_EXTENSION);
+	
+	$pop3=new pop3_class;
+	$pop3->hostname=$value['Host_Incoming'][0];             
+	$pop3->port=$value['Port_Incoming'][0];                 
+	$pop3->tls=$value['Secure_Incoming'][0];                            
+	$user=$value['User_Incoming'][0];                                
+	$password=$value['Pass_Incoming'][0];                 
+	$pop3->realm="";                         
+	$pop3->workstation="";                   
+	$apop=0;                                 
+	$pop3->authentication_mechanism="USER";  
+	$pop3->debug=0;                          
+	$pop3->html_debug=0;                     
+	$pop3->join_continuation_header_lines=1; 
+	
+	if(($error=$pop3->Open())!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	if(($error=$pop3->Login($user,$password,$apop))!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	if(($error=$pop3->Statistics($messages,$size))!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;	
+	}
+	$GLOBALS['folder_WND']->clear();
+	$myImage = new Imagebox(array('name'=>'img_inbox','father'=>'folder_WND_Content','x'=>10,'y'=>0,
+				'url'=>'index.php?extern=apps/eyeMail/gfx/inbox.png'));
+	$myImage->show();
+	$myLabel = new Label(array('name'=>'inbox','father'=>'folder_WND_Content','x'=>40,'y'=>0,
+		'text'=>'Inbox ('.$messages.')','signal'=>'inbox','disablemsg'=>0));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor'=>'Pointer'));
+	$GLOBALS['table_1']->remove();
+
+	$sortypes = array("Number","String","String","String");
+	$myHeader = array('#','Subject','From','Date');
+	$myTable = new Sortabletable(array('name'=>'table_1','father'=>'table_WND','sortypes'=>$sortypes,'theader'=>$myHeader,
+		'x'=>2,'y'=>0,'width'=>576,'height'=>485));
+	$myTable->show();
+	$myHidden = new Hidden(array('name'=>'nextMsg','father'=>'eyeApps','text'=>$messages));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	eyeX('sendMessage',array('msg'=>'getMessages'));
+}
+
+function eyeMail_on_getMessages($params=null) {
+	$name = $GLOBALS['selectAccount']->text;
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	$myConf = null;
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if($value['name'][0] == $name) {
+					$myConf = $value;
+				}
+			}
+		}
+	}
+	if(!$myConf) {
+		return;
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/pop3'.EYE_CODE_EXTENSION);
+	
+	$pop3=new pop3_class;
+	$pop3->hostname=$value['Host_Incoming'][0];             
+	$pop3->port=$value['Port_Incoming'][0];                 
+	$pop3->tls=$value['Secure_Incoming'][0];                            
+	$user=$value['User_Incoming'][0];                                
+	$password=$value['Pass_Incoming'][0];                 
+	$pop3->realm="";                         
+	$pop3->workstation="";                   
+	$apop=0;                                 
+	$pop3->authentication_mechanism="USER";  
+	$pop3->debug=0;                          
+	$pop3->html_debug=0;                     
+	$pop3->join_continuation_header_lines=1; 
+	
+	if(($error=$pop3->Open())!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	if(($error=$pop3->Login($user,$password,$apop))!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	
+	$next = intval($GLOBALS['nextMsg']->text);
+	$i = 0;
+	for(;$next>0;$next--) {
+		if($i==10) {
+			$myHidden = new Hidden(array('name'=>'nextMsg','father'=>'eyeApps','text'=>$next));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			eyeX('sendMessage',array('msg'=>'getMessages'));
+			return;
+		}
+		if(($error=$pop3->RetrieveMessage($next,$headers,$body,0))=="") {
+			$sender = 'No subject';
+			$subject = 'No subject';
+			$date = '-';
+			foreach($headers as $value) {
+				$sub = substr($value,0,strlen('From:'));
+				if($sub == 'From:') {
+					$sender = substr($value,strlen('From:')+1);
+				}
+				$sub = substr($value,0,strlen('Subject:'));
+				if($sub == 'Subject:') {
+					$subject = substr($value,strlen('Subject:')+1);
+				}
+				$sub = substr($value,0,strlen('Date:'));
+				if($sub == 'Date:') {
+					$date = substr($value,strlen('Date:')+1);
+					$tokens = explode(' ',$date);
+					$date = $tokens[1].' '.$tokens[2].' '.$tokens[3];
+				}
+			}
+			if(strlen($subject) > 30) {
+				$subject = substr($subject,0,30);
+				$subject .= '...';
+			}
+			if(strlen($sender)>30) {
+				$sender = substr($sender,0,30);
+				$sender .= '...';
+			}
+			$GLOBALS['table_1']->addRow(array($next,$subject,$sender,$date));
+		}
+		$i++;
+	}
+}
+
+function eyeMail_on_Open($params=null) {
+	$name = $GLOBALS['selectAccount']->text;
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	$myConf = null;
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if($value['name'][0] == $name) {
+					$myConf = $value;
+				}
+			}
+		}
+	}
+	if(!$myConf) {
+		return;
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/pop3'.EYE_CODE_EXTENSION);
+	
+	$pop3=new pop3_class;
+	$pop3->hostname=$value['Host_Incoming'][0];             
+	$pop3->port=$value['Port_Incoming'][0];                 
+	$pop3->tls=$value['Secure_Incoming'][0];                            
+	$user=$value['User_Incoming'][0];                                
+	$password=$value['Pass_Incoming'][0];                 
+	$pop3->realm="";                         
+	$pop3->workstation="";                   
+	$apop=0;                                 
+	$pop3->authentication_mechanism="USER";  
+	$pop3->debug=0;                          
+	$pop3->html_debug=0;                     
+	$pop3->join_continuation_header_lines=1; 
+	
+	if(($error=$pop3->Open())!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	if(($error=$pop3->Login($user,$password,$apop))!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	
+	$mySelected = $GLOBALS['table_1']->selected;
+
+	if(($error=$pop3->RetrieveMessage($mySelected,$headers,$body,-1))=="") {
+		$newbody = "";
+		foreach($body as $value) {
+			$newbody .= $value."\n";
+		}
+		$sender = 'No subject';
+		$subject = 'No subject';
+		$date = '-';
+		foreach($headers as $value) {
+			$sub = substr($value,0,strlen('From:'));
+			if($sub == 'From:') {
+				$sender = substr($value,strlen('From:')+1);
+			}
+			$sub = substr($value,0,strlen('Subject:'));
+			if($sub == 'Subject:') {
+				$subject = substr($value,strlen('Subject:')+1);
+			}
+			$sub = substr($value,0,strlen('Date:'));
+			if($sub == 'Date:') {
+				$date = substr($value,strlen('Date:')+1);
+			}
+		}
+		$windowName = 'win_mail_'+uniqid();
+		$myWindow = new Window(array('name'=>$windowName,'father'=>'eyeApps','title'=>$subject,'cent'=>1,
+			'width'=>585,'height'=>600,'removepid'=>0));
+		$myWindow->show();
+		
+		$myLabel = new Label(array('name'=>'info_LBL_mail_1','father'=>$windowName.'_Content',
+			'x'=>20,'y'=>40,'text'=>'Mail from:'));
+		$myLabel->show();
+		
+		$myTextBoxFrom = new Textbox(array('name'=>'textbox_from','father'=>$windowName.'_Content',
+			'enabled'=>0,'text'=>$sender,'x'=>90,'y'=>40,'width'=>470));
+		$myTextBoxFrom->show();
+		
+		$myLabel = new Label(array('name'=>'info_LBL_mail_2','father'=>$windowName.'_Content',
+			'x'=>20,'y'=>60,'text'=>'Subject:'));
+		$myLabel->show();
+		
+		$myTextBoxFrom = new Textbox(array('name'=>'textbox_subject','father'=>$windowName.'_Content',
+			'enabled'=>0,'text'=>$subject,'x'=>90,'y'=>60,'width'=>470));
+		$myTextBoxFrom->show();
+		
+		$myLabel = new Label(array('name'=>'info_LBL_mail_3','father'=>$windowName.'_Content',
+			'x'=>20,'y'=>80,'text'=>'Date:'));
+		$myLabel->show();
+		
+		$myTextBoxFrom = new Textbox(array('name'=>'textbox_date','father'=>$windowName.'_Content',
+			'enabled'=>0,'text'=>$date,'x'=>90,'y'=>80,'width'=>470));
+		$myTextBoxFrom->show();
+		
+		$myContainer = new Container(array('name'=>'container_mail','father'=>$windowName.'_Content',
+			'x'=>17,'y'=>100,'width'=>545,'height'=>460));
+		$myContainer->show();
+		$newbody = stripjs($newbody);
+		$myContainer->setContent($newbody);
+		$myContainer->setCss(array('border'=>'1px solid #bababa'));
+	}
+}
+
+function eyeMail_on_delete($params=null) {
+	$name = $GLOBALS['selectAccount']->text;
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	$myConf = null;
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if($value['name'][0] == $name) {
+					$myConf = $value;
+				}
+			}
+		}
+	}
+	if(!$myConf) {
+		return;
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/pop3'.EYE_CODE_EXTENSION);
+	
+	$pop3=new pop3_class;
+	$pop3->hostname=$value['Host_Incoming'][0];             
+	$pop3->port=$value['Port_Incoming'][0];                 
+	$pop3->tls=$value['Secure_Incoming'][0];                            
+	$user=$value['User_Incoming'][0];                                
+	$password=$value['Pass_Incoming'][0];                 
+	$pop3->realm="";                         
+	$pop3->workstation="";                   
+	$apop=0;                                 
+	$pop3->authentication_mechanism="USER";  
+	$pop3->debug=0;                          
+	$pop3->html_debug=0;                     
+	$pop3->join_continuation_header_lines=1; 
+	
+	if(($error=$pop3->Open())!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	if(($error=$pop3->Login($user,$password,$apop))!="") {
+		eyeX('messageBox',array('content'=>htmlspecialchars($error),'type'=>2));
+		return;
+	}
+	
+	$mySelected = $GLOBALS['table_1']->selected;
+	if(!$mySelected) {
+		return;
+	}
+	if(($error=$pop3->DeleteMessage($mySelected))=="") {
+		eyex('messageBox',array('content'=>'Message deleted'));
+	} else {
+		eyex('messageBox',array('content'=>'Error deleting mail'));
+	}
+	$GLOBALS['table_1']->delRow($mySelected);
+}
+
+function stripjs($code) {
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/inputfilter'.EYE_CODE_EXTENSION);
+	$tags = array('em', 'strong','b','a','img','u','i','hr','table','td','tr','p','br','pre',
+		'font','strike','h1','h2','h3','h4','li','ul');
+	$attributes = array('href','color','size','src','width','height');
+	$myFilter = new InputFilter($tags, $attributes, 0, 0);
+	$code = $myFilter->process($code);
+	return $code;
+}
+
+function eyeMail_on_send($params=null) {
+	$windowName = 'wnd_send';
+	$myWindow = new Window(array('name'=>$windowName,'father'=>'eyeApps','title'=>'Send new mail','cent'=>1,
+		'width'=>585,'height'=>600,'removepid'=>0));
+	$myWindow->show();
+	
+	$myLabel = new Label(array('name'=>'send_lbl_1','father'=>$windowName.'_Content',
+		'x'=>20,'y'=>20,'text'=>'Mail to:'));
+	$myLabel->show();
+	
+	$myTextBoxTo = new Textbox(array('name'=>'textbox_to','father'=>$windowName.'_Content',
+		'x'=>90,'y'=>20,'width'=>470));
+	$myTextBoxTo->show();
+	
+	$myLabel = new Label(array('name'=>'send_lbl_2','father'=>$windowName.'_Content',
+		'x'=>20,'y'=>40,'text'=>'Subject:'));
+	$myLabel->show();
+	
+	$myTextBoxSubject = new Textbox(array('name'=>'textbox_subject','father'=>$windowName.'_Content',
+		'x'=>90,'y'=>40,'width'=>470));
+	$myTextBoxSubject->show();
+	
+	$myTextArea = new TextArea(array('name'=>'text_body','father'=>$windowName.'_Content','x'=>20,'y'=>70,'height'=>460,'width'=>540));
+	$myTextArea->show();
+	
+	$myButtonSend = new Button(array('name'=>'send_btn_1','father'=>$windowName.'_Content','caption'=>'Send',
+	'x'=>20,'vert'=>1,'y'=>10,'signal'=>'do_send'));
+	$myButtonSend->addFriend($myTextBoxTo);
+	$myButtonSend->addFriend($myTextBoxSubject);
+	$myButtonSend->addFriend($myTextArea);
+	$myButtonSend->show();
+}
+
+function eyeMail_on_do_send($params=null) {
+	$to = $GLOBALS['textbox_to']->text;
+	$subject = $GLOBALS['textbox_subject']->text;
+	$body = $GLOBALS['text_body']->text;
+
+	$name = $GLOBALS['selectAccount']->text;
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	$myConf = null;
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if($value['name'][0] == $name) {
+					$myConf = $value;
+				}
+			}
+		}
+	}
+	if(!$myConf) {
+		return;
+	}
+	$from = $value['User_Out'][0];
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/sasl'.EYE_CODE_EXTENSION);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/lib/smtp'.EYE_CODE_EXTENSION);
+    $smtp=new smtp_class;
+
+    $smtp->host_name=$value['Host_Out'][0];       /* Change this variable to the address of the SMTP server to relay, like "smtp.myisp.com" */
+    $smtp->host_port=$value['Port_Out'][0];                /* Change this variable to the port of the SMTP server to use, like 465 */
+    $smtp->ssl=$value['Secure_Out'][0];                       /* Change this variable if the SMTP server requires an secure connection using SSL */
+    $smtp->localhost="localhost";       /* Your computer address */
+    $smtp->direct_delivery=0;           /* Set to 1 to deliver directly to the recepient SMTP server */
+    $smtp->timeout=10;                  /* Set to the number of seconds wait for a successful connection to the SMTP server */
+    $smtp->data_timeout=0;              /* Set to the number seconds wait for sending or retrieving data from the SMTP server.
+                                           Set to 0 to use the same defined in the timeout variable */
+    $smtp->debug=0;                     /* Set to 1 to output the communication with the SMTP server */
+    $smtp->html_debug=0;                /* Set to 1 to format the debug output as HTML */
+    $smtp->pop3_auth_host="";           /* Set to the POP3 authentication host if your SMTP server requires prior POP3 authentication */
+    $smtp->user=$value['User_Out'][0];                     /* Set to the user name if the server requires authetication */
+    $smtp->realm="";                    /* Set to the authetication realm, usually the authentication user e-mail domain */
+    $smtp->password=$value['Pass_Out'][0];                 /* Set to the authetication password */
+    $smtp->workstation="";              /* Workstation name for NTLM authentication */
+    $smtp->authentication_mechanism=""; /* Specify a SASL authentication method like LOGIN, PLAIN, CRAM-MD5, NTLM, etc..
+                                           Leave it empty to make the class negotiate if necessary */
+    
+	if($smtp->SendMessage(
+        $from,
+        array(
+            $to
+        ),
+        array(
+            "From: $from",
+            "To: $to",
+            "Subject: $subject",
+            "Date: ".strftime("%a, %d %b %Y %H:%M:%S %Z")
+        ),
+        $body)) {
+			$GLOBALS['wnd_send']->close();
+			eyeX('messageBox',array('content'=>'Mail sent to %s','tokens' => array($to)));
+        }
+    else
+        eyeX('messageBox',array('content'=>'Error Sending message: %s','tokens' => array($smtp->error)));
+}
+
+function eyeMail_on_Manage($params=null) {
+	$sortypes = array("String");
+	$myHeader = array('Name');
+	$myWindow = new Window(array('name'=>'manage','father'=>'eyeApps','title'=>'Manage accounts','cent'=>1,
+		'width'=>385,'height'=>500,'removepid'=>0,'style'=>TITLE+CLOSE));
+	$myWindow->show();
+	$myTable = new Sortabletable(array('name'=>'table_manage','father'=>'manage_Content','sortypes'=>$sortypes,'theader'=>$myHeader,
+		'x'=>2,'y'=>32,'width'=>377,'height'=>440));
+	$myTable->show();
+	
+	$myButton1 = new Button(array('name'=>'M_BTN_1','father'=>'manage_Content','signal'=>'AddAccount',
+		'caption'=>'Add','x'=>10,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/open.png'));
+	$myButton1->show();
+	
+	$myButton3 = new Button(array('name'=>'M_BTN_3','father'=>'manage_Content','signal'=>'DeleteAccount',
+		'caption'=>'Delete','x'=>90,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/open.png'));
+	$myButton3->addFriend($myTable);
+	$myButton3->show();
+	
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	$counter = 0;
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if(is_array($value['name'])) {
+					$myTable->addRow(array($value['name'][0]));
+				}
+			}
+		}
+	}
+}
+
+function eyeMail_ManageReaded($config) {
+	$sortypes = array("String");
+	$myHeader = array('Name');
+	$myWindow = new Window(array('name'=>'manage','father'=>'eyeApps','title'=>'Manage accounts','cent'=>1,
+		'width'=>385,'height'=>500,'removepid'=>0,'style'=>TITLE+CLOSE));
+	$myWindow->show();
+	$myTable = new Sortabletable(array('name'=>'table_manage','father'=>'manage_Content','sortypes'=>$sortypes,'theader'=>$myHeader,
+		'x'=>2,'y'=>32,'width'=>377,'height'=>440));
+	$myTable->show();
+	
+	$myButton1 = new Button(array('name'=>'M_BTN_1','father'=>'manage_Content','signal'=>'AddAccount',
+		'caption'=>'Add','x'=>10,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/open.png'));
+	$myButton1->show();
+	
+	$myButton3 = new Button(array('name'=>'M_BTN_3','father'=>'manage_Content','signal'=>'DeleteAccount',
+		'caption'=>'Delete','x'=>90,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/open.png'));
+	$myButton3->addFriend($myTable);
+	$myButton3->show();
+
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				if(is_array($value['name'])) {
+					$myTable->addRow(array($value['name'][0]));
+				}
+			}
+		}
+	}
+	eyeMail_refreshAcc($config);
+}
+
+function eyeMail_on_AddAccount($params=null) {
+	$myHidden = new Hidden(array('name'=>'fromManage','father'=>'eyeApps','text'=>1));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	$GLOBALS['manage']->close();
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/ui/configure'.EYE_CODE_EXTENSION);
+}
+
+function eyeMail_on_DeleteAccount($params=null) {
+	$toDelete = $GLOBALS['table_manage']->selected;
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $key=>$value) {
+				if($value['name'][0] == $toDelete) {
+					unset($config['accounts'][0]['account'][$key]);
+				}
+			}
+		}
+	}
+	eyeXML('setXMLfile',array($confdir.'conf.xml',$config));	
+	$GLOBALS['manage']->close();
+	eyeMail_ManageReaded($config);
+}
+
+function eyeMail_refreshAcc($config) {
+	$GLOBALS['acc_WND']->clear();
+	$counter = 0;
+
+	if(isset($config) && is_array($config)) {
+		if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+			foreach($config['accounts'][0]['account'] as $value) {
+				$myImage = new Imagebox(array('name'=>'img_'.$counter,'father'=>'acc_WND_Content','x'=>10,'y'=>$counter*20,
+					'url'=>'index.php?extern=apps/eyeMail/gfx/identity.png'));
+				$myImage->show();
+				$myLabel = new Label(array('name'=>'acc_'.$counter,'father'=>'acc_WND_Content','x'=>40,'y'=>($counter*20)+1,
+					'text'=>$value['name'][0],'signal'=>'goToAccount','disablemsg'=>0));
+				$myLabel->show();
+				$myLabel->setCss(array('cursor'=>'Pointer'));
+				$counter++;
+			}
+		}
+	}
+}
+
+?>

@@ -1,0 +1,96 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeBar_run($params=null) {
+	global $myPid;
+	global $checknum;
+	$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.DEFAULT_THEME.'/images/apps/eyeBar/default.png');
+	$myWidth = $info[0];
+	$myHeight = $info[1];	
+	
+	service('eyex','createDiv',array('name' => 'eyeMenuDiv','class' => 'eyeMenuButton','father' => 'eyeApps'));
+
+	$myBackground = new Imagebox(array('name' => 'eyeBut','father' => 'eyeMenuDiv',
+			'url' => 'index.php?extern=apps/eyeX/themes/'.DEFAULT_THEME.'/images/apps/eyeBar/default.png',
+			'realname' => EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.DEFAULT_THEME.'/images/apps/eyeBar/default.png',
+			'alt' => 'wnd1','cssClass' => 'eyeMenuButton_Img'));
+	$myBackground->show();
+	
+	//read menu data
+	$currentUserDir = service('um','getCurrentUserDir');
+	$fp = service('vfs','real_open',array($currentUserDir.'/conf/eyeBar/eyeBar.xml','r'));
+	if(!$fp) {
+		return false;
+	}
+	$xml = fread($fp,filesize($currentUserDir.'/conf/eyeBar/eyeBar.xml'));
+	fclose($fp);
+	$myArray = reqLib('eyeXML','xml2array',array($xml));
+
+	if(!is_array($myArray['eyeBar'][0])) {
+		return false;
+	}
+	
+	$arrayResults=array();
+	$counter = 0;
+	$myArray = $myArray['eyeBar'][0]['item'];
+	foreach($myArray as $value) {
+		$arrayResults[$counter]['icon'] = $value['icon'][0];
+		$arrayResults[$counter]['text'] = $value['text'][0];
+		$arrayResults[$counter]['app'] = $value['app'][0];
+		$counter++;
+	}
+	$content = '';
+	for($i=0;$i < count($arrayResults);$i++) {
+		$num = $i*23+1;
+		$content .= 
+		"<div class='menuBar_text' style='position:absolute;top:".$num."px;width:100%;'>".
+			"<div onmouseover=\"updateMenuStateOn('$i')\" onmouseout=\"updateMenuStateOff('$i')\" onclick=\"sendMsg('$checknum','clicked',eyeParam('app','".$arrayResults[$i]['app']."'))\">".
+			"<img width='22' height='22' id='".$i."_miniIcon' alt='".$arrayResults[$i]['icon']."' src='index.php?extern=apps/eyeX/themes/".DEFAULT_THEME.'/images/apps/eyeBar/icons/'.$arrayResults[$i]['icon'].".png' />".
+			"<div class='eyeBarItemsText' id='".$i."_textId'>".$arrayResults[$i]['text']."</div>".
+			"</div>".
+		"</div>";
+	}
+	
+	
+	//end raed
+	
+	//create div structure
+	$size = $i * 23;
+	
+	service('eyex','createDiv',array('name' => 'eyeMenu','class' => 'eyeMenu','father' => 'eyeBut_Container'));
+	service('eyex','updateCss',array('name' => $myPid.'_eyeMenu','property' => 'visibility','value' => 'hidden'));
+	service('eyex','createDiv',array('name' => 'eyeMenu_top','class' => 'eyeMenu_top','father' => 'eyeMenu'));
+	service('eyex','createDiv',array('name' => 'eyeMenu_cen','class' => 'eyeMenu_cen','father' => 'eyeMenu'));
+	service('eyex','updateCss',array('name' => $myPid.'_eyeMenu_cen','property' => 'height','value'=> $size."px"));
+	service('eyex','createDiv',array('name' => 'eyeMenu_content','class' => 'eyeMenu_content','father' =>'eyeMenu_cen'));
+	service('eyex','setDiv',array('name' => 'eyeMenu_content','content' => $content));
+	service('eyex','createDiv',array('name' => 'eyeMenu_bot','class' => 'eyeMenu_bot','father' =>'eyeMenu'));
+	
+	for($x=0;$x<$i;$x++) {
+		service('eyex','rawjs',array('js' => 'fixPNG("'.$x.'_miniIcon");'));
+	}
+	service('eyex','loadScript',array('url' => 'index.php?extern=apps/eyeBar/js/eyeBar'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+	//end div structure
+}
+
+function eyeBar_end($params=null) {
+	//TODO: CODE IT
+}
+
+?>

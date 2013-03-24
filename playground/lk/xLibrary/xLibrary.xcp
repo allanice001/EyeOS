@@ -1,0 +1,59 @@
+options -dep -cmp
+libpath lib\
+appfiles
+xLibrary.xcp
+
+; Legacy: xBackground, xColor, xShow, xHide, xVisibility, xZIndex
+
+; Imprived: xClientHeight, xClientWidth, xEnableDrag, xEnableDrag2, xEnableDrop, xPageX, xPageY
+
+; xAddClass
+; xAddEventListener
+; xCamelize
+; xDef
+; xDisableDrag
+; xDisableDrop
+; xDisplay
+; xDocSize
+; xEvent
+; xFindAfterByClassName
+; xFindBeforeByClassName
+; xGetComputedStyle
+; xGetCSSRules
+; xGetElementById
+; xGetElementsByClassName
+; xGetElementsByTagName
+; xGetStyleSheetFromLink
+; xHasClass
+; xHasPoint
+; xHasStyleSelector
+; xHasStyleSheets
+; xHeight
+; xHex
+; xInsertRule
+; xLeft
+; xLibrary
+; xMoveTo
+; xNum
+; xOpacity
+; xParent
+; xParseColor
+; xPreventDefault
+; xRemoveClass
+; xRemoveEventListener
+; xResizeTo
+; xScrollLeft
+; xScrollTop
+; xSlideTo
+; xStopPropagation
+; xStr
+; xStyle
+; xToggleClass
+; xTop
+; xTraverseDocumentStyleSheets
+; xTraverseStyleSheet
+; xWalkToFirst
+; xWalkToLast
+; xWalkTree2
+; xWalkTreeRev
+; xWidth

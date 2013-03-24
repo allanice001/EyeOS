@@ -1,0 +1,15 @@
+<lang>
+	<info>
+		<revision>20/05/2008</revision>
+	</info>
+	<texts>
+		<text>Author: %s</text>
+		<text>Created with: %s</text>
+		<text>Creation date: %s</text>
+		<text>Directory</text>
+		<text>File information</text>
+		<text>Properties</text>
+		<text>Size: %sbytes</text>
+		<text>Type: %s</text>
+	</texts>
+</lang>

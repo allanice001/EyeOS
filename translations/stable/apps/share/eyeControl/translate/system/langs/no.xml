@@ -1,0 +1,5787 @@
+<lang>
+	<info>
+		<lang>Norsk bokmål</lang>
+		<lang-en>Norwegian Bokmaal</lang-en>
+		<author>Egil Hansen</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Skriv tittel her:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Opprett</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Opprett lenke</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Du kan lukke dette vinduet nå.</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Serveren støtter ikke ZIP filer.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Du kan ikke laste ned lenker!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Last ned!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Last ned "%s" som ZIP arkiv</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Rediger %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Kommando:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Tøm papirkurven</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Ønsker du virkelig å fjerne "%s"?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Er du sikker på at du vil tømme papirkurven?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Slett %s</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Personal</old>
+			<new>Personlig</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>notater</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>Velg en gruppe</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>Velg kontaktpersonen du vil redigere</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>Du kan bare velge en kontaktperson å redigere</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>Angi nytt gruppenavn</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>Velg en eller flere kontaktpersoner</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>Velg kontaktpersonen du vil sende en melding til</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Notater</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>Kontakpersonen er opprettet</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Navn</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>Mobil</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>Ny kontaktperson</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>Du kan bare velge en person av gangen å sende til</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>kallenavn</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Kallenavn</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>Fax arbeid</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>Rolle</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>E-post arbeid</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>Adresse arbeid</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>Mobil arbeid</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>Telefon arbeid</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>Fyll ut både fornavn og etternavn</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Arbeid</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>Nettsted arbeid</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Nettsted</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>ip-telefoni</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Send melding</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>Lagre kontaktperson</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Etternavn</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>Mobil arbeid</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>IP-telefoni</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>bruker</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Mobiltelefon</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importer</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Fax</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>Kan ikke endre kontaktpersonen</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Kontaktpersonen er endret</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Kontaktpersonen er slettet</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Slett kontaktpersoner</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Detaljer</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Database for kontaktpersoner:</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Kontaktpersoner</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>Kan ikke opprette kontaktpersonen</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>Adressebok</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Legg til</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>Ny gruppe</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Er du sikker på at du vil slette disse kontaktpersonene(%s)?</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>Alle grupper</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>Hjemmeadresse</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>E-post</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>Gruppen er slettet</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>Gruppen er lagt til</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Telefon privat</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Hjem</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>Import fullført</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Firma</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>im</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>Familie</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Feil ved oppretting av gruppe</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Rediger</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-post</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Feil ved sletting</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksporter</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>Eksport fullført</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Ny kontaktperson</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Endre verktøylinja</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Installer programmer</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programmer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Open a folder or file</old>
+			<new>Åpne en mappe eller fil</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>GZip filer</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filnavn</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Feil ved utpakking</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åpne</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Tar filer</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Ingen fil er åpnet</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>ZIP filer</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Komprimeringsmetoden støttes ikke</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Arkivet er pakket ut</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Pakk ut arkiv</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>BZip filer</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Arkivbehandler</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>Arkivfiler</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Komprimer</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Pakk ut arkiv til...</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Feil under komprimering</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Komprimering ferdig</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Komprimer til...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Felles oppslagstavle</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Tøm</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Logarithm of a negative number or zero is invalid!</old>
+			<new>Kan ikke beregne log av null eller et negativt tall!</new>
+		</text>
+		<text>
+			<old>Exponentiation of zero by a negative number or zero is invalid!</old>
+			<new>Kan ikke beregne exp med null eller et negativt tall!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Enkel</new>
+		</text>
+		<text>
+			<old>Square root of a negative number is invalid!</old>
+			<new>Kan ikke bergne kvadratrot av et negativt tall!</new>
+		</text>
+		<text>
+			<old>Factorial of a negative number is invalid!</old>
+			<new>Kan ikke beregne fakt av et negativt tall!</new>
+		</text>
+		<text>
+			<old>Division by zero is invalid!</old>
+			<new>Kan ikke dele med null!</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>C</old>
+			<new>C</new>
+		</text>
+		<text>
+			<old>CE</old>
+			<new>CE</new>
+		</text>
+		<text>
+			<old>Del</old>
+			<new>Sle</new>
+		</text>
+		<text>
+			<old>Adv.</old>
+			<new>Av.</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Tekst for hendelse:</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>Torsdag</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>I dag</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tirsdag</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Vis</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Lørdag</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Neste</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Angi kalendernavn:</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Angi et navn for kalenderen</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Forrige</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>To kalendere kan ikke ha samme ID!</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>Uken begynner på:</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Vindusmodus</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>Instillinger for arbeidsvisning:</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>Arbeidsvisning</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Søndag</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Arbeid</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Uke</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>To kalendere kan ikke ha samme navn!</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Onsdag</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>Uken slutter på:</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Mandag</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Ugyldig nummer %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Kalenderbehandling</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalendere</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalender kjører allerede!</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalenderen er lagt til</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Legg til kalender</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Minst en kalender er påkrevet!</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Oppsettet er lagret</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>Innstillingene er lagret</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Fredag</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>Generelle innstillinger:</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Ugyldig verdi</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dag</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Det finnes allerede en kalender med dette navnet!</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Kalenderinnstillinger</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>Dagen slutter kl:</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>Dagen begynner kl:</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Undo</old>
+			<new>Angre</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Dronning</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Tårn</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Sen</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>Trekk</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Middels</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Løper</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Sjakk</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Springer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>Fant ikke kommandoen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Beskytt økter med IP-adresse</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Please type your password to remove this account.</old>
+			<new>Skriv inn passordet ditt for å fjerne denne kontoen.</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Fjern midlertidige filer og mapper fra oneye systemet</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Fjern midlertidiger filer og mapper</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Gi nytt navn</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Fjern</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Skriv brukernavnet her:</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Skriv inn en adresse!</new>
+		</text>
+		<text>
+			<old>Please fill in and select the proper fields to add params</old>
+			<new>Fyll ut of velg aktuelle felter å legge til parametere for</new>
+		</text>
+		<text>
+			<old>Please fill in all required fields!</old>
+			<new>Du må fylle ut alle påkrevde felter!</new>
+		</text>
+		<text>
+			<old>Please fill out all fields.</old>
+			<new>Du må fylle ut alle felter.</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Du må fylle ut alle felter merket med *.</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Skriv riktig gruppenavn!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Skriv inn en kommando!</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Pakkebrønner</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Tilbakestill ikonposisjoner</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Velg bruker:</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Velg en fil...</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Velg</new>
+		</text>
+		<text>
+			<old>Service</old>
+			<new>Tjeneste</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Sett som standard</new>
+		</text>
+		<text>
+			<old>Service:</old>
+			<new>Tjeneste:</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>Sikkerhet</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Finn bruker...</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Rot</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Tilbakestill vindusposisjoner</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>Lagre vindusposisjoner</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Søkemotorer er importert.</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Skjermbilde</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Du må fylle ut alle nødvendige felter!</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Du må korrigere innstillingene dine.</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Passord</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Passordet er endret</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Passordene er ikke like!</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Tillatelser *</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Personlig</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Tillatelser</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Passord *</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Annet</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Office støtte</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>ingen</new>
+		</text>
+		<text>
+			<old>OpenOffice program folder:</old>
+			<new>OpenOffice programmappe:</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Velg kommando for redigering.</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Gjenta passord *</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Velg kommando for sletting.</new>
+		</text>
+		<text>
+			<old>Please choose a filetype to be edited.</old>
+			<new>Velg en filtype å endre.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to delete</old>
+			<new>Velg ACL å slette</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Velg pakkebrønnen du vil redigere.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Velg brukeren du vil slette.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to edit from the list</old>
+			<new>Velg ACL å redigere</new>
+		</text>
+		<text>
+			<old>Please choose a target to delete</old>
+			<new>Velg mål å slette</new>
+		</text>
+		<text>
+			<old>Please fill and select all fields</old>
+			<new>Fyll ut og velg alle felt</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Velge gruppe å slette.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Velg pakkebrønnen du vil teste.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Velg gruppe å redigere.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Velg brukeren du vil redigere,</new>
+		</text>
+		<text>
+			<old>Please choose a filetype to delete.</old>
+			<new>Velg en filtype å slette.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Velg gruppe som skal være standardgruppe.</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Velg pakkebrønnen du vil slette.</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Alle</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Oppdater systemets innstillinger</new>
+		</text>
+		<text>
+			<old>Use a custom background color</old>
+			<new>Bruk egendefinert bakgrunnsfarge.</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Oppdater systemets profil</new>
+		</text>
+		<text>
+			<old>Update Rule</old>
+			<new>Oppdater regel</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Bruk egen bakgrunn</new>
+		</text>
+		<text>
+			<old>Use SSL</old>
+			<new>Bruk SSL</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Brukeren er opprettet.</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Benyttet kapasitet:</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Avinstallere</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Angi ny pakkebrønn adresse:</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Et problem oppsto ved sletting av gruppen.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Tema</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Tittel</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Angi kommando du vil kjøre ved innlogging.</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Angi den nye gruppens navn:</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Angi gruppenavn du vil opprette:</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>Brukeren er slettet.</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Bruker</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>Du kan ikke slette standard pakkebrønn!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>Du kan ikke slette standardgruppen!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>Du kan ikke slette rotbrukeren!</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>Du kan ikke redigere standard pakkebrønn!</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Fjern nå!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>Du kan ikke lagre en pakkebrønn som standard pakkebrønn!</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>Bruk /a (endelse), /b (begynnelse) og /c (telling) for å vise brukere.</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>Du har ikke tillatelse til å behandle brukere!</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Bakgrunn</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>Brukernavnet inneholder ugyldige tegn. Forsøk igjen!</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>Vinduer er tilbakestilt. Du bør starte programmene på nytt nå.</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>Vinduer</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>Du har ikke tillatelse til å behandle grupper!</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>Temaet er endret. Du må starte en ny økt for å se endringene.</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>Brukeren finnes ikke.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Du må logge inn som en vanlig bruker for å gå inn her.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Du har ikke tillatelser til å gå inn her.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Du må logge inn som en vanlig bruker for å gå inn her.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startside</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Systeminnstillinger</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Siden er ikke installert.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be entered by the default user.</old>
+			<new>Standardbruker har ikke tilgang til denne siden.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Vis brukere...</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Vis fulle navn</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Vis brukere</new>
+		</text>
+		<text>
+			<old>SMTP</old>
+			<new>SMTP</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Denne filen kan ikke brukes som bakgrunn.</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Filen eksisterer ikke.</new>
+		</text>
+		<text>
+			<old>Target</old>
+			<new>Mål</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Midlertidige filer og mapper er fjernet.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>Dette er ikke en eyeNav søkemotorfil.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>Dette er ikke en eyeNav bokmerkefil.</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>Gruppen eksisterer allerede!</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>Brukeren eksisterer allerede!</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>Brukernavnet er for kort!</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>Brukernavnet er for langt!</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Pakkebrønn er installert.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Valgte gruppe er allerede standardgruppe!</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>Kommandoen finnes ikke!</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>Kommandoen er allerede konfigurert!</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Brukeren eksisterer ikke.</new>
+		</text>
+		<text>
+			<old>The category does not exist!</old>
+			<new>Kategorien finnes ikke!</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Kontoen er slettet.</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Fant ingen registrerte brukere.</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Ny</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Rens oneye</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Kommandoen er slettet.</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Kommandoen er lagt til.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Kommandoen er lagret.</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Legge inn støtte for Office på en Windowsserver.</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Endre instillinger for eyeBoard</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Kommandoer</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Legg inn støtte for Office på en Linuxserver.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Endringer er lagret.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Endringer er lagret og utført!</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Endre passord</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Endre tema</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Endre bakgrunn</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Endre språkinstillinger</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Sett opp startsiden</new>
+		</text>
+		<text>
+			<old>Create Target</old>
+			<new>Opprett mål</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Slett gruppe</new>
+		</text>
+		<text>
+			<old>Create ACL</old>
+			<new>Opprett ACL</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Slett advarsel</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Skrivebord</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Ønsker du virkelig å fjerne denne kommandoen?</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Slett pakkebrønn</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Beskrivelse</new>
+		</text>
+		<text>
+			<old>Create an ACL rule for your oneye system</old>
+			<new>Opprett en ACL regel for oneye systemet</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Slett autokjør</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Standardgruppen er lagret. Du må starte økten på nytt.</new>
+		</text>
+		<text>
+			<old>Delete ACL</old>
+			<new>Slett ACL</new>
+		</text>
+		<text>
+			<old>Delete filetype</old>
+			<new>Slett filtype</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Standardgruppe: %s | %s gruppe(r)</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Standardinstillingene er lagret.</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Nettleser plugin</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Bokmerker er importert.</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>Handling:</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>Handling</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Legg til en ny bruker i oneye</new>
+		</text>
+		<text>
+			<old>Add ACL</old>
+			<new>Legg til ACL</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Legg til pakkebrønn</new>
+		</text>
+		<text>
+			<old>Add an ACL target to your oneye system</old>
+			<new>Legg til et ACL mål i oneye systemet</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>ACL navn:</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>ACL navn</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s pakkebrønn(er)</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s bruker(e) registrert.</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[standardbruker]</new>
+		</text>
+		<text>
+			<old>Access Control</old>
+			<new>Tilgangskontroll</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Om meg</new>
+		</text>
+		<text>
+			<old>Add Rule</old>
+			<new>Legg til regel</new>
+		</text>
+		<text>
+			<old>Add, edit or remove your Access Control List settings</old>
+			<new>Legg til, rediger eller slett ACL innstillinger</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this param?</old>
+			<new>Er du sikker på at du vil slette dette parameteret?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this ACL?</old>
+			<new>Er du sikker på at du vil slette denne ACL?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this target?</old>
+			<new>Er du sikker på at du vil slette dette målet?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Bokmerker og søkemotorer er eksportert.</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Oppstart</new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>Applikasjon</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Tillat webopplasting</new>
+		</text>
+		<text>
+			<old>Admin</old>
+			<new>Admin</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Legg til</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administrasjon</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Tillat brukerregistrering</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Tillat offentlige mapper</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Ønsker du virkelig å fjerne denne gruppen fra systemet?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Ønsker du virkelig å gjenopprette standardinstillinger for eyeDesk?</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Vedlikeholde</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Hovedinnstillinger</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Vedlikeholder</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Behandle standard bokmerker</new>
+		</text>
+		<text>
+			<old>Manage the navigator's startpage, bookmarks and search engines</old>
+			<new>Behandle nettleserens startside, bokmerker og søkemotorer.</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Behandle standard søkemotorer</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Look &amp; Feel</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Last inn</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grupper</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Gruppenavn</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importer</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Feil passord!</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Sist logget inn</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Språk</new>
+		</text>
+		<text>
+			<old>Manage the packages repositories</old>
+			<new>Behandle pakkebrønner</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Behandle autokjørkommandoer</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Mus</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Pakkebrønn</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Nettleser</new>
+		</text>
+		<text>
+			<old>Never</old>
+			<new>Aldri</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Ny bakgrunn lagret.</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Ny kommando</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Pakkebrønnen er lagret.</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Pakkebrønnen er slettet.</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Behandle systemets grupper</new>
+		</text>
+		<text>
+			<old>Manage your security settings</old>
+			<new>Behandle sikkerhetsinnstillinger</new>
+		</text>
+		<text>
+			<old>Manage your system's SMTP settings</old>
+			<new>Behandle systemets SMTP instillinger.</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Behandle systemets brukere</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Pakkebrønnen finnes ikke!</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Pakkebrønn adresse (eksempel: %s)</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Gruppe</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Gruppen er slettet.</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Rediger pakkebrønn</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Rediger kommandoi</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Rediger valgte bruker</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Rediger</new>
+		</text>
+		<text>
+			<old>Expiration Date</old>
+			<new>Utløpsdato</new>
+		</text>
+		<text>
+			<old>Expiration (dd/mm/yyyy)</old>
+			<new>Utløpsdato (dd/mm/åååå)</new>
+		</text>
+		<text>
+			<old>Edit ACL</old>
+			<new>Rediger ACL</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-post</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Ønsker du virkelig å fjerne denne brukeren fra systemet?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Ønsker du virkelig å fjerne denne pakkebrønnen fra eyeSoft?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Ønsker du virkelig å gjenopprette standardinstillinger for eyeNav?</new>
+		</text>
+		<text>
+			<old>Done</old>
+			<new>Utført</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Ønsker du virkelig å gjeopprette standardinnstillinger for eyeNav søk?</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Eksporter standard bokmerker og søkemotorer</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksporter</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Fast: Ikonene kan ikke flyttes</new>
+		</text>
+		<text>
+			<old>Filetypes</old>
+			<new>Filtyper</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Fra</new>
+		</text>
+		<text>
+			<old>Function</old>
+			<new>Funksjon</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Hent flere språkpakker</new>
+		</text>
+		<text>
+			<old>Function:</old>
+			<new>Funksjon:</new>
+		</text>
+		<text>
+			<old>Filetype</old>
+			<new>Filtype</new>
+		</text>
+		<text>
+			<old>Filetype successfully deleted.</old>
+			<new>Filtypen er slettet.</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>Oppslagstavle</new>
+		</text>
+		<text>
+			<old>Extension</old>
+			<new>Utvidelse</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Glidende: Ikonene justeres automatisk</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Filen kan lastes ned.</new>
+		</text>
+		<text>
+			<old>Filetype successfully created.</old>
+			<new>Filtypen er opprettet.</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Filen kan ikke lastes ned. Korriger adressen.</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s kommando(er)</new>
+		</text>
+		<text>
+			<old>%s filetype(s)</old>
+			<new>%s filtype(r)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>Du kan lime inn "%s" i en annen mappe nå.</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Lenker kan ikke kopieres!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Feil ved sletting av fil!</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s" er flyttet til papirkurven.</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s" er fjernet.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Properties</old>
+			<new>Egenskaper</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Gi nytt navn</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Lim inn</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Åpne med</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Last opp filer</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS-leser</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Velkommen til %s, %s</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Papirkurv</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Del med</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Ny snarvei</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Åpne papirkurv</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Ny mappe</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Last ned som ZIP</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Rediger</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopier</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Last ned</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Snarvei</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Tøm papirkurv</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Ny fil</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Hjem</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Utforsk</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>Adressebok</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programmer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select</old>
+			<new>Velg</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>Lagre som...</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>Du må velge en fil</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åpne</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Velg en fil å åpne</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Du må oppgi navn</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Velg mappe</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>Feil ved lesing av mappe</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Navn</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>Er du sikker på at du vil erstatte filen?</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>Bekreft filerstatning</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Hjem</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Mapper</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Oppslagstavle</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Prosessbehandler</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Kontor</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekstbehandling</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Nettverk</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS-leser</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Tekstredigering</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Regneark</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Nettleser</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP-klient</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Sjakk</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>E-postklient</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Tilbehør</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Kontaktpersoner</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interne meldinger</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Spill</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Filbehandler</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>MS Word document file</old>
+			<new>MS Word fil</new>
+		</text>
+		<text>
+			<old>File not found.</old>
+			<new>Finner ikke filen.</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Du har ikke rettigheter til dette!</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekstbehandling</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Open Document Text fil</new>
+		</text>
+		<text>
+			<old>The file does not exist.</old>
+			<new>Filen eksisterer ikke.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to enable OpenOffice Support to view this document.</old>
+			<new>Du må aktivere støtte for OpenOffice for å vise dette dokumentet.</new>
+		</text>
+		<text>
+			<old>oneye document file</old>
+			<new>oneye dokument fil</new>
+		</text>
+		<text>
+			<old>Error saving file.</old>
+			<new>Feil ved lagring av fil.</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Dokumentet er lagret.</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Vil du lagre endringene?</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Slettevarsel</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Ikke lagre</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+		<text>
+			<old>Error creating file.</old>
+			<new>Feil ved oppretting av fil.</new>
+		</text>
+		<text>
+			<old>Error - Document not saved. Please try again.</old>
+			<new>Feil! Dokumentet ble ikke lagret. Forsøk igjen.</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Du kan lukke dette vinduet nå.</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Lenker kan ikke lastes ned!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Last ned!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Antall titler som vises i oversikten:</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Importer strømmer fra OPML</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Hjelp</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>Behold historikk (i dager):</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS-leser</new>
+		</text>
+		<text>
+			<old>OPML files</old>
+			<new>OPML filer</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Henter, vennligst vent...</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Mappen er endret</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Strømmene er importert</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Strømmen er endret</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Strømmen er lagt til</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Mappen er lagt til</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Hurtiglager varighet (sek.):</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Strømmer</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Kunne ikke eksportere til angitt lokasjon</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Innstillingene er lagret</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Kunne ikke importere strømmer fra filen</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>URL:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Mappenavn:</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Du må angi et navn</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Mappe (valgfritt):</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importer</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>Du må starte programmet på nytt før endringene vises.</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Kunne ikke hente angitt URL</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Navn (valgfritt):</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Velg element...</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Velg nyhetsstrøm...</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Tittel</new>
+		</text>
+		<text>
+			<old>eyeFeeds - Enclosure</old>
+			<new>eyeFeeds - Vedlegg</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Velg fil</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Størrelse på forhåndsvisning (tegn):</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Strømmene er eksportert</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksporter</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Velg mappe for strømmen:</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Bokmerker</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Velg mappe for den nye strømmen:</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Er du sikker på at du vil slette mappen?</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Velg foreldremappe for mappen:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>Velg mappe for importerte strømmer:</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Velg fil å importere</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Er du sikker på at du vil slette strømmen?</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Ny mappe</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Ny strøm</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Bruk</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Velg foreldremappe for den nye mappen:</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Ny strøm</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Kunne ikke hente strømmen</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Rediger strøm</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Kunne ikke lagre strømmen</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Kunne ikke slette strømmen</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Endringene kunne ikke utføres</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Kunne ikke lagre innstillingene</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Feil ved opprettelse av mappe</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Kunne ikke lagre mappen</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Feil ved import</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Feil ved innlegging av strøm</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Rediger mappe</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Slett strøm/mappe</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Elementet er slettet</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(Ukjent navn)</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Rediger</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Ny mappe</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Restore</old>
+			<new>Gjenopprett</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Del med</new>
+		</text>
+		<text>
+			<old>Real</old>
+			<new>Virkelig</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Vis filer</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Gi nytt navn</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Egenskaper</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Åpne med</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Lim inn</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Vis alle</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Ny mappe</new>
+		</text>
+		<text>
+			<old>Update view</old>
+			<new>Oppdater visning</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Vis lenker</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>Brukere</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>Vis</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>Trestruktur</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Last opp filer</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Papirkurv</new>
+		</text>
+		<text>
+			<old>Show not</old>
+			<new>Ikke vis</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>Vis bare</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Ny fil</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Vis mapper</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Neste</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>Liste</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Tøm papirkurv</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Utforsk</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Last ned som ZIP</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>Filbehandler</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Rediger</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Detaljer</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopier</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filnavn</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Hjelp</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Tid</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Ikoner</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Kjør</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grupper</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Last ned</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Hjem</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Filter:</new>
+		</text>
+		<text>
+			<old>Folders at first</old>
+			<new>Mapper først</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Handlinger</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Størrelse (B)</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Tilbake</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Angi nytt navn/lokasjon til filen/mappen</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>Kunne ikke lage mappen! (Har du tilstrekkelige rettigheter?)</new>
+		</text>
+		<text>
+			<old>Unable to connect to %s</old>
+			<new>Kan ikke koble til %s</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Gi et navn til den nye mappen</new>
+		</text>
+		<text>
+			<old>Unable to create directory "%s".</old>
+			<new>Kan ikke opprette mappen "%s".</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Velg en fil å laste opp til:</new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>Kunne ikke slette filen. (Har du tilstrekkelige rettigheter?)</new>
+		</text>
+		<text>
+			<old>Unable to create file "%s".</old>
+			<new>Kan ikke opprette filen "%s".</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>Kunne ikke slette mappen. (Har du tilstrekkelige rettigheter?)</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>Kunne ikke laste ned filen. Det oppsto en feil.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory's content at "%s".</old>
+			<new>Kan ikke slette mappeinnhold i "%s"</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>Kan ikke lage midlertidig fil. Nedlasting avbrutt.</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Gi nytt navn</new>
+		</text>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>Prøver å koble til %s:%s (bruker"(%s")...</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Gi nytt navn/flytt</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>Passiv modus feilet! Dataoverføring vil bli utført i aktiv modus</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>Angi server å koble til</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Passord:</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>Passiv modus godkjent</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Tillatelser</new>
+		</text>
+		<text>
+			<old>Only files can be downloaded</old>
+			<new>Du kan bare laste ned filer</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Angi brukernavn</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Gi nytt navn til fil/mappe</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Passord</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Unable to download directory, error occured</old>
+			<new>Kan ikke laste ned mappen, feil oppsto.</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Du må koble til først!</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured. (Do you have sufficient permissions?)</old>
+			<new>Kan ikke vise filene, feil oppsto. (Har du tilstrekkelige rettigheter?)</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Du må koble til først</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Du må velge en fil eller mappe først</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>yes</old>
+			<new>ja</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Bruker:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Bruker</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Du må velge en server å slette</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Du må velge en server å laste</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Du må velge en ekstern fil</new>
+		</text>
+		<text>
+			<old>Unable to browse directory's content at "%s".</old>
+			<new>Kan ikke vise mappeinnhold for "%s".</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Du må angi servernavn, port og brukernavn</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Du må velge en lokal fil</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Du må velge en server å redigere</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>Bruker "%s" ble autensitert</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>Laster opp: "%s" til "%s"</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>Kan ikke lese midlertidig fil. Opplasting avbrutt.</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>Kan ikke gi nytt navn til valgte. (Har du tilstrekkelige rettigheter?)</new>
+		</text>
+		<text>
+			<old>Unable to read file "%s"</old>
+			<new>Kan ikke lese filen "%s"</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>Kan ikke vise filer. Det oppsto en feil</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>Kan ikke laste opp filen. Det oppsto en feil</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>Kan ikke skrive til filen. Sjekk tillatelser.</new>
+		</text>
+		<text>
+			<old>Upload of file "%s" finished.</old>
+			<new>Opplasting av filen "%s" ferdig.</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>Opplasteing ferdig. %s bytes er overført.</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Last opp</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Last opp en fil</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>Ukjent feil oppsto ved opplasting</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Eier</new>
+		</text>
+		<text>
+			<old>no</old>
+			<new>nei</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>Mappelisting ferdig for "%s" (%s fil(er) funnet)</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>Nedlasting ferdig. %s bytes er overført.</new>
+		</text>
+		<text>
+			<old>Disconnected - FTP Client</old>
+			<new>Frakoblet - FTP-klient</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Mappen "%s" er opprettet</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>Kobler fra %s:%s</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Slett utvalg</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>Laster ned: "%s" til "%s"</new>
+		</text>
+		<text>
+			<old>Download of directory "%s" finished.</old>
+			<new>Nedlasting av mappen "%s" er fullført.</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Rediger valgte</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>Feil ved blaing i lokal mappe!</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Last ned</new>
+		</text>
+		<text>
+			<old>Download of file "%s" finished.</old>
+			<new>Nedlating av filen "%s" er fullført.</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Slett fil/mappe</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>Forsøker å lage mappen "%s" i "%s"...</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>Autensitering feilet. Ugyldig brukernavn/passord!</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>Forsøker å omdøpe/flytte "%s"...</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Er du sikker på at du vil slette denne filen/mappen?</new>
+		</text>
+		<text>
+			<old>Authenticating user...</old>
+			<new>Autensiterer bruker...</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Ny server</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Tilkobling akseptert</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Opprett</new>
+		</text>
+		<text>
+			<old>Attempting to delete "%s"...</old>
+			<new>Forsøker å slette "%s"...</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Koble til</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Error while downloading file "%s"! Transfer aborted.</old>
+			<new>Feil ved nedlasting av filen "%s"! Overføring avbrutt.</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Hjelp</new>
+		</text>
+		<text>
+			<old>Error while uploading file "%s"! Transfer aborted.</old>
+			<new>Feil ved opplasting av filen "%s"! Overføring avbrutt.</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Host:</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Host</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>Hjelp og OSS er tilgjengelig på eyeos wiki: %s</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Tving passiv modus</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP-klient</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>Serverbehandling</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Last valgte</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Navnet kan ikke være blankt</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Koble fra</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Ny mappe</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Behandle servere</new>
+		</text>
+		<text>
+			<old>Listing directory "%s"...</old>
+			<new>Viser mappen "%s"...</new>
+		</text>
+		<text>
+			<old>Folder "%s" deleted successfully</old>
+			<new>Mappen "%s" er slettet</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Filstørrelse</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>Feil: Kunne ikke laste opp filen "%s" til FTP serveren</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP v.%s startet.</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted.</old>
+			<new>Feil under opplasting! Overføring avbrutt.</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>Feil ved opplasting. Overføring avbrutt. (Har du tilstrekkelige rettigheter?)</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>Kunne ikke koble til serveren!</new>
+		</text>
+		<text>
+			<old>File "%s" already exists, overwriting.</old>
+			<new>Filen "%s" eksisterer fra før, skriver over</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filnavn</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>Filen/mappen er omdøpt</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Filstørrelse (B)</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>Filen "%s" er lastet opp til "%s"</new>
+		</text>
+		<text>
+			<old>Add -a to LIST command</old>
+			<new>Legg til -a til LIST kommandoen</new>
+		</text>
+		<text>
+			<old>File "%s" deleted successfully</old>
+			<new>Filen "%s" er slettet.</new>
+		</text>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>Feil ved tilgang til sti. Avbryter...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>Du har ikke lov til å gjøre dette.</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>Feltet kan ikke være tomt.</new>
+		</text>
+		<text>
+			<old>Topics</old>
+			<new>Emner</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>Bruker som kan kontaktes for hjelp:</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>Send inn</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>Be om hjelp</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>Endringer er utført.</new>
+		</text>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>Innstillinger for eyeHelp</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>Hilken URL vil du åpne i en iframe?</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åpne</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>TIFF files</old>
+			<new>TIFF filer</new>
+		</text>
+		<text>
+			<old>No image could be found.</old>
+			<new>Fant ingen bildefiler.</new>
+		</text>
+		<text>
+			<old>View Images</old>
+			<new>Vis bilder</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Neste</new>
+		</text>
+		<text>
+			<old>PNG files</old>
+			<new>PNG filer</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Forrige</new>
+		</text>
+		<text>
+			<old>JPG files</old>
+			<new>JPG filer</new>
+		</text>
+		<text>
+			<old>Image formats</old>
+			<new>Bildeformater</new>
+		</text>
+		<text>
+			<old>BMP files</old>
+			<new>BMP filer</new>
+		</text>
+		<text>
+			<old>JPEG files</old>
+			<new>JPEG filer</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>GIF files</old>
+			<new>GIF filer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Du må velge en mappe for å importere filer</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importer</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Bla gjennom</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s filer er importert!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>Takk til...</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Bidragsytere</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>Prosjekter</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Ikke noe å installere!</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Bare rotbrukeren kan installere programmer</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Pakken er installert!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installerer</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Ønsker du virkelig å installere denne pakken i systemet?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run</old>
+			<new>Kjør</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Kjør som en annen bruker</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Angi programnavn</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Bruker</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Kjør...</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Passord</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Utgyldig brukenavn</new>
+		</text>
+		<text>
+			<old>%s has had an unknow problem and could not be executed</old>
+			<new>%s har et ukjent problem og kunne ikke kjøres</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Feil: blankt brukernavn eller passord</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Feil: ugyldig brukernavn eller passord</new>
+		</text>
+		<text>
+			<old>%s has had a problem and could not be executed</old>
+			<new>%s fikk et problem og kunne ikke kjøres</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>Fant ikke %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Username is too short!</old>
+			<new>Brukernavnet er for kort!</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>Brukeren finnes fra før!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Gjenta passord</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Din konto er deaktivert!</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Du må fylle ut alle felt!</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>Språkpakken finnes ikke!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Brukernavn</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>Brukernavn må være alfanumerisk!</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Dette systemet tillater ikke brukerregistreringer!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Passord</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Språk</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Logg inn</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Opprett brukerkonto</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Passordet er for kort!</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>( Gjeldende )</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Feil ved oppretting av bruker</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Passordene er ikke like!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Ny bruker</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Språk (denne økten)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Remove Account</old>
+			<new>Fjern konto</new>
+		</text>
+		<text>
+			<old>Recive Rich Text</old>
+			<new>Motta rik tekst</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>Port:</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Sendt</new>
+		</text>
+		<text>
+			<old>Send Rich Text</old>
+			<new>Send rik tekst</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>Sikkerhet</new>
+		</text>
+		<text>
+			<old>Security settings has been updated.</old>
+			<new>Sikkerhetsinnstillingene er endret.</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Kjør</new>
+		</text>
+		<text>
+			<old>Please fill out all fields.</old>
+			<new>Alle felter må fylles ut.</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Ny</new>
+		</text>
+		<text>
+			<old>Manual</old>
+			<new>Manuell</new>
+		</text>
+		<text>
+			<old>Mailbox</old>
+			<new>E-postboks</new>
+		</text>
+		<text>
+			<old>Mail</old>
+			<new>E-post</new>
+		</text>
+		<text>
+			<old>Password:</old>
+			<new>Passord:</new>
+		</text>
+		<text>
+			<old>Sending mail...</old>
+			<new>Sender e-post...</new>
+		</text>
+		<text>
+			<old>Manually</old>
+			<new>Manuelt</new>
+		</text>
+		<text>
+			<old>Outcoming</old>
+			<new>Utgående</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Neste</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Emne</new>
+		</text>
+		<text>
+			<old>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for SQLite first.</old>
+			<new>Du kan ikke kjøre eyeMail. Serveren må ha støtte for PHP utvidelsen SQLite først.</new>
+		</text>
+		<text>
+			<old>Write a new mail</old>
+			<new>Ny e-post</new>
+		</text>
+		<text>
+			<old>Visual alert</old>
+			<new>Visuell varsling</new>
+		</text>
+		<text>
+			<old>Username:</old>
+			<new>Brukernavn:</new>
+		</text>
+		<text>
+			<old>Your message has been sent</old>
+			<new>E-post er sendt</new>
+		</text>
+		<text>
+			<old>User:</old>
+			<new>Bruker:</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Svar</new>
+		</text>
+		<text>
+			<old>Your account e-mails has been imported</old>
+			<new>E-poster er importert</new>
+		</text>
+		<text>
+			<old>You have %s new mails</old>
+			<new>Du har %s nye e-poster</new>
+		</text>
+		<text>
+			<old>You have %s new mail</old>
+			<new>Du har %s ny e-post</new>
+		</text>
+		<text>
+			<old>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for IMAP first.</old>
+			<new>Du kan ikke kjøre eyeMail. Serveren må ha støtte for IMAP i PHP oppsettet først.</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Kan ikke opprette filen</new>
+		</text>
+		<text>
+			<old>Subject: %s</old>
+			<new>Emne: %s</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Størrelse</new>
+		</text>
+		<text>
+			<old>Server Port:</old>
+			<new>Server port:</new>
+		</text>
+		<text>
+			<old>Server Host:</old>
+			<new>Server vert:</new>
+		</text>
+		<text>
+			<old>To:</old>
+			<new>Til:</new>
+		</text>
+		<text>
+			<old>Information</old>
+			<new>Informasjon</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Du har ikke rettigheter til dette!</new>
+		</text>
+		<text>
+			<old>To: %s</old>
+			<new>Til: %s</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Etternavn</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>Emne:</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Navn</new>
+		</text>
+		<text>
+			<old>Incoming</old>
+			<new>Inngående</new>
+		</text>
+		<text>
+			<old>Date: %s</old>
+			<new>Dato: %s</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Kontakter</new>
+		</text>
+		<text>
+			<old>Check mail at startup</old>
+			<new>Hent nye ved oppstart</new>
+		</text>
+		<text>
+			<old>Check for new mail:</old>
+			<new>Hent nye:</new>
+		</text>
+		<text>
+			<old>Downloading all mails...</old>
+			<new>Laster ned alle e-poster</new>
+		</text>
+		<text>
+			<old>CCO:</old>
+			<new>BCC:</new>
+		</text>
+		<text>
+			<old>Email account has been updated.</old>
+			<new>Kontoen er endret.</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this mail?</old>
+			<new>Er du sikker på at du vil slette denne e-posten?</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>Dato:</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+		<text>
+			<old>CC:</old>
+			<new>CC:</new>
+		</text>
+		<text>
+			<old>Are you sure you want to remove the account "%s"?</old>
+			<new>Er du sikker på at du vil slette kontoen "%s"?</new>
+		</text>
+		<text>
+			<old>Activity Monitor</old>
+			<new>Fremdrift:</new>
+		</text>
+		<text>
+			<old>Accounts</old>
+			<new>Kontoer</new>
+		</text>
+		<text>
+			<old>Account Type:</old>
+			<new>Kontotype:</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Email account has been created.</old>
+			<new>Kontoen er opprettet.</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Avansert</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Tilbake</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Vedlegg</new>
+		</text>
+		<text>
+			<old>Are you sure?</old>
+			<new>Er du sikker?</new>
+		</text>
+		<text>
+			<old>From: %s</old>
+			<new>Fra: %s</new>
+		</text>
+		<text>
+			<old>Enter your email address and password. This is the address others will use to send email to you (for example, "user@server.net").</old>
+			<new>Angi e-postadresse og passord. Dette er den adressen andre bruker når de sender e-post til deg (for eksempel "peder@server.no"),</new>
+		</text>
+		<text>
+			<old>Full Name:</old>
+			<new>Fullt navn:</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Fra</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Videresend</new>
+		</text>
+		<text>
+			<old>Finish</old>
+			<new>Avslutt</new>
+		</text>
+		<text>
+			<old>Incoming Server Type:</old>
+			<new>Inngående servertype:</new>
+		</text>
+		<text>
+			<old>Fetch</old>
+			<new>Hent</new>
+		</text>
+		<text>
+			<old>Create a new account</old>
+			<new>Ny konto</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Innboks</new>
+		</text>
+		<text>
+			<old>General</old>
+			<new>Generelt</new>
+		</text>
+		<text>
+			<old>General settings has been updated.</old>
+			<new>Generelle innstillinger er oppdatert</new>
+		</text>
+		<text>
+			<old>From:</old>
+			<new>Fra:</new>
+		</text>
+		<text>
+			<old>eyeMail has found the %s server settings. Please, verify that the information below is correct. To enter the settings manually click on "Manual".</old>
+			<new>eyeMail har funnet instillingene for server %s. Kontroller at informasjonen nedenfor er korrekt. Du kan angi instillingene manuelt ver å trykke på "Manuell".</new>
+		</text>
+		<text>
+			<old>Error sending mail</old>
+			<new>Feil ved sending</new>
+		</text>
+		<text>
+			<old>Enter an account name to be identified later.</old>
+			<new>Angi ønsket kontonavn.</new>
+		</text>
+		<text>
+			<old>Email:</old>
+			<new>E-post:</new>
+		</text>
+		<text>
+			<old>Email Address:</old>
+			<new>E-postadesse:</new>
+		</text>
+		<text>
+			<old>Every hour</old>
+			<new>Hver time</new>
+		</text>
+		<text>
+			<old>Account Name:</old>
+			<new>Kontonavn:</new>
+		</text>
+		<text>
+			<old>Enter the name you would like to appear in the "From" field of your outgoing messages (for example, "John Doe").</old>
+			<new>Angi navnet du vil skal vises i feltet "Fra" når du sender e-poster (for eksempel "Peder Ås"</new>
+		</text>
+		<text>
+			<old>Every 5 minutes</old>
+			<new>Hvert 5 minutt</new>
+		</text>
+		<text>
+			<old>Every 30 minutes</old>
+			<new>Hver 30 minutt</new>
+		</text>
+		<text>
+			<old>Every 15 minutes</old>
+			<new>Hver 15 minutt</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMedia</name>
+		<text>
+			<old>Remove File</old>
+			<new>Fjern fil</new>
+		</text>
+		<text>
+			<old>Playing: %s</old>
+			<new>Spiller: %s</new>
+		</text>
+		<text>
+			<old>Play</old>
+			<new>Spill av</new>
+		</text>
+		<text>
+			<old>Paused.</old>
+			<new>Satt på pause.</new>
+		</text>
+		<text>
+			<old>Repeat</old>
+			<new>Repetisjon</new>
+		</text>
+		<text>
+			<old>Shuffle</old>
+			<new>Tilfeldig</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Forrige</new>
+		</text>
+		<text>
+			<old>Successfully opened: %s</old>
+			<new>Åpnet: %s</new>
+		</text>
+		<text>
+			<old>Stop</old>
+			<new>Stopp</new>
+		</text>
+		<text>
+			<old>Nothing Playing.</old>
+			<new>Ingen avspilling.</new>
+		</text>
+		<text>
+			<old>No folder selected.</old>
+			<new>Ingen mappe er valgt.</new>
+		</text>
+		<text>
+			<old>Error opening: %s</old>
+			<new>Feil ved åpning av: %s</new>
+		</text>
+		<text>
+			<old>Clear List</old>
+			<new>Tøm liste</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Legg til mappe</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>No file selected.</old>
+			<new>Ingen fil er valgt.</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Neste</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>Mediaspiller</new>
+		</text>
+		<text>
+			<old>Add File</old>
+			<new>Legg til fil</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filnavn</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Read</old>
+			<new>Les</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Sendte</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Svar</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Les melding</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Gjeopprett</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Meldingen er gjenopprettet til originalmappe</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Du må velge en melding å slette</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Til</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Ikke lest</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Du må velge en melding å åpne</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Papirkurv</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interne meldinger</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Emne</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Ny</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Innboks</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Last ned</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Legg ved</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slett</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Fra</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Tøm</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Filen er lagret.</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Bekreft sletting</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Feil ved åpning av melding</new>
+		</text>
+		<text>
+			<old>(do) Read</old>
+			<new>Les</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Slettet</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Ønsker du virkelig å slette alle meldinger i denne mappen?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Angi et navn for den nye mappen</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Noen spesielle tegn er fjernet</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Feil ved oppretting av mappe!</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Opprett mappe</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug. Unfortunately it is a problem with your Flash player!</old>
+			<new>Dette er ikke en programfeil, men problemet er relatert til din Flash avspiller!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Search</old>
+			<new>Søk</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startside</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Åpne søk</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Åpne bokmerker</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Nettleser</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>Filen er ikke en gyldig eyeNAV bokmerkefil!</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>Filen er ikke en gyldig eyeNav søkefil!</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Nettsted</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Det finnes allerede et bokmerke med dette navnet!</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Ukatergorisert</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Lenken er lagret.</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Lenken er slettet.</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Bokmerker</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Bokmerenavn</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>Bokmerket finnes ikke!</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Tilbake</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Slett bokmerke</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Ønsker du virkelig å slette dette bokmerket?</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internett</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Kunnskap</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Bilder</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forum</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Forover</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Legg til bokmerke</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Text Editor</old>
+			<new>Tekstredigering</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Lagre som</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Kunne ikke opprette filen</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åpne</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Text files</old>
+			<new>Tekstfiler</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Du har ikke rettigheter til å gjøre dette</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Ny</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Ikke lagre</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Alle filer</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Slettevarsel</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Filen er lagret</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Ønsker du å lagre endringene?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Åpne "%s" med...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePaste</name>
+		<text>
+			<old>Links cannot be pasted!</old>
+			<new>Lenker kan ikke limes inn!</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Gi nytt navn</new>
+		</text>
+		<text>
+			<old>Replace</old>
+			<new>Erstatt</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>"%s" already exists. Please enter a new name or replace the existing one.</old>
+			<new>"%s" finnes fra før. Angi et nytt navn eller erstatt den eksisterende.</new>
+		</text>
+		<text>
+			<old>"%s" cannot be copied from trash.</old>
+			<new>"%s" kan ikke åpnes fra papirkurven.</new>
+		</text>
+		<text>
+			<old>"%s" cannot be copied to trash.</old>
+			<new>"%s" kan ikke kopieres til papirkurven.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>Du er på første lysbilde, og kan ikke gå lenger tilbake!</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Du må velge en fil!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Du har ikke tilstrekkelige rettigheter.</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentasjoner</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åpne</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Neste</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Tilbake</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Fullskjerm</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Process Manager</old>
+			<new>Prosessbehandling</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Prosessnavn</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Brukernavn</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Prosessen er drept</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>Ny prosess</new>
+		</text>
+		<text>
+			<old>Close Application</old>
+			<new>Lukk applikasjon</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>Drep prosess</new>
+		</text>
+		<text>
+			<old>Application killed successfully.</old>
+			<new>Applikasjon ble drept. </new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>Applikasjon</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Portable Document Format</old>
+			<new>Portable Document Format</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Info</new>
+		</text>
+		<text>
+			<old>PSW file</old>
+			<new>PSW fil</new>
+		</text>
+		<text>
+			<old>Python source</old>
+			<new>Python kildekode</new>
+		</text>
+		<text>
+			<old>PWD file</old>
+			<new>PWD fil</new>
+		</text>
+		<text>
+			<old>Plain text</old>
+			<new>Ren tekst</new>
+		</text>
+		<text>
+			<old>PHP source</old>
+			<new>PHP kildekode</new>
+		</text>
+		<text>
+			<old>Open Document Sheet file</old>
+			<new>Open Document Sheet fil</new>
+		</text>
+		<text>
+			<old>Open Document Presentation file</old>
+			<new>Open Document Presentation fil</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Open Document Text fil</new>
+		</text>
+		<text>
+			<old>OpenOffice Writer file</old>
+			<new>OpenOffice Writer fil</new>
+		</text>
+		<text>
+			<old>Perl source</old>
+			<new>Perl kildekode</new>
+		</text>
+		<text>
+			<old>Path</old>
+			<new>Filsti:</new>
+		</text>
+		<text>
+			<old>Rich Text Format</old>
+			<new>Rich Text Format</new>
+		</text>
+		<text>
+			<old>Ruby source</old>
+			<new>Ruby kildekode</new>
+		</text>
+		<text>
+			<old>VBS source</old>
+			<new>VBS kildekode</new>
+		</text>
+		<text>
+			<old>The file does not exist!</old>
+			<new>Filen eksisterer ikke!</new>
+		</text>
+		<text>
+			<old>vCard</old>
+			<new>vCard</new>
+		</text>
+		<text>
+			<old>XML file</old>
+			<new>XML fil</new>
+		</text>
+		<text>
+			<old>ZIP file</old>
+			<new>ZIP fil</new>
+		</text>
+		<text>
+			<old>Portable Network Graphics</old>
+			<new>Portable Network Graphics</new>
+		</text>
+		<text>
+			<old>XSL source</old>
+			<new>XSL kildekode</new>
+		</text>
+		<text>
+			<old>Tar.Gz file</old>
+			<new>Tar.Gz fil</new>
+		</text>
+		<text>
+			<old>Tar.Bz2 file</old>
+			<new>Tar.Bz2 fil</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Størrelse:</new>
+		</text>
+		<text>
+			<old>Shockwave file</old>
+			<new>Shockwave fil</new>
+		</text>
+		<text>
+			<old>SQL source</old>
+			<new>SQL kildekode</new>
+		</text>
+		<text>
+			<old>Tagged Image File Format</old>
+			<new>Tagged Image File format</new>
+		</text>
+		<text>
+			<old>Tar.Bz file</old>
+			<new>Tar.Bz fil</new>
+		</text>
+		<text>
+			<old>Tar file</old>
+			<new>Tar fil</new>
+		</text>
+		<text>
+			<old>Mp3 audio file</old>
+			<new>Mp3 lydfil</new>
+		</text>
+		<text>
+			<old>Microsoft Word file</old>
+			<new>Microsoft Word fil</new>
+		</text>
+		<text>
+			<old>CSS file</old>
+			<new>CSS fil</new>
+		</text>
+		<text>
+			<old>Creation information</old>
+			<new>Informasjon om oppretting</new>
+		</text>
+		<text>
+			<old>CSV sheet file</old>
+			<new>CSV regnearkfil</new>
+		</text>
+		<text>
+			<old>Deletion date</old>
+			<new>Slettet den:</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>Mappe</new>
+		</text>
+		<text>
+			<old>Deletion information</old>
+			<new>Slettingsinfomasjon</new>
+		</text>
+		<text>
+			<old>Creation date</old>
+			<new>Opprettet den:</new>
+		</text>
+		<text>
+			<old>Created with</old>
+			<new>Opprettet med:</new>
+		</text>
+		<text>
+			<old>Bitmap</old>
+			<new>Punktbilde</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter:</new>
+		</text>
+		<text>
+			<old>C sharp source</old>
+			<new>C sharp kildekode</new>
+		</text>
+		<text>
+			<old>C source</old>
+			<new>C kildekode</new>
+		</text>
+		<text>
+			<old>Command</old>
+			<new>Kommando:</new>
+		</text>
+		<text>
+			<old>C++ source</old>
+			<new>C++ kildekode</new>
+		</text>
+		<text>
+			<old>eyeDocument file</old>
+			<new>eyeDocument fil</new>
+		</text>
+		<text>
+			<old>eyeInstaller package</old>
+			<new>eyeInstaller pakke</new>
+		</text>
+		<text>
+			<old>Java source</old>
+			<new>Java source</new>
+		</text>
+		<text>
+			<old>Hypertext Markup Language</old>
+			<new>Hypertext Markup Language</new>
+		</text>
+		<text>
+			<old>Joint Photographic Experts Group</old>
+			<new>Joint Photographic Experts Group</new>
+		</text>
+		<text>
+			<old>JS source</old>
+			<new>JS source</new>
+		</text>
+		<text>
+			<old>Microsoft Powerpoint file</old>
+			<new>Microsoft PowerPoint fil</new>
+		</text>
+		<text>
+			<old>Microsoft Excel file</old>
+			<new>Microsoft Excel fil</new>
+		</text>
+		<text>
+			<old>Graphics Interchange Format</old>
+			<new>GIF format</new>
+		</text>
+		<text>
+			<old>FLV file</old>
+			<new>FLV fil</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>Filinformasjon</new>
+		</text>
+		<text>
+			<old>oneye source</old>
+			<new>oneye kildekode</new>
+		</text>
+		<text>
+			<old>File</old>
+			<new>Fil</new>
+		</text>
+		<text>
+			<old>%s file</old>
+			<new>%s fil</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Tid:</new>
+		</text>
+		<text>
+			<old>%sBytes</old>
+			<new>%s bytes</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Rename</old>
+			<new>Gi nytt navn</new>
+		</text>
+		<text>
+			<old>Replace</old>
+			<new>Erstatt</new>
+		</text>
+		<text>
+			<old>That file already exists!</old>
+			<new>Filen eksisterer fra før!</new>
+		</text>
+		<text>
+			<old>Rename %s</old>
+			<new>Gi nytt navn til %s</new>
+		</text>
+		<text>
+			<old>Please type the new name here:</old>
+			<new>Angi nytt navn:</new>
+		</text>
+		<text>
+			<old>Move %s</old>
+			<new>Flytt %s</new>
+		</text>
+		<text>
+			<old>Error moving folder!</old>
+			<new>Feil ved flytting av mappe!</new>
+		</text>
+		<text>
+			<old>Links cannot be moved!</old>
+			<new>Lenker kan ikke flyttes!</new>
+		</text>
+		<text>
+			<old>"%s" already exists. Please enter a new name or replace the existing one.</old>
+			<new>"%s" finnes fra før. Angi et nytt navn eller erstatt eksisterende.</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShare</name>
+		<text>
+			<old>Share</old>
+			<new>Del</new>
+		</text>
+		<text>
+			<old>Share "%s" with...</old>
+			<new>Del "%s" med...</new>
+		</text>
+		<text>
+			<old>Folder "%s" shared with group "%s".</old>
+			<new>Mappen "%s" er delt med gruppen "%s".</new>
+		</text>
+		<text>
+			<old>File "%s" shared with group "%s".</old>
+			<new>Filen "%s" er delt med gruppen "%s".</new>
+		</text>
+		<text>
+			<old>"%s" already exists in group "%s".</old>
+			<new>"%s" finnes allerede i gruppen "%s".</new>
+		</text>
+		<text>
+			<old>Choose the groups to share with</old>
+			<new>Velg grupper å dele med</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Regneark</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Regnearket er lagret.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Du har ikke tilstrekkelige tillatelser.</new>
+		</text>
+		<text>
+			<old>File not found!</old>
+			<new>Fant ikke filen!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Velg program for avinstallering</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Søk</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>Andre programmer</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>Programmet kan ikke avinstalleres</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Velg program for installering</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Bare rotbruker kan installere programmer</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>ingen</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Kontor</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Forslag: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Navn: %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Oppdater</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Programmet ble avinstallert</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versjon</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Versjon: %s</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Packages Manager</old>
+			<new>Pakkebehandler</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Avinstaller</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Avinstaller program</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>Temaer</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>Oversettelser</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedia</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Lisens: %s</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Kategori: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Avhengigheter: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Forfatter: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Skrivebord</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategorier</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Programnavn</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administrasjon</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Alle</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Beskrivelse: %s</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s ble installert!</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Installer</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Ønsker du virkelig å avinstallere dette programmet?</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Installert</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installerer</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internett</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Spill</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Pakkeoversikten er oppdatert</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Laster ned og installerer %s .... vennligst vent</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Utdannelse</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s nedlastingen er ødelagt! Kan ikke installere.</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Aksepter</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 hash</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Siste kjøretid: %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Inndata</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Utdata</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Fjern HTML elementer</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL koding</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Valg</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL dekoding</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Romertall til desimal</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>HTML elementer</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hex til Ascii</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 koding</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 dekoding</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Tøm inndata automatisk</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii til Hex</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Tøm</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Legg inndata til utdata</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye hash</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Desimal til romertall</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Slå sammen utdata</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Legg til new line på slutten</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>These options won't be applied until you start a new game.</old>
+			<new>Du må starte spillet på nytt for at endringene skal vises.</new>
+		</text>
+		<text>
+			<old>Time</old>
+			<new>Tid</new>
+		</text>
+		<text>
+			<old>Unable to connect to the host server.</old>
+			<new>Kan ikke koble til server.</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Rank</old>
+			<new>Grad</new>
+		</text>
+		<text>
+			<old>Number of moves:</old>
+			<new>Antall trekk:</new>
+		</text>
+		<text>
+			<old>Tip used! Ranking disabled...</old>
+			<new>Du har brukt et tips! Gradering er deaktivert...</new>
+		</text>
+		<text>
+			<old>Your rank:</old>
+			<new>Din grad:</new>
+		</text>
+		<text>
+			<old>Use shared highscores on server (all users)</old>
+			<new>Bruk delt rekordoversikt (alle brukere)</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>Your time:</old>
+			<new>Din tid:</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Bruker</new>
+		</text>
+		<text>
+			<old>New game</old>
+			<new>Nytt spill</new>
+		</text>
+		<text>
+			<old>Use colored numbers on tiles</old>
+			<new>Bruk fargede tall</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>Network problem</old>
+			<new>Nettverksproblem</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+		<text>
+			<old>Do you want to start a new game?</old>
+			<new>Vil du starte et nytt spill?</new>
+		</text>
+		<text>
+			<old>Fullscreen</old>
+			<new>Fullskjerm</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Lukk</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Board size :</old>
+			<new>Brettstørrelse:</new>
+		</text>
+		<text>
+			<old>Finished!</old>
+			<new>Fullført!</new>
+		</text>
+		<text>
+			<old>Maybe you should try a higher level...</old>
+			<new>Kanskje du skulle prøve et høyere nivå....</new>
+		</text>
+		<text>
+			<old>Level / board size (%s-%s):</old>
+			<new>Nivå / brettstørrelse (%s-%s):</new>
+		</text>
+		<text>
+			<old>Maximum</old>
+			<new>Maksimalt</new>
+		</text>
+		<text>
+			<old>Configuration</old>
+			<new>Innstillinger</new>
+		</text>
+		<text>
+			<old>Moves</old>
+			<new>Trekk</new>
+		</text>
+		<text>
+			<old>Maximum value on edges:</old>
+			<new>Maksverdi på kantene:</new>
+		</text>
+		<text>
+			<old>[Unknown string]</old>
+			<new>[Ukjent streng]</new>
+		</text>
+		<text>
+			<old>Highscores</old>
+			<new>Rekorder</new>
+		</text>
+		<text>
+			<old>Always remember my last configuration</old>
+			<new>Husk alltid mine siste innstillinger</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Transfering: </old>
+			<new>Laster opp:</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Last opp nå!</new>
+		</text>
+		<text>
+			<old>Size (KB)</old>
+			<new>Størrelse (KB)</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Enkel</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Last opp filer</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Du har ikke tilstrekkelige tillatelser!</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>Angi filens HTTP adresse:</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>Filen er lastet opp.</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>Du har ikke nok ledig plass!</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>Web</old>
+			<new>Web</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Fjern</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Avansert</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Feil ved opplasting!</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Legg til filer, trykk så på "Last opp nå!"</new>
+		</text>
+		<text>
+			<old>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</old>
+			<new>&lt;b&gt;Noen av filene er for store!&lt;/b&gt;&lt;br&gt;Noen av valgte filene er for store, og kan bli avvist av serveren.&lt;br&gt;Vil du fjerne dem nå?</new>
+		</text>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>Feil ved opplasting!</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>"%s" er lastet opp!</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Legg til filer</new>
+		</text>
+		<text>
+			<old>Max filesize allowed</old>
+			<new>Maks tillatte filstørrelse</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filnavn</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Filen er lastet opp.</new>
+		</text>
+		<text>
+			<old>%s MB</old>
+			<new>%s  MB</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Du har ikke tilstrekkelige rettigheter!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Rediger</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Velkommen til %s</new>
+		</text>
+		<text>
+			<old>Unable to save position!</old>
+			<new>Kunne ikke lagre posisjonen!</new>
+		</text>
+		<text>
+			<old>Please wait...</old>
+			<new>Vennligst vent...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Eksempel på eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Endre tekst</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>Ingen prosesser ble drept!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Send an internal message</old>
+			<new>Send en intern melding</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Last opp filer</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Ja</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Nei</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Opprett nytt dokument</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Opprett nytt regneark</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Skal dette elementet åpnes automatisk i neste økt?</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Min lagringskvote</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interne meldinger</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Noen spesialtegn er fjernet.</new>
+		</text>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Angi filnavn:</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Feil ved filoppretting!</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Opprett fil</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Subject</old>
+			<new>Emne</new>
+		</text>
+		<text>
+			<old>To groups</old>
+			<new>Til grupper</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Til</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Ny melding</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Meldingen er sendt</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Lukk</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Feil ved sending av melding</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Legg til fil</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Legg ved</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>Ønsker du virkelig å gjenopprette "%s"?</new>
+		</text>
+		<text>
+			<old>Restore %s</old>
+			<new>Gjenopprett %s</new>
+		</text>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>Du kan ikke gjenopprette "%s" til en virkelig mappe!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>"%s" kunne ikke gjenopprettes!</new>
+		</text>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>"%s" er gjenopprettet til din hjemmemappe!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Godkjenn</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Lørdag</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Lagre som</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Skriv ut</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Posisjon</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åpne</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Lagre</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tirsdag</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Arkstørrelse</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Onsdag</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Vil du virkelig slette cellen(e)?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Torsdag</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Søndag</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stil</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Ny</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februar</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Funksjon</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Sett inn kolonne</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Slett kolonne</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Desember</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopier / lim inn denne koden i andre regnearkprogrammer (f.eks. Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Fredag</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Mars</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Sett inn rad</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Mandag</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Slett rad</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januar</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>LØ</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>L</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Søn</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>O</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Ons</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Lør</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Last opp</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Tir</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TO</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Tor</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Man</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februar</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>pakket ut</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Feil %s</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Desember</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Fre</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januar</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Mars</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Flere filer</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>System console log</old>
+			<new>Logg for systemkonsoll</new>
+		</text>
+		<text>
+			<old>Clean</old>
+			<new>Tøm</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Fant ingen kontaktpersoner i filen!</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Finner ikke filen!</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>Feil under oppstart av vCardimport. Kontakt administrator!</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importer</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Importer %s</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Filen er importert!</new>
+		</text>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Ønsker du virkelig å importere dette vCardet?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Feil ved fileksport!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Avbryt</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Fant ikke mappen</new>
+		</text>
+	</part>
+</lang>

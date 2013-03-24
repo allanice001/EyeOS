@@ -1,0 +1,98 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+
+function eyeUpload_run($params=null) {
+	global $myPid;
+	global $checknum;
+	global $sessionId;
+	$XML = eyeXML('getXMLfile',array(um('getCurrentUserDir') . CONF_USER_DIR . '/eyeUpload/conf.xml'));
+	$isLinux = utf8_strpos(utf8_strtolower($_SERVER['HTTP_USER_AGENT']),'linux');
+	$isMac = utf8_strpos(utf8_strtolower($_SERVER['HTTP_USER_AGENT']),'mac os x');
+	
+	/*v && $params[2] != 1){
+		//If flash is not forced
+		if($XML['eyeUpload'][0]['forceFlash'][0] != '1'){
+			//And the platform don't have the flash bug
+			if($isLinux === false && $isMac === false){
+				proc('end');		
+				proc('launch',array('eyeUploadX',array($params[0],$params[1])));
+				return true;	
+			}				
+		//If flash is forced 
+		}elseif($XML['eyeUpload'][0]['forceFlash'][0] == '1'){
+			proc('end');		
+			proc('launch',array('eyeUploadX',array($params[0],$params[1])));
+			return true;
+		}		 		
+	}*/
+	
+	
+	if(is_array($params)) {
+		$path = $params[0];
+		$callback = $params[1];
+	}
+	if(isset($params[3]) && $params[3] == true){
+		$width = 410;
+		$height = 272;
+		$multiple = '';			
+	}else{			
+		$width = 470;
+		$height = 270;
+		$multiple = 1;
+	}
+	
+	$myWindow = new Window(array(
+		'name'=>'uploadWND_Parent',
+		'father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,
+		'cent'=>1,
+		'width'=>$width,
+		'height'=>$height,
+		'title'=>'Upload files',
+		'showDragContent'=>true
+	));
+	$myWindow->show();
+	$myTab = new Tab(array(
+		'name' => 'tabs',
+		'father' => 'uploadWND_Parent_Content',
+		'width' => $width-2,
+		'height' => $height-60,
+		'x' => 0,
+		'y' => 5
+	));
+	$myTab->show();
+	$systemTab = $myTab->addTab('Simple',2);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeUpload/tabs/normal.eyecode');
+	
+	if($_SESSION['SCREEN']['flash'] && $_SESSION['SCREEN']['flash_version'] >= 8) {
+		$flashTab = $myTab->addTab('Advanced',1);
+		include_once(EYE_ROOT.'/'.APP_DIR.'/eyeUpload/tabs/flash.eyecode');
+	}
+}
+
+function eyeUpload_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

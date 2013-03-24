@@ -1,0 +1,1684 @@
+<lang>
+	<info>
+		<lang>Romana</lang>
+		<lang-en>Romanian</lang-en>
+		<author>Grizzly &amp; cadi</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Actualizare</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Gestiunea Bărilor</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Instalează Alicaţii</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplicaţii</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>Numele fişierului</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Fişierele au fost extrase cu succes.</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Fişierul nu poate fi deschis</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Tipul fişierului comprimat nu este suportat</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Fişierele nu au fost extrae cu succes</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Extrage</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Extrage în...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Comprimă în...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Comprimare reuşită</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Comprimare eşuată</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Managerul de arhive</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Comprimă</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Trimite</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Şterge</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Calculator</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Două calendare nu pot împărţi aceeaşi identiate!</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>Text pentru acest eveniment</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Arată</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Înapoi</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Două calendare nu pot împarţi acelaşi nume!</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Săptămână</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Astăzi</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Prelucrează</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Modul fereastră</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Specificaţi numele calendarului</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Următorul</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Calendar adăutgat cu succes</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Cel puşin, de un calendar este nevoie!</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Configuraţie salvată cu succes</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Valoare invalida a checkbox-ului</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Zi</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Configurare calendar</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Adaugă calendar</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Calendare</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Te rog alege un grup pentru al şterge</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Te rog alege o comandă ce va fi editată</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Te rog alege o comandăce va fi şterarsă</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Te rog alege un grup pentru al seta ca şi grup implicit</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Te rog alege un mirror pentru a fi testat</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Te rog alege un user pentru a fi editat</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Te rog alege şir ce va fi şters</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Te rog alege un mirror pentru a-l edita</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Te rog alege un mirror pentru a fi şters</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Privat</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Parolă</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Adresa mirror(exemplu %s )</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Gestionează motorul de căutare implicit</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Gestionează semene de carte implicite</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Principal</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Mirror salvat cu succes</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Mirror</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Parolă schimbată cu succes.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Altele</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Noua imagine de fundal setat cu succes.</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Comandă nouă</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Te rog corectează tipul setărilor</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Te rog scrie o comandă!</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Aici este o problemă, dacă ştergi grupul.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Teme</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Mirror a fost instalat!</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Grupul ales este deja grup implicit!</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Scrie comanda, care vrei să-ţi ruleze la logare.</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Scrie numele grupului care vrei să-l creezi:</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Userul a fost creeat cu succes.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Te rog alege un grup pentru al edita</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Spaţiu folosit:</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Foloseşte imagine ecran comandată</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Scrie noua adresa a mirror:</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistem</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>FotoEcran</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Repozitare</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Redenumşte</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Te rog scrie o adresa!</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Motorul de căutare este importat cu succes.</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Sekectează un fişier</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Preferinţe sistem</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Pagină de start</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Scuze, acest fişie nu permite ca sa fie imagine de ecran</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Setare un implicit</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>UItăte &amp; Simte</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Limbă</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Schimbă tema curentă</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Schimbă parola actuală</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Semnele de carte au fost importate succes.</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Semne de carte şi motorul de căutare a fost exportat cu succes.</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Schimbă imaginea de fundal</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Schimbă setările eyeBoard</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Curăţă oneye</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Schimbările salvate cu succes.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Schimbările au fost salvate cu succes şi userul acualizat.</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Schimbă limba</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Comenzi cu autopornire</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Adaugă mirror</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Adaugă un nou utilizator la sistemul tau oneye</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Despre mine</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>userul(rii) %s înregistraţi.</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Adaugă</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administrare</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Permite upload pe web</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Permite înregistrare de usere</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Permite directoare publice</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Comandă adăugată cu succes.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Comanda salvată cu succes.</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Editează</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Editează mirror</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Editează comandă</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Sigur vrei să ştergi acest user din sistem?</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Exportă semene de carte implicite şi motoarele de căutare</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Exportă</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importă</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grupuri</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Nume Grup</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Fişierul a fost descărcat cu succes.</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Sigur vrei să ştergi aceast mirror din eyeSoft?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Sigur vrei să ştergi acest grup din sistem?</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Setările implicite au fost setate cu succes.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Grup implicit %s / %s grup(uri)</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Configurează pagina de start</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Comenzi</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Şterge grup</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s comanda(enzi)</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Sigur vrei să ştergi această comandă?</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Desktop</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Şterge mirror</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s mirror(s)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Upload files</old>
+			<new>Încarcă fişiere</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Bine ai venit în %s, %s.</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Reîmprospătare</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Proprietăţi</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Preferinţe</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Lipire</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Copie</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarcă</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select</old>
+			<new>Selectează</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Selectează un director</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nume</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Public Board</old>
+			<new>Panou Public</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Reţea</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Editor Text</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Birou</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Manager de procese</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Messenger Local</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>Client FTP</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Jocuri</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Calculator</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Sah</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Manager FIşiere</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Document salvat cu succes.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Upload files</old>
+			<new>Încarcă fişiere</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Lipeşte</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Proprietăţi</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Redenumeşte</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarcă</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Descarcă în zip</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Acţiuni</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Copie</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Şterge</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Redenumeşte fişier/director</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Redenumeşte</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Selectează un fişier pentru a fi încărcat la adresa:</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Scrie numele noului fişier</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Reîmprospătare</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Scrie noul nume/locaţie a fişierului/directorului</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Permisii</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Încarcă un fişier</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Trebuie sa selectezi un host pentru ştergere</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Trebuie sa selectezi un host pentru editatare</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Trebuie sa selectezi un host pentru încărcat</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Trebuie să specifici un nume de host, un port şi un username</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Redenumeşte/Mută</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Trebuie să selectezi un fişier sau un director</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Trebuie să te conectezi în primul rând!</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Încarcă</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>User:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Parolă:</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Parolă</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Şterge selecţie</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Şterge</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Deconectează</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Editează Selecţie</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarcă</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Şterge fişier/director</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Sigur vrei să ştergi acest fişier/director?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Conectează</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Nume fişier</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Activează modul pasiv</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Gestiune de host-uri</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Director Nou</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Proprietar</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Încarcă Selecţie</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Numele host-ului</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Ajutor</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Host:</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Adaugă host</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dată</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Previous</old>
+			<new>Înapoi</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Înainte</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Selectează directorul unde vrei să imporţi fişierele.</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>mportă</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Răsfoieşte</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s fişiere importate!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Pachet instalat cu succes!</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Doar userul root poate instala pachete</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Nimic de instalat!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instalez</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Acceptă</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Vrei să instalezi acest pachet în sistem?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Scrie numele aplicaţiei sau comandă pentru a rula</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Rulează</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s nu a fost găsit</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Reîmprospătare</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>To</old>
+			<new>Către</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Trimite</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Readuce</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Retrimite</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Coş</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Necitit</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Subiect</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Trebuie să alegi un mesaj ca deschizi</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Trebuie să alegi un mesaj pentru a şterge</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Reîmprospătare</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Citeşte</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Gol</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Descarcă</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>De la</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Mesaj citit</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Mesaj readus în directorul iniţial</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Inbox</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Ataşează</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Fişierul salvat cu succes</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Scrie numele noului director</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Unele caractere speciale vor fi şterse</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Startpage</old>
+			<new>Pagina de start</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Deschide pentru a căuta</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Deschide semnele de carte</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Legăturile au fost salvate cu succes.</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Legătură au fost şterse cu succes.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Caută</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Pagină web</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Mai exista un semn de carte cu aceaşi denumire!</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Setări</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Ştire</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forum</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Semne de carte</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Denumirea semnului de carte</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Înapoi</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Adaugă semne de carte</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Şterge semn de carte</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Imagini</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Înainte</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Vrei să ştergi aceast semn de carte?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Unable to create file</old>
+			<new>Nu se poate creea fişierul</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Scuze, nu ai suficient acces</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Fişierul a fost salvat cu suces</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Scuze, nu ai suficient acess</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Înainte</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Înapoi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Nume proces</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Proces închis cu succes</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Scuze, nu ai suficient acces</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Search</old>
+			<new>Căutare</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Sugestii: %s</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Te rog alege aplicaţia, pe care vrei să o instalezi.</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Doar userul root poate instala aplicaţii.</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Licenţa: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Nume: %s</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Aplicaţia a fost dezinstalată cu succes</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Dezinstalează</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versiune</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Te rog alege aplicaţia, pe care vrei să o dezinstalezi</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Versiune: %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Actualizează</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Dezinstalează aplicaţie</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instalez</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Instalat</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Autor: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Categorii</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Numele aplicaţiei</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Acceptă</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Categorie: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Dependinţe: %s</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Lista pachetelor actualizate</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Descarc şi instalez %s... te rog aşteaptă</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Instalează</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Vrei să dezinstalezi această aplicaţie?</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s descărcarea este coruptă! Instalare oprită.</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Descriere: %s</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s instalat cu succes!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Output Text</old>
+			<new>Text de iesire</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Timpul ultimei executii: %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Text de intrare</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Entităţi HTML</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Şterge entităţile HTML</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Din Roman în Decimal</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 este deteriorat</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>Codifică URL</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>Decodifică URL</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Din Hexa în ASCII</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye este deteriorat</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Intrare cu autoştergere</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Din ASCII în Hexa</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Adaugă o nouă linie la sfârşit</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 Encode</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Din Decimal în Roman</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Ieşire comunicată</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Şterge</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Adaugă intrare la ieşire</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 Decode</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Upload files</old>
+			<new>Încarcă fişiere</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>Editează</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello Lume!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Exemplu eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Schimbă textul etichetei</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Position</old>
+			<new>Poziţie</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Este celulă/e vidă/e?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Sâmbătă</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Deschide</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Salvează</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Noiembrie</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Octombrie</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Septembrie</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Marţi</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Miercuri</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Tipăreşte</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Joi</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Duminică</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Dimensiunea Paginii</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stilul</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nou</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Luni</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Şterge rând</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februarie</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Vineri</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formulă</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Şterge coloană</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Copiază/ Lipeşte acest cod în alt celulă a aplicaţiei</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Inserează coloană</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Inseriază linie</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Martie</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Iunie</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Iulie</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Ianuarie</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Aprilie</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Decembrie</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Septembrie</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>D</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Dum</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Octombrie</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>Ma</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>Mi</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Mi</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sam</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Ma</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Joi</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>J</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Noiembrie</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Lun</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februarie</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Ianuarie</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Vin</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>V</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Auust</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Iulie</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Iunie</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Martie</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>L</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Aprilie</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Decembrie</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>File Imported!</old>
+			<new>Fişiere importate</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Directorul nu există</new>
+		</text>
+	</part>
+</lang>

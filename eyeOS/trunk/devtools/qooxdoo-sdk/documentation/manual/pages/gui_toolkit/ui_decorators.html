@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Decorators &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="GUI Toolkit" href="../gui_toolkit.html" />
+    <link rel="next" title="Using themes of contributions in your application" href="ui_using_themes_of_contribs.html" />
+    <link rel="prev" title="Custom Themes" href="ui_custom_themes.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ui_using_themes_of_contribs.html" title="Using themes of contributions in your application"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ui_custom_themes.html" title="Custom Themes"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../gui_toolkit.html" accesskey="U">GUI Toolkit</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="decorators">
+<span id="pages-gui-toolkit-ui-decorators-decorators"></span><h1>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<span id="pages-gui-toolkit-ui-decorators-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Decorations are used to style widgets. The idea is to have an independent layer around the widget content that can be freely styled. This way you can have separate decorators that define all kinds of decoration (colors, background image, corners, ...), and apply them to existing widgets, without interfering with the widget code itself.</p>
+<p>Decorations are used for both, the <tt class="docutils literal"><span class="pre">shadow</span></tt> and the <tt class="docutils literal"><span class="pre">decorator</span></tt> property. They could be applied separately or together. There is no dependency between them.</p>
+</div>
+<div class="section" id="using-decorators">
+<span id="pages-gui-toolkit-ui-decorators-using-decorators"></span><h2>Using Decorators<a class="headerlink" href="#using-decorators" title="Permalink to this headline">¶</a></h2>
+<p>Generally all decorators used should be part of the selected decorator theme. The convention is that each decorator instance is stored under a semantic name. To use names which describe the appearance of the decorator is bad because it may make themes less compatible to each other.</p>
+<p>It is also regarded as bad style to make use of so-named inline decorators which are created by hand as part of a function call. The reason for this is that generally decorators defined by the theme may be used in multiple places. This means that widgets and application code should not directly deal with decorator instances.</p>
+</div>
+<div class="section" id="custom-decorators">
+<span id="pages-gui-toolkit-ui-decorators-custom-decorators"></span><h2>Custom Decorators<a class="headerlink" href="#custom-decorators" title="Permalink to this headline">¶</a></h2>
+<p>Custom decorators are created by extending the decorator theme and adding new ones or overwriting existing ones. Each decorator class comes with a set of properties for configuration of the instance. Following a short description of the available decorators:</p>
+<ul class="simple">
+<li><strong>Background</strong>: Renders a background image or color</li>
+<li><strong>Uniform</strong>: Like <tt class="docutils literal"><span class="pre">Background</span></tt>, but adds support for a uniform border which is identical for all edges.</li>
+<li><strong>Single</strong>: Like <tt class="docutils literal"><span class="pre">Background</span></tt>, but adds support for separate borders for each edge.</li>
+<li><strong>Double</strong>: Like <tt class="docutils literal"><span class="pre">Single</span></tt> but with the option to add two separate border to each edge.</li>
+<li><strong>Beveled</strong>: Pseudo (lightweight) rounded border with support for inner glow. May contain a background image / gradient.</li>
+<li><strong>Grid</strong>: Complex decorator based on nine images. Allows very customized styles (rounded borders, alpha transparency, gradients, ...). Optionally make use of image sprites to reduce image number.</li>
+</ul>
+<p>Each entry of the theme is automatically made available using the <tt class="docutils literal"><span class="pre">setDecorator</span></tt>/<tt class="docutils literal"><span class="pre">setShadow</span></tt> functions of the widget class. The instances needed are automatically created when required initially. This mechanism keeps instance numbers down and basically ignores decorators which are defined but never used.</p>
+</div>
+<div class="section" id="writing-decorators">
+<span id="pages-gui-toolkit-ui-decorators-writing-decorators"></span><h2>Writing Decorators<a class="headerlink" href="#writing-decorators" title="Permalink to this headline">¶</a></h2>
+<p>It is easily possible to write custom decorators. <a class="reference external" href="hhttp://demo.qooxdoo.org/1.3/apiviewer/#qx.ui.decoration.IDecorator">The interface</a> is quite trivial to implement. There are only five methods which needs to be implemented:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">getInsets</span></tt>: Returns a map of insets (space the decorator needs) e.g. the border width</li>
+<li><tt class="docutils literal"><span class="pre">getMarkup</span></tt>: Returns the initial markup needed to build the decorator. This is executed by each widget using the decorator. This method may not be used by some decorators and this way is defined as an empty method.</li>
+<li><tt class="docutils literal"><span class="pre">init</span></tt>: Normally used to initialize the given element using <tt class="docutils literal"><span class="pre">getMarkup</span></tt>. Only executed once per element (read per widget).</li>
+<li><tt class="docutils literal"><span class="pre">resize</span></tt>: Resizes the given element to the given dimensions. Directly works on the DOM to manipulate the content of the element.</li>
+<li><tt class="docutils literal"><span class="pre">tint</span></tt>: Applies the given background color or resets it to the (optionally) locally defined background color. This method may not be used by some decorators and this way is defined as an empty method.</li>
+</ul>
+<p>One thing to additionally respect is that <tt class="docutils literal"><span class="pre">resize</span></tt> and <tt class="docutils literal"><span class="pre">tint</span></tt> should be as fast as possible. They should be as minimal as possible as they are executed on every switch to the decorator (e.g. hover effects). All things which are possible to do once, in <tt class="docutils literal"><span class="pre">getMarkup</span></tt> or <tt class="docutils literal"><span class="pre">init</span></tt> methods, should be done there for performance reasons. Decorators are regarded as imutable. Once they are used somewhere there is no need to be able to change them anymore.</p>
+<p>Each decorator configuration means exactly one decorator instance (created with the first usage). Even when dozens of widgets use the decorator only one instance is used. To cache the markup is a good way to improve the initial time to create new element instances. These configured elements are reused e.g. a hover effect which moves from &quot;Button 1&quot; to &quot;Button 2&quot; uses the same DOM element when reaching &quot;Button 2&quot; as it has used in &quot;Button 1&quot;. This way the number of DOM elements needed is reduced dramatically. Generally each decorator instance may be used to create dozens of these elements, but after some time enough elements may have been created to fulfill all further needs for the same styling.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Decorators</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#using-decorators">Using Decorators</a></li>
+<li><a class="reference internal" href="#custom-decorators">Custom Decorators</a></li>
+<li><a class="reference internal" href="#writing-decorators">Writing Decorators</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="ui_custom_themes.html"
+                                  title="previous chapter">Custom Themes</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="ui_using_themes_of_contribs.html"
+                                  title="next chapter">Using themes of contributions in your application</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/gui_toolkit/ui_decorators.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

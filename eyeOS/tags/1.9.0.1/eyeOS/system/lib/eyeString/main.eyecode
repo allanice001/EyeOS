@@ -1,0 +1,83 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function lib_eyeString_start(){
+	if(lib_eyeString_isStrOverLoad()){
+		//TODO: read more about this.
+		define('STROVERLOAD',1);
+	}
+	if(!lib_eyeString_PCREUTF8()){
+		//TODO: check eyeOS colaterals.
+		define('NOPCREUTF8',1);
+	}
+	//If server don't have any method for handle utf8, using normal functions wrapper
+	if(FORCE_NOUTF8 == 1){
+		require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/replaces/utf8_fakes.eyecode';
+    	return true;
+    }
+    
+    //If server have mbstring, use it
+    if(lib_eyeString_isMbLoaded()){
+		//forcing UTF8 encode in to mbstring.
+		mb_internal_encoding('UTF-8');
+    	require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/replaces/mbstring_core.eyecode';
+    	require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/replaces/utf8_functions.eyecode';    
+    }else if(!defined('NOPCREUTF8')){
+    	//As last resource using PCRE with utf8.
+    	require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/utils/unicode_util.eyecode';
+    	require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/replaces/native_core.eyecode';
+    	require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/replaces/utf8_functions.eyecode';
+    }else{
+    	require_once EYE_ROOT.'/'.SYSTEM_DIR.'/'.LIB_DIR.'/eyeString/replaces/utf8_fakes.eyecode';
+    }
+    
+    return true;              
+}
+
+function lib_eyeString_isStrOverload(){
+	//If mbString functions are overloading str php functions, don't load any.
+    if (ini_get('mbstring.func_overload') && defined('MB_OVERLOAD_STRING')){
+		return true;        	    
+    }else{
+    	return false;    
+    }    
+}
+
+function lib_eyeString_isMbLoaded(){
+	if(extension_loaded('mbstring') || function_exists('mb_substr')){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function lib_eyeString_PCREUTF8(){
+	$UTF8_ar = array();
+	if (preg_match('/^.{1}$/u',"ñ",$UTF8_ar) != 1) {
+	    return false;
+	}else{
+		return true;
+	}
+}
+
+?>

@@ -1,0 +1,184 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+$ContentY = 10;
+// Username
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newuser_label_username',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Username'
+));
+$myLabel->show();
+$myTextbox_username = new Textbox(array(
+	'name' => 'eyeControl_newuser_textbox_username',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY
+));
+$myTextbox_username->show();
+$ContentY = $ContentY + 30;
+// Password
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newuser_label_password',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Password'
+));
+$myLabel->show();
+$myTextbox_password = new Textbox(array(
+	'name' => 'eyeControl_newuser_textbox_password',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'password' => 1
+));
+$myTextbox_password->show();
+$ContentY = $ContentY + 30;
+// Password (again)
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newuser_label_pwd_again',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Password (again)'
+));
+$myLabel->show();
+$myTextbox_pwd_again = new Textbox(array(
+	'name' => 'eyeControl_newuser_textbox_pwd_again',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'password' => 1
+));
+$myTextbox_pwd_again->show();
+$ContentY = $ContentY + 30;
+// Full name
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newuser_label_fullname',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Full name'
+));
+$myLabel->show();
+$myTextbox_fullname = new Textbox(array(
+	'name' => 'eyeControl_newuser_textbox_fullname',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY
+));
+$myTextbox_fullname->show();
+$ContentY = $ContentY + 30;
+// Email
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newuser_label_email',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Email'
+));
+$myLabel->show();
+$myTextbox_email = new Textbox(array(
+	'name' => 'eyeControl_newuser_textbox_email',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY
+));
+$myTextbox_email->show();
+$ContentY = $ContentY + 30;
+// Groups
+$myLabel = new Label(array(
+	'name' => 'eyeControl_newuser_label_groups',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY + 3,
+	'text' => 'Groups'
+));
+$myLabel->show();
+// $myWindow
+$myWindow = new Window(array(
+	'name' => 'eyeControl_newuser_window_groups',
+	'father' => $eyeContainer,
+	'x' => 160,
+	'y' => $ContentY,
+	'width' => 375,
+	'height' => 100,
+	'type' => INVISIBLE_WINDOW
+));
+$myWindow->show();
+$myWindow->setCss(array(
+	'overflow' => 'auto',
+	'direction' => 'rtl'
+));
+// $myContainer
+	$myContainer = new Container(array(
+	'name' => 'eyeControl_newuser_container_groups',
+	'father' => 'eyeControl_newuser_window_groups',
+	'y' => 0,
+	'x' => 0,
+	'width' => 375
+));
+$myContainer->show();
+$myContainer->setCss(array(
+	'direction' => 'ltr'
+));
+$ContentY = $ContentY + 120;
+// Create user
+$myButton = new Button(array(
+	'name' => 'eyeControl_newuser_button_save',
+	'father' => $eyeContainer,
+	'x' => 40,
+	'y' => $ContentY,
+	'caption' => 'Create user',
+	'signal' => 'newuser_save'
+));
+// Add all groups as Checkbox to $myWindow
+$ContentY_win = 0;
+$dir = EYE_ROOT . '/' . GROUPS_DIR . '/';
+$openDir = vfs('real_getDirContent',array($dir));
+foreach ($openDir as $group) {
+	if (is_dir($group)) {
+		$group = basename($group);
+		$myCheckBox = new Checkbox(array(
+			'name' => 'eyeControl_newuser_checkbox_group_' . $group,
+			'father' => 'eyeControl_newuser_container_groups',
+			'text' => $group,
+			'x' => 0,
+			'y' => $ContentY_win,
+			'checked' => ($group == DEFAULT_GROUP)
+		));
+		$myCheckBox->show();
+		$myButton->addFriend($myCheckBox);
+		$ContentY_win = $ContentY_win + 20;
+	}
+}
+$myButton->addFriend($myTextbox_username);
+$myButton->addFriend($myTextbox_password);
+$myButton->addFriend($myTextbox_pwd_again);
+$myButton->addFriend($myTextbox_fullname);
+$myButton->addFriend($myTextbox_email);
+$myButton->show();
+?>

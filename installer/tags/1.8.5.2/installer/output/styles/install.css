@@ -1,0 +1,111 @@
+.allow_register {
+	border: 1px solid gray;
+	left: 200px;
+	position: absolute;
+	top: 59px;
+}
+
+.allow_register_text {
+	left: 15px;
+	position: absolute;
+	top: 60px;
+	width: 200px;
+}
+
+.errorHostname {
+	color: red;
+	left: 420px;
+	position: absolute;
+	top: 25px;
+	width: 260px;
+}
+
+.errorPassword {
+	color: red;
+	left: 420px;
+	position: absolute;
+	top: 40px;
+	width: 260px;
+}
+
+.hostname {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-color: #777777 #cccccc #cccccc #777777;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	left: 150px;
+	position: absolute;
+	top: 24px;
+	width: 260px;
+}
+
+.hostname_text {
+	left: 15px;
+	position: absolute;
+	top: 25px;
+	width: 130px;
+}
+
+.options {
+	height: 90px;
+	left: 20px;
+	position: absolute;
+	top: 254px;
+	width: 714px;
+}
+
+.password {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-color: #777777 #cccccc #cccccc #777777;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	left: 150px;
+	position: absolute;
+	top: 24px;
+	width: 260px;
+}
+
+.password_text {
+	left: 15px;
+	position: absolute;
+	top: 25px;
+	width: 130px;
+}
+
+.password2 {
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-opera-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-color: #777777 #cccccc #cccccc #777777;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	left: 150px;
+	position: absolute;
+	top: 59px;
+	width: 260px;
+}
+
+.password2_text {
+	left: 15px;
+	position: absolute;
+	top: 60px;
+	width: 130px;
+}
+
+.passwords {
+	height: 100px;
+	left: 20px;
+	position: absolute;
+	top: 153px;
+	width: 714px;
+}

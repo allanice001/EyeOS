@@ -1,0 +1,285 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+define('EYEDESK_ICON_SEPARATION',30);
+define('EYEDESK_MINLEN_LINK',39); //minimun lenght of a link pointing to 'a'
+define('EYEDESK_ICON_SIZE','48x48');
+
+function drawDesktop($reload=false) {
+	global $myPid;
+	global $checknum;	
+	$userTheme = eyeSessions('getVar',array('usertheme'));
+	//load user icons from the Desktop dir, begining from the top + 20 and left + 20
+	$counter = 0;
+	$iconNumber = 0;
+	$x = 25;
+	$y = 70;
+	$scrHeight = eyeSessions('getArrayValueByKey',array('SCREEN','height'));
+	
+	//SimpleMenuShow for drop called by behaviour
+	$mySimpleMenu = new SimpleMenu(array('name'=>'drop_simpleMenu','father'=>'eyeApps'));
+	$mySimpleMenu->show();
+	//If the drawDesktop isn't reload or the browser isn't internet explorer
+	if(!$reload != false || IE == 0){
+		$mySimpleMenu->addEntry("<img src=index.php?extern=apps/eyeX/themes/default/icons/16x16/paste.png /> &nbsp;" . i18n('translate',array('Paste')),"MNU_main_eyeDesk_eyePaste","paste");
+	}	
+	//Call dropIcon
+	if(!$reload != false){		
+		$myWidgetDrop = new widgetDrop(array('name'=>'eyeApps_Drop','father'=>'eyeApps'));	
+		$myWidgetDrop->show();
+		//Adding a drop behaviour
+		$dropContent = '/Desktop/'; //Custom behaviour content		
+		//Custom behaviour params
+		$paramsDrop = array('pid'=>$myPid,'widgetId'=>$myPid.'_'.$mySimpleMenu->name,'signal'=>'moveDrag','content'=>$dropContent); 
+		$myWidgetDrop->addBehaviour(array('type'=>'moveAndClick','params'=>$paramsDrop));	
+	}	
+		
+	//open desktop directory
+	$myUserDir = service('um','getCurrentUserDir');
+	$listFile = service('vfs','real_getDirContent',array($myUserDir.'files/Desktop'));
+	$mime = getConfig('mime','mime.xml');
+	service('eyex','rawjs',array('js'=>'cleanDesktop('.$myPid.');'));
+	$store = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeDesk/icons.xml';
+	$pos = reqLib('eyeXML','getXMLfile',array($store));
+	$options = getConfig('eyeDesk','contextFile.xml');
+	$optionsLink = getConfig('eyeDesk','contextLink.xml');
+	
+	$cssDrag = array(array('border','color'),array("1px black dotted","black"));
+	foreach ($listFile as $file){
+		//content that begins with a dot "." are ignored
+		$fileName = utf8_basename($file);
+		$found = false;
+		$handled = false;
+		if ($fileName{0} != ".") {
+			//if current element is a directory
+			if(is_dir($file)){
+	        	//create new icon using a folder icon.
+	          	$myName = "eyeDesk_icon_$iconNumber";	
+          		//get icon size using eyeGraphics
+          		$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/folder.png');
+          		$myWidth = $info[0];
+          		$myHeight = $info[1];
+				$my = false;
+				$mx = false;
+          		if(is_array($pos['icon'])) {
+					foreach($pos['icon'] as $key=>$value) {
+						if($value['name'][0] == $fileName) {
+							$mx =$pos['icon'][$key]['x'][0];
+							$my = $pos['icon'][$key]['y'][0];
+							$handled = true;
+						}
+					}
+				}
+				if(!$mx || !$my) {
+					$mx = $x;
+					$my = $y;
+				}
+           		$myIcon = new Icon(array('name'=>$myName,'text'=>$fileName,'father'=>'eyeApps',
+           		'image'=>'index.php?extern=apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/folder.png',
+           		'content'=>$fileName,'father'=>'eyeApps','x'=>$mx,'y'=>$my,'overBorder'=>1,'overBorderBg'=>'#0a2c5e','overBorderColor'=>'1px #3b567e solid','draggable'=>0));	        			
+	           	$myIcon->show();
+	           	
+	           	$iconMenu = new SimpleMenu(array('name'=>$myName.'_drop_simpleMenu','father'=>'eyeApps','searchFather'=>1));
+				$iconMenu->show();
+				if(!$reload != false || IE == 0){
+					$iconMenu->addEntry("<img src=index.php?extern=apps/eyeX/themes/default/icons/16x16/paste.png /> &nbsp;" . i18n('translate',array('Paste')),"MNU_main_eyeDesk_eyePaste","paste","<arg1>/Desktop/".$fileName."</arg1>");
+				}
+				
+				$WidgetIconDrop = new widgetDrop(array('name'=>$myName.'_Drop','father'=>$myName.'_Container'));	
+				$WidgetIconDrop->show();
+				
+				//Adding a drop behaviour
+				$userHome = um('getCurrentUserDir').FILES_USER_DIR.'/';
+				
+				$dropContent = '/'.str_replace($userHome,'',$file).'/';
+								
+				//Custom behaviour params
+				$paramsDrop = array('pid'=>$myPid,'widgetId'=>$myPid.'_'.$iconMenu->name,'signal'=>'moveDrag','content'=>$dropContent); 
+				$WidgetIconDrop->addBehaviour(array('type'=>'widgetDrop_simpleMsg','params'=>$paramsDrop));
+				
+	           	$myDrag = new widgetDrag(array('name'=>$myName.'_Drag','father'=>$myName.'_Container','content'=>array('/Desktop/'.$fileName,1234,$myPid,$checknum),'clickSignal'=>'Icon_Clicked','dragAlpha'=>80,'dragCss'=>$cssDrag));
+				$myDrag->show();
+	           	$iconNumber++;
+	           	
+	            $myContextMenu = new ContextMenu(array('name'=>$myName.'_menu','father'=>$myName.'_globalContainer','searchFather'=>1,'mfather'=>'eyeApps'));
+	            $myContextMenu->show();
+	            if(!$reload != false || IE == 0){
+					foreach($options['menu'][0]['entry'] as $value) {
+						$myContextMenu->addEntry("<img src=index.php?extern=apps/eyeX/themes/default/icons/16x16/".$value['icon'][0].".png /> &nbsp;".i18n('translate',array($value['text'][0])),'MNU_desk_'.$counter,$value['signal'][0],"<arg1>/Desktop/".$fileName."</arg1>");
+						$counter++;
+					}
+	            }
+	           	$found=true;
+			} elseif(utf8_ltrim(strrchr($file,'.'),'.') == EYEOS_INFO_EXT)  {
+	          	$myName = "eyeDesk_icon_$iconNumber";	          	
+          		//get icon size using eyeGraphics
+          		$icon = 'unknown';          		
+  				$fp = service('vfs','real_open',array($file,'r'));
+				if($fp && filesize($file) > 0) {
+					$xml = fread($fp,filesize($file));
+					fclose($fp);
+					$myArray = reqLib('eyeXML','xml2array',array($xml));
+					$myArray = $myArray['eyeFile'][0];
+					$fileName = $myArray['filename'][0];					
+					$realFileName = str_replace($myUserDir.'/files/','',$current);
+					$tmpName = utf8_basename($realFileName);
+					$realFileName = utf8_substr($realFileName,0,utf8_strlen($realFileName)-utf8_strlen($tmpName));
+					$realFileName .= $fileName;
+					$info = utf8_pathinfo($realFileName);
+					$extension = utf8_strtolower($info['extension']);
+					foreach($mime['mimeTypes'][0]['mime'] as $value) {
+						if($value['extension'][0] == $extension) {
+							$icon = $value['type'][0];
+						}
+					} 
+				}
+          		$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/filetypes/'.$icon.'.png');
+          		$myWidth = $info[0];
+          		$myHeight = $info[1];
+				$my = false;
+				$mx = false;
+          		if(is_array($pos['icon'])) {
+					foreach($pos['icon'] as $key=>$value) {
+						if($value['name'][0] == $realFileName) {
+							$mx =$pos['icon'][$key]['x'][0];
+							$my = $pos['icon'][$key]['y'][0];
+							$handled = true;
+						}
+					}
+				}
+				if(!$mx || !$my) {
+					$mx = $x;
+					$my = $y;
+				}
+           		$myIcon = new Icon(array('name'=>$myName,'text'=>$fileName,'father'=>'eyeApps',
+           		'image'=>'index.php?extern=apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/filetypes/'.$icon.'.png',
+           		'content'=>$realFileName,'father'=>'eyeApps','x'=>$mx,'y'=>$my,'overBorder'=>1,'overBorderBg'=>'#0a2c5e','overBorderColor'=>'1px #3b567e solid','draggable'=>0));	        			
+	           	$myIcon->show();
+	           	//Afiestas: I hardened the Desktop path because it is hardened on real_getDirContent.   	          	
+	           	$myDrag = new widgetDrag(array('name'=>$myName.'_Drag','father'=>$myName.'_Container','content'=>array('/Desktop/'.$realFileName,1234,$myPid,$checknum),'clickSignal'=>'Icon_Clicked','dragAlpha'=>80,'dragCss'=>$cssDrag));
+				$myDrag->show();
+	           	$iconNumber++;
+				$myContextMenu = new ContextMenu(array('name'=>$myName.'_menu','father'=>$myName.'_globalContainer','searchFather'=>1,'mfather'=>'eyeApps'));
+	            $myContextMenu->show();
+	            if(!$reload != false || IE == 0){
+					foreach($options['menu'][0]['entry'] as $value) {
+						$myContextMenu->addEntry("<img src=index.php?extern=apps/eyeX/themes/default/icons/16x16/".$value['icon'][0].".png /> &nbsp;".i18n('translate',array($value['text'][0])),'MNU_desk_'.$counter,$value['signal'][0],"<arg1>/Desktop/".$realFileName."</arg1>");
+						$counter++;
+					}
+	            }
+	           	$found = true;	
+			} elseif(is_file($file)){				
+				if(utf8_ltrim(strrchr($file,'.'),'.') == EYEOS_LINK_EXT) {	
+					//open the link
+					if(filesize($file)>=EYEDESK_MINLEN_LINK) {
+						$fp = service('vfs','real_open',array($file,'r'));
+						if($fp) {
+							//now, read the link content, and put it into the link
+							$fileContent = fread($fp,filesize($file));
+							fclose($fp);
+							$xml = reqLib('eyeXML','xml2array',array($fileContent));
+							$linkContent = "";
+							$linkIcon='link';
+							
+							if($xml['eyeLink'][0]) {
+								if($xml['eyeLink'][0]['content'][0]) {
+									$linkContent = service('sec','cleanOutPutString',array('var'=>$xml['eyeLink'][0]['content'][0],'nohtml' => 1));
+									if(isset($xml['eyeLink'][0]['args']) && is_array($xml['eyeLink'][0]['args'])) {
+										$args = $xml['eyeLink'][0]['args'][0];
+									} else {
+										$args = "";
+									}
+								}
+								if($xml['eyeLink'][0]['icon'][0]) {
+									$linkIcon = $xml['eyeLink'][0]['icon'][0];
+								}
+							} 
+							
+							$publicName = utf8_substr($fileName,0,utf8_strlen($fileName)-utf8_strlen(EYEOS_LINK_EXT)-1);
+							$myName = "eyeDesk_icon_$iconNumber";
+							if(file_exists(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png')) {
+								$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png');
+							} else {
+								$info[0] = 0;
+								$info[1] = 1;
+							}
+							$myWidth = $info[0];
+							$myHeight = $info[1];
+							$my = false;
+							$mx = false;
+			          		if(is_array($pos['icon'])) {
+								foreach($pos['icon'] as $key=>$value) {
+									if($value['name'][0] == $linkContent) {
+										$mx =$pos['icon'][$key]['x'][0];
+										$my = $pos['icon'][$key]['y'][0];
+										$handled = true;
+									}
+								}
+							}
+							if(!$mx || !$my) {
+								$mx = $x;
+								$my = $y;
+							}
+							$myLinkIcon = new Icon(array('name'=>$myName,'text'=>$publicName,'father'=>'eyeApps',
+									'image'=>'index.php?extern=apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png',
+		           					'realname'=>EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png',
+		           					'content'=>array($linkContent,$args),'father'=>'eyeApps','x'=>$mx,'y'=>$my,'overBorder'=>1,'overBorderBg'=>'#0a2c5e','overBorderColor'=>'1px #3b567e solid','draggable'=>0));	  
+		           			$myLinkIcon->show();		  
+		           			if($linkContent == 'eyeTrash.app'){
+		           				$myWidgetDrop = new widgetDrop(array('name'=>'eyeTrash_Drop','father'=>$myName.'_Container','sender'=>'eyeTrashDroped'));	
+								$myWidgetDrop->show();       			
+		           			}
+		           			$myDrag = new widgetDrag(array('name'=>$myName.'_Drag','father'=>$myName.'_Container','content'=>array($linkContent,1234,$myPid,$checknum),'clickSignal'=>'Icon_Clicked','dragAlpha'=>80,'dragCss'=>$cssDrag));
+							$myDrag->show();
+		           			$iconNumber++;
+				            $myContextMenu = new ContextMenu(array('name'=>$myName.'_menu','father'=>$myName.'_globalContainer','searchFather'=>1,'mfather'=>'eyeApps'));
+				            $myContextMenu->show();
+				            if(!$reload != false || IE == 0){
+								foreach($optionsLink['menu'][0]['entry'] as $value) {
+									$myContextMenu->addEntry("<img src=index.php?extern=apps/eyeX/themes/default/icons/16x16/".$value['icon'][0].".png /> &nbsp;".i18n('translate',array($value['text'][0])),'MNU_desk_'.$counter,$value['signal'][0],"<arg1>/Desktop/".$publicName."</arg1>");
+									$counter++;
+								}
+				            }
+						}
+					}
+					$found = true;
+				} 
+			}
+			if($found) {
+				$counter++;
+	           	//make a separation between icons relative to icon size + 30.
+	           	if(!$handled) {
+	           		$y += $myHeight+EYEDESK_ICON_SEPARATION;
+		           	if($y > ($scrHeight-$myHeight-EYEDESK_ICON_SEPARATION)) {
+		           		$y = 70;
+		           		$x = $myWidth + EYEDESK_ICON_SEPARATION;
+		           	}
+	           	}
+           		$found = false;
+           		$handled = false;
+			}
+		}
+	}
+}
+
+?>

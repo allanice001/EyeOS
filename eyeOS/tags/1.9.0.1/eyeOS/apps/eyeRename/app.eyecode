@@ -1,0 +1,37 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeRename_run($params = '') {
+	include_once(EYE_ROOT . '/' . APP_DIR . '/eyeRename/events' . EYE_CODE_EXTENSION);
+	$file = utf8_basename($params[0]);
+	if (!$params[2]) {
+		$params[2] = $params[0];
+	}
+	$file2 = utf8_basename($params[2]);
+	eyeRename_libs_Do(utf8_substr(utf8_rtrim($params[0],'/'),0,- utf8_strlen($file)),$file,utf8_substr(utf8_rtrim($params[2],'/'),0,- utf8_strlen($file2)),$file2,$params[1]);
+}
+  
+function eyeRename_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

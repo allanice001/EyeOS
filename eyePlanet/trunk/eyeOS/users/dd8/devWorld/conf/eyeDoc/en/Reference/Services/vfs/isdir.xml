@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>isdir</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Checks if a file is a directory.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>isdir</functionName>
+		<syntax>bool vfs('isdir', array(string $file))</syntax>
+		<desc>Checks if a given path points to a directory.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to check.</desc>
+		</params>	
+		<return>If the file provided is a directory returns true, otherwise returns false. If there is any error, sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No file has been specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

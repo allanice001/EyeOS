@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>checkArrayValueByKey</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyesessions</tag>
+		</tags>
+		<shortDesc>Checks if a variable's element exists.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>checkArrayValueByKey</functionName>
+		<syntax>eyeSessions('checkArrayValueByKey', array($varName, $varKey))</syntax>
+		<desc>Checks whether the element varKey of the session array variable varName is set.</desc>
+		<params>
+			<type>required</type>
+			<name>varName</name>
+			<desc>Name of the variable.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>varKey</name>
+			<desc>Key of the variable to check.</desc>
+		</params>
+		<return>If the variable has a an element with the given key set, returns true. If not, returns false.</return>
+	</definition>
+</info>

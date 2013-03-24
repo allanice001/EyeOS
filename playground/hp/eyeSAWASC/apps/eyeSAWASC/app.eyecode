@@ -1,0 +1,209 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeSAWASC_run($params=null) {
+	
+	$wndSAWASC = new Window(array(
+		'name'=>'eyeSAWASC_WND',
+		'title'=>'SAWASC Test',
+		'father'=>'eyeApps',
+		'type'=>NORMAL_WINDOW,
+		'sendResizeMsg'=>1,
+		'sigResize'=>'WNDResize',
+		'width'=>340,
+		'height'=>240,
+		'x'=>20,
+		'y'=>20,
+		'cent'=>1,
+		//'showDragContent'=>1,
+		'savePosition'=>1
+	));
+	$wndSAWASC->show();
+	
+	$conServer = new Container(array(
+		'name'=>'eyeSAWASC_conServer',
+		'father'=>'eyeSAWASC_WND_Content',
+		'width'=>$wndSAWASC->width - 25,
+		'height'=>($wndSAWASC->height / 3) - 30,
+		'x'=>5,
+		'y'=>5
+	));
+	$conServer->show();
+	
+	$lblServer = new Label(array(
+		'name'=>'eyeSAWASC_lblServer',
+		'father'=>'eyeSAWASC_conServer',
+		'cent'=>0,
+		'text'=>'Server Test (Using PHP):',
+		'width'=>$conServer->width - 15,
+		'x'=>5,
+		'y'=>5
+	));
+	$lblServer->show();
+	
+	$txtServerIn = new Textbox(array(
+		'name'=>'eyeSAWASC_txtServerIn',
+		'father'=>'eyeSAWASC_conServer',
+		'enabled'=>1,
+		'width'=>$conServer->width - 60,
+		'x'=>5,
+		'y'=>23
+	));
+	$txtServerIn->setText('Input Here');
+	$txtServerIn->show();
+	
+	$btnServer = new Button(array(
+		'name'=>'eyeSAWASC_btnServer',
+		'father'=>'eyeSAWASC_conServer',
+		'caption'=>'Test',
+		'signal'=>'btnServer_Click',
+		'horiz'=>1,
+		'height'=>18,
+		'x'=>1,
+		'y'=>23
+	));
+	$btnServer->addFriend($txtServerIn);
+	$btnServer->show();
+	
+	$txtServerOut = new Textbox(array(
+		'name'=>'eyeSAWASC_txtServerOut',
+		'father'=>'eyeSAWASC_conServer',
+		'enabled'=>0,
+		'width'=>$conServer->width - 10,
+		'x'=>5,
+		'y'=>48
+	));
+	$txtServerOut->setText('Output Here');
+	$txtServerOut->show();
+
+	$conClient = new Container(array(
+		'name'=>'eyeSAWASC_conClient',
+		'father'=>'eyeSAWASC_WND_Content',
+		'width'=>$wndSAWASC->width - 25,
+		'height'=>($wndSAWASC->height / 3) - 30,
+		'x'=>5,
+		'y'=>($wndSAWASC->height / 3)
+	));
+	$conClient->show();
+	
+	$lblClient = new Label(array(
+		'name'=>'eyeSAWASC_lblClient',
+		'father'=>'eyeSAWASC_conClient',
+		'cent'=>0,
+		'text'=>'Client Test (Using Javascript):',
+		'width'=>$conClient->width - 15,
+		'x'=>5,
+		'y'=>5
+	));
+	$lblClient->show();
+	
+	$txtClientIn = new Textbox(array(
+		'name'=>'eyeSAWASC_txtClientIn',
+		'father'=>'eyeSAWASC_conClient',
+		'enabled'=>1,
+		'width'=>$conClient->width - 60,
+		'x'=>5,
+		'y'=>23
+	));
+	$txtClientIn->setText('Input Here');
+	$txtClientIn->show();
+	
+	$btnClient = new Button(array(
+		'name'=>'eyeSAWASC_btnClient',
+		'father'=>'eyeSAWASC_conClient',
+		'caption'=>'Test',
+		'signal'=>'btnClient_Click',
+		'horiz'=>1,
+		'height'=>18,
+		'x'=>1,
+		'y'=>23
+	));
+	$btnClient->addFriend($txtClientIn);
+	$btnClient->show();
+	
+	$txtClientOut = new Textbox(array(
+		'name'=>'eyeSAWASC_txtClientOut',
+		'father'=>'eyeSAWASC_conClient',
+		'enabled'=>0,
+		'width'=>$conClient->width - 10,
+		'x'=>5,
+		'y'=>48
+	));
+	$txtClientOut->setText('Output Here');
+	$txtClientOut->show();
+
+	$conTester = new Container(array(
+		'name'=>'eyeSAWASC_conTester',
+		'father'=>'eyeSAWASC_WND_Content',
+		'width'=>$wndSAWASC->width - 25,
+		'height'=>($wndSAWASC->height / 3) - 30,
+		'x'=>5,
+		'y'=>($wndSAWASC->height / 3) * 2
+	));
+	$conTester->show();
+	
+	$lblTester = new Label(array(
+		'name'=>'eyeSAWASC_lblTester',
+		'father'=>'eyeSAWASC_conTester',
+		'cent'=>0,
+		'text'=>'Compare Them (On the Server):',
+		'width'=>$conTester->width - 15,
+		'x'=>5,
+		'y'=>5
+	));
+	$lblTester->show();
+	
+	$txtTester = new Textbox(array(
+		'name'=>'eyeSAWASC_txtTester',
+		'father'=>'eyeSAWASC_conTester',
+		'enabled'=>0,
+		'width'=>$conTester->width - 60,
+		'x'=>5,
+		'y'=>23
+	));
+	$txtTester->setText('Result Here');
+	$txtTester->show();
+	
+	$btnTester = new Button(array(
+		'name'=>'eyeSAWASC_btnTester',
+		'father'=>'eyeSAWASC_conTester',
+		'caption'=>'Test',
+		'signal'=>'btnTester_Click',
+		'horiz'=>1,
+		'height'=>18,
+		'x'=>1,
+		'y'=>23
+	));
+	$btnTester->addFriend($txtServerOut);
+	$btnTester->addFriend($txtClientOut);
+	$btnTester->show();
+	
+	eyex('loadScript', array('url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&extern=' . APP_DIR . '/eyeSAWASC/js/eyeSAWASC' . EYE_CODE_EXTENSION . '&type=dynamic'));
+	
+}
+
+function eyeSAWASC_end($params=null) {
+	eyeWidgets('unserialize');
+}
+
+?>

@@ -1,0 +1,270 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+//save to the PHP session the preferences of the window's preferences
+function eyeDesigner_on_saveWndPrefs($params=null){
+	global $myPid;
+	$_SESSION[$myPid.'_wnd']['title'] = $GLOBALS['chk_title']->checked;
+	$_SESSION[$myPid.'_wnd']['close'] = $GLOBALS['chk_close']->checked;
+	$_SESSION[$myPid.'_wnd']['min'] = $GLOBALS['chk_min']->checked;
+	$_SESSION[$myPid.'_wnd']['max'] = $GLOBALS['chk_max']->checked;
+	$_SESSION[$myPid.'_wnd']['listed'] = $GLOBALS['chk_listed']->checked;
+	$_SESSION[$myPid.'_wnd']['resize'] = $GLOBALS['chk_resize']->checked;
+	$_SESSION[$myPid.'_wnd']['titleStr'] = $GLOBALS['txt_title']->text;
+	$_SESSION[$myPid.'_wnd']['sendResizeMsg'] = $GLOBALS['chk_sendResize']->checked;
+	$_SESSION[$myPid.'_wnd']['sendResizeMsgStr'] = $GLOBALS['txt_sigresize']->text;
+	$_SESSION[$myPid.'_wnd']['name'] = $GLOBALS['txt_name']->text;
+	$_SESSION[$myPid.'_wnd']['width'] = $GLOBALS['txt_width']->text;
+	$_SESSION[$myPid.'_wnd']['height'] = $GLOBALS['txt_height']->text;
+	//close the preferences window
+	$GLOBALS['wnd_prefs']->close();
+	//change the title of the in design window
+	$GLOBALS['eyeDesigner_making_WND']->setTitle($GLOBALS['txt_title']->text);
+	$GLOBALS['eyeDesigner_making_WND']->setWidth($GLOBALS['txt_width']->text);
+	$GLOBALS['eyeDesigner_making_WND']->setHeight($GLOBALS['txt_height']->text);
+}
+
+//this function create the window's preferences window
+function eyeDesigner_on_wndprefs($params=null){
+	global $myPid;
+	
+	$myWindow = new Window(array(
+		'name' => 'wnd_prefs',
+		'father' => 'eyeDesigner_Content',
+		'title' => 'Window Preferences',
+		'style' => TITLE+CLOSE,
+		'width' => 320,
+		'height' => 400,
+		'cent' => 1,
+		'removepid' => 0
+	));
+	$myWindow->show();
+
+	$Label_1 = new Label(array(
+		'name' => 'lbl_1',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Window style:',
+		'x' => 15,
+		'y' => 17,
+	));
+	$Label_1->show();
+
+	$Checkbox_1 = new Checkbox(array(
+		'name' => 'chk_title',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['title'],
+		'text' => 'TITLE',
+		'x' => 17,
+		'y' => 50,
+	));
+	$Checkbox_1->show();
+
+	$Checkbox_2 = new Checkbox(array(
+		'name' => 'chk_close',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['close'],
+		'text' => 'CLOSE',
+		'x' => 97,
+		'y' => 50,
+	));
+	$Checkbox_2->show();
+
+	$Checkbox_3 = new Checkbox(array(
+		'name' => 'chk_min',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['min'],
+		'text' => 'MIN',
+		'x' => 177,
+		'y' => 50,
+	));
+	$Checkbox_3->show();
+
+	$Checkbox_4 = new Checkbox(array(
+		'name' => 'chk_max',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['max'],
+		'text' => 'MAX',
+		'x' => 257,
+		'y' => 50,
+	));
+	$Checkbox_4->show();
+
+	$Checkbox_5 = new Checkbox(array(
+		'name' => 'chk_listed',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['listed'],
+		'text' => 'LISTED',
+		'x' => 17,
+		'y' => 85,
+	));
+	$Checkbox_5->show();
+
+	$Checkbox_6 = new Checkbox(array(
+		'name' => 'chk_resize',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['resize'],
+		'text' => 'RESIZE',
+		'x' => 97,
+		'y' => 85,
+	));
+	$Checkbox_6->show();
+
+	$Label_2 = new Label(array(
+		'name' => 'lbl_2',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Window Options:',
+		'x' => 15,
+		'y' => 127,
+	));
+	$Label_2->show();
+
+	$Label_3 = new Label(array(
+		'name' => 'lbl_3',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Title:',
+		'x' => 15,
+		'y' => 157,
+	));
+	$Label_3->show();
+
+	$Textbox_1 = new Textbox(array(
+		'name' => 'txt_title',
+		'father' => 'wnd_prefs_Content',
+		'text' => $_SESSION[$myPid.'_wnd']['titleStr'],
+		'x' => 55,
+		'y' => 155,
+		'width' => 236,
+	));
+	$Textbox_1->show();
+	
+	$Label_Width = new Label(array(
+		'name' => 'lbl_width',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Width:',
+		'x' => 15,
+		'y' => 197,
+	));
+	$Label_Width->show();
+	
+	$Textbox_Width = new Textbox(array(
+		'name' => 'txt_width',
+		'father' => 'wnd_prefs_Content',
+		'text' => $_SESSION[$myPid.'_wnd']['width'],
+		'x' => 55,
+		'y' => 197,
+		'width' => 40,
+	));
+	$Textbox_Width->show();
+	
+	$Label_Height = new Label(array(
+		'name' => 'lbl_height',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Height:',
+		'x' => 110,
+		'y' => 197,
+	));
+	$Label_Height->show();
+	
+	$Textbox_Height = new Textbox(array(
+		'name' => 'txt_height',
+		'father' => 'wnd_prefs_Content',
+		'text' => $_SESSION[$myPid.'_wnd']['height'],
+		'x' => 155,
+		'y' => 197,
+		'width' => 40,
+	));
+	$Textbox_Height->show();
+
+	$Checkbox_7 = new Checkbox(array(
+		'name' => 'chk_sendResize',
+		'father' => 'wnd_prefs_Content',
+		'checked' => $_SESSION[$myPid.'_wnd']['sendResizeMsg'],
+		'text' => 'Send Resize Message',
+		'x' => 15,
+		'y' => 235,
+	));
+	$Checkbox_7->show();
+
+	$Label_4 = new Label(array(
+		'name' => 'lbl_4',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Resize Signal Name:',
+		'x' => 15,
+		'y' => 275,
+	));
+	$Label_4->show();
+
+	$Textbox_2 = new Textbox(array(
+		'name' => 'txt_sigresize',
+		'father' => 'wnd_prefs_Content',
+		'text' => $_SESSION[$myPid.'_wnd']['sendResizeMsgStr'],
+		'x' => 140,
+		'y' => 275,
+		'width' => 150,
+	));
+	$Textbox_2->show();
+
+	$Label_5 = new Label(array(
+		'name' => 'lbl_5',
+		'father' => 'wnd_prefs_Content',
+		'text' => 'Window Name:',
+		'x' => 15,
+		'y' => 305,
+	));
+	$Label_5->show();
+
+	$Textbox_2 = new Textbox(array(
+		'name' => 'txt_name',
+		'father' => 'wnd_prefs_Content',
+		'text' => $_SESSION[$myPid.'_wnd']['name'],
+		'x' => 140,
+		'y' => 305,
+		'width' => 150,
+	));
+	$Textbox_2->show();
+
+	$myButton1 = new Button(array(
+		'name' => 'btn_ok',
+		'signal' => 'saveWndPrefs',
+		'caption' => 'Save',
+		'father' => 'wnd_prefs_Content',
+		'x' => 25,
+		'horiz' => 1,
+		'vert' => 1,
+		'y' => 15
+	));
+	$myButton1->addFriend($Checkbox_1);
+	$myButton1->addFriend($Checkbox_2);
+	$myButton1->addFriend($Checkbox_3);
+	$myButton1->addFriend($Checkbox_4);
+	$myButton1->addFriend($Checkbox_5);
+	$myButton1->addFriend($Checkbox_6);
+	$myButton1->addFriend($Checkbox_7);
+	$myButton1->addFriend($Textbox_1);
+	$myButton1->addFriend($Textbox_2);
+	$myButton1->addFriend($Textbox_Height);
+	$myButton1->addFriend($Textbox_Width);
+	$myButton1->show();
+}
+?>

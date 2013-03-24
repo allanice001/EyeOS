@@ -1,0 +1,187 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDialog_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDialog_on_open($params="") {
+	global $myPid;
+	$sortypes = array("Html","String","number");
+	$myHeader = array(' ','Name','Size');
+	$path = $params[0];
+	
+	if(!$path) {
+		$path = '/';
+	}
+	
+	if(is_object($GLOBALS['dPath'])) {	
+		if($path == "..") {
+			$path = '/'.$GLOBALS['dPath']->text;
+			$info = utf8_pathinfo($path);
+			$GLOBALS['dPath']->text = $info['dirname'];
+			$path = '/';
+		}elseif($GLOBALS['dPath']->text == ''){
+			$path = '/';
+		}elseif($GLOBALS['dPath']->text == '/') {
+			if($path{0} != '/'){				
+				$path = '/'.$path;	
+			}			
+		}else{
+			if($GLOBALS['dPath']->text{0} == '/'){
+				$path = $GLOBALS['dPath']->text.'/'.$path;	
+			}else{
+				$path = '/'.$GLOBALS['dPath']->text.'/'.$path;
+			}			
+		}		
+	}
+	
+	$userTheme = $_SESSION['usertheme'];
+	//TODO: UNHARCODE IT
+	
+	$myUserDir = realpath(service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$path);
+	
+	if(!$myUserDir) {
+		$myUserDir = service('um','getCurrentUserDir').FILES_USER_DIR.'/';
+		$path = '/';
+	}
+	$content = service('vfs','getDirContent',array($myUserDir));
+	if(!is_array($content)) {
+		$myUserDir = service('um','getCurrentUserDir').FILES_USER_DIR.'/';
+		$content = service('vfs','getDirContent',array($myUserDir));
+		$path = '/';
+	}
+	//service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_table_1_Container')) {document.getElementById('".$myPid."_table_1_Container').innerHTML='';}"));
+	
+	if (is_object($GLOBALS['table_1'])) {
+		$GLOBALS['table_1']->remove();
+	}
+	
+	$myTable = new Sortabletable(array('name'=>'table_1','father'=>'WND_1',
+		'sortypes'=>$sortypes,'theader'=>$myHeader,'x'=>5,'y'=>6,'width'=>370,'height'=>215,
+		'signal'=>'ClickTable','master'=>1,'dblsignal'=>'actionTable'));
+	$files = "";
+	$myTable->show();
+
+	if(is_array($content)) {
+		$myTable->addRow(array('<img src="index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/16x16/folder.png" />&nbsp;&nbsp;','..',' '));
+		$type = $GLOBALS['dType']->text;
+				
+		foreach ($content as $current) {
+			$fileName = "";
+			//Type 3 is only a dir list
+			if($type != 2){
+				//Avoid listing eyeLinks
+				if(!is_dir($current) && vfs('fileExists', array($current))) {
+					$icon = '<img src="index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/16x16/file.png" />&nbsp;&nbsp;';
+					$myArray = vfs('readInfo',array($current));
+					$fileName = $myArray['eyeFile'][0]['filename'][0];
+					//TODO: SIZE MUST BE EXTRACTED FROM EYEFILE, NOT EYEINFO
+					$eyefile = vfs('getRealName',array($current));
+					$size = service('vfs','real_filesize',array($eyefile));
+					$fileName = $fileName;
+					$files[] = array($icon,$fileName,$size);
+				} else if(is_dir($current)) {
+					$icon = '<img src="index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/16x16/folder.png" />&nbsp;&nbsp;';
+					$fileName = utf8_basename($current);
+					$fileName = $fileName;
+					$myTable->addRow(array($icon,$fileName,' '));
+				}
+			}else{
+				if(is_dir($current)){
+					$icon = '<img src="index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/16x16/folder.png" />&nbsp;&nbsp;';
+					$fileName = utf8_basename($current);
+					$fileName = $fileName;
+					$myTable->addRow(array($icon,$fileName,' '));	
+				}				
+			}
+		}
+		if(is_array($files)){
+			foreach($files as $value) {
+				$myTable->addRow($value);
+			}
+		}
+	}
+	if(is_object($GLOBALS['dPath'])) {
+		$GLOBALS['dPath']->text = $path;
+	}
+}
+
+function eyeDialog_on_actionTable($params=null) {
+	$url = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$GLOBALS['dPath']->text.'/'.$GLOBALS['table_1']->selected;
+	if(!vfs('isdir',array($url)) && vfs('fileExists',array($url))) {
+		$GLOBALS['txtfilename']->setText($mySelected);
+		eyeDialog_on_actionUser($params);
+	}
+}
+
+function eyeDialog_on_ClickTable($params=null) {
+	$mySelected = $GLOBALS['table_1']->selected;
+	if(is_dir(service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$GLOBALS['dPath']->text.'/'.$mySelected)) {
+		eyeDialog_on_open(array($mySelected));
+	} else {
+		$GLOBALS['txtfilename']->setText($mySelected);
+	}
+}
+
+function eyeDialog_on_actionUser($params=null) {
+	$mySelected = $GLOBALS['table_1']->selected;
+	$type = $GLOBALS['dType']->text;
+	$path = $GLOBALS['dPath']->text;
+	$filename = $GLOBALS['txtfilename']->text;
+
+	if (vfs('checkSpecialChars',array($filename)) === false) {
+		$filename = str_replace('/','',$filename);
+		$filename = str_replace('\\','',$filename);
+	}
+	
+	if($type == 0) {
+		if($path == '/'){
+			$ret =$path.$mySelected;	
+		}else{
+			$ret =$path.'/'.$mySelected;
+		}
+	} elseif($type == 2) {
+		$ret = $path;
+	}else{	
+		if($path == '/'){
+			$ret =$path.$filename;	
+		}else{
+			$ret =$path.'/'.$filename;
+		}
+	}
+	
+	if(is_object($GLOBALS['dCallback']) && is_object($GLOBALS['dChecknum'])) {
+		$callback = $GLOBALS['dCallback']->text;
+		$checknum = $GLOBALS['dChecknum']->text;
+		//TODO: RETURN RET
+		service('eyex','rawjs',array('js'=>"sendMsg($checknum,'$callback',eyeParam('arg','$ret'));"));
+	}
+	proc('end');
+}
+
+function eyeDialog_on_Close(){
+	proc('end');
+}
+
+?>

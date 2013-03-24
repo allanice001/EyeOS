@@ -1,0 +1,105 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDocs_run($params=null) {
+	global $myPid;
+	$content = "";
+	if($params[0]) {
+		$file = $params[0];
+		$title = utf8_basename($file).' - ' . i18n('translate',array('Word Processor'));
+		$info = utf8_pathinfo($file);
+		$extension = utf8_strtolower($info['extension']);
+		$tCheckNum = proc('findChecknumByName',array('eyeX'));
+		$real = vfs('getRealName',array($file));
+		if(!vfs('checkPermissions',array($real))) {
+			eyeX('messageBox',array('content'=>'Sorry, you do not have sufficient permissions!'));
+			return false;
+		}
+		$nfile = um('getCurrentUserDir').'tmp/'.$myPid.'.'.$info['extension'];
+		$myHTML = um('getCurrentUserDir').'tmp/'.$myPid.'_new.html';
+		copy($real,$nfile);
+		$tfp = vfs('real_open',array($nfile,'r'));
+		$bytes = fread($tfp,5);
+		$real = 1;
+		if($bytes == '<html') {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		$bytes = fread($tfp,25);
+		if(strstr($bytes,'<!--')) {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		if($extension == 'eyedoc') {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		fclose($tfp);
+		$to = 'HTML (StarWriter)';
+		if($real == 1) {
+			eyeConverter('convert',array($nfile,$myHTML,$to,1));
+			$fp = vfs('real_open',array($myHTML,'r'));
+			$content = fread($fp,vfs('real_filesize',array($myHTML)));
+			fclose($fp);
+			$content = str_replace('<IMG SRC="','<IMG SRC="index.php?checknum='.$tCheckNum.'&msg=viewTempImg&params=',$content);
+		} else {
+			$pattern = '/<img[^\/]*\/>/i';
+			$replacement = '';
+			$content = preg_replace($pattern, $replacement, $content);
+		}
+
+		$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	} else {
+		$title = 'Word Processor';
+	}
+	$myWindow = new Window(array('name'=>'eyeDocsWND','father'=>'eyeApps',
+	'cent'=>1,'width'=>780,'height'=>550,'title'=>$title,'sendResizeMsg'=>1,'sigResize'=>'Resize','removeWin'=>2,'savePosition' => 1,'minWidth'=>780,'minHeight'=>550));
+	if (IE && IE < 8) {
+		$restWidth = 2;
+		$restHeight = 34;
+	} else {
+		$restWidth = 2;
+		$restHeight = 34;
+	}
+	$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeDocsWND_Content',
+		'width'=>$myWindow->width-$restWidth,'height'=>$myWindow->height-$restHeight,'x'=>0,'y'=>0,'rich'=>2,'text'=>$content));
+	$myWindow->addFriend($myTextArea);
+	$myWindow->show();
+	$myTextArea->show();
+	$myTextArea->setRichStatusText('');
+	addListenerServiceCall('fullResized','eyex','resizedbrowser');
+	$myHiddenContent = new Hidden(array(
+		'name' => 'textAreaContent',
+		'father' => 'eyeNotesWND_Content',
+		'text' => $content
+	));
+	eyeWidgets('serialize',array($myHiddenContent));
+}
+
+function eyeDocs_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

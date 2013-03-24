@@ -1,0 +1,1211 @@
+.activeWindow, .eyeWindowTitle, .inactiveWindow{
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+	background:#e6e5e5 url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top.png) repeat-x;
+	border-top: 2px groove #ffffff;
+	border-left: 2px groove #ffffff;
+	border-right: 2px ridge #ffffff;
+	height: 23px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.activeWindow_border_left {
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	background:#e6e5e5  url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top_left.png) repeat-x top;
+	position: absolute;
+	height: 23px;
+	left: 0px;
+	top: 0;
+	width: 12px;
+}
+
+.activeWindow_border_right {
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background:#e6e5e5  url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top_right.png) no-repeat;
+	height: 23px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: 103px;
+}
+
+#background {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/wallpapers/default.jpg) center;
+	height: 100%;
+	min-height: 400px;
+	min-width: 500px;
+	position: absolute;
+	width: 100%;
+}
+
+.blockbar {
+	background-color: #e6e5e5;
+	border-bottom: 2px groove #ffffff;
+	border-left:1px solid #ffffff;
+	border-right:1px solid #ffffff;
+	height: 58px;
+	overflow: hidden;
+
+}
+
+.blockbarImg {}
+
+.blockbarItem,.blockbarItem_right {
+	border: 1px solid #e6e5e5;
+	cursor: pointer;
+	margin-top: 6px;
+	padding: 2px 7px 5px;
+	text-align: center;
+	width: auto;
+}
+
+.blockbarItem, .blockbarItem:hover, .blockbarItemPress {
+	margin-left: 5px;
+	float: left;
+}
+
+.blockbarItem_right, .blockbarItem_right:hover, .blockbarItemPress_right {
+	margin-right: 5px;
+	float: right;
+}
+
+.blockbarItem:hover, .blockbarItem_right:hover {
+	-moz-border-radius: 5px;
+	-o-border-radius: 4px;
+	-opera-border-radius: 9px;
+	-webkit-border-radius: 5px;
+	background-color:#e6e5e5;
+	border-color: #a5a6ad;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 20px;
+	margin-top: 6px;
+	padding: 2px 7px 5px;
+	text-align: center;
+	width: auto;
+}
+
+.blockbarItemPress, .blockbarItemPress_right {
+	-moz-border-radius: 5px;
+	-o-border-radius: 4px;
+	-opera-border-radius: 9px;
+	-webkit-border-radius: 5px;
+	background-color: #e7e7e7;
+	border-color: #84848a #909197 #a5a6ad #909197;
+	border-style: solid;
+	border-width: 2px 2px 1px 2px;
+	cursor: pointer;
+	font-size: 20px;
+	margin-top: 5px;
+	padding: 2px 6px 5px;
+	text-align: center;
+	width: auto;
+}
+
+.blockbarline, .blockbarline_right {
+	border-left: 1px solid #c7c7c7;
+	float: left;
+	height: 40px;
+	margin-left: 5px;
+	margin-top: 10px;
+	width: 1px;
+}
+
+.blockbarText {
+	color: #333333;
+	font-size: 9px;
+	margin-top: 5px;
+}
+
+.dynamic-slider-control {
+	-moz-user-focus: normal;
+	-moz-user-select: none;
+	cursor: default;
+	position: relative;
+}
+
+.dynamic-slider-control input {
+	display: none;
+}
+
+.dynamic-slider-control.handle {
+	-moz-user-select: none;
+	cursor: default;
+	font-size: 1px;
+	overflow: hidden;
+	position: absolute;
+}
+
+.dynamic-slider-control.horizontal.handle {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/handle.horizontal.png);
+	height: 14px;
+	width: 31px;
+}
+
+.dynamic-slider-control.horizontal.handle div {}
+
+.dynamic-slider-control.horizontal.handle.hover {}
+
+.dynamic-slider-control.horizontal.line {
+	height: 3px;
+}
+
+.dynamic-slider-control.line {
+	border: 1px solid #5a615a;
+	-moz-box-sizing: content-box;
+	font-size: 0.01mm;
+	overflow: hidden;
+	position: absolute;
+}
+
+.dynamic-slider-control.line div {
+	border: 1px solid;
+	border-color: #e6e6e6 #bdbebd #bdbebd #e6e6e6;
+	height: 1px;
+	width: 1px;
+}
+
+.dynamic-slider-control.vertical.handle {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/handle.vertical.png);
+	height: 31px;
+	width: 15px;
+}
+
+.dynamic-slider-control.vertical.handle.hover {}
+
+.dynamic-slider-control.vertical.line {
+	width: 3px;
+}
+
+.eyeBarItemsText {
+	color: #000000;
+	left: 35px;
+	position: absolute;
+	top: 0.3em;
+	width: 100%;
+	z-index: 200;
+}
+
+.eyeBarItemsText:hover {
+	background-image: url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/select.png);
+	background-repeat: no-repeat;
+	height: 22px !important;
+	left: -7px;
+	padding-left: 42px;
+	padding-top: 3px;
+	top: 0px;
+}
+
+.eyeBoxBottCent {}
+
+.eyeBoxSupCent {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-bottom: 2px groove #ffffff;
+	height: 22px;
+	width: 100%;
+}
+
+.eyeBoxTable {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #e6e5e5;
+	border: 2px groove #E6E5E5;
+}
+
+.eyeBoxText {
+	color: #145689;
+	font-size: 11px;
+	font-weight: bold;
+	left: 10px;
+	position: absolute;
+	top: 7px;
+}
+
+.eyeButtonClass {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/buttonbg.png) repeat-x;
+	border-bottom: 1px solid #7f7f7f;
+	border-left: 1px solid #aeaeae;
+	border-right: 1px solid #7f7f7f;
+	border-top: 1px solid #aeaeae;
+	cursor: pointer;
+	font-size: 11px;
+	padding: 1px;
+}
+
+.eyeButtonClass:hover {
+	border-bottom: 1px solid #6a9bd8;
+	border-left: 1px solid #a1c6f3;
+	border-right: 1px solid #6a9bd8;
+	border-top: 1px solid #a1c6f3;
+}
+
+.eyeClock {
+	background:transparent url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/centertext.png) bottom repeat-x;
+	border-left: 1px solid #353B40;
+	cursor: pointer;
+	height: 31px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100px;
+	z-index: 10000;
+}
+
+.eyeClock:hover {
+	background:transparent;
+}
+
+.eyeClockText {
+	color: #ffffff;
+	font-size: 11px !important;
+	font-weight: bold;
+	margin-top: 6px;
+	text-align: center;
+}
+
+.eyeContextMenu {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #ffffff;
+	border: 1px solid #999999;
+	padding: 5px 1px;
+	width: 150px;
+	z-index: 1000;
+}
+
+.eyeContextMenuEntry {
+	color: #000000;
+	cursor: pointer;
+	font-family: Verdana,Arial,sans-serif,FreeSans;
+	font-size: 11px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: left;
+}
+
+.eyeContextMenuEntry:hover {
+	background-color: #dddddd;
+}
+
+.eyecursor {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&extern=images/desktop/loadingcursor/busy.gif&theme=eyeFusion);
+	display: none;
+	height: 18px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 18px;
+	z-index: 50000;
+}
+
+.eyeDesk_miniCalendar {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/desktop/calendar.png) no-repeat;
+	top: 34px;
+	display: none;
+	height: 148px;
+	padding-top: 10px;
+	position: absolute;
+	right: 5px;
+	width: 170px;
+	z-index: 10000;
+}
+
+.eyeDesk_iconsOver {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: #ffffff;
+	cursor: pointer;
+	margin-top: -7px;
+	padding-top: 7px;
+}
+
+.eyeDesk_iconsOver:hover, .eyeIcon:hover, .eyeFiles_icons:hover {
+	-icab-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	background:transparent  url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/desktop/iconhover.png)repeat-x top;
+	border-radius: 7px;
+}
+
+/*old eyeDock pre 1.8.5*/
+.eyeDock_center  {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/center.png)repeat-x ;
+	height: 21px;
+	left: 18px;
+	position: absolute;
+	right: 18px;
+	top: 18px;
+}
+
+.eyeDock_left {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/left.png) no-repeat;
+	height: 21px;
+	left: 0;
+	position: absolute;
+	top: 18px;
+	width: 18px;
+}
+
+.eyeDock_right {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/right.png) no-repeat;
+	height: 21px;
+	position: absolute;
+	right: 0;
+	top: 18px;
+	width: 18px;
+}
+
+.eyeDockIcon {
+	cursor: pointer;
+}
+
+.eyeDockMenu, .eyeDockTextMenu {
+	border: 0px;
+	display: none;
+	position: absolute;
+	top: 66px;
+	width: 160px;
+	z-index: 10000;
+}
+
+.eyeDockMenuBottomCenter, .eyeDockTextMenuBottomCenter, .eyeDockMenuBottonLeft, .eyeDockTextMenuBottonLeft, .eyeDockMenuBottonRight, .eyeDockTextMenuBottonRight {
+	bottom: -11px;
+	height: 11px;
+	position: absolute;
+	width: 11px;
+}
+
+
+.eyeDockMenuBottomCenter, .eyeDockTextMenuBottomCenter {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png) repeat;
+	left: 0;
+	width: 100%;
+}
+
+.eyeDockMenuBottonLeft, .eyeDockTextMenuBottonLeft {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bottom_left.png) no-repeat;
+	left: -11px;
+}
+
+.eyeDockMenuBottonRight, .eyeDockTextMenuBottonRight{
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bottom_right.png) no-repeat;
+	right: -11px;
+}
+
+.eyeDockMenuContent, .eyeDockTextMenuContent {
+	background: transparent  url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png);
+	border: 0px;
+	height: 100%;
+	left: 0;
+	padding: 0px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.eyeDockMenuIcon, .eyeDockTextMenuIcon {
+	border: 0px;
+	cursor: pointer;
+	height: 21px;
+	left: 2px;
+	padding: 0px;
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+
+.eyeDockMenuIcon:hover, .eyeDockTextMenuIcon:hover {
+	cursor: pointer;
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/dockbgover.png);
+	height: 30px;
+	left: 2px;
+	position: absolute;
+}
+
+.eyeDockItemImg {
+	cursor: pointer;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.eyeDockMenuLeftCenter, .eyeDockTextMenuLeftCenter {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png) repeat;
+	height: 100%;
+	left: -11px;
+	position: absolute;
+	top: 0;
+	width: 11px;
+}
+
+.eyeDockMenuLine {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/line.png) repeat-x;
+	height: 1px;
+	left: 1%;
+	position: absolute;
+	width: 99%;
+}
+
+.eyeDockMenuRightCenter, .eyeDockTextMenuRightCenter {
+	background: transparent url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png) repeat;
+	height: 100%;
+	position: absolute;
+	right: -11px;
+	top: 0;
+	width: 11px;
+}
+
+.eyeDockMenuText, .eyeDockTextMenuText {
+	color: #ffffff;
+	font-size: 11px;
+	left: 33px;
+	position: absolute;
+	top: 4px;
+}
+
+.eyeDockMenuTitle {
+	color: #ffffff;
+	display: none;
+	font-size: 11px;
+	font-weight:bold;
+	position: absolute;
+	top: 35px;
+	z-index: 10000;
+}
+
+.eyeDockMenuTopCenter, .eyeDockTextMenuTopCenter, .eyeDockMenuTopLeft, .eyeDockTextMenuTopLeft, .eyeDockMenuTopRight, .eyeDockTextMenuTopRight {
+	height: 11px;
+	position: absolute;
+	top: -11px;
+	width: 11px;
+}
+
+.eyeDockMenuTopCenter, .eyeDockTextMenuTopCenter {
+	background: url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png) repeat ;
+	left: 0;
+	width: 100%;
+}
+
+.eyeDockMenuTopLeft, .eyeDockTextMenuTopLeft{
+	background: url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/top_left.png) no-repeat;
+	left: -11px;
+}
+
+.eyeDockMenuTopRight, .eyeDockTextMenuTopRight{
+	background: url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/top_right.png) no-repeat;
+	right: -11px;
+}
+
+
+
+/*eyeDock 1.8.5*/
+.eyeDockText_center, .minimizedAppsRight {
+	background:transparent url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/centertext.png) bottom repeat-x;
+	height: 31px;
+	left: 0px;
+	position: absolute;
+	top: 0;
+}
+
+.eyeDockTextIcon {
+	border-right: 0px;
+	color: #bbbbbb;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 1px;
+	padding-right: 10px;
+}
+
+.eyeDockTextIcon:hover, .eyeDockTextIcon_active {
+	background: transparent;
+	border: 0px;
+	color: #ffffff;
+	margin-left: -6px;
+	margin-right: 4px;
+	margin-top: -4px;
+	padding-left: 10px;
+	padding-right: 11px;
+	padding-top: 4px;
+}
+
+.eyeDockTextIcon:hover {
+	height: 25px;
+}
+
+.eyeDockTextIcon_active {
+	cursor: pointer;
+	font-size: 12px;
+	height: 30px;
+	line-height: 20px;
+}
+.eyeDockTextIcon img, .eyeDockTextIcon_active img{
+	margin-right: 4px;
+	margin-left: -3px;
+	margin-bottom: -5px;
+}
+
+.eyeDockTextMenu {
+	top: 50px
+}
+
+.eyeFiles_icons {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: #000000;
+	cursor: pointer;
+	margin-top: -5px;
+	padding: 5px 0 0 0;
+}
+
+.eyeFiles_icons:hover {/*look in .eyeDesk_iconsOver:hover*/}
+
+.eyeIcon {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: #ffffff;
+	margin-top: -5px;
+	padding: 5px 0 0 0;
+}
+
+.eyeIcon:hover {/*look in .eyeDesk_iconsOver:hover*/}
+.eyeIcon_blank {}
+
+.eyeIcon_Image {
+	margin-left: 8px;
+}
+
+.eyeIcon_Text {}
+
+.eyeLine {
+	background-color: #dddddd;
+}
+
+.eyeLoginWindow {
+	margin-left: -150px;
+	margin-top: -210px;
+}
+
+.eyeMenu {
+	bottom: 24px;
+	left: -14px;
+	position: absolute;
+	visibility: hidden;
+	width: 200px;
+	z-index: 10000;
+}
+
+.eyeMenu_bot {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/bottom_bub.png);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 200px;
+}
+
+.eyeMenu_cen {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/center_bub.png);
+	background-repeat: repeat-y;
+	width: 200px;
+}
+
+.eyeMenu_content {
+	left: 15px;
+	position: absolute;
+	top: 40px;
+	width: 100%;
+	z-index: 1000;
+}
+
+.eyeMenu_top {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/top_bub.png);
+	background-repeat: no-repeat;
+	height: 48px;
+	width: 200px;
+}
+
+.eyeMenuButton, .eyeMenuButton_Img, .eyeMenuButton_clicked {
+	bottom: 20px;
+	color: #000000;
+	cursor: pointer;
+	height: 45px !important;
+	left: 4px;
+	margin: 0;
+	position: absolute;
+	width: 52px !important;
+	z-index: 10000;
+}
+
+.eyeMenuButton_Img {}
+
+.eyeMessageBox{}
+
+.eyeMessageBoxText {
+	-icab-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: #000000 url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/desktop/messagebox.png) no-repeat bottom right;
+	border-radius: 10px;
+	bottom: 40px;
+	color: #ffffff;
+	filter: alpha(opacity=60);
+	font-size: 10pt;
+	max-width: 280px;
+	min-height: 20px;
+	opacity: 0.6;
+	padding: 15px;
+	position: absolute;
+	right: 10px;
+	z-index: 100;
+}
+
+.eyeProgress {
+	border: 1px solid black;
+	height: 15px;
+}
+
+.eyeProgressBar {
+	background-color: #80a9d3;
+}
+
+.eyeProgressText {
+	color: #000000;
+	font-size: 11px;
+	margin-top: -1px;
+}
+
+.eyeSelect {
+	background-color: #ffffff;
+	border: 1px solid #bcbcbc;
+	font-size: 11px;
+	padding-left: 2px;
+}
+
+.eyeSimplebox {
+	border: 0.1px solid #000000;
+}
+
+.eyeSimpleboxNoBorder {
+	border: none;
+}
+
+.eyeSplit {}
+
+.eyeSplitter_horizontal, .eyeSplitter_vertical {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/dimple.png)no-repeat center center;
+	margin-top:-1px;
+	padding:1px;
+}
+
+.eyeTab {}
+
+.eyeTabBody {
+	left: 0;
+	position: absolute;
+	top: 23px;
+}
+
+.eyeTabCross {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/cross.png);
+	color: #7f7f7f;
+	cursor: pointer;
+	font-size: 11px;
+	height: 6px;
+	position: absolute;
+	right: 5px;
+	top: 9px;
+	width: 8px;
+}
+
+.eyeTabHeader {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/tabbg.png);
+	background-repeat: repeat-x;
+	border-bottom: 1px solid #acacac;
+	height: 23px;
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+.eyeTabNotSelected {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #ffffff;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;
+	border-top: 1px solid #acacac;
+	cursor: pointer;
+	height: 22px !important;
+	vertical-align: middle;
+}
+
+.eyeTabSelected {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #ffffff;
+	border-left: 1px solid #acacac;
+	border-right: 1px solid #acacac;
+	border-top: 1px solid #89d0fd;
+	cursor: pointer;
+	font-style: italic;
+	vertical-align: middle;
+}
+
+.eyeTabText {
+	color: #3e3e3e;
+	font-size: 11px;
+	margin-left: 5px;
+	margin-top: 4px;
+	vertical-align: middle;
+}
+
+.eyeTextarea {
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft:5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #ffffff;
+	border: 1px solid #bcbcbc;
+	font-size: 11px;
+}
+
+.eyeTextarea:hover {
+	border: 1px solid #858585;
+}
+
+.eyeTextareaContainer {}
+
+.eyeTextbox {
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #ffffff;
+	border: 1px solid #bcbcbc;
+	font-size: 11px;
+	padding-left: 2px;
+}
+.eyeTextbox:hover {
+	border: 1px solid #858585;
+}
+
+.eyeWindowCloseButton {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/close.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	height: 18px;
+	position: absolute;
+	top: 3px;
+	width: 17px;
+}
+
+.eyeWindowCloseButton:hover {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/close_x.png);
+}
+
+.eyeWindowContent {
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 5px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #888888;
+	border-left: 1px solid #888888;
+	border-right: 1px solid #888888;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	overflow: auto;
+	right: 0;
+	top: 23px;
+}
+
+.eyeWindowContentInvisible {
+	background-color: transparent;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	position: absolute;
+	right: 0;
+	top: 23px;
+}
+
+.eyeWindowMain {
+	color: #000000;
+	height: 200px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 200px;
+}
+
+.eyeWindowMainDrag {
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background-color: #e7e7e7;
+	border: 3px solid #000000;
+	height: 200px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 200px;
+}
+
+.eyeWindowMaxButton {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/max.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	height: 18px;
+	padding-right: 7px;
+	position: absolute;
+	top: 3px;
+	width: 17px;
+}
+
+.eyeWindowMaxButton:hover {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/max_x.png);
+}
+
+.eyeWindowMinimizeButton {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/min.png) no-repeat;
+	cursor: pointer;
+	height: 18px;
+	padding-right: 12px;
+	position: absolute;
+	top: 3px;
+	width: 17px;
+}
+
+.eyeWindowMinimizeButton:hover {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/min_x.png);
+}
+
+.eyeWindowOnBar_Container {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	z-index: 10000;
+}
+
+.eyeWindowOnBar_Off {
+	background: url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_off.png) top center no-repeat;
+	color: #ffffff;
+	cursor: pointer;
+	height: 18px;
+	overflow: hidden;
+	position: absolute;
+	top: -27px;
+	width: 159px;
+	z-index: 20;
+}
+
+.eyeWindowOnBar_On {
+	background: url(index.php?version=3EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_on.png) top center no-repeat;
+	color: #d9e4f3;
+	cursor: pointer;
+	height: 18px;
+	overflow: hidden;
+	position: absolute;
+	top: -27px;
+	width: 159px;
+	z-index: 20;
+}
+
+.eyeWindowOnBar_text {
+	margin-left: 7px;
+	margin-right: 5px;
+	margin-top: 2px;
+	white-space: nowrap;
+}
+
+.eyeWindowResizeButton {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/resizebutton.png);
+	bottom: 0;
+	cursor: se-resize;
+	height: 12px;
+	position: absolute;
+	right: 0;
+	width: 12px;
+}
+
+.eyeWindowTitle {
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+	background:#e6e5e5 url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top.png) repeat-x;
+	border-top: 2px groove #ffffff;
+	border-left: 2px groove #ffffff;
+	border-right: 2px ridge #ffffff;
+	height: 23px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.eyeWindowTitle_center {}
+
+.eyeWindowTitle_border_left {
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	background:#e6e5e5  url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top_left.png) repeat-x top;
+	position: absolute;
+	height: 23px;
+	left: 0px;
+	top: 0;
+	width: 12px;
+}
+
+.eyeWindowTitle_border_right {
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background:#e6e5e5  url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top_right.png) no-repeat;
+	height: 23px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: 103px;
+}
+
+.eyeWindowTitle_text {
+	background:#e6e5e5  url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/text.png) no-repeat right;
+	color: #000000;
+	cursor: default;
+	font-weight: 600;
+	height: 21px;
+	margin-left: 10px;
+	margin-top: 1px;
+	padding-right: 51px;
+	white-space: nowrap;
+}
+
+.horizontal {
+	height: 27px;
+	width: 200px;
+}
+
+.inactiveWindow{
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+	background:#e6e5e5;
+	border: 0;
+	border-top: 2px groove #ffffff;
+	border-left: 2px groove #ffffff;
+	border-right: 2px ridge #ffffff;
+	height: 23px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.inactiveWindow_border_left {
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	background:#e6e5e5;
+	position: absolute;
+	height: 23px;
+	left: 0px;
+	top: 0;
+	width: 12px;
+}
+
+.inactiveWindow_border_right {
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	background:#e6e5e5;
+	height: 23px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: 103px;
+}
+
+.menuBar_text {
+	cursor: pointer;
+	font-size: 11px;
+}
+
+.minIconLeft {
+	background: url(index.php?version=32EXTERN_CACHE_VERSION&theme=oxygen&extern=images/minimized/minibar_arrow_bg.png) repeat-x top;
+	bottom: 24px;
+	cursor: pointer;
+	display: none;
+	left: 0;
+	height: 15px;
+	overflow: hidden;
+	padding-left: 3px;
+	position: absolute;
+	width: 100%;
+	z-index: 10000;
+}
+
+.minIconRight {
+	bottom: 24px;
+	cursor: pointer;
+	display: none;
+	height: 15px;
+	overflow: hidden;
+	position: absolute;
+	right: 2px;
+	width: 8px;
+	z-index: 10000;
+}
+
+.minimizedApps {
+	background: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_bg.png)repeat-x;
+	bottom: -6px;
+	height: 30px;
+	left: 66px;
+	overflow: hidden;
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	z-index: 10000;
+}
+
+.minimizedAppsLeft {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_bg.png);
+	background-repeat: repeat-x;
+	bottom: -6px;
+	height: 30px;
+	left: 0;
+	position: absolute;
+	width: 14px;
+	z-index: 10000;
+}
+
+.minimizedAppsRight {
+	right: 0;
+}
+
+.multipleSelect {
+	background-color: #6699ff;
+	border: 1px solid #ffffff;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+#PI {
+	left: 500px;
+	position: absolute;
+	top: 20px
+}
+
+.shadowLayer {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/bg.png);
+	background-repeat: repeat;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.sort-arrow {
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 11px;
+	margin: 0 2px;
+	width: 11px;
+}
+
+.sort-arrow.ascending {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/upsimple.png);
+}
+
+.sort-arrow.descending {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/downsimple.png);
+}
+
+.sort-table {
+	background:transparent;
+	color: WindowText;
+	font: Icon;
+}
+
+.sort-table td {
+	cursor: pointer;
+	font-size: 11px;
+	padding: 2px 5px;
+}
+
+.sort-table thead {
+	background: ButtonFace;
+	font-size: 14px;
+}
+
+.sort-table thead td {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	background: #e6e5e5;
+	border-color: #a4a5ac #96979e #4b4e5a;
+	border-style: solid;
+	border-width: 1px;
+	cursor: context-menu;
+}
+
+.sort-table thead td:active {
+	border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+	padding: 3px 4px 1px 6px;
+}
+
+.sort-table thead td[_sortType=HtmlButNoSort]:active {
+	border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+	padding: 2px 5px;
+}
+
+.sort-table thead td[_sortType=None]:active {
+	border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+	padding: 2px 5px;
+}
+
+.sort-table-container {
+	border: 1px Solid ThreeDShadow;
+	overflow: auto;
+}
+
+.sort-table-select {
+	background-color: #dddddd;
+}
+
+.vertical {
+	height: 200px;
+	width: 29px;
+}

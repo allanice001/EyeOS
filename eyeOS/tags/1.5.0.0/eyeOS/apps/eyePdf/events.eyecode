@@ -1,0 +1,89 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.3
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyePdf_on_Message($params = '') {
+	eyeWidgets('updateContent',$params);
+}
+
+function eyePdf_on_Resize($params = '') {
+	$width = intval($params['arg'][0]);
+	$height = intval($params['arg'][1]);
+	$GLOBALS['eyePdf_iframe']->setWidth($width - 2);
+	$GLOBALS['eyePdf_iframe']->setHeight($height - 24);
+}
+
+function eyePdf_on_showPdf($params = '') {
+	global $checknum;
+	$url = $params['url'][0];
+	
+	$myWindow = new Window(array(
+		'name' => 'eyePdf_window',
+		'father' => 'eyeApps',
+		'title' => 'eyePdf - ' . utf8_basename($url),
+		'cent' => 1,
+		'width' => 800,
+		'height' => 600,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'Resize'
+	));
+	$myWindow->show();
+	
+	$myHidden = new Hidden(array(
+		'name' => 'eyePdf_hidden',
+		'father' => 'eyePdf_window_Content',
+		'text' => $url
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	$myIframe = new Iframe(array(
+		'name' => 'eyePdf_iframe',
+		'father' => 'eyePdf_window_Content',
+		'x' => 0,
+		'y' => 0,
+		'height' => 576,
+		'width' => 798,
+		'url' => 'index.php?checknum=' . $checknum . '&msg=getPdf'
+	));
+	$myIframe->show();
+}
+
+function eyePdf_on_getPdf($params = '') {
+	$url = $GLOBALS['eyePdf_hidden']->text;
+	$length = vfs('filesize',array($url));
+	header('Content-Type: application/pdf');
+	header('Content-Length: ' . $length);
+	header('Accept-Ranges: bytes');
+	header('X-Pad: avoid browser bug');
+	vfs('printFile',array(service('vfs','getRealName',array($url))));
+	exit;
+}
+
+function eyePdf_on_downloadPdf($params = '') {
+	proc('launch',array('eyeDownload',array($params['url'][0])));
+	proc('end');
+}
+
+function eyePdf_on_Close($params = '') {
+	proc('end');
+}
+?>

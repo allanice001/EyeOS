@@ -1,0 +1,137 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/*
+	this file is used to emulate php functions when it are not availables on the current php installation/version
+*/
+
+date_default_timezone_set('UTC');
+
+function get_tmp_dir() {
+	// Try to use the function set_get_temp_dir()
+	if (function_exists('sys_get_temp_dir')) {
+		$array[] = sys_get_temp_dir();
+	}
+	// Try to get the temporary dir from an environment variable
+	$array[] = $_ENV['TMP'];
+	$array[] = $_ENV['TMPDIR'];
+	$array[] = $_ENV['TEMP'];
+
+	foreach ($array as $path) {
+		if ($path) {
+			// Check non realpath first
+			if (is_dir($path) && is_readable($path) && is_writable($path)) {
+				return $path;
+			}
+			// Check realpath now
+			if (realpath($path) && is_dir(realpath($path)) && is_readable(realpath($path)) && is_writable(realpath($path))) {
+				return realpath($path);
+			}
+		}
+	}
+
+	// Try to detect the temporary dir by creating a temporary file
+	$file = tempnam(md5(uniqid(rand(),1)),'');
+	if ($file) {
+		unlink($file);
+		$path = dirname($file);
+		if ($path) {
+			// Check non realpath first
+			if (is_dir($path) && is_readable($path) && is_writable($path)) {
+				return $path;
+			}
+			// Check realpath now
+			if (realpath($path) && is_dir(realpath($path)) && is_readable(realpath($path)) && is_writable(realpath($path))) {
+				return realpath($path);
+			}
+		}
+	}
+	// Return eyeOS' own temporary dir if no other one works
+	return EYE_ROOT . '/' . EYEOS_TMP_DIR;
+}
+
+function ini_get_size($sName)
+{
+    $sSize = ini_get($sName);
+    $sUnit = utf8_substr($sSize, -1);
+    $iSize = (int) utf8_substr($sSize, 0, -1);
+    switch (utf8_strtoupper($sUnit))
+    {
+        case 'Y' : $iSize *= 1024; // Yotta
+        case 'Z' : $iSize *= 1024; // Zetta
+        case 'E' : $iSize *= 1024; // Exa
+        case 'P' : $iSize *= 1024; // Peta
+        case 'T' : $iSize *= 1024; // Tera
+        case 'G' : $iSize *= 1024; // Giga
+        case 'M' : $iSize *= 1024; // Mega
+        case 'K' : $iSize *= 1024; // kilo
+    };
+    return $iSize;
+}
+
+if (!function_exists('json_encode')) {
+	function json_encode($a=false) {
+		if (is_null($a)) {
+			return 'null';
+		}
+		if ($a === false)  {
+    		return 'false';
+		}
+		if ($a === true) {
+    		return 'true';
+		}
+
+		if (is_scalar($a)) {
+			if (is_float($a)) {
+        		// Always use "." for floats.
+        		return floatval(str_replace(",", ".", strval($a)));
+      		}
+      		if (is_string($a)) {
+        		static $jsonReplaces = array(array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'), array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
+        		return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
+      		} else {
+        		return $a;
+      		}
+    	}
+    
+		$isList = true;
+		for ($i = 0, reset($a); $i < count($a); $i++, next($a)) {
+			if (key($a) !== $i) {
+				$isList = false;
+				break;
+			}
+		}
+
+    	$result = array();
+    	if ($isList) {
+    		foreach ($a as $v) $result[] = json_encode($v);
+    		return '[' . join(',', $result) . ']';
+    	} else {
+    		foreach ($a as $k => $v) {
+    			$result[] = json_encode($k).':'.json_encode($v);
+    		}
+    		return '{' . join(',', $result) . '}';
+    	}
+	}
+}
+?>

@@ -1,0 +1,51 @@
+<translation>
+	<installer-install-allow-creation>Разрешить свободную регистрацию</installer-install-allow-creation>
+	<installer-install-continue>Продолжить...</installer-install-continue>
+	<installer-install-do>Установить eyeOS!</installer-install-do>
+	<installer-install-error-extract>Не удаётся распаковать установочные файлы. Чтобы установить eyeOS вручную, переименуйте файл «[package]» в «package.tar.gz» и распакуйте его содержимое в текущий каталог.</installer-install-error-extract>
+	<installer-install-error-renaming>Не удаётся переименовать каталог «./eyeOS/». Переименуйте его вручную в «[hash]».</installer-install-error-renaming>
+	<installer-install-password-retype>Пароль (ещё раз)</installer-install-password-retype>
+	<installer-install-password-root>Пароль «root»</installer-install-password-root>
+	<installer-install-passwords-characters>Пароль пользователя «root» должен иметь длину не менее 3 символов</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>Пароли не совпадают</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>Укажите пароль для пользователя «root»</installer-install-passwords-required>
+	<installer-install-title>Для установки eyeOS необходимо заполнить следующие поля</installer-install-title>
+	<installer-lib-check-gzip>Похоже, на данном сервере нет поддержки gzip. Чтобы установить eyeOS вручную, переименуйте файл «[package]» в «package.tar.gz» и распакуйте его содержимое в текущий каталог.</installer-lib-check-gzip>
+	<installer-lib-check-md5>Предупреждение: проверьте, не повреждён ли файл «[package]».</installer-lib-check-md5>
+	<installer-lib-check-newer>Версия установленной eyeOS более новая, чем данное обновление. Для обеспечения безопасности удалите каталог «[installer]».</installer-lib-check-newer>
+	<installer-lib-check-notexist>Ошибка: файл «[file]» не существует.</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Предупреждение: установите для файла «[file]» полные права доступа (chmod 777).</installer-lib-check-permissions>
+	<installer-lib-check-php>На веб-сервере используется неподдерживамая версия PHP. Перед установкой eyeOS обновите PHP до версии 5.0 или более старшей.</installer-lib-check-php>
+	<installer-lib-check-safemode>К сожалению для eyeOS требуется, чтобы в PHP был выключен безопасный режим (SAFE_MODE = OFF). В текущей конфигурации данный режим включён. Измените файл «php.ini», выключив в нём безопасный режим, или обратитесь за помощью к своему системному администратору.</installer-lib-check-safemode>
+	<installer-lib-output-errors>Во время установки возникли проблемы:</installer-lib-output-errors>
+	<installer-lib-output-lang-by>автор: </installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>Текущий язык</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Языки</installer-lib-output-lang-langs>
+	<installer-lib-output-title>Установка eyeOS</installer-lib-output-title>
+	<installer-lib-output-utf8>В данной версии PHP отсутствует полная поддержка UTF-8. Следует обновить PHP или установить модуль «mbstring». В противном случае eyeOS можно будет установить или обновить, но могут возникнуть проблемы в некоторых частях системы, в которых требуется поддержка иностранных языков.</installer-lib-output-utf8>
+	<installer-system-action-removeinstaller>Удалить инсталлятор eyeOS</installer-system-action-removeinstaller>
+	<installer-system-action-resetsystem>Сбросить системные файлы</installer-system-action-resetsystem>
+	<installer-system-action-uninstall>Удалить eyeOS</installer-system-action-uninstall>
+	<installer-system-action>Действие</installer-system-action>
+	<installer-system-back>Назад в меню</installer-system-back>
+	<installer-system-continue>Продолжить...</installer-system-continue>
+	<installer-system-message-remove>Для обеспечения безопасности удалите инсталлятор!</installer-system-message-remove>
+	<installer-system-message-translations>Перевод можно загрузить по ссылке [a link].</installer-system-message-translations>
+	<installer-system-no>Нет</installer-system-no>
+	<installer-system-password-error>Неверный пароль!</installer-system-password-error>
+	<installer-system-password>Пароль пользователя «root»</installer-system-password>
+	<installer-system-removeinstaller-no>Если выбрать [span]Нет[/span], будет выполнен возврат на страницу системы.</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>Удалить инсталлятор eyeOS?</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>Если выбрать [span]Да[/span], будут удалены файлы инсталлятора!</installer-system-removeinstaller-yes>
+	<installer-system-title>Выберите одно из следующих действий:</installer-system-title>
+	<installer-system-uninstall-no>Если выбрать [span]Нет[/span], будет выполнен возврат на страницу системы.</installer-system-uninstall-no>
+	<installer-system-uninstall-really>Удалить систему eyeOS?</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>Если выбрать [span]Да[/span], система eyeOS будет полностью удалена!</installer-system-uninstall-yes>
+	<installer-system-yes>Да</installer-system-yes>
+	<installer-update-continue>Продолжить...</installer-update-continue>
+	<installer-update-do>Обновить eyeOS!</installer-update-do>
+	<installer-update-error-extract>Не удаётся распаковать файлы обновления. Чтобы установить eyeOS вручную, переименуйте файл «[package]» в «package.tar.gz» и распакуйте его содержимое в текущий каталог.</installer-update-error-extract>
+	<installer-update-error-renaming>Не удаётся переименовать каталог «./eyeOS/». Переименуйте его вручную в «[hash]» и перезапишите существующие файлы.</installer-update-error-renaming>
+	<installer-update-error-under15>Программа обновления предназначена только для eyeOS версии 1.5 или более старшей. Установленная версия eyeOS — [version1]. Обновите систему eyeOS до версии 1.5 перед обновлением её до версии [version2].</installer-update-error-under15>
+	<installer-update-title>Обновление установленной версии eyeOS до версии [version]</installer-update-title>
+</translation>

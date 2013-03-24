@@ -1,0 +1,6 @@
+<?php
+output::addToHead('<link rel="stylesheet" type="text/css" href="' . INDEX . '?theme=style/style.css" />');
+
+output::addToBody('<div class="theme-default-menu">' . theme::getContent('menu') . '</div>');
+output::addToBody('<div class="theme-default-page">' . theme::getContent('page') . '</div>');
+?>

@@ -1,0 +1,55 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function vCardImport_on_Close($params = '') {
+	proc('end');
+}
+
+function vCardImport_on_Do($params = '') {
+	if (eyeContacts('isReady')) {
+		if (eyeContacts('import',array($GLOBALS['vCardImport_Hidden']->text))){
+			eyex('messageBox',array('content'=>'File Imported!'));
+			proc('end');
+		} else {
+			$error = errorCodes('getErrorCode');
+			if ($error == VFS_FILE_NOT_EXISTS) {
+				eyex('messageBox',array('content' => 'The file was not found!'));
+			} elseif ($error == CONTACT_EXISTS) {
+				eyex('messageBox',array('content' => 'The contact already exists!'));
+			} elseif ($error == NO_CONTACT_FOUND) {
+				eyex('messageBox',array('content' => 'No contacts were found in the file!'));
+			} elseif ($error == NO_SUPPORTED_FORMAT) {
+				eyex('messageBox',array('content' => 'Format unsupported!'));
+			} else {
+				eyex('messageBox',array('content' => 'Error exporting file!'));
+			}
+		}
+	} else {
+		eyex('messageBox',array('content'=>'vCardImport cannot initialize, contact with your administrator'));
+	}
+}
+
+function vCardImport_on_Message($params = '') {
+	eyeWidgets('updateContent',$params);
+}
+?>

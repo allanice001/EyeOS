@@ -1,0 +1,191 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeDock_on_clicked($params) {
+	$app = $params['app'][0];
+	service('proc','launch',array($app));
+}
+
+function eyeDock_on_Launch() {
+
+	global $myPid;
+	global $checknum;
+	
+	$currentUserDir = service('um','getCurrentUserDir');
+	$fp = service('vfs','real_open',array($currentUserDir.'/conf/eyeDock/eyeDock.xml','r'));
+	
+	if(!$fp) {
+		return false;
+	}
+	
+	$xml = fread($fp,filesize($currentUserDir.'/conf/eyeDock/eyeDock.xml'));
+	fclose($fp);	
+	$myArray = reqLib('eyeXML','xml2array',array($xml));
+	
+	if(!is_array($myArray)) {
+		return false;
+	}
+
+	$checkIE = "";
+	if (IE > 0 && IE < 7) {
+		$checkIE = "IE/";
+	}
+	
+	$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeX/themes/default/images/apps/eyeDock/right.png');
+	$borderWidth = $info[0];
+	$barHeight = $info[1];
+
+	$i = 0;
+	$spacer = 10;
+	$x = 8;
+	$yCorrection = 10;
+	$xCorrection = 5;
+	$heightCorrection = 7;
+	$midleWidth = $borderWidth - $xCorrection;
+		
+	foreach($myArray['eyeDock'][0]['Group'] as $key=>$value)
+	{
+		$myIcons[$value['name'][0]] = new Imagebox(array('name' =>$value['name'][0],
+		'father' => 'eyeDockContent',
+		'url' => 'index.php?extern=apps/eyeX/themes/default/images/apps/eyeDock/icons/'.$value['icon'][0].'',
+		'realname' => EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/default/images/apps/eyeDock/icons/'.$value['icon'][0],
+		'y'=>4,
+		'x'=>$midleWidth,
+		'cssClass' => 'eyeDockIcon'));
+		$i++;
+		if ($i < sizeof($myArray['eyeDock'][0]['Group'])) { 
+			$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/default/images/apps/eyeDock/icons/'.$value['icon'][0]);
+			$midleWidth += $info[0];
+			$midleWidth += $spacer;
+		}
+	}
+	
+	$barWidth =  $borderWidth + $borderWidth + $midleWidth;
+
+	$myWindowContent = new Window(array('name'=>'eyeDockContent',
+		'father'=>'eyeApps',
+		'cent'=>2,
+		'y'=>0,
+		'x'=>0,
+		'type'=>100,
+		'width'=>$barWidth,
+		'height'=>$barHeight+5));
+		
+	$myWindowContent->show();
+	
+	service('eyex','createDiv',array('name'=>'DockLeftBackground', 'father' => 'eyeDockContent','class'=>'eyeDock_left'));
+	service('eyex','createDiv',array('name'=>'DockRightBackground', 'father' => 'eyeDockContent','class'=>'eyeDock_right'));
+	service('eyex','createDiv',array('name'=>'DockContentBackground', 'father' => 'eyeDockContent','class'=>'eyeDock_center'));
+
+	foreach($myArray['eyeDock'][0]['Group'] as $value)
+	{ 
+		//Menu icon
+		$key = $value['name'][0];
+		$icon = basename($value['icon'][0]);
+		$icon = substr($icon,0,strlen($icon)-strlen(strrchr($icon,'.')));
+		$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/default/images/apps/eyeDock/icons/'.$value['icon'][0]);
+		$iconWidth = $info[0];
+		$iconHeight = $info[1];
+		$myIcons[$key]->addEvent('onclick',"dockButOnClick('$key','$icon',$myPid);");
+		$myIcons[$key]->addEvent('onmouseover',"dockButOnMouseOver('$key','$icon',$myPid);");
+		$myIcons[$key]->addEvent('onmouseout',"dockButOnMouseOut('$key','$icon',$myPid);");
+		
+		
+		service('eyex','createDiv',array('name'=>'menu_items_'.$key,'father'=>'eyeApps','class'=>'eyeDockMenu'));
+		service('eyex','createDiv',array('name'=>'menu_text_items_'.$key,'father'=>'eyeApps','class'=>'eyeDockMenuTitle'));
+		
+		service('eyex','rawjs',array('js'=>"dockCenter('menu_items_".$key."',$myPid)"));
+		
+		
+		service('eyex','rawjs',array('js'=>"dockAdvanceXIcon('menu_items_".$key."',$x,$myPid)"));
+		
+		service('eyex','rawjs',array('js'=>"dockCenter('menu_text_items_".$key."',$myPid)"));		
+		service('eyex','rawjs',array('js'=>"dockAdvanceXIcon('menu_text_items_".$key."',$x,$myPid)"));
+		
+		service('eyex','setDiv',array('name' => 'menu_text_items_'.$key,'content' => $key));
+		
+		service('eyex','createDiv',array('name'=>'dockMenuText_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuText'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuTopRight_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuTopRight'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuTopLeft_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuTopLeft'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuBottonLeft_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuBottonLeft'));		
+		service('eyex','createDiv',array('name'=>'eyeDockMenuBottonRight_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuBottonRight'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuBottonCenter_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuBottomCenter'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuTopCenter_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuTopCenter'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuRightCenter_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuRightCenter'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuLeftCenter_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuLeftCenter'));
+		service('eyex','createDiv',array('name'=>'eyeDockMenuContent_'.$key,'father'=>'menu_items_'.$key,'class'=>'eyeDockMenuContent'));
+				
+		
+		$topIcon = 1;
+		$topText = 8;
+		$topLine = 30;
+		$content = "";
+		$i = 0;
+		foreach($value['items'][0]['item'] as $intValue)
+		{
+			$intKey = $intValue['name'][0];
+			$execValue = explode(',',$intValue["exec"][0]);
+			if (isset($execValue[1])) {
+				$execValue = "eyeParam('app','".$execValue[0]."')+eyeParam('opt','".$execValue[1]."')";
+			} else {
+				$execValue = "eyeParam('app','".$execValue[0]."')";
+			}
+			$clickedCode = "onclick=\"sendMsg('".$checknum."','App_Clicked',$execValue)\"";
+			$loadImageCode = "src='index.php?extern=apps/eyeX/themes/default/icons/30x30/".$intValue["icon"][0]."'";
+			if (IE > 0 && IE < 7) {
+				$loadImageCode = "src='index.php?extern=apps/eyeX/gfx/spacer.gif' width=30 height=30 style=\"filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?extern=apps/eyeX/themes/default/icons/30x30/".$intValue["icon"][0]."&type=imagethod='scale')\"";				
+			}
+			//service('eyex','messageBox',array('content'))$topIcon)
+			$content .= "<div class='eyeDockMenuIcon' style='top: ".$topIcon."px;' $clickedCode><img class='cPointer' id='icon_".$intKey."' $loadImageCode  alt='".$intValue["desc"][0]."' title='".$intValue["desc"][0]."' /></div><div $clickedCode class='eyeDockMenuText' style='top: ".$topText."px;'><span class='cPointer'>".$intKey ."</span></div>";
+			$i++;
+			if ($i < sizeof($value['items'][0]['item'])) { 
+				$content .= "<div class='eyeDockMenuLine' style='top: ".$topLine."px;'></div>";
+				$topIcon += $iconHeight + $yCorrection;
+				$topText += $iconHeight + $yCorrection;
+				$topLine += $iconHeight + $yCorrection;
+			}
+		}
+		
+		if(IE > 0 && IE < 7){			
+			if(!is_float($i / 2)){
+				service('eyex','updateCss',array('name'=>$myPid.'_eyedockMenuBottonLeft_'.$key,'property'=>'bottom','value'=>'-14px'));
+				service('eyex','updateCss',array('name'=>$myPid.'_eyeDockMenuBottonRight_'.$key,'property'=>'bottom','value'=>'-14px'));
+				service('eyex','updateCss',array('name'=>$myPid.'_eyeDockMenuBottonCenter_'.$key,'property'=>'bottom','value'=>'-14px'));					
+			}		
+			
+		}
+		$menuHeight = $topLine - $heightCorrection;
+		service('eyex','rawjs',array('js'=>"dockMenuHeight('menu_items_".$key."',$menuHeight+8,$myPid)"));
+		service('eyex','setDiv',array('name' => 'eyeDockMenuContent_'.$key,'content' => $content));
+		$x += $iconWidth + $spacer;	
+		}		
+		//service('eyex','rawjs',array('js'=>'alert();'));
+}
+function eyeDock_on_App_Clicked($params=null) {
+	if(!isset($params["opt"])) {
+		$params["opt"][0] = "";
+	}
+	if(!service('proc','launch',array($params["app"][0],$params["opt"][0]))) {
+		if(reqLib('errorCodes','getErrorCode') == PROC_APP_NOT_FOUND) {
+			service('eyex','messageBox',array('content' => $params["app"][0].' not found'));
+		}
+	}
+}
+
+?>

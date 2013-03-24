@@ -1,0 +1,2051 @@
+<lang>
+	<info>
+		<lang>Ελληνικά</lang>
+		<lang-en>Greek</lang-en>
+		<author>Nikolaos Hatzygeorgiou &amp; Stavros Katsoulis</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Ανανέωση</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>Εγκατάσταση εφαρμογών</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Διαχείριση Dock</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Extract to...</old>
+			<new>Αποσυμπίεση σε</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Συμπίεση σε...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Συμπίεση</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Η συμπίεση του αρχείου ολοκληρώθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Η συμπίεση απέτυχε</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Αποσυμπίεση</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Η μέθοδος συμπίεσης του αρχείου δεν υποστηρίζεται</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Η αποσυμπίεση του αρχείου ολοκληρώθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Η αποσυμπίεση απέτυχε</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Όνομα Αρχείου</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Δεν ανοίγει το αρχείο</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Καθαρισμός</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Αποστολή</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Calendars</old>
+			<new>Ημερολόγια</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Ημέρα</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Μη αποδεκτή Τιμή</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Ημερολόγιο προστέθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Διαχείριση ημερολογίων</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Λανθασμένη καταχώρηση</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Επόμενο</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Πληκρολογήστε ένα όνομα για το ημερολόγιο</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Εβδομάδα</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Σήμερα</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Εργασία</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Εμφάνιση</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Λειτουργεία σε παράθυρο</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Προηγούμενο</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Add mirror</old>
+			<new>Προσθήκη αντιγράφου</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s mirror(s)</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Αλλάξτε τον τρέχοντα κωδικό</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s user(s) registered</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Αλλάξτε το τρέχον θέμα</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Προσθέστε ένα νέο μέλος στο σύστημά σας.</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Πληροφορίες για εμένα</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Περιοχή Διαχειριστή</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Εντολές αυτόματης εκτέλεσης</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Ενεργοποίηση εγγραφής νέων χρηστών</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Οι σελιδοδείκτες εισήχθησαν επιτυχώς</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Οι σελιδοδείκτες και οι μηχανές αναζήτησης εξήχθησαν επιτυχώς</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Συντάκτης</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Ενεργοποίηση κοινόχρηστων αρχείων</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Προεπιλεγμένη ομάδα: %s | %s group(s)</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Διαμορφώστε την αρχική σας σελίδα</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Αλλάξτε το φόντο της επιφάνειας εργασίας</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Αλλάξτε την προτιμώμενη γλώσσα</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Οι αλλαγές αποθηκεύτηκαν επιτυχώς και οι χρήστες ενημερώθηκαν</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Οι αλλαγές ολοκληρώθηκαν επιτυχώς</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Καθαρισμός του oneye</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Η εντολή προστέθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Η εντολή αποθηκεύτηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Εντολές</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Διαγραφή αυτόματης εκτέλεσης</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Επιτυχής επαναφορά προεπιλεγμένων ρυθμίσεων</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Διαγραφή αντιγράφου</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Επιφάνεια εργασίας</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Διαγραφή ομάδας</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Θέλετε πραγματικά να αφαιρέσετε αυτή την εντολή;</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Θέλετε πραγματικά να αφαιρέσετε αυτή την ομάδα από το σύστημα;</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Θέλετε πραγματικά να αφαιρέσετε αυτό το αντίγραφο απο το eyeSoft;</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Θέλετε πραγματικά να αφαιρέσετε αυτόν τον χρήστη;</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Επεξεργασία εντολής</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Επεξεργασία αντιγράφου</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Επεξεργασία επιλεγμένου χρήστη</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Επεξεργασία</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Εξαγωγή προεπιλεγμένων σελιδοδεικτών και μηχανών αναζήτησης</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s command(s)</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[προεπιλεγμένος χρήστης]</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Εξαγωγή</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Το αρχείο μπορεί να ληφθεί επιτυχώς</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Το αρχείο δεν μπορεί να ληφθεί. Παρακαλώ ελέγξτε την διεύθυνση</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Περισσότερες μεταφράσεις</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Όνομα Ομάδας</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Ομάδες</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Εισαγωγή</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Γλώσσα</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Δες και Νιώσε!</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Κεντρικό</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Διαχείριση προεπιλεγμένων σελιδοδεικτών</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Διαχείριση προεπιλεγμένων μηχανών αναζήτησης</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Διαχείριση αυτόματων εκτελέσιμων εντολών</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Διαχείριση ομάδων του συστήματος</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Διαχείριση χρηστών του συστήματος</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Διεύθυνση αντιγράφου</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Το αντίγραφο αποθηκεύτηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Αντίγραφο</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Νέα εντολή</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Το φόντο άλλαξε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Άλλα</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Ο κωδικός άλλαξε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Κωδικός</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Άδειες</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Προσωπικές Ρυθμίσεις</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Επιλέξτε μία εντολή για διαγραφή</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Παρακαλώ επιλέξτε  εντολή για επεξεργασία</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Παρακαλώ επιλέξτε μία ομάδα για διαγραφή</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Παρακαλώ επιλέξτε μια ομάδα για επεξεργασία</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Παρακαλώ επιλέξτε μία ομάδα για να οριστεί ως προεπιλεγμένη</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Καθορισμός ως προεπιλεγμένο</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Επιλογή</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Παρακαλώ επιλέξτε αντίγραφο για δοκιμή</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Παρακαλώ επιλέξτε ένα αντίγραφο για διαγραφή</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Παρακαλώ, επιλέξτε ένα αντίγραφο για επεξεργασία</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Παρακαλώ επιλέξτε έναν χρήστη για διαγραφή</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Παρακαλώ επιλέξτε έναν χρήστη για επεξεργασία</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Παρακαλώ πληκτρολογήστε μια διεύθυνση</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Προστατευμένη λειτουργία μέσω IPs</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Παρακαλώ διορθώστε τις ρυθμίσεις που πληκτρολογήσατε</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Διαγραφή προσωρινών αρχείων και φακέλων</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Διαγραφή προσωρινών αρχείων και φακέλων από το oneye σύστημα</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Παρακαλώ πληκτρολογήστε μια εντολή</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Μετονομασία</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Αναζήτηση χρήστη...</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Επιλογή ενός αρχείου</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Αποθήκες</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>screenshot</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Οι μηχανές αναζήτησης εισήχθησαν επιτυχώς</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Επιλογή χρήστη</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Ενημερώστε το profile σας</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Ενημερώστε τις προτιμήσεις συστήματος</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Συγγνώμη αλλά αυτό το αρχείο δεν επιτρέπεται να οριστεί ως φόντο</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Συγγνώμη αυτή η σελίδα δεν έχει εγκατασταθεί</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Συγγνώμη δεν έχετε δικαιώματα πρόσβασης σε αυτήν την σελίδα</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Συγγνώμη θα πρέπει να εισέλθετε σαν απλός χρήστης για να μπείτε σε αυτή την σελίδα</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Αρχική σελίδα</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Προτιμήσεις Συστήματος</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Σύστημα</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Τα προσωρινά αρχεία και οι φάκελοι αφαιρέθηκαν επιτυχώς</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Δοκιμή</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Αυτός ο χρήστης δεν υπάρχει</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Ο λογαριασμός διαγράφτηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Η επιλεγμένη ομάδα είναι ήδη προεπιλεγμένη</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Το αντίγραφο δεν εγκαταστάθηκε ακόμα</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Θέματα</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Υπήρξε πρόβλημα κατά την διαγραφή της ομάδας</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Επιλέξτε ένα δικό σας φόντο</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Χρησιμοποιημένος χώρος:</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Πληκτρολογήστε το όνομα της ομάδας που θέλετε να δημιουργήσετε</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Πληκτρολογήστε την εντολή που θέλετε να τρέχει αυτόματα κατά την εκκίνηση</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Απεγκατάσταση</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Πληκτρολογήστε την διεύθυνση του νέου αντιγράφου</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>Δεν μπορείτε να επεξεργαστείτε το προεπιλεγμένο αντίγραφο</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>Δεν μπορείτε να αποθηκεύσετε ένα αντίγραφο σαν προεπιλεγμένο</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Ο χρήστης δημιουργήθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>Δεν μπορείτε να διαγράψετε την προεπιλεγμένη ομάδα</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>Δεν μπορείτε να διαγράψετε το προεπιλεγμένο αντίγραφο</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>Δεν μπορείτε να διαγράψετε τον διαχειριστή</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Αφαίρεση τώρα</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Παρακαλώ πληκτρολογήστε το username εδώ:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>Αντιγραφή</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Λήψη</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Επικόλληση</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Προτιμήσεις</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ιδιότητες</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ανανέωση</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Μετονομασία</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Ανέβασμα αρχείων</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Καλώς ήλθατε στο %s, %s.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>Όνομα</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Επιλογή ενός φακέλου</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Επιλογή</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>File Manager</old>
+			<new>Έγγραφα</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Αριθμομηχανή</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Ημερολόγιο</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Σκάκι</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Εσωτερικά μηνύματα server</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Παιχνίδια</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Διαχείριση επαφών</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Βοηθήματα</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>Διαχειριστής FTP</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Internet Browser</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Διαδίκτυο</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Εφαρμογές Γραφείου</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Διεργασίες</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Chat με χρήστες</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Σύστημα</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Επεξεργαστής κειμένου</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Word</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>Αναγνώστης RSS</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Exel</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Το έγγραφο αποθηκεύτηκε επιτυχώς</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Επιλέξτε ριζικό φάκελο για τον νέο φάκελο</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Νέο feed</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Το στοιχείο διεγράφη επιτυχώς</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Νέος φάκελος</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Αποδοχή</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Συντάκτης</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Επιλέξτε ριζικό φάκελο για τον φάκελο</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Επιλέξτε φάκελο για αυτό το feed</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Διαγραφή feed/φακέλου</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Σφάλμα κατά την εισαγωγή φακέλου</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Νέο feed</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Ημερομηνία</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Νέος φάκελος</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Επεξεργασία feed</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Επεξεργασία φακέλου</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Επεξεργασία</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Σελιδοδείκτες</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Σφάλμα κατά την εισαγωγή feed</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Επιλέξτε φάκελο για το νέο feed</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Σφάλμα κατά την αποδοχή των ρυθμίσεων</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Βοήθεια</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Σφάλμα κατά την εισαγωγή διευκρινισμένου feed</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Πλήκτρολογήστε την διεύθυνση του feed</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Σφάλμα αποθήκευσης φακέλου</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Το feed εισήχθη επιτυχώς</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Το feed άλλαξε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ανανέωση</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Ο φάκελος προστέθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Διαλέξτε ένα αντικείμενο για ανάγνωση</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Πρέπει να εισάγετε ένα όνομα</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Σφάλμα κατά την διαγραφή του feed</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Επιλέξτε ένα feed για περιήγηση</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Σφάλμα αποθήκευσης</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Τίτλος</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Πληκτρολογήστε το όνομα του feed (προαιρετικό)</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Πληκτρολογήστε το όνομα του φακέλου</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Feeds</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Αδύνατη η περιήγηση στο εισαχθέν URL</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Ο φάκελος άλλαξε επιτυχώς</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Download</old>
+			<new>Λήψη</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Ενέργειες</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Αντιγραφή</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Διαγραφή</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Λήψη ώς zip</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Νέο αρχείο</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Ανέβασμα αρχείων</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Νέος Φάκελος</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Επικόλληση</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ιδιότητες</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Μετονομασία</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Date</old>
+			<new>Ημερομηνία</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Όνομα Αρχείου</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Είστε σίγουρος για την διαγραφή αυτού του αρχείου/φακέλου;</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Νέος φάκελος</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Σύνδεση</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Διαγραφή αρχείου/φακέλου</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Επεξεργασία επιλεγμένων</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Διαγραφή επιλεγμένων</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Force passive mode</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Αποσύνδεση</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Host:</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Κωδικός</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Φόρτωση επιλεγμένων</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Προσθήκη host</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Βοήθεια</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Συντάκτης</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Hostname</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Διαχείριση hosts</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Κωδικός</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Το όνομα δεν μπορεί να μείνει κενό</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Διαγραφή</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Ιδιοκτήτης</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Λήψη</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Δικαιώματα</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Μετονομασία αρχείου/φακέλου</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Ανέβασμα</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Πρέπει να επιλέξετε έναν host για φόρτωση</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ανανέωση</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Μετονομασία/Μετακίνηση</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Ανέβασμα ενός αρχείου</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Μετονομασία</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Χρήστης:</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Πληκτρολογήστε το όνομα του νέου φακέλου</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Πρέπει να συνδεθείτε πρώτα!</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Πρέπει να επιλέξετε ένα απομακρυσμένο αρχείο (ftp)</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Πρέπει να επιλέξετε ένα αρχείο ή φάκελο πρώτα.</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Παρακαλώ δώστε ένα username</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Πρέπει να συνδεθείτε πρώτα</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Πρέπει να επιλέξετε έναν host για διαγραφή</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Πρέπει να δώσετε ένα hostname, μία port και ένα username.</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Πρέπει να επιλέξετε έναν host για επεξεργασία</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Επιλέξτε αρχείο για ανέβασμα στο δεσμό</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Πρέπει να επιλέξετε ένα αρχείο από τους φακέλους σας</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Πληκτρολογήστε το νέο όνομα/διαδρομή για το αρχείο/φάκελο</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Next</old>
+			<new>Επόμενη</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Προηγούμενη</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s Αρχεία εισήχθησαν</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Περιήγηση</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Εισαγωγή</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Πρέπει να επιλέξετε έναν κατάλογο για εισαγωγή αρχείων</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>Αποδοχή</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Είστε βέβαιος ότι θέλετε να εγκαταστήσετε αυτό το πρόγραμμα;</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Εγκατάσταση</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Δεν υπάρχει τίποτα προς εγκατάσταση</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Η εγκατάσταση ολοκληρώθηκε επιτυχώς.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Λάθος username ή κωδικός</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Λάθος username</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s δεν βρέθηκε</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Σφάλμα. κενό username ή κωδικός</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Κωδικός</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>RUN ως διαφορετικός χρήστης</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Πληκτρολογήστε το όνομα της εφαρμογής ή της εντολής για άνοιγμα.</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Χρήστης</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Run...</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Run</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Ανανέωση</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>From</old>
+			<new>Από</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Ημερομηνία</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Λήψη</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Κενό</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Ανάγνωση μηνύματος</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Το μήνυμα επαναφέρθηκε στον αρχικό του φάκελο</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Το αρχείο αποθηκεύτηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Συνημμένο</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Εισερχόμενα</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Διαβασμένα</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Ανανέωση</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Απάντηση</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Επαναφορά</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Απεσταλμένα</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Κάδος ανακύκλωσης</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Αδιάβαστα</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Πρέπει να επιλέξετε ένα μήνυμα για διαγραφή</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Πρέπει να επιλέξετε ένα μήνυμα προς ανάγνωση</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Θέμα</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Προς</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Κάποια special chars αφαιρέθηκαν</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Πληκτρολογήστε το όνομα για τον νέο φάκελο</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Bookmark title</old>
+			<new>Τίτλος σελιδοδείκτη</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Σελιδοδείκτες</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Διαγραφή σελιδοδείκτη</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Θέλετε πραγματικά να διαγράψετε αυτόν τον σελιδοδείκτη;</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forums</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Προσθήκη σελιδοδείκτη</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Πίσω</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Μπροστά</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Εικόνες</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Γνωστό</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Το link διεγράφη επιτυχώς</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Αρχική σελίδα</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Ρυθμίσεις</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Το link αποθηκεύτηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Άνοιγμα σελιδοδεικτών</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Αναζήτηση</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Υπάρχει ήδη ένας σελιδοδείκτης με αυτό το όνομα</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Άνευ κατηγορίας</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Website</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Άνοιγμα αναζητήσεων</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Το αρχείο αποθηκεύτηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Συγγνώμη, δεν έχετε τα απαραίτητα δικαιώματα</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Αδύνατη η δημιουργία αρχείου</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>Πίσω</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Επόμενο</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Συγγνώμη, δεν έχετε τα απαραίτητα διακαιώματα</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Pid</old>
+			<new>PID</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Επιτυχές κλείσιμο διεργασίας</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Όνομα διεργασίας</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Συγγνώμη, δεν έχετε τα απαραίτητα δικαιώματα</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Το λογιστικό φύλλο αποθηκεύτηκε επιτυχώς</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>App Name</old>
+			<new>Όνομα εφαρμογής</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>Η εγκατάσταση του %s ολοκληρώθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Αποδοχή</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Κατηγορία: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Εξάρτηση: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Συντάκτης: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Κατηγορίες</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Περιγραφή: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Επιφάνεια εργασίας</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Θέλετε πραγματικά να απεγκαταστήσετε αυτή την εφαρμογή;</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>Η λήψη του %s είναι αλλοιωμένη. Αδύνατη η εγκατάσταση.</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Όλα</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Λήψη και εγκατάσταση του %s ... Παρακαλώ περιμένετε...</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Η λίστα ανανεώθηκε</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Παιχνίδια</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Εγκατάσταση</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Εγκαταστάθηκε</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Εγκαθίσταται</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Άδεια: %s</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Πολυμέσα</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Αναζήτηση</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Παρακαλώ επιλέξτε μία εφαρμογή προς απεγκατάσταση</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Όνομα: %s</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Μόνο ο διαχειριστής μπορεί να εγκαθιστά εφαρμογές. Παρακαλώ αποστείλλατε εσωτερικό μήνυμα στον root</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Παρακαλώ επιλέξτε μία εφαρμογή προς εγκατάσταση</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Ενημέρωση</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Έκδοση</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Προτάσεις: %s</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Η εφαρμογή απεγκαταστάθηκε επιτυχώς</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Απεγκατάσταση εφαρμογής</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Απεγκατάσταση</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Έκδοση: %s</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Εφαρμογές Γραφείου</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>τίποτα/κανένα</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Add input to output</old>
+			<new>Προσθέστε τα εισηγμένα στα εξαγόμενα</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Προσθήκη νέας γραμμής στο τέλος</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii to Hexa</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Αυτόματος καθαρισμός εισηγμένων</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Καθαρισμός</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Επιλογές</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Advanced</old>
+			<new>Προηγμένες</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Προσθέστε αρχεία για ανέβασμα, και μετά πιέστε "Ανέβασμα"</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Προσθήκη αρχείων</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Αφαίρεση</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Ένα αρχείο</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Ανέβασμα</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Μεταφορά:</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Ανέβασμα Αρχείων</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>Επεξεργασία</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Αλλαγή κειμένου ετικέτας</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Παράδειγμα εφαρμογής</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Θέλετε αυτό το widget να ανοίξει αυτόματα κατά την επόμενη είσοδο;</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Στείλτε ένα εσωτερικό μήνυμα</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Ανεβάστε τα αρχεία σας</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Ημερολόγιο</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Ποσοστό χρήσης χώρου</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Εσωτερικά μηνύματα</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Κάποιοι ειδικοί χαρακτήρες θα αφαιρεθούν</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Αντιγραφή επικόλληση αυτού του φύλλου σε exel</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Παρασκευή</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Μάρτιος</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Δεκέμβριος</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Διαγραφή στήλης</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Φόρμα</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Τοποθέτηση στήλης</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Τοποθέτηση σειράς</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Μάιος</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Ιανουάριος</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Απρίλιος</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Αύγουστος</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Ιούλιος</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Ιούνιος</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Δευτέρα</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Διαγραφή σειράς</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Φεβρουάριος</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Νέο</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Άνοιγμα</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Αποθήκευση</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Τρίτη</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Θέση</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Εκτύπωση</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Αποθήκευση ως</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Σεπτέμβριος</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Μέγεθος φύλλου</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Τετάρτη</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Στύλ</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Νοέμβριος</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Οκτώβριος</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Κυριακή</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Πέμπτη</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>Χ</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Σίγουρα να ελευθερωθούν τα κελι(ά);</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Σάββατο</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>F</old>
+			<new>Π</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Αύγουστος</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Παρ</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Ιανουάριος</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Φεβρουάριος</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Ιούλιος</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Ιούνιος</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Απρίλιος</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Δεκέμβριος</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>Δ</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Μάρτιος</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Μάιος</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Δευ</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Νοέμβριος</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Οκτώβριος</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>ΤΡ</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Κυρ</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>K</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Σεπτέμβριος</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>Τ</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Τετ</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>Π</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Πεμ</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Τρι</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Σαβ</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>Σ</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Directory not found</old>
+			<new>Ο κατάλογος δεν βρέθηκε</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Το αρχείο εισήχθη επιτυχώς</new>
+		</text>
+	</part>
+</lang>

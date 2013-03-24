@@ -1,0 +1,303 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Working with Variants &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Development" href="../development.html" />
+    <link rel="next" title="Internationalization" href="internationalization.html" />
+    <link rel="prev" title="Using Parts" href="parts_using.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="internationalization.html" title="Internationalization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="parts_using.html" title="Using Parts"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../development.html" accesskey="U">Development</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="working-with-variants">
+<span id="pages-variants-working-with-variants"></span><h1>Working with Variants<a class="headerlink" href="#working-with-variants" title="Permalink to this headline">¶</a></h1>
+<p>Variants enable the selection and removal of code from the build version.
+A variant consists of a collection of states from which exactly one is active
+at load time of the framework. The global map <tt class="docutils literal"><span class="pre">qxvariants</span></tt> can be
+used to select a variant before the Framework is loaded.</p>
+<p>Depending on the selected variant a specific code path can be choosen using the <tt class="docutils literal"><span class="pre">select</span></tt> method.</p>
+<p>The generator is able to set a variant and remove all code paths which are not
+selected by the variant.</p>
+<p>Variants are used to implement browser optimized builds and to remove debugging code from the build version.  It is very similar to conditional compilation in C/C++.</p>
+<div class="section" id="browser-optimized-builds">
+<span id="pages-variants-browser-optimized-builds"></span><h2>Browser optimized builds<a class="headerlink" href="#browser-optimized-builds" title="Permalink to this headline">¶</a></h2>
+<p>qooxdoo tries to hide browser incompatibilities from the application developer. To provide browser independent functionality it is often necessary to use different code on different browsers. Low level code like the key handler have often their own implementation for each supported browser.</p>
+<p>The generator selects for browser optimized builds only the code which is needed for one specific browser and removes the unused code. For each supported browser engine an optimized build is generated and on load time the appropriate build is loaded. As a fall back there is always the unoptimized build.</p>
+<p>Code like this was very common in older versions of qooxdoo:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Client</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">isMshtml</span><span class="p">())</span> <span class="p">{</span>
+  <span class="c1">// some Internet Explorer specific code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Client</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">isOpera</span><span class="p">()){</span>
+  <span class="c1">// Opera specific code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// common code for all other browsers</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Using <tt class="docutils literal"><span class="pre">Variants</span></tt> the same code looks like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">isSet</span><span class="p">(</span><span class="s2">&quot;qx.client&quot;</span><span class="p">,</span> <span class="s2">&quot;mshtml&quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// some Internet Explorer specific code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">isSet</span><span class="p">(</span><span class="s2">&quot;qx.client&quot;</span><span class="p">,</span> <span class="s2">&quot;opera&quot;</span><span class="p">)){</span>
+  <span class="c1">// Opera specific code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// common code for all other browsers</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The variant <tt class="docutils literal"><span class="pre">qx.client</span></tt> is always set to the current browser, so this code works exactly like the first version. What is new is that the <tt class="docutils literal"><span class="pre">generator</span></tt> knows about variants and is able to optimize the build for one value of a variant and remove the unused code for all other values of the variant.</p>
+<div class="section" id="config-changes">
+<span id="pages-variants-config-changes"></span><h3>Config changes<a class="headerlink" href="#config-changes" title="Permalink to this headline">¶</a></h3>
+<p>The browser-specific code above let's you distinguish the different browsers inside your application code. In order to serve different versions of your application for specific browsers you have to slightly change your <tt class="docutils literal"><span class="pre">config.json</span></tt> to let the generator do the magic.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/* part of your &quot;config.json&quot; */</span>
+<span class="s2">&quot;jobs&quot;</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="cm">/* shadow the original &quot;build-script&quot; job and add the needed infos */</span>
+  <span class="s2">&quot;build-script&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="cm">/* adding the variants */</span>
+    <span class="s2">&quot;variants&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;qx.client&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;gecko&quot;</span><span class="p">,</span> <span class="s2">&quot;mshtml&quot;</span><span class="p">,</span> <span class="s2">&quot;webkit&quot;</span><span class="p">,</span> <span class="s2">&quot;opera&quot;</span> <span class="p">]</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;compile-options&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;paths&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="cm">/* overwrite &quot;file&quot; entry to get client-specific file names */</span>
+        <span class="s2">&quot;file&quot;</span> <span class="o">:</span> <span class="s2">&quot;${BUILD_PATH}/script/${APPLICATION}-{qx.client}.js&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The generator will generate as many versions of your application as the number of values you give in the list value of <em>qx.client</em> (4 in this example). To take advantage of these different variations of your app, you use the <em>{qx.client}</em> compile macro in the name of the output file, which will be replaced during compilation by the value currently in effect. This way you'll get output files like <em>myapp-gecko.js</em>, <em>myapp-mshtml.js</em>, ... asf.</p>
+<p>If you specify more than one variant with multiple values, e.g.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/* multiple variants with multiple values */</span>
+<span class="s2">&quot;variants&quot;</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="s2">&quot;qx.client&quot;</span>   <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;gecko&quot;</span><span class="p">,</span> <span class="s2">&quot;mshtml&quot;</span><span class="p">,</span> <span class="s2">&quot;webkit&quot;</span><span class="p">,</span> <span class="s2">&quot;opera&quot;</span> <span class="p">],</span>
+  <span class="s2">&quot;qx.debug&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;on&quot;</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>a compile output is produced <strong>for each possible combination</strong> of all the multi-valued variants, e.g. in this case for <em>{qx.client: gecko, qx.debug:on}, {qx.client:gecko, qx.debug:off}, {qx.client:mshtml, qx.debug:on}, {qx.client:mshtml, ...}, ....</em> asf.</p>
+<p>You would then also use multiple compile macros in the output file name, e.g. <em>${APPLICATION}-{qx.client}-{qx.debug}.js</em>, in order to distinguish those different outputs  (otherwise one compile output is copied over the other, and you are left with only the output for the last variation).</p>
+</div>
+</div>
+<div class="section" id="removal-of-debugging-code">
+<span id="pages-variants-removal-of-debugging-code"></span><h2>Removal of debugging code<a class="headerlink" href="#removal-of-debugging-code" title="Permalink to this headline">¶</a></h2>
+<p>Often one wants to add additional checks and assertions to the code but don't want the build to suffer from these checks. This can be solved elegantly by using variants too. The variant <tt class="docutils literal"><span class="pre">qx.debug</span></tt> with the allowed values <tt class="docutils literal"><span class="pre">on</span></tt> and <tt class="docutils literal"><span class="pre">off</span></tt> can be used to add debugging code which is only active in the source version and removed from the build version.</p>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">isSet</span><span class="p">(</span><span class="s2">&quot;qx.debug&quot;</span><span class="p">,</span> <span class="s2">&quot;on&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">a</span> <span class="o">!=</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Bad arguments!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This check is now only enabled in the source version. By default <tt class="docutils literal"><span class="pre">qx.debug</span></tt> is set to <tt class="docutils literal"><span class="pre">off</span></tt> in build versions, and <tt class="docutils literal"><span class="pre">on</span></tt> in source versions.</p>
+</div>
+<div class="section" id="using-variants">
+<span id="pages-variants-using-variants"></span><h2>Using variants<a class="headerlink" href="#using-variants" title="Permalink to this headline">¶</a></h2>
+<p>Variants are used to select certain code paths. Each variant has a name and exactly one value from a limited list of allowed values. The variant names have a namespace prefix to avoid name conflicts. The value of a variant is immutable and once set cannot be altered in the JavaScript code.</p>
+<p>Variants can be used in two ways. They can be used to select code using <tt class="docutils literal"><span class="pre">if</span></tt> statements or to select whole functions.</p>
+<div class="section" id="method-select">
+<span id="pages-variants-method-select"></span><h3>Method: select()<a class="headerlink" href="#method-select" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+If the whole definition of a function should be selected the <tt class="docutils literal"><span class="pre">select</span></tt> method can be used as follows:</blockquote>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;qx.client&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s2">&quot;gecko&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="s2">&quot;mshtml|opera&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Depending on the value of the</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;qx.client&quot;</span>
+</pre></div>
+</div>
+<p>variant the corresponding function is selected. The first case is selected if the variant is &quot;gecko&quot;, the second is selected if the variant is &quot;mshtml&quot; or &quot;opera&quot; and the third function is the default one. It is selected if none of the other keys match the variant.</p>
+</div>
+<div class="section" id="method-isset">
+<span id="pages-variants-method-isset"></span><h3>Method: isSet()<a class="headerlink" href="#method-isset" title="Permalink to this headline">¶</a></h3>
+<p>This method is used to check whether a variant is set to a given value. The first parameter is the name of the variant and the second parameter is the value to check for. Several values can be &quot;or&quot;-combined by separating them with the &quot;|&quot; character. A value of &quot;mshtml|opera&quot; would for example check whether the variant is set to &quot;mshtml&quot; or &quot;opera&quot;.</p>
+<p>To enable the generator to optimize this selection, both parameters must be string literals.</p>
+<p>This method is meant to be used in if statements to select code paths. If the  condition of
+an if statement is only this method, the generator is able to optimize the if
+statement.</p>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">isSet</span><span class="p">(</span><span class="s2">&quot;qx.client&quot;</span><span class="p">,</span> <span class="s2">&quot;mshtml&quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// some Internet Explorer specific code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">isSet</span><span class="p">(</span><span class="s2">&quot;qx.client&quot;</span><span class="p">,</span> <span class="s2">&quot;opera&quot;</span><span class="p">)){</span>
+  <span class="c1">// Opera specific code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// common code for all other browsers</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="framework-variants">
+<span id="pages-variants-framework-variants"></span><h2>Framework variants<a class="headerlink" href="#framework-variants" title="Permalink to this headline">¶</a></h2>
+<p>The following variants are being provided by the framework:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="37%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Variant</th>
+<th class="head">Allowed values</th>
+<th class="head">Default value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">qx.client</span></tt> Client detection</td>
+<td><tt class="docutils literal"><span class="pre">gecko</span></tt>, <tt class="docutils literal"><span class="pre">mshtml</span></tt>, <tt class="docutils literal"><span class="pre">opera</span></tt>, <tt class="docutils literal"><span class="pre">webkit</span></tt></td>
+<td><em>auto-detected</em></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">qx.debug</span></tt> Debugging code</td>
+<td><tt class="docutils literal"><span class="pre">on</span></tt>, <tt class="docutils literal"><span class="pre">off</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">on</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">qx.aspects</span></tt> Aspect-oriented programming (AOP)</td>
+<td><tt class="docutils literal"><span class="pre">on</span></tt>, <tt class="docutils literal"><span class="pre">off</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">off</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">qx.dynlocale</span></tt> Dynamic locale switch</td>
+<td><tt class="docutils literal"><span class="pre">on</span></tt>, <tt class="docutils literal"><span class="pre">off</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">on</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="custom-variants">
+<span id="pages-variants-custom-variants"></span><h2>Custom variants<a class="headerlink" href="#custom-variants" title="Permalink to this headline">¶</a></h2>
+<p>You can easily create your own variants by using <tt class="docutils literal"><span class="pre">qx.core.Variant.define()</span></tt></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Working with Variants</a><ul>
+<li><a class="reference internal" href="#browser-optimized-builds">Browser optimized builds</a><ul>
+<li><a class="reference internal" href="#config-changes">Config changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#removal-of-debugging-code">Removal of debugging code</a></li>
+<li><a class="reference internal" href="#using-variants">Using variants</a><ul>
+<li><a class="reference internal" href="#method-select">Method: select()</a></li>
+<li><a class="reference internal" href="#method-isset">Method: isSet()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#framework-variants">Framework variants</a></li>
+<li><a class="reference internal" href="#custom-variants">Custom variants</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="parts_using.html"
+                                  title="previous chapter">Using Parts</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="internationalization.html"
+                                  title="next chapter">Internationalization</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/development/variants.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

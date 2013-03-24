@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getRawFile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyeurl</tag>
+		</tags>
+		<shortDesc>Fetches a remote file via HTTP request.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getRawFile</functionName>
+		<syntax>eyeURL('getRawFile', array('url' => $url))</syntax>
+		<desc>Given an absolute URL to a file, getRawFile makes a HTTP request via the specified port to retrieve the contents of the file.</desc>
+		<params>
+			<type>required</type>
+			<name>url</name>
+			<desc>Url to the file to retrieve.</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+	</definition>
+</info>

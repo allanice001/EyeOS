@@ -1,0 +1,228 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeControl_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeControl_on_Close() {
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+/* Graphics Functions */
+function eyeControl_on_UploadWllp() {
+	global $checknum;
+	$options = array(
+		0,
+		'SelectNewWallpaper',
+		$checknum
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeControl_on_SelectNewWallpaper($params=null) {
+	global $checknum;
+	global $myPid;
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Error opening file'));
+			return;
+		}
+		$size = service('vfs','filesize',array($file));
+		if ($size > 0) {
+			$extImg = strtolower(substr($file,-4));
+			$allowedExtensions = array(".jpg",".gif",".bmp",".png",".tif");
+			if (in_array($extImg,$allowedExtensions)) {
+				$myUserDir = service('um','getCurrentUserDir');
+				$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','r'));
+				$myContent = fread($myDescriptor,filesize($myUserDir.'conf/eyeDesk/conf.xml'));
+				$mySettings = reqLib('eyeXML','xml2array',array($myContent));
+				fclose($myDescriptor);
+				$mySettings["eyeDesk"][0]["wallpaper"][0] = $file;
+				$mySettings = reqLib('eyeXML','array2xml',array($mySettings));
+				
+				$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','w'));
+				fwrite($myDescriptor,$mySettings);
+				fclose($myDescriptor);
+				service('eyex','setWallpaper',array('path' => "index.php?checknum=$checknum&msg=getWallpaper&params=".md5(uniqid(rand(), true)), 'repeat' => 0, 'center' => 1));
+				service('eyex','messageBox',array('content'=>'New wallpaper successfully set.'));
+				service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_graphicsContainer')) {document.getElementById('".$myPid."_graphicsContainer').innerHTML='';}"));
+				include_once(EYE_ROOT.'/'.APP_DIR.'/eyeControl/graphics'.EYE_CODE_EXTENSION);
+			} else {
+				service('eyex','messageBox',array('content'=>'Sorry, this file is not allowed to be a wallpaper.'));
+			}
+		}
+	}
+}
+
+function eyeControl_on_RestoreWllp() {
+	global $myPid;
+	$myUserDir = service('um','getCurrentUserDir');
+	$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','r'));
+	$myContent = fread($myDescriptor,filesize($myUserDir.'conf/eyeDesk/conf.xml'));
+	$mySettings = reqLib('eyeXML','xml2array',array($myContent));
+	fclose($myDescriptor);
+	$mySettings["eyeDesk"][0]["wallpaper"][0] = "";
+	$mySettings = reqLib('eyeXML','array2xml',array($mySettings));
+			
+	$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','w'));
+	fwrite($myDescriptor,$mySettings);
+	fclose($myDescriptor);
+	service('eyex','setWallpaper',array('path' => "index.php?checknum=$checknum&msg=getWallpaper&params=", 'repeat' => 0, 'center' => 1));
+	service('eyex','messageBox',array('content'=>'eyeOS wallpaper successfully restored.'));
+	service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_graphicsContainer')) {document.getElementById('".$myPid."_graphicsContainer').innerHTML='';}"));
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeControl/graphics'.EYE_CODE_EXTENSION);
+}
+
+function eyeControl_on_getWallpaper() {
+	$myUserDir = service('um','getCurrentUserDir');
+	$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','r'));
+	$myContent = fread($myDescriptor,filesize($myUserDir.'conf/eyeDesk/conf.xml'));
+	$mySettings = reqLib('eyeXML','xml2array',array($myContent));
+	fclose($myDescriptor);
+	
+	$path = $mySettings["eyeDesk"][0]["wallpaper"][0];
+	
+	if($path && service('vfs','fileExists',array($path))) {
+		
+		$fp = service('vfs','open',array($path,'r'));
+		if(!$fp){
+			exit;
+		}
+		header('Cache-Control: no-cache, must-revalidate');
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+		header('Content-Type: image/jpg');
+		header('Conection: close');
+		while (!feof($fp)) { 
+			echo fgets($fp, 4096); 
+		} 
+		fclose($fp);
+		exit;
+	}
+}
+
+/* General Functions */
+function eyeControl_on_UpdatePwd() {
+	global $myPid;
+	global $currentUser;
+	
+	$txt_actpwd = $GLOBALS['eyeControl_upd_1']->text;
+	$txt_newpwd = $GLOBALS['eyeControl_upd_2']->text;
+	$txt_newpwd2 = $GLOBALS['eyeControl_upd_3']->text;
+	
+	if ($txt_newpwd != $txt_newpwd2) {
+		service('eyex','messageBox',array('content'=>"Error: The passwords do not match."));
+		return;
+	}
+	
+	if (trim($txt_newpwd) == "") {
+		service('eyex','messageBox',array('content'=>"Error: The password can't be empty"));
+		return;
+	}
+	
+	
+	$txt_actpwd = md5($txt_actpwd.md5($txt_actpwd));
+	$txt_newpwd = md5($txt_newpwd.md5($txt_newpwd));
+	
+	$myUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$info = service('um','retriveUser',array($myUser));
+	$currentUser = $myUser;
+	
+	if($info['eyeUser'][0]['password'][0] == $txt_actpwd)	
+	{
+		$newInfo = array(
+			'username' => $myUser,
+	 		'password' => $txt_newpwd,
+	 		'email' => $info['eyeUser'][0]['email'][0],
+	 		'createDate' => $info['eyeUser'][0]['createDate'][0],
+			'group' => $info['eyeUser'][0]['group'][0]
+		);
+		
+		$currentUser = ROOTUSER;
+		service('um','updateUser',$newInfo);
+		$currentUser = $myUser;
+		
+		$GLOBALS['eyeControl_upd_1']->setText("");
+		$GLOBALS['eyeControl_upd_2']->setText("");
+		$GLOBALS['eyeControl_upd_3']->setText("");
+		service('eyex','messageBox',array('content'=>"Password updated successfully."));
+		
+	} else {
+		service('eyex','messageBox',array('content'=>"Sorry, actual password is not correct."));
+	}
+}
+
+/* Admin Functions */
+function eyeControl_on_DeleteUser() {
+	global $currentUser;
+	if ($currentUser == ROOTUSER) {
+		
+		$txt_actpwd = $GLOBALS['eyeControl_adm_3']->text;
+		$txt_delusr = $GLOBALS['eyeControl_adm_4']->text;
+		
+		if (trim($txt_delusr) == "" || !service('um','userExist',array($txt_delusr))) {
+			service('eyex','messageBox',array('content'=>"You must enter a valid username to delete"));
+			return;
+		}
+		
+		if ($txt_delusr == ROOTUSER) {
+			service('eyex','messageBox',array('content'=>"Sorry, the superuser can't be removed."));
+			return;
+		}
+
+		$txt_actpwd = md5($txt_actpwd.md5($txt_actpwd));
+		$info = service('um','retriveUser',array($currentUser));
+		if($info['eyeUser'][0]['password'][0] == $txt_actpwd) {
+			service('um','deleteUser',array($txt_delusr));
+			$GLOBALS['eyeControl_adm_3']->setText("");
+			$GLOBALS['eyeControl_adm_4']->setText("");
+			service('eyex','messageBox',array('content'=>"User deleted successfully."));
+		} else {
+			service('eyex','messageBox',array('content'=>"Passwords do not match."));
+		}
+	}
+}
+
+function eyeControl_on_CreateUser() {
+	global $currentUser;
+	if($currentUser == ROOTUSER) {
+		$txt_newusr = $GLOBALS['eyeControl_adm_1']->text;
+		$txt_newpwd = $GLOBALS['eyeControl_adm_2']->text;
+		
+		if (trim($txt_newpwd) == "" || trim($txt_newusr) == "") {
+			service('eyex','messageBox',array('content'=>"Sorry, the username and password can't be empty"));
+			return;
+		}
+		if(service('um','createUser',array('username' => $txt_newusr,'password' => $txt_newpwd))) {
+			service('eyex','messageBox',array('content'=>"New user created successfully."));
+			$GLOBALS['eyeControl_adm_1']->setText("");
+			$GLOBALS['eyeControl_adm_2']->setText("");
+		}
+	}
+}
+
+function eyeControl_on_LauncheyeSoft(){
+	service('proc','launch',array('eyeSoft'));
+}
+?>

@@ -1,0 +1,682 @@
+// base.json
+{
+  "name"    : "base.json",
+
+  "let" :
+  {
+    "ROOT"         : ".",
+    "QOOXDOO_PATH" : "../../..",
+    //"CACHE"        : "cache",
+    "CACHE"        : "${TMPDIR}/cache",
+    "CACHE_KEY"    : 
+    {
+      "compile"      : "${CACHE}",
+      "downloads"    : "${CACHE}/downloads",
+      "invalidate-on-tool-change" : true
+    },
+    "QXTHEME"      : "qx.theme.Modern",
+    "QXICONTHEME"  : ["Tango"],
+    "OPTIMIZE"     : ["basecalls", "variables", "privates", "strings"],
+    "LOCALES"      : [ "en" ],
+    "APPLICATION_MAIN_CLASS" : "${APPLICATION}.Application",
+    "BUILD_PATH"   : "${ROOT}/build"
+  },
+
+
+  "jobs" :
+  {
+    // the next one is needed wherever the local lib is to be scanned
+    "scan-local-lib" :
+    {
+      "desc"    : "scan for classes and resources in the current library",
+
+      "library" :
+      [
+        {
+          "manifest" : "${ROOT}/Manifest.json"
+        }
+      ],
+
+      "cache" : "${CACHE_KEY}"
+    },
+
+
+    "libraries" :
+    {
+      "desc" : "includer job, to hold the essential libraries for the compile jobs",
+
+      "library" :
+      [
+        {
+          "manifest" : "${QOOXDOO_PATH}/framework/Manifest.json"
+        },
+
+        {
+          "manifest" : "${ROOT}/Manifest.json"
+        }
+      ]
+    },
+
+    "cache"  :
+    {
+      "cache"   : "${CACHE_KEY}"  
+    },
+
+    "includes"  :
+    {
+      "include" :
+      [
+        "${APPLICATION_MAIN_CLASS}",
+        "${QXTHEME}"
+      ]
+    },
+
+    "common" :
+    {
+      "desc"    : "common settings for base.json jobs",
+
+      "extend"  : ["libraries", "includes", "cache"],
+
+      "settings" :
+      {
+        "qx.version"     : "${QOOXDOO_VERSION}",
+        "qx.theme"       : "${QXTHEME}",
+        "qx.application" : "${APPLICATION_MAIN_CLASS}"
+      },
+      
+      "asset-let" :
+      {
+        "qx.icontheme" : "${QXICONTHEME}"
+      }
+    },
+
+
+    // -- source jobs --------------------------------------------------
+
+    "source-script" :
+    {
+      "desc"    : "create includer script of current application",
+
+      "extend" : ["common"],
+
+      /*
+      "require" :
+      {
+        // to have reporting infrastructure before custom classes
+        "qx.Class" : [ "qx.log.Logger", "qx.dev.StackTrace"]
+      },
+      */
+
+      "compile-options" :
+      {
+        "paths" :
+        {
+          "file" : "${ROOT}/source/script/${APPLICATION}.js",
+          "app-root" : "source"
+        },
+        "uris" : 
+        {
+          "add-nocache-param" : true
+        },
+        "code" :
+        {
+          "locales" : "${LOCALES}"
+        }
+      },
+
+      "compile" : { "type" : "source" }
+    },
+
+
+    "source" :
+    {
+      "desc"    : "create source version of current application",
+
+      "run" :
+      [
+        "source-script"
+      ]
+    },
+
+
+    "source-all-script" :
+    {
+      "desc"    : "create includer script of current application",
+
+      "extend" : ["common"],
+
+      // include all (relevant) sources
+      "include" :     
+      [
+        "${APPLICATION}.*",
+        "qx.*"
+      ],
+      "exclude" :
+      [
+        "qx.test.*",
+        "${APPLICATION}.test.*",
+        "${APPLICATION}.simulation.*"
+      ],
+
+      "compile-options" :
+      {
+        "paths" :
+        {
+          "file" : "${ROOT}/source/script/${APPLICATION}.js",
+          "app-root" : "source"
+        },
+        "uris" : 
+        {
+          "add-nocache-param" : true
+        },
+        "code" :
+        {
+          "locales" : "${LOCALES}"
+        }
+      },
+      
+      "compile" : { "type" : "source" }
+    },
+
+
+    "source-all" :
+    {
+      "desc"    : "create source version of current application, with all classes",
+
+      "run" :
+      [
+        "source-all-script"
+      ]
+    },
+
+    /*
+    "source-hybrid" :
+    {
+      "desc"    : "create a hybrid source version (application as source, framework compiled)",
+
+      "run" :
+      [
+        "source-hybrid-framework",
+        "source-hybrid-application"
+      ]
+    },
+
+    "source-hybrid-framework" :
+    {
+      "desc"    : "compile a framework all-classes package",
+
+      "library" :
+      [
+        {
+          "manifest" : "${QOOXDOO_PATH}/framework/Manifest.json"
+        }
+      ],
+
+      "cache"  : "${CACHE_KEY}",
+
+      "include": ["qx.*"],
+      "exclude": ["=qx.test.*"],
+
+      "variants" :
+      {
+        "qx.debug" : ["on"],
+        "qx.aspects" : ["off"]
+      },
+
+      "compile-options" :
+      {
+        "paths" :
+        {
+          "file" : "${ROOT}/source/script/qx.js"
+        },
+        "code"  :
+        {
+          "format"   : "on",
+          "optimize" : []
+        }
+      },
+
+      "compile" : { "type" : "build" },
+      
+      "packages":
+      {
+        "parts" :
+        {
+          "all" :
+          {
+            "include" : ["qx.*"]
+          }
+        },
+        "init" : "all",
+        "loader-with-boot" : false
+      }
+    },
+
+    "source-hybrid-application" :
+    {
+      "desc"     : "create a source version of the application only",
+
+      "extend"   : ["common"],
+      
+      "=library"  :
+      [
+        {
+          "manifest" : "${ROOT}/Manifest.json"
+        }
+      ],
+
+      "=include" :
+      [
+        "=${APPLICATION}.*"
+      ],
+
+      //"exclude": ["=qx.*"],
+
+      "compile-source" :
+      {
+        "file" : "${ROOT}/source/script/${APPLICATION}.js",
+        "locales" : "${LOCALES}",
+        "root" : "source"
+      }
+    },
+    */
+
+    // -- build jobs ---------------------------------------------------
+
+    "build-script" :
+    {
+      "desc"    : "create build script of current application",
+
+      "extend" : ["common"],
+
+      "variants" :
+      {
+        "qx.debug" : ["off"]
+      },
+
+      "compile-options" :
+      {
+        "paths"  :
+        {
+          "file" : "${BUILD_PATH}/script/${APPLICATION}.js"
+        },
+        "uris"   :
+        {
+          "script"   : "script",
+          //"resource" : "resource",
+          "add-nocache-param" : false
+        },
+        "code"   :
+        {
+          "format"   : true,
+          "locales"  : "${LOCALES}",
+          "optimize" : "${OPTIMIZE}"
+        }
+      },
+      
+      "compile" : { "type" : "build" }
+    },
+
+
+    "build-files" :
+    {
+      "desc"    : "copy files of current application to build dir",
+
+      "extend" : ["common"],
+
+      "copy-files" :
+      {
+        "files" :
+        [
+          "index.html"
+        ],
+
+        "source" : "${ROOT}/source",
+        "target" : "${BUILD_PATH}"
+      }
+    },
+
+
+    "build-resources":
+    {
+      "desc"    : "copy necessary resources for current application to build dir",
+
+      "extend" : ["common"],
+
+      "variants" :
+      {
+        "qx.debug" : ["off"]
+      },
+
+      "copy-resources" :
+      {
+        "target"          : "${BUILD_PATH}",
+        "resource-filter" : true
+      }
+    },
+
+
+    "build" :
+    {
+      "desc"    : "create build version of current application",
+
+      "run" :
+      [
+        "build-resources",
+        "build-script",
+        "build-files"
+      ]
+    },
+
+    // -- various jobs -------------------------------------------------
+
+
+    "provider" :
+    {
+      "desc"   : "create a provider structure, with code, dependency info, etc.",
+
+      "extend" : ["cache", "libraries"]
+
+      ,"let" :
+      {
+        "PROVIDER_ROOT" : "./provider",
+        "PROVIDER_OPTIMIZE" : ["variables", "basecalls", "strings"] 
+      }
+      
+      ,"run" : [
+        "provider-classes",
+        "provider-deps"
+      ]
+      
+    },
+
+    "provider-deps":
+    {
+      // will only run when invoked from "provider"
+      "include" : [ "=${APPLICATION}.*" ]
+      ,"exclude" : [ "=${APPLICATION}.test.*", "${APPLICATION}.simulation.*" ]
+
+      ,"log" : 
+      { 
+        "dependencies" : 
+        { 
+          "type" : "using", 
+          "format" : "provider",
+          "json" : {"pretty" : true, "file" : "${PROVIDER_ROOT}/dependencies.json"}
+        }
+      }
+    },
+
+    "provider-classes" :
+    {
+      // will only run when invoked from "provider"
+      "compile-options" : 
+      {
+        "code" : 
+        {
+          "locales"  : "${LOCALES}",
+          "format"   : false,
+          "optimize" : "${PROVIDER_OPTIMIZE}"
+        }
+      }
+
+      ,"include" : [ "${APPLICATION}.*" ]
+      ,"exclude" : [ "${APPLICATION}.test.*", "${APPLICATION}.simulation.*" ]
+
+      ,"variants" :
+      {
+        "qx.debug" : ["off"]
+      }
+
+      ,"provider" : 
+      {
+        "app-root" : "${PROVIDER_ROOT}",
+        "include"  : ["${APPLICATION}.*"],
+        "exclude"  : ["${APPLICATION}.test.*", "${APPLICATION}.simulation.*"],
+        "compile"  : ["source", "build"]
+      }
+    },
+    /*
+    */
+
+
+    /*
+    "provider" :
+    {
+      "desc"   : "create a provider structure, with code, dependency info, etc.",
+
+      "extend" : ["cache", "libraries"]
+
+      ,"let" :
+      {
+        "PROVIDER_ROOT" : "./provider"
+      }
+      
+      ,"include" : [ "${APPLICATION}.*" ]
+      ,"exclude" : [ "${APPLICATION}.test.*", "${APPLICATION}.simulation.*" ]
+
+      ,"compile-options" : 
+      {
+        "code" : 
+        {
+          "locales"  : "${LOCALES}",
+          "format"   : false,
+          "optimize" : ["variables", "basecalls", "strings"] 
+        }
+      }
+
+      ,"provider" : 
+      {
+        "app-root" : "${PROVIDER_ROOT}",
+        "include"  : ["${APPLICATION}.*"],
+        "exclude"  : ["${APPLICATION}.test.*", "${APPLICATION}.simulation.*"],
+        "compile"  : ["source", "build"]
+      }
+
+      ,"log" : 
+      { 
+        "dependencies" : 
+        { 
+          "type" : "using", 
+          "format" : "provider",
+          "json" : {"pretty" : true, "file" : "${PROVIDER_ROOT}/dependencies.json"}
+        }
+      }
+    },
+    */
+
+
+    "translation" :
+    {
+      "desc"    : "create .po files for current library",
+
+      "extend" : ["scan-local-lib"],
+
+      "translate" :
+      {
+        "locales": "${LOCALES}",
+        "namespaces" : ["${APPLICATION}"]
+      }
+    },
+
+
+    "pretty" :
+    {
+      "desc"    : "pretty-formatting of the source code of the current library",
+
+      "extend" : [ "scan-local-lib" ],
+
+      "include" : [ "=${APPLICATION}.*" ],
+
+      "pretty-print" : {}
+    },
+
+
+    "clean" :
+    {
+      "desc"    : "remove local cache and generated .js files (source/build)",
+
+      "cache"   : "${CACHE_KEY}",
+
+      "clean-files" :
+      {
+        "Cleaning up build" :
+        [
+          "${BUILD_PATH}/script/${APPLICATION}.js",
+          "${BUILD_PATH}/script/${APPLICATION}[_-]*.js"
+        ],
+        "Cleaning up source" :
+        [
+          "${ROOT}/source/script/${APPLICATION}.js"
+        ]
+        /*
+        ,"Deleting local cache" :
+        [
+          "${ROOT}/cache"
+        ]
+        */
+      }
+    },
+
+
+    "distclean" :
+    {
+      "desc"    : "remove the cache and all generated artefacts of this library (source, build, ...)",
+
+      "cache"   : "${CACHE_KEY}", 
+
+      "clean-files" :
+      {
+        "Deleting build" :
+        [
+          "${BUILD_PATH}"
+        ],
+        "Cleaning up source" :
+        [
+          "${ROOT}/source/script"
+        ],
+        "Deleting api folder" :
+        [
+          "${ROOT}/api"
+        ],
+        "Deleting test folder" :
+        [
+          "${ROOT}/test"
+        ],
+        "Deleting inspector folder" :
+        [
+          "${ROOT}/inspector"
+        ],
+        "Deleting simulator folder" :
+        [
+          "${ROOT}/simulator"
+        ]
+        /*
+        ,"Deleting cache" :
+        [
+          "${CACHE}"
+        ]
+        */
+      }
+    },
+
+
+    "lint" :
+    {
+      "desc"    : "check the source code of the .js files of the current library",
+
+      "extend" : [ "scan-local-lib" ],
+
+      "lint-check" :
+      {
+        "allowed-globals" : [ "qx", "qxsettings", "qxvariants", "${APPLICATION}" ]
+      }
+    },
+
+
+    "migration" :
+    {
+      "desc"    : "migrate the .js files of the current library to the current qooxdoo version",
+
+      "extend" : [ "scan-local-lib" ],
+
+      "migrate-files" :
+      {
+        //"from-version" : "0.7",
+        "migrate-html" : false
+      }
+    },
+
+
+    "publish" :
+    {
+      "desc"    : "(this is an admin job for the qooxdoo project web site)",
+
+      "extend" : [ "scan-local-lib" ],
+
+      "shell" :
+      {
+        "command" : "rsync --checksum --compress --recursive --delete --inplace --links --safe-links --exclude .svn ${BUILD_PATH}/* root@qooxdoo.org:/var/www/qooxdoo/demo/${QOOXDOO_VERSION}/${APPLICATION}"
+      }
+    },
+
+
+    "fix" :
+    {
+      "desc"    : "normalize whitespace in .js files of the current library (tabs, eol, ...)",
+
+      "extend" : [ "scan-local-lib" ],
+
+      "fix-files" : {}
+    },
+    
+    
+    "info" : 
+    {
+      "desc" : "collects environment information like the qooxdoo version etc., and prints it out",
+
+      "cache" : "${CACHE_KEY}",
+      
+      "collect-environment-info" : {}
+    },
+
+
+    // -- various includer jobs that can be used in "extend" key ---------------
+
+    "profiling" :
+    {
+      "desc"    : "includer job, to activate profiling",
+
+      "variants" :
+      {
+        "qx.aspects" : ["on"]
+      },
+
+      "require" :
+      {
+        "qx.Class" : [ "qx.core.Aspect", "qx.dev.Profile" ]
+      }
+    },
+
+
+    "log-parts" : 
+    {
+      "desc" : "includer job, to filter verbose messages for part building (with -v)",
+
+      "log"  : { "filter" : { "debug" : [ "generator.code.PartBuilder.*" ] } }
+    },
+
+
+    "log-dependencies" : 
+    {
+      "desc" : "includer job, to filter verbose messages for dependency analysis (with -v)",
+
+      "log"  : 
+      { 
+        "filter" : { "debug" : [ "generator.code.DependencyLoader.*" ] },
+        "dependencies" : { "type" : "using" }
+      }
+    }
+
+  }
+}

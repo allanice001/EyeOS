@@ -1,0 +1,43 @@
+<translation>
+	<installer-install-allow-creation>Povoliť užívateľom vytváranie účtov</installer-install-allow-creation>
+	<installer-install-continue>Pokračovať...</installer-install-continue>
+	<installer-install-do>Inštalovať eyeOS!</installer-install-do>
+	<installer-install-password-retype>Zopakovať heslo</installer-install-password-retype>
+	<installer-install-password-root>Heslo administrátora</installer-install-password-root>
+	<installer-install-passwords-characters>Heslo administrátora musí obsahovať minimálne 3 znaky!</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>Heslo administrátora sa nezhoduje!</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>Heslo administrátora je nevyhnutné nastaviť!</installer-install-passwords-required>
+	<installer-install-systemname-error>Musíte špecifikovať názov systému!</installer-install-systemname-error>
+	<installer-install-systemname>Názov systému</installer-install-systemname>
+	<installer-install-title>Pre inštalovanie eyeOS vyplňte prosím nasledujúci formulár:</installer-install-title>
+	<installer-lib-check-md5>Varovanie: Skontrolujte prosím "[package]", balíček sa javí ako porušený.</installer-lib-check-md5>
+	<installer-lib-check-notexist>Chyba: ''[file]'' neexistuje</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Varovanie: Nastavte prosím plné práva (CHMOD 777) pre súbor "[file]".</installer-lib-check-permissions>
+	<installer-lib-output-errors>V priebehu inštalácie sa vyskytli problémy:</installer-lib-output-errors>
+	<installer-lib-output-lang-currentlang>Zvolený jazyk</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Jazyky</installer-lib-output-lang-langs>
+	<installer-lib-output-title>Inštalácia eyeOS</installer-lib-output-title>
+	<installer-system-action-removeinstaller>Odstrániť inštalátor eyeOS</installer-system-action-removeinstaller>
+	<installer-system-action-resetsystem>Obnoviť systémové súbory</installer-system-action-resetsystem>
+	<installer-system-action-uninstall>Odinštalovať eyeOS</installer-system-action-uninstall>
+	<installer-system-action>Akcia</installer-system-action>
+	<installer-system-back>Späť na menu</installer-system-back>
+	<installer-system-continue>Pokračovať...</installer-system-continue>
+	<installer-system-message-remove>Z bezpečnostných dôvodov odstráňte prosím inštalátor.</installer-system-message-remove>
+	<installer-system-message-translations>Jazykové balíčky sú dostupné na adrese [a link].</installer-system-message-translations>
+	<installer-system-no>Nie</installer-system-no>
+	<installer-system-password-error>Nesprávne heslo administrátora!</installer-system-password-error>
+	<installer-system-password>Heslo administrátora</installer-system-password>
+	<installer-system-removeinstaller-no>[span]Nie[/span] Vás vráti späť na systémovú stranu.</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>Skutočne chcete odstrániť inštalátor eyeOS?</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>[span]Áno[/span] kompletne odstráni inštalačné súbory eyeOS!</installer-system-removeinstaller-yes>
+	<installer-system-title>Zvoľte prosím jednu z nasledujúcich možností:</installer-system-title>
+	<installer-system-uninstall-no>[span]Nie[/span] Vás vráti späť na systémovú stranu.</installer-system-uninstall-no>
+	<installer-system-uninstall-really>Skutočne chcete odinštalovať eyeOS?</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>[span]Áno[/span] kompletne odstráni eyeOS!</installer-system-uninstall-yes>
+	<installer-system-yes>Áno</installer-system-yes>
+	<installer-update-continue>Pokračovať...</installer-update-continue>
+	<installer-update-do>Aktualizovať eyeOS!</installer-update-do>
+	<installer-update-error-renaming>Nie je možné premenovať priečinok "./eyeOS/". Premenujte ho prosím manuálne na "[hash]" a prepíšte všetky existujúce súbory.</installer-update-error-renaming>
+	<installer-update-title>Pokračujte prosím s aktualizáciou eyeOS na verziu [version].</installer-update-title>
+</translation>

@@ -1,0 +1,71 @@
+List of the defined events/message going through the dbus
+=========================================================
+
+APPLICATION
+-----------
+eyeos_application_close: When closing any application (defined in eyeos.system.EyeApplication).
+	Data: eyeos.system.EyeApplication
+
+eyeos_application_toggleFavorite: ...
+	Data: [name, realname, true/false, iconpath]
+
+
+FILE
+----
+
+eyeos_file_uploadComplete: When the transfer of a file is complete and successful (defined in eyeos.application.UploadPanel).
+	Data: {absolutepath: ...}
+
+PEOPLE
+------
+eyeos_people_deleteContact: When a contact is deleted from the system
+	Data: userId
+eyeos_people_confirmContact: When a pending contact is confirmed as contact
+	Data: eyeos.contacts.contact
+eyeos_people_requestRelationship: When a user request to be a contact to another
+	Data: eyeos.contacts.contact
+eyeos_people_deletePending: when deleting a user in pending state
+	Data: userId
+eyeos_people_assignTag: When the user assign a tag to a contact
+	Data: [contactId, tagId]
+eyeos_people_unassignTag:When the user unassign a tag from a contact
+	Data: [contactId, tagId]
+
+eyeos_NSPeople_deleteContact: When a contact is deleted from the system
+	Data: null
+eyeos_NSPeople_confirmContact: When a pending contact is confirmed as contact
+	Data: null
+eyeos_NSPeople_requestRelationship: When a user request to be a contact to another
+	Data: null
+eyeos_NSPeople_deletePending: when deleting a user in pending state
+	Data: null
+eyeos_NSPeople_assignTag: When the user assign a tag to a contact
+	Data: null
+eyeos_NSPeople_unassignTag:When the user unassign a tag from a contact
+	Data: null
+
+WORKGROUP
+---------
+eyeos_workgroup_createGroup: When a workgroup is created
+	Data: [groupName, groupId]
+eyeos_workgroup_deleteGroup: when an owner delets a workgroup
+	Data: groupId
+eyeos_workgroup_joinGroup: when a user joins a workgroup
+	Data: [groupName, groupId]
+eyeos_workgroup_leaveGroup: when a user leaves a workgroup
+	Data: groupId
+eyeos_workgroup_updateGroup: when a workgroup is updated
+	Data: groupId
+eyeos_workgroup_changeOwner: when a workgroup's owner is changed
+	Data: newRole
+
+EVENTS
+-----
+This events are sended by the Event Framework
+
+eyeos_events_confirmContact: Communicate to the contact Manager that a user was confirmed
+	Data: UserId
+eyeos_events_deleteContact: Communicate to the contact Manager that a user was deleted
+	Data: UserId
+eyeos_events_aboutToRemove: [JUST FOR TABLE EN EVENTS TABS: DO NOT USE OTSIDE] A user just want to remove an event
+	Data: [eventId, isQuestion]

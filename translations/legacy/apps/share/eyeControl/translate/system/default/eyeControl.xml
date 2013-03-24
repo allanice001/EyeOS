@@ -1,0 +1,239 @@
+<lang>
+	<info>
+		<revision>20/05/2008</revision>
+	</info>
+	<texts>
+		<text>%s command(s)</text>
+		<text>%s mirror(s)</text>
+		<text>%s user(s) registered.</text>
+		<text>%s% translated! %s from %s texts left.</text>
+		<text>About me</text>
+		<text>Add a new language</text>
+		<text>Add a new language you want to translate.</text>
+		<text>Add a new user to your eyeOS system</text>
+		<text>Add language</text>
+		<text>Add mirror</text>
+		<text>Administration</text>
+		<text>All texts are translated!</text>
+		<text>Allow public dirs</text>
+		<text>Allow user registration</text>
+		<text>Author</text>
+		<text>Author (full name)</text>
+		<text>Autorun Commands</text>
+		<text>Back</text>
+		<text>Bookmarks and search engines successfully exported.</text>
+		<text>Bookmarks successfully imported.</text>
+		<text>Center wallpaper</text>
+		<text>Change language</text>
+		<text>Change password</text>
+		<text>Change the language&#039;s information</text>
+		<text>Change theme</text>
+		<text>Change your current password</text>
+		<text>Change your current theme</text>
+		<text>Change your desktop wallpaper</text>
+		<text>Change your preferred language</text>
+		<text>Changes successfully saved and user updated.</text>
+		<text>Changes successfully saved.</text>
+		<text>Clean eyeOS</text>
+		<text>Command successfully added.</text>
+		<text>Command successfully saved.</text>
+		<text>Commands</text>
+		<text>Configure the startpage</text>
+		<text>Create group</text>
+		<text>Create user</text>
+		<text>Created on</text>
+		<text>Current password</text>
+		<text>Default group successfully saved. You need to start a new session now.</text>
+		<text>Default group: %s | %s group(s)</text>
+		<text>Default settings successfully set.</text>
+		<text>Delete autorun</text>
+		<text>Delete group</text>
+		<text>Delete language</text>
+		<text>Delete mirror</text>
+		<text>Delete user</text>
+		<text>Desktop</text>
+		<text>Do you really want to delete the eyeOS system?</text>
+		<text>Do you really want to remove this account from the server?</text>
+		<text>Do you really want to remove this command?</text>
+		<text>Do you really want to remove this group from the system?</text>
+		<text>Do you really want to remove this language?</text>
+		<text>Do you really want to remove this mirror from eyeSoft?</text>
+		<text>Do you really want to remove this user from the system?</text>
+		<text>Do you really want to use the default eyeDesk settings?</text>
+		<text>Do you really want to use the default eyeNav bookmarks?</text>
+		<text>Do you really want to use the default eyeNav search?</text>
+		<text>Download</text>
+		<text>E-mail</text>
+		<text>Edit</text>
+		<text>Edit command</text>
+		<text>Edit mirror</text>
+		<text>Edit the chosen user</text>
+		<text>Edit translation</text>
+		<text>Edit user</text>
+		<text>English</text>
+		<text>Export</text>
+		<text>Export default bookmarks and search engines</text>
+		<text>File can be downloaded successfully.</text>
+		<text>File cannot be downloaded. Please correct the address.</text>
+		<text>Full name</text>
+		<text>Get more translations</text>
+		<text>Groupname</text>
+		<text>Groups</text>
+		<text>ID</text>
+		<text>Import</text>
+		<text>Info</text>
+		<text>Language</text>
+		<text>Language ID</text>
+		<text>Language changed. Please restart eyeOS now.</text>
+		<text>Language name</text>
+		<text>Language succesfully saved.</text>
+		<text>Language successfully added.</text>
+		<text>Language&#039;s information</text>
+		<text>Look &amp; Feel</text>
+		<text>Main</text>
+		<text>Manage default bookmarks</text>
+		<text>Manage default search engines</text>
+		<text>Manage eyeNav&#039;s startpage, its bookmarks and search engines</text>
+		<text>Manage groups</text>
+		<text>Manage the eyeSoft mirrors</text>
+		<text>Manage users</text>
+		<text>Manage your autorun commands</text>
+		<text>Manage your system&#039;s groups</text>
+		<text>Manage your system&#039;s users</text>
+		<text>Mirror</text>
+		<text>Mirror address (example: %s)</text>
+		<text>Mirror successfully saved.</text>
+		<text>Native name</text>
+		<text>New command</text>
+		<text>New password</text>
+		<text>New password (again)</text>
+		<text>New user</text>
+		<text>New wallpaper</text>
+		<text>New wallpaper successfully set.</text>
+		<text>Others</text>
+		<text>Password</text>
+		<text>Password (again)</text>
+		<text>Password successfully changed.</text>
+		<text>Permissions</text>
+		<text>Personal</text>
+		<text>Please choose a command to be deleted.</text>
+		<text>Please choose a command to be edited.</text>
+		<text>Please choose a group to delete.</text>
+		<text>Please choose a group to edit.</text>
+		<text>Please choose a group to set it as default group.</text>
+		<text>Please choose a language to delete.</text>
+		<text>Please choose a language you want to create.</text>
+		<text>Please choose a language you want to download.</text>
+		<text>Please choose a language you want to edit.</text>
+		<text>Please choose a language you want to translate.</text>
+		<text>Please choose a mirror to be tested.</text>
+		<text>Please choose a mirror to delete.</text>
+		<text>Please choose a mirror to edit.</text>
+		<text>Please choose a user to be deleted.</text>
+		<text>Please choose a user to be edited.</text>
+		<text>Please choose the text you want to edit.</text>
+		<text>Please correct your typed settings.</text>
+		<text>Please fill in all needed fields.</text>
+		<text>Please fill in all textboxes!</text>
+		<text>Please type a command!</text>
+		<text>Please type a correct group name.</text>
+		<text>Please type an address!</text>
+		<text>Please type the correct root password to uninstall eyeOS!</text>
+		<text>Please type the new translation here:</text>
+		<text>Please type the username here:</text>
+		<text>Please use the list of ISO 639-1 codes!</text>
+		<text>Protect sessions by IPs</text>
+		<text>Remove now!</text>
+		<text>Remove temporary files and folders</text>
+		<text>Remove temporary files and folders from your eyeOS system</text>
+		<text>Rename</text>
+		<text>Rename group</text>
+		<text>Repeat wallpaper</text>
+		<text>Repositories</text>
+		<text>Revision</text>
+		<text>Root password</text>
+		<text>Save changes</text>
+		<text>Screenshot</text>
+		<text>Search engines successfully imported.</text>
+		<text>Search user...</text>
+		<text>Select</text>
+		<text>Select a file...</text>
+		<text>Select user:</text>
+		<text>Set as default</text>
+		<text>Sorry, but the file does not exist.</text>
+		<text>Sorry, the file is not allowed to be a wallpaper.</text>
+		<text>Sorry, this file is not allowed to be a wallpaper.</text>
+		<text>Sorry, this page cannot be nentered by the default user.</text>
+		<text>Sorry, this page is not installed.</text>
+		<text>Sorry, you do not have permissions to enter this page.</text>
+		<text>Sorry, you need to login as normal user to enter this page.</text>
+		<text>Startpage</text>
+		<text>Statistic</text>
+		<text>System</text>
+		<text>System preferences</text>
+		<text>Temporary files and folders successfully removed.</text>
+		<text>Test</text>
+		<text>Test address</text>
+		<text>That user does not exist.</text>
+		<text>The account was successfully deleted.</text>
+		<text>The chosen file is no correct eyeNav search engines file.</text>
+		<text>The chosen file is not a correct eyeNav bookmarks file.</text>
+		<text>The chosen group already exist.</text>
+		<text>The chosen group is already the default group!</text>
+		<text>The chosen user already exist.</text>
+		<text>The chosen username is too long.</text>
+		<text>The chosen username is too small.</text>
+		<text>The command does not exist yet.</text>
+		<text>The command is already configured.</text>
+		<text>The command was successfully deleted.</text>
+		<text>The download of %s will start after clicking OK.%sPlease send your translation to %s%sThanks!</text>
+		<text>The download of %s will start after clicking OK.%sTo create an .eyepackage file please follow these instructions:%s1. Download the .tar.gz file%s2. Extract the .tar.gz file%s3. Create a .tar.gz file from the content of %s%s4. Rename the new .tar.gz file to %s%sReady!</text>
+		<text>The eyeOS system was successfully deleted.</text>
+		<text>The group was successfully deleted.</text>
+		<text>The language ID is already in use!</text>
+		<text>The language was successfully deleted.</text>
+		<text>The language was successfully updated.</text>
+		<text>The language&#039;s ID could not be renamed.</text>
+		<text>The mirror does not exist, yet.</text>
+		<text>The mirror is installed, yet!</text>
+		<text>The mirror was successfully deleted.</text>
+		<text>The password you typed is not correct.</text>
+		<text>The passwords do not match.</text>
+		<text>The translation was successfully updated.</text>
+		<text>The user was successfully deleted.</text>
+		<text>The username is not supported. Please type another one.</text>
+		<text>Theme</text>
+		<text>Theme changed. Please restart your desktop now.</text>
+		<text>There was a problem while deleting the group.</text>
+		<text>Translate eyeOS</text>
+		<text>Translate eyeOS into your language.</text>
+		<text>Type the command you want to run at login.</text>
+		<text>Type the name of the group you want to create:</text>
+		<text>Type the new group name:</text>
+		<text>Type the new mirror address:</text>
+		<text>Uninstall</text>
+		<text>Uninstall eyeOS</text>
+		<text>Update</text>
+		<text>Update your system&#039;s profile</text>
+		<text>Update your system&#039;s settings</text>
+		<text>Use a custom wallpaper</text>
+		<text>Use defaults</text>
+		<text>Used space:</text>
+		<text>Used version</text>
+		<text>User quota</text>
+		<text>User successfully created.</text>
+		<text>Username</text>
+		<text>Version</text>
+		<text>Web Browser</text>
+		<text>You cannot delete the default group!</text>
+		<text>You cannot delete the default mirror!</text>
+		<text>You cannot delete the eyeBar command!</text>
+		<text>You cannot delete the root user!</text>
+		<text>You cannot edit the default mirror!</text>
+		<text>You cannot edit the eyeBar command!</text>
+		<text>You cannot save a mirror as the default mirror!</text>
+		<text>Your eyeOS server does not need to be cleaned.</text>
+		<text>[Default user]</text>
+		<text>eyeOS hostname</text>
+	</texts>
+</lang>

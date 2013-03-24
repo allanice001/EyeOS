@@ -1,0 +1,111 @@
+<lang>
+	<info>
+		<lang>Estonian</lang>
+		<author>Ivar Anneljas</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>Root parool</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Palun vali üks järgnevast tegevusest :</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>Ei</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Jätka...</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Oled sa kindel , et tahad eemalda oneye install faili?</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Palun jätka oneye [version] versiooni uuendamisega.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Tegevus</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Root parool pole õige!</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Uuenda oneye!</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Jätka...</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Jah</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Tagasi algusesse</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Taasta süsteemi failid</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>Tundub , et sinu server ei toeata gzipi. oneye-i manuaalseks installeerimiseks nimeta ümber ''[package]'' ''package.tar.gz'' ja paki lahti nad samasse kausta.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Viga: ''[file]'' ei eksisteeri.</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Korda parooli</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Installi oneye!</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>Praegune oneye on uuem kui see uuendus. Palun kustuta ''[installer]'' turvariski tõttu.</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Palun eemalda oneye install fail</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Luba kasutajatel luua kontosid</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Root kasutaja parool</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Keeled</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Praegune keel</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Hoiatus: Palun anna ''[file]'' kõik õigused serveri poolt (CHMOD 777).</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Jätka...</new>
+		</text>
+	</part>
+</lang>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Toolbar</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>button</tag>
+		</tags>
+		<shortDesc>Creates a zone that contains buttons for the application's actions.</shortDesc>
+	</general>
+	<name>Toolbar</name>
+	<description>The Toolbar widget creates a row in the upper part of a Window that can contain buttons that handle the actions of an application.</description>
+	<image>A Toolbar with many actions and lines that act as separators. The new eyeOS applications tend to use a Toolbar to display their actions.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Unique name given to the widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Parent element inside of which the widget is created.</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>paintOnClick</name>
+			<desc>Specifies whether or not an item in the Toolbar changes its style while it is being clicked.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Makes the system execute a given JavaScript code every time certain event of this widget is triggered.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Name of the JS event. Examples: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>JavaScript code inside the function of the event.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Arguments passed to the function of the event.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>addItem(string $itemName, string $img, string $text, array $ofriends=null)</syntax>
+			<desc>Adds a new button to the Toolbar.</desc>
+			<arguments>
+				<arg>
+					<name>itemName</name>
+					<desc>Name of the button added. Every time the button is clicked, a signal with the button's name will be sent to the system.</desc>
+				</arg>
+				<arg>
+					<name>img</name>
+					<desc>URL of the button's displayed image. The URL must point to an image inside the extern directory.</desc>
+				</arg>
+				<arg>
+					<name>text</name>
+					<desc>Text the button will display.</desc>
+				</arg>
+				<arg>
+					<name>ofriends</name>
+					<desc>Array containing the friends of this button.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>addLine()</syntax>
+			<desc>Draws a separator.</desc>
+		</method>
+		<method>
+			<syntax>hide()</syntax>
+			<desc>Makes the widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>remove()</syntax>
+			<desc>Removes this widget, along with its child widgets.</desc>
+		</method>
+		<method>
+			<syntax>setCss(array $params)</syntax>
+			<desc>Sets CSS atributes to a widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Specifies, in the form of an associative array, the CSS attributes to be applied. Both the key and value of each element must be valid CSS properties and values respectively.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show()</syntax>
+			<desc>Draws the widget in the screen.</desc>
+		</method>
+		<method>
+			<syntax>unhide()</syntax>
+			<desc>Makes the widget visible.</desc>
+		</method>
+	</methods>
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Added the 'paintOnClick' key. It allows to specify whether or not an item in the Toolbar changes its style while it is being clicked.</desc>
+		</trace>
+	</changelog>
+</info>

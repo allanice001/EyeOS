@@ -1,0 +1,108 @@
+<?php
+//Con la funcion nombrePrograma_run iniciamos el programa	
+function eyeToDo_run($params="") {
+
+	//Creamos la ventana principal del programa
+	$window = new Window(array(
+		'father' => 'eyeApps',
+		'name' => 'eyeToDo_WND',
+		'width' => 440,
+		'height' => 410,
+		'title' => 'eyeToDo - Keep you organized',
+		//'x' => 400,
+		//'y' => 100,
+		'cent' => 1,
+		'style' => TITLE + MIN + MAX + CLOSE + RESIZE + LISTED,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'winResize'
+	));
+	$window->show();
+
+	$myLabel0 = new Label(array(
+		'father' => 'eyeToDo_WND_Content',
+		'name' => 'eyeToDo_main_lbl',
+		'text' => 'ToDo Tasks',
+		'x' => $window->width - 279,
+		'y' => $window->height - 375,
+	));
+	$myLabel0->show();
+	$myLabel0->setCSS(array('font-weight' => '900','font-size' => '21px'));
+
+	//Creamos el widget sorteable
+	$mySortabletable = new Sortabletable(array(
+		'father' => 'eyeToDo_WND_Content',
+		'name' => 'eyeToDo_Sortabletable',
+		'dblsignal' => 'viewNoteSignal',
+		'height' => $window->height - 165,
+		'sortypes' => array('Hidden','String', 'Number'),
+		'theader' => array('ID','Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;','Priority'),
+		'width' => $window->width - 50,
+		'x' => 25,
+		'y' => $window->height - 303,
+		'master' => 0
+	));
+	$mySortabletable->show();
+
+
+	$myButton = new Button(array(
+		'name' => 'eyeToDo_add_btn',
+		'father' => 'eyeToDo_WND_Content',
+		'signal' => 'addNoteSignal',
+		'caption' => 'Add',
+		'width' => 80,
+		'x' => $window->width - 408,
+		'y' => $window->height - 329,
+		'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/new.png',
+		'class' => 'myToDo_Buttons'
+	));
+	$myButton->show();
+
+	$myButton1 = new Button(array(
+		'name' => 'eyeToDo_view_btn',
+		'father' => 'eyeToDo_WND_Content',
+		'signal' => 'viewNoteSignal',
+		'caption' => 'View',
+		'width' => 80,
+		'x' => $window->width - 343,
+		'y' => $window->height - 329,
+		'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/paste.png'
+	));
+	$myButton1->addFriend($myLabel0);
+	$myButton1->addFriend($mySortabletable);
+	$myButton1->show();
+	
+	$myButton3 = new Button(array(
+		'name' => 'eyeToDo_delete_btn',
+		'father' => 'eyeToDo_WND_Content',
+		'signal' => 'deleteNoteSignal',
+		'caption' => 'Delete',
+		'width' => 80,
+		'horiz' => 1,
+		'x' => $window->width - 435,
+		'y' => $window->height - 329,
+		'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/delete.png'
+	));
+	$myButton3->addFriend($mySortabletable);
+	$myButton3->show();
+
+	$path = um('getCurrentUserDir') .'/'. CONF_USER_DIR .'/eyeToDo/';
+	if(!file_exists($path)){
+		vfs('real_mkDir', array($path));
+	}
+
+	//Leemos el archivo notes.xml y lo guardamos en la varieble $config
+	$config = eyeXML('getXMLconfig',array('eyeToDo','notes.xml'));
+	//Vemos que no ha habido error leyendo el archivo
+	if($config){
+		//Nos situamos en la posicion que nos interesa del array para poder leer el Id y el Titulo
+		foreach($config['notes'][0]['note'] as $note) {
+			//Creamos la columna en la sortabletable que contiene el id (oculto) y el titulo de la nota
+			$mySortabletable->addRow(array($note['id'][0],$note['title'][0],$note['priority'][0]));
+		}
+	}
+}
+
+function eyeToDo_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+?>

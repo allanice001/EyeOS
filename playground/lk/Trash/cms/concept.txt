@@ -1,0 +1,54 @@
+* Users
+	- Groups
+	- Permissions and Rights
+
+* Data
+	- Databases (MySQL)
+	- XML and Virtual File System
+
+* Plugins
+	- Blog
+	- Chat
+	- Downloads
+	- Forum
+	- Gallery
+	- Guestbook
+	- Iframe
+	- Impressum
+	- Contact
+	- Links
+	- Portal
+	- Sitemap
+	- Statistics
+	- Search
+	- Table
+	- Calendar and Events
+	- Texts
+	- Polls
+	- Forwardings
+	- Wiki
+
+* Menus
+	- Groups possible
+	- Current site can be marked
+
+* Pages
+	- A XML file for every page
+	- Aliases possible
+
+* Themes
+	- PHP creates XHTML-Code
+	- Themes create CSS-Code
+	- Print styles
+	- Mobile styles
+	- Define places (types: vertical, horizontal, page)
+
+* System
+	- Functions with "return" - not "echo"!
+	- First only the frontend
+	- Parser manages code and cache system
+
+* Translations
+	- No
+	- Each paragraph
+	- Each page

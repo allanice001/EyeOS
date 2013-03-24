@@ -1,0 +1,155 @@
+<?php
+
+/**
+ * 
+ * @desc:	eyeOS variable registry.
+ * @usage:	$var = registry::$var;
+ * 			registry::$var = 'some_value';
+ * 			unset( registry::$var );
+ * 			if ( isset( $var ) ) {
+ * 
+ */
+
+/**
+* @desc:	eyeOS variable registry.
+* @usage:	$var = registry::$var;
+* 			registry::$var = 'some_value';
+* 			unset( registry::$var );
+* 			if ( isset( $var ) ) {
+* 
+* @author		Jason Hopkins
+* @package		eyeOS
+* @subpackage	services/registry
+* @var			N/A
+* @access		public
+* @since		1.7.1
+*/
+
+class registry {
+	
+	/**
+	* Returns a variable from the registry.
+	*
+	* @author		Jason Hopkins
+	* @package		eyeOS
+	* @subpackage	services/registry
+	* @param		mixed	$var	Variable being accessed
+	* @return		mixed	This function returns either FALSE on error, or the
+	* 						value of the variable being accessed.
+	* @access		private
+	* @since		1.7.1
+	*/
+	
+	public static function _get( $var ) {
+		return self::registry( 'get', $var );
+	}
+	
+	/**
+	* Sets a variable within the registry.
+	*
+	* @author		Jason Hopkins
+	* @package		eyeOS
+	* @subpackage	services/registry
+	* @param		mixed	$var		The variable being set.
+	* @param		mixed	$val		The value you're setting the variable
+	* 									above to.
+	* @return		mixed	Returns TRUE on success.
+	* @access		public
+	* @since		1.7.1
+	*/
+	
+	public static function _set( $var, $val ) {
+		return self::registry( 'set', $var, $val );
+	}
+	
+	/**
+	* Unsets a variable in the registry.
+	*
+	* @author		Jason Hopkins
+	* @package		eyeOS
+	* @subpackage	services/registry
+	* @param		mixed	$var		The variable to unset.
+	* @return		bool	Returns TRUE on success.
+	* @access		public
+	* @since		1.7.1
+	*/
+	
+	public static function _unset( $var ) {
+		return self::registry( 'unset', $var );
+	}
+	
+	/**
+	* Checks to see if a variable is set.
+	*
+	* @author		Jason Hopkins
+	* @package		eyeOS
+	* @subpackage	services/registry
+	* @param		mixed	$var		The variable to be checked.
+	* @return		type	description
+	* @access		public
+	* @since		1.7.1
+	*/
+	
+	public static function _isset( $var ) {
+		return self::registry( 'isset', $var );
+	}
+	
+	/**
+	* The backbone of the registry.
+	*
+	* @author		Jason Hopkins
+	* @package		eyeOS
+	* @subpackage	services/registry
+	* @param		string	$action	The action to take on the registry.
+	* @param		mixed	$var	The variable to act on.
+	* @param 		mixed	$val	The value to set the variable to (if applicable).
+	* @return		mixed	This function can return FALS on failure, TRUE, or
+	* 						a variable/value on success
+	* @access		private
+	* @since		1.7.1
+	*/
+	
+	private static function registry( string $action, $var = '', $val = '' ) {
+		static $registry;
+		
+		// If we don't have our parameters set, we don't do anything.
+		if ( $action == '' ) {
+			return FALSE;
+		}
+		
+		// Now for the action code.
+		switch ( $action ) {
+			
+			case 'get':
+				if ( isset( $registry[ $var ] ) ) {
+					return $registry[ $var ];
+				} else {
+					return FALSE;
+				}
+				break;
+			case 'set':
+				$registry[ $var ] = $val;
+				return TRUE;
+				break;
+			case 'isset':
+				if ( isset( $registry[ $var ] )) {
+					return TRUE;
+				} else {
+					return FALSE;
+				}
+				break;
+			case 'unset':
+				unset( $registry[ $var ] );
+				return TRUE;
+				break;
+			case '':
+			default:
+				return FALSE;
+			
+		}
+		
+	}
+	
+}
+
+?>

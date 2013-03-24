@@ -1,0 +1,1324 @@
+<lang>
+	<info>
+		<lang>ไทย</lang>
+		<lang-en>Thai</lang-en>
+		<author>Jakkraphan Saengseam</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>อัพเดท</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>จัดการ Dock</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>ติดตั้ง แอปลิเคชัน</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>File extraction failed</old>
+			<new>การแตกไฟล์ล้มเหลว</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>ชื่อไฟล์</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>ไม่มีไฟล์เปิด</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>ชนิดของการบีบอัดไม่รองรับ</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>การแตกไฟล์สำเร็จ</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>แตกออก</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>บีบอัด</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>การบีบอัดสำเสร็จ</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>แตกออกไปที...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>บีบอัดเป็น...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>ส่ง</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>เคลียร์</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Today</old>
+			<new>วันนี้</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>แสดง</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>สัปดาห์</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>โหมดหน้าต่าง</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>งาน</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>ถอยกลับ</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>ต่อไป</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>ต้องการอย่างน้อย 1 นัดหมาย !</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>นัดหมาย</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>วัน</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>ค่าในเช็กบอกซ์ไม่ถูกต้อง</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>เพิ่มนัดหมาย</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>กรุณาเลือกผู้ใช้ที่จะลบ</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>กรุณาเลือก mirror ที่จะแก้ไข</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>กรุณาเลือก mirror ที่จะลบ</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>กรุณาเลือก mirror ที่จะนำมาทดสอบ</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>กรุณาเลือกผู้ใช้ที่จะแก้ไข</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>กรุณาตรวจสอบการตั้งค่า</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>ลบออก เดี๋ยวนี้ !</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>กรุณากรอกที่อยู่</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>กรุณาพิมพ์คำสั่ง !</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>กรุณาเลือกกลุ่มที่จะตั้งเป็นค่าเริ่มต้นของกลุ่ม</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>กรุณาเลือกกลุ่มที่จะแก้ไข</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>เปลี่ยนรหัสผ่านสำเร็จ</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>อื่น ๆ</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>ติดตั้งภาพพื้นหลังใหม่สำเร็จ</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>สร้างคำสั่งใหม่</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>รหัสผ่าน</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>ส่วนตัว</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>กรุณาเลือกกลุ่มที่จะลบ</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>กรุณาเลือกคำสั่งที่จะแก้ไข</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>กรุณาเลือกคำสั่งที่จะลบ</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>ลบ ไฟล์และโฟล์เดอร์ขั่วคราวทิ้ง</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>เปลี่ยนชื่อ</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>พิมพ์คำสั่งที่คุณต้องการเริ่มเมื่อล็อกอิน</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>เกิดปัญหาระหว่างการลบกลุ่ม</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>ธีม</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>mirror ถูกติดตั้งไปแล้ว</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>พิมพ์ชื่อของกลุ่มที่คนต้องการลบ</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>พิมที่อยู่ mirror ใหม่ :</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>สร้างผู้ใช้สำเร็จ</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>พื้นที่ที่ใช้ไป :</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>ใช้ภาพพื้นหลังที่ติดตั้งเอง</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>กลุ่มที่คุณเลือกเป็นค่าเริ่มต้นของกลุ่มอยู่แล้ว</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>ทดสอบ</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>เลือกไฟล์...</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>นำเข้าเสิร์ชเอ็นจินเรียบร้อย</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>ภาพตัวอย่าง</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>ที่เก็บ</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>ตั้งเป็นค่าเริ่มต้น</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>เสียใจด้วย ไม่อนุญาติให้ใช้ไฟล์นี้เป็นภาพพื้นหลัง</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>ระบบ</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>ปรับแต่งระบบ</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>เพจเริ่มต้น</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Mirror</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>บัญทึก mirror สำเร็จ</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>เพิ่มคำสั่งสำเร็จ</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>ล้าง oneye</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>บันทึกการเปลี่ยนแปลงสำเร็จ</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>อัพเดทผู้ใช้และบันทึกการเปลี่ยนแปลงสำเร็จ</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>บันทึกคำสั่งสำเร็จ</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>คำสั่ง</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>บักทึกค่าเริ่มต้น ของการตั้งค่าสำเร็จ</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>ค่าเริ่มต้นกลุ่ม : %s | %s กลุ่ม</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>ตั้งค่าเพจเริ่มต้น</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>นำเข้าบุคมาร์คสำเร็จ</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>ส่งออกบุคมาร์คและเสิร์ชเอ็นจินสำเร็จ</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>เพิ่ม mirror</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>เกี่ยวกับฉัน</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s ผู้ใช้ ลงทะเบียน</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s mirror(s)</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>ผู้ควบคุมระบบ</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>อนุณาตให้สร้างไดเรกทอรีสาธารณะ</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>คำสั่งอัตโนมัติ</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>ผู้เขียน</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>อนุณาติให้ผู้ใช้ทำการลงทะเบียน</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>ลบกลุ่ม</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>ลบ mirror</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>ภาษา</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>นำเข้า</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>กลุ่ม</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>ชื่อกลุ่ม</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>รูปแบบและมุมมอง</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>หน้าหลัก</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>ที่อยู่ Mirror (ตัวอย่าง : %s)</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>จัดการค่าเริ่มต้นของเสิร์ชเอ็นจิน</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>จัดการค่าเริ่มต้นของบุคมาร์ค</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>ดาวน์โหลดไฟล์สำเร็จ</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>ส่งออก</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>ต้องการลบ mirror นี้ออกจาก eyeSoft ?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>ต้องการลบกลุ่มนี้ออกจากระบบ ?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>ต้องการลบคำสั่งนี้ ?</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>เดสก์ทอป</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>ต้องการลบผู้ใช้นี้ออกจากระบบ ?</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>แก้ไขคำสั่ง</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>ส่งออกค่าเริ่มต้นของบุคมาร์คเสิร์ชเอ็นจิน</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>แก้ไข</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>แก้ไข mirror</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s คำสั่ง</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select</old>
+			<new>เลือก</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>เลือกโฟลเดอร์</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>ชื่อ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Office</old>
+			<new>สำนักงาน</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>เครือข่าย</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>ตัวจัดการ การดำเนินระบบ</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>กระดานสาธารณะ</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>ตัวประมวลผลคำ</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>ตัวนำทาง</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>ส่งข้อความภายใน</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>เกมหมากรุกฝรั่ง</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>นัดหมาย</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>จัดการไฟล์</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>เกมส์</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>เครื่องคิดเลข</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>บันทุกเอกสารเรียบร้อย</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Previous</old>
+			<new>ถอยกลับ</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>ต่อไป</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>คุณต้องเลือกไดเร็กทอรีที่จะนำเข้าไฟล์</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>นำเข้า</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>ค้น</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>นำเข้า %s ไฟล์</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>ติดตั้งแพ็กเกจเรียบร้อย</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>ไม่มีอะไรจะติดตั้ง</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>กำลังติดตั้ง</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>คุณต้องการที่จะติดตั้งแพ็กเกจนี้เข้าสู่ระบบ ?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>ยอมรับ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>พิมพ์ชื่อของแอปลิเคชันหรือคำสั่งที่จะเรียก</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>เรียก...</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>ไม่พบ %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>คืนค่า</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Subject</old>
+			<new>ชื่อ</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>ส่งเรียบร้อย</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>กู้คืน</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>ตอบ</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>ถึง</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>ถังขยะ</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>คุณต้องเลือกข้อความที่จะเปิด</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>คุณต้องเลือกข้อความที่จะลบ</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>ยังไม่ได้อ่าน</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>คืนค่า</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>อ่าน</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>ว่าง</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>ดาวน์โหลด</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>วันที่</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>บันทึกไฟล์สำเร็จ</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>จาก</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>อ่านข้อความ</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>ข้อความถูกกู้คืนไปยังโฟลเดอร์ดั้งเดิมของมัน</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>กล่องจดหมาย</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>แนบ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>พิมพ์ชื่อโฟลเดอร์ใหม่</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>อักขระพิเศษบางตัวจะถูกลบออก</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Search</old>
+			<new>ค้นหา</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>เปิดที่ค้นหา</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>เปิดบุคมาร์ค</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>บันทึกลิงค์สำเร็จ</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>ตั้งค่า</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>เพจเริ่มต้น</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>วิกิ</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>เว็บไซต์</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>มีบุคมาร์คอื่นที่ใช้ชื่อนี้อยู่แล้ว</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>ลบลิงค์สำเร็จ</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>ควา่มรู้</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>ลบบุคมาร์ค</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>บุคมาร์ค</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>บุคมาร์คไตเติล</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>ถอยกลับ</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>ต้องการลบบุคมาร์คนี้ ?</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>กระดานสนทนา</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>อินเทอร์เน็ต</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>รูป</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>ไปข้างหน้า</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>เพิ่มบุคมาร์ค</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Unable to create file</old>
+			<new>ไม่สามารถสร้างไฟล์ได้</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>เสียใจด้วยคุณได้รับสิทธิ์ไม่เพียงพอในการเข้าถึงนี้</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>บันทึกไฟล์สำเร็จ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>เสียใจด้วยคุณได้รับสิทธิ์ไม่เพียงพอในการเข้าถึงนี้</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>ต่อไป</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>กลับ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Username</old>
+			<new>ชื่อผู้ใช้</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>ชื่อตัวดำเนินการ</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>ปิดตัวดำเนินการสำเร็จ</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>เสียใจด้วยคุณได้รับสิทธิ์ไม่พอในการเข้าถึงนี้</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>กรุณาเลือกแอปลิเคชั่นที่จะถอนออก</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>ค้นหา</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>กรุณาเลือกแอปลิเคชั่นที่จะติดตั้ง</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>เฉพาะผู้ใช้ root เท่านั้นที่สามารถติดตั้ง eyeApps</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>ใบอนุณาติ : %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>ชื่อ : %s</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>ข้อเสนอแนะ : %s</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>ถอนการติดตั้งแอปลิเคชั่นสำเร็จ</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>รุ่น</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>รุ่น : %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>อัพเดท</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>ถอนการติดตั้ง</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>ถอนการติดตั้งแอปลิเคชั่น</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>กำลังติดตั้ง</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>ติดตั้ง</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>ผู้สร้าง : %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>ประเภท</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>ชื่อแอป ฯ</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>ยอมรับ</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>ติดตั้งสำเร็จ !</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>ประเภท : %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>ความสัมพันธ์ : %s</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft : อัพเดทรายชื่อแพ็กเกจเรียบร้อย</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>ติดตั้ง</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>ดาวน์โหลด และติดตั้ง %s ...กรุณารอ</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>ต้องการถอนการติดตั้งแอปลิเคชั่นนี้</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>รายละเอียด : %s</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>การดาวน์โหลด %s ขัดข้องไม่สามารถติดตั้งได้</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 hash</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Last execution time : %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Input Text</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Html Entities</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Outout Text</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Remove html Entities</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL Encode</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL Decode</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Roman to Decimal</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa to Ascii</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye hash</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Auto clear input</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii to Hexa</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Add new line to end</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 Decode</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 Encode</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimal to Roman</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Concatenate Output</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Clear</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Add input to output</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Upload files</old>
+			<new>อัพโหลดไฟล์</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>แก้ไข</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>สวัสดี โลก!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>แอปลิเคชันตัวอย่าง</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>เปลี่ยนป้ายชื่อ</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Print</old>
+			<new>พิมพ์</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>ปล่อยให้เซลล์เหล่านั้นว่าง ?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>เสาร์</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>ตำแหน่ง</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>เปิด</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>พฤษจิกายน</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>ตุลาคม</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>บันทึก</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>กันยายน</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>อังคาร</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>พุธ</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>พฤหัสบดี</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>อาทิตย์</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>ขนาีดชีท</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>รูปแบบ</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>ใหม่</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>จันทร์</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>ลบแถว</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>กุมภาพันธ์</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>สูตร</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>ลบคอมลัมน์</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>ธันวาคม</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>สิงหาคม</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>คัดลอก / วาง</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>ศุกร์</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>แทรกคอลัมน์</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>มีนาคม</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>พฤษภาคม</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>มิถุนายน</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>กรกฎาคม</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>แทรกแถว</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>มกราคม</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>เมษายน</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>S</old>
+			<new>อา.</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>ตุลาคม</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>พฤษจิกายน</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>ส.</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>กันยายน</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>พ.</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>พฤ.</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>อ.</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>พฤษภาคม</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>มีนาคม</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>ศ.</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>ธันวาีึคม</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>สิงหาคม</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>กุมภาพันธ์</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>มกราคม</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>จ.</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>มิถุนายน</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>กรกฎาคม</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>เมษายน</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>File Imported!</old>
+			<new>นำเข้าไฟล์สำเร็จ</new>
+		</text>
+	</part>
+</lang>

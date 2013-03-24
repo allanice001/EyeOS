@@ -1,0 +1,244 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Button widget abstraction
+*/
+
+class Button {
+	
+	//pid controller
+	
+	var $creatorPid;
+	
+	//global widgets options without default
+	var $name;
+	var $father;
+
+	//generic widget options with default
+	var $x;
+	var $y;
+	var $horiz;
+	var $vert;
+	var $cent;
+	
+	//custom widget options
+	var $enabled;
+	var $visible;
+	var $caption;
+	var $width;
+	var $height;
+	var $img;
+	
+	var $showed = 0;
+		
+	//friends abstraction
+	var $friends="''";
+	
+	//event handling
+	var $disableMsg = 0;
+	var $signal;
+	var $imgX;
+	var $imgY;
+	var $fixIE;
+	
+	//constructor
+	function Button($params) {
+		global $myPid;
+		$this->creatorPid = $myPid;
+		//generic widget options without default
+		$this->name = $params['name'];
+		$this->father = $params['father'];
+
+		//generic widget options with default
+		isset($params['horiz']) ? $this->horiz = $params['horiz'] : $this->horiz = 0;
+		isset($params['vert']) ? $this->vert = $params['vert'] : $this->vert = 0;
+		isset($params['x']) ? $this->x = $params['x'] : $this->x = 10;
+		isset($params['y']) ? $this->y = $params['y'] : $this->y = 10;
+		isset($params['width']) ? $this->width = $params['width'] : $this->width = -1;
+		isset($params['height']) ? $this->height = $params['height'] : $this->height = -1;
+		isset($params['cent']) ? $this->cent = $params['cent'] : $this->cent = 0;
+		
+		//especific button options
+		isset($params['enabled']) ? $this->enabled = $params['enabled'] : $this->enabled = 1;
+		isset($params['visible']) ? $this->visible = $params['visible'] : $this->visible = 1;
+		isset($params['caption']) ? $this->caption = $params['caption'] : $this->caption = $this->name;
+		isset($params['img']) ? $this->img = $params['img'] : "";
+		
+		//especial options
+		isset($params['disablemsg']) ? $this->disableMsg = $params['disablemsg'] : $this->disableMsg = 0;
+		isset($params['signal']) ? $this->signal = $params['signal'] : $this->signal = $this->name;
+		if(strstr($params['img'],'index.php?extern=') && IE == 6) {
+			$realName = substr($params['url'],strlen("index.php?extern="));
+			$realName = EYE_ROOT.'/'.EXTERN_DIR.'/'.$realName;
+			$info = @getimagesize($realName);
+			$this->width = $info[0];
+			$this->height = $info[1];
+			$this->fixIE = 1;
+		}
+	}
+	
+	//widget show method, send a createWidget message
+	function show($noserialize=1) {
+		if($this->img) {
+			$tmp = $this->img;
+			$tmp = str_replace('index.php?extern=','',$tmp); //TODO: DO IT BETTER
+			$tmp = EYE_ROOT.'/'.EXTERN_DIR.'/'.$tmp;
+			$info = getimagesize($tmp);
+			$this->imgX = $info[0];
+			$this->imgY = $info[1];
+		}
+		$widgetsparams = array(
+			'enabled' => $this->enabled,
+			'visible' => $this->visible,
+			'caption' => $this->caption,
+			'sync' => $this->friends,
+			'disablemsg' => $this->disableMsg,
+			'signal' => $this->signal,
+			'width' => $this->width,
+			'height' => $this->height,
+			'img' => $this->img,
+			'imgX' => $this->imgX,
+			'imgY' => $this->imgY
+		);
+		$widgetsparams = service("mmap","array2js",array($widgetsparams));
+		
+		$myButton = array(
+			'name' => $this->name,
+			'father' => $this->father,
+			'horiz' => $this->horiz,
+			'vert' => $this->vert,
+			'x' => $this->x,
+			'y' => $this->y,
+			'center' => $this->cent,
+			'widgetname' => 'Button',
+			'params' => $widgetsparams			
+		);
+		
+		service('eyex','createWidget',$myButton);
+		$this->showed=1;
+		if($noserialize == 0) {
+			reqLib('eyeWidgets','serialize',array($this));
+		}
+		global $myPid;
+		if($this->fixIE == 1) {
+			service('eyex','rawjs',array('js' => "fixPNG('".$myPid.'_'.$this->name."_cpt')"));
+		}
+	}
+	
+	//event handling
+	function addEvent($eventName,$eventFunc,$args = '') {
+		global $myPid;
+		$name = $myPid.'_'.$this->name;
+		if($this->showed == 0) {
+			$this->show();
+		}
+		service('eyex','addEvent',array('name' => $name, 'action' => $eventFunc, 'event' => $eventName,'args'=>$args));
+	}
+		
+	function setCss($params) {
+		global $myPid;
+		if(is_array($params)) {
+			foreach($params as $key => $value) {
+				service('eyex','updateCss',array('name' => $myPid.'_'.$this->name,'property' => $key,'value' => $value));
+			}
+		}
+	}
+	
+	//friends handler 
+	function addFriend($friend) {
+		if(method_exists($friend,'getSyncString')) {
+			if($this->friends == "''") {
+				$this->friends = $friend->getSyncString();				
+			} else {
+				$this->friends .= '+'.$friend->getSyncString();
+			}
+		}
+	}
+	
+	//set properties functions
+	
+	function enable() {
+		global $myPid;
+		$this->enabled = 1;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").disabled=false'));
+	}
+	
+	function disable() {
+		global $myPid;
+		$this->enabled = 0;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").disabled=true'));
+	}
+	
+	function hide() {
+		global $myPid;
+		$this->visible = 0;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.visibility=visible'));
+	}
+	
+	function unhide() {
+		global $myPid;
+		$this->visible = 1;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.visibility=hidden'));
+	}
+	
+	function setCaption($newCaption) {
+		global $myPid;
+		$this->caption = $newCaption;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").value="'+$this->caption.'"'));		
+	}
+	
+	function focus() {
+		global $myPid;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").focus();'));
+	}
+	
+	function setWidth($width) {
+		global $myPid;
+		$this->width = intval($width);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.width="'.$this->width.'px";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.width="'.$this->width.'px";'));
+	}
+	
+	function setHeight($height) {
+		global $myPid;
+		$this->height = intval($height);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.height="'.$this->height.'px";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.height="'.$this->height.'px";'));
+	}
+	
+	function setX($x) {
+		global $myPid;
+		$this->x = intval($x);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.left="'.$this->x.'px";'));
+	}
+	
+	function setY($y) {
+		global $myPid;
+		$this->y = intval($y);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Container").style.top="'.$this->y.'px";'));
+	}
+	
+}
+
+?>

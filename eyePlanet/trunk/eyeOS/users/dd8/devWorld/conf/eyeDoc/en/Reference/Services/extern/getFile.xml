@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getFile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>extern</tag>
+		</tags>
+		<shortDesc>Retrieves a file in eyeOS extern dir.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Added the 'theme' request parameter and the 'xml' file type.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getFile</functionName>
+		<syntax>void extern('getFile', array(string $path, string $type))</syntax>
+		<desc>Retrieves a file located in the eyeOS extern directory. In eyeOs 1.6, when using an image resource from extern you can now pass the 'theme' parameter in the URL. If you set this parameter to 1, you will allow to get the image according to the user's chosen theme.</desc>
+		<params>
+			<type>required</type>
+			<name>path</name>
+			<desc>Path to the file inside the extern directory.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>type</name>
+			<desc>Type of resource. Possible type values are:
+    				image: used for loading images
+    				download: used to force the downloading of a file
+    				css: used for loading CSS files
+    				swf: used for loading Flash (.swf) files
+    				xml: new in eyeOS 1.6. used for XML files
+    				dynamic: used for files ending with EYE_CODE_EXTENSION (by default '.eyecode'). The code of the files will be loaded, executing the get_dynamic_content function and returning its result. </desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

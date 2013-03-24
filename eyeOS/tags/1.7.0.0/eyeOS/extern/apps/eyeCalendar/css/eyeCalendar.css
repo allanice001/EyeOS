@@ -1,0 +1,28 @@
+.eyeCalendar_hover:hover{
+	text-decoration: underline;
+}
+
+.eyeCalendar_part{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 25%;	
+	z-index: 2;
+}
+.eyeCalendar_hour{
+	position: relative;
+	float: left;
+	width: 100%;
+}
+.eyeCalendar_day{
+	position: relative;	
+	float: left;
+	height: 100%;
+}
+.eyeCalendar_halfHour{
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: repeat-x;
+	background-Image: url(index.php?version=EXTERN_CACHE_VERSION&extern=apps/eyeCalendar/gfx/dotted.png);
+}

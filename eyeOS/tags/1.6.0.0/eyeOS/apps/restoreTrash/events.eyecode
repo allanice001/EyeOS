@@ -1,0 +1,57 @@
+<?php
+/* 
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+*/
+
+function restoreTrash_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function restoreTrash_on_yes($params=null) {
+	$myUserDir = service('um','getCurrentUserDir').TRASH_USER_DIR.'/';
+	$file =$GLOBALS['nfFile']->text;
+	$myArray = reqLib('eyeXML','getXMLfile',array($myUserDir.$file));
+	$myArray = $myArray['eyeTrash'][0];
+    $file = utf8_substr($file,0,utf8_strrpos($file,'.'));
+    if($myArray['type'][0] == 'dir') {
+    	service('vfs','real_move',array($myUserDir.$file,$myArray['restorePoint'][0]));
+    	service('vfs','real_delete',array($myUserDir.'/'.$file.'.'.EYEOS_TRASH_EXT));
+    } else {
+		service('vfs','real_move',array($myUserDir.$file.'.'.EYEOS_INFO_EXT,$myArray['restorePoint'][0].'.'.EYEOS_INFO_EXT));
+		service('vfs','real_move',array($myUserDir.$file.'.'.EYEOS_FILE_EXT,$myArray['restorePoint'][0].'.'.EYEOS_FILE_EXT));
+		service('vfs','real_delete',array($myUserDir.$file.'.'.EYEOS_TRASH_EXT));
+	}
+	$callback = $GLOBALS['nfCallback']->text;
+	if($callback) {
+		service('eyex','rawjs',array('js'=>$callback));
+	}
+	$icon = 'unknown';
+	service('eyex','messageBox',array('content'=>'Restore completed successfully.'));
+	proc('end');
+}
+
+function restoreTrash_on_no($params=null) {
+	proc('end');	
+}
+
+function restoreTrash_on_Close(){
+	proc('end');
+}

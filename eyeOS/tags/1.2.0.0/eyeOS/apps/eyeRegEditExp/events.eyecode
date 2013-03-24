@@ -1,0 +1,196 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeRegEditExp_on_Message($params=""){
+	reqLib('eyeWidgets','updateContent',$params);
+		
+
+}
+
+function eyeRegEditExp_on_Close($params=null){
+	proc('end');
+}
+
+function eyeRegEditExp_on_PositionBtn($params=null){
+	$Window_Position = new Window(array('name' => 'Position_wnd', 'father'=>'eyeApps', 'cent' => 1, 'width' => 200, 'height' => 200, 'title' => 'Positioning Window', 'removepid'=>0));
+	$Window_Position-> show();
+	
+
+	
+	$MyCheckBox1 = new Checkbox(array('name'=>'start_chb', 'father'=>'Position_wnd_Content', 'x'=> 10, 'y' => 10, 'text' => 'Start'));
+	
+
+$MyCheckBox1 -> show();
+
+$MyCheckBox2 = new Checkbox(array('name'=>'end_chb', 'father'=>'Position_wnd_Content', 'x'=> 140, 'y' => 10, 'text' => 'End'));
+	
+	$MyCheckBox2->show();
+	
+	$MyText =new Textbox(array('name' =>'String_txt', 'father'=>'Position_wnd_Content', 'x' => 20, 'y'=> 60));
+	
+	$MyText -> SHOW();
+	
+	$MyButton = new Button(array('name'=>'PositionBtn1', 'father' => 'Position_wnd_Content','y' => 120, 'caption' => 'Position', 'x' => 60));
+	
+	$MyButton -> addFriend($MyCheckBox1);
+	$MyButton -> addFriend($MyCheckBox2);
+	$MyButton -> addFriend($MyText);
+	$MyButton -> SHOW();
+	
+	
+//
+}
+
+function eyeRegEditExp_on_PositionBtn1($params=""){
+if($GLOBALS['start_chb']->checked && $GLOBALS['end_chb'] -> checked )
+{
+	if(strlen($GLOBALS['String_txt']->text) > 1)
+	$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'^('.$GLOBALS['String_txt']->text.')$');
+	elseif(strlen($GLOBALS['String_txt']->text == ''))
+	service('eyex','messageBox',array('content'=>'It\'s necesssary to put at least a character so that this expression is fulfilled, or a point meaning any character'));
+	else $GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'^'.$GLOBALS['String_txt']->text.'$');
+
+}
+	
+elseif ($GLOBALS['start_chb']->checked){
+	if(strlen($GLOBALS['String_txt']->text) > 1)
+	$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'^('.$GLOBALS['String_txt']->text.')');
+	else $GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'^'.$GLOBALS['String_txt']->text);
+}
+elseif ($GLOBALS['end_chb'] -> checked){
+	if(strlen($GLOBALS['String_txt']->text) > 1)
+	$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'('.$GLOBALS['String_txt']->text.')$');	
+	else $GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'$');
+}
+$GLOBALS['Position_wnd']->close();
+}
+
+function eyeRegEditExp_on_AnyBtn($params=""){
+	$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'.');
+}
+
+function eyeRegEditExp_on_RepetitionsBtn($params=""){
+	$Window_Repetitions  = new Window(array('name' => 'Repetitions_wnd', 'father'=>'eyeApps', 'cent' => 1, 'width' => 250, 'height' => 250, 'title' => 'Repetitions Window', 'removepid'=>0));
+	$Window_Repetitions-> show();
+	
+	$Select_repetition = new Select(array('name' => 'SelectRepetition', 'father' => 'Repetitions_wnd_Content', 'x'=>40, 'y'=>50));
+	$Select_repetition ->show();
+	
+	$Select_repetition->addOption('Zero or more', '*', 1);
+	$Select_repetition->addOPtion('One or more', '+', 0);
+	$Select_repetition->addOption('A possible one', '?', 0);
+	
+	$myLabel1 = new Label(array('name'=> 'Explication','father' => 'Repetitions_wnd_Content','x' => 10,'y' => 20,'text' => 'The character precedes to the symbol'));
+	$myLabel1->show();
+	
+	$MyText_repetition = new Textbox(array('name'=>'String_Repetitions','father'=>'Repetitions_wnd_Content','x'=>40,'y'=>100));
+	$MyText_repetition->show();
+	
+	$Button_repetition = new Button(array('name'=>'RepetitionBtn1', 'father'=>'Repetitions_wnd_Content', 'x'=>80,'y'=>160, 'caption'=> 'Ok'));
+	
+	$Button_repetition -> addFriend($Select_repetition);
+	$Button_repetition -> addFriend($MyText_repetition);
+	$Button_repetition -> show();
+	
+}
+
+function eyeRegEditExp_on_RepetitionBtn1($params=""){
+	if($GLOBALS['SelectRepetition']->selected == '*'){
+		if(strlen($GLOBALS['String_Repetitions']->text) > 1)
+		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'('.$GLOBALS['String_Repetitions']->text.')*');
+		else 		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.$GLOBALS['String_Repetitions']->text.'*');
+		}
+	elseif($GLOBALS['SelectRepetition']->selected == '+'){
+		if(strlen($GLOBALS['String_Repetitions']->text) > 1)
+		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'('.$GLOBALS['String_Repetitions']->text.')+');
+		else $GLOBALS['Result'] ->setText($GLOBALS['Result']->text.$GLOBALS['String_Repetitions']->text.'+');
+	}
+		else{
+			if(strlen($GLOBALS['String_Repetitions']->text) > 1)
+		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'('.$GLOBALS['String_Repetitions']->text.')?');
+		else $GLOBALS['Result'] ->setText($GLOBALS['Result']->text.$GLOBALS['String_Repetitions']->text.'?');
+	}
+	
+	$GLOBALS['Repetitions_wnd']->close();
+}
+
+//
+function eyeRegEditExp_on_Max_min_Btn($params=""){
+	
+	
+	$window_max_min = new Window(array('name'=>'Max_Min_wnd','father'=>'eyeApps', 'cent'=>1, width=> 250, 'height'=>250, 'title'=> 'Max and Mins Window', 'removepid'=>0));
+	$window_max_min->show();
+	
+	$myLabel1 = new Label(array('name'=> 'Explication','father' => 'Max_Min_wnd_Content','x' => 10,'y' => 20,'text' => 'The Min is forced to specify it, but, the Max can be ommited.'));
+	$myLabel1->show();
+	
+	$myLabel1_Min = new Label(array('name'=> 'min_lbl','father' => 'Max_Min_wnd_Content','x' => 10,'y' => 90,'text' => 'Min'));
+	$myLabel1_Min->show();
+	
+	$MyText_min = new Textbox(array('name'=>'String_min','father'=>'Max_Min_wnd_Content','x'=>10,'y'=>110, 'width'=>20));
+	$MyText_min->show(0);
+	
+	$My_text_max = new Label(array('name'=> 'max_lbl','father' => 'Max_Min_wnd_Content','x' => 190,'y' => 90,'text' => 'Max'));
+	$My_text_max -> show(0);
+	
+		$MyText_max = new Textbox(array('name'=>'String_max','father'=>'Max_Min_wnd_Content','x'=>190,'y'=>110, 'width'=>20));
+	$MyText_max->show();
+	
+	$MyText_string = new Textbox(array('name'=>'String_txt','father'=>'Max_Min_wnd_Content','x'=>40,'y'=>150));
+	$MyText_string->show();
+	
+	$Button_repetition = new Button(array('name'=>'MaxMinBtn1', 'father'=>'Max_Min_wnd_Content', 'x'=>80,'y'=>180, 'caption'=> 'Ok'));
+	$Button_repetition->addFriend($MyText_min);
+	$Button_repetition->addFriend($MyText_max);
+	$Button_repetition->addFriend($MyText_string);
+	$Button_repetition->show();
+}
+
+//		
+
+function eyeRegEditExp_on_MaxMinBtn1($params=""){
+	if(is_numeric($GLOBALS['String_min'] -> text) && is_numeric($GLOBALS['String_max']->text) ){
+		if(intval($GLOBALS['String_min'] -> text) > intval($GLOBALS['String_max'] -> text))
+		service('eyex','messageBox',array('content'=>'Min is big than Max'));
+		else
+		if(strlen($GLOBALS['String_txt']->text) > 1)
+		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'('.$GLOBALS['String_txt']->text.'){'.$GLOBALS['String_min']->text.', '.$GLOBALS['String_max']->text.'}');	
+		else 		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.$GLOBALS['String_txt']->text.'{'.$GLOBALS['String_min']->text.', '.$GLOBALS['String_max']->text.'}');	
+	}
+	 if(!is_numeric($GLOBALS['String_min'] -> text) || !is_numeric($GLOBALS['String_max']->text)) 
+	 service('eyex','messageBox',array('content'=>'no numerico'));
+	 
+		if (is_numeric($GLOBALS['String_min'] -> text) && $GLOBALS['String_max']->text == '')
+	{
+		if(strlen($GLOBALS['String_txt']->text) > 1)
+		$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.'('.$GLOBALS['String_txt']->text.'){'.$GLOBALS['String_min']->text.'}');	
+		else 				$GLOBALS['Result'] ->setText($GLOBALS['Result']->text.$GLOBALS['String_txt']->text.'{'.$GLOBALS['String_min']->text.'}');	
+
+	}
+	
+	
+	}
+	
+	
+
+?>

@@ -1,0 +1,256 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeLightDesk_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeLightDesk_on_Close(){
+	proc('end');
+}
+
+function eyeLightDesk_on_AllApps_Img(){
+	$myWindowIn = new Window(array('name'=>'eyeLightDeskWND_AllApps','type'=>INVISIBLE_WINDOW,'father'=>'eyeLightDeskWND',
+	'cent'=>0,'width'=>214,'height'=>670,'title'=>'eyeLightDesk'));
+	$myWindowIn->show();
+	$myCssText = array(
+		'background-color'=>'white',
+		'top'=>'30px',
+		'left'=>'0px',
+	);
+	$myWindowIn->setCss($myCssText);
+	$allAppsShadow = new Imagebox(array(
+		'name' => 'eLD_AllApps_ImgBG',
+		'father' => 'eyeLightDeskWND_AllApps',
+		'url' => 'index.php?extern=apps/eyeLightDesk/allapps_shadow.png',
+		'x' => 0,
+		'y' => 0,
+		'vert'=>1
+	));
+	$allAppsShadow->show();
+	
+	// Showing all applications
+	$currentUserDir = service('um','getCurrentUserDir');
+	$myArray = eyeXML('getXMLfile',array($currentUserDir.'/conf/eyeDock/eyeDock.xml'));
+	$i = 0;
+	$y = 15;
+	foreach($myArray['eyeDock'][0]['Group'] as $value) {
+		$key = $value['name'][0];
+		if ($key == "Favorites" || $key == "Places") {
+			continue;
+		}
+		$Label1 = new Label(array(
+			'name' => 'eAPTitle_Label_'.$i,
+			'father' => 'eyeLightDeskWND_AllApps',
+			'text' => $key,
+			'y' => $y,
+			'x' => 15
+		));
+		$Label1->show(0);
+		$Label1->setCss(array(
+			'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+			'font-size'=>'13px',
+			'color'=>'#145c99'
+		));
+		$y = $y + 25;
+		
+		foreach($value['items'][0]['item'] as $intValue) {
+			$intKey = i18n("translate",array($intValue['desc'][0]));
+			$intDesc = i18n("translate",array($intValue['name'][0]));
+			$intText = i18n("translate",array($intValue['text'][0]));
+		
+			$aicon = $intValue["icon"][0];
+			if(!vfs('real_fileExists',array(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon))) {
+				$aicon = 'exec.png';
+			}
+			$myHidden = new Hidden(array('name'=>'allAppsPressed_hid_'.$i,
+				'father'=>'eyeLightDeskWND','text'=>$intValue['exec'][0]));
+			$myHidden->show();
+			$LabelValue = new Label(array(
+				'name' => 'eAP_Label_'.$i,
+				'father' => 'eyeLightDeskWND_AllApps',
+				'text' => $intKey,
+				'y' => $y,
+				'x' => 50,
+				'disablemsg'=>0,
+				'signal'=>'allAppsPressed'
+			));	
+			$LabelValue->addFriend($myHidden);
+			$LabelValue->show(0);
+			$LabelValue->setCss(array(
+				'font-size'=>'11px',
+				'color'=>'#424242',
+				'cursor'=>'pointer',
+			));
+			
+			$imageValue = new Imagebox(array(
+				'name' => 'eAP_Imagebox_'.$i,
+				'father' => 'eyeLightDeskWND_AllApps',
+				'url' => 'index.php?extern=apps/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon,
+				'y' => $y,
+				'x' => 25,
+				'disableMsg'=>0,
+				'signal'=>'allAppsPressed'
+			));	
+			$imageValue->addFriend($myHidden);
+			$imageValue->show(0);
+			$imageValue->setCss(array(
+				'cursor'=>'pointer'
+			));
+			
+			$y = $y + 23;
+			$i++;
+		}
+		$y = $y + 10;
+	}
+	
+	
+	$GLOBALS['eLD_AllApps_Img']->remove();
+	$GLOBALS['eLD_Label0']->remove();
+	
+	$allAppsButton = new Imagebox(array(
+		'name' => 'eLD_AllApps_Img2',
+		'father' => 'eyeLightDeskWND',
+		'url' => 'index.php?extern=apps/eyeLightDesk/allapps_x.png',
+		'x' => 0,
+		'y' => 0,
+		'disableMsg' => 0,
+		'signal' => 'AllApps_Img_x'
+	));
+	$allAppsButton->show(0);
+	$allAppsButton->setCss(array('cursor'=>'Pointer'));
+	
+	$Label0 = new Label(array(
+		'name' => 'eLD_Label0',
+		'father' => 'eyeLightDeskWND',
+		'text' => 'All Applications',
+		'y' => 6,
+		'x' => 15,
+		'disablemsg' => 0,
+		'signal' => 'AllApps_Img_x'
+	));
+	$Label0->show(0);
+	$Label0->setCss(array(
+		'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+		'font-size'=>'13px',
+		'color'=>'#145c99',
+		'cursor'=>'pointer'
+	));
+}
+
+function eyeLightDesk_on_AllApps_Img_x(){
+	$GLOBALS['eLD_AllApps_Img2']->remove();
+	$GLOBALS['eLD_Label0']->remove();
+	$GLOBALS['eyeLightDeskWND_AllApps']->close();
+	$allAppsButton = new Imagebox(array(
+		'name' => 'eLD_AllApps_Img',
+		'father' => 'eyeLightDeskWND',
+		'url' => 'index.php?extern=apps/eyeLightDesk/allapps.png',
+		'x' => 0,
+		'y' => 0,
+		'disableMsg' => 0,
+		'signal' => 'AllApps_Img'
+	));
+	$allAppsButton->show(0);
+	$allAppsButton->setCss(array('cursor'=>'Pointer'));
+	
+	$Label0 = new Label(array(
+		'name' => 'eLD_Label0',
+		'father' => 'eyeLightDeskWND',
+		'text' => 'All Applications',
+		'y' => 6,
+		'x' => 15,
+		'disablemsg' => 0,
+		'signal' => 'AllApps_Img'
+	));
+	$Label0->show(0);
+	$Label0->setCss(array(
+		'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+		'font-size'=>'13px',
+		'color'=>'#145c99',
+		'cursor'=>'pointer'
+	));
+}
+
+
+function eyeLightDesk_on_appPressed($params=""){
+	foreach($params as $key=>$value) {
+		if(strstr($key,'appPressed_hid_')) {
+			if(strstr($value[0],',')) {
+				$value[0] = explode(',',$value[0]);
+				service('proc','launch',$value[0]);
+				return;
+			} else {
+				service('proc','launch',array($value[0]));
+				return;
+			}
+		}
+	}
+}
+
+function eyeLightDesk_on_placePressed($params=""){
+	foreach($params as $key=>$value) {
+		if(strstr($key,'placePressed_hid_')) {
+			if(strstr($value[0],',')) {
+				$value[0] = explode(',',$value[0]);
+				service('proc','launch',$value[0]);
+				return;
+			} else {
+				service('proc','launch',array($value[0]));
+				return;
+			}
+		}
+	}
+}
+
+function eyeLightDesk_on_sysPressed($params=""){
+	foreach($params as $key=>$value) {
+		if(strstr($key,'sysPressed_hid_')) {
+			if(strstr($value[0],',')) {
+				$value[0] = explode(',',$value[0]);
+				service('proc','launch',$value[0]);
+				return;
+			} else {
+				service('proc','launch',array($value[0]));
+				return;
+			}
+		}
+	}
+}
+
+function eyeLightDesk_on_allAppsPressed($params=""){
+	foreach($params as $key=>$value) {
+		if(strstr($key,'allAppsPressed_hid_')) {
+			if(strstr($value[0],',')) {
+				$value[0] = explode(',',$value[0]);
+				service('proc','launch',$value[0]);
+				return;
+			} else {
+				service('proc','launch',array($value[0]));
+				return;
+			}
+		}
+	}
+}
+
+?>

@@ -1,0 +1,39 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+// Update the groups folders
+$path = './' . REAL_EYE_ROOT . '/' . GROUPS_DIR . '/';
+$folders = array();
+if ($handler = @opendir($path)) {
+	while (false !== ($folder = readdir($handler))) {
+		if ($folder != '.' && $folder != '..' && !$folders[$folder] && is_dir($path . $folder . '/')) {
+			$folders[$folder] = 1;
+			rename($path . $folder . '/',$tmp_path . $folder . '/');
+			mkdir($path . $folder . '/');
+			rename($tmp_path . $folder . '/',$path . $folder . '/files/');
+			mkdir($path . $folder . '/conf/');
+		}
+	}
+	closedir($handler);
+}
+?>

@@ -1,0 +1,73 @@
+{
+  "name"    : "Feedreader config.json",
+
+  "include" :
+  [
+    {
+      "path" : "${QOOXDOO_PATH}/tool/data/config/application.json"
+    },
+    {
+      "path" : "image.json"
+    }
+  ],
+  
+  "default-job" : "source",
+
+  "let" :
+  {
+    "APPLICATION"  : "feedreader",
+    "QOOXDOO_PATH" : "../..",
+    "CACHE"        : "${TMPDIR}/cache",
+    "QXTHEME"      : "qx.theme.Modern",
+    "LOCALES"      : ["en", "de", "es", "fr", "it", "nl", "sv", "ro"],
+    "TEST_INCLUDE" : "${APPLICATION}.*",
+    "API_EXCLUDE"  : ["qx.test.*"],
+    "OPTIMIZE"     : ["basecalls", "strings", "privates", "variables"], 
+    "ROOT"         : "."
+  },
+  
+  
+  "jobs" :
+  {
+    "common" :
+    {
+      "settings" :
+      {
+        "qx.nativeScrollBars" : true
+      },
+      
+      "compile-options" :
+      {
+        "paths" : { "scripts-add-hash" : true },
+        "uris"  : { "add-nocache-param": false}
+      },
+
+      "packages" : 
+      {
+        "loader-with-boot" : false,
+        "i18n-with-boot"   : false,
+        "parts" : 
+        {          
+          "boot": 
+          {
+            "include" : ["${QXTHEME}", "feedreader.Application"]
+          },
+          "settings": 
+          {
+            "include" : ["feedreader.view.PreferenceWindow"]
+            //,"expected-load-order" : 1
+          },
+          "addfeed": 
+          {
+            "include" : ["feedreader.view.AddFeedWindow"]
+            //,"expected-load-order" : 1
+          }
+        },
+        "sizes" : 
+        {
+          "min-package" : 10
+        } 
+      }
+    }
+  }  
+}

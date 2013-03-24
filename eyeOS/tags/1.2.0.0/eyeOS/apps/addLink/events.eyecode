@@ -1,0 +1,54 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function addLink_on_Message($params = '') {
+	eyeWidgets('updateContent',$params);
+}
+
+function addLink_on_create($params = '') {
+	global $currentUser;
+	$linkName = $GLOBALS['addLink_textbox']->text;
+	$linkName = basename($linkName);	
+	$file = service('um','getCurrentUserDir') . '/' . FILES_USER_DIR . '/Desktop/' . $linkName . '.eyeLink';
+	if ($linkName && !vfs('real_fileExists',array($file))) {
+		$oldUser = $currentUser;
+		$currentUser = ROOTUSER;
+		$xml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/addLink/default.eyeLink'));
+		eyeXML('setXMLfile',array($file,$xml));
+		$currentUser = $oldUser;
+		clearstatcache();
+		proc('launch',array('editLink',$file));
+		proc('end');
+	} else {
+		eyeX('messageBox',array('content' => 'Please type a correct filename.'));
+	}
+}
+
+function addLink_on_cancel($params = ''){
+	proc('end');
+}
+
+function addLink_on_Close($params = ''){
+	proc('end');
+}
+?>

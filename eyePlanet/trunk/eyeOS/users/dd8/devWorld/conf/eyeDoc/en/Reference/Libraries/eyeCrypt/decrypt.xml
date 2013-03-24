@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>decrypt</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyecrypt</tag>
+		</tags>
+		<shortDesc>Decrypts a string.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.2</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>decrypt</functionName>
+		<syntax>reqLib('eyeCrypt', 'decrypt', array('data' => $data, 'key' => $key, 'cipher' => $cipher))</syntax>
+		<desc>Decrypts a string with a given key.</desc>
+		<params>
+			<type>required</type>
+			<name>data</name>
+			<desc>String to decrypt.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>key</name>
+			<desc>Key needed for decrypting the string.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>cipher</name>
+			<desc>Ciphering algorithm needed to decrypt the data. The supported algorithms are rc4 and xxtea for eyeOS 1.2.</desc>
+		</params>
+		<return>If the function succeeds, returns the decrypted string. Else, if the specified algorithm is not present in the system, returns false.</return>
+	</definition>
+</info>

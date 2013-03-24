@@ -1,0 +1,124 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	events resource for eyeLaunch
+*/
+
+function eyeDashPanel_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDashPanel_on_startDash($params="") {
+	service('proc','launch',array('eyeDashBoard'));
+}
+
+function eyeDashPanel_on_stopDash($params="") {
+	global $myPid;
+	$dashPid = service('proc','findPidByName',array('eyeDashBoard'));
+	$result = service('proc','close',array($dashPid));
+	if($result){
+		if(!$params[0])
+		{
+			service('eyex','messageBox',array('content'=>'eyeDashBoard stoped'));	
+		}		
+	}else{
+		if(!$params[0])
+		{
+			service('eyex','messageBox',array('content'=>'Can\'t stop eyeDashBoard'));
+		}
+	}
+}
+
+//A dashboard wrapper for control the petition. Dasboard its only a widget engine (layer) its 
+//administrate the widgets.
+function eyeDashPanel_on_addWidget($params=""){	
+	if(isset($params['addWidget'][0])){
+		include(EYE_ROOT.'/'.APP_DIR.'/eyeDashBoard/events.eyecode');
+
+		eyeDashBoard_on_addWidget($params);
+	
+		$name = $params['addWidget'][0];
+		$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+		$count = count($myWidgets['widgetsLoaded'][0][$name]);
+		if($count === 0 || !isset($myWidgets['widgetsLoaded'][0][$name])){
+			$count = 'N/A';	
+		}
+		$GLOBALS[$name.'_countText']->setText($count);
+		if($count != 'N/A'){
+			$GLOBALS[$name.'_rmWidget']->enable();
+		}
+	}
+}
+function eyeDashPanel_on_rmWidget($params=""){
+	if(isset($params['rmWidget'][0])){
+				
+		include(EYE_ROOT.'/'.APP_DIR.'/eyeDashBoard/events.eyecode');
+		eyeDashBoard_on_rmWidget($params);
+		
+		$name = $params['rmWidget'][0];
+		
+		$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+		$count = count($myWidgets['widgetsLoaded'][0][$name]);		
+		if($count === 0 || !isset($myWidgets['widgetsLoaded'][0][$name])){
+			$count = 'N/A';	
+		}
+		$GLOBALS[$name.'_countText']->setText($count);
+		if($count == 'N/A'){
+			$GLOBALS[$name.'_rmWidget']->disable();
+		}
+	}
+}
+function eyeDashPanel_on_renderType($params=""){
+	if(!$params['renderType'][0]){
+		return;
+	}
+	$renderType = $params['renderType'][0];
+	if(!get_class($GLOBALS[$renderType.'Render'])){
+		eyex('messageBox',array('content'=>'Error setting the render type'));
+		return;
+	}
+	//Writing the new config in config file
+	$conf = reqLib('eyeXML','getXMLConfig',array('eyeDashBoard','eyeDashBoard.xml'));
+	$conf['options'][0]['background_type'][0] = strtoupper($renderType);//upper is a default type
+	
+	reqLib('eyeXML','setXMLConfig',array('eyeDashBoard','eyeDashBoard.xml',$conf));
+	//Setting green color.
+	$GLOBALS[$renderType.'Render']->setCss(array('background-color'=>'#35FF23'));
+	if($renderType == 'image'){
+		$GLOBALS['alphaRender']->setCss(array('background-color'=>'transparent'));
+		$GLOBALS['noalphaRender']->setCss(array('background-color'=>'transparent'));
+	}elseif($renderType == 'alpha'){
+		$GLOBALS['imageRender']->setCss(array('background-color'=>'transparent'));
+		$GLOBALS['noalphaRender']->setCss(array('background-color'=>'transparent'));
+	}elseif($renderType == 'noalpha'){
+		$GLOBALS['alphaRender']->setCss(array('background-color'=>'transparent'));
+		$GLOBALS['imageRender']->setCss(array('background-color'=>'transparent'));
+	}
+
+	//Information msg
+	eyeDashPanel_on_stopDash();
+	eyeDashPanel_on_startDash();
+	
+	eyex('messageBox',array('content'=>'Render changed'));
+}
+function eyeDashPanel_on_Close(){
+	proc('end');
+}
+
+?>

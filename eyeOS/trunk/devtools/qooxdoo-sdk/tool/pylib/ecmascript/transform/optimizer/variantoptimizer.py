@@ -1,0 +1,244 @@
+#!/usr/bin/env python
+################################################################################
+#
+#  qooxdoo - the new era of web development
+#
+#  http://qooxdoo.org
+#
+#  Copyright:
+#    2006-2010 1&1 Internet AG, Germany, http://www.1und1.de
+#
+#  License:
+#    LGPL: http://www.gnu.org/licenses/lgpl.html
+#    EPL: http://www.eclipse.org/org/documents/epl-v10.php
+#    See the LICENSE file in the project's top-level directory for details.
+#
+#  Authors:
+#    * Sebastian Werner (wpbasti)
+#    * Fabian Jakobs (fjakobs)
+#
+################################################################################
+
+import re, sys
+from ecmascript.frontend.treeutil import *
+
+global verbose
+
+def makeLogMessage(level, msg, node=None):
+    global file
+    str = "%s: %s" % (level, msg);
+    if node != None:
+        if file != "":
+            str += " (%s:%s)" % (file, node.get("line", False))
+        else:
+            str += " (Line %s)" % node.get("line", False)
+    return str
+
+def log(level, msg, node=None):
+    global verbose
+    str = makeLogMessage(level, msg, node)
+    if verbose:
+        print "      - " + str
+    else:
+        if level != "Information":
+            print
+            print str
+
+
+def search(node, variantMap, fileId="", verb=False):
+    if variantMap == None:
+        return False
+    
+    global verbose
+    global file
+    verbose = verb
+    file = fileId
+    variants = findVariablePrefix(node, "qx.core.Variant")
+    modified = False
+    for variant in variants:
+        variantMethod = selectNode(variant, "identifier[4]/@name")
+        if variantMethod == "select":
+            modified = processVariantSelect(selectNode(variant, "../.."), variantMap) or modified
+        elif variantMethod == "isSet":
+            modified = processVariantIsSet(selectNode(variant, "../.."), variantMap) or modified
+        elif variantMethod == "compilerIsSet":
+            modified = processVariantIsSet(selectNode(variant, "../.."), variantMap) or modified
+
+    return modified
+
+
+##
+# Processes qx.core.Variant.select blocks
+# Destructive! re-writes the AST tree passed in <callNode> by replacing choices with
+# the suitable branch.
+#
+# Mirror line:
+# <callNode>:
+# qx.core.Variant.select("qx.debug", { "on" : function(){return true;},
+#                                      "off": function(){return false;}})
+# <variantMap>:
+# {
+#   "qx.debug" : "on"
+# }
+
+def processVariantSelect(callNode, variantMap):
+    if callNode.type != "call":
+        return False
+        
+    params = callNode.getChild("params")
+    if len(params.children) != 2:
+        log("Warning", "Expecting exactly two arguments for qx.core.Variant.select. Ignoring this occurrence.", params)
+        return False
+
+    # Get the variant key from the select() call
+    firstParam = params.getChildByPosition(0)
+    if not isStringLiteral(firstParam):
+        log("Warning", "First argument must be a string literal constant! Ignoring this occurrence.", firstParam)
+        return False
+
+    variantKey = firstParam.get("value");
+    # is this key covered by the current variant map?
+    if not variantKey in variantMap.keys():
+        return False
+
+    # Get the resolution map, keyed by possible variant key values (or value expressions)
+    secondParam = params.getChildByPosition(1)
+    default = None
+    found = False
+    if secondParam.type == "map":
+        for node in secondParam.children:
+            if node.type != "keyvalue":
+                continue
+
+            fullKey = node.get("key")
+            value = node.getChild("value").getFirstChild()
+            keys = fullKey.split("|")
+
+            # Go through individual value constants
+            for key in keys:
+                if key == variantMap[variantKey]:
+                    callNode.parent.replaceChild(callNode, value)
+                    found = True
+                    break
+                if key == "default":
+                    default = value
+                    
+        if not found:
+            if default != None:
+                callNode.parent.replaceChild(callNode, default)
+            else:
+                raise RuntimeError(makeLogMessage("Error", "Variantoptimizer: No default case found for (%s:%s) at" % (variantKey, fullKey), callNode))
+        return True
+
+    log("Warning", "The second parameter of qx.core.Variant.select must be a map or a string literal. Ignoring this occurrence.", secondParam)
+    return False
+
+
+def processVariantIsSet(callNode, variantMap):
+    '''
+    processes qx.core.Variant.isSet() calls;
+    destructive! re-writes the AST tree passed in [callNode] by replacing choices with
+    the suitable branch
+    '''
+    if callNode.type != "call":
+        return False
+        
+    params = callNode.getChild("params")
+    if len(params.children) != 2:
+        log("Warning", "Expecting exactly two arguments for qx.core.Variant.isSet. Ignoring this occurrence.", params)
+        return False
+
+    firstParam = params.getChildByPosition(0)
+    if not isStringLiteral(firstParam):
+        log("Warning", "First argument must be a string literal! Ignoring this occurrence.", firstParam)
+        return False
+
+    variantKey = firstParam.get("value");
+    if not variantKey in variantMap.keys():
+        return False
+
+    secondParam = params.getChildByPosition(1)
+
+    if isStringLiteral(secondParam):
+        ifcondition =  secondParam.parent.parent.parent
+
+        # normal if then else
+        if ifcondition.type == "expression" and ifcondition.getChildrenLength(True) == 1 and ifcondition.parent.type == "loop":
+            loop = ifcondition.parent
+            variantValue = secondParam.get("value")
+            inlineIfStatement(loop, __variantMatchKey(variantValue, variantMap, variantKey))
+
+        # ternery operator  .. ? .. : ..
+        elif (
+            ifcondition.type == "first" and
+            ifcondition.getChildrenLength(True) == 1 and
+            ifcondition.parent.type == "operation" and
+            ifcondition.parent.get("operator") == "HOOK"
+        ):
+            variantValue = secondParam.get("value")
+            if __variantMatchKey(variantValue, variantMap, variantKey):
+                repleacement = selectNode(ifcondition, "../second")
+            else:
+                repleacement = selectNode(ifcondition, "../third")
+            replaceChildWithNodes(ifcondition.parent.parent, ifcondition.parent, repleacement.children)
+
+        else:
+            variantValue = secondParam.get("value")
+            constantNode = tree.Node("constant")
+            constantNode.set("value", str(__variantMatchKey(variantValue, variantMap, variantKey)).lower())
+            constantNode.set("constantType", "boolean")
+            constantNode.set("line", callNode.get("line"))
+            callNode.parent.replaceChild(callNode, constantNode)
+            #log("Warning", "Only processing qx.core.Variant.isSet directly inside of an if condition. Ignoring this occurrence.", secondParam)
+
+        return True
+
+    log("Warning", "The second parameter of qx.core.Variant.isSet must be a string literal. Ignoring this occurrence.", secondParam)
+    return False
+
+
+def __variantMatchKey(key, variantMap, variantKey):
+    for keyPart in key.split("|"):
+        if variantMap[variantKey] == keyPart:
+            return True
+    return False
+
+
+##
+# Returns e.g.
+#   ( "qx.debug", 
+#     {
+#       "on"  : <ecmascript.frontend.tree.Node>, 
+#       "off" : <ecmascript.frontend.tree.Node>
+#     }
+#   )
+def getSelectParams(callNode):
+    result = (None, None)
+    if callNode.type != "call":
+        return result
+        
+    params = callNode.getChild("params")
+    if len(params.children) != 2:
+        log("Warning", "Expecting exactly two arguments for qx.core.Variant.select. Ignoring this occurrence.", params)
+        return result
+
+    # Get the variant key from the select() call
+    firstParam = params.getChildByPosition(0)
+    if not isStringLiteral(firstParam):
+        log("Warning", "First argument must be a string literal constant! Ignoring this occurrence.", firstParam)
+        return result
+    variantKey = firstParam.get("value");
+
+    # Get the resolution map, keyed by possible variant key values (or value expressions)
+    secondParam = params.getChildByPosition(1)
+    branchMap   = {}
+    if secondParam.type == "map":
+        for node in secondParam.children:
+            if node.type != "keyvalue":
+                continue
+            branchKey = node.get("key")
+            value     = node.getChild("value").getFirstChild()
+            branchMap[branchKey] = value
+
+    return variantKey, branchMap
+

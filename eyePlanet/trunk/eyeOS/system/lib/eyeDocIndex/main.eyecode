@@ -1,0 +1,328 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/   eyePlanet, based on eyeOS 1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/ 
+define('DBHOST_INDEX','localhost');
+define('DBUSER_INDEX','root');
+define('DBPASS_INDEX','123321');
+define('DBNAME_INDEX','eyeDocIndexed');
+function lib_eyeDocIndex_getTags($params){
+	$name = $params[0];
+	$wid = _getWid($name);	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	$query = 'SELECT name,wid FROM items_tags where wid = ?';
+	$params = array('query'=>$query,'values'=>array($wid));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);
+		
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	foreach($result['assoc'] as $key=>$content){
+		$tags[] = $content['name'];
+	}
+	return $tags;
+}
+function lib_eyeDocIndex_addTags($params){
+	$name = $params[0];
+	$tags = $params[1];
+	$wid = _getWid($name);
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	foreach($tags as $tag){
+		$query = 'INSERT INTO items_tags(wid,name) VALUES(?,?)';
+		$params = array('query'=>$query,'values'=>array($wid,$tag));
+		$query = reqLib('eyeSimpleDb','parseQuery',$params);
+		$result = $db->query(array('query'=>$query,'type'=>'insert'));	
+	}		
+}
+function lib_eyeDocIndex_getNames($params){
+	$name = $params[0];	
+	$wid = _getWid($name);	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	$query = 'SELECT name,wid FROM items_names where wid = ?';
+	$params = array('query'=>$query,'values'=>array($wid));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);
+		
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	foreach($result['assoc'] as $key=>$content){
+		$names[] = $content['name'];
+	}
+	return $names;	
+}
+function lib_eyeDocIndex_addNames($params){
+	$name = $params[0];
+	$newNames = $params[1];
+	$wid = _getWid($name);
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	foreach($newNames as $name){
+		$query = 'INSERT INTO items_names(wid,name) VALUES(?,?)';
+		$params = array('query'=>$query,'values'=>array($wid,$name));
+		$query = reqLib('eyeSimpleDb','parseQuery',$params);
+		$result = $db->query(array('query'=>$query,'type'=>'insert'));	
+	}
+}
+function lib_eyeDocIndex_getChecksum($params){
+	$name = $params[0];	
+	$wid = _getWid($name);	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	$query = 'SELECT checksum,wid FROM items where wid = ?';
+	$params = array('query'=>$query,'values'=>array($wid));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);
+		
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	return $result['assoc'][0]['checksum'];	
+}
+function lib_eyeDocIndex_addItems($params){
+	/*$items = array(array('name'=>'hola','shortDesc'=>'fooo baaar fooo baaar fooo baar','checksum'=>'33333333'),
+					array('name'=>'hola2','shortDesc'=>'foGgggggggggggggggggggggg','checksum'=>'44444444444')
+				);					
+	*/
+	$items = $params[0];
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	foreach($items as $item){				
+		$query = 'INSERT INTO items(name,shortDesc,checksum) VALUES(?,?,?)';
+		$params = array('query'=>$query,'values'=>array($item['name'],$item['shortDesc'],$item['checksum']));
+		$query = reqLib('eyeSimpleDb','parseQuery',$params);		
+		$result = $db->query(array('query'=>$query,'type'=>'insert'));	
+	}
+}
+function lib_eyeDocIndex_getItem($params){
+	$name = $params[0];	
+	$wid = _getWid($name);	
+	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}	
+	$query = 'SELECT * FROM items where wid = ?';
+	$params = array('query'=>$query,'values'=>array($wid));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);
+		
+	$result = $db->query(array('query'=>$query,'type'=>'select'));	
+	return $result['assoc'];	
+}
+function lib_eyeDocIndex_addFullItems($params){
+
+	$items = $params[0];	
+	foreach($items as $item){					
+		eyeDocIndex('addItems',array(array(($item))));
+		eyeDocIndex('addTags',array($item['name'],$item['tags']));
+		eyeDocIndex('addNames',array($item['name'],$item['names']));
+	}
+	return true;
+}
+function lib_eyeDocIndex_getFullItem($params){
+	//TODO	
+}
+function lib_eyeDocIndex_setChecksum($params){
+	$name = $params[0];
+	$checksum = $params[1];
+	$wid = _getWid($name);
+	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);	
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}
+	$query = 'UPDATE items SET checksum=? WHERE wid=?';
+	$params = array('query'=>$query,'values'=>array($checksum,$wid));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);
+	$result = $db->query(array('query'=>$query,'type'=>'update'));		
+}
+function lib_eyeDocIndex_searchWord($params){
+	$word = $params[0];
+	$result = array();
+	$res = _searchName($word);
+	if(count($res) == 1){
+		return $res;
+	}
+	if(is_array($res)){
+		$result = array_merge($result,$res);	
+	}	
+	$res = _searchTag($word);
+	if(is_array($res)){
+		$result = _mergeResults($result,$res);	
+	}	
+	$res = _searchShortDesc($word);	
+	if(is_array($res)){
+		$result = _mergeResults($result,$res);	
+	}
+	return $result;
+}
+function _mergeResults($result,$res){	
+	foreach($res as $content){		
+		if(array_search($content['wid'],$result['reg']) === false){
+			$result['reg'][] = $content['wid'];
+			$result[] = $content;			
+		}
+	}
+	return $result;
+}
+function lib_eyeDocIndex_startIndex(){
+	$files = _getAllXml();
+	foreach($files as $file){
+		$data = _getDataFromXml($file);
+		if(is_array($data)){			
+			$datas[] = $data;
+		}		
+	}
+	if(count($datas > 0)){
+		eyeDocIndex('addFullItems',array($datas));	
+	}	
+	return true;
+}
+function lib_eyeDocIndex_getName($params){
+	$id = $params[0];
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}		
+	$query = 'SELECT wid,name FROM items where wid = ?';
+	$params = array('query'=>$query,'values'=>array($id));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);	
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	return $result['assoc'][0]['name'];
+}
+function _getAllXml($path=''){
+	if($path == ''){
+		$path = um('getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeDoc/Reference/';	
+	}	
+	$files = array();
+	$content = vfs('real_getDirContent',array($path));
+	foreach($content as $dir){
+		if(vfs('isDir',array($dir))){
+			$filesBack = _getAllXml($dir);
+			$files = array_merge($files,$filesBack);
+		}else{
+			$files[] = $dir;
+		}
+	}
+	return $files;	
+}
+function _getDataFromXml($path){
+	$file = eyeXML('getXMLfile',array($path));	
+	if(!$file['info'][0]['general'][0]['tags']){
+		return false;
+	}
+	foreach($file['info'][0]['general'][0]['tags'] as $tag){		
+		foreach($tag['tag'] as $data){
+			$tags[] = $data;
+		}
+	}
+	foreach($file['info'][0]['general'][0]['name'] as $name){				
+			$names[] = $name;
+	}
+	$name = _getUniqName($path);
+	$checksum = md5_file($path);
+	$desc = $file['info'][0]['general'][0]['shortDesc'][0];
+	$info['name'] = $name;
+	$info['shortDesc'] = $desc;	
+	$info['checksum'] = $checksum;
+	$info['tags'] = $tags;
+	$info['names'] = $names;
+	return $info;	
+}
+function _getUniqName($file){
+	$split = substr($file,strrpos($file,'Reference')+strlen("Reference"),strlen($file));	
+	return str_replace('//','/',$split);
+}
+function _getWid($name){
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}		
+	$query = 'SELECT wid,name FROM items where name = ?';
+	$params = array('query'=>$query,'values'=>array($name));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);	
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	return $result['assoc'][0]['wid'];
+}
+
+function _searchName($name){	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}		
+	$query = 'SELECT wid,name FROM items_names where name = ?';
+	$params = array('query'=>$query,'values'=>array($name));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);	
+	$result = $db->query(array('query'=>$query,'type'=>'select'));	
+	return $result['assoc'];
+}
+function _searchTag($name){	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}		
+	$query = 'SELECT wid,name FROM items_tags where name = ?';
+	$params = array('query'=>$query,'values'=>array($name));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);	
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	return $result['assoc'];
+}
+function _searchShortDesc($name){	
+	$params = array('host'=>DBHOST_INDEX,'login'=>DBUSER_INDEX,'password'=>DBPASS_INDEX,'dbname'=>DBNAME_INDEX);
+	$db = reqLib('eyeSimpleDb','newDb',$params);
+	if(!$db){
+		eyeX('messageBox',array('content'=>'NO DB!!'));
+	}
+	$name = '%'.$name.'%';
+	$query = 'SELECT wid,name,shortDesc FROM items where shortDesc like ?';
+	$params = array('query'=>$query,'values'=>array($name));
+	$query = reqLib('eyeSimpleDb','parseQuery',$params);	
+	$result = $db->query(array('query'=>$query,'type'=>'select'));
+	return $result['assoc'];
+}
+?>

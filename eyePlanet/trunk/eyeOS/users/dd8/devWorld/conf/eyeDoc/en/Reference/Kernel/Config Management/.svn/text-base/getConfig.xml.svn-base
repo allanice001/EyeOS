@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getConfig</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>config</tag>
+		</tags>
+		<shortDesc>Gets a configuration file of an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getConfig</functionName>
+		<syntax>array getConfig(string $appName [, string $file='conf.xml'])</syntax>
+		<desc>Opens an application's XML configuration file in the applications shared configuration directory and returns it as an array.</desc>
+		<params>
+			<type>required</type>
+			<name>appName</name>
+			<desc>Name of the application.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>file</name>
+			<desc>Name of the configuration file to load. If it is not specified, a file called 'conf.xml' is loaded instead.</desc>
+		</params>
+		<return>This function returns false if the configuration file can't be loaded. If it is read correctly, returns the content of the XML file transformed to a PHP array.</return>
+	</definition>
+</info>

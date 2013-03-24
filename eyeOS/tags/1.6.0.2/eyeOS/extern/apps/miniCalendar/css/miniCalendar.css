@@ -1,0 +1,90 @@
+.cal0 {
+	width: 80px;
+	height: 17px;
+	color: white;
+	background-color: #E46F46;
+	padding-left: 5px;
+	overflow-x: hidden;
+}
+
+.cal1 {
+	width: 80px;
+	height: 17px;
+	color: white;
+	background-color: #37A3FF;
+	padding-left: 5px;
+	overflow-x: hidden;
+}
+
+.cal2 {
+	width: 80px;
+	height: 17px;
+	color: white;
+	background-color: #6FBA32;
+	padding-left: 5px;
+	overflow-x: hidden;
+}
+
+.cal3 {
+	width: 80px;
+	height: 17px;
+	color: white;
+	background-color: #8074C9;
+	padding-left: 5px;
+	overflow-x: hidden;
+}
+
+.cal4 {
+	width: 80px;
+	height: 17px;
+	color: white;
+	background-color: #F19A2A;
+	padding-left: 5px;
+	overflow-x: hidden;
+}
+
+.cal5 {
+	width: 80px;
+	height: 17px;
+	color: white;
+	background-color: #E26299;
+	padding-left: 5px;
+	overflow-x: hidden;
+}
+
+.miniCalendarOuter {
+	position: absolute;
+	top: 80px;
+	right: 10px;
+	width: 470px;
+	height: 170px;
+	border: 1px solid #20529B;
+	background-color: #E9EEF5;
+	z-index: 100;
+}
+
+.miniCalendarInnerLeft {
+	position: absolute;
+	top: 19px;
+	width: 160px;
+	height: 145px;
+	background-color: white;
+	border-top: 1px solid #9BBFE4;
+	border-bottom: 1px solid #9BBFE4;
+	border-right: 1px solid #9BBFE4;
+}
+
+.miniCalendarInnerRight {
+	position: absolute;
+	top: 19px;
+	right: 0px;
+	width: 304px;
+	height: 145px;
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/desktop/miniwidgetbg.png");
+	background-repeat: repeat;
+	border-top: 1px solid #9BBFE4;
+	border-bottom: 1px solid #9BBFE4;
+	border-left: 1px solid #9BBFE4;
+	overflow-y: auto;
+	overflow-x: hidden;
+}

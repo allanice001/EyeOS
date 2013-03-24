@@ -1,0 +1,26 @@
+<?php
+//TODO: add css into the html
+function get_dynamic_content($params=null) {
+	$myPid=intval($params[0]);
+	$checknum=$params[1];
+	if(!is_int($myPid) || !is_numeric($checknum)) {
+		exit;
+	}
+	return '<html>
+	<head>
+	</head>
+</html>	
+<body>
+	<form enctype="multipart/form-data" action="index.php?checknum='.$checknum.'&msg=upLoadFile" method="POST">
+		<div class="upLoadText" style="font-family:Verdana;font-size:11px;position:absolute;top:20px;left:100px;">
+			Select a file to upload
+		</div>
+		<input type="file" name="myFile" style="font-family:Verdana;font-size:11px;position:absolute;top:55px;left:100px;" />
+		<input type="submit" value="Upload" style="font-family:Verdana;font-size:11px;position:absolute;top:95px;left:100px;" />
+		<img src="index.php?extern=apps/eyeFiles/gfx/upload_big.png" style="border:none;position:absolute;top:40px;left:20px;" />
+	</form>
+</body>
+</html>';
+}
+
+?>

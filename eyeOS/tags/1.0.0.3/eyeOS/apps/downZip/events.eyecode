@@ -1,0 +1,51 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function downZip_on_Message($params=null) {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function downZip_on_downloadZip($params=null) {
+	global $myPid;
+	$path = $params['path'][0];
+	$inGroup = $params['group'][0];
+	if($inGroup) {
+		$myUserDir = EYE_ROOT.'/'.GROUPS_DIR.'/'.$path;
+	} else {
+		$myUserDir = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$path;
+	}
+	if(!service('vfs','fileExists',array($myUserDir))) {
+		service('eyex','messageBox',array('content'=>"Zip file not found"));
+		service('proc','close',array($myPid));
+		exit;
+	}
+	$content = reqLib('eyeZip','createZip',array($myUserDir));
+	$name = basename($myUserDir);
+	$name = str_replace("\n","",$name);
+	$name = str_replace("\r","",$name);
+	header('Content-Type: application/octet-stream');
+	header('Content-Disposition: attachment; filename="'.$name.'.zip"');
+	echo $content;
+	reqLib('eyeWidgets','rawunserialize');
+	service('proc','close',array($myPid));
+	exit;
+}
+
+
+?>

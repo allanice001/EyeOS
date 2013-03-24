@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>VFS, the virtual filesystem service</title>
+	<general>
+		<name>vfs</name>
+		<tags>
+			<tag>service</tag>
+		</tags>
+		<shortDesc>File system abstraction to manage files.</shortDesc>
+	</general>
+	<desc>The vfs service is the layer that must be used to manipulate any file inside eyeOS. It contains two sets of functions to manipulate files: one thought to work with the user's abstract files, and the other one (having always a 'real_' prefix on their name) to work with normal, non-abstract files.</desc>
+</info>

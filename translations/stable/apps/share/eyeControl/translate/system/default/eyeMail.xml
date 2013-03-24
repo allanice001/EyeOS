@@ -1,0 +1,104 @@
+<lang>
+	<info>
+		<revision>03/03/2012</revision>
+	</info>
+	<texts>
+		<text>Account Name:</text>
+		<text>Accounts</text>
+		<text>Account Type:</text>
+		<text>Activity Monitor</text>
+		<text>Advanced</text>
+		<text>All files</text>
+		<text>Are you sure?</text>
+		<text>Are you sure you want to remove the account "%s"?</text>
+		<text>Attach</text>
+		<text>Back</text>
+		<text>Cancel</text>
+		<text>CC:</text>
+		<text>CCO:</text>
+		<text>Check for new mail:</text>
+		<text>Check mail at startup</text>
+		<text>Contacts</text>
+		<text>Create a new account</text>
+		<text>Date</text>
+		<text>Date:</text>
+		<text>Date: %s</text>
+		<text>Delete</text>
+		<text>Downloading all mails...</text>
+		<text>Do you really want to delete this mail?</text>
+		<text>Email:</text>
+		<text>Email account has been created.</text>
+		<text>Email account has been updated.</text>
+		<text>Email Address:</text>
+		<text>Enter an account name to be identified later.</text>
+		<text>Enter the name you would like to appear in the "From" field of your outgoing messages (for example, "John Doe").</text>
+		<text>Enter your email address and password. This is the address others will use to send email to you (for example, "user@server.net").</text>
+		<text>Error sending mail</text>
+		<text>Every 5 minutes</text>
+		<text>Every 15 minutes</text>
+		<text>Every 30 minutes</text>
+		<text>Every hour</text>
+		<text>eyeMail has found the %s server settings. Please, verify that the information below is correct. To enter the settings manually click on "Manual".</text>
+		<text>Fetch</text>
+		<text>Finish</text>
+		<text>Forward</text>
+		<text>From</text>
+		<text>From:</text>
+		<text>From: %s</text>
+		<text>Full Name:</text>
+		<text>Full Screen</text>
+		<text>General</text>
+		<text>General settings has been updated.</text>
+		<text>Inbox</text>
+		<text>Incoming</text>
+		<text>Incoming Server Type:</text>
+		<text>Information</text>
+		<text>Mail</text>
+		<text>Mailbox</text>
+		<text>Manual</text>
+		<text>Manually</text>
+		<text>Name</text>
+		<text>New</text>
+		<text>Next</text>
+		<text>No</text>
+		<text>Outcoming</text>
+		<text>Outgoing</text>
+		<text>Password:</text>
+		<text>Please fill out all fields.</text>
+		<text>Port:</text>
+		<text>Preferences</text>
+		<text>Recive Rich Text</text>
+		<text>Remove Account</text>
+		<text>Reply</text>
+		<text>Run</text>
+		<text>Save</text>
+		<text>Security</text>
+		<text>Security settings has been updated.</text>
+		<text>Send</text>
+		<text>Sending mail...</text>
+		<text>Send Rich Text</text>
+		<text>Sent</text>
+		<text>Server Host:</text>
+		<text>Server Port:</text>
+		<text>Size</text>
+		<text>Sorry, you do not have sufficient permissions.</text>
+		<text>Subject</text>
+		<text>Subject:</text>
+		<text>Subject: %s</text>
+		<text>Surname</text>
+		<text>To:</text>
+		<text>To: %s</text>
+		<text>Unable to create file</text>
+		<text>User:</text>
+		<text>Username:</text>
+		<text>Visual alert</text>
+		<text>Write a new mail</text>
+		<text>Yes</text>
+		<text>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for IMAP first.</text>
+		<text>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for SQLite first.</text>
+		<text>You have %s new mail</text>
+		<text>You have %s new mails</text>
+		<text>Your account e-mails has been imported</text>
+		<text>Your message has been sent</text>
+	</texts>
+</lang>

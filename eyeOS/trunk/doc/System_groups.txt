@@ -1,0 +1,14 @@
+Available system groups for access control:
+
+	* admin: Administrators, almost the same privileges as root.
+	* sys: System users. DO NOT ASSIGN REAL USERS TO IT!
+	* um: Users Managers, all access to the UM service (creation, edition, deletion or users/groups).
+	* exec: Execute applications.
+	* vfs: Access to the Virtual File System (home://, sys://, ...).
+	* lfs: Access to the Local File System of the server (file:///).
+	* rfs: Access to Remote File System (ftp://, ssh://, ...).
+	* mnt: Creation of mountpoints.
+	* wg: Join workgroups.
+	* wg-managers: Creation of workgroups (include wg).
+	* ...
+	* more to come...

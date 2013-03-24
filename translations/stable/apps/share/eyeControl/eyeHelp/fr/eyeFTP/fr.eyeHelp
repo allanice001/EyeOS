@@ -1,0 +1,16 @@
+﻿eyeFtp vous permet de vous connecter à vos serveurs FTP depuis votre onEye. Vous pouvez l'utiliser pour charger, transférer et gérer vos fichiers vers un serveur distant en utilisant votre serveur hôte onEye comme proxy pour vos connexions.
+
+Auteur: Nanawel [mail]nanawel@eyeos.org[/mail]
+
+[h]Principales caractéristiques[/h]
+[list][*]Se connecter à n'importe que serveur FTP par l'intermédiaire de la machine hébergeant votre onEye
+[*]Lister les fichiers avec leurs détails (nom, taille, date, ...) et afficher les répertoires
+[*]Créer des répertoires
+[*]Effacer, renommer et déplacer fichiers et dossiers
+[*]Télécharger et téléverser des fichiers depuis/vers votre onEye
+[*]Télécharger et téléverser des fichiers à partir de votre onEye:
+	[list=1][*]Transférer d'abord entre le serveur FTP et onEye,
+	[*]Puis entre OS et votre machine locale, selon le sens du transfert
+	[i]Vous pouvez donc télécharger/téléverser des fichiers depuis/vers des serveurs FTP même si votre port 21 est inutilisable.[/i][/list]
+[*]Sauvegarder et gérer les profils de connexion.
+[/list]

@@ -1,0 +1,136 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeUpload_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeUpload_on_upLoadFile($params=null) {
+	if(is_object($GLOBALS['upPath'])) {
+		$path = $GLOBALS['upPath']->text;
+	} else {
+		$path = '/';
+	}
+
+	$myUserDir = $path;	
+	
+	if ($GLOBALS['myfile']->checkfile()) {
+		if($GLOBALS['myfile']->saveFile($myUserDir)) {
+			$GLOBALS['myfile']->notify('correct');
+			echo "<div style='font-family: Verdana; font-size: 12pt; margin-left: 30px; margin-top: 20px;'><strong>".i18n('translate',array('Upload finished!'))."</strong><br />
+    		".i18n('translate',array('You can now close this window.'))."</div>";
+		} else {
+			$GLOBALS['myfile']->notify('error');
+		}
+		exit;
+	} else {
+		$GLOBALS['myfile']->notify('error');
+		exit;
+	}
+	exit;
+}
+
+function eyeUpload_on_correct($params=null) {
+	global $checknum;	
+	eyeX('messageBox',array('content'=>'Upload finished!'));	
+	$js = 'sendMsg('.$checknum.',"Close","");';
+	//eyeX('rawjs',array('js'=>$js));
+}
+
+function eyeUpload_on_error($params=null)  {
+	eyeX('messageBox',array('content'=>'Error uploading file'));
+	$GLOBALS['uploadWND']->close();
+	proc('end');
+}
+function eyeUpload_on_uploadComplete($params=null) {
+	if(is_object($GLOBALS['eyeUploadX_upPath_HID'])) {
+		$path = $GLOBALS['eyeUploadX_upPath_HID']->text;
+	} else {
+		$file = service('um','getCurrentUserDir');
+		$path = $file.'/'.FILES_USER_DIR;
+	}
+	$xmlResponse = array('eyeUploadX' => array());
+	
+	$filename = utf8_basename($_FILES['Filedata']['name']);
+	$myUserDir = $path.'/'.$filename;
+	if (is_uploaded_file($_FILES['Filedata']['tmp_name'])) {
+		if(!vfs('checkPermissions',array($myUserDir))) {
+			$xmlResponse['eyeUploadX'][0] = array(
+				'status' => array('failed'),
+				'message' => array(i18n('translate',array('Error: You don\'t have sufficient permissions')))
+			);
+		}
+		elseif(!vfs('checkQuota',array($_FILES['Filedata']['tmp_name']))) {
+			$xmlResponse['eyeUploadX'][0] = array(
+				'status' => array('failed'),
+				'message' => array(i18n('translate',array('Error: You don\'t have enough disk space')))
+			);
+		}
+		else {
+			$xmlResponse['eyeUploadX'][0] = array(
+				'status' => array('success'),
+				'message' => array(i18n('translate',array('File '.$filename.' has been successfully uploaded')))
+			);
+		}
+		move_uploaded_file($_FILES['Filedata']['tmp_name'],$myUserDir);
+		vfs('realToVirtual',array($myUserDir));
+	}
+	echo eyeXML('array2xml', array($xmlResponse));
+	exit;
+}
+
+function eyeUpload_on_initFlash() {
+	$path = um('getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeUpload/conf.xml';
+	$conf = eyeXML('getXMLfile', array($path));
+	
+	if (is_array($conf)
+		&& is_array($conf['eyeUpload'])
+		&& is_array($conf['eyeUpload'][0])
+		&& is_array($conf['eyeUpload'][0]['forceFlash'])) {
+		$forceFlash = $conf['eyeUpload'][0]['forceFlash'][0];
+	}
+	else {
+		$forceFlash = 0;
+	}
+	
+	header('Content-type: text/xml; charset="utf-8"');
+	echo '
+			<eyeUploadX>
+				<labels>
+					<addFiles caption="'.i18n('translate',array('Add files')).'" />
+					<removeFile caption="'.i18n('translate',array('Remove')).'" />
+					<upload caption="'.i18n('translate',array('Upload now!')).'" />
+					<progressInit caption="'.i18n('translate',array('Add files to transfer, then press Upload now!')).'" />
+					<progressFile caption="'.i18n('translate',array('Transfering: ')).'" />
+				</labels>
+			</eyeUploadX>';
+	exit;
+}
+
+
+function eyeUpload_on_Close(){
+	eyeX('rawjs',array('js'=>$GLOBALS['upCallback']->text));
+	proc('end');	
+}
+
+?>

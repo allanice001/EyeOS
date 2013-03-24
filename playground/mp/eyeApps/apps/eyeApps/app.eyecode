@@ -1,0 +1,232 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/**
+ *	@todo make act & look more like kde kicker. add img for each group and so on...
+ */
+
+function eyeApps_run($params = '') {
+	global $currentUser;
+	global $myPid;
+
+	$myWindow = new Window(array(
+		'cent' => 1,
+		'father' => 'eyeApps',
+		'height' => 430,
+		'name' => 'eyeApps_Window',
+		'title' => 'Applications',
+		'savePosition' => 1,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'Resize',
+		'width' => 660
+	));
+	$myWindow->show();
+
+	$myToolbar = new Toolbar(array(
+		'father' => 'eyeApps_Window_Content',
+		'name' => 'eyeApps_Toolbar'
+	));
+	$myToolbar->show();
+	$myToolbar->addItem('ManageDock','index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/22x22/lin_agt_wrench.png','Manage Dock');
+	if ($currentUser == ROOTUSER) {
+		$myToolbar->addItem('InstallApps','index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/22x22/installapps.png','Install Apps');
+	}
+	$myToolbar->addItem('fullscreen','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=icons/22x22/fullScreen.png','Full Screen','',1);
+/**
+ *	Tab container
+ */
+	$myTab = new Tab(array(
+		'father' => 'eyeApps_Window_Content',
+		'height' => $myWindow->height - 84,
+		'name' => 'eyeApps_tab_Container',
+		'width' => $myWindow->width - 4,
+		'x' => intval(!IE || IE > 6),
+		'y' => 58,
+		'tabwidth' => 90,
+	));
+	$myTab->show();
+	$FileManage = $myTab->addTab('File Manage',1);
+	$Games = $myTab->addTab('Games',1);
+	$Multimedia = $myTab->addTab('Multimedia',1);
+	$Network = $myTab->addTab('Network',1);
+	$Office = $myTab->addTab('Office',1);
+	$Utilities = $myTab->addTab('Utilities',1);
+	$Widget = $myTab->addTab('Widgets',1);
+	//tab to open with
+	$myTab->selectByName('Office');
+/**
+*	Tabs
+*/
+	//tab var
+	$tabcss = (array(
+		'display' => 'block',
+		'overflow' => 'auto',
+		'position' => 'absolute',
+	));
+	$tabX = intval(!IE || IE > 6);
+	$tabWidth = $myWindow->width - 0;
+	$tabheight = $myWindow->height - 104;
+	
+	//File Manage
+	$myContainer = new Container(array(
+		'father' => $FileManage,
+		'height' => $tabheight,
+		'name' => 'eyeApps_File Management',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+
+	//Games
+	$myContainer = new Container(array(
+		'father' => $Games,
+		'height' => $tabheight,
+		'name' => 'eyeApps_Games',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+
+	//Multimedia
+	$myContainer = new Container(array(
+		'father' => $Multimedia,
+		'height' => $tabheight,
+		'name' => 'eyeApps_Multimedia',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+
+	//Network
+	$myContainer = new Container(array(
+		'father' => $Network,
+		'height' => $tabheight,
+		'name' => 'eyeApps_Networking',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+
+	//Office
+	$myContainer = new Container(array(
+		'father' => $Office,
+		'height' => $tabheight,
+		'name' => 'eyeApps_Office',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+
+	//Utilities
+	$myContainer = new Container(array(
+		'father' => $Utilities,
+		'height' => $tabheight,
+		'name' => 'eyeApps_Utilities',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+
+	//Widgets
+	$myContainer = new Container(array(
+		'father' => $Widget,
+		'height' => $tabheight,
+		'name' => 'eyeApps_Widget',
+		'width' => $tabWidth,
+		'x' => $tabX,
+		'y' => 0
+	));
+	$myContainer->show();
+	$myContainer->setCss($tabcss);
+/**
+*	SEARCH AND GET ICONS
+*/
+	$conf = eyeXML('getXMLconfig',array('eyeFiles','conf.xml'));
+	if (!isset($conf['eyeFiles'][0]['clickMethod'][0])) {
+		$conf['eyeFiles'][0]['clickMethod'][0] = 1;
+	}
+
+	$tab = array('File Management','Games','Multimedia','Networking','Office','Utilities','Widget');
+	
+	$path = EYE_ROOT . '/' . APP_DIR . '/';
+	$folders = scandir($path);
+	
+	foreach ($tab as $tabs){
+		$i = 0;
+		$x = 20;
+		$y = 20;
+		foreach ($folders as $folder) {
+			$xml = getAppInfo($folder);
+			if ($xml['package'][0]['category'][0] == $tabs && $xml['package'][0]['name'][0] != 'eyeApps') {
+
+				$myIcon = new Icon(array(
+					'content' => array($folder),
+					'draggable' => 0,
+					'father' => 'eyeApps_' . $tabs,
+					'image' => $xml['package'][0]['icon'][0],
+					'name' => 'eyeApps_Icon_' . $tabs . '_' . $i,
+					'onclick' => $conf['eyeFiles'][0]['clickMethod'][0],
+					'overClass' => 'eyeFiles_icons',
+					'text' => $xml['package'][0]['name'][0],
+					'useClass' => 1,
+					'x' => $x,
+					'y' => $y
+				));
+				$myIcon->show();
+				eyex('rawjs',array('js' => 'xGetElementById("' . $myPid . '_' . $myIcon->name . '_Container").style.textAlign = "center"; xGetElementById("img_' . $myPid . '_' . $myIcon->name . '").style.marginLeft = "-1px";'));
+				$x += 88;
+				if ($myContainer->width - $x - 88 < 0) {
+					$x = 20;
+					$y += 88;
+				}
+				$i++;
+				//dnd 
+				$myWidgetDrag = new widgetDrag(array(
+					'content' => array('app',$folder),
+					'dragAlpha' => 75,
+					'dragCss' => array(array('border'),array('1px #000000 dotted')),
+					'father' => $myIcon->name . '_Container',
+					'name' => $myIcon->name . '_WidgetDrag'
+				));
+				$myWidgetDrag->show();
+			}
+		}
+	}
+}
+
+function eyeApps_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

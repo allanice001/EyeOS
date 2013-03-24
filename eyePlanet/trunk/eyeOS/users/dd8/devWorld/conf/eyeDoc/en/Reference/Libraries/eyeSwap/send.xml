@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>send</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyeswap</tag>
+			<tag>messages</tag>
+		</tags>
+		<shortDesc>Sends a message to a user.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Added the parameter 'directory' which allows to specify to which namespace the message belongs. This parameters allows to use the eyeSwap library from many applications with different purposes.</desc>
+		</trace>
+		<trace>
+			<version>1.5</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>send</functionName>
+		<syntax>boolean reqLib('eyeSwap', 'send', array(string $to, string $subject, string $text, string $directory [, string $file]))</syntax>
+		<desc>Sends a message to the specified user, and allows to attach a file with it. From eyeOS version 1.6 and above, the 'directory' parameter is mandatory. It allows to specify to which namespace the message belongs to, in order to separate the messages sent from each application.</desc>
+		<params>
+			<type>required</type>
+			<name>to</name>
+			<desc>User to send the message to.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>subject</name>
+			<desc>Subject of the message.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>text</name>
+			<desc>Content of the message.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>directory</name>
+			<desc>Namespace where the message belongs to.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>file</name>
+			<desc>URL to the file to attach. It must point to an existing file of the user who sends the message.</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, returns false.</return>
+	</definition>
+</info>

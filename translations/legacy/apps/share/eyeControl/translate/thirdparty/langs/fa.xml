@@ -1,0 +1,69 @@
+<lang>
+	<info>
+		<lang>فارسی</lang>
+		<lang-en>Persian</lang-en>
+		<author>Mohammad Abdoli Rad</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>eyeEditor</name>
+		<text>
+			<old>File saved successfully.</old>
+			<new>. فایل با موفقیت ذخیره شد</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>. متاسفانه شما مجوز قانونی ندارید</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>ناتوانی در ایجاد فایل</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSnow</name>
+		<text>
+			<old>eyeSnow is already runing</old>
+			<new>در حال اجراست eyeSnow</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeXMLviewer</name>
+		<text>
+			<old>File not found</old>
+			<new>فایل مورد نضر یافت نشد</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>. متاسفانه شما مجوز قانونی ندارید</new>
+		</text>
+	</part>
+	<part>
+		<name>publicMon</name>
+		<text>
+			<old>Check Config</old>
+			<new>بررسی تغییرات</new>
+		</text>
+		<text>
+			<old>Check User</old>
+			<new>بررسی کاربر</new>
+		</text>
+		<text>
+			<old>Del Config</old>
+			<new>حذف تغییرات</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>نام</new>
+		</text>
+		<text>
+			<old>Refresh Config</old>
+			<new>تازه کردن تغییرات</new>
+		</text>
+		<text>
+			<old>Sub Files</old>
+			<new>ساب فایل</new>
+		</text>
+	</part>
+</lang>

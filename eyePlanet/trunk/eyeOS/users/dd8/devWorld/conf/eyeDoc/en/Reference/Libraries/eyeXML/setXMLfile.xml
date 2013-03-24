@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>setXMLfile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+		</tags>
+		<shortDesc>Saves an array as an XML file.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>setXMLfile</functionName>
+		<syntax>eyeXML('setXMLfile', array($file, $myArray, myHeader))</syntax>
+		<desc>Saves a PHP array as an XML file.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the file.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>myArray</name>
+			<desc>PHP array to save as the content of the file.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>myHeader</name>
+			<desc>XML header of the file.</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, returns false.</return>
+	</definition>
+</info>

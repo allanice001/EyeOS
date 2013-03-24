@@ -1,0 +1,617 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Process Manager service
+*/
+/*
+ 	Process table structure
+	
+	[pid][appName],[checknum],[time],[currentUser],[pid] 
+	[pid]  
+	[pid]
+	...
+*/
+define('TABLENAME','ProcessTable');
+
+/***
+* 
+* Description: start proc service, create Process Table if it does not exist
+* 
+* Arguments: none
+* 
+* Return: none
+* 
+* Last update 2007-06-3 
+***/
+function service_proc_init() {
+	//star random
+	mt_srand(make_seed());	
+	//create the process table if it hadn't been created
+	if(reqLib('eyeSessions','checkVar',array(TABLENAME)) == false){		
+		reqLib('eyeSessions','makeArrayVar',array(TABLENAME));
+	}
+}
+
+/***
+* 
+* Description: launch the eyeApp calling app_run function adding the eyeApp to the
+*	       process table
+* 
+* Arguments:
+*	+ appName: string containing the eyeApp name
+*	- appArgs: argument for the eyeApp
+* 
+* Return: If eyeApp isn't running and it exists, return the eyeApp_run result.
+* 	  If the app isn't found, return PROC_APP_NOT_FOUND.
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_launch($params) {	
+	
+	//Needed params for start
+	$appName = basename($params[0]);
+	if(!$appName) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	//All params and needed vars.
+	global $currentUser;
+	if(isset($params[1])) {
+		$appArgs = $params[1];
+	} else {
+		$appArgs = "";
+	}
+	
+	global $myPid;
+	
+	//Get the process table.
+	$processTable = service('proc','getProcessTable');
+	
+	//Getting unique pid. 
+	$oldPid = $myPid;
+	$myPid = make_unique_pid();	
+
+	//Filling the proc values.
+	global $procInfo;
+	$oldProcInfo = $procInfo;
+	$procInfo['appName'] = $appName;//Provided by argument.
+	$procInfo['checknum'] = make_unique_checknum();
+	$procInfo['time'] = time();
+	$procInfo['currentUser'] = $currentUser;//Provided by global var.
+	$procInfo['pid'] = $myPid;
+	$procInfo['tty'] = get_tty($oldPid);
+						
+	//Try run app.
+	if(!is_readable(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/app'.EYE_CODE_EXTENSION)) {
+		reqLib('errorCodes','setErrorCode',array(PROC_APP_NOT_FOUND));
+		return false;
+	}
+	//Including app php code.
+	include_once(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/app'.EYE_CODE_EXTENSION);
+			
+	if(function_exists($appName.'_run')){
+		//Adding process in processTable.
+		reqLib('eyeSessions','AddArrayValueByKey',array(TABLENAME,$procInfo,$myPid));				
+		//Setting new cheknum in global
+		global $checknum;
+		$oldchecknum = $checknum;
+		$checknum = $procInfo['checknum'];//Set global for new Checknum.
+		//Calling the run function and returns the result.		
+		$return = call_user_func($appName.'_run',array($appArgs));
+		$checknum = $oldchecknum;
+		$myPid = $oldPid;
+		$procInfo = $oldProcInfo;
+		return $return;
+	}else{
+		//$checknum = $oldchecknum;
+		$myPid = $oldPid;
+		$procInfo = $oldProcInfo;
+		reqLib('errorCodes','setErrorCode',array(PROC_APP_DONT_HAVE_RUN_FUNCTION));
+		return false;
+	}
+}
+
+/***
+* 
+* Description: launch the eyeApp calling its eyeApp_run function withoud adding the
+*		 process in process table
+* 
+* Arguments:
+* 	+ appName: string containing the eyeApp name
+* 
+* Return: If eyeApp isn't running, and app exists, return the eyeApp_run result.
+* 	  If the app isn't found, return PROC_APP_NOT_FOUND.
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_getTask($params) {
+	//Get the needed arguments for start
+	global $myPid;
+	global $procInfo;
+	$oldPid = $myPid;
+	$myPid = intval($params[0]);
+	$oldProcInfo = $procInfo;
+	if(!$myPid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	
+	$procInfo = service('proc','getProcByPid',array($myPid));	
+	if(!$procInfo['checknum'] || !$procInfo['appName'])
+	{
+		reqLib('errorCodes','setErrorCode',array(PROC_APP_NOT_ARE_RUNNING));
+		return false;
+	}
+		
+	if(!is_readable(EYE_ROOT.'/'.APP_DIR.'/'.$procInfo['appName'].'/app'.EYE_CODE_EXTENSION)) {
+		reqLib('errorCodes','setErrorCode',array(PROC_APP_NOT_FOUND));
+		return false;
+	}
+	include_once(EYE_ROOT.'/'.APP_DIR.'/'.$procInfo['appName'].'/app'.EYE_CODE_EXTENSION);
+	if(isset($params[1])) {
+		$appArgs = $params[1];
+	} else {
+		$appArgs = "";
+	}
+	//Set the new checknum
+	global $checknum;
+	$oldchecknum = $checknum;
+	$checknum = $procInfo['checknum'];
+	if(function_exists($procInfo['appName'].'_run')){				
+
+		//Calling the run function and return the result		
+		$return = call_user_func($procInfo['appName'].'_run',array($appArgs));
+		$myPid = $oldPid;
+		$checknum = $oldchecknum;
+		$procInfo = $oldProcInfo;
+		return $return;
+	}else{
+		$myPid = $oldPid;
+		$checknum = $oldchecknum;
+		$procInfo = $oldProcInfo;
+		reqLib('errorCodes','setErrorCode',array(PROC_APP_DONT_HAVE_RUN_FUNCTION));
+		return false;
+	}	
+}
+
+/***
+* 
+* Description: close the app calling eyeApp_end function and remove the app from process table
+* 
+* Arguments:
+* 	+ pid: Integer containing the eyeApp pid
+* 
+* Return: If specified eyeApp is running, delethe from the Proces Table and
+*		 return the eyeApp_end result.
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_close($params) {
+	$pid = $params[0];
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	//Get the appName and check if app not are running.
+	$appName = service('proc','findNameByPid',array($pid));
+		
+	include_once(EYE_ROOT.'/'.APP_DIR.'/'.$appName.'/app'.EYE_CODE_EXTENSION);
+	if(function_exists($appName.'_end')) {
+		global $myPid;
+		$oldPid = $myPid;
+		$myPid = $pid;
+		$myTempVar = call_user_func($appName.'_end');	
+		$myPid = $oldPid;	
+	}
+	//Delete the proc
+	reqLib('eyeSessions','DelArrayValueByKey',array(TABLENAME,$pid));
+	
+	//If don't have end function, return true.
+	if(isset($myTempVar))
+	{
+		return $myTempVar;	
+	}else{
+		return true;
+	}
+}
+
+/***
+* 
+* Description: return the whole process table
+* 
+* Arguments: none
+* 
+* Return: return Process Table array
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_getProcessTable() {
+	//Get the process table from session.
+	return reqLib('eyeSessions','getVar',array(TABLENAME));
+}
+
+/***
+* 
+* Description: given a pid, set the process' user to the father user
+* 
+* Arguments:
+* 	+ pid: integer containing the eyeApp pid
+* 
+* Return: return true if the process' user has been successfully set
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_setProcessUser($params) { 
+	global $currentUser;
+	$pid = $params[0];
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$proc = reqLib('eyeSessions','getArrayValueByKey',array(TABLENAME,$pid));
+	if(!$proc) {
+		reqLib('errorCodes','setErrorCode',array(PROC_APP_NOT_ARE_RUNNING));
+		return false;
+	}
+
+	$proc['currentUser'] = $currentUser;//Set the current user in proc array.
+	reqLib('eyeSessions','addArrayValueByKey',array(TABLENAME,$proc,$pid));
+	return true;
+}
+
+/***
+* 
+* Description: search the pid in process table by appName
+* 
+* Arguments:
+* 	+ appName: string containing the appName
+* 
+* Return: if the app is running, return its  pid
+* 	  return PROC_APP_NOT_ARE_RUNNING otherwise
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_findPidByName($params) {
+
+	$appName = $params[0];
+	if(!$appName) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	foreach ($processTable as $key => $array){
+		//If the apName in the proc are the same that provided by arguments.
+		if($array['appName'] == $appName)
+		{
+			return $key;//return the pid.
+		}
+	}
+	return false;
+}
+
+/***
+* 
+* Description: search a appName in process table for return the checknum
+* 
+* Arguments:
+* 	+ appName: string containing the appName
+* 
+* Return: If the appName is found in the process table, return its checknum
+*         Return false otherwise
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_findChecknumByName($params) {
+	
+	$appName = $params[0];	
+	if(!$appName) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	foreach ($processTable as $array){
+		//if the appName in the proc are the same that provided by arguments.
+		if($array['appName'] == $appName)
+		{
+			return $array['checknum'];//Return the checknum.
+		}
+	}
+	return false;//If dont find the name in process table.
+}
+
+/***
+* 
+* Description: search a pid in process table and return its name
+* 
+* Arguments:
+* 	+ pid: integer containing the eyeApp Pid
+* 
+* Return: If the pid is found in the process table, return its name.
+*         Return false otherwise. 
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_findNameByPid($params) {
+	
+	$pid = $params[0];	
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	foreach ($processTable as $key => $array){
+		//If the pid in the proc are the same that provided by arguments.
+		if($key == $pid)
+		{
+			return $array['appName'];//Return the appName
+		}
+	}
+	return false;
+}
+
+/***
+* 
+* Description: search a checknum in process table and return its name
+* 
+* Arguments:
+* 	+ checknum: integer containing the eyeApp checknum
+* 
+* Return: If the checknum is found in the process table, return its name.
+*         Return false otherwise. 
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_findNameByChecknum($params) {
+	
+	$checknum = $params[0];	
+	if(!$checknum) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	foreach ($processTable as $array){
+		if($array['checknum'] == $checknum) {		
+			return $array['appName'];
+		}
+	}
+	return false;
+}
+
+function service_proc_findNChecknumByPid($params) {
+	
+	$pid = $params[0];	
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	foreach ($processTable as $key => $array){
+		//If the pid in the proc are the same that provided by arguments.
+		if($key == $pid)
+		{
+			return $array['checknum'];//Return the checknum
+		}
+	}
+	return false;
+}
+
+/***
+* 
+* Description: search a checknum in the process table
+* 
+* Arguments:
+* 	+ checknum: integer containing a checknum
+* 
+* Return: If checknum is in the process table, return true.
+*         Return false otherwise. 
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_findChecknum($params){//Find the checkNum in processTable and return a bool
+	$checkNum = $params[0];
+	if(!$checkNum) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	
+	foreach ($processTable as $array){
+		if($array['checknum'] == $checkNum) {//array[1] is the position where checkNum is alocalted in ProcessTable.	
+			return true;
+		}
+	}
+	return false;
+}
+
+/***
+* 
+* Description: search a pid in the process table.
+* 
+* Arguments:
+* 	+ pid: Integer containing a pid.
+* 
+* Return: If pid is in the process table, return true.
+*         Return false otherwise.
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_findPid($params){
+	//Getting the Process register for given pid
+	$pid = $params[0];
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');
+	
+	foreach ($processTable as $key => $array){
+		if($key == $pid){
+			return true;
+		}
+	}
+	return false;
+}
+
+/***
+* 
+* Description: search a checknum and return the proc
+* 
+* Arguments:
+* 	+ checknum: integer containing a checknum
+* 
+* Return: If checknum is in the process table, return the proc for this checknum.
+*         Return false otherwise. 
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_getProcByChecknum($params) {
+
+	$checknum = $params[0];
+	if(!$checknum) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');	
+	foreach ($processTable as $key => $array){
+		if($array['checknum'] == $checknum){
+			return $array;
+		}
+	}	
+	return false;	
+}
+
+/***
+* 
+* Description: search a pid and return the proc
+* 
+* Arguments:
+* 	+ pid: integer containing a checknum
+* 
+* Return: If pid is in the process table, return the proc for this checknum.
+*         if pid isn't in process table, return false. 
+* 
+* Last update 2007-02-19 
+***/
+function service_proc_getProcByPid($params) {
+
+	$pid = $params[0];
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');	
+	foreach ($processTable as $key => $array){
+		if($key == $pid){
+			return $array;
+		}
+	}	
+	return false;	
+}
+
+function service_proc_getTtyByPid($params){
+	
+	$pid = $params[0];
+	if(!$pid) {
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$processTable = service('proc','getProcessTable');	
+	foreach ($processTable as $key => $array){
+		if($key == $pid){
+			return $array['tty'];
+		}
+	}	
+	return false;	
+}
+
+//internal functions
+/***
+* 
+* Description: make a random 12-digit checknum
+* 
+* Arguments: none
+*
+* Return: Return a random 12-digit integer.
+* 
+* Last update 2007-02-19 
+***/
+function make_unique_checknum() {
+	$myCheckNum = mt_rand(1000,9999).mt_rand(1000,9999).mt_rand(1000,9999);//First checknum.
+	//Check if checknum are unique.
+	while(service('proc','findChecknum',array($myCheckNum)) != false)
+	{
+		$myCheckNum = mt_rand(1000,9999).mt_rand(1000,9999).mt_rand(1000,9999);
+	}
+	return $myCheckNum;
+}
+
+/***
+* 
+* Description: make a random pid 
+* 
+* Arguments: none
+* 
+* Return: random 5-digit integer 
+* 
+* Last update 2007-02-19 
+***/
+function make_unique_pid() {
+	$pid = mt_rand(10000,99999);
+	while(service('proc','findPid',array($pid)) != false)//If the pid is in process table get new pid.
+	{
+		$pid = mt_rand(10000,99999);
+	}
+	return $pid;
+}
+
+function make_seed()
+{
+   list($usec, $sec) = explode(' ', microtime());
+   return (float) $sec + ((float) $usec * 100000);
+}
+
+/***
+* 
+* Description: get a valid tty
+* 
+* Arguments:
+* 	- father: integer containing a pid
+* 
+* Return: if a father exists, return the father tty.
+* 	  if it doesn't exist, return a new tty. 
+* 
+* Last update 2007-02-19 
+***/
+function get_tty($father = null)
+{
+	$ret = service('proc','getTtyByPid',array($father));
+	if(!$ret) {
+		$ret = 1;
+	}
+	return $ret;
+}
+?>

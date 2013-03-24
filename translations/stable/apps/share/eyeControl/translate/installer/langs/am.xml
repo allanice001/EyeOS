@@ -1,0 +1,27 @@
+<lang>
+	<info>
+		<lang>አማርኛ</lang>
+		<author>ይጥና ፍርድይወቅ</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>ፋይሎቹ አልተጫኑም። አዮኦኤስን ፋይሎች በጅ ለመጫን ["package'] እንደገና "package.tar.gz" ይብሉትና ፋይሎቹን ባሉበት አቃፊ ውስጥ ይፍትዋቸው </new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>አዮዖኤስን ይጫኑ</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>ይቀጥሉ...</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>ተጠቃሚወች አካውንት ይክፈቱ</new>
+		</text>
+	</part>
+</lang>

@@ -1,0 +1,207 @@
+<lang>
+	<info>
+		<lang>Русский</lang>
+		<author>Pavel Maryanov &amp; Paracelsus</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>Пароль пользователя «root»</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>Нет</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>Если выбрать [span]Нет[/span], будет выполнен возврат на страницу системы.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Удалить инсталлятор oneye?</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Выберите одно из следующих действий:</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Перевод можно загрузить по ссылке [a link].</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>Для обеспечения безопасности удалите инсталлятор!</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Удалить oneye</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Назад в меню</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Продолжить...</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>Если выбрать [span]Да[/span], будут удалены файлы инсталлятора!</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>Не удаётся распаковать файлы обновления. Чтобы установить oneye вручную, переименуйте файл «[package]» в «package.tar.gz» и распакуйте его содержимое в текущий каталог.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>Удалить систему oneye?</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Программа обновления предназначена только для eyeos версии 1.5 или более старшей. Установленная версия eyeos — [version1]. Обновите систему eyeos до версии 1.5 перед обновлением её до версии [version2].</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Обновление установленной версии oneye до версии [version]</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Обновить oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Неверный пароль!</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>Не удаётся переименовать каталог «./eyeOS/». Переименуйте его вручную в «[hash]» и перезапишите существующие файлы.</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Продолжить...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>Если выбрать [span]Да[/span], система oneye будет полностью удалена!</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Да</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Сбросить системные файлы</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>Если выбрать [span]Нет[/span], будет выполнен возврат на страницу системы.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Действие</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Удалить инсталлятор oneye</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>Укажите пароль для пользователя «root»</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>Пароль пользователя «root» должен иметь длину не менее 3 символов</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Для установки oneye необходимо заполнить следующие поля</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>Похоже, на данном сервере нет поддержки gzip. Чтобы установить oneye вручную, переименуйте файл «[package]» в «package.tar.gz» и распакуйте его содержимое в текущий каталог.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>Версия установленной oneye более новая, чем данное обновление. Для обеспечения безопасности удалите каталог «[installer]».</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Пароль «root»</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Пароль (ещё раз)</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Продолжить...</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>Не удаётся распаковать установочные файлы. Чтобы установить oneye вручную, переименуйте файл «[package]» в «package.tar.gz» и распакуйте его содержимое в текущий каталог.</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>Не удаётся переименовать каталог «./eyeOS/». Переименуйте его вручную в «[hash]».</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Предупреждение: проверьте, не повреждён ли файл «[package]».</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Текущий язык</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Предупреждение: установите для файла «[file]» полные права доступа (chmod 777).</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>Установка oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>В данной версии PHP отсутствует полная поддержка UTF-8. Следует обновить PHP или установить модуль «mbstring». В противном случае oneye можно будет установить или обновить, но могут возникнуть проблемы в некоторых частях системы, в которых требуется поддержка иностранных языков.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>автор: </new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>Пароли не совпадают</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Языки</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>Во время установки возникли проблемы:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>На веб-сервере используется неподдерживамая версия PHP. Перед установкой oneye обновите PHP до версии 5.0 или более старшей.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>К сожалению для oneye требуется, чтобы в PHP был выключен безопасный режим (SAFE_MODE = OFF). В текущей конфигурации данный режим включён. Измените файл «php.ini», выключив в нём безопасный режим, или обратитесь за помощью к своему системному администратору.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Разрешить свободную регистрацию</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Ошибка: файл «[file]» не существует.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Установить oneye!</new>
+		</text>
+	</part>
+</lang>

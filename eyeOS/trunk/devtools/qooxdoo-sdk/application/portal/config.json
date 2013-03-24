@@ -1,0 +1,22 @@
+// portal demo - config.json
+{
+  "name"    : "Portal config.json",
+
+  "include" :
+  [
+    {
+      "path" : "${QOOXDOO_PATH}/tool/data/config/application.json"
+    }
+  ],
+  
+  "default-job" : "source",
+
+  "let" :
+  {
+    "APPLICATION"  : "portal",
+    "QOOXDOO_PATH" : "../..",
+    "TEST_INCLUDE"   : "${APPLICATION}.*",
+    "CACHE"        : "${TMPDIR}/cache",
+    "ROOT"         : "."
+  }
+}

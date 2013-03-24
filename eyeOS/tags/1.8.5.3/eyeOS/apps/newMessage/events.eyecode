@@ -1,0 +1,70 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function newMessage_on_Message($params="") {
+	eyeWidgets('updateContent',$params);
+}
+
+function newMessage_on_Close(){
+	proc('end');
+}
+
+function newMessage_on_addAttach($params=null) {
+	global $checknum;
+	$options = array(
+		EYEDIALOG_TYPE_OPENFILE,
+		'SelectFileOpen',
+		$checknum,
+	);
+	proc('launch',array('eyeDialog',$options));
+}
+
+function newMessage_on_SelectFileOpen($params=null) {
+	$file = $params['arg'][0];
+	if(is_object($GLOBALS['tboxAttach'])) {
+		$GLOBALS['tboxAttach']->setText($file);
+	}
+}
+
+function newMessage_on_send($params) {
+	$to = $GLOBALS['tboxTo']->text;
+	$subject = $GLOBALS['tboxSubject']->text;
+	$content = $GLOBALS['contentTarea']->text;
+	$attach = um('getCurrentUserDir').FILES_USER_DIR.'/'.$GLOBALS['tboxAttach']->text;
+
+	if(reqLib('eyeMessages', 'sendMessage', array($to, $subject, $content, $attach))) {
+		eyeX('messageBox', array('content' => 'Message sent'));
+		
+		if(is_object($GLOBALS['callback'])) {
+			$appChecknum = $GLOBALS['callback']->text[0];
+			$appMessage = $GLOBALS['callback']->text[1];
+			eyeX('sendMessage', array('checknum' => $appChecknum, 'msg' => $appMessage));
+		}
+		
+		proc('end');
+	} else {
+		eyeX('messageBox', array('content' => 'Error sending message'));
+	}
+}
+
+?>

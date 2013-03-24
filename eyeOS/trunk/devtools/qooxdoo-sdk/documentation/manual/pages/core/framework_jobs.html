@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Framework Generator Jobs &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="References" href="../references.html" />
+    <link rel="next" title="Widget Reference" href="../widget/widget_ref.html" />
+    <link rel="prev" title="Array Reference" href="array.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../widget/widget_ref.html" title="Widget Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="array.html" title="Array Reference"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../references.html" accesskey="U">References</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="framework-generator-jobs">
+<span id="pages-tool-framework-jobs-framework-jobs"></span><h1>Framework Generator Jobs<a class="headerlink" href="#framework-generator-jobs" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the jobs that are available in the framework. Mainly this is just a reference list with short descriptions of what the jobs do. To find out more about predefined jobs for custom applications, see the <a class="reference internal" href="../tool/generator_default_jobs.html"><em>Default Generator Jobs</em></a>.</p>
+<div class="section" id="framework-jobs">
+<span id="pages-tool-framework-jobs-action-jobs"></span><h2>Framework Jobs<a class="headerlink" href="#framework-jobs" title="Permalink to this headline">¶</a></h2>
+<p>These jobs can be invoked in the <em>framework/</em> directory with the generator, as <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">&lt;jobname&gt;</span></tt>.</p>
+<div class="section" id="api">
+<span id="pages-tool-framework-jobs-api"></span><h3>api<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<p>Create api doc for the framework.</p>
+</div>
+<div class="section" id="api-data">
+<span id="pages-tool-framework-jobs-api-data"></span><h3>api-data<a class="headerlink" href="#api-data" title="Permalink to this headline">¶</a></h3>
+<p>Create the api data for the framework. Can take individual class names as further arguments.</p>
+</div>
+<div class="section" id="clean">
+<span id="pages-tool-framework-jobs-clean"></span><h3>clean<a class="headerlink" href="#clean" title="Permalink to this headline">¶</a></h3>
+<p>Remove local cache and generated .js files.</p>
+</div>
+<div class="section" id="distclean">
+<span id="pages-tool-framework-jobs-distclean"></span><h3>distclean<a class="headerlink" href="#distclean" title="Permalink to this headline">¶</a></h3>
+<p>Remove the cache and all generated artefacts of the framework (api, test, ...).</p>
+</div>
+<div class="section" id="fix">
+<span id="pages-tool-framework-jobs-fix"></span><h3>fix<a class="headerlink" href="#fix" title="Permalink to this headline">¶</a></h3>
+<p>Normalize whitespace in .js files of the framework (tabs, eol, ...).</p>
+</div>
+<div class="section" id="images">
+<span id="pages-tool-framework-jobs-images"></span><h3>images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<p>Run the image clipping and combining of framework images.</p>
+</div>
+<div class="section" id="lint">
+<span id="pages-tool-framework-jobs-lint"></span><h3>lint<a class="headerlink" href="#lint" title="Permalink to this headline">¶</a></h3>
+<p>Check the source code of the frameworks .js files (except the tests).</p>
+</div>
+<div class="section" id="lint-test">
+<span id="pages-tool-framework-jobs-lint-test"></span><h3>lint-test<a class="headerlink" href="#lint-test" title="Permalink to this headline">¶</a></h3>
+<p>Check the source code of the test .js files of the framework.</p>
+</div>
+<div class="section" id="qxoo-build">
+<span id="pages-tool-framework-jobs-qxoo-build"></span><h3>qxoo-build<a class="headerlink" href="#qxoo-build" title="Permalink to this headline">¶</a></h3>
+<p>Creates a single file containing all the qooxdoo classes of the OO layer. This file can be used in non-browser environments.</p>
+</div>
+<div class="section" id="qxoo-noopt">
+<span id="pages-tool-framework-jobs-qxoo-noopt"></span><h3>qxoo-noopt<a class="headerlink" href="#qxoo-noopt" title="Permalink to this headline">¶</a></h3>
+<p>A non-optimized version of <a class="reference internal" href="#pages-tool-framework-jobs-qxoo-build"><em>qxoo-build</em></a>, for debugging.</p>
+</div>
+<div class="section" id="test">
+<span id="pages-tool-framework-jobs-test"></span><h3>test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
+<p>Create a test runner app for unit tests of the framework.</p>
+</div>
+<div class="section" id="test-source">
+<span id="pages-tool-framework-jobs-test-source"></span><h3>test-source<a class="headerlink" href="#test-source" title="Permalink to this headline">¶</a></h3>
+<p>Create a test runner app for unit tests (source version) of the framework.</p>
+</div>
+<div class="section" id="test-inline">
+<span id="pages-tool-framework-jobs-test-inline"></span><h3>test-inline<a class="headerlink" href="#test-inline" title="Permalink to this headline">¶</a></h3>
+<p>Create an inline test runner app for unit tests of the framewrok.</p>
+</div>
+<div class="section" id="translation">
+<span id="pages-tool-framework-jobs-translation"></span><h3>translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
+<p>Create the .po files of the framework.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Framework Generator Jobs</a><ul>
+<li><a class="reference internal" href="#framework-jobs">Framework Jobs</a><ul>
+<li><a class="reference internal" href="#api">api</a></li>
+<li><a class="reference internal" href="#api-data">api-data</a></li>
+<li><a class="reference internal" href="#clean">clean</a></li>
+<li><a class="reference internal" href="#distclean">distclean</a></li>
+<li><a class="reference internal" href="#fix">fix</a></li>
+<li><a class="reference internal" href="#images">images</a></li>
+<li><a class="reference internal" href="#lint">lint</a></li>
+<li><a class="reference internal" href="#lint-test">lint-test</a></li>
+<li><a class="reference internal" href="#qxoo-build">qxoo-build</a></li>
+<li><a class="reference internal" href="#qxoo-noopt">qxoo-noopt</a></li>
+<li><a class="reference internal" href="#test">test</a></li>
+<li><a class="reference internal" href="#test-source">test-source</a></li>
+<li><a class="reference internal" href="#test-inline">test-inline</a></li>
+<li><a class="reference internal" href="#translation">translation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="array.html"
+                                  title="previous chapter">Array Reference</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../widget/widget_ref.html"
+                                  title="next chapter">Widget Reference</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/core/framework_jobs.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

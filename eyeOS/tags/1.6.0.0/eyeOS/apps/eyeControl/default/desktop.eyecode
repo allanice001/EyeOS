@@ -1,0 +1,154 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+global $checknum;
+
+$ContentY = 0;
+$config = eyeControl_lib_getXMLconfig(array('eyeDesk','conf.xml'));
+$path = str_replace(eyeControl_lib_getConfigUserPath() . '/' . FILES_USER_DIR . '/','',$config['eyeDesk'][0]['wallpaper'][0]);
+if (is_array($path)) {
+	$path = '';
+}
+
+if ($config['eyeDesk'][0]['wallpaper'][0] && is_string($config['eyeDesk'][0]['wallpaper'][0])) {
+	$cw = 1;
+} else {
+	$cw = 0;
+}
+if($config['eyeDesk'][0]['wallpaperRepeat'][0] == '1') {
+	$repeat = 1;
+	$repeatUrl = 'index.php?extern=apps/eyeControl/gfx/repeat.png';
+} else {
+	$repeat = 0;
+	$repeatUrl = 'index.php?extern=apps/eyeControl/gfx/norepeat.png';
+}
+if($config['eyeDesk'][0]['wallpaperCenter'][0] == '0') {
+	$center = 0;
+	$centerHeight = 0;
+	$centerWidth = 60;
+} else {
+	$center = 1;
+	$centerHeight = 33;
+	$centerWidth = 104;
+}
+
+// Use a custom wallpaper
+$myCheckbox_use = new Checkbox(array(
+	'name' => 'eyeControl_desktop_checkbox_use',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY,
+	'text' => 'Use a custom wallpaper',
+	'checked' => $cw
+));
+$myCheckbox_use->show();
+$myCheckbox_use->focus();
+$ContentY = $ContentY + 30;
+// New wallpaper
+$myLabel = new Label(array(
+	'name' => 'eyeControl_desktop_label_select',
+	'father' => $eyeContainer,
+	'x' => 60,
+	'y' => $ContentY + 3,
+	'text' => 'New wallpaper'
+));
+$myLabel->show();
+$myTextbox = new Textbox(array(
+	'name' => 'eyeControl_desktop_textbox_select',
+	'father' => $eyeContainer,
+	'width' => 220,
+	'x' => 160,
+	'y' => $ContentY + 2,
+	'text' => $path
+));
+$myTextbox->show();
+// Select a file...
+$myButton = new Button(array(
+	'name' => 'eyeControl_dektop_select',
+	'father' => $eyeContainer,
+	'x' => 400,
+	'y' => $ContentY,
+	'caption' => 'Select a file...',
+	'signal' => 'desktop_select'
+));
+$myButton->show();
+$ContentY = $ContentY + 40;
+// $myImagebox
+$myImagebox = new Imagebox(array(
+	'name' => 'eyeControl_desktop_imagebox',
+	'father' => $eyeContainer,
+	'width' => 160,
+	'height' => 120,
+	'x' => 60,
+	'y' => $ContentY,
+	'url' => eyex('getThemeImage',array('screenshot.png',1))
+));
+$myImagebox->show();
+$myImagebox = new Imagebox(array(
+	'name' => 'eyeControl_desktop_imagebox_wallpaper',
+	'father' => $eyeContainer,
+	'x' => $centerWidth,
+	'y' => $ContentY + $centerHeight,
+	'url' => $repeatUrl
+));
+$myImagebox->show();
+$ContentY = $ContentY + 20;
+// Repeat wallpaper
+$myCheckbox_repeat = new Checkbox(array(
+	'name' => 'eyeControl_desktop_checkbox_repeat',
+	'father' => $eyeContainer,
+	'x' => 245,
+	'y' => $ContentY,
+	'text' => 'Repeat wallpaper',
+	'checked' => $repeat
+));
+$myCheckbox_repeat->show();
+$myCheckbox_repeat->addEvent('onchange','sendMsg(' . $checknum . ',"desktop_repeat",eyeParam("selected",this.checked));');
+$ContentY = $ContentY + 60;
+// Center wallpaper
+$myCheckbox_center = new Checkbox(array(
+	'name' => 'eyeControl_desktop_checkbox_center',
+	'father' => $eyeContainer,
+	'x' => 245,
+	'y' => $ContentY,
+	'text' => 'Center wallpaper',
+	'checked' => $center
+));
+$myCheckbox_center->show();
+$myCheckbox_center->addEvent('onchange','sendMsg(' . $checknum . ',"desktop_center",eyeParam("selected",this.checked));');
+$ContentY = $ContentY + 60;
+// Save changes
+$myButton = new Button(array(
+	'name' => 'eyeControl_dektop_save',
+	'father' => $eyeContainer,
+	'x' => 20,
+	'y' => $ContentY,
+	'caption' => 'Save changes',
+	'signal' => 'desktop_save'
+));
+$myButton->addFriend($myCheckbox_use);
+$myButton->addFriend($myTextbox);
+$myButton->addFriend($myCheckbox_repeat);
+$myButton->addFriend($myCheckbox_center);
+$myButton->show();
+?>

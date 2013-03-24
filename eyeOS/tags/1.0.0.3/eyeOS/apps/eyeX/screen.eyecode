@@ -1,0 +1,90 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	eyeOS html resource for base screen
+*/
+
+function drawScreen() {
+
+global $checknum;
+
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>'.EYEOS_HOSTNAME.'</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link id="systemCss" rel="stylesheet" type="text/css" href="index.php?extern=apps/eyeX/css/system.css&type=css" />'."\n";
+
+if(IE == 6 && is_file(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/css/system_IE6.css')) {
+	echo "\t".'<link id="systemIE6Css" rel="stylesheet" type="text/css" href="index.php?extern=apps/eyeX/css/system_IE6.css&type=css" />'."\n";
+} elseif (IE == 7 && is_file(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/css/system_IE7.css')) {
+	echo "\t".'<link id="systemIE7Css" rel="stylesheet" type="text/css" href="index.php?extern=apps/eyeX/css/system_IE7.css&type=css" />'."\n";
+}
+$myIE="";
+if ($handler = opendir(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.DEFAULT_THEME.'/css/')) {
+	while (false !== ($file = readdir($handler))) {
+		if ($file {0} != ".") {
+			$file = str_replace('.css','',$file);
+			if(!strstr($file,'IE')) {
+				echo "\t".'<link id="'.$file.'Css" rel="stylesheet" type="text/css" href="index.php?extern=apps/eyeX/themes/'.DEFAULT_THEME.'/css/'.$file.'.css&type=css" />'."\n";
+			} elseif((strstr($file,'IE6') && IE == 6) || (strstr($file,'IE7') && IE == 7)) {
+				$myIE[] = $file;
+			}
+		}
+	}
+	closedir($handler);
+	if(is_array($myIE)) {
+		foreach($myIE as $file) {
+			echo "\t".'<link id="'.$file.'Css" rel="stylesheet" type="text/css" href="index.php?extern=apps/eyeX/themes/'.DEFAULT_THEME.'/css/'.$file.'.css&type=css" />'."\n";
+		}
+	}
+}
+
+$dir = EYE_ROOT.'/'.EXTERN_DIR.'/libs/eyeWidgets/';
+if (is_dir($dir)) {
+    if ($gd = opendir($dir)) {
+        while (($name = readdir($gd)) !== false) {
+        	if(!is_dir($dir.$name)) {
+           		echo "\t".'<script type="text/javascript" src="index.php?extern=libs/eyeWidgets/'.$name.'&type=text"></script>'."\n";
+        	}
+        }
+        closedir($gd);
+    }
+}
+
+echo '
+	<script type="text/javascript" src="index.php?extern=libs/eyeWidgets/tiny_mce/tiny_mce.js&type=text"></script>
+	<script type="text/javascript" src="index.php?extern=apps/eyeX/js/eyeX.js&type=text"></script>
+';
+
+//The checknum variable is getted on top of this file (global) 
+echo '
+</head>
+
+<body onload=\'sendMsg("'.$checknum.'","baseapp",eyeParam("width",xClientWidth())+eyeParam("height",xClientHeight()));\'>
+	<div id="background">
+		<div id="eyeScreen">
+			<div id="eyeWallpaper"></div>
+			<div id="eyeApps"></div>
+		</div>
+	</div>
+</body>
+</html>';
+}
+?>

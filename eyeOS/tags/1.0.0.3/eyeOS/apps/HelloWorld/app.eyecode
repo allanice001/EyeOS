@@ -1,0 +1,57 @@
+<?php
+function HelloWorld_run($params=null) {
+	// We create the window:
+	$myWindow1 = new Window(array(
+		'name' => 'HelloWorld_WND',
+		'father' => 'eyeApps',
+		'cent' => 1,
+		'width' => 250,
+		'height' => 150,
+		'title' => 'Example eyeApp'
+	));
+	$myWindow1->show();
+
+	// We add the initial "Hello World!" Label:
+	$myLabel1 = new Label(array(
+		'name' => 'HelloWorld_LBL',
+		'father' => 'HelloWorld_WND_Content',
+		'x' => 20,
+		'y' => 20,
+		'text' => 'Hello World!'
+	));
+	$myLabel1->show(0);
+
+	// We create the Textarea where the user 
+	// will add the new "Hello World!" message:
+	$myTextbox1 = new Textbox(array(
+		'name'=>'HelloWorld_TXTBOX',
+		'father'=>'HelloWorld_WND_Content',
+		'x' => 20,
+		'y' => 50,
+		'width' => 150
+	));
+	$myTextbox1->show();
+	// We focus it, so the user can start typing 
+	// from the moment he opens the app without 
+	// having to click into the textarea:
+	$myTextbox1->focus();
+	
+	$myButton1 = new Button(array(
+		'name'=>'HelloWorld_BTN',
+		'father'=>'HelloWorld_WND_Content',
+		'caption'=>'Change Label Text',
+		'x'=>20,
+		'y'=>80
+	));
+	// We add the Textbox as friend of the button, 
+	// so the user when clicks the button will be 
+	// sending the textbox input text. A button can 
+	// have as many friends as user wants:
+	$myButton1->addFriend($myTextbox1);
+	$myButton1->show();
+}
+
+function HelloWorld_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+?>

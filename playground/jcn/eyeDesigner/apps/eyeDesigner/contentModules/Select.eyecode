@@ -1,0 +1,158 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+function eyeDesigner_on_SelectContentWindow($params=''){
+	global $myPid;
+	$myWindow = new Window(array(
+		'name' => 'WindowContent',
+		'father' => 'eyeDesigner_Content',
+		'style' => TITLE+CLOSE,
+		'title' => 'Edit content of '.$_SESSION[$myPid.'selectedWidget'],
+		'cent' => 1,
+		'width' => 525,
+		'height' => 238,
+		'removepid' => 0,
+	));
+	$myWindow->show();
+
+	$globalFather = "WindowContent_Content";
+
+	$Label_1 = new Label(array(
+		'name' => 'Label_1',
+		'father' => $globalFather,
+		'text' => 'Text to show',
+		'x' => 16,
+		'y' => 20,
+	));
+
+	$Label_2 = new Label(array(
+		'name' => 'Label_2',
+		'father' => $globalFather,
+		'text' => 'Signal',
+		'x' => 16,
+		'y' => 70,
+	));
+
+	$textShow = new Textbox(array(
+		'name' => 'textShow',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 16,
+		'y' => 40,
+		'width' => 140,
+	));
+
+	$textSignal = new Textbox(array(
+		'name' => 'textSignal',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 16,
+		'y' => 90,
+		'width' => 140,
+	));
+
+	$addValue = new Button(array(
+		'name' => 'addValue',
+		'father' => $globalFather,
+		'caption' => 'Add',
+		'x' => 16,
+		'y' => 150,
+		'width' => 60,
+		'signal' => 'addValue',
+	));
+
+	$removeValue = new Button(array(
+		'name' => 'removeValue',
+		'father' => $globalFather,
+		'caption' => 'Remove',
+		'x' => 100,
+		'y' => 150,
+		'width' => 60,
+		'signal' => 'removeValue',
+	));
+
+	$valueTable = new Sortabletable(array(
+		'name' => 'valueTable',
+		'father' => $globalFather,
+		'master' => 0,
+		'dblsignal' => '',
+		'sizeUnit' => 'px',
+		'sortypes' => array('String','String'),
+		'theader' => array('Text','Value'),
+		'x' => 200,
+		'y' => 5,
+		'width' => 315,
+		'height' => 200,
+		'signal' => 'valueTable',
+	));
+
+	$addValue->addFriend($textShow);
+	$addValue->addFriend($textSignal);
+	$addValue->addFriend($valueTable);
+	$removeValue->addFriend($valueTable);
+
+	$Label_1->show();
+	$Label_2->show();
+	$textShow->show();
+	$textSignal->show();
+	$addValue->show();
+	$removeValue->show();
+	$valueTable->show();
+	if(isset($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']])){
+		foreach($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']] as $key => $value){
+			foreach($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$key] as $value2);
+			$GLOBALS['valueTable']->addRow(array($key,$value2));
+		}
+	}
+	
+}
+
+function eyeDesigner_on_addValue($params=''){
+	global $myPid;
+	
+	$textShowed = $GLOBALS['textShow']->text;
+	$textValue = $GLOBALS['textSignal']->text;
+	if(empty($textShowed) || empty($textValue)){
+		service('eyex','messageBox',array('content'=>'Need a text to show or a Value'));
+		return;
+	}
+	$GLOBALS['valueTable']->addRow(array($textShowed,$textValue));
+	$_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$textShowed][$textValue] = $textValue;
+	$GLOBALS['textShow']->setText('');
+	$GLOBALS['textSignal']->setText('');
+}
+
+function eyeDesigner_on_removeValue($params=''){
+	global $myPid;
+	
+	$delValue = $GLOBALS['valueTable']-> selected;
+	$GLOBALS['valueTable']->delRow($delValue);
+	unset($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$delValue]);
+}
+
+?>

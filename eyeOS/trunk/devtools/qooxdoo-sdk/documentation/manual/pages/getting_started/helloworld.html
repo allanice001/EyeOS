@@ -1,0 +1,255 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hello World &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Getting Started" href="../getting_started.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Requirements" href="requirements.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="troubleshooting.html" title="Troubleshooting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="requirements.html" title="Requirements"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../getting_started.html" accesskey="U">Getting Started</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hello-world">
+<span id="pages-getting-started-helloworld-hello-world"></span><h1>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial is a step-by-step instruction on how to get started with qooxdoo by creating your very first application.</p>
+<div class="section" id="setup-the-framework">
+<span id="pages-getting-started-helloworld-setup-the-framework"></span><h2>Setup the Framework<a class="headerlink" href="#setup-the-framework" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<span id="pages-getting-started-helloworld-requirements"></span><h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<p>Please make sure to have read the detailed <a class="reference internal" href="requirements.html"><em>Requirements</em></a>. To recap, there are only a few requirements for full-featured qooxdoo application development:</p>
+<ul class="simple">
+<li><em>client</em>: any major web browser</li>
+<li><em>server</em>: any HTTP-aware backend. During development the local file system should also be ok (*)</li>
+<li><em>operating system</em>: any</li>
+<li><em>tools</em>: Python required</li>
+</ul>
+<p>(*) Developers using Chrome should note that there is a known issue loading reasonably complex qooxdoo applications (such as the API viewer or the demo browser) via the <a class="reference external" href="file://">file://</a> protocol. It is recommended to Chrome users to use the HTTP protocol, even while developing.</p>
+</div>
+<div class="section" id="download">
+<span id="pages-getting-started-helloworld-download"></span><h3>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h3>
+<p>Go to the <a class="reference external" href="http://qooxdoo.org/download">Download</a> section and grab the latest stable Software Development Kit (SDK).</p>
+</div>
+<div class="section" id="installation">
+<span id="pages-getting-started-helloworld-installation"></span><h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Unzip the SDK archive.</p>
+</div>
+</div>
+<div class="section" id="create-your-application">
+<span id="pages-getting-started-helloworld-create-your-application"></span><h2>Create your Application<a class="headerlink" href="#create-your-application" title="Permalink to this headline">¶</a></h2>
+<p>It is easy to setup your own application using the platform-independent script <tt class="docutils literal"><span class="pre">create-application.py</span></tt>. It will create a skeleton application in a directory you specify, that is automatically configured to work with your version of the qooxdoo framework.</p>
+<p>To create a new skeleton with <tt class="docutils literal"><span class="pre">create-application.py</span></tt> you will need to follow some initial <em>platform-dependent</em> steps - even when the rest of your development is independent of the platform. Please see the appropriate section below for <a class="reference internal" href="#pages-getting-started-helloworld-windows"><em>Windows </em></a>, <a class="reference internal" href="#pages-getting-started-helloworld-cygwin"><em>Cygwin </em></a> or <a class="reference internal" href="#pages-getting-started-helloworld-mac-linux"><em>Mac  , Linux </em></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have any problems setting up the qooxdoo tool chain, please see some additional help for <a class="reference internal" href="troubleshooting.html"><em>troubleshooting</em></a>.</p>
+</div>
+<div class="section" id="windows-image0">
+<span id="pages-getting-started-helloworld-windows"></span><h3>Windows <img alt="image0" src="../../_images/windows.png" /><a class="headerlink" href="#windows-image0" title="Permalink to this headline">¶</a></h3>
+<p>Installing <a class="reference external" href="http://www.activestate.com/Products/activepython/index.mhtml">ActivePython</a> for Windows is trivial. Now let's create an application named <tt class="docutils literal"><span class="pre">custom</span></tt> in <tt class="docutils literal"><span class="pre">C:</span></tt>, with the qooxdoo SDK available at <tt class="docutils literal"><span class="pre">C:\qooxdoo-1.3-sdk</span></tt>:</p>
+<div class="highlight-javascript"><pre>C:\qooxdoo-1.3-sdk\tool\bin\create-application.py --name=custom --out=C:</pre>
+</div>
+</div>
+<div class="section" id="cygwin-image1">
+<span id="pages-getting-started-helloworld-cygwin"></span><h3>Cygwin <img alt="image1" src="../../_images/cygwin.png" /><a class="headerlink" href="#cygwin-image1" title="Permalink to this headline">¶</a></h3>
+<p>To create your application <tt class="docutils literal"><span class="pre">custom</span></tt> to <tt class="docutils literal"><span class="pre">C:</span></tt>, with the qooxdoo SDK available at <tt class="docutils literal"><span class="pre">C:\qooxdoo-1.3-sdk</span></tt>, call the script as follows:</p>
+<div class="highlight-javascript"><pre>/cygdrive/c/qooxdoo-1.3-sdk/tool/bin/create-application.py --name=custom --out=C:</pre>
+</div>
+</div>
+<div class="section" id="mac-image2-linux-image3">
+<span id="pages-getting-started-helloworld-mac-linux"></span><h3>Mac <img alt="image2" src="../../_images/macosx.png" /> , Linux <img alt="image3" src="../../_images/linux.png" /><a class="headerlink" href="#mac-image2-linux-image3" title="Permalink to this headline">¶</a></h3>
+<p>To create an application <tt class="docutils literal"><span class="pre">custom</span></tt> in your home directory, change to your home directory (just <tt class="docutils literal"><span class="pre">cd</span></tt>). With a qooxdoo SDK available at <tt class="docutils literal"><span class="pre">/opt/qooxdoo-1.3-sdk</span></tt>, call the script as follows:</p>
+<div class="highlight-javascript"><pre>/opt/qooxdoo-1.3-sdk/tool/bin/create-application.py --name=custom --out=.</pre>
+</div>
+</div>
+</div>
+<div class="section" id="run-your-application">
+<span id="pages-getting-started-helloworld-run-your-application"></span><h2>Run your Application<a class="headerlink" href="#run-your-application" title="Permalink to this headline">¶</a></h2>
+<p>Now that your application is setup, lets generate a version that can be opened in your browser. Move to the newly created application directory and kick off the automatic build process:</p>
+<div class="highlight-javascript"><pre>cd C:/custom
+generate.py source-all</pre>
+</div>
+<p>Under non-Windows systems you might have to prefix the command with the local directory, i.e. execute <tt class="docutils literal"><span class="pre">./generate.py</span> <span class="pre">source-all</span></tt> instead.</p>
+<p>Please note, that the additional <tt class="docutils literal"><span class="pre">source-all</span></tt> target was introduced with qooxdoo 0.8.1. The regular <tt class="docutils literal"><span class="pre">source</span></tt> target now only includes those qooxdoo <a class="reference internal" href="../glossary.html#term-class"><em class="xref std std-term">classes</em></a> that are actually required by your app, not all the source classes.</p>
+<p>After the application has been generated, open <tt class="docutils literal"><span class="pre">source/index.html</span></tt> file in your web browser to run your application and click the button:</p>
+<p><a class="reference external" href="../../_images/running_application.png"><img alt="Running application" src="../../_images/running_application.png" style="width: 500px;" /></a></p>
+</div>
+<div class="section" id="write-application-code">
+<span id="pages-getting-started-helloworld-write-application-code"></span><h2>Write Application Code<a class="headerlink" href="#write-application-code" title="Permalink to this headline">¶</a></h2>
+<p>The folder <tt class="docutils literal"><span class="pre">source/class</span></tt> contains all your application classes. When starting with a newly created application, there is only a single file <tt class="docutils literal"><span class="pre">custom/Application.js</span></tt>. Open it in your favorite editor or IDE.</p>
+<p>The method <tt class="docutils literal"><span class="pre">main()</span></tt> contains the entire code of your little skeleton app. Even if you haven't done any qooxdoo programming before, you should be able to figure out what the code does. Get familiar with the code and change it, e.g. modify the label of the button, move the button to another position or add a second button.</p>
+<p>To see the changes, you just have to refresh your document in the browser, e.g. by hitting <tt class="docutils literal"><span class="pre">F5</span></tt>. During development there usually is no need to re-generate this so-called &quot;source&quot; version of your app. Only if you later introduce new classes or if dependencies between classes change, you would have to regenerate your app. To do so, execute <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">source-all</span></tt> (to include all source classes) or <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">source</span></tt> (to only include the required classes) before refreshing your browser.</p>
+</div>
+<div class="section" id="debugging">
+<span id="pages-getting-started-helloworld-debugging"></span><h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>In your newly created application you have certainly noticed the following code:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">qx</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">Variant</span><span class="p">.</span><span class="nx">isSet</span><span class="p">(</span><span class="s2">&quot;qx.debug&quot;</span><span class="p">,</span> <span class="s2">&quot;on&quot;</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="nx">qx</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">appender</span><span class="p">.</span><span class="nx">Native</span><span class="p">;</span>
+  <span class="nx">qx</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">appender</span><span class="p">.</span><span class="nx">Console</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code turns on two different ways of &quot;logging&quot;, i.e. capturing and printing out information about the operation of your application.</p>
+<p><tt class="docutils literal"><span class="pre">qx.log.appender.Native</span></tt> uses the native logging capabilities of your client if available, e.g. <a class="reference external" href="http://getfirebug.com">Firebug</a> in Firefox (use <tt class="docutils literal"><span class="pre">F12</span></tt> to toggle). If your browser doesn't come with developer-friendly logging, <tt class="docutils literal"><span class="pre">qx.log.appender.Console</span></tt> provides such a feature for <em>all</em> browsers: the console prints out the log messages in an area inside your browser window. It also includes an interactive JavaScript shell (use <tt class="docutils literal"><span class="pre">F7</span></tt> to toggle):</p>
+<p><a class="reference external" href="../../_images/debug_application.png"><img alt="Debug application" src="../../_images/debug_application.png" style="width: 500px;" /></a></p>
+<p>The reason for enclosing the two logging classes in a so-called &quot;debug&quot; variant is explained in more detail in the next section. It ensures that logging is only turned on in the development version (i.e. &quot;source&quot; version) of your app. It will automatically be turned off in the final version of your app that is to be deployed:</p>
+</div>
+<div class="section" id="deployment">
+<span id="pages-getting-started-helloworld-deployment"></span><h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<p>The development version of a qooxdoo app is called the &quot;source&quot; version, the deployment version of an app is called &quot;build&quot; version. It is easily generated by executing</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">build</span>
+</pre></div>
+</div>
+<p>After successful completion let the browser open <tt class="docutils literal"><span class="pre">index.html</span></tt> from the newly created <tt class="docutils literal"><span class="pre">build</span></tt> folder. Although you probably won't see a difference between this deployment version of your app and the previous &quot;source&quot; version, it should have started up faster.</p>
+<p>Unlike the &quot;source&quot; version, with its numerous unmodified JavaScript files, the &quot;build&quot; version only has to load a single, optimized JavaScript file.</p>
+<p>Manually creating such a &quot;custom build&quot; from your application class (or classes) would have been a very tedious and complex job. In fact most other JavaScript libraries do provide built-in support to automate this task. Building your app strips off unneeded whitespaces and comments, optimizes and reorganizes your code, uses a JS linker to only include classes that your application needs, and many more refinements and optimizations as well.</p>
+<p>A lot of debugging code is also removed when a &quot;build&quot; is generated, that would only be useful during development of your application, e.g. printing out informative warnings or coding hints. Just like the logging code in the section above, you can put arbitrary code into such &quot;variants&quot;, which may then be automatically removed during &quot;conditional compilation&quot; of the build process. This lets you receive information on your app when you're developing it, but removes this for your final code, so your end users don't see it.</p>
+</div>
+<div class="section" id="api-reference">
+<span id="pages-getting-started-helloworld-api-reference"></span><h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<p>qooxdoo supports inline comments that are similar to Javadoc or JSDoc comments. They allow for JavaScript and qooxdoo specific features, and look like <tt class="docutils literal"><span class="pre">/**</span> <span class="pre">your</span> <span class="pre">comment</span> <span class="pre">*/</span></tt>.</p>
+<p>From those comments a complete, interactive API reference can be generated:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">api</span>
+</pre></div>
+</div>
+<p>To start the &quot;API Viewer&quot; application, open <tt class="docutils literal"><span class="pre">index.html</span></tt> from the newly created <tt class="docutils literal"><span class="pre">api</span></tt> folder in your browser. It includes fully cross-linked and searchable documentation of your application classes as well as the framework classes.</p>
+<p><a class="reference external" href="../../_images/api_viewer.png"><img alt="API Viewer" src="../../_images/api_viewer.png" style="width: 500px;" /></a></p>
+</div>
+<div class="section" id="unit-testing">
+<span id="pages-getting-started-helloworld-unit-testing"></span><h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h2>
+<p>You might have noticed the <tt class="docutils literal"><span class="pre">test/DemoTest.js</span></tt> file in the <tt class="docutils literal"><span class="pre">source/class</span></tt> folder of your application. This class demonstrates how to define &quot;unit tests&quot; for your application. qooxdoo comes with its own unit testing framework, it does not require any additional software installation. Simply execute the following command:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">generate</span><span class="p">.</span><span class="nx">py</span> <span class="nx">test</span>
+</pre></div>
+</div>
+<p>Open <tt class="docutils literal"><span class="pre">index.html</span></tt> from the newly created top-level <tt class="docutils literal"><span class="pre">test</span></tt> folder in your browser. The &quot;Testrunner&quot; application allows you to select and run the tests under your application namespace:</p>
+<p><a class="reference external" href="../../_images/testrunner.png"><img alt="Testrunner application" src="../../_images/testrunner.png" style="width: 500px;" /></a></p>
+<p>You may skip the rather advanced topic of unit tests while continuing to extend your custom application code. In case you are interested in test-driven development and creating your own unit tests, please see the corresponding <a class="reference internal" href="../development/unit_testing.html"><em>Unit Testing</em></a> documentation.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Hello World</a><ul>
+<li><a class="reference internal" href="#setup-the-framework">Setup the Framework</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#download">Download</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-your-application">Create your Application</a><ul>
+<li><a class="reference internal" href="#windows-image0">Windows </a></li>
+<li><a class="reference internal" href="#cygwin-image1">Cygwin </a></li>
+<li><a class="reference internal" href="#mac-image2-linux-image3">Mac  , Linux </a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#run-your-application">Run your Application</a></li>
+<li><a class="reference internal" href="#write-application-code">Write Application Code</a></li>
+<li><a class="reference internal" href="#debugging">Debugging</a></li>
+<li><a class="reference internal" href="#deployment">Deployment</a></li>
+<li><a class="reference internal" href="#api-reference">API Reference</a></li>
+<li><a class="reference internal" href="#unit-testing">Unit Testing</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="requirements.html"
+                                  title="previous chapter">Requirements</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="troubleshooting.html"
+                                  title="next chapter">Troubleshooting</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/getting_started/helloworld.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

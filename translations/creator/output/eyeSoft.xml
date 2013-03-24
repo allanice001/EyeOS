@@ -1,0 +1,29 @@
+<lang>
+	<info>
+		<revision>11/04/2009</revision>
+	</info>
+	<texts>Packages Manager</texts>
+	<texts>Search</texts>
+	<texts>Categories</texts>
+	<texts>Install</texts>
+	<texts>Update</texts>
+	<texts>Uninstall</texts>
+	<texts>Installed</texts>
+	<texts>Name: %s</texts>
+	<texts>Description: %s</texts>
+	<texts>License: %s</texts>
+	<texts>Version: %s</texts>
+	<texts>Category: %s</texts>
+	<texts>Author: %s</texts>
+	<texts>All</texts>
+	<texts>none</texts>
+	<texts>Installing</texts>
+	<texts>You are installing a new App in your eyeOS system</texts>
+	<texts>Dependencies: %s</texts>
+	<texts>Suggestions: %s</texts>
+	<texts>Accept</texts>
+	<texts>Cancel</texts>
+	<texts>Downloading and Installing %s ... please wait</texts>
+	<texts>%s download is corrupted! unable to install</texts>
+	<texts>%s installed succesfully!</texts>
+</lang>

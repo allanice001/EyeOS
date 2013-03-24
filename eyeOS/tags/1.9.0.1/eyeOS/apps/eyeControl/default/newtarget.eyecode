@@ -1,0 +1,228 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+$myLabel = new Label(array(
+	'father' => $eyeContainer,
+	'name' =>  'eyeControl_acl_target_type_lbl',
+	'text' => 'Type:',
+	'x' => 183,
+	'y' => 37
+));
+$myLabel->show();
+
+$myLabel1 = new Label(array(
+	'father' => $eyeContainer,
+	'name' =>  'eyeControl_acl_target_targetname_lbl',
+	'text' => 'Write your target:',
+	'x' => 123,
+	'y' => 63
+));
+$myLabel1->show();
+
+$myLabel2 = new Label(array(
+	'father' => $eyeContainer,
+	'name' =>  'eyeControl_acl_target_lbl',
+	'text' => 'SELECT TYPE AND TARGET NAME',
+	'x' => 189,
+	'y' => 10
+));
+$myLabel2->show();
+$myLabel2->setCSS(array('font-weight' => 'bolder'));
+
+$myLabel3 = new Label(array(
+	'father' => $eyeContainer,
+	'name' =>  'eyeControl_acl_target_lbl2',
+	'text' => 'ADD PARAMS TO FILTER',
+	'x' => 208,
+	'y' => 138
+));
+$myLabel3->show();
+$myLabel3->setCSS(array('font-weight' => 'bolder'));
+
+$mySelect = new Select(array(
+	'father' => $eyeContainer,
+	'name' => 'eyeControl_acl_target_type_select',
+	'x' => 193,
+	'y' => 34,
+	'horiz' => 1,
+	'width' => 154
+));
+$mySelect->show();
+$mySelect->addOption('---',1,1);
+$mySelect->addOption('User',2);
+$mySelect->addOption('Group',3);
+$mySelect->addOption('Admin',4);
+
+$myTextBox = new Textbox(array(
+	'father' => $eyeContainer,
+	'name' => 'eyeControl_acl_target_targetname_txtbox',
+	'x' => 218,
+	'y' => 60,
+	'width' => 150
+));
+$myTextBox->show();
+
+$myButton0 = new Button(array(
+	'name' => 'eyeControl_acl_params_button_add',
+	'father' => $eyeContainer,
+	'signal' => 'params_add',
+	'caption' => 'Add Params',
+	'width' => 80,
+	'x' => 37,
+	'y' => 177,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/new.png'
+));
+/*
+$myButton1 = new Button(array(
+	'name' => 'eyeControl_acl_params_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'params_edit',
+	'caption' => 'Edit',
+	'width' => 80,
+	'x' => 90,
+	'y' => 171,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/paste.png'
+));$myButton1->show();*/
+
+$myButton2 = new Button(array(
+	'name' => 'eyeControl_acl_params_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'params_delete',
+	'caption' => 'Delete',
+	'width' => 80,
+	'x' => 266,
+	'y' => 177,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/delete.png'
+));
+
+$myButton3 = new Button(array(
+	'name' => 'eyeControl_acl_typeTarget_add_button',
+	'father' => $eyeContainer,
+	'signal' => 'typeTarget_add',
+	'caption' => 'Add',
+	'width' => 50,
+	'x' => 384,
+	'y' => 46
+));
+$myButton3->addFriend($mySelect);
+$myButton3->addFriend($myTextBox);
+$myButton3->show();
+
+$myButton4 = new Button(array(
+	'name' => 'eyeControl_acl_typeTarget_done_button',
+	'father' => $eyeContainer,
+	'signal' => 'done_signal',
+	'caption' => 'Done',
+	'width' => 50,
+	'x' => 273,
+	'y' => 85
+));
+$myButton4->show();
+
+$myButton5 = new Button(array(
+	'name' => 'eyeControl_acl_params2_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'params_delete2',
+	'caption' => 'Delete',
+	'width' => 80,
+	'x' => 469,
+	'y' => 177,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/delete.png'
+));
+
+$sortypes = array('Hidden','Hidden','String','String');
+$theader = array('Id','Id','Type','Target');
+
+$mySortableTable1 = new Sortabletable(array(
+	'name' => 'eyeControl_acl_params_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes,
+	'theader' => $theader,
+	'x' => 27,
+	'y' => 200,
+	'width' => 300,
+	'height' => 205,
+	'master' => 1,
+	'signal' => 'show_rights',
+	'dblsignal' => 'params_add'
+));
+$mySortableTable1->show();
+//$myButton1->addFriend($mySortableTable1);
+$myButton2->addFriend($mySortableTable1);
+//$myButton1->show();
+$myButton2->show();
+$myButton0->addFriend($mySortableTable1);
+$myButton0->addFriend($mySelect);
+$myButton0->addFriend($myTextBox);
+
+
+$sortypes2 = array('Hidden','Hidden','String');
+$theader2 = array('Id','Id','Params');
+
+$mySortableTable2 = new Sortabletable(array(
+	'name' => 'eyeControl_acl_params2_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes2,
+	'theader' => $theader2,
+	'x' => 347,
+	'y' => 200,
+	'width' => 180,
+	'height' => 205,
+	'master' => 2,
+	'dblsignal' => 'params2_edit'
+));
+$mySortableTable2->show();
+$myButton0->addFriend($mySortableTable2);
+$myButton0->show();
+$myButton5->addFriend($mySortableTable2);
+$myButton5->show();
+
+if($GLOBALS['edit_target']->text == 'edit'){
+	$id0 = $GLOBALS['eyeControl_acl_sortabletable']->selected;
+
+	$file = EYE_ROOT .'/'. SYSTEM_DIR .'/'. SYSTEM_CONF_DIR .'/'. ACL .'/'. "acl.xml";
+	$config = eyeXML('getXMLfile', array($file));
+
+	$i=0;
+	$x=0;
+	if($config){
+		foreach($config['GACL'][0]['ACL'] as $acl) {
+			if($id0 == $acl['id'][0]){
+				foreach($acl['target'] as $target) {
+					$tId = $target['id'][0];
+					$tType = $target['type'][0];
+					$tName = $target['targetname'][0];
+					$row = array($id0,$tId,$tType,$tName);
+					$GLOBALS['eyeControl_acl_params_sortabletable']->addRow($row);
+				}
+				foreach($acl['target'][0]['params'][0]['param'] as $param){
+					$row2 = array($id0,$tId,$param);
+					$GLOBALS['eyeControl_acl_params2_sortabletable']->addRow($row2);
+				}
+			}
+			$i++;
+		}
+	}
+}
+
+?>

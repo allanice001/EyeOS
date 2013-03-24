@@ -1,0 +1,78 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+function eyeControl_on_adminlangs_download($params = '') {
+	$selType = $GLOBALS['eyeControl_adminlangs_sortabletable']->selected;
+	if ($selType) {
+		include_once(EYE_ROOT . '/' . APP_DIR . '/eyeControl/events/translations.eyecode');
+		include_once(EYE_ROOT . '/' . APP_DIR . '/eyeControl/libraries/translate.eyecode');
+		$dir = EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/';
+		if (!vfs('real_fileExists',array($dir . 'all/')) || vfs('real_rmDir',array($dir . 'all/'))) {
+			vfs('real_mkDir',array($dir . 'all/'));
+		}
+		foreach (vfs('real_getDirContent',array($dir . 'infos/','*.xml',2)) as $file) {
+			$selLang = basename($file,'.xml');
+			eyeControl_on_translations_download(array('selType' => $selType,'selLang' => $selLang,'noDownload' => 1));
+			if (eyeControl_lib_check_system_translation($selType)) {
+				$file = $dir . 'files/' . $selLang . '-' . $selType . '.eyepackage';
+			} else {
+				$file = $dir . 'files/' . $selLang . '-' . $selType . '.tgz';
+			}
+			if (vfs('real_fileExists',array($file))) {
+				vfs('real_move',array($file,$dir . 'all/' . basename($file)));
+			}
+		}
+		$file = $dir . 'files/all-' . $selType . '.tgz';
+		if (vfs('real_fileExists',array($file))) {
+			vfs('real_delete',array($file));
+		}
+		eyeFileArchive('compress',array($dir . 'all/',$file,'realOutput' => 1));
+		proc('launch',array('eyeDownload',array($file)));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a translation you want to download.'));
+	}
+}
+
+function eyeControl_on_adminlangs_createAM($params = '') {
+	$selType = $GLOBALS['eyeControl_adminlangs_sortabletable']->selected;
+	include_once(EYE_ROOT . '/' . APP_DIR . '/eyeControl/libraries/translate.eyecode');
+	$openDir = vfs('real_getDirContent',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/infos/','*.xml',2));
+	foreach ($openDir as $file) {
+		$selLang = basename($file,'.xml');
+		if (ord(strtolower($selLang[0])) <= ord('m')
+		&& eyeControl_lib_clean_translations($selType,$selLang)
+		&& eyeControl_lib_check_system_translation($selType)) { // utf8
+			eyeControl_lib_create_system($selType,$selLang,-1);
+		}
+	}
+	eyex('messageBox',array('content' => 'All translations created.'));
+}
+
+function eyeControl_on_adminlangs_createNZ($params = '') {
+	$selType = $GLOBALS['eyeControl_adminlangs_sortabletable']->selected;
+	include_once(EYE_ROOT . '/' . APP_DIR . '/eyeControl/libraries/translate.eyecode');
+	$openDir = vfs('real_getDirContent',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/infos/','*.xml',2));
+	foreach ($openDir as $file) {
+		$selLang = basename($file,'.xml');
+		if (ord(strtolower($selLang[0])) >= ord('n')
+		&& eyeControl_lib_clean_translations($selType,$selLang)
+		&& eyeControl_lib_check_system_translation($selType)) { // utf8
+			eyeControl_lib_create_system($selType,$selLang,-1);
+		}
+	}
+	eyex('messageBox',array('content' => 'All translations created.'));
+}
+?>

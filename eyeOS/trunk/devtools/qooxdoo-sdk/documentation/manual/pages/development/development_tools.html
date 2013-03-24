@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development Tools &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="development-tools">
+<span id="pages-development-tools-development-tools"></span><h1>Development Tools<a class="headerlink" href="#development-tools" title="Permalink to this headline">¶</a></h1>
+<p>Editing or IDE support for JavaScript or qooxdoo is still quite limited. If you happen to know some practical solutions, please feel free to add them below.</p>
+<div class="section" id="eclipse">
+<span id="pages-development-tools-eclipse"></span><h2>Eclipse<a class="headerlink" href="#eclipse" title="Permalink to this headline">¶</a></h2>
+<p>Since Eclipse 3.4 an advanced editing support for regular JavaScript is available (called <a class="reference external" href="http://wiki.eclipse.org/JSDT">JSDT</a>). On top of this <em>native</em> JS support, the <a class="reference external" href="http://qooxdoo.org/contrib/project/qxdt">QXDT project</a> aims to provide qooxdoo-<em>specific</em> support. This project stalled, mostly due to technical difficulties at that early time of JSDT. The extensibility of JSDT is still a very interesting concept, so if you like to review the QXDT source code and start porting it to recent versions of Eclipse, please see the <a class="reference external" href="http://qooxdoo.org/contrib/project/qxdt">documentation</a>.</p>
+</div>
+<div class="section" id="spket-ide">
+<span id="pages-development-tools-spket-ide"></span><h2>Spket IDE<a class="headerlink" href="#spket-ide" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://spket.com">Spket IDE</a> is a powerful toolkit for JavaScript development. Its editor provides features like code completion, syntax highlighting and content outline that helps developers productively create efficient code. It comes with specific <a class="reference external" href="http://www.spket.com/qooxdoo.html">support for qooxdoo</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is a hotfix available for people working with the qooxdoo SVN checkout instead of the qooxdoo SDK. See the <a class="reference external" href="http://forums.spket.com/viewtopic.php?p=1330#1330">download link</a> in the Spket forum. Thanks, Eric!</p>
+</div>
+</div>
+<div class="section" id="aptana-ide">
+<span id="pages-development-tools-aptana-ide"></span><h2>Aptana IDE<a class="headerlink" href="#aptana-ide" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://www.aptana.com">Aptana IDE</a> is a free, open-source, cross-platform, JavaScript-focused development environment for building Ajax applications. It features code assist on JavaScript, HTML, and CSS languages, FTP/SFTP support and a JavaScript debugger to troubleshoot your code. It is available for Windows, Mac OS, Linux and also as an Eclipse plugin.</p>
+<p>There is some initial support for qooxdoo in the latest Aptana (nightly builds). The new class definition introduced in qooxdoo 0.7 is supported by an outline view that shows the typical sections like <tt class="docutils literal"><span class="pre">extend</span></tt>, <tt class="docutils literal"><span class="pre">statics</span></tt>, <tt class="docutils literal"><span class="pre">members</span></tt>, etc. For instance, you can easily navigate to any instance method just by selecting the corresponding entry in the outline view.</p>
+</div>
+<div class="section" id="jseclipse">
+<span id="pages-development-tools-jseclipse"></span><h2>JSEclipse<a class="headerlink" href="#jseclipse" title="Permalink to this headline">¶</a></h2>
+<p>JSEclipse is a plugin for the Eclipse environment that helps developers code JavaScript faster and with no errors. With JSEclipse, you can complete a variety of tasks, from editing small sections of code to working with the next big AJAX library like qooxdoo ;-) or developing plug-ins for a product that embeds JavaScript snippets.</p>
+<p><a class="reference external" href="http://labs.adobe.com/technologies/jseclipse/">Download and install JSEclipse</a> and improve your JavaScript coding experience with:</p>
+<blockquote>
+<ul class="simple">
+<li>Contextual code completion &amp; shortcuts.</li>
+<li>Project outline and quick navigation through function declarations.</li>
+<li>Syntax highlighting.</li>
+<li>Error reporting.</li>
+<li>Customizable code templates to get you started.</li>
+<li>Support for popular JavaScript libraries (Dojo, Prototype, YUI, qooxdoo (currently for 0.5.x only)).</li>
+<li>Support for JavaDoc documentation and multi-line comments.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="textmate">
+<span id="pages-development-tools-textmate"></span><h2>TextMate<a class="headerlink" href="#textmate" title="Permalink to this headline">¶</a></h2>
+<p>There is up-to-date qooxdoo support for TextMate. Please see the <a class="reference external" href="http://news.qooxdoo.org/textmate-qooxdoo-bundle">blog post</a> and the <a class="reference external" href="http://qooxdoo.org/contrib/project/textmate">project info</a> for this excellent qooxdoo bundle.</p>
+</div>
+<div class="section" id="emacs">
+<span id="pages-development-tools-emacs"></span><h2>Emacs<a class="headerlink" href="#emacs" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://code.google.com/p/js2-mode/">js2-mode</a> offers improved JavaScript support in Emacs. While it doesn't include qooxdoo-specific support, it eventually aims to be competitive with other best-of-class JavaScript editors. Also see the original <a class="reference external" href="http://steve-yegge.blogspot.com/2008/03/js2-mode-new-javascript-mode-for-emacs.html">blog post</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Development Tools</a><ul>
+<li><a class="reference internal" href="#eclipse">Eclipse</a></li>
+<li><a class="reference internal" href="#spket-ide">Spket IDE</a></li>
+<li><a class="reference internal" href="#aptana-ide">Aptana IDE</a></li>
+<li><a class="reference internal" href="#jseclipse">JSEclipse</a></li>
+<li><a class="reference internal" href="#textmate">TextMate</a></li>
+<li><a class="reference internal" href="#emacs">Emacs</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/development/development_tools.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

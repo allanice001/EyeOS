@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getFile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyeswap</tag>
+		</tags>
+		<shortDesc>Copies a received file from a message inside the home folder.</shortDesc>
+	</general>
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Added the parameter 'directory' which allows to specify to which namespace the message belongs. This parameters allows to use the eyeSwap library from many applications with different purposes.</desc>
+		</trace>
+		<trace>
+			<version>1.5</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getFile</functionName>
+		<syntax>boolean reqLib('eyeSwap', 'getFile', array(string $hash, string $dest, string $directory))</syntax>
+		<desc>Copies the attached file of a received message to the home directory or a subdirectory of it. From eyeOS version 1.6 and above, the 'directory' parameter is mandatory. It allows to specify to which namespace the message belongs to, in order to separate the messages sent from each application.</desc>
+		<params>
+			<type>required</type>
+			<name>hash</name>
+			<desc>Hash of the attached file of a message. It is not the same hash as the hash of a message itself.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>dest</name>
+			<desc>Path to where the file must be copied.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>directory</name>
+			<desc>Namespace where the message belongs to.</desc>
+		</params>
+		<return>Returns true on success, or false on failure.</return>
+	</definition>
+</info>

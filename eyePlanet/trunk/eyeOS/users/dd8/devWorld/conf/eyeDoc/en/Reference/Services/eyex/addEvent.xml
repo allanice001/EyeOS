@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>addEvent</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+		</tags>
+		<shortDesc>Specifies a JS code to execute on certain event in a widget.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds, or false if it fails.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>addEvent</functionName>
+		<syntax>boolean eyex('addEvent', array(string 'name' => $name, string 'action' => $action, string 'event' => $event [, string 'args' => $args]))</syntax>
+		<desc>Specifies which JavaScript code must be executed every time a widget triggers a JS event.</desc>
+		<params>
+			<type>required</type>
+			<name>name</name>
+			<desc>Name of the widget where to apply the event.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>action</name>
+			<desc>JS code to be executed when the event is triggered.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>event</name>
+			<desc>Name of the JS event.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>args</name>
+			<desc>Additional arguments passed to the JS code.</desc>
+		</params>
+		<return>In eyeOS 1.6 and above, returns true if the function succeeds, or returns false and sets the error code accordingly if no name, action or event are specified.</return>
+	</definition>
+</info>

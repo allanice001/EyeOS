@@ -1,0 +1,47 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeVisor_run($params=null) {
+	global $checknum;
+	$file = $params[0];
+	$myHidden = new Hidden(array('name'=>'vPath','father'=>'eyeApps','text'=>$file));
+	eyeWidgets('serialize',array($myHidden));
+
+	$myWindow = new Window(array('name'=>'eyeVisorWND','father'=>'eyeApps',
+	'cent'=>1,'width'=>600,'height'=>600,'title'=>utf8_basename($file).' - eyeVisor','sendResizeMsg'=>1,'sigResize'=>'Resize','removeWin'=>0,'savePosition' => 1));
+	$myWindow->show();
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeVisorWND_Content'));
+	$myToolbar->show();
+	$myToolbar->addItem('Edit','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/edit.png','Edit');
+	$myFrame = new Iframe(array('name'=>'eyeVisorFrame','father'=>'eyeVisorWND_Content','x'=>15,
+		'y'=>80,'height'=>$myWindow->height-110,'width'=>$myWindow->width-35,
+		'url'=>"index.php?checknum=".$checknum."&msg=getFile"));
+	$myFrame->show();
+}
+
+function eyeVisor_end($params=null) {
+	eyeConverter('cleanTmp');
+	eyeWidgets('unserialize');
+}
+
+?>

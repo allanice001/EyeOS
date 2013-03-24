@@ -1,0 +1,49 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function restoreTrash_run($params = '') {
+	$file = utf8_basename($params[0]);
+	$xml = eyeXML('getXMLfile',array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . $file));
+	if ($params[0]) {
+		eyex('messageBox',array(
+			'buttons' => array(array('Do','Accept'),array('Close','Cancel')),
+			'content' => 'Do you really want to restore "%s"?',
+			'hiddens' => array(array('restoreTrash_Hidden_Path',$file),array('restoreTrash_Hidden_Callback',$params[1]),array('restoreTrash_Hidden_To',$params[2])),
+			'img' => '?',
+			'savePosition' => 1,
+			'sound' => 'question',
+			'title' => i18n('translate',array('Restore %s',array($xml['eyeTrash'][0]['lastname'][0]))),
+			'tokens' => array($xml['eyeTrash'][0]['lastname'][0]),
+			'type' => 3,
+			'win_name' => 'restoreTrash_Window',
+			'win_style' => TITLE + LISTED + MIN + CLOSE
+		));
+	} else {
+		proc('end');
+	}
+}
+
+function restoreTrash_end($params = '') {
+	eyeWidgets('unserialize');
+}
+?>

@@ -1,0 +1,14 @@
+lang['My Account'] = 'Moj nalog';
+lang['Configuration'] = 'Podešavanja';
+lang['Profile'] = 'Profil';
+lang['Password'] = 'Lozinka';
+lang['General'] = 'Opšte';
+lang['Desktop / Dashboard'] = 'Radna površina';
+lang['Notifications'] = 'Obaveštenja';
+lang['Search'] = 'Traži';
+lang['Privacy'] = 'Privatnost';
+lang['Autorun'] = 'Autorun';
+lang['User Settings'] = 'Podešavanja korisnika';
+lang['Cancel'] = 'Poništi';
+lang['Save & Close'] = 'Sačuvaj i zatvori';
+lang['Desktop Mode'] = 'Desktop mode';

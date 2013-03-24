@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * 
+ * eyeString 0.5
+ * (c) 2007 Juanjo Ponz and Jose Carlos Norte
+ * 
+ * eyeSumCalculateis released under the GNU General Public License Version 3 (GPL3)
+ * provided with this eyeOS release in license.txt or via web at gnu.org/licenses/gpl.txt
+ *
+ */
+function eyeSumCalculate_run($params=""){
+		
+	
+	$myWindow1 = new Window(array(
+									'name' => 'eyeSumCalculate_wnd',
+									'father' => 'eyeApps',
+									'cent' => 1,
+									'width' => 300,
+									'height' => 200,
+									'title' => 'eyeSumCalculate'));
+	$myWindow1->show();
+	
+	$Label1 = new Label(array(
+									'name' => 'SumLabel1',
+									'father' => 'eyeSumCalculate_wnd_Content',
+									'x' => 10,
+									'y' => 10,
+									'text' => 'Select the file for calculate the md5'));
+	$Label1->show();
+	
+		
+	$Label2 = new Label(array(
+									'name'=>'SumLabel2',
+									'father' => 'eyeSumCalculate_wnd_Content',
+									'x'=>10,
+									'y' => 130,
+									'text' => ''));
+									
+ 	$Label2 ->show(0);
+ 	
+ 	$Select1 = new Select(array(
+ 									'name'=> 'SumSelect1',
+ 									'father'=> 'eyeSumCalculate_wnd_Content',
+ 									'x' => 150,
+ 									'y' => 70));
+ 							
+ 	$Select1 -> show();
+ 	$Select1 -> addOption('Hash md5','md5hash',0);
+ 	$Select1 -> addOption('Hash sha1', 'sha1hash', 0);
+ 	
+ 	$Button1 = new Button(array(
+									'name'=>'SumButton',
+									'father'=>'eyeSumCalculate_wnd_Content',
+									'caption' => 'Browse',
+									'y' => 70,
+									'x' => 50));
+
+	$Button1 -> addFriend($Select1);
+	$Button1 -> addFriend($Label2);
+	$Button1 -> show();
+	
+	
+}
+
+?>

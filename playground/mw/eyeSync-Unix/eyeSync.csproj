@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41B45825-C285-4EB2-977D-FB786F5C7576}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eyeSync</RootNamespace>
+    <AssemblyName>eyeSync</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>eyesync.ico</ApplicationIcon>
+    <TargetZone>Custom</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="eyeOS.cs" />
+    <Compile Include="forms\frm_newsync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_newsync.Designer.cs">
+      <DependentUpon>frm_newsync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_server.Designer.cs">
+      <DependentUpon>frm_server.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\miniNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\miniNotice.Designer.cs">
+      <DependentUpon>miniNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SelfInstructingTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\frm_userpw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_userpw.Designer.cs">
+      <DependentUpon>frm_userpw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_about.Designer.cs">
+      <DependentUpon>frm_about.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IeyeOS.cs" />
+    <Compile Include="forms\frm_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_main.Designer.cs">
+      <DependentUpon>frm_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="langs\eyeSync.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eyeSync.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\frm_main.resx">
+      <DependentUpon>frm_main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_newsync.resx">
+      <DependentUpon>frm_newsync.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_server.resx">
+      <DependentUpon>frm_server.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\miniNotice.resx">
+      <DependentUpon>miniNotice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_userpw.resx">
+      <DependentUpon>frm_userpw.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_about.resx">
+      <DependentUpon>frm_about.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\eyeSync.de-DE.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\eyeSync.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>eyeSync.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SyncJob.cs" />
+    <Compile Include="xConfig.cs" />
+    <Compile Include="xmlrpc\IHttpRequest.cs" />
+    <Compile Include="xmlrpc\IHttpRequestHandler.cs" />
+    <Compile Include="xmlrpc\IHttpResponse.cs" />
+    <Compile Include="xmlrpc\IXmlRpcProxy.cs" />
+    <Compile Include="xmlrpc\RequestResponseLogger.cs" />
+    <Compile Include="xmlrpc\SystemMethodsBase.cs" />
+    <Compile Include="xmlrpc\Tracer.cs" />
+    <Compile Include="xmlrpc\util.cs" />
+    <Compile Include="xmlrpc\XmlRpcAsyncResult.cs" />
+    <Compile Include="xmlrpc\XmlRpcBeginAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcBoolean.cs" />
+    <Compile Include="xmlrpc\XmlRpcClientFormatterSink.cs" />
+    <Compile Include="xmlrpc\XmlRpcClientFormatterSinkProvider.cs" />
+    <Compile Include="xmlrpc\XmlRpcClientProtocol.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xmlrpc\XmlRpcDateTime.cs" />
+    <Compile Include="xmlrpc\XmlRpcDocWriter.cs" />
+    <Compile Include="xmlrpc\XmlRpcDouble.cs" />
+    <Compile Include="xmlrpc\XmlRpcEndAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcException.cs" />
+    <Compile Include="xmlrpc\XmlRpcFaultException.cs" />
+    <Compile Include="xmlrpc\XmlRpcHttpRequest.cs" />
+    <Compile Include="xmlrpc\XmlRpcHttpResponse.cs" />
+    <Compile Include="xmlrpc\XmlRpcHttpServerProtocol.cs" />
+    <Compile Include="xmlrpc\XmlRpcInt.cs" />
+    <Compile Include="xmlrpc\XmlRpcListenerRequest.cs" />
+    <Compile Include="xmlrpc\XmlRpcListenerResponse.cs" />
+    <Compile Include="xmlrpc\XmlRpcListenerService.cs" />
+    <Compile Include="xmlrpc\XmlRpcLogger.cs" />
+    <Compile Include="xmlrpc\XmlRpcMemberAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcMethodAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcMethodInfo.cs" />
+    <Compile Include="xmlrpc\XmlRpcMissingMappingAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcNonStandard.cs" />
+    <Compile Include="xmlrpc\XmlRpcParameterAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcParameterInfo.cs" />
+    <Compile Include="xmlrpc\XmlRpcProxyCodeGen.cs" />
+    <Compile Include="xmlrpc\XmlRpcProxyGen.cs" />
+    <Compile Include="xmlrpc\XmlRpcRequest.cs" />
+    <Compile Include="xmlrpc\XmlRpcRequestEventArgs.cs" />
+    <Compile Include="xmlrpc\XmlRpcResponse.cs" />
+    <Compile Include="xmlrpc\XmlRpcResponseEventArgs.cs" />
+    <Compile Include="xmlrpc\XmlRpcReturnValueAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcSerializer.cs" />
+    <Compile Include="xmlrpc\XmlRpcServerFormatterSink.cs" />
+    <Compile Include="xmlrpc\XmlRpcServerFormatterSinkProvider.cs" />
+    <Compile Include="xmlrpc\XmlRpcServerProtocol.cs" />
+    <Compile Include="xmlrpc\XmlRpcService.cs" />
+    <Compile Include="xmlrpc\XmlRpcServiceAttribute.cs" />
+    <Compile Include="xmlrpc\XmlRpcServiceInfo.cs" />
+    <Compile Include="xmlrpc\XmlRpcStruct.cs" />
+    <Compile Include="xmlrpc\XmlRpcUrlAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="eyesync.ico" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\delsync.png" />
+    <None Include="Resources\editsync.png" />
+    <None Include="Resources\eyeSync_about.png" />
+    <None Include="Resources\startsync.png" />
+    <None Include="Resources\boxbg.png" />
+    <None Include="Resources\buttonbg.png" />
+    <None Include="Resources\eyesync.png" />
+    <None Include="Resources\mini.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,65 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeRename_run($params = '') {
+	if(is_array($params)) {
+		$path = $params[0];
+		$callback = $params[1];
+	} else {
+		proc('end');
+	}
+	$file = utf8_basename($params[0]);
+	$path = eyeFiles('cleanPath',array(utf8_substr(utf8_trim($params[0],'/\\'),0,- utf8_strlen($file))));
+	if ($path[1] != 'real' && utf8_strtolower(strrchr($file,'.')) == '.' . utf8_strtolower(EYEOS_LINK_EXT) && vfs('real_fileExists',array($path[0] . '/' . $file))) {
+		$file = utf8_basename($params[0],'.' . EYEOS_LINK_EXT);
+	}
+	if ($params[0]) {
+		eyex('messageBox',array(
+			'btn1_capt' => 'Rename',
+			'btn1_name' => 'Do',
+			'btn2_capt' => 'Cancel',
+			'btn2_name' => 'Close',
+			'content' => 'Please type the new name here:',
+			'hidden_name' => 'eyeRename_Hidden_Path',
+			'hidden_text' => $params[0],
+			'hidden2_name' => 'eyeRename_Hidden_Callback',
+			'hidden2_text' => $params[1],
+			'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/48x48/rename.png',
+			'savePosition' => 1,
+			'textbox_event' => 'Do',
+			'textbox_name' => 'eyeRename_Textbox',
+			'textbox_text' => $file,
+			'title' => i18n('translate',array('Rename %s',array($file))),
+			'type' => 3,
+			'win_name' => 'eyeRename_Window',
+			'win_style' => TITLE + LISTED + MIN + CLOSE
+		));
+	} else {
+		proc('end');
+	}
+}
+
+function eyeRename_end($params = '') {
+	eyeWidgets('unserialize');
+}
+?>

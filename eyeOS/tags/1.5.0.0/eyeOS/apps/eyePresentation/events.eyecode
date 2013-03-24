@@ -1,0 +1,192 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyePresentation_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyePresentation_on_Open($params=null) {
+	global $checknum;
+	$options = array(
+		0,
+		'SelectFileOpen',
+		$checknum,
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyePresentation_on_SelectFileOpen($params=null) {
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		//TODO: SECURITY: MAYBE VFS HERE
+		if(is_dir($file)) {
+			service('eyex','messageBox',array('content'=>'You have to select a file to open'));
+			return;
+		}
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		fclose($fp);
+		$myHidden = new Hidden(array('name'=>'filepath','father'=>'presentationWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		$GLOBALS['filepath'] = $myHidden;
+		gotoSlide(0);
+		global $checknum;
+		$GLOBALS['imgFrame']->setUrl("index.php?checknum=".$checknum."&msg=getSlide&anticache=".md5(uniqid(time())));
+	}
+}
+
+function eyePresentation_on_fullscreen($params=null) {
+	global $checknum;
+	if($GLOBALS['fullscreen']->text == 1) {
+		$windowWidth = $_SESSION['SCREEN']['width'];
+		$windowHeight = $_SESSION['SCREEN']['height'];
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedAppsLeft").style.zIndex="0";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedAppsRight").style.zIndex="0";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedApps").style.zIndex="0";'));
+		$myHidden = new Hidden(array('name'=>'fullscreen','father'=>'eyeApps','text'=>2));
+		reqLib('eyeWidgets','serialize',array($myHidden));	
+		$myWindow1 = new Window(array('title'=>'eyePresentation','name'=>'eyePresentationWNDFull','father' => 'eyeApps',
+		'y'=>35,'type'=>NOLIST_CLOSE_WINDOW,'x'=>0,'cent'=>2,'width'=>$windowWidth,'height'=>$windowHeight));
+		$myWindow1->show();
+		$myToolbar = new Toolbar(array('name'=>'myToolbar','father'=>'eyePresentationWNDFull_Content'));
+		$myToolbar->show();
+		$myToolbar->addItem('open','index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png','Open');
+		$myToolbar->addLine();
+		$myToolbar->addItem('back','index.php?extern=apps/eyeX/themes/default/images/toolbar/previous.png','Back');
+		$myToolbar->addItem('next','index.php?extern=apps/eyeX/themes/default/images/toolbar/next.png','Next');
+		$myToolbar->addLine();
+		$myToolbar->addItem('fullscreen','index.php?extern=apps/eyeX/themes/default/images/toolbar/fullScreen.png','Full');
+	
+		$myFrame = new Iframe(array('name'=>'imgFrame','father'=>'eyePresentationWNDFull_Content','x'=>5,
+			'y'=>55,'height'=>$myWindow1->height-90,'width'=>$myWindow1->width-20, 'url'=>"about:blank",'scroll'=>1));
+		$myFrame->show();
+		$myFrame->setCss(array('margin'=>'0 auto'));
+		if($GLOBALS['filepath']->text) {
+			gotoSlide($GLOBALS['currentSlide']->text);
+			$myFrame->setUrl("index.php?checknum=".$checknum."&msg=getSlide&anticache=".md5(uniqid(time())));
+		}
+	} else {
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedAppsLeft").style.zIndex="10000";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedAppsRight").style.zIndex="10000";'));
+		service('eyex','rawjs',array('js' => 'document.getElementById("minimizedApps").style.zIndex="10000";'));
+		proc('launch',array('eyePresentation'));
+		proc('end');
+	}
+}
+
+function eyePresentation_on_back($params=null) {
+	global $checknum;
+	$myNumber = intval($GLOBALS['currentSlide']->text);
+	if($myNumber == 0) {
+		eyeX('messagebox',array('content'=>'You are on the first slide, you can\'t go back'));	
+	} else {
+		$myNumber--;
+		gotoSlide($myNumber);
+		$GLOBALS['imgFrame']->setUrl("index.php?checknum=".$checknum."&msg=getSlide&anticache=".md5(uniqid(time())));
+	}
+}
+
+function eyePresentation_on_next($params=null) {
+	global $checknum;
+	$myNumber = intval($GLOBALS['currentSlide']->text);
+	$myNumber++;
+	gotoSlide($myNumber);
+	$GLOBALS['imgFrame']->setUrl("index.php?checknum=".$checknum."&msg=getSlide&anticache=".md5(uniqid(time())));	
+}
+
+function eyePresentation_on_getSlide($params=null) {
+	global $myPid;
+	$myNumber = $GLOBALS['currentSlide']->text;
+	$myName = utf8_basename($GLOBALS['filepath']->text);
+	$file = realpath(um('getCurrentUserDir').'/tmp/').'/'.$myPid.'_'.$myName.'_'.$myNumber.'.png';
+	if(!$file) {
+		return;
+	}
+	$len = filesize($file);
+	$info = getimagesize($file);
+	$fp = service('vfs','real_open',array($file,'r'),1);
+	if(!$fp) {
+		return;
+	}
+	header('Content-Type: '.$info['mime']);
+	header("Content-Length: $len");
+	header("Accept-Ranges: bytes");
+	header("X-Pad: avoid browser bug");
+	$content = fread($fp,$len);
+	echo $content;
+	fclose($fp);
+	exit;
+}
+
+function eyePresentation_on_Resize($params=null) {
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$GLOBALS['imgFrame']->setWidth($width-15);
+	$GLOBALS['imgFrame']->setHeight($height-90);
+}
+
+function gotoSlide($num) {
+	global $myPid;
+	$myFile = $GLOBALS['filepath']->text;
+	$myName = utf8_basename($myFile);
+	$dir = realpath(um('getCurrentUserDir').'/tmp/').'/'.$myPid.'_'.$myName;
+	
+	if(!vfs('checkPermissions',array($myFile,'r'))) {
+		return false;
+	}
+	
+	$myFile = vfs('getRealName',array($myFile));
+	copy($myFile,$dir); //TODO: WARNING: SECURITY: THIS SHOULD BE PASSED TO VFS_REAL_COPY
+	$myFile = realpath(dirname($dir)).'/'.utf8_basename($dir);
+	
+	$myFile = escapeshellarg($myFile);
+	$myFile = utf8_substr($myFile,1);
+	$myFile = utf8_substr($myFile,0,utf8_strlen($myFile)-1);
+	
+	$dir = escapeshellarg($dir);
+	$dir = utf8_substr($dir,1);
+	$dir = utf8_substr($dir,0,utf8_strlen($dir)-1);
+	
+	//TODO: maybe vfs here?
+	if(is_dir($myFile) || !is_file($myFile) || !is_readable($myFile)) {
+		return false;
+	}
+	
+	$cmd = 'soffice -headless -norestore -display :'.intval(OFFICE_SCREEN).'.0 "macro:///Tools.eyeOS.getSingleSlide('.$myFile.','.intval($num).','.$dir.')"';
+	$myHidden = new Hidden(array('name'=>'currentSlide','father'=>'presentationWND','text'=>$num));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	$GLOBALS['currentSlide'] = $myHidden;
+	shell_exec($cmd);
+}
+
+function eyePresentation_on_Close(){
+	proc('end');
+}
+
+?>

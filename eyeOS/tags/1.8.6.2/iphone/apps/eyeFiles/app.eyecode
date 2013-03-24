@@ -1,0 +1,9 @@
+<?php
+require_once(IPHONE_PATH.'apps/eyeFiles/lib.eyecode');
+
+function eyeFiles_execute() {
+	cleanTmp();
+	$file = um('getCurrentUserDir').'/files/';
+	eyeFiles_openLocation($file);
+}
+?>

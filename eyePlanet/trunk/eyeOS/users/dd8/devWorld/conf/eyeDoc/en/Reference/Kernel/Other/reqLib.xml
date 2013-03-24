@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>reqLib</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>library</tag>
+		</tags>
+		<shortDesc>Allows to call a library function.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>reqLib</functionName>
+		<syntax>mixed reqLib(string $libname, string $function [, array $params=null])</syntax>
+		<desc>Calls the specified function of a library. The specified library must be in the system's directory.</desc>
+		<params>
+			<type>required</type>
+			<name>libname</name>
+			<desc>Name of the library to execute. This function will look for a folder with this name in the services directory.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>function</name>
+			<desc>Name of the library to call.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>params</name>
+			<desc>Arguments that will be passed to the function. Whether the arguments are expressed as an indexed or associative array depends on the own function's syntax.</desc>
+		</params>
+		<return>If the specified library cannot be found or the specified function of the library cannot be called, this function returns false (or -1 in case the library cannot be loaded and the errorCodes library hasn't been loaded). Else, this function returns the call of the library function.</return>
+		<examples>
+			<ex>
+				<type>Usage</type>
+				<desc>$myXmlString = reqLib('eyeXML', 'array2xml', array($myArray));</desc>
+			</ex>
+		</examples>
+	</definition>
+</info>

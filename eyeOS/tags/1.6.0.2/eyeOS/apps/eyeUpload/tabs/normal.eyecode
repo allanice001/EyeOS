@@ -1,0 +1,57 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+	
+if($path) {
+	$myHidden = new Hidden(array(
+		'name'=>'upPath',
+		'father'=>$systemTab,
+		'text'=>$path
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+if($callback) {
+	$myHidden = new Hidden(array(
+		'name'=>'upCallback',
+		'father'=>$systemTab,
+		'text'=>$callback
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}		
+$myFile = new File(array(
+	'name'=> 'myfile',
+	'father'=>$systemTab,
+	'x'=>80,
+	'y'=>10,
+	'callback'=>'uploadFile',
+	'filename'=>'myFile',
+	'multiple'=>$multiple
+));
+$myFile->show();
+$myFile->setHeight(130);
+$myFile->setWidth(355);
+
+$myImage = new Imagebox(array('name'=>'image_upload','father'=>$systemTab,
+	'url'=>'index.php?extern=apps/eyeFiles/gfx/upload_big.png',
+	'x'=>22,'y'=>43));
+$myImage->show();
+?>

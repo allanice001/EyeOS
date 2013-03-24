@@ -1,0 +1,1717 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	eyeOS X system, for visual tasks
+*/
+/*
+	eyeX is a wrapper service, its function is to add messages in the output buffer
+	located at the mmap service.
+
+	The messages added to the buffer by this service, are related to the screen
+	management.
+*/
+
+define('GLOBAL_FATHER','eyeApps');//TODO: remove this?
+
+function service_eyex_init() {
+	header("Content-type:text/xml");//override header type
+}
+
+/**
+* Embeds the specified content inside of an existing layer.
+* 
+* @param $params array(name,content)
+* @param $name Name of the layer.
+* @param $content Code (or text) to insert inside the layer.
+* @return If no name is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No element name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_setDiv($params) {
+	global $procInfo;
+	if($params == null || count($params) < 2){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$myDiv = $params['name'];
+	$myContent = $params['content'];
+	
+	$atribs = array(
+		'task' => array('setDiv'),
+		'name' => array($procInfo['pid'].'_'.$myDiv),
+		'content' => array($myContent)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Loads a JS script from a specified URL in the extern folder.
+* 
+* @param $params array(url)
+* @param $url URL of the script. The script must be loaded via the extern
+*	service.
+* @return If no url is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_loadScript($params=null) {	
+	if(!isset($params['url'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$myScript = $params['url'];
+	$atribs = array(
+		'task' => array('loadScript'),
+		'url' => array($myScript),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Loads a CSS file from a specified directory inside the extern folder.
+* 
+* @param $params array(url,id)
+* @param $url URL of the file inside the extern directory. The CSS
+*	resources contained in this directory must be loaded via the
+*	extern service.
+* @param $id ID assigned to the loaded CSS.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_loadCSS($params) {
+	if(!$params['url'] || !$params['id']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$myScript = $params['url'];
+	$myID = $params['id'];	
+	
+	$atribs = array(
+		'task' => array('loadCSS'),
+		'url' => array($myScript),
+		'id' => array($myID)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));	
+	return true;
+}
+
+/**
+* Eliminates a loaded CSS resource.
+* 
+* @param $params array(id)
+* @param $id ID attribute of the CSS to delete.
+* @return If no id is specified, returns false and sets the error code
+*	accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No id is specified.
+* @date 2008/03/11
+*/
+function service_eyex_removeCSS($params) {
+	if(!$params['id']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$myID = $params['id'];	
+	
+	$atribs = array(
+		'task' => array('removeCSS'),
+		'id' => array($myID),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Changes the wallpaper of the screen.
+* 
+* @param $params array(path,[repeat],[center])
+* @param $path Path to the new background image.
+* @param $repeat Specifies whether or not the background image must be
+*	repeated to fit all the screen (1) or not (0). Default value
+*	is 0.
+* @param $center Specifies whether or not the image must be centered in the
+*	screen. The default value (1) centers it, while a value of 0
+*	avoids it to be centered.
+* @return If no path parameter is specified, returns false and sets
+*	the error code accordingly. Otherwise, it does not return
+*	any value.
+* @exception INCORRECT_PARAMS No path is not specified.
+* @date 2008/03/11
+*/
+function service_eyex_setWallpaper($params) {
+	if(!$params['path']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$wallp = $params['path'];
+	$repeat = $params['repeat'];
+	$center = $params['center'];
+	
+	if(!isset($repeat)) {
+		$repeat=0;
+	}
+	
+	if(!isset($center)) {
+		$center=1;
+	}
+	
+	$atribs = array(
+		'task' => array('setWallpaper'),
+		'url' => array($wallp),
+		'repeat' => array($repeat),
+		'center' => array($center)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));	
+	return true;
+}
+
+/**
+* Checks whether the image is available for that theme or not.
+* 
+* @param $params array(path,extension)
+* @param $path Path in the theme's directory.
+* @param $extension If 1 the index.php=?extern= path will be added before
+*	the $path if it's 2 the EYE_ROOT path will be added.
+* @return If the image is in the themes folder it returns the usertheme with
+*	the image path. Else it returns the default theme with the image path.
+* @exception INCORRECT_PARAMS No path is specified.
+* @date 2008/03/17
+*/
+function service_eyex_getThemeImage($params) {
+	$path = $params[0];
+	if (!$path) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if ($params[1] === 1) {
+		$path = 'index.php?extern=' . THEMES_DIR . '/default/' . $path;
+	} elseif ($params[1] === 2) {
+		$path = EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/default/' . $path;
+	}
+	
+	str_replace('//','/',$path);
+	str_replace('//','/',$path);
+	
+	if (utf8_strpos($path,'extern=' . THEMES_DIR . '/default/')) {
+		$path = eyex('getRealFromExtern',array($path));
+		$return = 'index.php?extern=' . THEMES_DIR . '/';
+	} elseif (utf8_substr($path,0,strlen(EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/default/')) == EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/default/') {
+		$return = EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/';
+	} else {
+		return $path;
+	}
+	
+	$path = utf8_substr($path,strlen(EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/default/'));
+	
+	if (vfs('real_fileExists',array(EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/' . eyeSessions('getVar',array('usertheme')) . '/' . $path))) {
+		$return .= eyeSessions('getVar',array('usertheme')) . '/' . $path;
+	} else {
+		$return .= 'default/' . $path;
+	}
+	
+	return $return;
+}
+
+/**
+* Returns the real path of an image from an url for the extern service.
+* 
+* @param $params array(path)
+* @param $path Path for the extern service.
+* @return Returns the real path of an image from an url for the extern service.
+* @exception INCORRECT_PARAMS No path is specified.
+* @date 2008/03/17
+*/
+function service_eyex_getRealFromExtern($params) {
+	$path = $params[0];
+	if (!$path) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$return = EYE_ROOT . '/' . EXTERN_DIR . '/';
+	
+	if (utf8_strpos($path,'theme=1')) {
+		$return .= THEMES_DIR . '/' . eyeSessions('getVar',array('usertheme')) . '/';
+	}
+	
+	$path = strstr($path,'extern=');
+	$path = utf8_substr($path,strlen('extern='));
+	if (utf8_strpos($path,'&')) {
+		$path = utf8_substr($path,0,strlen(strstr($path,'&')));
+	}
+	
+	return $return . $path;
+}
+
+/**
+* Draws a new layer on the screen, without serializing it in the eyeX
+* layer table.
+* 
+* @param $params array(name,father,[class],[removepid],[nopid])
+* @param $name Name of the new layer.
+* @param $father Name of the container element of the new layer.
+* @param $class CSS class applied to the layer.
+* @param $removepid Appends to the start of the 'father' parameter the current
+*	process ID.
+* @param $nopid Appends to the start of the 'name' parameter the current
+*	process ID.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_createDiv($params) {	
+	if(!isset($params['name']) || !isset($params['father'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	$name = $params['name'];
+	$father = $params['father'];
+	
+	if(!isset($params['class'])) {
+		$class = ' '; 
+	}else{
+		$class = $params['class'];
+	}	
+		
+	global $procInfo;
+	$isLayer = service('eyex','isLayer',array('name'=>$father));
+	if(!$isLayer && !isset($params['removepid'])) {
+		$father = $procInfo['pid'].'_'.$father;
+	}
+	if(!isset($params['nopid'])) {
+		$name = $procInfo['pid'].'_'.$name;
+	}
+	
+	$atribs = array(
+		'task' => array('createDiv'),
+		'name' => array($name),
+		'class' => array($class),
+		'father' => array($father)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Draws a new widget in the screen.
+* 
+* @param $params array(name,father,[widgetname],[params],[horiz],[vert],[removepid],[center],[x],[y])
+* @param $name Name of the widget.
+* @param $father Name of the father (containing) element of the widget.
+* @param $widgetname Class (type) of the widget. This value must have one of the
+*	names found in the  existing widgets.
+* @param $params Associative array containing specific parameters of the
+*	widget.
+* @param $horiz Specifies whether the horizontal coordinate of the new
+*	widget must be counted from the left (0) or the right (1)
+*	border of its container element. The default value is 0
+*	(left).
+* @param $vert Specifies whether the vertical coordinate of the new widget
+*	must be counted from the top (0) or from the bottom (1)
+*	border of its container element. The default value is 0
+*	(top).
+* @param $removepid If set to 1, appends to the start of the 'father' parameter
+*	the current process ID.
+* @param $center Specifies how the widget should be centered inside its
+*	container element. Possible values are:
+				0: no centering.
+*	This is the default value.
+ 				1: center both horizontal
+*	and vertically.
+				2: center horizontally.
+				3: center
+*	vertically.
+				4: place the widget at the horizontal and
+*	vertical center of its container element.
+				5: place the
+*	widget at the horizontal center of its container
+*	element.
+				6: place the widget at the vertical center of
+*	its container element.
+* @param $x Specifies, in pixels, the horizontal coordinate inside its
+*	father element.
+* @param $y Specifies, in pixels, the vertical displacement inside its
+*	father element.
+* @return If some parameter is not specified, returns false and sets
+*	the error code accordingly. Otherwise, it does not return
+*	any value. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No widget name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_createWidget($params) {
+	if(!is_array($params)) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	
+	if(!$params['name'] || !$params['father']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	global $checknum;
+	global $procInfo;
+	
+	
+	$name = $params['name'];
+	$father = $params['father'];
+	$x = $params['x'];
+	$y = $params['y'];
+	$widgetname = $params['widgetname'];
+	$widgetparams = $params['params'];
+	$horiz = $params['horiz'];
+	$vert = $params['vert'];
+	$isLayer = service('eyex','isLayer',array('name'=>$father));
+	if(!$isLayer && !isset($params['removepid'])) {
+		$father = $procInfo['pid'].'_'.$father;
+	}
+	if(!isset($params['center'])) {
+		$cent = 0;
+	} else {
+		$cent = $params['center'];
+	}
+	$atribs = array(
+		'task' => array('createWidget'),
+		'position' => array(
+			array(
+				'x' => array($x),
+				'y' => array($y),
+				'horiz' => array($horiz),
+				'vert' => array($vert)
+			)
+		),
+		'checknum' => array($checknum),
+		'name' => array($procInfo['pid'].'_'.$name),
+		'father' => array($father),
+		'widgetname' => array($widgetname),
+		'params' => array($widgetparams),
+		'cent' => array($cent)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+}
+
+/**
+* Eliminates a widget from the user's session.
+* 
+* @param $params array(name)
+* @param $name Name of the widget to delete.
+* @return If no name is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No element name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_removeWidget($params) {	
+	if(!$params['name']) {	
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	} 
+	global $procInfo;
+	$name = $procInfo['pid'].'_'.$params['name'];	
+	$atribs = array(
+		'task' => array('removeWidget'),
+		'name' => array($name),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Displays a dialog to the user with the specified message.
+* 
+* @param $params array(content,[tokens],[type],[title],[win_name],[win_style],[win_removepid],[btn1_name],[btn1_capt],[btn2_name],[btn2_capt],[btn3_name],[btn3_capt],[hidden_name],[hidden_text],[hidden2_name],[hidden2_text],[hidden3_name],[hidden3_text],[father],[img],[textbox_name],[textbox_text],[textbox_password],[textbox_events])
+* @param $content String containing the message to be displayed.
+* @param $tokens Indexed array containing the value of the tokens appearing
+*	on 'message'.  Each token in the 'content' parameter is
+*	represented by the '%s' string.
+* @param $type The presentation type of the message. A value of 1 uses a
+*	custom eyeOS style to display the message, a value of 2 uses
+*	a JavaScript alert window, while a value of 3 uses a Window
+*	to display a dialog box. The dialog options can be
+*	configured with the following parameters. Its default value
+*	is 1. 
+* @param $title Sets the title of the displayed window message.
+* @param $win_name Name of the Window of the dialog box.
+* @param $win_style Specifies the properties of the Window of the dialog. To set
+*	multiple properties you must specify the desired properties
+*	separated by '+' symbols.
+			TITLE: the Window has a
+*	title.
+			LISTED: the Window is listed in the windows
+*	list.
+			MIN: the Window can be minimized.
+			MAX: the
+*	Window can be maximized.
+			CLOSE: the Window can be
+*	closed.
+			RESIZE: the Window can be resized.
+			NODRAG: the
+*	Window can't be moved.
+* @param $win_removepid Specifies whether the application must be ended when the
+*	dialog is closed (1) or not (0). Default value is 1.
+* @param $btn1_name Name given to the first Button of the dialog.
+* @param $btn1_capt Text shown in the first Button of the dialog.
+* @param $btn2_name Name given to the second Button of the dialog.
+* @param $btn2_capt Text shown in the second Button of the dialog.
+* @param $btn3_name Name given to the third Button of the dialog.
+* @param $btn3_capt Text shown in the third Button of the dialog.
+* @param $hidden_name Name given to the first Hidden field of the dialog.
+* @param $hidden_text Value of the first Hidden field of the dialog.
+* @param $hidden2_name Name given to the second Hidden field of the dialog.
+* @param $hidden2_text Value of the second Hidden field of the dialog.
+* @param $hidden3_name Name given to the third Hidden field of the dialog.
+* @param $hidden3_text Value of the third Hidden field of the dialog.
+* @param $father Parent element of the dialog.
+* @param $img Type of the image displayed in the dialog along with the
+*	text. The use of the predefined values 'i', 'x', '!' and '?'
+*	will show an icon denoting an information symbol, a cross, a
+*	warning or an interrogant, respectively.
+* @param $textbox_name If specified, creates a Textbox to input information in the
+*	dialog. The Textbox will use this parameter as its name.
+* @param $textbox_text Default text of the Textbox.
+* @param $textbox_password Specifies whether the text in the Textbox is shown as plain
+*	text (0) or masked with asterisks as a password field (1).
+*	Default value is 0.
+* @param $textbox_events Name of the signal sent to the system in case the user
+*	presses the enter key in the Textbox.
+* @return If the function succeeds, it does not return any value.
+*	Otherwise, if some parameter is missing, returns false and
+*	sets the error code to the INVALID_PARAMS code.
+* @exception INCORRECT_PARAMS Some parameter is not specified.
+* @date 2008/03/11
+*/
+function service_eyex_messageBox($params) {
+	if (!$params['content']) {		
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$content = $params['content'];
+	
+	if(isset($params['type'])) {
+		$type = $params['type'];
+	} else {
+		$type = 1;
+	}
+	
+	if ($type == 3) {
+		if($params['title']) {
+			$title = $params['title'];
+		} else {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		
+		if($params['win_name']) {
+			$win_name = $params['win_name'];
+		} else {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		
+		if(isset($params['win_style'])) {
+			$style = $params['win_style'];
+		} else {
+			$style = TITLE;
+		}
+		
+		if(isset($params['win_removepid'])) {
+			$removepid = $params['win_removepid'];
+		} else {
+			$removepid = 1;
+		}
+		
+		if($params['btn1_capt']) {
+			$btn1_capt = $params['btn1_capt'];
+			$btnX = 1;
+			if($params['btn1_name']) {
+				$btn1_name = $params['btn1_name'];
+			} else {
+				errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+				return false;
+			}
+		} else {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		
+		if($params['btn2_capt']) {
+			$btn2_capt = $params['btn2_capt'];
+			$btnX++;
+			if($params['btn2_name']) {
+				$btn2_name = $params['btn2_name'];
+			} else {
+				errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+				return false;
+			}
+		}
+		
+		if($params['btn3_capt']) {
+			$btn3_capt = $params['btn3_capt'];
+			$btnX++;
+			if($params['btn3_name']) {
+				$btn3_name = $params['btn3_name'];
+			} else {
+				errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+				return false;
+			}
+		}
+		
+		if($params['hidden_text']) {
+			$hidden_text = $params['hidden_text'];
+			if($params['hidden_name']) {
+				$hidden_name = $params['hidden_name'];
+			} else {
+				errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+				return false;
+			}
+		}
+		
+		if($params['hidden2_text']) {
+			$hidden2_text = $params['hidden2_text'];
+			if($params['hidden2_name']) {
+				$hidden2_name = $params['hidden2_name'];
+			} else {
+				errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+				return false;
+			}
+		}
+		
+		if($params['hidden3_text']) {
+			$hidden3_text = $params['hidden3_text'];
+			if($params['hidden3_name']) {
+				$hidden3_name = $params['hidden3_name'];
+			} else {
+				errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+				return false;
+			}
+		}
+		
+		if($params['father']) {
+			$father = $params['father'];
+		} else {
+			$father = 'eyeApps';
+		}
+		
+		if($params['img'] == 'i') {
+			$img = eyex('getThemeImage',array('icons/48x48/i.png',1));
+		} elseif($params['img'] == 'x') {
+			$img = eyex('getThemeImage',array('icons/48x48/x.png',1));
+		} elseif($params['img'] == '!') {
+			$img = eyex('getThemeImage',array('icons/48x48/e.png',1));
+		} elseif($params['img'] == '?') {
+			$img = eyex('getThemeImage',array('icons/48x48/q.png',1));
+		} elseif ($params['img']) {
+			$img = $params['img'];
+		}
+		
+		if(isset($params['tokens']) && is_array($params['tokens'])) {
+			$tokens = $params['tokens'];
+		} else {
+			$tokens = null;
+		}
+		
+		if ($img) {
+			$widthImg = 0;
+		} else {
+			$widthImg = 63;
+		}
+		
+		$content = i18n('translate',array($content,$tokens));
+		
+		$myWindow = new Window(array(
+			'name' => $win_name,
+			'father' => $father,
+			'cent' => 1,
+			'width' => 390 - $widthImg,
+			'height' => 150,
+			'title' => $title,
+			'style' => $style,
+			'removepid' => $removepid
+		));
+		$myWindow->show();
+		
+		if ($img) {
+			$myImageBox = new ImageBox(array(
+				'name' => 'msgbox_img',
+				'father' => $win_name . '_Content',
+				'x' => 15,
+				'y' => 15,
+				'width' => 48,
+				'height' => 48,
+				'alt' => '',
+				'url' => $img
+			));
+			$myImageBox->show();
+		}
+		
+		if ($hidden_text) {
+			$myHidden = new Hidden(array(
+				'name' => $hidden_name,
+				'father' => $win_name . '_Content',
+				'text' => $hidden_text
+			));
+			$myHidden->show();
+			reqLib('eyeWidgets','serialize',array($myHidden));
+		}
+		
+		if ($hidden2_text) {
+			$myHidden = new Hidden(array(
+				'name' => $hidden2_name,
+				'father' => $win_name . '_Content',
+				'text' => $hidden2_text
+			));
+			$myHidden->show();
+			reqLib('eyeWidgets','serialize',array($myHidden));
+		}
+		
+		if ($hidden3_text) {
+			$myHidden = new Hidden(array(
+				'name' => $hidden3_name,
+				'father' => $win_name . '_Content',
+				'text' => $hidden3_text
+			));
+			$myHidden->show();
+			reqLib('eyeWidgets','serialize',array($myHidden));
+		}
+		
+		$myContainer = new Container(array(
+			'father' => $win_name . '_Content',
+			'name' => 'msgbox_container',
+			'width' => 297,
+			'x' => 78 - $widthImg,
+			'y' => 20
+		));
+		$myContainer->show();
+		
+		$myLabel = new Label(array(
+			'name' => 'msgbox_label',
+			'father' => 'msgbox_container',
+			'x' => 0,
+			'y' => 0,
+			'text' => $content
+		));
+		$myLabel->show();
+		
+		if ($params['textbox_name']) {
+			$myTextbox = new Textbox(array(
+				'name' => $params['textbox_name'],
+				'father' => 'msgbox_container',
+				'x' => 20,
+				'y' => 30,
+				'width' => $myContainer->width - 40,
+				'text' => $params['textbox_text'],
+				'password' => $params['textbox_password']
+			));
+			$myTextbox->show();
+			$myTextbox->focus();
+			if ($params['textbox_event']) {
+				$myTextbox->addEnterEventMsg($params['textbox_event']);
+			}
+		}
+		
+		$btnX = $myWindow->width / ($btnX + 1);
+		
+		$myButton = new Button(array(
+			'name' => $btn1_name,
+			'father' => $win_name . '_Content',
+			'signal' => $btn1_name,
+			'caption' => $btn1_capt,
+			'x' => $btnX - (10 + (4 * utf8_strlen($btn1_capt))),
+			'y' => 90
+		));
+		$myButton->addFriend($myTextbox);
+		$myButton->show();
+		
+		if ($btn2_capt) {
+			$myButton = new Button(array(
+				'name' => $btn2_name,
+				'father' => $win_name . '_Content',
+				'caption' => $btn2_capt,
+				'x' => (2 * $btnX) - (10 + (4 * utf8_strlen($btn1_capt))),
+				'y' => 90
+			));
+			$myButton->addFriend($myTextbox);
+			$myButton->show();
+		}
+		
+		if ($btn3_capt) {
+			$myButton = new Button(array(
+				'name' => $btn3_name,
+				'father' => $win_name . '_Content',
+				'caption' => $btn3_capt,
+				'x' => (3 * $btnX) - (10 + (4 * utf8_strlen($btn1_capt))),
+				'y' => 90
+			));
+			$myButton->addFriend($myTextbox);
+			$myButton->show();
+		}
+		return true;
+	} else {
+		if(isset($params['tokens']) && is_array($params['tokens'])) {
+			$tokens = $params['tokens'];
+		} else {
+			$tokens = null;
+		}
+		
+		$content = i18n('translate',array($content,$tokens));
+		$content = htmlentities($content,ENT_QUOTES,'UTF-8');
+		
+		$atribs = array(
+			'task' => array('messageBox'),
+			'content' => array($content),
+			'type' => array($type)
+		);
+		
+		$task = array(
+			'action' => array(
+				$atribs
+			)
+		);
+		
+		$myAction = eyeXML('array2xml',array($task));
+		mmap('addToBuffer',array($myAction));
+		return true;
+	}
+}
+
+/**
+* Changes the value of a widget.
+* 
+* @param $params array(name,value)
+* @param $name Name of the element.
+* @param $value New value of the element.
+* @return If no name is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No element name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_setValue($params) {
+	if(!isset($params['value'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$content = $params['value'];
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('setValue'),
+		'content' => array($content),
+		'widget' => array($widget)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Changes the value of a widget. The given value is supposed to be
+* encoded in base 64.
+* 
+* @param $params array(name,value)
+* @param $name Name of the widget.
+* @param $value New value to set, in base 64.
+* @return If no name is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No name or value are specified.
+* @date 2008/03/11
+*/
+function service_eyex_setValueB64($params) {
+	if(isset($params['value'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	$content = $params['value'];	
+		
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('setValueB64'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Concatenates to the value property of a widget an specified text. The
+* specified value is encoded in base 64 until it is set.
+* 
+* @param $params array(name,value)
+* @param $name Name of the widget.
+* @param $value Text to append.
+* @return If no widget name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No widget name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_concatValueB64($params) {
+	if(!isset($params['value'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$content = $params['value'];
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('concatValueB64'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Concatenates to the value property of a widget an specified text.
+* 
+* @param $params array(name,value)
+* @param $name Name of the widget.
+* @param $value Text to append.
+* @return If no widget name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No widget name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_concatValue($params) {
+	if(!isset($params['value'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$content = $params['value'];
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('concatValue'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Concatenates to the value property of a div element an specified content.
+* 
+* @param $params array(name,value)
+* @param $name Name of the widget.
+* @param $value Content to append.
+* @return If no widget name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No widget name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_concatDiv($params) {
+	if(!isset($params['value'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$content = $params['value'];
+	
+	if($params['name'])	{
+		$widget = $params['name'];
+	} else {
+		$type = 1;
+	}
+	
+	$atribs = array(
+		'task' => array('concatDiv'),
+		'content' => array($content),
+		'widget' => array($widget)	
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+/**
+* Executes a specified JS code. We recommend to use the runjs()
+* function, which has a better content handling.
+* 
+* @param $params array(js)
+* @param $js JavaScript code to be evaluated.
+* @return If no code is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No code is specified.
+* @date 2008/03/11
+*/
+function service_eyex_rawjs($params) { //useful for widgets
+	if(!$params['js']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+
+	$js = $params['js'];
+	$js = str_replace("\n","",$js);
+	$js = str_replace("\r","",$js);
+
+	$atribs = array(
+		'task' => array('rawjs'),
+		'js' => array($js)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Executes a specified JS code.
+* 
+* @param $params array(js,[Array])
+* @param $js JavaScript code to be evaluated.
+* @param $Array 
+* @return If no code is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No code is specified.
+* @date 2008/03/11
+*/
+function service_eyex_runjs($params) { //util for widgets	
+	if(!isset($params['js'])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	if(isset($params['tokens'])){
+		$tokens = $params['tokens'];
+	}else{
+		$tokens = null;
+	}	
+	$js = $params['js'];
+	$js = str_replace("\n","",$js);
+	$js = str_replace("\r","",$js);
+	
+	if(isset($tokens) && is_array($tokens)) {
+		$pieces = explode("%s",$js);
+		$js = '';
+		$i = 0;
+		foreach($pieces as $value) {
+			$js .= $pieces[$i];
+			if(isset($tokens[$i])) {
+				$tokens[$i] = str_replace('\\','\\\\',$tokens[$i]);
+				$tokens[$i] = str_replace("'","\'",$tokens[$i]);
+				$tokens[$i] = str_replace('"','\"',$tokens[$i]);				
+				$js .= '"'.$tokens[$i].'"';
+			}
+			$i++;
+		}
+	}
+		
+	$atribs = array(
+		'task' => array('rawjs'),
+		'js' => array($js)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Changes a widget's position.
+* 
+* @param $params array(name,x,y)
+* @param $name Name of the widget.
+* @param $x New horizontal position of the widget, expressed in pixels.
+* @param $y New vertical position of the widget, expressed in pixels.
+* @return If the function succeeds, returns true. Otherwise, returns
+*	false and sets the error code depending on the error
+*	occurred.
+* @exception INCORRECT_PARAMS Some parameter is not specified.
+* @date 2008/03/11
+*/
+function service_eyex_moveWidget($params) {	
+	//TODO: check if it already work with old code
+	if(!$params['name'] || !$params['x'] || !$params['y']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$name = $params['name'];
+	$x = $params['x'];
+	$y = $params['y'];
+	
+	$atribs = array(
+		'task' => array('moveWidget'),
+		'name' => array($name),
+		'x' => array($x),
+		'y' => array($y)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Changes the size of an existing widget to the specified width and
+* height.
+* 
+* @param $params array(name,width,height)
+* @param $name Name of the widget.
+* @param $width New width of the widget, expressed in pixels.
+* @param $height New height of the widget, expressed in pixels.
+* @return If some parameter is not specified, returns false and sets
+*	the error code accordingly. Otherwise, it does not return
+*	any value.
+* @exception INCORRECT_PARAMS Some parameter is not specified.
+* @date 2008/03/11
+*/
+function service_eyex_resizeWidget($params) {
+	if(!$params['name'] || !$params['width'] || !$params['height']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$name = $params['name'];
+	$x = $params['width'];
+	$y = $params['height'];
+	
+	$atribs = array(
+		'task' => array('resizeWidget'),
+		'name' => array($name),
+		'width' => array($x),
+		'height' => array($y)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));		
+	return true;
+}
+
+/**
+* Makes a widget draggable by the user.
+* 
+* @param $params array(name,father)
+* @param $name Name of the widget.
+* @param $father Name of the's father (containing) element.
+* @param $noIndex if is set true, the drag action don't increasses the zIndex value
+* @return If one or both parameters are not specified, returns false
+*	and sets the error code accordingly. Otherwise, it does not
+*	return any value.
+* @exception INCORRECT_PARAMS Some parameter is not specified.
+* @date 2008/03/11
+*/
+function service_eyex_makeDrag($params) {
+	if(!$params['name'] || !$params['father']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$params['noIndex'] ? $noIndex = true : $noIndex = false;
+	$atribs = array(
+		'task' => array('makeDrag'),
+		'name' => array($params['name']),
+		'father' => array($params['father']),
+		'noIndex'=>array($noIndex)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Sets a CSS property of an element.
+* 
+* @param $params array(name,property,value)
+* @param $name Name of the element.
+* @param $property Name of the CSS property to modify.
+* @param $value Value of the property.
+* @return If no name is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No element name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_updateCss($params)
+{
+	if(!$params['name'] || !$params['property'] || !$params['value']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$name = $params['name'];
+	$value = $params['value'];
+	
+	$prop = $params['property'];
+	while(strstr($prop,'-')) {
+		$prop = camelCase($prop);
+	}
+			
+	$atribs = array(
+		'task' => array('updateCss'),
+		'name' => array($name),
+		'property' => array($prop),
+		'value' => array($value)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Specifies which JavaScript code must be executed every time a widget
+* triggers a JS event.
+* 
+* @param $params array(name,action,event,[args])
+* @param $name Name of the widget where to apply the event.
+* @param $action JS code to be executed when the event is triggered.
+* @param $event Name of the JS event.
+* @param $args Additional arguments passed to the JS code.
+* @return This function does not return any value.
+* @date 2008/03/11
+*/
+function service_eyex_addEvent($params)
+{
+	if(!$params['name'] || !$params['action'] || !$params['event']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$name = $params['name'];
+	$func = $params['action'];
+	$event = $params['event'];	
+
+	if(!$params['args']) {
+		$args = 0;
+	}else{
+		$args = $params['args'];
+	}
+
+	$atribs = array(
+		'task' => array('addEvent'),
+		'name' => array($name),
+		'event' => array($event),
+		'func' => array($func),
+		'args' => array($args)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;	
+}
+
+/**
+* Sends a signal to the current application.
+* 
+* @param $params array(message,[params])
+* @param $message Name of the signal to send.
+* @param $params Additional parameters passed to the event.
+* @return If no message is specified, returns false and sets the error
+*	code accordingly. Otherwise, it does not return any value.
+* @exception INCORRECT_PARAMS No message is specified.
+* @date 2008/03/11
+*/
+function service_eyex_sendMessage($params) {	
+	if(!$params['msg']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	if(!empty($params['checknum'])){
+		$checknum = $params['checknum']; 
+	}else{
+		global $checknum;	
+	}
+	$msg = $params['msg'];	
+	
+	if(isset($params['params'])) {
+		$par = $params['params'];
+	} else {
+		$par = " ";
+	}
+	
+	$atribs = array(
+		'task' => array('rawSendMessage'),
+		'msg' => array($msg),
+		'par' => array($par),
+		'checknum' => array($checknum)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Draws a new layer and serializes it into the eyeX layer table.
+* 
+* @param $params array(name,[class])
+* @param $name Name used to identify the layer.
+* @param $class Name used to identify the layer.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_createLayer($params=''){
+ 	if(!is_array($params) || !$params['name']){
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+ 	if(!$_SESSION[LTABLE]){
+ 		reqLib('eyeSessions','makeArrayVar',array(LTABLE));
+ 	} 	
+ 
+ 	$name = $params['name']; 	
+ 	if($params['class']){
+ 		$class = $params['class'];	
+ 	}else{
+ 		$class = 'newLayer';
+ 	}
+ 	$father = 'eyeScreen';
+ 	
+ 	$atribs = array(
+		'task' => array('createLayer'),
+		'name' => array($name),
+		'class' => array($class),
+		'father' => array($father)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	reqLib('eyeSessions','addArrayValueByKey',array(LTABLE,'  ',$name));
+	//Adding this layer in layer table with empty content.	
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+ }
+
+/**
+* Removes a layer from the user's session.
+* 
+* @param $params array(name)
+* @param $name Name of the layer.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_removeLayer($params){
+	if(!is_array($params) || !isset($params['name'])){
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+ 	$name = $params['name'];
+ 	
+ 	$atribs = array(
+		'task' => array('removeLayer'),
+		'name' => array($name),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Makes a layer visible and displays it on top of any other layers or
+* windows in the screen.
+* 
+* @param $params array(name)
+* @param $name Name of the layer.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_showLayer($params){
+ 	if(!is_array($params) || !isset($params['name'])){
+ 		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+ 	$name = $params['name'];
+ 	$atribs = array(
+		'task' => array('showLayer'),
+		'name' => array($name),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+ }
+ 
+/**
+* Makes a layer invisible.
+* 
+* @param $params array(name)
+* @param $name Name of the layer.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_hideLayer($params){
+ 	if(!is_array($params) || !isset($params['name'])){
+ 		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+ 	$name = $params['name'];
+ 	$atribs = array(
+		'task' => array('hideLayer'),
+		'name' => array($name),
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+ }
+
+/**
+* Unhides a layer applying a gradual fade in effect.
+* 
+* @param $params array(name,[time],[startAlpha],[endAlpha])
+* @param $name Name of the layer to unhide.
+* @param $time Time, expressed in milliseconds, to apply completely the
+*	fading effect. Default time value is 1000 ms.
+* @param $startAlpha Initial alpha opacity value for the layer. This value must
+*	be an integer contained in the 0-100 opacity range. Default
+*	startAlpha value is 0.
+* @param $endAlpha Final alpha opacity value for the layer. This value must be
+*	an integer contained in the 0-100 opacity range. Default
+*	endAlpha value is 100.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly.
+* @exception INCORRECT_PARAMS No layer name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_fadeOutLayer($params){
+ 	if(!is_array($params) || !isset($params['name'])){
+ 		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+ 	$name = $params['name'];
+ 	isset($params['time']) ? $time = $params['time'] : $time = 1000;//TODO: unhardcode this
+ 	isset($params['startAlpha']) ? $startAlpha = $params['startAlpha'] : $startAlpha = 0;//TODO: unhardcode this
+ 	isset($params['endAlpha']) ? $endAlpha = $params['endAlpha'] : $endAlpha = 100;//TODO: unhardcode this
+ 	$atribs = array(
+		'task' => array('fadeOutLayer'),
+		'name' => array($name),
+		'time'=> array($time),
+		'startAlpha'=>array($startAlpha),
+		'endAlpha'=>array($endAlpha)
+	);
+	
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+
+/**
+* Hides a layer applying a gradual fade to black effect.
+* 
+* @param $params array(name,[time],[startAlpha],[endAlpha])
+* @param $name Name of the layer.
+* @param $time Time, expressed in milliseconds, to apply completely the
+*	fading effect. Default time value is 1000 ms.
+* @param $startAlpha Initial alpha opacity value for the layer. This value must
+*	be an integer contained in the 0-100 opacity range. Default
+*	startAlpha value is 100.
+* @param $endAlpha Final alpha opacity value for the layer. This value must be
+*	an integer contained in the 0-100 opacity range. Default
+*	endAlpha value is 0.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, it does not return any
+*	value.
+* @exception INCORRECT_PARAMS No layer name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_fadeInLayer($params){
+ 	if(!is_array($params) || !isset($params['name'])){
+ 		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+	isset($params['time']) ? $time = $params['time'] : $time = 1000;//TODO: deshardcode this
+ 	isset($params['startAlpha']) ? $startAlpha = $params['startAlpha'] : $startAlpha = 100;//TODO: deshardcode this
+ 	isset($params['endAlpha']) ? $endAlpha = $params['endAlpha'] : $endAlpha = 0;//TODO: deshardcode this
+ 	$name = $params['name'];
+	$atribs = array(
+		'task' => array('fadeInLayer'),
+		'name' => array($name),
+		'time'=> array($time),
+		'startAlpha'=>array($startAlpha),
+		'endAlpha'=>array($endAlpha)
+	);
+	$task = array(
+		'action' => array(
+			$atribs
+		)
+	);
+	$myAction = eyeXML('array2xml',array($task));
+	mmap('addToBuffer',array($myAction));
+	return true;
+}
+ 
+/**
+* Checks whether a layer exists or not.
+* 
+* @param $params array(name)
+* @param $name Name of the layer.
+* @return If no layer name is specified, returns false and sets the
+*	error code accordingly. Otherwise, returns a boolean value
+*	indicating whether the layer exists or not.
+* @exception INCORRECT_PARAMS No name is specified.
+* @date 2008/03/11
+*/
+function service_eyex_isLayer($params=''){
+ 	if(!is_array($params) || !isset($params['name'])){
+ 		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+ 		return false;
+ 	}
+ 	$name = $params['name'];
+ 	$LTABLE = reqLib('eyeSessions','getVar',array(LTABLE));
+ 	foreach ($LTABLE as $layer=>$content){
+ 		if($layer == $name){
+ 			return true;
+ 		}
+ 	}
+ 	return false;
+ }
+ 
+/**
+* Camelcases a string.
+
+* @param string $prop string to camelCase
+* @return The camelCased string.
+* @access private
+* @date 2007-02-19
+*/
+function camelCase($prop) {
+	$find = strstr($prop,'-');
+	$ant = utf8_substr($prop,0,utf8_strlen($prop)-utf8_strlen($find));
+	$find = utf8_substr($find,1,utf8_strlen($find));
+	$find{0} = utf8_strtoupper($find{0});
+	return $ant.$find;
+}
+
+?>

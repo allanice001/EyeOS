@@ -1,0 +1,172 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+function eyeControl_on_translations_new($params = '') {
+	$selType = $GLOBALS['eyeControl_translations_hidden']->text;
+	eyeControl_lib_loadContent('others','newlang',array($selType));
+}
+
+function eyeControl_on_translations_edit($params = '') {
+	$selType = $GLOBALS['eyeControl_translations_hidden']->text;
+	$selLang = $GLOBALS['eyeControl_translations_sortabletable']->selected;
+	if ($selLang) {
+		eyeControl_lib_loadContent('others','translate',array($selType,$selLang));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a language you want to translate.'));
+	}
+}
+
+function eyeControl_on_translations_info($params = '') {
+	$selType = $GLOBALS['eyeControl_translations_hidden']->text;
+	$selLang = $GLOBALS['eyeControl_translations_sortabletable']->selected;
+	if ($selLang) {
+		eyeControl_lib_loadContent('others','infolang',array($selType,$selLang));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a language you want to edit.'));
+	}
+}
+
+function eyeControl_on_translations_delete($params = '') {
+	$selType = $GLOBALS['eyeControl_translations_hidden']->text;
+	$selLang = $GLOBALS['eyeControl_translations_sortabletable']->selected;
+	if ($selType && $selLang) {
+		eyex('messageBox',array(
+			'content' => 'Do you really want to remove this language?',
+			'type' => 3,
+			'title' => 'Delete language',
+			'win_name' => 'eyeControl_translations_delete_window',
+			'win_style' => TITLE + CLOSE,
+			'win_removepid' => 0,
+			'btn1_capt' => 'Yes',
+			'btn1_name' => 'translations_delete_yes',
+			'btn2_capt' => 'No',
+			'btn2_name' => 'translations_delete_no',
+			'hidden_text' => $selType,
+			'hidden_name' => 'translations_delete_hidden_type',
+			'hidden2_text' => $selLang,
+			'hidden2_name' => 'translations_delete_hidden_lang',
+			'father' => 'eyeControl_container_big',
+			'img' => eyex('getThemeImage',array('icons/48x48/editClean.png',1))
+		));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a language to delete.'));
+	}
+}
+
+function eyeControl_on_translations_delete_yes($params = '') {
+	$selType = $GLOBALS['translations_delete_hidden_type']->text;
+	$selLang = $GLOBALS['translations_delete_hidden_lang']->text;
+	if ($selType && $selLang) {
+		$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/';
+		vfs('real_delete',array($dir . 'infos/' . $selLang . '.xml'));
+		vfs('real_delete',array($dir . 'langs/' . $selLang . '.xml'));
+		vfs('real_delete',array($dir . 'files/' . $selLang . '/'));
+		vfs('real_delete',array($dir . 'langs/' . $selLang . '/')); // deprecated dir
+		eyex('messageBox',array('content' => 'Language successfully deleted.'));
+		eyeControl_lib_loadContent('others','translations',array($selType));
+	}
+}
+
+function eyeControl_on_translations_delete_no($params = '') {
+	$GLOBALS['eyeControl_translations_delete_window']->close();
+}
+
+function eyeControl_on_translations_select($params = '') {
+	$selType = $params['selected'][0];
+	eyeControl_lib_loadContent('others','translations',array($selType));
+}
+
+function eyeControl_on_translations_download($params = '') {
+	global $currentUser;
+	if ($params['selType'] && $params['selLang']) {
+		$selType = $params['selType'];
+		$selLang = $params['selLang'];
+	} else {
+		$selType = $GLOBALS['eyeControl_translations_hidden']->text;
+		$selLang = $GLOBALS['eyeControl_translations_sortabletable']->selected;
+	}
+	if ($currentUser != ROOTUSER) {
+		$myUserXml = um('retrieveUser',array($currentUser));
+		if (!in_array($selLang,$myUserXml['eyeUser'][0]['group'])) {
+			eyeControl_lib_loadContent('others','translations',array($selType));
+			return;
+		}
+	}
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	if ($selType && $selLang) {
+		$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/files/';
+		if (!vfs('real_fileExists',array($dir))) {
+			vfs('real_mkDir',array($dir));
+		} else {
+			vfs('real_rmDir',array($dir . $selLang . '/'));
+		}
+		if (vfs('real_fileExists',array($dir . $selLang . '/')) || vfs('real_mkDir',array($dir . $selLang . '/'))) {
+			if (eyeControl_on_translations_create(array('dir' => $dir,'selLang' => $selLang,'selType' => $selType))) {
+				if (eyeControl_lib_check_system_translation($selType)) {
+					$file = $dir . $selLang . '-' . $selType . '.eyepackage';
+					if (vfs('real_fileExists',array($file))) {
+						vfs('real_delete',array($file));
+					}
+					$openDir = vfs('real_getDirContent',array($dir . $selLang . '/'));
+					foreach ($openDir as $newdir) {
+						if (vfs('isdir',array($newdir))) {
+							$dirs['simple'][] = $newdir;
+						}
+					}
+					if (count($dirs['simple'])) {
+						eyeFileArchive('compress',array($dirs,$file,'realOutput' => 1,'eqTypes' => array('eyepackage' => 'tgz')));
+					}
+				} else {
+					$file = $dir . $selLang . '-' . $selType . '.tgz';
+					if (vfs('real_fileExists',array($file))) {
+						vfs('real_delete',array($file));
+					}
+					eyeFileArchive('compress',array($dir . $selLang . '/',$file,'realOutput' => 1));
+				}
+				if (!$params['noDownload']) {
+					proc('launch',array('eyeDownload',array($file)));
+				}
+			}
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a language you want to download.'));
+	}
+	$currentUser = $oldUser;
+}
+
+function eyeControl_on_translations_create($params = '') {
+	if ($params['selType'] && $params['selLang']) {
+		$selType = $params['selType'];
+		$selLang = $params['selLang'];
+	} else {
+		$selType = $GLOBALS['eyeControl_translations_hidden']->text;
+		$selLang = $GLOBALS['eyeControl_translations_sortabletable']->selected;
+	}
+	if ($selType && $selLang) {
+		include_once(EYE_ROOT . '/' . APP_DIR . '/eyeControl/libraries/translate.eyecode');
+		if (eyeControl_lib_clean_translations($selType,$selLang)) {
+			if (eyeControl_lib_check_system_translation($selType)) {
+				return eyeControl_lib_create_system($selType,$selLang,$params['dir']);
+			} else {
+				return eyeControl_lib_create_website($selType,$selLang);
+			}
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a language you want to create.'));
+	}
+}
+?>

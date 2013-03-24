@@ -1,0 +1,161 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDock_lib_array_movedown($key,$array) {
+	$value = $array[$key];
+	$keys = array_keys($array);
+	$id = array_search($key,$keys);
+	if ($id < count($keys) - 1) {
+		unset($array[$key]);
+		$id++;
+		$part1 = array_slice($array,0,$id);
+		$part2 = array_slice($array,$id);
+		$array = $part1 + array($key => $value) + $part2;
+	}
+	return $array;
+}
+
+function eyeDock_lib_array_moveup($key,$array) {
+	$value = $array[$key];
+	$keys = array_keys($array);
+	$id = array_search($key,$keys);
+	if ($id) {
+		unset($array[$key]);
+		$id--;
+		$part1 = array_slice($array,0,$id);
+		$part2 = array_slice($array,$id);
+		$array = $part1 + array($key => $value) + $part2;
+	}
+	return $array;
+}
+
+function eyeDock_lib_checkFavorite($xml, $command) {
+	foreach ($xml['eyeDock'][0]['bottom'][0]['left'][0] as $element) {
+		if (isset($element[0]['command'][0]) && $element[0]['command'][0] == $command) {
+			return true;
+		}
+	}
+	foreach ($xml['eyeDock'][0]['bottom'][0]['right'][0] as $element) {
+		if (isset($element[0]['command'][0]) && $element[0]['command'][0] == $command) {
+			return true;
+		}
+	}
+	/*foreach ($xml['eyeDock'][0]['left'][0]['top'][0] as $element) {
+		if (isset($element[0]['command'][0]) && $element[0]['command'][0] == $command) {
+			return true;
+		}
+	}
+	foreach ($xml['eyeDock'][0]['right'][0]['top'][0] as $element) {
+		if (isset($element[0]['command'][0]) && $element[0]['command'][0] == $command) {
+			return true;
+		}
+	}*/
+	foreach ($xml['eyeDock'][0]['top'][0]['left'][0] as $element) {
+		if (isset($element[0]['command'][0]) && $element[0]['command'][0] == $command) {
+			return true;
+		}
+	}
+	foreach ($xml['eyeDock'][0]['top'][0]['right'][0] as $element) {
+		if (isset($element[0]['command'][0]) && $element[0]['command'][0] == $command) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function eyeDock_lib_Load($types = array('bottom'/*,'left','right'*/,'top')) {
+	global $checknum;
+	global $myPid;
+
+	$xml = eyeXML('getXMLconfig',array('eyeDock','conf.xml'));
+	foreach ($types as $type) {
+		if ($xml['eyeDock'][0][$type][0]['show'][0]) {
+			if ($type == 'bottom') {
+				$_SESSION['SCREEN']['eyeApps']['height'] -= 32;
+				eyex('rawjs',array('js' => 'document.getElementById("eyeApps").style.height = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px";'));
+			/*} elseif ($type == 'left') {
+				$_SESSION['SCREEN']['eyeApps']['width'] -= 32;
+				$_SESSION['SCREEN']['eyeApps']['x'] = 32;
+				eyex('rawjs',array('js' => 'var e = document.getElementById("eyeApps"); e.style.width = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px"; e.style.left = "' . $_SESSION['SCREEN']['eyeApps']['x'] . 'px";'));
+			} elseif ($type == 'right') {
+				$_SESSION['SCREEN']['eyeApps']['width'] -= 32;
+				eyex('rawjs',array('js' => 'document.getElementById("eyeApps").style.width = "' . $_SESSION['SCREEN']['eyeApps']['width'] . 'px";'));*/
+			} elseif ($type == 'top') {
+				$_SESSION['SCREEN']['eyeApps']['height'] -= 32;
+				$_SESSION['SCREEN']['eyeApps']['y'] = 32;
+				eyex('rawjs',array('js' => 'var e = document.getElementById("eyeApps"); e.style.height = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px"; e.style.top = "' . $_SESSION['SCREEN']['eyeApps']['y'] . 'px";'));
+			}
+			eyex('createDiv',array(
+				'class' => 'eyeDock_' . $type,
+				'father' => 'eyeScreen',
+				'name' => 'eyeDock_' . $type,
+				'removepid' => 1
+			));
+			$myContextMenu = new ContextMenu(array(
+				'father' => 'eyeDock_' . $type,
+				'mfather' => 'eyeDock_' . $type,
+				'name' => 'eyeDock_' . $type . '_context'
+			));
+			$myContextMenu->show();
+			$myContextMenu->addEntry('<img id="' . $myPid . '_eyeDock_' . $type . '_context_refresh_img" style="height: 16px; width: 16px;" src="index.php?version=' . EXTERN_CACHE_VERSION . '&amp;theme=1&amp;extern=icons/16x16/refresh.png" /> &nbsp;' . htmlspecialchars(i18n('translate',array('Refresh')),ENT_QUOTES,'UTF-8'),'eyeDock_' . $type . '_context_refresh','Refresh','<type>' . $type . '</type>',$myPid . '_eyeDock_' . $type . '_context_refresh_img');
+			$myContextMenu->addEntry('<img id="' . $myPid . '_eyeDock_' . $type . '_context_managedock_img" style="height: 16px; width: 16px;" src="index.php?version=' . EXTERN_CACHE_VERSION . '&amp;theme=1&amp;extern=icons/16x16/exec.png" /> &nbsp;' . htmlspecialchars(i18n('translate',array('Manage Dock')),ENT_QUOTES,'UTF-8'),'eyeDock_' . $type . '_context_managedock','ManageDock','',$myPid . '_eyeDock_' . $type . '_context_managedock_img');
+			foreach ($xml['eyeDock'][0][$type][0] as $place => $elements) {
+				if (is_array($elements[0])) {
+					foreach ($elements[0] as $id => $element) {
+						if ($element[0]['type'][0] === 'taskbar' && ($type !== 'bottom' || $place !== 'left')) {
+							unset($xml['eyeDock'][0][$type][0][$place][0][$id]);
+						} else if (vfs('real_fileExists',array(EYE_ROOT . '/' . APP_DIR . '/eyeDock/modules/' . $element[0]['type'][0] . EYE_CODE_EXTENSION))) {
+							include(EYE_ROOT . '/' . APP_DIR . '/eyeDock/modules/' . $element[0]['type'][0] . EYE_CODE_EXTENSION);
+						}
+					}
+				}
+			}
+		}
+	}
+	eyeXML('setXMLconfig', array('eyeDock', 'conf.xml', $xml));
+	eyex('rawjs',array('js' => 'Taskbars.SetWidth();'));
+}
+
+function eyeDock_lib_Remove($types = array('bottom'/*,'left','right'*/,'top')) {
+	global $myPid;
+	$xml = eyeXML('getXMLconfig',array('eyeDock','conf.xml'));
+	if (in_array('bottom',$types) && $xml['eyeDock'][0]['bottom'][0]['show']) {
+		$_SESSION['SCREEN']['eyeApps']['height'] += 32;
+		eyex('rawjs',array('js' => 'document.getElementById("eyeApps").style.height = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px";'));
+	/*} elseif (in_array('left',$types) && $xml['eyeDock'][0]['left'][0]['show']) {
+		$_SESSION['SCREEN']['eyeApps']['width'] += 32;
+		$_SESSION['SCREEN']['eyeApps']['x'] = 0;
+		eyex('rawjs',array('js' => 'var e = document.getElementById("eyeApps"); e.style.width = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px"; e.style.left = "' . $_SESSION['SCREEN']['eyeApps']['x'] . 'px";'));
+	} elseif (in_array('right',$types) && $xml['eyeDock'][0]['right'][0]['show']) {
+		$_SESSION['SCREEN']['eyeApps']['width'] += 32;
+		eyex('rawjs',array('js' => 'document.getElementById("eyeApps").style.width = "' . $_SESSION['SCREEN']['eyeApps']['width'] . 'px";'));*/
+	} elseif (in_array('top',$types) && $xml['eyeDock'][0]['top'][0]['show']) {
+		$_SESSION['SCREEN']['eyeApps']['height'] += 32;
+		$_SESSION['SCREEN']['eyeApps']['y'] = 0;
+		eyex('rawjs',array('js' => 'var e = document.getElementById("eyeApps"); e.style.height = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px"; e.style.top = "' . $_SESSION['SCREEN']['eyeApps']['y'] . 'px";'));
+	}
+	foreach ($types as $type) {
+		eyex('rawjs',array('js' => 'var e = document.getElementById("' . $myPid . '_eyeDock_' . $type . '"); if (e) { e.parentNode.removeChild(e); } Taskbars.' . utf8_ucfirst($type) . ' = 0;'));
+	}
+}
+?>

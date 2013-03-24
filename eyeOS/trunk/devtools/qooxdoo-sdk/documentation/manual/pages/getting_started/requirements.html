@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Requirements &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Getting Started" href="../getting_started.html" />
+    <link rel="next" title="Hello World" href="helloworld.html" />
+    <link rel="prev" title="Getting Started" href="../getting_started.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="helloworld.html" title="Hello World"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../getting_started.html" title="Getting Started"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../getting_started.html" accesskey="U">Getting Started</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="requirements">
+<span id="pages-requirements-requirements"></span><h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>Here are the requirements for developing and deploying a qooxdoo application. A typical qooxdoo application is a JavaScript-based &quot;fat-client&quot; that runs in a web browser. It does not enforce any specific backend components, any HTTP-aware server should be fine. The framework comes with a powerful tool chain, that helps both in developing and deploying applications.</p>
+<p>It is very straightforward to satisfy the requirements for those three topics (client, server, tools).</p>
+<div class="section" id="client">
+<span id="pages-requirements-client"></span><h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<p>A qooxdoo application runs in all major web browsers - with identical look &amp; feel:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><img alt="../../_images/ie.png" class="first last" src="../../_images/ie.png" />
+</td>
+<td>Internet Explorer 6+</td>
+</tr>
+<tr><td><img alt="../../_images/ff.png" class="first last" src="../../_images/ff.png" />
+</td>
+<td>Firefox 2+</td>
+</tr>
+<tr><td><img alt="../../_images/opera.png" class="first last" src="../../_images/opera.png" />
+</td>
+<td>Opera 9+</td>
+</tr>
+<tr><td><img alt="../../_images/safari.png" class="first last" src="../../_images/safari.png" />
+</td>
+<td>Safari 3+</td>
+</tr>
+<tr><td><img alt="../../_images/chrome.png" class="first last" src="../../_images/chrome.png" />
+</td>
+<td>Chrome 2+</td>
+</tr>
+</tbody>
+</table>
+<p>Not only the <em>end users</em> of your application benefit from this true cross-browser solution. As a developer you can also pick <em>your</em> preferred development platform, i.e. combination of browser and operating system. Most built-in developer <a class="reference internal" href="#pages-requirements-tools"><em>Tools</em></a> (e.g. for debugging, profiling) work cross-browser as well.</p>
+</div>
+<div class="section" id="server">
+<span id="pages-requirements-server"></span><h2>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<p>Developing a qooxdoo application does not require a server. Its static application contents (initial html file, JavaScript files, images, etc.) may just be loaded from your local file system.</p>
+<p>Of course, for the actual deployment of your final app you would use a web server to deliver the (static) contents. For developing a qooxdoo app it is not a prerequisite to setup a web server, so you can start right away on your local computer.</p>
+<p>Any practical qooxdoo client application will communicate with a server, for instance to retrieve and store certain application data, to do credit card validation and so on. qooxdoo includes an advanced <a class="reference internal" href="../communication/rpc.html"><em>RPC mechanism</em></a> for direct calls to server-side methods. It allows you to write true client/server applications without having to worry about the communication details. qooxdoo offers such <em>optional</em> <a class="reference external" href="http://qooxdoo.org/contrib/project#backend">RPC backends</a> for Java, PHP, Perl and Python. If you are missing your favorite backend language, you can even create your own RPC server by following a generic <a class="reference internal" href="../communication/rpc_server_writer_guide.html"><em>server writer guide</em></a>.</p>
+<p>If you already have an existing backend that serves HTTP (or HTTPS) requests and you do not want to use those optional RPC implementations, that's fine. It should be easy to integrate your qooxdoo app with your existing backend using traditional AJAX calls.</p>
+</div>
+<div class="section" id="tools">
+<span id="pages-requirements-tools"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<p>qooxdoo comes with a platform-independent and user-friendly tool chain. It is required for <em>creating and developing</em> a qooxdoo application. It is <em>not</em> needed for running an application.</p>
+<p>The tool chain only requires to have <a class="reference external" href="http://www.python.org">Python</a> installed. Use a standard <strong>Python 2.x</strong> release, version 2.5 or above. <strong>Python 3</strong> is currently <a class="reference external" href="http://qooxdoo.org/documentation/python_3_support">not supported</a>! As a qooxdoo user you do not need any Python knowledge, it is merely a technology used internally for the tools. Python comes either pre-installed on many systems or it can very easily be installed:</p>
+<div class="section" id="image0-windows">
+<h3><img alt="image0" src="../../_images/windows.png" /> Windows<a class="headerlink" href="#image0-windows" title="Permalink to this headline">¶</a></h3>
+<p>It is trivial! Just <a class="reference external" href="http://www.activestate.com/Products/activepython/">download and install</a> the excellent <strong>ActivePython</strong> package. Its default settings of the installation wizard are fine, there is nothing to configure.
+(It is no longer recommended to use the Windows package from <a class="reference external" href="http://www.python.org/download/releases/2.6.1/">Python.org</a>, as this requires additional manual <a class="reference internal" href="troubleshooting.html#pages-troubleshooting-windows"><em>configuration</em></a>).</p>
+</div>
+<div class="section" id="image1-cygwin">
+<h3><img alt="image1" src="../../_images/cygwin.png" /> Cygwin<a class="headerlink" href="#image1-cygwin" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.cygwin.com/">Cygwin</a> can be used as an optional free and powerful Unix-like environment for Windows. You won't need a native Python installation, just make sure to include Cygwin's <strong>built-in</strong> Python as an additional package when using Cygwin's <a class="reference external" href="http://cygwin.com/setup.exe">setup program</a>.</p>
+</div>
+<div class="section" id="image2-mac">
+<h3><img alt="image2" src="../../_images/macosx.png" /> Mac<a class="headerlink" href="#image2-mac" title="Permalink to this headline">¶</a></h3>
+<p>Python is <strong>pre-installed</strong> on Max OS X. No additional software needs to be installed, but on older systems it might need an update.</p>
+</div>
+<div class="section" id="image3-linux">
+<h3><img alt="image3" src="../../_images/linux.png" /> Linux<a class="headerlink" href="#image3-linux" title="Permalink to this headline">¶</a></h3>
+<p>Python often comes <strong>pre-installed</strong> with your favorite distribution. If not, simply use your package manager to install Python.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Requirements</a><ul>
+<li><a class="reference internal" href="#client">Client</a></li>
+<li><a class="reference internal" href="#server">Server</a></li>
+<li><a class="reference internal" href="#tools">Tools</a><ul>
+<li><a class="reference internal" href="#image0-windows"> Windows</a></li>
+<li><a class="reference internal" href="#image1-cygwin"> Cygwin</a></li>
+<li><a class="reference internal" href="#image2-mac"> Mac</a></li>
+<li><a class="reference internal" href="#image3-linux"> Linux</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../getting_started.html"
+                                  title="previous chapter">Getting Started</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="helloworld.html"
+                                  title="next chapter">Hello World</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/getting_started/requirements.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

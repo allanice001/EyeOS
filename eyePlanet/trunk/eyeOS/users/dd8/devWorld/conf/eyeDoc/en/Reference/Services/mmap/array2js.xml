@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>array2js</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>mmap</tag>
+			<tag>array</tag>
+			<tag>javascript</tag>
+			<tag>js</tag>
+		</tags>
+		<shortDesc>Transforms a PHP array to a JS array.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>array2js</functionName>
+		<syntax>string mmap('array2js', array(array $arrayinphp))</syntax>
+		<desc>Transforms a PHP array into string convertible to a JavaScript array.</desc>
+		<params>
+			<type>required</type>
+			<name>arrayinphp</name>
+			<desc>PHP array to transform.</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, returns false.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No array is provided.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

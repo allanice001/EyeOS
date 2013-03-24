@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>copyDir</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Copies a directory.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.2</version>
+			<desc>Created</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>copyDir</functionName>
+		<syntax>bool vfs('copyDir', array(string $orig, string $dest))</syntax>
+		<desc>Copies a directory and its contents.</desc>
+		<params>
+			<type>required</type>
+			<name>orig</name>
+			<desc>Path to the directory to copy.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>dest</name>
+			<desc>URL of the new directory.</desc>
+		</params>	
+		<return>If the function succeeds, returns true. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>One or both arguments have not been specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions to copy the directory.</desc>
+			</error>
+			<error>
+				<type>VFS_FILE_NOT_EXISTS</type>
+				<desc>The origin directory does not exist.</desc>
+			</error>
+			<error>
+				<type>VFS_FILE_ALREADY_EXISTS</type>
+				<desc>The destination directory already exists.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

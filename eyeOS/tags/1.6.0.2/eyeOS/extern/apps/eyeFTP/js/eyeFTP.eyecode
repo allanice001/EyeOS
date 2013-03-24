@@ -1,0 +1,41 @@
+<?php 
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function get_dynamic_content($params) {
+	$myPid=intval($params[0]);
+	$checknum=$params[1];
+	if(!is_int($myPid) || !is_numeric($checknum)) {
+		exit;
+	}
+	if(is_readable(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeFTP/js/eyeFTP.js')) {
+		$fp = fopen(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeFTP/js/eyeFTP.js','r');
+		$content = fread($fp,filesize(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeFTP/js/eyeFTP.js'));
+		fclose($fp);
+		$content = str_replace('$myPid',$myPid,$content);
+		$content = str_replace('$checknum',$checknum,$content);
+		return $content;
+	}
+	exit;
+}
+
+?>

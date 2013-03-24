@@ -1,0 +1,31 @@
+<lang>
+	<info>
+		<lang>Slovenščina</lang>
+		<author>Luka Urisk</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Root geslo</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Ponovno vpiši geslo</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Namesti oneye!</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Nadaljuj...</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Dovoli registracijo novih računov</new>
+		</text>
+	</part>
+</lang>

@@ -1,0 +1,419 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function ShowBookmarks($params = array()) {
+	if ($params['arg'][0]) {
+		$url = service('um','getCurrentUserDir') . '/' . FILES_USER_DIR . '/' . $params['arg'][0];
+		$xml = eyeXML('getXMLfile',array(vfs('getRealName',array($url))));
+		if (!$xml['eyeNav'][0]['bookmarks'][0] || !is_array($xml['eyeNav'][0]['bookmarks'][0])) {
+			eyex('messageBox',array('content' => 'The chosen file is no correct eyeNav bookmarks file.'));
+			return;
+		}
+	} else {
+		$url = '<none>';
+		$xml = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+	}
+	
+	if (is_object($GLOBALS['eyeNav_hidden_search_url'])) {
+		$GLOBALS['eyeNav_hidden_search_url']->setText('none');
+	}
+	if (is_object($GLOBALS['eyeNav_box'])) {
+		$GLOBALS['eyeNav_box']->remove();
+	}
+	
+	$myContainer = new Container(array(
+		'name' => 'eyeNav_box',
+		'father' => 'eyeNav_window_box',
+		'x' => 0,
+		'y' => 0,
+		'width' => 140,
+		'height' => 0
+	));
+	$myContainer->show();
+	eyeWidgets('serialize',array($myContainer));
+	$myContainer->setCss(array(
+		'direction' => 'ltr'
+	));
+	
+	if (!is_object($GLOBALS['eyeNav_hidden_bookmarks_url'])) {
+		// $myHidden
+		$myHidden = new Hidden(array(
+			'name' => 'eyeNav_hidden_bookmarks_url',
+			'father' => 'eyeNav_box',
+			'text' => $url
+		));
+		$myHidden->show();
+		eyeWidgets('serialize',array($myHidden));
+	} else {
+		$GLOBALS['eyeNav_hidden_bookmarks_url']->setText($url);
+	}
+	
+	$myLabel = new Label(array(
+		'name' => 'eyeNav_box_label_0',
+		'father' => 'eyeNav_box',
+		'text' => $xml['eyeNav'][0]['bookmarks'][0]['title'][0],
+		'x' => 10,
+		'y' => 0
+	));
+	$myLabel->show();
+	$myLabel->setCss(array(
+		'font-size'=>'12px',
+		'color' => '#044d85',
+		'font-weight' => 'bold'
+	));
+	
+	$myLine = new Line(array(
+		'name' => 'eyeNav_line_bookmarks_0',
+		'father' => 'eyeNav_box',
+		'x' => 10,
+		'y' => 15,
+		'width' => 130
+	));
+	$myLine->show();
+	
+	$x = 1;
+	$boxY = 25;
+	foreach($xml['eyeNav'][0]['bookmarks'][0]['category'] as $category) {
+		if ($category['link']) {
+			$myLabel = new Label(array(
+				'name' => 'eyeNav_box_label_' . $x,
+				'father' => 'eyeNav_box',
+				'text' => $category['name'][0],
+				'x' => 20,
+				'y' => $boxY
+			));
+			$myLabel->show();
+			$myLabel->setCss(array(
+				'font-size'=>'12px',
+				'color' => '#044d85'
+			));
+			$x++;
+			$boxY += 20;
+			foreach($category['link'] as $link) {
+				$myHidden = new Hidden(array(
+					'name' => 'eyeNav_box_hiddenURL_' . $x,
+					'father' => 'eyeNav_box',
+					'text' => $link['url'][0]
+				));
+				$myHidden->show();
+				$myImagebox = new Imagebox(array(
+					'name' => 'eyeNav_box_imagebox_' . $x,
+					'father' => 'eyeNav_box',
+					'x' => 30,
+					'y' => $boxY,
+					'disableMsg' => 0,
+					'signal' => 'bookmarks_imagebox',
+					'url' => 'index.php?extern=apps/eyeNav/gfx/link.png'
+				));
+				$myImagebox->addFriend($myHidden);
+				$myImagebox->show();
+				$myImagebox->setCss(array(
+					'cursor' => 'Pointer'
+				));
+				$myLabel = new Label(array(
+					'name' => 'eyeNav_box_label_' . $x,
+					'father' => 'eyeNav_box',
+					'text' => $link['name'][0],
+					'x' => 46,
+					'y' => $boxY,
+					'disablemsg' => 0,
+					'signal' => 'bookmarks_label'
+				));
+				$myLabel->addFriend($myHidden);
+				$myLabel->show();
+				$myLabel->setCss(array(
+					'cursor' => 'Pointer'
+				));
+				if ($category['name'][0] == 'Uncategorized') {
+					$myHidden = new Hidden(array(
+						'name' => 'eyeNav_box_hidden_del_' . $x,
+						'father' => 'eyeNav_box',
+						'text' => $link['name'][0]
+					));
+					$myHidden->show();
+					$myImagebox = new Imagebox(array(
+						'name' => 'eyeNav_box_imagebox_del_' . $x,
+						'father' => 'eyeNav_box',
+						'x' => 135,
+						'y' => $boxY,
+						'disableMsg' => 0,
+						'signal' => 'delBookmark',
+						'url' => 'index.php?extern=apps/eyeNav/gfx/delete.png'
+					));
+					$myImagebox->addFriend($myHidden);
+					$myImagebox->show();
+					$myImagebox->setCss(array(
+						'cursor' => 'Pointer'
+					));
+				}
+				$boxY += 20;
+				$x++;
+			}
+			$boxY += 10;
+		}
+	}
+	
+	$myLine = new Line(array(
+		'name' => 'eyeNav_line_bookmarks_1',
+		'father' => 'eyeNav_box',
+		'x' => 10,
+		'y' => $boxY,
+		'width' => 130
+	));
+	$myLine->show();
+	
+	$myButton = new Button(array(
+		'name' => 'eyeNav_button_bookmarks_open',
+		'father' => 'eyeNav_box',
+		'signal' => 'open_bookmarks',
+		'caption' => 'Open bookmarks',
+		'width' => 140,
+		'x' => 10,
+		'y' => $boxY + 10,
+		'img' => 'index.php?extern=' . THEMES_DIR . '/' . $_SESSION['usertheme'] . '/icons/16x16/folder.png'
+	));
+	$myButton->show();
+	/*$boxY += 25;
+	
+	$myButton = new Button(array(
+		'name' => 'eyeNav_button_bookmarks_manage',
+		'father' => 'eyeNav_box',
+		'signal' => 'manage_bookmarks',
+		'caption' => 'Manage bookmarks',
+		'width' => 140,
+		'x' => 10,
+		'y' => $boxY + 10,
+		'img' => 'index.php?extern=' . THEMES_DIR . '/' . $_SESSION['usertheme'] . '/icons/16x16/paste.png'
+	));
+	$myButton->show();*/
+}
+
+function ShowSearch($params = array()) {
+	if ($params['arg'][0]) {
+		$url = service('um','getCurrentUserDir') . '/' . FILES_USER_DIR . '/' . $params['arg'][0];
+		$xml = eyeXML('getXMLfile',array(vfs('getRealName',array($url))));
+		if (!$xml['eyeNav'][0]['searches'][0] || !is_array($xml['eyeNav'][0]['searches'][0])) {
+			eyex('messageBox',array('content' => 'The choosen file is no correct eyeNav search file.'));
+			return;
+		}
+	} else {
+		$url = '<none>';
+		$xml = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+	}
+	
+	if (is_object($GLOBALS['eyeNav_hidden_bookmarks_url'])) {
+		$GLOBALS['eyeNav_hidden_bookmarks_url']->setText('none');
+	}
+	if (is_object($GLOBALS['eyeNav_box'])) {
+		$GLOBALS['eyeNav_box']->remove();
+	}
+	
+	$myContainer = new Container(array(
+		'name' => 'eyeNav_box',
+		'father' => 'eyeNav_window_box',
+		'x' => 0,
+		'y' => 0,
+		'width' => 140,
+		'height' => 0
+	));
+	$myContainer->show();
+	eyeWidgets('serialize',array($myContainer));
+	$myContainer->setCss(array(
+		'direction' => 'ltr'
+	));
+	
+	if (!is_object($GLOBALS['eyeNav_hidden_search_url'])) {
+		// $myHidden
+		$myHidden = new Hidden(array(
+			'name' => 'eyeNav_hidden_search_url',
+			'father' => 'eyeNav_box',
+			'text' => $url
+		));
+		$myHidden->show();
+		eyeWidgets('serialize',array($myHidden));
+	} else {
+		$GLOBALS['eyeNav_hidden_search_url']->setText($url);
+	}
+	
+	$myLabel = new Label(array(
+		'name' => 'eyeNav_box_label_0',
+		'father' => 'eyeNav_box',
+		'text' => $xml['eyeNav'][0]['searches'][0]['title'][0],
+		'x' => 10,
+		'y' => 0
+	));
+	$myLabel->show();
+	$myLabel->setCss(array(
+		'font-size'=>'12px',
+		'color' => '#044d85',
+		'font-weight' => 'bold'
+	));
+	
+	$myLine = new Line(array(
+		'name' => 'eyeNav_line_search_0',
+		'father' => 'eyeNav_box',
+		'x' => 10,
+		'y' => 15,
+		'width' => 130
+	));
+	$myLine->show();
+	
+	$myHiddenURL = new Hidden(array(
+		'name' => 'eyeNav_box_search_default',
+		'father' => 'eyeNav_box',
+		'text' => $xml['eyeNav'][0]['searches'][0]['default'][0]
+	));
+	$myHiddenURL->show();
+	reqLib('eyeWidgets','serialize',array($myHiddenURL));
+	
+	$myTextbox = new Textbox(array(
+		'name' => 'eyeNav_search',
+		'father' => 'eyeNav_box',
+		'width' => 130,
+		'x' => 10,
+		'y' => 25
+	));
+	$myTextbox->show();
+	$myTextbox->focus();
+	$myTextbox->addEnterEventMsg('search_default');
+	
+	$x = 1;
+	$boxY = 50;
+	foreach($xml['eyeNav'][0]['searches'][0]['category'] as $category) {
+		$myLabel = new Label(array(
+			'name' => 'eyeNav_box_label_' . $x,
+			'father' => 'eyeNav_box',
+			'text' => $category['name'][0],
+			'x' => 20,
+			'y' => $boxY
+		));
+		$myLabel->show();
+		$myLabel->setCss(array(
+			'font-size'=>'12px',
+			'color' => '#044d85'
+		));
+		$x++;
+		$boxY += 20;
+		foreach($category['link'] as $link) {
+			$myHiddenURL = new Hidden(array(
+				'name' => 'eyeNav_box_hiddenSearch_' . $x,
+				'father' => 'eyeNav_box',
+				'text' => $link['url'][0]
+			));
+			$myHiddenURL->show();
+			$myImagebox = new Imagebox(array(
+				'name' => 'eyeNav_box_imagebox_' . $x,
+				'father' => 'eyeNav_box',
+				'x' => 30,
+				'y' => $boxY,
+				'disableMsg' => 0,
+				'signal' => 'search_imagebox',
+				'url' => 'index.php?extern=apps/eyeNav/gfx/link.png'
+			));
+			$myImagebox->addFriend($myHiddenURL);
+			$myImagebox->show();
+			$myImagebox->setCss(array(
+				'cursor' => 'Pointer'
+			));
+			$myLabel = new Label(array(
+				'name' => 'eyeNav_box_label_' . $x,
+				'father' => 'eyeNav_box',
+				'text' => $link['name'][0],
+				'x' => 46,
+				'y' => $boxY,
+				'disablemsg' => 0,
+				'signal' => 'search_label'
+			));
+			$myLabel->addFriend($myHiddenURL);
+			$myLabel->addFriend($myTextbox);
+			$myLabel->show();
+			$myLabel->setCss(array(
+				'cursor' => 'Pointer'
+			));
+			$boxY += 20;
+			$x++;
+		}
+		$boxY += 10;
+	}
+	
+	$myLine = new Line(array(
+		'name' => 'eyeNav_line_search_1',
+		'father' => 'eyeNav_box',
+		'x' => 10,
+		'y' => $boxY,
+		'width' => 130
+	));
+	$myLine->show();
+	
+	$myButton = new Button(array(
+		'name' => 'eyeNav_button_search_open',
+		'father' => 'eyeNav_box',
+		'signal' => 'open_searches',
+		'caption' => 'Open searches',
+		'width' => 140,
+		'x' => 10,
+		'y' => $boxY + 10,
+		'img' => 'index.php?extern=' . THEMES_DIR . '/' . $_SESSION['usertheme'] . '/icons/16x16/folder.png'
+	));
+	$myButton->show();
+	/*$boxY += 25;
+	
+	$myButton = new Button(array(
+		'name' => 'eyeNav_button_search_configure',
+		'father' => 'eyeNav_box',
+		'signal' => 'configure_search',
+		'caption' => 'Configure searches',
+		'width' => 140,
+		'x' => 10,
+		'y' => $boxY + 10,
+		'img' => 'index.php?extern=' . THEMES_DIR . '/' . $_SESSION['usertheme'] . '/icons/16x16/paste.png'
+	));
+	$myButton->show();*/
+}
+
+function array_findIdByText($params) {
+	$array = $params[0];
+	$text = $params[1];
+	$path = $params[2];
+	$type = $params[3];
+	if (!$array || !$text || !is_array($array)) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$x = 0;
+	foreach($array as $secArray) {
+		if (is_array($path)) {
+			foreach($path as $pathNow) {
+				$secArray = $secArray[$pathNow];
+			}
+		}
+		if ($secArray != $text && $type == 2) {
+			$return[] = $x;
+		} elseif ($secArray == $text && $type != 2) {
+			$return[] = $x;
+		}
+		$x++;
+	}
+	return($return);
+}
+?>

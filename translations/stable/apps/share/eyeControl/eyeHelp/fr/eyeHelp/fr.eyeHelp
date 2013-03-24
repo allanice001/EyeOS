@@ -1,0 +1,20 @@
+﻿eyeHelp utilise les BBcodes ainsi que quelques autres tags. D'autres tags seront ajoutés dans la version finale.
+
+A l'heure actuelle, les tags sont:
+[list=1]
+[*]goto --> crée un lien vers un topic d'aide spécifique. Cela fonctionne comme les tags url et mail.
+[*]url --> crée un lien qui s'ouvrira dans une autre fenêtre
+[*]mail --> crée un lien "mailto:"
+[*]b --> met le texte en gras
+[*]i --> met le texte en italiques
+[*]u --> souligne le texte
+[*]s --> ajoute une barre en travers du texte
+[*]o --> ajoute une barre au dessus du texte
+[*]h --> crée un entête. Il met le texte en HTML h2 tag snd avec une hr (ligne séparatrice) dessous
+[*]color= --> Change la couleur du texte
+[*]size= --> Change la taille du texte
+[*]code/quote  --> crée une boîte avec le texte à l'intérieur
+[*]img --> insère une image
+[/list]
+
+Pour obtenir des exemples d'utilisation de ces codes, rendez-vous à [goto=/examples]examples page[/goto].

@@ -1,0 +1,322 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+/*	CORE	*/
+function eyeUpload_on_Close($params = '') {
+	global $myPid;
+	global $checknum;
+	if ($_SESSION[$myPid]['advanced']) {
+		unset($_SESSION[$myPid]['advanced']);
+		if ($GLOBALS['eyeUpload_Hidden_Callback']->text) {
+			eyex('rawjs',array('js' => $GLOBALS['eyeUpload_Hidden_Callback']->text));
+		}
+		eyeFiles('update',array($GLOBALS['eyeUpload_Hidden_Path']->text));
+	}
+	
+	// Clear crossShare Tmp Folder
+	$tDir = um('getCurrentUserDir') . "tmp/crossShare";
+	if (is_dir($tDir)) {
+		$tDirCont = scandir($tDir);
+		foreach(scandir($tDir) as $file) {
+			if ($file !== "." && $file !== "..") {
+				unlink($tDir."/".$file);
+			}
+		}
+		rmdir($tDir);
+	}
+	
+	eyex('rawjs',array('js'=>'xRemoveEventListener(window, "message", crossShare_msgTrigger, false);'));
+	proc('end');
+}
+
+function eyeUpload_on_help($params=null) {
+	proc('launch',array('eyeHelp','eyeUpload'));
+}
+
+
+/*	TAB CHANGE	*/
+function tabChange($params = '') {
+	if ($params === '') {
+		exit;
+	}
+	global $myPid;
+	
+	$GLOBALS['eyeUpload_container_simple']->hide();
+	if (isset($GLOBALS['eyeUpload_container_advanced'])) {
+		$GLOBALS['eyeUpload_container_advanced']->hide();
+	}
+	if (isset($GLOBALS['eyeUpload_container_web'])) {
+		$GLOBALS['eyeUpload_container_web']->hide();
+		$GLOBALS['eyeUpload_container_crossShare']->hide();
+	}
+	
+	$params[1]();
+	
+	eyex('rawjs',array('js' => 'e = xGetElementById("' . $myPid . '_eyeUpload_Toolbar");
+	for (var i = 0; i < e.childNodes.length; i++) {
+		if (e.childNodes[i].id == "' . $myPid . '_sel_' . $params[0] . '_Container") {
+			e.childNodes[i].className = "blockbarItemPress";
+		} else if (e.childNodes[i].id == "' . $myPid . '_sel_simple_Container" || e.childNodes[i].id == "' . $myPid . '_sel_advanced_Container" || e.childNodes[i].id == "' . $myPid . '_sel_web_Container" || e.childNodes[i].id == "' . $myPid . '_sel_crossShare_Container") {
+			e.childNodes[i].className = "blockbarItem";
+		}
+	}'));
+	
+	$GLOBALS['eyeUpload_container_'.$params[0]]->unhide();
+}
+
+function eyeUpload_on_sel_simple($params = '') {
+	tabChange(array("simple", function () {
+		$GLOBALS['eyeUpload_Window']->setHeight(290);
+	}));
+}
+function eyeUpload_on_sel_advanced($params = '') {
+	tabChange(array("advanced", function () {
+		$GLOBALS['eyeUpload_Window']->setHeight(290);
+	}));
+}
+function eyeUpload_on_sel_web($params = '') {
+	tabChange(array("web", function () {
+		$GLOBALS['eyeUpload_Window']->setHeight(192);
+		$GLOBALS['eyeUpload_container_web']->setHeight($GLOBALS['eyeUpload_Window']->height - 86);
+	}));
+}
+function eyeUpload_on_sel_crossShare($params = '') {
+	tabChange(array("crossShare", function () {
+		$GLOBALS['eyeUpload_Window']->setHeight(512);
+		$GLOBALS['eyeUpload_container_crossShare']->setHeight($GLOBALS['eyeUpload_Window']->height - 86);
+		$GLOBALS['crossShare_box_local']->setHeight($GLOBALS['eyeUpload_container_crossShare']->height);
+		$GLOBALS['crossShare_box_remote']->setHeight($GLOBALS['eyeUpload_container_crossShare']->height);
+		$GLOBALS['crossShare_iframe_local']->setHeight($GLOBALS['crossShare_box_local']->height - 27);
+		$GLOBALS['crossShare_iframe_remote']->setHeight($GLOBALS['crossShare_box_remote']->height - 27);
+	}));
+}
+
+
+/*	SIMPLE	*/
+function eyeUpload_on_simple_Do($params = '') {
+	$path = eyeFiles('cleanPath',array($GLOBALS['eyeUpload_Hidden_Path']->text));
+	if ($path[1] == 'real') {
+		$suffix = 'real_';
+	}
+	if ($GLOBALS['eyeUpload_simple_File']->checkfile() && $GLOBALS['eyeUpload_simple_File']->saveFile($path[0],$suffix)) {
+		$GLOBALS['eyeUpload_simple_File']->notify('simple_Done');
+	} else {
+		$GLOBALS['eyeUpload_simple_File']->notify('simple_Error');
+	}
+	exit;
+}
+
+function eyeUpload_on_simple_Done($params = '') {
+	eyeX('messageBox',array('content' => 'The file has been uploaded successfully.'));
+	eyeFiles('update',array($GLOBALS['eyeUpload_Hidden_Path']->text));
+	proc('end');
+}
+
+function eyeUpload_on_simple_Error($params = '')  {
+	eyex('messageBox',array('content' => 'Error occured during upload process!'));
+	proc('end');
+}
+
+
+/*	ADVANCED	*/
+function eyeUpload_on_advanced_Do($params = '') {
+	global $myPid, $charBlackList;
+	$file = utf8_basename($_FILES['Filedata']['name']);
+
+	//We replace the forbidden characters by '-' to avoid failing the transfer just because of that
+	$file = str_replace($charBlackList, '-', $file);
+
+	$path = eyeFiles('cleanPath',array($GLOBALS['eyeUpload_Hidden_Path']->text));
+	$path[0] .= '/' . $file;
+	if (is_uploaded_file($_FILES['Filedata']['tmp_name'])) {
+		if (!vfs('checkPermissions',array($path[0]))) {
+			$response = array(
+				'status' => array('failed'),
+				'message' => array(i18n('translate',array('You do not have sufficient permissions!')))
+			);
+		} elseif (!vfs('checkQuota',array($_FILES['Filedata']['tmp_name']))) {
+			$response = array(
+				'status' => array('failed'),
+				'message' => array(i18n('translate',array('You do not have enough free space!')))
+			);
+		} else {
+			$countFiles = 0;
+			$extension = utf8_substr(strrchr($path[0],'.'),1);
+			while ($path[1] != 'real' && vfs('fileExists',array($path[0])) || $path[1] == 'real' && vfs('real_fileExists',array($path[0]))) {
+				$finalPathTemp = utf8_substr($path[0],0,utf8_strlen($path[0]) - utf8_strlen($extension) - 1);
+				if ($countFiles) {
+					$finalPathTemp = utf8_substr($path[0],0,utf8_strlen($finalPathTemp) - utf8_strlen(strrchr($finalPathTemp,'_')));
+				}
+				$countFiles++;
+				$path[0] = $finalPathTemp . '_' . $countFiles . '.' . $extension;
+			}
+			if (@move_uploaded_file($_FILES['Filedata']['tmp_name'],$path[0]) && ($path[1] == 'real' || vfs('realToVirtual',array($path[0])))) {
+				$_SESSION[$myPid]['advanced'] = 1;
+				$response = array(
+					'status' => array('success'),
+					'message' => array(i18n('translate',array('"%s" has been uploaded successfully.',array(utf8_basename($path[0])))))
+				);
+			} else {
+				$response = array(
+					'status' => array('failed'),
+					'message' => array(i18n('translate',array('Error occured during upload process!')))
+				);
+			}
+		}
+	} else {
+		$response = array(
+			'status' => array('failed'),
+			'message' => array(i18n('translate',array('Error occured during upload process!')))
+		);
+	}
+	echo eyeXML('array2xml',array(array('eyeUploadX' => array($response))));
+	exit;
+}
+
+
+/*	WEB	*/
+function eyeUpload_on_web_Do($params = '') {
+	$file = $GLOBALS['eyeUpload_web_Textbox']->text;
+	$http = eyeURL('getHTTPClient');
+	$http->setURL($file);
+	$http->sendRequest();
+	if ($http->getResponseBody()) {
+		$path = eyeFiles('cleanPath',array($GLOBALS['eyeUpload_Hidden_Path']->text));
+		$path[0] .= '/' . utf8_basename($file);
+		$extension = utf8_substr(strrchr($path[0],'.'),1);
+		$countFiles = 0;
+		while ($path[1] == 'real' && vfs('real_fileExists',array($path[0])) || $path[1] != 'real' && vfs('fileExists',array($path[0]))) {
+			$pathTemp = utf8_substr($path[0],0,utf8_strlen($path[0]) - utf8_strlen($extension) - 1);
+			if ($countFiles) {
+				$pathTemp = utf8_substr($path[0],0,utf8_strlen($pathTemp) - utf8_strlen(strrchr($pathTemp,'_')));
+			}
+			$countFiles++;
+			$path[0] = $pathTemp . '_' . $countFiles . '.' . $extension;
+		}
+		if ($path[1] == 'real') {
+			vfs('real_create',array($path[0]));
+			vfs('real_putFileContent',array($path[0],$http->getResponseBody()));
+		} else {
+			vfs('create',array($path[0]));
+			vfs('writeFile',array($path[0],$http->getResponseBody()));
+		}
+		eyex('messageBox',array('content' => 'File uploaded successfully.'));
+		eyeFiles('update',array($GLOBALS['eyeUpload_Hidden_Path']->text));
+		$GLOBALS['eyeUpload_web_Textbox']->setText('');
+	} else {
+		eyex('messageBox',array('content' => 'Error uploading file!'));
+	}
+}
+
+
+/*	CROSSSHARE	*/
+function eyeUpload_on_crossShare_connect($params = '') {
+	$GLOBALS['crossShare_remote_status']->setText('Attempting to Connect...');
+	
+	$http = eyeURL('getHTTPClient');
+	$addr = $GLOBALS['crossShare_remote_address']->text;
+	
+
+	if (!strpos($addr,"://")) {
+		$addr = "http://". $addr;
+	}
+	if (substr($addr,(strpos($addr,"://")+3)) == "") {
+		$GLOBALS['crossShare_remote_status']->setText('Please enter an address');
+		return false;
+	}
+	
+	$addr .= "/crossShare/index.php";
+	$http->setURL($addr);
+	$http->sendRequest();
+	
+	switch ($http->getResponseCode()) {
+		case "200":
+			$GLOBALS['crossShare_iframe_remote']->setURL($addr);
+			$GLOBALS['crossShare_remote_address']->hide();
+			$GLOBALS['crossShare_remote_connect']->hide();
+			$GLOBALS['crossShare_remote_status']->hide();
+			$GLOBALS['crossShare_iframe_remote']->unhide();
+			$GLOBALS['crossShare_remote_disconnect']->unhide();
+			eyex('runjs',array('js'=>'crossShareComm.remote = %s;', 'tokens'=>array(substr($addr,0,strpos($addr,"/",strpos($addr,"://")+3)))));
+		//	eyex('runjs',array('js'=>'crossShareComm.chnum = %s;', 'tokens'=>array($GLOBALS['checknum'])));
+			eyex('runjs',array('js'=>'crossShareComm.pid = %s;', 'tokens'=>array($GLOBALS['myPid'])));
+			break;
+		case "404":
+			$GLOBALS['crossShare_remote_status']->setText('Unable to find oneye at this address');
+			break;
+	/*	case "301":
+			$GLOBALS['crossShare_remote_status']->setText('This site has moved.' .chr(13). 'Please recheck the address.');
+			break; */
+		case "":
+			$GLOBALS['crossShare_remote_status']->setText('Unable to connect.' .chr(13). 'Please recheck the address.');
+			break;
+		default:
+			$GLOBALS['crossShare_remote_status']->setText('There was an Error!'.chr(13). $http->getResponseCode() .' : '. $http->getResponseReason() .chr(13).chr(13). 'Please recheck the address.');
+		//	error_log(print_r($http,true),0);
+	}	
+}
+
+function eyeUpload_on_crossShare_disconnect($params = '') {
+	$addr = $GLOBALS['crossShare_iframe_remote']->url;
+	$GLOBALS['crossShare_iframe_remote']->setURL($addr."?exit");
+	
+	$GLOBALS['crossShare_remote_address']->setText("http://");
+	$GLOBALS['crossShare_remote_status']->setText("-");
+	
+	$GLOBALS['crossShare_iframe_remote']->hide();
+	$GLOBALS['crossShare_remote_address']->unhide();
+	$GLOBALS['crossShare_remote_connect']->unhide();
+	$GLOBALS['crossShare_remote_status']->unhide();
+	$GLOBALS['crossShare_remote_disconnect']->hide();
+	
+	eyex('runjs',array('js'=>'crossShareComm.remote = "http://127.0.0.1/";'));
+}
+
+
+/*	MISC	*/
+function eyeUpload_on_initFlash($params = '') {
+	$memory_limit = eyeFiles('stringToBytes', array(ini_get('memory_limit')));
+	$post_max_size = eyeFiles('stringToBytes', array(ini_get('post_max_size')));
+	$upload_max_filesize = eyeFiles('stringToBytes', array(ini_get('upload_max_filesize')));
+	$maxUpload_bytes = min($memory_limit, $post_max_size, $upload_max_filesize);
+	$maxUpload_mbytes = $maxUpload_bytes / (1024 * 1024);
+	
+	header('Content-type: text/xml');
+	echo '
+<eyeUploadX>
+	<config>
+		<upload_max_filesize>' . $maxUpload_bytes . '</upload_max_filesize>
+	</config>
+	<labels>
+		<addFiles caption="' . utf8_htmlspecialchars(i18n('translate', array('Add files')), ENT_QUOTES) . '" />
+		<maxUploadFilesize caption="' . utf8_htmlspecialchars(i18n('translate', array('Max filesize allowed')), ENT_QUOTES) . '" />
+		<maxUploadFilesizeValue caption="' . utf8_htmlspecialchars(i18n('translate', array('%s MB', array($maxUpload_mbytes))), ENT_QUOTES) . '" />
+		<progressFile caption="' . utf8_htmlspecialchars(i18n('translate', array('Transfering: ')), ENT_QUOTES) . '" />
+		<progressInit caption="' . utf8_htmlspecialchars(i18n('translate', array('Add files to transfer, then press Upload now!')), ENT_QUOTES) . '" />
+		<removeFile caption="' . utf8_htmlspecialchars(i18n('translate', array('Remove')), ENT_QUOTES) . '" />
+		<upload caption="' . utf8_htmlspecialchars(i18n('translate', array('Upload now!')), ENT_QUOTES) . '" />
+		<filenameColumnHeader caption="' . utf8_htmlspecialchars(i18n('translate', array('Filename')), ENT_QUOTES) . '" />
+		<filesizeColumnHeader caption="' . utf8_htmlspecialchars(i18n('translate', array('Size (KB)')), ENT_QUOTES) . '" />
+		<filesTooBigWarning caption="' . utf8_htmlspecialchars(i18n('translate', array('<b>Some files are too big!</b><br>Some of the selected files are too big and may be rejected by the server at the end of the transfer.<br>Do you want to remove them now?')), ENT_QUOTES) . '" />
+		<questionYes caption="' . utf8_htmlspecialchars(i18n('translate', array('Yes')), ENT_QUOTES) . '" />
+		<questionNo caption="' . utf8_htmlspecialchars(i18n('translate', array('No')), ENT_QUOTES) . '" />
+		<messageOk caption="' . utf8_htmlspecialchars(i18n('translate', array('Ok')), ENT_QUOTES) . '" />
+	</labels>
+</eyeUploadX>';
+	exit;
+}
+
+?>

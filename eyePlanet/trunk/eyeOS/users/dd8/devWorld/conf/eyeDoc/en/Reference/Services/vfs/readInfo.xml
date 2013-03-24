@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>readInfo</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Reads a virtual file's info.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.2</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>readInfo</functionName>
+		<syntax>array vfs('readInfo', array(string $file))</syntax>
+		<desc>Reads a virtual file's info part and returns its contents as an array.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the virtual file to read.</desc>
+		</params>
+		<return>If the function succeeds, returns an array (using the output returned by the eyeXML's xml2array() function) with the contents of the file. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No file has been specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>doRequest</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyeurl</tag>
+		</tags>
+		<shortDesc>Makes a customizable HTTP request for a resource.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>doRequest</functionName>
+		<syntax>eyeURL('doRequest', array('host' => $host, 'path' => $path, 'data' => $data, 'port' => $port, 'maxsize' => $maxsize, 'method' => $method))</syntax>
+		<desc>Makes an HTTP request to get the content of a remote file, allowing the possibility to specify the HTTP method, the presence of extra parameters in the header or the maximum size (in bytes) to read.</desc>
+		<params>
+			<type>required</type>
+			<name>host</name>
+			<desc>String containing the name of the host.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>path</name>
+			<desc>String containing the path to the file inside the host.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>data</name>
+			<desc>Extra HTTP parameters included in the request.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>port</name>
+			<desc>Natural number specifying in which port the request must be made. The default port value is 80.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>maxsize</name>
+			<desc>Natural number specifying, in bytes, the maximum file size to read. Default value is specified by the MAX_READ_SIZE constant.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>method</name>
+			<desc>Valid HTTP method used to retrieve the file. The default method is 'GET'.</desc>
+		</params>	
+		<return>If the function succeeds, returns the content of the file read from the host. Else, if the system cannot establish a connection with the host to get the file, the response header size is larger than the 'maxsize' parameter or the server error code is not 200 (OK), returns false.</return>
+	</definition>
+</info>

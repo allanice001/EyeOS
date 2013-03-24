@@ -1,0 +1,207 @@
+<lang>
+	<info>
+		<lang>Català</lang>
+		<author>Jordi Sànchez i Escué</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>Contrasenya de root</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]No[/span] et portarà a la pàgina de sistema.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Segur que vols eliminar l'instal·lador oneye?</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Tria una de les accions següents:</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Les traduccions es poden descarregar des de [a link].</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>Si us plau, elimina l'instal·lador per raons de seguretat!</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Desinstal·lla l'oneye</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Torna al menú</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Continua</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]Sí[/span] t'eliminarà els arxius d'instal·lació de l'oneye</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>Els arxius d'actualització no s'han pogut extreure. Per actualitzar l'oneye manualment, reanomena "[package]" per "package.tar.gz" i extreure els seus continguts.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>Segur que vols desinstal·lar l'oneye?</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Aquest actualitzador és només per a l'eyeos 1-5 i superior. Estàs utilitzant l'eyeos [version1]. Si us plau, actualitza a l'eyeos 1.5 abans de fer aquesta petita actualització a l'oneye [version2].</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Si us plau, continua actualitzant el teu oneye a la versió [version].</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Actualitza l'oneye</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Contrasenya de root incorrecta</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>No s'ha pogut reanomenar el directori "./eyeOS/". Si us plau, reanomena'l manualment a "[hash]" i sobreescriu tots els arxius nous.</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Continua</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]Sí[/span] eliminarà l'oneye completament</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Sí</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Reinicia els arxius de sistema</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]No[/span] et portarà a la pàgina del sistema.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Acció</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Elimina l'instal·lador de l'oneye</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>La contrasenya root és necessària!</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>La contrasenya de root ha de ser més llarga de 3 caràcters!</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Si us plau, ompla el següent formulari per instal·lar l'oneye:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>El teu servidor no sembla donar suport al gzip. Per instal·lar l'oneye manualment, reanomena "[package]" a "package.tar.gz" i extreu els continguts a la mateixa carpeta.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>L'instal·lació de l'oneye actual és més nova que la que estàs instal·lant. Si us plau, elimina la carpeta "[installer]" per raons de seguretat.</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Contrasenya root</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Reescriu la contrasenya</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Continua</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>Els arxius d'instal·lació no s'han pogut extreure. Per instal·lar l'oneye manualment, reanomena "[package]" a "package.tar.gz i extreu els continguts a la mateixa carpeta.</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>No s'ha pogut reanomenar el directori "./eyeOS/". Si us plau, canvia-li el nom manualment a "[hash]".</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Advertència: comprova "[package]" ja que sembla que està corromput</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Idimoa actual</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Advertència: dóna permisos totals (CHMOD 777) a "[file]".</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>Instal·lació oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>La teva versió del PHP no té un suport complert amb UTF-8. Considera l'actualització del PHP o instal·lar el mòdul mbstring. Sense això, podràs instal·lar i actualitzar l'oneye, però potser trobaràs algun error en algunes àrees del sistema d'internacionalització.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>per</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>Les contrasenyes root no coincideixen!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Idiomes</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>Hi ha hagut problemes durant la instal·lació</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>El teu servidor utilitza una versió del PHP no suportada. Si us plau, actualitza a PHP 5.0 o superior abans d'instal·lar l'oneye.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>Perdona, però l'oneye necessita el SAFE_MODE desactivat. Actualment el tens activat i necessites modificar-ho al teu arxiu php.ini o demanar al teu administrador més ajuda.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Permet als usuaris crear comptes</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Error: "[file]" no existeix.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Instal·la l'oneye</new>
+		</text>
+	</part>
+</lang>

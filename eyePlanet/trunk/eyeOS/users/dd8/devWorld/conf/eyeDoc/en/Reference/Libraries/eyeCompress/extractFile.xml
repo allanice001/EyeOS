@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>extractFile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyecompress</tag>
+			<tag>tar</tag>
+			<tag>gz</tag>
+			<tag>tgz</tag>
+		</tags>
+		<shortDesc>Decompresses a GNU TAR and GNU ZIP archive to a specified directory.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>extractFile</functionName>
+		<syntax>reqLib('eyeCompress', 'extractFile', array($file, $dirToExtract, $mode))</syntax>
+		<desc>Decompresses a GNU TAR and GNU ZIP archive to a specified directory.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the file to extract.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>dirToExtract</name>
+			<desc>Path to the directory in which the file is extracted..</desc>
+		</params>
+		<params>
+			<name>mode</name>
+			<desc>Specifies the type of archive to extract. Possible types are 'tar' for tarballs and 'tgz' for zipped tar archives.</desc>
+		</params>
+		<return>If there are not enough permissions in the destination directory, returns false. If some error occurs, returns a negative number representing an error code, otherwise returns 1.</return>
+	</definition>
+</info>

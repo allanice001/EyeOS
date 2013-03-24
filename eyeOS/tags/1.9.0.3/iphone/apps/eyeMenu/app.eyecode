@@ -1,0 +1,44 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeMenu_execute() {
+	global $currentUser;
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$dirapp=vfs('real_getDirContent', array(IPHONE_PATH.'apps/'));
+	echo '<ul id="home" title="eyeOS" selected="true">';
+	foreach($dirapp as $value) {
+		$info = eyeXML('getXmlFile',array($value.'/info.xml'));
+		if($info) {
+			if($info['application'][0]['name'][0] == 'eyeCalendar') {
+				echo '<li><a href="index.php?action='.$info['application'][0]['name'][0].'&noPropagate=2"><img style="position:relative;padding-right:7px;top:7px;" src="apps/'.$info['application'][0]['name'][0].'/icon.png">'.$info['application'][0]['text'][0].'</a></li>';
+			} else {
+				echo '<li><a href="index.php?action='.$info['application'][0]['name'][0].'"><img style="position:relative;padding-right:7px;top:7px;" src="apps/'.$info['application'][0]['name'][0].'/icon.png">'.$info['application'][0]['text'][0].'</a></li>';
+			}
+		}
+	}
+	echo '<li><a href="index.php?action=logout"><img style="position:relative;padding-right:7px;top:7px;" src="apps/logout/icon.png">Logout</a></li>';
+	echo '</ul>';
+	$currentUser = $oldUser;
+}
+?>

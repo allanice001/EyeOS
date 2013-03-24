@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>addShortUrl</name>
+		<tags>
+			<tag>function</tag>
+			<tag>kernel</tag>
+			<tag>short URLs</tag>
+		</tags>
+		<shortDesc>Associates an event to a short URL.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.1</version>
+			<desc>Created</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>addShortUrl</functionName>
+		<syntax>void addShortUrl(string $shortUrl, string $msg)</syntax>
+		<desc>Associates a certain event of an application to a short URL.</desc>
+		<params>
+			<type>required</type>
+			<name>shortUrl</name>
+			<desc>Short URL.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>msg</name>
+			<desc>Name of the application's event.</desc>
+		</params>
+		<return>This function does not return any value.</return>
+	</definition>
+</info>

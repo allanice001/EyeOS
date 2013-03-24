@@ -1,0 +1,8254 @@
+<lang>
+	<info>
+		<lang>English</lang>
+		<lang-en />
+		<author>oneye Team</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Create a link</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Create</new>
+		</text>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Please type the title of the link here:</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Download "%s" as zip</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Download!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Links cannot be downloaded!</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>The server does not support zip files.</new>
+		</text>
+		<text>
+			<old>You can close this window now.</old>
+			<new>You can close this window now.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Command to be executed:</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Edit %s</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Update</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Delete %s</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Do you really want to empty the trash?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Do you really want to remove "%s"?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Empty trash</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Add Contact</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>Add new group</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Details</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Add</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Home Phone</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>All Groups</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Are you sure you want to delete these contacts(%s)?</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>Cannot create contact</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Company Fax</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Company</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>Cannot edit contact</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>E-Mail</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Contacts deleted succesfully</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Database to store contacts: </new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Delete Contacts</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>Home Address</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Error creating a group</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Error deleting contacts</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>Export completed</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>AddressBook</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Export</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>Family</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>Group added succesfully</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>im</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>Group deleted succesfully</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Contact edited succesfully</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>Import completed</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Contacts</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>Mobile Company</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Notes</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>Mobile</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Name</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>Please, select only one contact to send message</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>New contact created succesfully</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>Work Fax</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Nick</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>nick</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>notes</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>Please, select only one contact to edit</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Personal</new>
+		</text>
+		<text>
+			<old>Please fill in the oneye username for this contact first</old>
+			<new>Please fill in the oneye username for this contact first</new>
+		</text>
+		<text>
+			<old>oneye User</old>
+			<new>oneye User</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>Please, write the new group's name</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>Please, select a group</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>Please, select one contact to send message</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>Please, select one or more contacts</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>Role</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>Work E-Mail</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>Save Contact</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Send Message</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Settings</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Surname</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Mobile Phone</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>New Contact</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>user</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>voip</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>VoIP</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Website</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>Work Phone</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>Work Mobile</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>Work Address</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>Please, fill in the name and surname</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>Work Website</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Work</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>Please, select one contact to edit</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Basic Image Viewer</old>
+			<new>Basic Image Viewer</new>
+		</text>
+		<text>
+			<old>File Management</old>
+			<new>File Management</new>
+		</text>
+		<text>
+			<old>Actions Widget</old>
+			<new>Actions Widget</new>
+		</text>
+		<text>
+			<old>Home Widget</old>
+			<new>Home Widget</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Applications</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Calculator</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Contact Manager</new>
+		</text>
+		<text>
+			<old>Calendar Widget</old>
+			<new>Calendar Widget</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>File Manager</new>
+		</text>
+		<text>
+			<old>Catching Game</old>
+			<new>Catching Game</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>Image Viewer</old>
+			<new>Image Viewer</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Games</new>
+		</text>
+		<text>
+			<old>About oneye</old>
+			<new>About oneye</new>
+		</text>
+		<text>
+			<old>All Applications</old>
+			<new>All Applications</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Groups</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Install Apps</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Internal Messaging</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Chess Game</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Launch App</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedia</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Public Board</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Manage Dock</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Trash</new>
+		</text>
+		<text>
+			<old>Messages Widget</old>
+			<new>Messages Widget</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Process Manager</new>
+		</text>
+		<text>
+			<old>Networking</old>
+			<new>Networking</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed Reader</new>
+		</text>
+		<text>
+			<old>PDF File Reader</old>
+			<new>PDF File Reader</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Spreadsheet</new>
+		</text>
+		<text>
+			<old>Utilities</old>
+			<new>Utilities</new>
+		</text>
+		<text>
+			<old>System Preferences</old>
+			<new>System Preferences</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Game</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Mail Client</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>Media Player</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Text Editor</new>
+		</text>
+		<text>
+			<old>ToDo Widget</old>
+			<new>ToDo Widget</new>
+		</text>
+		<text>
+			<old>Widgets</old>
+			<new>Widgets</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Word Processor</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Office</new>
+		</text>
+		<text>
+			<old>Presentation</old>
+			<new>Presentation</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>Compress</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>Archive files</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Archive Manager</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>BZip files</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Extract to...</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Compression failed</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Compress to...</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Compressed successfully</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Extract</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>File extracted successfully.</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>File extraction failed</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filename</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>GZip files</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Tar files</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>The compress type is not supported</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>Zip files</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>No file open</new>
+		</text>
+		<text>
+			<old>Open a folder or file</old>
+			<new>Open a folder or file</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Clear</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Public Board</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>CE</old>
+			<new>CE</new>
+		</text>
+		<text>
+			<old>C</old>
+			<new>C</new>
+		</text>
+		<text>
+			<old>Del</old>
+			<new>Del</new>
+		</text>
+		<text>
+			<old>Adv.</old>
+			<new>Adv.</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Calculator</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Division by zero is invalid!</old>
+			<new>Division by zero is invalid!</new>
+		</text>
+		<text>
+			<old>Exponentiation of zero by a negative number or zero is invalid!</old>
+			<new>Exponentiation of zero by a negative number or zero is invalid!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Simple</new>
+		</text>
+		<text>
+			<old>Square root of a negative number is invalid!</old>
+			<new>Square root of a negative number is invalid!</new>
+		</text>
+		<text>
+			<old>Factorial of a negative number is invalid!</old>
+			<new>Factorial of a negative number is invalid!</new>
+		</text>
+		<text>
+			<old>Logarithm of a negative number or zero is invalid!</old>
+			<new>Logarithm of a negative number or zero is invalid!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Calendar added succesfully</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>Configuration Saved</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>At least, one calendar is required!</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Calendar is already running!</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Configuration saved correctly</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Configure calendar</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Calendars</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>Day ends at:</new>
+		</text>
+		<text>
+			<old>General</old>
+			<new>General</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Day</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>A calendar with the same name already exists!</new>
+		</text>
+		<text>
+			<old>Configure</old>
+			<new>Configure</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Add Calendar</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>Day starts at:</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Friday</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Calendars management</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>General Configuration:</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Invalid checkbox value</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Please type a name for the calendar</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Today</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Monday</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Window mode</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Please specify the calendar name:</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Previous</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>ThursDay</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Saturday</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tuesday</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Sunday</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Two calendars cannot share the same name!</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>Work View</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>Week ends on:</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Invalid Num %s</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Two calendars cannot share the same ID!</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Wednesday</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>Week starts on:</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Work</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Week</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Show</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>Work View Configuration:</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>Text for this event:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCatch</name>
+		<text>
+			<old>Play Map</old>
+			<new>Play Map</new>
+		</text>
+		<text>
+			<old>Choose Map</old>
+			<new>Choose Map</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>eyeCatch Map</old>
+			<new>eyeCatch Map</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Just Play</old>
+			<new>Just Play</new>
+		</text>
+		<text>
+			<old>Please choose a map and click "Play Map". You need to move the player by dragging it. You should try to not fall into holes, while enemies try to catch you. Try to survive as long as possible!</old>
+			<new>Please choose a map and click "Play Map". You need to move the player by dragging it. You should try to not fall into holes, while enemies try to catch you. Try to survive as long as possible!</new>
+		</text>
+		<text>
+			<old>You were caught after %s seconds.</old>
+			<new>You were caught after %s seconds.</new>
+		</text>
+		<text>
+			<old>Restart Game</old>
+			<new>Restart Game</new>
+		</text>
+		<text>
+			<old>Please select a map first.</old>
+			<new>Please select a map first.</new>
+		</text>
+		<text>
+			<old>To be able to play this map was my first milestone while developing eyeCatch.</old>
+			<new>To be able to play this map was my first milestone while developing eyeCatch.</new>
+		</text>
+		<text>
+			<old>X is not the spot!!</old>
+			<new>X is not the spot!!</new>
+		</text>
+		<text>
+			<old>You fell into a hole after %s seconds.</old>
+			<new>You fell into a hole after %s seconds.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Easy</old>
+			<new>Easy</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Chess Game</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Knight</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Bishop</new>
+		</text>
+		<text>
+			<old>Computer level</old>
+			<new>Computer level</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Middling</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>Movements</new>
+		</text>
+		<text>
+			<old>Next pawn becomes</old>
+			<new>Next pawn becomes</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Slow</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Undo</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Queen</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Rook</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>Command not found</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s mirror(s)</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s user(s) registered.</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Default user]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>About me</new>
+		</text>
+		<text>
+			<old>Access Control</old>
+			<new>Access Control</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>ACL Name</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>ACL Name:</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>Action</new>
+		</text>
+		<text>
+			<old>Application Name</old>
+			<new>Application Name</new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>Application</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>Action:</new>
+		</text>
+		<text>
+			<old>Add a new filetype to your oneye system</old>
+			<new>Add a new filetype to your oneye system</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Add a new user to your oneye system</new>
+		</text>
+		<text>
+			<old>Add ACL</old>
+			<new>Add ACL</new>
+		</text>
+		<text>
+			<old>Add an ACL target to your oneye system</old>
+			<new>Add an ACL target to your oneye system</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Add mirror</new>
+		</text>
+		<text>
+			<old>ADD PARAMETERS TO TARGETS</old>
+			<new>ADD PARAMETERS TO TARGETS</new>
+		</text>
+		<text>
+			<old>Add Rule</old>
+			<new>Add Rule</new>
+		</text>
+		<text>
+			<old>Add, edit or remove your Access Control List settings</old>
+			<new>Add, edit or remove your Access Control List settings</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Add</new>
+		</text>
+		<text>
+			<old>Adds a new task to the Buffer.</old>
+			<new>Adds a new task to the Buffer.</new>
+		</text>
+		<text>
+			<old>Admin's Name:</old>
+			<new>Admin's Name:</new>
+		</text>
+		<text>
+			<old>Admin</old>
+			<new>Admin</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administration</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Allow public dirs</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Allow user registration</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Allow web upload</new>
+		</text>
+		<text>
+			<old>Allow</old>
+			<new>Allow</new>
+		</text>
+		<text>
+			<old>Appends a value to an virtual file's content. This function can be perfectly used by any application, but it is specifically thought to be used remotely using oneye' XML-RPC API.</old>
+			<new>Appends a value to an virtual file's content. This function can be perfectly used by any application, but it is specifically thought to be used remotely using oneye' XML-RPC API.</new>
+		</text>
+		<text>
+			<old>Change Language</old>
+			<new>Change Language</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this ACL?</old>
+			<new>Are you sure you want to delete this ACL?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this param?</old>
+			<new>Are you sure you want to delete this param?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this target?</old>
+			<new>Are you sure you want to delete this target?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Autorun Commands</new>
+		</text>
+		<text>
+			<old>Background Color</old>
+			<new>Background Color</new>
+		</text>
+		<text>
+			<old>Blanks a real file.</old>
+			<new>Blanks a real file.</new>
+		</text>
+		<text>
+			<old>Block User</old>
+			<new>Block User</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Bookmarks and search engines successfully exported.</new>
+		</text>
+		<text>
+			<old>Delete ACL</old>
+			<new>Delete ACL</new>
+		</text>
+		<text>
+			<old>Default User Quota</old>
+			<new>Default User Quota</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Bookmarks successfully imported.</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Browse Plugin</new>
+		</text>
+		<text>
+			<old>Browser plugin</old>
+			<new>Browser plugin</new>
+		</text>
+		<text>
+			<old>BROWSER PLUGIN:</old>
+			<new>BROWSER PLUGIN:</new>
+		</text>
+		<text>
+			<old>Bytes</old>
+			<new>Bytes</new>
+		</text>
+		<text>
+			<old>Calls the start function of an already running application.</old>
+			<new>Calls the start function of an already running application.</new>
+		</text>
+		<text>
+			<old>Center Wallpaper</old>
+			<new>Center Wallpaper</new>
+		</text>
+		<text>
+			<old>Calculates the size of a virtual file.</old>
+			<new>Calculates the size of a virtual file.</new>
+		</text>
+		<text>
+			<old>Change Theme</old>
+			<new>Change Theme</new>
+		</text>
+		<text>
+			<old>Change Password</old>
+			<new>Change Password</new>
+		</text>
+		<text>
+			<old>Calls an event function of an application. This function is automatically called every time an application sends a signal from a user's client.</old>
+			<new>Calls an event function of an application. This function is automatically called every time an application sends a signal from a user's client.</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Change your current password</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Change your preferred language</new>
+		</text>
+		<text>
+			<old>Changes a widget's position.</old>
+			<new>Changes a widget's position.</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Change your current theme</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Change your desktop wallpaper</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Change your eyeBoard settings</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Changes successfully saved and user updated.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Changes successfully saved.</new>
+		</text>
+		<text>
+			<old>Changes the location of a real file from one location to another.</old>
+			<new>Changes the location of a real file from one location to another.</new>
+		</text>
+		<text>
+			<old>Changes the name of an virtual file.</old>
+			<new>Changes the name of an virtual file.</new>
+		</text>
+		<text>
+			<old>Changes the size of an existing widget to the specified width and height.</old>
+			<new>Changes the size of an existing widget to the specified width and height.</new>
+		</text>
+		<text>
+			<old>Changes the value of a widget. The given value is supposed to be encoded in base 64.</old>
+			<new>Changes the value of a widget. The given value is supposed to be encoded in base 64.</new>
+		</text>
+		<text>
+			<old>Changes the value of a widget.</old>
+			<new>Changes the value of a widget.</new>
+		</text>
+		<text>
+			<old>Changes the wallpaper of the screen.</old>
+			<new>Changes the wallpaper of the screen.</new>
+		</text>
+		<text>
+			<old>Checknum of the application executing the action.</old>
+			<new>Checknum of the application executing the action.</new>
+		</text>
+		<text>
+			<old>Checks if a file has illegal characters in its name.</old>
+			<new>Checks if a file has illegal characters in its name.</new>
+		</text>
+		<text>
+			<old>Checks if a given file or directory is inside of one of the system groups.</old>
+			<new>Checks if a given file or directory is inside of one of the system groups.</new>
+		</text>
+		<text>
+			<old>Checks if a given path points to a directory.</old>
+			<new>Checks if a given path points to a directory.</new>
+		</text>
+		<text>
+			<old>Checks if a specified real file exists or not.</old>
+			<new>Checks if a specified real file exists or not.</new>
+		</text>
+		<text>
+			<old>Checks if a virtual file exists.</old>
+			<new>Checks if a virtual file exists.</new>
+		</text>
+		<text>
+			<old>Checks if the specified user's credentials are correct.</old>
+			<new>Checks if the specified user's credentials are correct.</new>
+		</text>
+		<text>
+			<old>Checks the permissions of a file.</old>
+			<new>Checks the permissions of a file.</new>
+		</text>
+		<text>
+			<old>Checks the permissions of a real file.</old>
+			<new>Checks the permissions of a real file.</new>
+		</text>
+		<text>
+			<old>Checks to see if a user exists.</old>
+			<new>Checks to see if a user exists.</new>
+		</text>
+		<text>
+			<old>Checks whether a file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</old>
+			<new>Checks whether a file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</new>
+		</text>
+		<text>
+			<old>Checks whether a layer exists or not.</old>
+			<new>Checks whether a layer exists or not.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given application name exists in the process table and returns its checknum.</old>
+			<new>Checks whether a process with the given application name exists in the process table and returns its checknum.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given application name exists in the process table and returns its process ID.</old>
+			<new>Checks whether a process with the given application name exists in the process table and returns its process ID.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given checknum exists and returns all its information of its entry in the process table.</old>
+			<new>Checks whether a process with the given checknum exists and returns all its information of its entry in the process table.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given checknum exists in the process table and returns its application name.</old>
+			<new>Checks whether a process with the given checknum exists in the process table and returns its application name.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given checknum exists in the process table.</old>
+			<new>Checks whether a process with the given checknum exists in the process table.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given process ID exists and returns all the information of its entry in the process table.</old>
+			<new>Checks whether a process with the given process ID exists and returns all the information of its entry in the process table.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given process ID exists and returns its checknum.</old>
+			<new>Checks whether a process with the given process ID exists and returns its checknum.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given process ID exists in the process table and returns its application name.</old>
+			<new>Checks whether a process with the given process ID exists in the process table and returns its application name.</new>
+		</text>
+		<text>
+			<old>Checks whether a process with the given process ID exists.</old>
+			<new>Checks whether a process with the given process ID exists.</new>
+		</text>
+		<text>
+			<old>Checks whether a virtual file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</old>
+			<new>Checks whether a virtual file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</new>
+		</text>
+		<text>
+			<old>Choose the rendering method for PDF files</old>
+			<new>Choose the rendering method for PDF files</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Clean oneye</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Command successfully added.</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Command successfully deleted.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Command successfully saved.</new>
+		</text>
+		<text>
+			<old>Concatenates text to the value property of a widget.</old>
+			<new>Concatenates text to the value property of a widget.</new>
+		</text>
+		<text>
+			<old>Concatenates text to the value property of a widget. This function works with Textarea widgets which have been set to contain rich text.</old>
+			<new>Concatenates text to the value property of a widget. This function works with Textarea widgets which have been set to contain rich text.</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Configure the office support on a Windows server</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Configure the office support on a Linux server</new>
+		</text>
+		<text>
+			<old>Create an ACL rule for your oneye system</old>
+			<new>Create an ACL rule for your oneye system</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>Create Group</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Commands</new>
+		</text>
+		<text>
+			<old>Concatenates text to the value property of a widget. The specified value is encoded in base 64 until it is set.</old>
+			<new>Concatenates text to the value property of a widget. The specified value is encoded in base 64 until it is set.</new>
+		</text>
+		<text>
+			<old>Copies a real file to the specified destination.</old>
+			<new>Copies a real file to the specified destination.</new>
+		</text>
+		<text>
+			<old>Copies a virtual file to a specified destination.</old>
+			<new>Copies a virtual file to a specified destination.</new>
+		</text>
+		<text>
+			<old>Create ACL</old>
+			<new>Create ACL</new>
+		</text>
+		<text>
+			<old>Copies a directory and its contents.</old>
+			<new>Copies a directory and its contents.</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Configure the startpage</new>
+		</text>
+		<text>
+			<old>Create Filetype</old>
+			<new>Create Filetype</new>
+		</text>
+		<text>
+			<old>Create Target</old>
+			<new>Create Target</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Default group successfully saved. You need to restart your session now.</new>
+		</text>
+		<text>
+			<old>Customize the Image Viewer</old>
+			<new>Customize the Image Viewer</new>
+		</text>
+		<text>
+			<old>Create Thumbnails</old>
+			<new>Create Thumbnails</new>
+		</text>
+		<text>
+			<old>Create User</old>
+			<new>Create User</new>
+		</text>
+		<text>
+			<old>Created On</old>
+			<new>Created On</new>
+		</text>
+		<text>
+			<old>Creates a blank real file.</old>
+			<new>Creates a blank real file.</new>
+		</text>
+		<text>
+			<old>Creates a directory.</old>
+			<new>Creates a directory.</new>
+		</text>
+		<text>
+			<old>Creates a new user, including his/her 'home' directory.</old>
+			<new>Creates a new user, including his/her 'home' directory.</new>
+		</text>
+		<text>
+			<old>Creates a virtual file.</old>
+			<new>Creates a virtual file.</new>
+		</text>
+		<text>
+			<old>Current Password</old>
+			<new>Current Password</new>
+		</text>
+		<text>
+			<old>CSS ID attribute</old>
+			<new>CSS ID attribute</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Default group: %s | %s group(s)</new>
+		</text>
+		<text>
+			<old>Default Language</old>
+			<new>Default Language</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Default settings successfully set.</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Groupname</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Group successfully deleted.</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Delete autorun</new>
+		</text>
+		<text>
+			<old>Delete filetype</old>
+			<new>Delete filetype</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Delete group</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Delete mirror</new>
+		</text>
+		<text>
+			<old>Delete Target</old>
+			<new>Delete Target</new>
+		</text>
+		<text>
+			<old>Delete User</old>
+			<new>Delete User</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Delete warning</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Deletes a directory and its content.</old>
+			<new>Deletes a directory and its content.</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Do you really want to restore the default eyeNav bookmarks?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Do you really want to restore the default eyeNav search?</new>
+		</text>
+		<text>
+			<old>Deletes a real file.</old>
+			<new>Deletes a real file.</new>
+		</text>
+		<text>
+			<old>Deletes a user from the system.</old>
+			<new>Deletes a user from the system.</new>
+		</text>
+		<text>
+			<old>Deletes a virtual file.</old>
+			<new>Deletes a virtual file.</new>
+		</text>
+		<text>
+			<old>Deletes the contents of a virtual file, leaving it blank.</old>
+			<new>Deletes the contents of a virtual file, leaving it blank.</new>
+		</text>
+		<text>
+			<old>Deny</old>
+			<new>Deny</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Description</new>
+		</text>
+		<text>
+			<old>Desktop Icons</old>
+			<new>Desktop Icons</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Desktop</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Desktop</new>
+		</text>
+		<text>
+			<old>Direct download</old>
+			<new>Direct download</new>
+		</text>
+		<text>
+			<old>DIRECT DOWNLOAD:</old>
+			<new>DIRECT DOWNLOAD:</new>
+		</text>
+		<text>
+			<old>Directory Name</old>
+			<new>Directory Name</new>
+		</text>
+		<text>
+			<old>Displays a dialog to the user with the specified message.</old>
+			<new>Displays a dialog to the user with the specified message.</new>
+		</text>
+		<text>
+			<old>Do you really want to delete the oneye system? This removes all data from oneye' directory!</old>
+			<new>Do you really want to delete the oneye system? This removes all data from oneye' directory!</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Do you really want to remove this command?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Do you really want to remove this group from the system?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Do you really want to remove this mirror from eyeSoft?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Do you really want to remove this user from the system?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Do you really want to restore the default eyeDesk settings?</new>
+		</text>
+		<text>
+			<old>Done</old>
+			<new>Done</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>Embeds the specified content inside of an existing layer.</old>
+			<new>Embeds the specified content inside of an existing layer.</new>
+		</text>
+		<text>
+			<old>Draws a new layer and serializes it into the eyeX layer table.</old>
+			<new>Draws a new layer and serializes it into the eyeX layer table.</new>
+		</text>
+		<text>
+			<old>Draws a new layer on the screen, without serializing it in the eyeX layer table.</old>
+			<new>Draws a new layer on the screen, without serializing it in the eyeX layer table.</new>
+		</text>
+		<text>
+			<old>Draws a new widget in the screen.</old>
+			<new>Draws a new widget in the screen.</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Echoes the content of a file. This function is the equivalent of the printFile() function for virtual files.</old>
+			<new>Echoes the content of a file. This function is the equivalent of the printFile() function for virtual files.</new>
+		</text>
+		<text>
+			<old>Echoes the content of a file. This function is the equivalent of the readFile() function for real files.</old>
+			<new>Echoes the content of a file. This function is the equivalent of the readFile() function for real files.</new>
+		</text>
+		<text>
+			<old>Edit ACL</old>
+			<new>Edit ACL</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Edit command</new>
+		</text>
+		<text>
+			<old>%s filetype(s)</old>
+			<new>%s filetype(s)</new>
+		</text>
+		<text>
+			<old>Edit Filetype</old>
+			<new>Edit Filetype</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s command(s)</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Edit mirror</new>
+		</text>
+		<text>
+			<old>Edit Targets</old>
+			<new>Edit Targets</new>
+		</text>
+		<text>
+			<old>Edit the chosen filetype</old>
+			<new>Edit the chosen filetype</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Edit the chosen user</new>
+		</text>
+		<text>
+			<old>Edit your eyePictures slideshow related settings</old>
+			<new>Edit your eyePictures slideshow related settings</new>
+		</text>
+		<text>
+			<old>Empties a user's temporary directory.</old>
+			<new>Empties a user's temporary directory.</new>
+		</text>
+		<text>
+			<old>Edit User</old>
+			<new>Edit User</new>
+		</text>
+		<text>
+			<old>Element Name</old>
+			<new>Element Name</new>
+		</text>
+		<text>
+			<old>Eliminates a loaded CSS resource.</old>
+			<new>Eliminates a loaded CSS resource.</new>
+		</text>
+		<text>
+			<old>Executes a specified JS code. Has better content handling than rawjs().</old>
+			<new>Executes a specified JS code. Has better content handling than rawjs().</new>
+		</text>
+		<text>
+			<old>Eliminates a widget from the user's session.</old>
+			<new>Eliminates a widget from the user's session.</new>
+		</text>
+		<text>
+			<old>Expiration Date</old>
+			<new>Expiration Date</new>
+		</text>
+		<text>
+			<old>Executes a specified JS code.</old>
+			<new>Executes a specified JS code.</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Export</new>
+		</text>
+		<text>
+			<old>Executes an application by calling its start function. Also adds an entry in the process table.</old>
+			<new>Executes an application by calling its start function. Also adds an entry in the process table.</new>
+		</text>
+		<text>
+			<old>Expiration (dd/mm/yyyy)</old>
+			<new>Expiration (dd/mm/yyyy)</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Export default bookmarks and search engines</new>
+		</text>
+		<text>
+			<old>Extension</old>
+			<new>Extension</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye Board</new>
+		</text>
+		<text>
+			<old>eyePictures settings savedsuccessfully</old>
+			<new>eyePictures settings savedsuccessfully</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Fielded: Icons are aligned automatically</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>File can be downloaded successfully.</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>File cannot be downloaded. Please correct the address.</new>
+		</text>
+		<text>
+			<old>Filetype successfully created.</old>
+			<new>Filetype successfully created.</new>
+		</text>
+		<text>
+			<old>Filetype successfully deleted.</old>
+			<new>Filetype successfully deleted.</new>
+		</text>
+		<text>
+			<old>Filetype</old>
+			<new>Filetype</new>
+		</text>
+		<text>
+			<old>Filetypes</old>
+			<new>Filetypes</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Fixed: Icons cannot be moved</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>From</new>
+		</text>
+		<text>
+			<old>Full Name</old>
+			<new>Full Name</new>
+		</text>
+		<text>
+			<old>Function Description:</old>
+			<new>Function Description:</new>
+		</text>
+		<text>
+			<old>Function</old>
+			<new>Function</new>
+		</text>
+		<text>
+			<old>Function:</old>
+			<new>Function:</new>
+		</text>
+		<text>
+			<old>GBytes</old>
+			<new>GBytes</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Get more translations</new>
+		</text>
+		<text>
+			<old>Group Name:</old>
+			<new>Group Name:</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Group</new>
+		</text>
+		<text>
+			<old>Gets the content of a user's account file.</old>
+			<new>Gets the content of a user's account file.</new>
+		</text>
+		<text>
+			<old>Hide Hazardous Options:</old>
+			<new>Hide Hazardous Options:</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Groups</new>
+		</text>
+		<text>
+			<old>Gets the virtual name of a real file.</old>
+			<new>Gets the virtual name of a real file.</new>
+		</text>
+		<text>
+			<old>Hides a layer applying a gradual fade to black effect.</old>
+			<new>Hides a layer applying a gradual fade to black effect.</new>
+		</text>
+		<text>
+			<old>Image Viewer</old>
+			<new>Image Viewer</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>Host Name</old>
+			<new>Host Name</new>
+		</text>
+		<text>
+			<old>HTML5 integrated renderer</old>
+			<new>HTML5 integrated renderer</new>
+		</text>
+		<text>
+			<old>HTML5 RENDERER:</old>
+			<new>HTML5 RENDERER:</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Incorrect password!</new>
+		</text>
+		<text>
+			<old>Informations about the available rendering methods</old>
+			<new>Informations about the available rendering methods</new>
+		</text>
+		<text>
+			<old>Input PHP array</old>
+			<new>Input PHP array</new>
+		</text>
+		<text>
+			<old>Language changed. Please restart oneye now.</old>
+			<new>Language changed. Please restart oneye now.</new>
+		</text>
+		<text>
+			<old>KBytes</old>
+			<new>KBytes</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Last login</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Language</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Main</new>
+		</text>
+		<text>
+			<old>Maintained Groups</old>
+			<new>Maintained Groups</new>
+		</text>
+		<text>
+			<old>Instead of displaying the PDF files in a window, download them. The browser will then ask you whether you'd like to open them or save them</old>
+			<new>Instead of displaying the PDF files in a window, download them. The browser will then ask you whether you'd like to open them or save them</new>
+		</text>
+		<text>
+			<old>JS Code</old>
+			<new>JS Code</new>
+		</text>
+		<text>
+			<old>Loads a CSS file from a specified directory inside the extern folder.</old>
+			<new>Loads a CSS file from a specified directory inside the extern folder.</new>
+		</text>
+		<text>
+			<old>Loads a JS script from a specified URL in the extern folder.</old>
+			<new>Loads a JS script from a specified URL in the extern folder.</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Look &amp; Feel</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Load</new>
+		</text>
+		<text>
+			<old>Layer Name</old>
+			<new>Layer Name</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Maintain</new>
+		</text>
+		<text>
+			<old>Maintained Users</old>
+			<new>Maintained Users</new>
+		</text>
+		<text>
+			<old>Manage the packages repositories</old>
+			<new>Manage the packages repositories</new>
+		</text>
+		<text>
+			<old>Manage the navigator's startpage, bookmarks and search engines</old>
+			<new>Manage the navigator's startpage, bookmarks and search engines</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Maintainer</new>
+		</text>
+		<text>
+			<old>Makes a layer invisible.</old>
+			<new>Makes a layer invisible.</new>
+		</text>
+		<text>
+			<old>Makes a layer visible and displays it on top of any other layers or windows in the screen.</old>
+			<new>Makes a layer visible and displays it on top of any other layers or windows in the screen.</new>
+		</text>
+		<text>
+			<old>Makes a virtual file out of a real one without deleting it.</old>
+			<new>Makes a virtual file out of a real one without deleting it.</new>
+		</text>
+		<text>
+			<old>Makes a widget draggable by the user.</old>
+			<new>Makes a widget draggable by the user.</new>
+		</text>
+		<text>
+			<old>Makes an application terminate itself.</old>
+			<new>Makes an application terminate itself.</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Manage default bookmarks</new>
+		</text>
+		<text>
+			<old>Manage Groups</old>
+			<new>Manage Groups</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Manage default search engines</new>
+		</text>
+		<text>
+			<old>Manage Users</old>
+			<new>Manage Users</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Manage your autorun commands</new>
+		</text>
+		<text>
+			<old>Manage your security settings</old>
+			<new>Manage your security settings</new>
+		</text>
+		<text>
+			<old>Manage your system's filetypes</old>
+			<new>Manage your system's filetypes</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Manage your system's groups</new>
+		</text>
+		<text>
+			<old>Manage your system's SMTP settings</old>
+			<new>Manage your system's SMTP settings</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Manage your system's users</new>
+		</text>
+		<text>
+			<old>MBytes</old>
+			<new>MBytes</new>
+		</text>
+		<text>
+			<old>Message Content</old>
+			<new>Message Content</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Mirror address (example: %s)</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Mirror does not exist!</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Mirror successfully deleted.</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Mirror successfully saved.</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Mirror</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Mouse</new>
+		</text>
+		<text>
+			<old>Moves a virtual file.</old>
+			<new>Moves a virtual file.</new>
+		</text>
+		<text>
+			<old>Name of Process</old>
+			<new>Name of Process</new>
+		</text>
+		<text>
+			<old>Name:</old>
+			<new>Name:</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>Never</old>
+			<new>Never</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>New command</new>
+		</text>
+		<text>
+			<old>New Filetypes</old>
+			<new>New Filetypes</new>
+		</text>
+		<text>
+			<old>New Password (again)</old>
+			<new>New Password (again)</new>
+		</text>
+		<text>
+			<old>New Password</old>
+			<new>New Password</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>New User</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>New wallpaper successfully set.</new>
+		</text>
+		<text>
+			<old>New Wallpaper</old>
+			<new>New Wallpaper</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>New</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>No registered user could be found.</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>none</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Office Support</new>
+		</text>
+		<text>
+			<old>Open fullscreen</old>
+			<new>Open fullscreen</new>
+		</text>
+		<text>
+			<old>OpenOffice program folder:</old>
+			<new>OpenOffice program folder:</new>
+		</text>
+		<text>
+			<old>Opens a virtual file and returns a handler to work with.</old>
+			<new>Opens a virtual file and returns a handler to work with.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Others</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Password (again) *</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Passwords do not match!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Password</new>
+		</text>
+		<text>
+			<old>Path to Directory</old>
+			<new>Path to Directory</new>
+		</text>
+		<text>
+			<old>Path to Check</old>
+			<new>Path to Check</new>
+		</text>
+		<text>
+			<old>Path to Original File</old>
+			<new>Path to Original File</new>
+		</text>
+		<text>
+			<old>PDF Reader</old>
+			<new>PDF Reader</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Password *</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Password successfully changed.</new>
+		</text>
+		<text>
+			<old>Path to New File</old>
+			<new>Path to New File</new>
+		</text>
+		<text>
+			<old>Path to new Image</old>
+			<new>Path to new Image</new>
+		</text>
+		<text>
+			<old>Path to Original Dir</old>
+			<new>Path to Original Dir</new>
+		</text>
+		<text>
+			<old>Path to File</old>
+			<new>Path to File</new>
+		</text>
+		<text>
+			<old>Path to File's Start</old>
+			<new>Path to File's Start</new>
+		</text>
+		<text>
+			<old>Path to the file</old>
+			<new>Path to the file</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Permissions *</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Please choose a mirror to be tested.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Please choose a group to set it as default group.</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Permissions</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Personal</new>
+		</text>
+		<text>
+			<old>PHP array to transform.</old>
+			<new>PHP array to transform.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Please choose a command to be deleted.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Please choose a command to be edited.</new>
+		</text>
+		<text>
+			<old>Please choose a filetype to be edited.</old>
+			<new>Please choose a filetype to be edited.</new>
+		</text>
+		<text>
+			<old>Please choose a filetype to delete.</old>
+			<new>Please choose a filetype to delete.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Please choose a group to edit.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Please choose a group to delete.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Please choose a mirror to delete.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Please choose a mirror to edit.</new>
+		</text>
+		<text>
+			<old>Please choose a parameter to delete</old>
+			<new>Please choose a parameter to delete</new>
+		</text>
+		<text>
+			<old>Please choose a target to delete</old>
+			<new>Please choose a target to delete</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Please choose a user to be deleted.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Please choose a user to be edited.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to delete</old>
+			<new>Please choose an ACL to delete</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to edit from the list</old>
+			<new>Please choose an ACL to edit from the list</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Please correct your typed settings.</new>
+		</text>
+		<text>
+			<old>Please fill and select all fields</old>
+			<new>Please fill and select all fields</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Please fill in all necessary fields!</new>
+		</text>
+		<text>
+			<old>Please fill in all required fields!</old>
+			<new>Please fill in all required fields!</new>
+		</text>
+		<text>
+			<old>Please fill in and select the proper fields to add params</old>
+			<new>Please fill in and select the proper fields to add params</new>
+		</text>
+		<text>
+			<old>Please fill out all fields.</old>
+			<new>Please fill out all fields.</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Please fill out all required fields marked with *.</new>
+		</text>
+		<text>
+			<old>Please follow the instructions at %s.</old>
+			<new>Please follow the instructions at %s.</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Please type a command!</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Please type a correct group name!</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Please type an address!</new>
+		</text>
+		<text>
+			<old>Please type in the parameter to filter</old>
+			<new>Please type in the parameter to filter</new>
+		</text>
+		<text>
+			<old>Please type the correct root password to uninstall oneye!</old>
+			<new>Please type the correct root password to uninstall oneye!</new>
+		</text>
+		<text>
+			<old>Protect Sessions by IP</old>
+			<new>Protect Sessions by IP</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Protect sessions by IPs</new>
+		</text>
+		<text>
+			<old>Please type your password to remove this account.</old>
+			<new>Please type your password to remove this account.</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Please type the username here:</new>
+		</text>
+		<text>
+			<old>Process Checknum</old>
+			<new>Process Checknum</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Remove temporary files and folders</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Remove</new>
+		</text>
+		<text>
+			<old>Reads a virtual file's info part and returns its contents as an array.</old>
+			<new>Reads a virtual file's info part and returns its contents as an array.</new>
+		</text>
+		<text>
+			<old>Refresh Interval (seconds)</old>
+			<new>Refresh Interval (seconds)</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Remove now!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Remove temporary files and folders from your oneye system</new>
+		</text>
+		<text>
+			<old>Removes a layer from the user's session.</old>
+			<new>Removes a layer from the user's session.</new>
+		</text>
+		<text>
+			<old>Rename Group</old>
+			<new>Rename Group</new>
+		</text>
+		<text>
+			<old>Repeat Wallpaper</old>
+			<new>Repeat Wallpaper</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Reset window positions</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Rename</new>
+		</text>
+		<text>
+			<old>Returns the path to a user's account directory.</old>
+			<new>Returns the path to a user's account directory.</new>
+		</text>
+		<text>
+			<old>Render Method</old>
+			<new>Render Method</new>
+		</text>
+		<text>
+			<old>Returns the path to the current user's 'home' directory.</old>
+			<new>Returns the path to the current user's 'home' directory.</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Reset icon positions</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Repositories</new>
+		</text>
+		<text>
+			<old>Retrieves a file located in the oneye extern directory.</old>
+			<new>Retrieves a file located in the oneye extern directory.</new>
+		</text>
+		<text>
+			<old>Returns the 'tty' field of a process.</old>
+			<new>Returns the 'tty' field of a process.</new>
+		</text>
+		<text>
+			<old>Returns a list of the virtual files found in a directory under the specified search pattern.</old>
+			<new>Returns a list of the virtual files found in a directory under the specified search pattern.</new>
+		</text>
+		<text>
+			<old>Returns the path of a user's directory.</old>
+			<new>Returns the path of a user's directory.</new>
+		</text>
+		<text>
+			<old>Returns the contents of the output buffer.</old>
+			<new>Returns the contents of the output buffer.</new>
+		</text>
+		<text>
+			<old>Returns a list with all the users registered in the system.</old>
+			<new>Returns a list with all the users registered in the system.</new>
+		</text>
+		<text>
+			<old>Returns a handler to work with a file.</old>
+			<new>Returns a handler to work with a file.</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Screenshot</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Returns the real filename in which a virtual file is stored.</old>
+			<new>Returns the real filename in which a virtual file is stored.</new>
+		</text>
+		<text>
+			<old>Returns the resolved path to a specified directory. The path can be part of the user's directory or to a group directory.</old>
+			<new>Returns the resolved path to a specified directory. The path can be part of the user's directory or to a group directory.</new>
+		</text>
+		<text>
+			<old>Returns the size of a file.</old>
+			<new>Returns the size of a file.</new>
+		</text>
+		<text>
+			<old>Returns the whole process table of a user's session.</old>
+			<new>Returns the whole process table of a user's session.</new>
+		</text>
+		<text>
+			<old>Root Password</old>
+			<new>Root Password</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Save Changes</old>
+			<new>Save Changes</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>Save window positions</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Search user...</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Search engines successfully imported.</new>
+		</text>
+		<text>
+			<old>Seconds to wait between every picture</old>
+			<new>Seconds to wait between every picture</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>Security</new>
+		</text>
+		<text>
+			<old>Searches the real files in a directory matching a given search pattern.</old>
+			<new>Searches the real files in a directory matching a given search pattern.</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Select a file...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Select user:</new>
+		</text>
+		<text>
+			<old>Service Description:</old>
+			<new>Service Description:</new>
+		</text>
+		<text>
+			<old>Select a target from the list to add parameters to</old>
+			<new>Select a target from the list to add parameters to</new>
+		</text>
+		<text>
+			<old>Sets a CSS property of an element.</old>
+			<new>Sets a CSS property of an element.</new>
+		</text>
+		<text>
+			<old>SELECT TARGET AND NAME</old>
+			<new>SELECT TARGET AND NAME</new>
+		</text>
+		<text>
+			<old>Sets the user of a process.</old>
+			<new>Sets the user of a process.</new>
+		</text>
+		<text>
+			<old>Sends a signal to an application.</old>
+			<new>Sends a signal to an application.</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Select</new>
+		</text>
+		<text>
+			<old>Service</old>
+			<new>Service</new>
+		</text>
+		<text>
+			<old>Set Fullscreen</old>
+			<new>Set Fullscreen</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Set as default</new>
+		</text>
+		<text>
+			<old>Set value:</old>
+			<new>Set value:</new>
+		</text>
+		<text>
+			<old>Set new password on next login</old>
+			<new>Set new password on next login</new>
+		</text>
+		<text>
+			<old>Set custom value:</old>
+			<new>Set custom value:</new>
+		</text>
+		<text>
+			<old>Service:</old>
+			<new>Service:</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Sorry, this file is not allowed to be a wallpaper.</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Sorry, but that file does not exist.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Show users...</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Show full names</new>
+		</text>
+		<text>
+			<old>Signal Name</old>
+			<new>Signal Name</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Show users</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>Theme changed. You must restart your desktop for the changes to become active.</new>
+		</text>
+		<text>
+			<old>The vfs service is the layer that must be used to manipulate any file inside oneye. It contains two sets of functions to manipulate files: one to work with the user's personal (virtual) files, and the other one (having always a 'real_' prefix on their name) to work with normal (real) files.</old>
+			<new>The vfs service is the layer that must be used to manipulate any file inside oneye. It contains two sets of functions to manipulate files: one to work with the user's personal (virtual) files, and the other one (having always a 'real_' prefix on their name) to work with normal (real) files.</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Settings</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Show all</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Sorry, this page is not installed.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be entered by the default user.</old>
+			<new>Sorry, this page cannot be entered by the default user.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Sorry, you need to login as normal user to enter this page.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Sorry, you do not have permissions to enter this page.</new>
+		</text>
+		<text>
+			<old>Smooth: Icons can be moved anywhere</old>
+			<new>Smooth: Icons can be moved anywhere</new>
+		</text>
+		<text>
+			<old>SMTP</old>
+			<new>SMTP</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Sorry, you need to login as this user to enter this page.</new>
+		</text>
+		<text>
+			<old>Specifies which JavaScript code must be executed every time a widget triggers a JS event.</old>
+			<new>Specifies which JavaScript code must be executed every time a widget triggers a JS event.</new>
+		</text>
+		<text>
+			<old>System Sound</old>
+			<new>System Sound</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>System preferences</new>
+		</text>
+		<text>
+			<old>Target</old>
+			<new>Target</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>That command is already configured!</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>The account was successfully deleted.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startpage</new>
+		</text>
+		<text>
+			<old>System Name</old>
+			<new>System Name</new>
+		</text>
+		<text>
+			<old>Test Address</old>
+			<new>Test Address</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>That command does not exist!</new>
+		</text>
+		<text>
+			<old>Terminates an application calling its closing function and removes it from the process table.</old>
+			<new>Terminates an application calling its closing function and removes it from the process table.</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Temporary files and folders successfully removed.</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>That user does not exist.</new>
+		</text>
+		<text>
+			<old>The category does not exist!</old>
+			<new>The category does not exist!</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>The selected username is too long!</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>The selected user already exists!</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>The chosen group is already the default group!</new>
+		</text>
+		<text>
+			<old>The extern service is used to load resources such as images or CSS files from the extern directory. These resources can then be used by applications within oneye.</old>
+			<new>The extern service is used to load resources such as images or CSS files from the extern directory. These resources can then be used by applications within oneye.</new>
+		</text>
+		<text>
+			<old>The eyeX service is responsible for drawing the contents of the page and the manipulation of CSS and JS files. It is also responsible for the control of the layer system, part of which is the 'eyeApps' layer, in which all the applications and the desktop are drawn.</old>
+			<new>The eyeX service is responsible for drawing the contents of the page and the manipulation of CSS and JS files. It is also responsible for the control of the layer system, part of which is the 'eyeApps' layer, in which all the applications and the desktop are drawn.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>The mirror is installed, yet!</new>
+		</text>
+		<text>
+			<old>The mmap service is a key part of the oneye system that connects the client side with the server side via message passing between the two parts. The messages always consist in an XML string giving instructions of the actions to perform to the part.</old>
+			<new>The mmap service is a key part of the oneye system that connects the client side with the server side via message passing between the two parts. The messages always consist in an XML string giving instructions of the actions to perform to the part.</new>
+		</text>
+		<text>
+			<old>The proc service gives the possibility to manage and get information about running processes.</old>
+			<new>The proc service gives the possibility to manage and get information about running processes.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>The selected file is not an eyeNav bookmarks file.</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>The selected group already exists!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>The selected file is not an eyeNav search engine file.</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>The selected username is too small!</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>The user does not exist.</new>
+		</text>
+		<text>
+			<old>The User Manager service is responsible for managing users and allowing applications to interact with a user's data.</old>
+			<new>The User Management service is responsible for managing users and allowing applications to interact with a user's data.</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>Username contains invalid characters, please try another!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>Transforms a directory's files to virtual mode. Each real file found will have in the same directory an equivalent file in virtual mode.</old>
+			<new>Transforms a directory's files to virtual mode. Each real file found will have in the same directory an equivalent file in virtual mode.</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Title</new>
+		</text>
+		<text>
+			<old>Transforms a PHP array into string convertible to a JS array with the use of the JS function getArrayArg.</old>
+			<new>Transforms a PHP array into string convertible to a JS array with the use of the JS function getArrayArg.</new>
+		</text>
+		<text>
+			<old>Transforms a PHP array into string convertible to a JavaScript array.</old>
+			<new>Transforms a PHP array into string convertible to a JavaScript array.</new>
+		</text>
+		<text>
+			<old>Unlimited</old>
+			<new>Unlimited</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Uninstall</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Theme</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>There was a problem while deleting the group.</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Type the new mirror address:</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Type the new group's name:</new>
+		</text>
+		<text>
+			<old>Uninstall oneye</old>
+			<new>Uninstall oneye</new>
+		</text>
+		<text>
+			<old>Unhides a layer applying a gradual fade in effect.</old>
+			<new>Unhides a layer applying a gradual fade in effect.</new>
+		</text>
+		<text>
+			<old>Turn system sound off</old>
+			<new>Turn system sound off</new>
+		</text>
+		<text>
+			<old>Type in the parameter you want to filter:</old>
+			<new>Type in the parameter you want to filter:</new>
+		</text>
+		<text>
+			<old>Use Defaults</old>
+			<new>Use Defaults</new>
+		</text>
+		<text>
+			<old>Use an HTML5 renderer. It does not require any external plugin. It is still under development, so some PDF files could be wrongly displayed</old>
+			<new>Use an HTML5 renderer. It does not require any external plugin. It is still under development, so some PDF files could be wrongly displayed</new>
+		</text>
+		<text>
+			<old>Update Rule</old>
+			<new>Update Rule</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Update your system's profile</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Update your system's settings</new>
+		</text>
+		<text>
+			<old>Updates a user's information contained in that user's account file.</old>
+			<new>Updates a user's information contained in that user's account file.</new>
+		</text>
+		<text>
+			<old>URL of Script</old>
+			<new>URL of Script</new>
+		</text>
+		<text>
+			<old>URL of Stylesheet</old>
+			<new>URL of Stylesheet</new>
+		</text>
+		<text>
+			<old>Use a custom background color</old>
+			<new>Use a custom background color</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Use a custom wallpaper</new>
+		</text>
+		<text>
+			<old>Use SSL</old>
+			<new>Use SSL</new>
+		</text>
+		<text>
+			<old>Use Doubleclicks</old>
+			<new>Use Doubleclicks</new>
+		</text>
+		<text>
+			<old>Use the browser plugin (recommended if your browser has a PDF reader plugin installed)</old>
+			<new>Use the browser plugin (recommended if your browser has a PDF reader plugin installed)</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Type the name of the group you want to create:</new>
+		</text>
+		<text>
+			<old>Use system default</old>
+			<new>Use system default</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Type the command you want to run at login.</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Used space:</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>Windows</new>
+		</text>
+		<text>
+			<old>User Quota</old>
+			<new>User Quota</new>
+		</text>
+		<text>
+			<old>Used Version</old>
+			<new>Used Version</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>Windows successfully restored. Please restart the applications now.</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>You cannot delete the default mirror!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>You cannot delete the root user!</new>
+		</text>
+		<text>
+			<old>User Name</old>
+			<new>User Name</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>User successfully created.</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Wallpaper</new>
+		</text>
+		<text>
+			<old>Widget Name</old>
+			<new>Widget Name</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>User</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>User successfully deleted.</new>
+		</text>
+		<text>
+			<old>User Name *</old>
+			<new>User Name *</new>
+		</text>
+		<text>
+			<old>Username:</old>
+			<new>Username:</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>You cannot edit the default mirror!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>You cannot save a mirror as the default mirror!</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>XML containing the Task</old>
+			<new>XML containing the Task</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>You are not allowed to manage users!</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>You are not allowed to manage groups!</new>
+		</text>
+		<text>
+			<old>User Quota *</old>
+			<new>User Quota *</new>
+		</text>
+		<text>
+			<old>Used to create a directory in the user's 'home' directory or its descendents.</old>
+			<new>Used to create a directory in the user's 'home' directory or its descendents.</new>
+		</text>
+		<text>
+			<old>Writes the content of a file to a given value. This function is the equivalent of the writeFile() function for virtual files.</old>
+			<new>Writes the content of a file to a given value. This function is the equivalent of the writeFile() function for virtual files.</new>
+		</text>
+		<text>
+			<old>Writes the content of an virtual file to a given value. This function is the equivalent of the real_putFileContent() function for real files.</old>
+			<new>Writes the content of an virtual file to a given value. This function is the equivalent of the real_putFileContent() function for real files.</new>
+		</text>
+		<text>
+			<old>Your oneye system was successfully deleted.</old>
+			<new>Your oneye system was successfully deleted.</new>
+		</text>
+		<text>
+			<old>Your server does not need cleaning!</old>
+			<new>Your server does not need cleaning!</new>
+		</text>
+		<text>
+			<old>Process ID of Application</old>
+			<new>Process ID of Application</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>You cannot delete the default group!</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>You can use /a (ending), /b (beginning) and /c (counts) to list users.</new>
+		</text>
+		<text>
+			<old>Process ID</old>
+			<new>Process ID</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Links cannot be copied!</new>
+		</text>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>You can paste "%s" into another folder now.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s" has been removed successfully.</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s" moved to trash successfully.</new>
+		</text>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Error deleting file!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Launch</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Copy</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Empty trash</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>New file</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>Address Book</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Applications</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Explore</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Download as zip</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>New folder</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload files</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Open with</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Paste</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Rename</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed Reader</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Welcome to %s, %s.</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>New launcher</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Open trash</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Share with</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Trash</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Preferences</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Properties</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>Name</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>Are you sure you want to replace this file?</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>Confirm file replacement</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Date</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Folders</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>Error while trying to browse folder</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>You must select a file</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>Save as...</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Select a file to open</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Select a folder</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>You must enter a name</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Select</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Add Element</old>
+			<new>Add Element</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Applications</new>
+		</text>
+		<text>
+			<old>Apr</old>
+			<new>Apr</new>
+		</text>
+		<text>
+			<old>Aug</old>
+			<new>Aug</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Calculator</new>
+		</text>
+		<text>
+			<old>Dec</old>
+			<new>Dec</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this element?</old>
+			<new>Do you really want to remove this element?</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Catching Game</old>
+			<new>Catching Game</new>
+		</text>
+		<text>
+			<old>Change command</old>
+			<new>Change command</new>
+		</text>
+		<text>
+			<old>Change format</old>
+			<new>Change format</new>
+		</text>
+		<text>
+			<old>Change height</old>
+			<new>Change height</new>
+		</text>
+		<text>
+			<old>Change image</old>
+			<new>Change image</new>
+		</text>
+		<text>
+			<old>Change text</old>
+			<new>Change text</new>
+		</text>
+		<text>
+			<old>Change width</old>
+			<new>Change width</new>
+		</text>
+		<text>
+			<old>Change</old>
+			<new>Change</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Chess Game</new>
+		</text>
+		<text>
+			<old>Close Session</old>
+			<new>Close Session</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Contact Manager</new>
+		</text>
+		<text>
+			<old>Datetime</old>
+			<new>Date &amp; Time</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Manage Dock</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Mail Client</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>Icon</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Games</new>
+		</text>
+		<text>
+			<old>Feb</old>
+			<new>Feb</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>File Manager</new>
+		</text>
+		<text>
+			<old>Jul</old>
+			<new>Jul</new>
+		</text>
+		<text>
+			<old>Jan</old>
+			<new>Jan</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Accessories</new>
+		</text>
+		<text>
+			<old>About oneye</old>
+			<new>About oneye</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Internal Messaging</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Friday</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>Mar</old>
+			<new>Mar</new>
+		</text>
+		<text>
+			<old>Manage Widgets</old>
+			<new>Manage Widgets</new>
+		</text>
+		<text>
+			<old>Left</old>
+			<new>Left</new>
+		</text>
+		<text>
+			<old>Line</old>
+			<new>Line</new>
+		</text>
+		<text>
+			<old>Move down</old>
+			<new>Move down</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Monday</new>
+		</text>
+		<text>
+			<old>Jun</old>
+			<new>Jun</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Launch App</new>
+		</text>
+		<text>
+			<old>Menu</old>
+			<new>Menu</new>
+		</text>
+		<text>
+			<old>Move left</old>
+			<new>Move left</new>
+		</text>
+		<text>
+			<old>Move right</old>
+			<new>Move right</new>
+		</text>
+		<text>
+			<old>Move up</old>
+			<new>Move up</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Network</new>
+		</text>
+		<text>
+			<old>New Icon</old>
+			<new>New Icon</new>
+		</text>
+		<text>
+			<old>New Menu</old>
+			<new>New Menu</new>
+		</text>
+		<text>
+			<old>New Text</old>
+			<new>New Text</new>
+		</text>
+		<text>
+			<old>Nov</old>
+			<new>Nov</new>
+		</text>
+		<text>
+			<old>Oct</old>
+			<new>Oct</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Office</new>
+		</text>
+		<text>
+			<old>Please specifiy the new command for this element.</old>
+			<new>Please specifiy the new command for this element.</new>
+		</text>
+		<text>
+			<old>Please specifiy the new format for this element.</old>
+			<new>Please specifiy the new format for this element.</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Process Manager</new>
+		</text>
+		<text>
+			<old>Presentation</old>
+			<new>Presentation</new>
+		</text>
+		<text>
+			<old>Please specifiy the new height for this element.</old>
+			<new>Please specifiy the new height for this element.</new>
+		</text>
+		<text>
+			<old>Please specifiy the new image for this element.</old>
+			<new>Please specifiy the new image for this element.</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Remove</new>
+		</text>
+		<text>
+			<old>Right</old>
+			<new>Right</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Public Board</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>Remove element</old>
+			<new>Remove element</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed Reader</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Saturday</new>
+		</text>
+		<text>
+			<old>Select the type of the new element. You can edit its options later.</old>
+			<new>Select the type of the new element. You can edit its options later.</new>
+		</text>
+		<text>
+			<old>Sep</old>
+			<new>Sep</new>
+		</text>
+		<text>
+			<old>Show / Hide image</old>
+			<new>Show / Hide image</new>
+		</text>
+		<text>
+			<old>Show / Hide text</old>
+			<new>Show / Hide text</new>
+		</text>
+		<text>
+			<old>Show Desktop</old>
+			<new>Show Desktop</new>
+		</text>
+		<text>
+			<old>Showdesktop</old>
+			<new>Show Desktop</new>
+		</text>
+		<text>
+			<old>Space</old>
+			<new>Space</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Spreadsheet</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Sunday</new>
+		</text>
+		<text>
+			<old>System Preferences</old>
+			<new>System Preferences</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>Taskbar</old>
+			<new>Taskbar</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Game</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Text Editor</new>
+		</text>
+		<text>
+			<old>Text</old>
+			<new>Text</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Thursday</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tuesday</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Wednesday</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Word Processor</new>
+		</text>
+		<text>
+			<old>Please specifiy the new width for this element.</old>
+			<new>Please specifiy the new width for this element.</new>
+		</text>
+		<text>
+			<old>Please specifiy the new text for this element.</old>
+			<new>Please specifiy the new text for this element.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Delete warning</old>
+			<new>Delete warning</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Do you want to save changes?</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Document saved successfully.</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Don't save</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Error - Document not saved. Please try again.</old>
+			<new>Error - Document not saved. Please try again.</new>
+		</text>
+		<text>
+			<old>Error creating file.</old>
+			<new>Error creating file.</new>
+		</text>
+		<text>
+			<old>Error saving file.</old>
+			<new>Error saving file.</new>
+		</text>
+		<text>
+			<old>oneye document file</old>
+			<new>oneye document file</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Sorry, you do not have sufficient permissions!</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>File not found.</old>
+			<new>File not found.</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Word Processor</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Open Document Text file</new>
+		</text>
+		<text>
+			<old>Sorry, you need to enable OpenOffice Support to view this document.</old>
+			<new>Sorry, you need to enable OpenOffice Support to view this document.</new>
+		</text>
+		<text>
+			<old>The file does not exist.</old>
+			<new>The file does not exist.</new>
+		</text>
+		<text>
+			<old>MS Word document file</old>
+			<new>MS Word document file</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Download!</old>
+			<new>Download!</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Links cannot be downloaded!</new>
+		</text>
+		<text>
+			<old>You can close this window now.</old>
+			<new>You can close this window now.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Apply</old>
+			<new>Apply</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Add feed</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Choose a parent folder for the new folder:</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Add Feed</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Error getting specified feed</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Add Folder</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Are you sure you want to delete this feed?</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Choose a folder for the new feed:</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Bookmarks</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Are you sure you want to delete this folder?</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Choose a parent for the folder:</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Choose a file to import</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>Choose a folder for the imported feeds:</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Edit Feed</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Error saving feed</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Element successfully deleted</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Date</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Delete feed/folder</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(Unknown name)</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Add folder</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Edit Folder</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Error adding feed</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Error saving settings</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Error applying changes</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Error deleting the feed</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Error adding folder</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Error importing feeds</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Error saving folder</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Choose a folder for the feed:</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Export</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Folder successfully added</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Feed successfully added</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Feed successfully changed</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Feeds cache duration (sec.):</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Unable to export list to the specified location</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Feeds</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Feeds successfully imported</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Folder successfully changed</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>Reading history cache duration (days):</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Import Feeds from OPML</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed Reader</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Loading, please wait...</new>
+		</text>
+		<text>
+			<old>OPML files</old>
+			<new>OPML files</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Settings saved successfully</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Unable to import feeds from specified file</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Title</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Select a feed to browse...</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Select an item to read...</new>
+		</text>
+		<text>
+			<old>eyeFeeds - Enclosure</old>
+			<new>eyeFeeds - Enclosure</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Select file</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Feeds list successfully exported</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Size of content preview (char.):</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Settings</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Type the name of the feed (optional):</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>You must enter a name</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Type the name of the folder:</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Type the URL of the feed:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Type the name of the folder to create (optional):</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Unable to fetch entered URL</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>You may restart the application to apply the changes.</new>
+		</text>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Number of titles displayed in the list:</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Copy</old>
+			<new>Copy</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filename</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>Files Manager</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Details</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Download as zip</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Empty trash</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Explore</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Groups</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>Filter:</new>
+		</text>
+		<text>
+			<old>Folders at first</old>
+			<new>Folders at first</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Actions</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Back</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Filetime</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Filesize (B)</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>Icons</new>
+		</text>
+		<text>
+			<old>Go Up</old>
+			<new>Go Up</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Launch</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>List</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>New file</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>New folder</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Open with</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Paste</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Properties</new>
+		</text>
+		<text>
+			<old>Real</old>
+			<new>Real</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Restore</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>Share with</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Show all</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>Show files</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>Show folders</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>Show links</new>
+		</text>
+		<text>
+			<old>Show not</old>
+			<new>Show not</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>Show only</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Trash</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>Tree</new>
+		</text>
+		<text>
+			<old>Update view</old>
+			<new>Update view</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload files</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>Users</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>View</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Rename</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>An error occurred during path resolving, aborting</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Are you sure you want to delete this file/folder?</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>Attempting to create folder "%s" in "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to delete "%s"...</old>
+			<new>Attempting to delete "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>Attempting to rename/move "%s"...</new>
+		</text>
+		<text>
+			<old>Authenticating user...</old>
+			<new>Authenticating user...</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>Authentication failed. Invalid username/password!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Connect</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Create</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Date</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Connection accepted</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Delete file/folder</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Delete Selection</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Directory "%s" created successfully</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>Directory listing successful for "%s" (%s file(s) found)</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Disconnect</new>
+		</text>
+		<text>
+			<old>Disconnected - FTP Client</old>
+			<new>Disconnected - FTP Client</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>Disconnecting from %s:%s</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>Download finished successfully, %s bytes transfered.</new>
+		</text>
+		<text>
+			<old>Download of file "%s" finished.</old>
+			<new>Download of file "%s" finished.</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Download of directory "%s" finished.</old>
+			<new>Download of directory "%s" finished.</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Edit Selection</new>
+		</text>
+		<text>
+			<old>Error while downloading file "%s"! Transfer aborted.</old>
+			<new>Error while downloading file "%s"! Transfer aborted.</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>Downloading: "%s" to "%s"</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>Error while trying to browse local folder!</new>
+		</text>
+		<text>
+			<old>Error while uploading file "%s"! Transfer aborted.</old>
+			<new>Error while uploading file "%s"! Transfer aborted.</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP v.%s started</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>Failed to connect to specified host!</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted.</old>
+			<new>Error while uploading file! Transfer aborted.</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>Error, can't upload file "%s" to FTP server</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to oneye server (check maximum filesize accepted by PHP?)</old>
+			<new>Error, can't upload file "%s" to oneye server (check maximum filesize accepted by PHP?)</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>File/folder renamed successfully</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>File "%s" successfully uploaded to "%s"</new>
+		</text>
+		<text>
+			<old>File "%s" already exists, overwriting.</old>
+			<new>File "%s" already exists, overwriting.</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Add host</new>
+		</text>
+		<text>
+			<old>Add -a to LIST command</old>
+			<new>Add -a to LIST command</new>
+		</text>
+		<text>
+			<old>File "%s" deleted successfully</old>
+			<new>File "%s" deleted successfully</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filename</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Filesize (B)</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Filesize</new>
+		</text>
+		<text>
+			<old>Folder "%s" deleted successfully</old>
+			<new>Folder "%s" deleted successfully</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Force passive mode</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>Help and FAQ available on the eyeos wiki: %s</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Host: </new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Hostname</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>Hosts Management</new>
+		</text>
+		<text>
+			<old>Listing directory "%s"...</old>
+			<new>Listing directory "%s"...</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Load Selection</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Manage hosts</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Name must not be empty</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>New folder</new>
+		</text>
+		<text>
+			<old>no</old>
+			<new>no</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Password: </new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Permissions</new>
+		</text>
+		<text>
+			<old>Only files can be downloaded</old>
+			<new>Only files can be downloaded</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>Passive mode accepted</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Owner</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port: </new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>Please specify a host to connect to</new>
+		</text>
+		<text>
+			<old>Unable to download directory, error occured</old>
+			<new>Unable to download directory, error occured</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>Unable to delete folder, error occured. (Do you have sufficient permissions?)</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Please specify a username</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Password</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>Passive mode failed! Data transfers will be performed in active mode</new>
+		</text>
+		<text>
+			<old>Unable to connect to %s</old>
+			<new>Unable to connect to %s</new>
+		</text>
+		<text>
+			<old>Unable to create directory "%s".</old>
+			<new>Unable to create directory "%s".</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Select a file to upload to path:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Rename</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Type the name of the new folder</new>
+		</text>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>Trying to connect to %s:%s (user "%s") ...</new>
+		</text>
+		<text>
+			<old>Unable to delete directory's content at "%s".</old>
+			<new>Unable to delete directory's content at "%s".</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>Unable to create temporary file! Download aborted.</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>Unable to create directory, error occured. (Do you have sufficient permissions?)</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Rename file/folder</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Rename/Move</new>
+		</text>
+		<text>
+			<old>Unable to create file "%s".</old>
+			<new>Unable to create file "%s".</new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>Unable to delete file, error occured. (Do you have sufficient permissions?)</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>You must connect first!</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>You must connect first</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>Unable to download file, error occured</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured. (Do you have sufficient permissions?)</old>
+			<new>Unable to list files, error occured. (Do you have sufficient permissions?)</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>Unable to list files, error occured</new>
+		</text>
+		<text>
+			<old>Unable to read file "%s"</old>
+			<new>Unable to read file "%s"</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>Unable to read temporary file! Upload aborted.</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>Unable to rename selection, error occured. (Do you have sufficient permissions?)</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>Unable to upload file, error occured</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>Unable to write file, try to check permissions.</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>Unknown error occured during upload operation</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Upload a file</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>Upload finished successfully, %s bytes transfered.</new>
+		</text>
+		<text>
+			<old>Upload of file "%s" finished.</old>
+			<new>Upload of file "%s" finished.</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Upload</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>Uploading: "%s" to "%s"</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>User "%s" authenticated successfully</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>User: </new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>yes</old>
+			<new>yes</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>You must select a file or a folder first</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>You must select a host to delete</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>You must select a host to load</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>You must select a local file</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>You must select a host to edit</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>You must specify a hostname, a port and a username</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Type the new name/location of the file/folder</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>You must select a remote file</new>
+		</text>
+		<text>
+			<old>Unable to browse directory's content at "%s".</old>
+			<new>Unable to browse directory's content at "%s".</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>eyeHelp preferences</new>
+		</text>
+		<text>
+			<old>Help Console</old>
+			<new>Help Console</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>Ask for help</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>Changes successfully applied.</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Preferences</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>Submit</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>User to contact to ask for help:</new>
+		</text>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>You are not allowed to do this.</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>The field must not be left empty.</new>
+		</text>
+		<text>
+			<old>Topics</old>
+			<new>Topics</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>What URL do you want to open in an Iframe?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>JPEG files</old>
+			<new>JPEG files</new>
+		</text>
+		<text>
+			<old>BMP files</old>
+			<new>BMP files</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>GIF files</old>
+			<new>GIF files</new>
+		</text>
+		<text>
+			<old>Image formats</old>
+			<new>Image formats</new>
+		</text>
+		<text>
+			<old>JPG files</old>
+			<new>JPG files</new>
+		</text>
+		<text>
+			<old>View Images</old>
+			<new>View Images</new>
+		</text>
+		<text>
+			<old>No image could be found.</old>
+			<new>No image could be found.</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>PNG files</old>
+			<new>PNG files</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Previous</new>
+		</text>
+		<text>
+			<old>TIFF files</old>
+			<new>TIFF files</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s files imported!</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Browse</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>You have to select a directory to import files</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>About</old>
+			<new>About</new>
+		</text>
+		<text>
+			<old>Community Supporters</old>
+			<new>Community Supporters</new>
+		</text>
+		<text>
+			<old>Development</old>
+			<new>Development</new>
+		</text>
+		<text>
+			<old>eyeos Team (randomly displayed)</old>
+			<new>eyeos Team (randomly displayed)</new>
+		</text>
+		<text>
+			<old>eyeos Team</old>
+			<new>eyeos Team</new>
+		</text>
+		<text>
+			<old>oneye Team</old>
+			<new>oneye Team</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>Projects</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Supporters</new>
+		</text>
+		<text>
+			<old>Thanks to...</old>
+			<new>Thanks to...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Do you really want to install this package into the system?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installing</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Nothing to install!</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Package installed successfully!</new>
+		</text>
+		<text>
+			<old>OK</old>
+			<new>OK</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Only root can install packages</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Error, empty username or password</new>
+		</text>
+		<text>
+			<old>%s has had an unknow problem and could not be executed</old>
+			<new>%s has had an unknow problem and could not be executed</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Error, invalid username or password</new>
+		</text>
+		<text>
+			<old>%s has had a problem and could not be executed</old>
+			<new>%s has had a problem and could not be executed</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s not found</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Invalid username</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Password</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Run as different user</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Type the name of the app or command to run</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>User</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Run...</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Run</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Language (this session)</old>
+			<new>Language (this session)</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Language</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Create account</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Enter</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Error creating new user!</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Password is too short!</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Password fields do not match!</new>
+		</text>
+		<text>
+			<old>Change password</old>
+			<new>Change password</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>( Default )</new>
+		</text>
+		<text>
+			<old>New Password:</old>
+			<new>New Password:</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>New User</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Password</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Please fill out all fields!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Retype password</new>
+		</text>
+		<text>
+			<old>Retype password:</old>
+			<new>Retype password:</new>
+		</text>
+		<text>
+			<old>Set new password</old>
+			<new>Set new password</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>This system does not allow user registrations!</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>Username is too short!</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>Username should be alpha-numeric!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>You need to specify a new password for this account now...</old>
+			<new>You need to specify a new password for this account now...</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Your account has been disabled!</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>That user already exists!</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>The language does not exist!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Are you sure you want to remove the account "%s"?</old>
+			<new>Are you sure you want to remove the account "%s"?</new>
+		</text>
+		<text>
+			<old>Accounts</old>
+			<new>Accounts</new>
+		</text>
+		<text>
+			<old>Activity Monitor</old>
+			<new>Activity Monitor</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Advanced</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Back</new>
+		</text>
+		<text>
+			<old>From:</old>
+			<new>From:</new>
+		</text>
+		<text>
+			<old>Email account has been updated.</old>
+			<new>Email account has been updated.</new>
+		</text>
+		<text>
+			<old>Are you sure?</old>
+			<new>Are you sure?</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Attach</new>
+		</text>
+		<text>
+			<old>CC:</old>
+			<new>CC:</new>
+		</text>
+		<text>
+			<old>CCO:</old>
+			<new>CCO:</new>
+		</text>
+		<text>
+			<old>Check for new mail:</old>
+			<new>Check for new mail:</new>
+		</text>
+		<text>
+			<old>Check mail at startup</old>
+			<new>Check mail at startup</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Contacts</new>
+		</text>
+		<text>
+			<old>Date: %s</old>
+			<new>Date: %s</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>Date:</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this mail?</old>
+			<new>Do you really want to delete this mail?</new>
+		</text>
+		<text>
+			<old>Downloading all mails...</old>
+			<new>Downloading all mails...</new>
+		</text>
+		<text>
+			<old>Email account has been created.</old>
+			<new>Email account has been created.</new>
+		</text>
+		<text>
+			<old>Email Address:</old>
+			<new>Email Address:</new>
+		</text>
+		<text>
+			<old>Error sending mail</old>
+			<new>Error sending mail</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>eyeMail has found the %s server settings. Please, verify that the information below is correct. To enter the settings manually click on "Manual".</old>
+			<new>eyeMail has found the %s server settings. Please, verify that the information below is correct. To enter the settings manually click on "Manual".</new>
+		</text>
+		<text>
+			<old>Email:</old>
+			<new>Email:</new>
+		</text>
+		<text>
+			<old>Enter an account name to be identified later.</old>
+			<new>Enter an account name to be identified later.</new>
+		</text>
+		<text>
+			<old>Enter the name you would like to appear in the "From" field of your outgoing messages (for example, "John Doe").</old>
+			<new>Enter the name you would like to appear in the "From" field of your outgoing messages (for example, "John Doe").</new>
+		</text>
+		<text>
+			<old>Account Name:</old>
+			<new>Account Name:</new>
+		</text>
+		<text>
+			<old>Enter your email address and password. This is the address others will use to send email to you (for example, "user@server.net").</old>
+			<new>Enter your email address and password. This is the address others will use to send email to you (for example, "user@server.net").</new>
+		</text>
+		<text>
+			<old>Account Type:</old>
+			<new>Account Type:</new>
+		</text>
+		<text>
+			<old>Every 30 minutes</old>
+			<new>Every 30 minutes</new>
+		</text>
+		<text>
+			<old>Every 5 minutes</old>
+			<new>Every 5 minutes</new>
+		</text>
+		<text>
+			<old>Every hour</old>
+			<new>Every hour</new>
+		</text>
+		<text>
+			<old>Every 15 minutes</old>
+			<new>Every 15 minutes</new>
+		</text>
+		<text>
+			<old>Fetch</old>
+			<new>Fetch</new>
+		</text>
+		<text>
+			<old>Incoming Server Type:</old>
+			<new>Incoming Server Type:</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Forward</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>From</new>
+		</text>
+		<text>
+			<old>From: %s</old>
+			<new>From: %s</new>
+		</text>
+		<text>
+			<old>Finish</old>
+			<new>Finish</new>
+		</text>
+		<text>
+			<old>Create a new account</old>
+			<new>Create a new account</new>
+		</text>
+		<text>
+			<old>Full Name:</old>
+			<new>Full Name:</new>
+		</text>
+		<text>
+			<old>General settings has been updated.</old>
+			<new>General settings has been updated.</new>
+		</text>
+		<text>
+			<old>General</old>
+			<new>General</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Inbox</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Date</new>
+		</text>
+		<text>
+			<old>Incoming</old>
+			<new>Incoming</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Name</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>New</new>
+		</text>
+		<text>
+			<old>Mailbox</old>
+			<new>Mailbox</new>
+		</text>
+		<text>
+			<old>Manual</old>
+			<new>Manual</new>
+		</text>
+		<text>
+			<old>Manually</old>
+			<new>Manually</new>
+		</text>
+		<text>
+			<old>Outgoing</old>
+			<new>Outgoing</new>
+		</text>
+		<text>
+			<old>Outcoming</old>
+			<new>Outcoming</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Sending mail...</old>
+			<new>Sending mail...</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Password:</old>
+			<new>Password:</new>
+		</text>
+		<text>
+			<old>Please fill out all fields.</old>
+			<new>Please fill out all fields.</new>
+		</text>
+		<text>
+			<old>Port:</old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Preferences</new>
+		</text>
+		<text>
+			<old>Recive Rich Text</old>
+			<new>Recive Rich Text</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Run</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Security settings has been updated.</old>
+			<new>Security settings has been updated.</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>Security</new>
+		</text>
+		<text>
+			<old>Send Rich Text</old>
+			<new>Send Rich Text</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Sent</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Subject</new>
+		</text>
+		<text>
+			<old>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for SQLite first.</old>
+			<new>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for SQLite first.</new>
+		</text>
+		<text>
+			<old>To:</old>
+			<new>To:</new>
+		</text>
+		<text>
+			<old>Server Host:</old>
+			<new>Server Host:</new>
+		</text>
+		<text>
+			<old>Server Port:</old>
+			<new>Server Port:</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Size</new>
+		</text>
+		<text>
+			<old>Information</old>
+			<new>Information</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sorry, you do not have sufficient permissions.</new>
+		</text>
+		<text>
+			<old>Mail</old>
+			<new>Mail</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>Subject:</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Surname</new>
+		</text>
+		<text>
+			<old>To: %s</old>
+			<new>To: %s</new>
+		</text>
+		<text>
+			<old>Subject: %s</old>
+			<new>Subject: %s</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Unable to create file</new>
+		</text>
+		<text>
+			<old>Your message has been sent</old>
+			<new>Your message has been sent</new>
+		</text>
+		<text>
+			<old>Username:</old>
+			<new>Username:</new>
+		</text>
+		<text>
+			<old>Visual alert</old>
+			<new>Visual alert</new>
+		</text>
+		<text>
+			<old>Write a new mail</old>
+			<new>Write a new mail</new>
+		</text>
+		<text>
+			<old>User:</old>
+			<new>User:</new>
+		</text>
+		<text>
+			<old>Remove Account</old>
+			<new>Remove Account</new>
+		</text>
+		<text>
+			<old>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for IMAP first.</old>
+			<new>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for IMAP first.</new>
+		</text>
+		<text>
+			<old>You have %s new mail</old>
+			<new>You have %s new mail</new>
+		</text>
+		<text>
+			<old>You have %s new mails</old>
+			<new>You have %s new mails</new>
+		</text>
+		<text>
+			<old>Your account e-mails has been imported</old>
+			<new>Your account e-mails has been imported</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Reply</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Bottom</old>
+			<new>Bottom</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Manage Dock</new>
+		</text>
+		<text>
+			<old>Add Element</old>
+			<new>Add Element</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>This panel is made to control the Dock system. It provides some maintenance features. Please see the context menus of the dock for further options.</old>
+			<new>This panel is made to control the Dock system. It provides some maintenance features. Please see the context menus of the dock for further options.</new>
+		</text>
+		<text>
+			<old>Top</old>
+			<new>Top</new>
+		</text>
+		<text>
+			<old>Show / Hide</old>
+			<new>Show / Hide</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMedia</name>
+		<text>
+			<old>No folder selected.</old>
+			<new>No folder selected.</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Add Folder</new>
+		</text>
+		<text>
+			<old>Clear List</old>
+			<new>Clear List</new>
+		</text>
+		<text>
+			<old>Error opening: %s</old>
+			<new>Error opening: %s</new>
+		</text>
+		<text>
+			<old>Add File</old>
+			<new>Add File</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filename</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>No file selected.</old>
+			<new>No file selected.</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>Media Player</new>
+		</text>
+		<text>
+			<old>Nothing Playing.</old>
+			<new>Nothing Playing.</new>
+		</text>
+		<text>
+			<old>Successfully opened: %s</old>
+			<new>Successfully opened: %s</new>
+		</text>
+		<text>
+			<old>Play</old>
+			<new>Play</new>
+		</text>
+		<text>
+			<old>Playing.</old>
+			<new>Playing.</new>
+		</text>
+		<text>
+			<old>Playing: %s</old>
+			<new>Playing: %s</new>
+		</text>
+		<text>
+			<old>Paused.</old>
+			<new>Paused.</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Previous</new>
+		</text>
+		<text>
+			<old>Remove File</old>
+			<new>Remove File</new>
+		</text>
+		<text>
+			<old>Shuffle</old>
+			<new>Shuffle</new>
+		</text>
+		<text>
+			<old>Stop</old>
+			<new>Stop</new>
+		</text>
+		<text>
+			<old>Repeat</old>
+			<new>Repeat</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>From</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Attach</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Date</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Empty</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>File saved successfully.</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Emptied</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Are you sure you want to empty all messages of this folder?</new>
+		</text>
+		<text>
+			<old>(do) Read</old>
+			<new>Read</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Error opening message</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Confirm empty</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Inbox</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Message restored in its original folder</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>You must choose a message to delete</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Restore</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Read Message</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Sent</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Reply</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>To</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Unread</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Subject</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>New</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Internal Messaging</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Trash</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>You must choose a message to open</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Read</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Create folder</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Error creating directory!</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Some special chars have been removed.</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Type the name of the new folder</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug. Unfortunately it is a problem with your Flash player!</old>
+			<new>This is not a bug. Unfortunately it is a problem with your Flash player!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add Bookmark</old>
+			<new>Add Bookmark</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Add Folder</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Add folder</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Are you sure you want to delete this feed?</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Are you sure you want to delete this folder?</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Back</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>Bookmark does not exist!</new>
+		</text>
+		<text>
+			<old>Bookmark successfully added</old>
+			<new>Bookmark successfully added</new>
+		</text>
+		<text>
+			<old>Bookmark successfully edited</old>
+			<new>Bookmark successfully edited</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Bookmark title</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Bookmarks</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Choose a folder for the Bookmark:</old>
+			<new>Choose a folder for the Bookmark:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new Bookmark:</old>
+			<new>Choose a folder for the new Bookmark:</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Choose a parent folder for the new folder:</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Choose a parent for the folder:</new>
+		</text>
+		<text>
+			<old>Delete bookmark/folder</old>
+			<new>Delete bookmark/folder</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Delete bookmark</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Add bookmark</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Do you really want to delete this bookmark?</new>
+		</text>
+		<text>
+			<old>Edit Bookmark</old>
+			<new>Edit Bookmark</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Edit Folder</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Element successfully deleted</new>
+		</text>
+		<text>
+			<old>Error adding bookmark</old>
+			<new>Error adding bookmark</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Error adding folder</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Error deleting the feed</new>
+		</text>
+		<text>
+			<old>Error editing bookmark</old>
+			<new>Error editing bookmark</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Folder successfully added</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forums</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Images</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Link successfully deleted.</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Knowledge</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Settings</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Search</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Forward</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Open bookmarks</new>
+		</text>
+		<text>
+			<old>Open As App</old>
+			<new>Open As App</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Refresh</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Open searches</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Link successfully saved.</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Website</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Uncategorized</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startpage</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>The selected file is not a valid eyeNav bookmarks file!</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>The selected file is not a valid eyeNav search file!</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>There is already another bookmark with this title!</new>
+		</text>
+		<text>
+			<old>Type the name of the Bookmark (optional):</old>
+			<new>Type the name of the Bookmark (optional):</new>
+		</text>
+		<text>
+			<old>Type the name of the Bookmark:</old>
+			<new>Type the name of the Bookmark:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Type the name of the folder:</new>
+		</text>
+		<text>
+			<old>Type the URL of the Bookmark:</old>
+			<new>Type the URL of the Bookmark:</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>You must enter all fields</old>
+			<new>You must enter all fields</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>You must enter a name</new>
+		</text>
+		<text>
+			<old>New Window</old>
+			<new>New Window</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Delete warning</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>Do you want to save changes?</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>File saved successfully.</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>Don't save</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>New</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Unable to create file</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Save As</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sorry, you do not have sufficient permissions.</new>
+		</text>
+		<text>
+			<old>Text files</old>
+			<new>Text files</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Text Editor</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Open "%s" with...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePaste</name>
+		<text>
+			<old>"%s" cannot be copied from trash.</old>
+			<new>"%s" cannot be copied from trash.</new>
+		</text>
+		<text>
+			<old>"%s" cannot be copied to trash.</old>
+			<new>"%s" cannot be copied to trash.</new>
+		</text>
+		<text>
+			<old>"%s" already exists. Please enter a new name or replace the existing one.</old>
+			<new>"%s" already exists. Please enter a new name or replace the existing one.</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Rename</new>
+		</text>
+		<text>
+			<old>Replace</old>
+			<new>Replace</new>
+		</text>
+		<text>
+			<old>Links cannot be pasted!</old>
+			<new>Links cannot be pasted!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePdf</name>
+		<text>
+			<old>Page Width</old>
+			<new>Page Width</new>
+		</text>
+		<text>
+			<old>Document Outline</old>
+			<new>Document Outline</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>All files</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>Page Fit</old>
+			<new>Page Fit</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>PDF files</old>
+			<new>PDF files</new>
+		</text>
+		<text>
+			<old>Zoom Out</old>
+			<new>Zoom Out</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Print</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Previous</new>
+		</text>
+		<text>
+			<old>Show Document Outline</old>
+			<new>Show Document Outline</new>
+		</text>
+		<text>
+			<old>Show Thumbnails</old>
+			<new>Show Thumbnails</new>
+		</text>
+		<text>
+			<old>Zoom In</old>
+			<new>Zoom In</new>
+		</text>
+		<text>
+			<old>Thumbs</old>
+			<new>Thumbs</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePictures</name>
+		<text>
+			<old>B&amp;W</old>
+			<new>B&amp;W</new>
+		</text>
+		<text>
+			<old>%s Directories, %s Images</old>
+			<new>%s Directories, %s Images</new>
+		</text>
+		<text>
+			<old>Cannot go further up. You are already in the home directory</old>
+			<new>Cannot go further up. You are already in the home directory</new>
+		</text>
+		<text>
+			<old>An error has occurred during image resize (unserialize failed)</old>
+			<new>An error has occurred during image resize (unserialize failed)</new>
+		</text>
+		<text>
+			<old>File name already exists, choose a different file name.</old>
+			<new>File name already exists, choose a different file name.</new>
+		</text>
+		<text>
+			<old>B&amp;W</old>
+			<new>B&amp;W</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>B&amp;W</old>
+			<new>B&amp;W</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Browse</new>
+		</text>
+		<text>
+			<old>B</old>
+			<new>B</new>
+		</text>
+		<text>
+			<old>B&amp;W</old>
+			<new>B&amp;W</new>
+		</text>
+		<text>
+			<old>Choose the effect you want to apply.</old>
+			<new>Choose the effect you want to apply.</new>
+		</text>
+		<text>
+			<old>Blur</old>
+			<new>Blur</new>
+		</text>
+		<text>
+			<old>Bright -</old>
+			<new>Bright -</new>
+		</text>
+		<text>
+			<old>Color effects are not available in browse mode, use view mode instead.</old>
+			<new>Color effects are not available in browse mode, use view mode instead.</new>
+		</text>
+		<text>
+			<old>Error during the tmp folder creation. Cannot load eyePictures.</old>
+			<new>Error during the tmp folder creation. Cannot load eyePictures.</new>
+		</text>
+		<text>
+			<old>Contrast +</old>
+			<new>Contrast +</new>
+		</text>
+		<text>
+			<old>Contrast -</old>
+			<new>Contrast -</new>
+		</text>
+		<text>
+			<old>Creation Date</old>
+			<new>Creation Date</new>
+		</text>
+		<text>
+			<old>%s Directories, %s Images (%s)</old>
+			<new>%s Directories, %s Images (%s)</new>
+		</text>
+		<text>
+			<old>Arguments must be passed to showImage serialized. Cannot load the image</old>
+			<new>Arguments must be passed to showImage serialized. Cannot load the image</new>
+		</text>
+		<text>
+			<old>Edit Colors</old>
+			<new>Edit Colors</new>
+		</text>
+		<text>
+			<old>Emboss</old>
+			<new>Emboss</new>
+		</text>
+		<text>
+			<old>Error during file writing. The file has not been saved</old>
+			<new>Error during file writing. The file has not been saved</new>
+		</text>
+		<text>
+			<old>File Name</old>
+			<new>File Name</new>
+		</text>
+		<text>
+			<old>File name cannot be empty.</old>
+			<new>File name cannot be empty.</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Back</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>File saved successfully.</new>
+		</text>
+		<text>
+			<old>Bright +</old>
+			<new>Bright +</new>
+		</text>
+		<text>
+			<old>GB</old>
+			<new>GB</new>
+		</text>
+		<text>
+			<old>Invert</old>
+			<new>Invert</new>
+		</text>
+		<text>
+			<old>Go to the Home directory</old>
+			<new>Go to the Home directory</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Home</new>
+		</text>
+		<text>
+			<old>This is the first image of the folder!</old>
+			<new>This is the first image of the folder!</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Images</new>
+		</text>
+		<text>
+			<old>Image Size</old>
+			<new>Image Size</new>
+		</text>
+		<text>
+			<old>KB</old>
+			<new>KB</new>
+		</text>
+		<text>
+			<old>Save as:</old>
+			<new>Save as:</new>
+		</text>
+		<text>
+			<old>MB</old>
+			<new>MB</new>
+		</text>
+		<text>
+			<old>Level Up</old>
+			<new>Level Up</new>
+		</text>
+		<text>
+			<old>Sepia</old>
+			<new>Sepia</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>Places</new>
+		</text>
+		<text>
+			<old>Rotate Right</old>
+			<new>Rotate Right</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Settings</new>
+		</text>
+		<text>
+			<old>This image type is not supported!</old>
+			<new>This image type is not supported!</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Size</new>
+		</text>
+		<text>
+			<old>Slide Show</old>
+			<new>Slide Show</new>
+		</text>
+		<text>
+			<old>Slideshow mode enabled.</old>
+			<new>Slideshow mode enabled.</new>
+		</text>
+		<text>
+			<old>Go to "%s"</old>
+			<new>Go to "%s"</new>
+		</text>
+		<text>
+			<old>Image rotation is only available in View mode</old>
+			<new>Image rotation is only available in View mode</new>
+		</text>
+		<text>
+			<old>Slideshow stopped. You are now in browse mode.</old>
+			<new>Slideshow stopped. You are now in browse mode.</new>
+		</text>
+		<text>
+			<old>Slideshow stopped. You are now in view mode.</old>
+			<new>Slideshow stopped. You are now in view mode.</new>
+		</text>
+		<text>
+			<old>The resolution of this photo is too high to be processed! Resize aborted.</old>
+			<new>The resolution of this photo is too high to be processed! Resize aborted.</new>
+		</text>
+		<text>
+			<old>Type</old>
+			<new>Type</new>
+		</text>
+		<text>
+			<old>This is the last image of the folder!</old>
+			<new>This is the last image of the folder!</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>View</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>Undo all</old>
+			<new>Undo all</new>
+		</text>
+		<text>
+			<old>Rotate Left</old>
+			<new>Rotate Left</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Next</old>
+			<new>Next</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Back</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Presentations</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>You need to select a file to open!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sorry, you do not have sufficient permissions.</new>
+		</text>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>You are already on the first slide, you cannot go back anymore!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Application killed successfully.</old>
+			<new>Application killed successfully.</new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>Application</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Applications</new>
+		</text>
+		<text>
+			<old>Basic Image Viewer</old>
+			<new>Basic Image Viewer</new>
+		</text>
+		<text>
+			<old>Bring to Front</old>
+			<new>Bring to Front</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Calculator</new>
+		</text>
+		<text>
+			<old>Calendar Widget</old>
+			<new>Calendar Widget</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>Catching Game</old>
+			<new>Catching Game</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Chess Game</new>
+		</text>
+		<text>
+			<old>Close Application</old>
+			<new>Close Application</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Contact Manager</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>File Manager</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Client</new>
+		</text>
+		<text>
+			<old>About oneye</old>
+			<new>About oneye</new>
+		</text>
+		<text>
+			<old>Actions Widget</old>
+			<new>Actions Widget</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Groups</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Home Widget</old>
+			<new>Home Widget</new>
+		</text>
+		<text>
+			<old>Image Viewer</old>
+			<new>Image Viewer</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Internal Messaging</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>Kill process</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Launch App</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Mail Client</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Navigator</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>New process</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Process Name</new>
+		</text>
+		<text>
+			<old>Processes</old>
+			<new>Processes</new>
+		</text>
+		<text>
+			<old>Messages Widget</old>
+			<new>Messages Widget</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>Media Player</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Process Manager</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Process Manager</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>PDF File Reader</old>
+			<new>PDF File Reader</new>
+		</text>
+		<text>
+			<old>ToDo Widget</old>
+			<new>ToDo Widget</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Trash</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Public Board</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Feed Reader</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Spreadsheet</new>
+		</text>
+		<text>
+			<old>System Preferences</old>
+			<new>System Preferences</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Game</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Text Editor</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Username</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Word Processor</new>
+		</text>
+		<text>
+			<old>Presentation</old>
+			<new>Presentation</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Process killed successfully.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Bz file</old>
+			<new>Bz file</new>
+		</text>
+		<text>
+			<old>%sBytes</old>
+			<new>%sBytes</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Author</new>
+		</text>
+		<text>
+			<old>C sharp source</old>
+			<new>C sharp source</new>
+		</text>
+		<text>
+			<old>Bz2 file</old>
+			<new>Bz2 file</new>
+		</text>
+		<text>
+			<old>Java source</old>
+			<new>Java source</new>
+		</text>
+		<text>
+			<old>Deletion information</old>
+			<new>Deletion information</new>
+		</text>
+		<text>
+			<old>C source</old>
+			<new>C source</new>
+		</text>
+		<text>
+			<old>C++ source</old>
+			<new>C++ source</new>
+		</text>
+		<text>
+			<old>Command</old>
+			<new>Command</new>
+		</text>
+		<text>
+			<old>Created with</old>
+			<new>Created with</new>
+		</text>
+		<text>
+			<old>CSS file</old>
+			<new>CSS file</new>
+		</text>
+		<text>
+			<old>CSV sheet file</old>
+			<new>CSV sheet file</new>
+		</text>
+		<text>
+			<old>Deletion date</old>
+			<new>Deletion date</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>Directory</new>
+		</text>
+		<text>
+			<old>oneye source</old>
+			<new>oneye source</new>
+		</text>
+		<text>
+			<old>Joint Photographic Experts Group</old>
+			<new>Joint Photographic Experts Group</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>File information</new>
+		</text>
+		<text>
+			<old>eyeDocument file</old>
+			<new>eyeDocument file</new>
+		</text>
+		<text>
+			<old>eyeInstaller package</old>
+			<new>eyeInstaller package</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>Filetime</new>
+		</text>
+		<text>
+			<old>File</old>
+			<new>File</new>
+		</text>
+		<text>
+			<old>Bitmap</old>
+			<new>Bitmap</new>
+		</text>
+		<text>
+			<old>%s file</old>
+			<new>%s file</new>
+		</text>
+		<text>
+			<old>FLV file</old>
+			<new>FLV file</new>
+		</text>
+		<text>
+			<old>Graphics Interchange Format</old>
+			<new>Graphics Interchange Format</new>
+		</text>
+		<text>
+			<old>Gz file</old>
+			<new>Gz file</new>
+		</text>
+		<text>
+			<old>Hypertext Markup Language</old>
+			<new>Hypertext Markup Language</new>
+		</text>
+		<text>
+			<old>JS source</old>
+			<new>JS source</new>
+		</text>
+		<text>
+			<old>Microsoft Excel file</old>
+			<new>Microsoft Excel file</new>
+		</text>
+		<text>
+			<old>Microsoft Powerpoint file</old>
+			<new>Microsoft Powerpoint file</new>
+		</text>
+		<text>
+			<old>Creation date</old>
+			<new>Creation date</new>
+		</text>
+		<text>
+			<old>Creation information</old>
+			<new>Creation information</new>
+		</text>
+		<text>
+			<old>Microsoft Word file</old>
+			<new>Microsoft Word file</new>
+		</text>
+		<text>
+			<old>OpenOffice Writer file</old>
+			<new>OpenOffice Writer file</new>
+		</text>
+		<text>
+			<old>Open Document Presentation file</old>
+			<new>Open Document Presentation file</new>
+		</text>
+		<text>
+			<old>Open Document Sheet file</old>
+			<new>Open Document Sheet file</new>
+		</text>
+		<text>
+			<old>Perl source</old>
+			<new>Perl source</new>
+		</text>
+		<text>
+			<old>Path</old>
+			<new>Path</new>
+		</text>
+		<text>
+			<old>vCard</old>
+			<new>vCard</new>
+		</text>
+		<text>
+			<old>Rich Text Format</old>
+			<new>Rich Text Format</new>
+		</text>
+		<text>
+			<old>PHP source</old>
+			<new>PHP source</new>
+		</text>
+		<text>
+			<old>Plain text</old>
+			<new>Plain text</new>
+		</text>
+		<text>
+			<old>Portable Document Format</old>
+			<new>Portable Document Format</new>
+		</text>
+		<text>
+			<old>Portable Network Graphics</old>
+			<new>Portable Network Graphics</new>
+		</text>
+		<text>
+			<old>PSW file</old>
+			<new>PSW file</new>
+		</text>
+		<text>
+			<old>PWD file</old>
+			<new>PWD file</new>
+		</text>
+		<text>
+			<old>Python source</old>
+			<new>Python source</new>
+		</text>
+		<text>
+			<old>Ruby source</old>
+			<new>Ruby source</new>
+		</text>
+		<text>
+			<old>SQL source</old>
+			<new>SQL source</new>
+		</text>
+		<text>
+			<old>Wireless Application Protocol Bitmap</old>
+			<new>Wireless Application Protocol Bitmap</new>
+		</text>
+		<text>
+			<old>Tagged Image File Format</old>
+			<new>Tagged Image File Format</new>
+		</text>
+		<text>
+			<old>Shockwave file</old>
+			<new>Shockwave file</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Size</new>
+		</text>
+		<text>
+			<old>Tar.Bz file</old>
+			<new>Tar.Bz file</new>
+		</text>
+		<text>
+			<old>Tar file</old>
+			<new>Tar file</new>
+		</text>
+		<text>
+			<old>Open Document Text file</old>
+			<new>Open Document Text file</new>
+		</text>
+		<text>
+			<old>Mp3 audio file</old>
+			<new>Mp3 audio file</new>
+		</text>
+		<text>
+			<old>Tar.Bz2 file</old>
+			<new>Tar.Bz2 file</new>
+		</text>
+		<text>
+			<old>Tar.Gz file</old>
+			<new>Tar.Gz file</new>
+		</text>
+		<text>
+			<old>The file does not exist!</old>
+			<new>The file does not exist!</new>
+		</text>
+		<text>
+			<old>VBS source</old>
+			<new>VBS source</new>
+		</text>
+		<text>
+			<old>XML file</old>
+			<new>XML file</new>
+		</text>
+		<text>
+			<old>XSL source</old>
+			<new>XSL source</new>
+		</text>
+		<text>
+			<old>ZIP file</old>
+			<new>ZIP file</new>
+		</text>
+		<text>
+			<old>Presentation format</old>
+			<new>Presentation format</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Properties</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Error moving folder!</old>
+			<new>Error moving folder!</new>
+		</text>
+		<text>
+			<old>Links cannot be moved!</old>
+			<new>Links cannot be moved!</new>
+		</text>
+		<text>
+			<old>"%s" already exists. Please enter a new name or replace the existing one.</old>
+			<new>"%s" already exists. Please enter a new name or replace the existing one.</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Move %s</old>
+			<new>Move %s</new>
+		</text>
+		<text>
+			<old>Please type the new name here:</old>
+			<new>Please type the new name here:</new>
+		</text>
+		<text>
+			<old>Replace</old>
+			<new>Replace</new>
+		</text>
+		<text>
+			<old>That file already exists!</old>
+			<new>That file already exists!</new>
+		</text>
+		<text>
+			<old>Rename %s</old>
+			<new>Rename %s</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Rename</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShare</name>
+		<text>
+			<old>"%s" already exists in group "%s".</old>
+			<new>"%s" already exists in group "%s".</new>
+		</text>
+		<text>
+			<old>Choose the groups to share with</old>
+			<new>Choose the groups to share with</new>
+		</text>
+		<text>
+			<old>File "%s" shared with group "%s".</old>
+			<new>File "%s" shared with group "%s".</new>
+		</text>
+		<text>
+			<old>Folder "%s" shared with group "%s".</old>
+			<new>Folder "%s" shared with group "%s".</new>
+		</text>
+		<text>
+			<old>Share "%s" with...</old>
+			<new>Share "%s" with...</new>
+		</text>
+		<text>
+			<old>Share</old>
+			<new>Share</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found!</old>
+			<new>File not found!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sorry, you do not have sufficient permissions.</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Spreadsheet saved successfully.</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Spreadsheet</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShow</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Document saved successfully.</new>
+		</text>
+		<text>
+			<old>bold text</old>
+			<new>bold text</new>
+		</text>
+		<text>
+			<old>insert ordered list</old>
+			<new>insert ordered list</new>
+		</text>
+		<text>
+			<old>change font color</old>
+			<new>change font color</new>
+		</text>
+		<text>
+			<old>change font family</old>
+			<new>change font family</new>
+		</text>
+		<text>
+			<old>change font size</old>
+			<new>change font size</new>
+		</text>
+		<text>
+			<old>End of slideshow</old>
+			<new>End of slideshow</new>
+		</text>
+		<text>
+			<old>delete element</old>
+			<new>delete element</new>
+		</text>
+		<text>
+			<old>File not found</old>
+			<new>File not found</new>
+		</text>
+		<text>
+			<old>insert text</old>
+			<new>insert text</new>
+		</text>
+		<text>
+			<old>font family</old>
+			<new>font family</new>
+		</text>
+		<text>
+			<old>add a new slide after the selected one</old>
+			<new>add a new slide after the selected one</new>
+		</text>
+		<text>
+			<old>bring element to the front</old>
+			<new>bring element to the front</new>
+		</text>
+		<text>
+			<old>generic fonts</old>
+			<new>generic fonts</new>
+		</text>
+		<text>
+			<old>insert image</old>
+			<new>insert image</new>
+		</text>
+		<text>
+			<old>insert unordered list</old>
+			<new>insert unordered list</new>
+		</text>
+		<text>
+			<old>Click to insert a new slide</old>
+			<new>Click to insert a new slide</new>
+		</text>
+		<text>
+			<old>delete the selected slide</old>
+			<new>delete the selected slide</new>
+		</text>
+		<text>
+			<old>italic text</old>
+			<new>italic text</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Size</new>
+		</text>
+		<text>
+			<old>move the selected slide up one place</old>
+			<new>move the selected slide up one place</new>
+		</text>
+		<text>
+			<old>underline text</old>
+			<new>underline text</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>New</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>redo</old>
+			<new>redo</new>
+		</text>
+		<text>
+			<old>Slide</old>
+			<new>Slide</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Slideshow</old>
+			<new>Slideshow</new>
+		</text>
+		<text>
+			<old>undo</old>
+			<new>undo</new>
+		</text>
+		<text>
+			<old>some text</old>
+			<new>some text</new>
+		</text>
+		<text>
+			<old>move the selected slide down one place</old>
+			<new>move the selected slide down one place</new>
+		</text>
+		<text>
+			<old>My Images</old>
+			<new>My Images</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Sorry, you do not have sufficient permissions.</new>
+		</text>
+		<text>
+			<old>specific fonts</old>
+			<new>specific fonts</new>
+		</text>
+		<text>
+			<old>view source code</old>
+			<new>view source code</new>
+		</text>
+		<text>
+			<old>Save as</old>
+			<new>Save as</new>
+		</text>
+		<text>
+			<old>send element to the back</old>
+			<new>send element to the back</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>All</old>
+			<new>All</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Description: %s</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s installed succesfully!</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Install</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administration</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>App Name</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Dependencies: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Author: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Desktop</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Categories</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Downloading and Installing %s ... please wait</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installing</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Package list updated</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s download is corrupted! unable to install</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Do you really want to uninstall this application?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Education</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Games</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Installed</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Category: %s</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>License: %s</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Office</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Suggestions: %s</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Name: %s</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Version</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>none</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Only root can install eyeApps</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Search</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>Other Apps</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>The application cannot be uninstalled.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Please choose an applictaion to be installed.</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>Themes</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Uninstall application</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedia</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>The application was successfully uninstalled.</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>Translations</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Uninstall</new>
+		</text>
+		<text>
+			<old>You are installing a new App in your oneye system</old>
+			<new>You are installing a new App in your oneye system</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Update</new>
+		</text>
+		<text>
+			<old>Packages Manager</old>
+			<new>Packages Manager</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Version: %s</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Please choose an applictaion to be uninstalled.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii to Hexa</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Auto clear input</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 Decode</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 Encode</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Clear</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Add input to output</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Add new line to end</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Concatenate Output</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimal to Roman</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye hash</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa to Ascii</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Html Entities</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Remove Html Entities</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Output Text</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Input Text</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Last execution time: %s</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL Encode</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Options</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Roman to Decimal</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL Decode</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 Hash</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>Board size :</old>
+			<new>Board size :</new>
+		</text>
+		<text>
+			<old>Finished!</old>
+			<new>Finished!</new>
+		</text>
+		<text>
+			<old>Maybe you should try a higher level...</old>
+			<new>Maybe you should try a higher level...</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Close</new>
+		</text>
+		<text>
+			<old>Do you want to start a new game?</old>
+			<new>Do you want to start a new game?</new>
+		</text>
+		<text>
+			<old>Fullscreen</old>
+			<new>Fullscreen</new>
+		</text>
+		<text>
+			<old>Highscores</old>
+			<new>Highscores</new>
+		</text>
+		<text>
+			<old>Moves</old>
+			<new>Moves</new>
+		</text>
+		<text>
+			<old>Level / board size (%s-%s):</old>
+			<new>Level / board size (%s-%s):</new>
+		</text>
+		<text>
+			<old>[Unknown string]</old>
+			<new>[Unknown string]</new>
+		</text>
+		<text>
+			<old>Always remember my last configuration</old>
+			<new>Always remember my last configuration</new>
+		</text>
+		<text>
+			<old>Maximum value on edges:</old>
+			<new>Maximum value on edges:</new>
+		</text>
+		<text>
+			<old>Maximum</old>
+			<new>Maximum</new>
+		</text>
+		<text>
+			<old>Network problem</old>
+			<new>Network problem</new>
+		</text>
+		<text>
+			<old>Configuration</old>
+			<new>Configuration</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Date</new>
+		</text>
+		<text>
+			<old>New game</old>
+			<new>New game</new>
+		</text>
+		<text>
+			<old>Rank</old>
+			<new>Rank</new>
+		</text>
+		<text>
+			<old>Tip used! Ranking disabled...</old>
+			<new>Tip used! Ranking disabled...</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Game</new>
+		</text>
+		<text>
+			<old>Time</old>
+			<new>Time</new>
+		</text>
+		<text>
+			<old>Unable to connect to the host server.</old>
+			<new>Unable to connect to the host server.</new>
+		</text>
+		<text>
+			<old>Use colored numbers on tiles</old>
+			<new>Use colored numbers on tiles</new>
+		</text>
+		<text>
+			<old>Your rank:</old>
+			<new>Your rank:</new>
+		</text>
+		<text>
+			<old>Use shared highscores on server (all users)</old>
+			<new>Use shared highscores on server (all users)</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Number of moves:</old>
+			<new>Number of moves:</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>User</new>
+		</text>
+		<text>
+			<old>Would you like to disable oneye related features?</old>
+			<new>Would you like to disable oneye related features?</new>
+		</text>
+		<text>
+			<old>Your time:</old>
+			<new>Your time:</new>
+		</text>
+		<text>
+			<old>These features can only be used when running from an oneye server.</old>
+			<new>These features can only be used when running from an oneye server.</new>
+		</text>
+		<text>
+			<old>These options won't be applied until you start a new game.</old>
+			<new>These options won't be applied until you start a new game.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>Error occured during upload process!</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</old>
+			<new>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Add files to transfer, then press Upload now!</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Error uploading file!</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>"%s" has been uploaded successfully.</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Add files</new>
+		</text>
+		<text>
+			<old>%s MB</old>
+			<new>%s MB</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>File uploaded successfully.</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filename</new>
+		</text>
+		<text>
+			<old>Max filesize allowed</old>
+			<new>Max filesize allowed</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Advanced</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload files</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>You do not have sufficient permissions!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Simple</new>
+		</text>
+		<text>
+			<old>Size (KB)</old>
+			<new>Size (KB)</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Upload now!</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>Please enter the HTTP address to a file:</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>The file has been uploaded successfully.</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Remove</new>
+		</text>
+		<text>
+			<old>Web</old>
+			<new>Web</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>You do not have enough free space!</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Transfering: </new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>Edit</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>You do not have sufficient permissions!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Please wait...</old>
+			<new>Please wait...</new>
+		</text>
+		<text>
+			<old>Unable to save position!</old>
+			<new>Unable to save position!</new>
+		</text>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Welcome to %s</new>
+		</text>
+		<text>
+			<old>You need to activate Cookies in order to get oneye working. Please visit %s for more information.</old>
+			<new>You need to activate Cookies in order to get oneye working. Please visit %s for more information.</new>
+		</text>
+		<text>
+			<old>You need to activate JavaScript in order to get oneye working. Please visit %s for more information.</old>
+			<new>You need to activate JavaScript in order to get oneye working. Please visit %s for more information.</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Change Label Text</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Example eyeApp</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>No process has been killed!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Do you want this widget to open automatically on the next session?</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Create a new document</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Create a new spreadsheet</new>
+		</text>
+		<text>
+			<old>miniActions is already running!</old>
+			<new>miniActions is already running!</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Send an internal message</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Upload your files</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Calendar</new>
+		</text>
+		<text>
+			<old>miniCalendar is already running!</old>
+			<new>miniCalendar is already running!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>miniHome is already running!</old>
+			<new>miniHome is already running!</new>
+		</text>
+		<text>
+			<old>My Quota</old>
+			<new>My Quota</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Internal Messaging</new>
+		</text>
+		<text>
+			<old>miniMessages is already running!</old>
+			<new>miniMessages is already running!</new>
+		</text>
+	</part>
+	<part>
+		<name>miniToDo</name>
+		<text>
+			<old>miniToDo is already running!</old>
+			<new>miniToDo is already running!</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Add</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this note?</old>
+			<new>Are you sure you want to delete this note?</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Delete warning</new>
+		</text>
+		<text>
+			<old>Note field is empty.</old>
+			<new>Note field is empty.</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>No</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Delete</new>
+		</text>
+		<text>
+			<old>Add Your To Do Note</old>
+			<new>Add Your To Do Note</new>
+		</text>
+		<text>
+			<old>New note created successfully.</old>
+			<new>New note created successfully.</new>
+		</text>
+		<text>
+			<old>Please choose a note title</old>
+			<new>Please choose a note title</new>
+		</text>
+		<text>
+			<old>Please choose a note</old>
+			<new>Please choose a note</new>
+		</text>
+		<text>
+			<old>Priority field is empty.</old>
+			<new>Priority field is empty.</new>
+		</text>
+		<text>
+			<old>Priority field is not a number.</old>
+			<new>Priority field is not a number.</new>
+		</text>
+		<text>
+			<old>Priority</old>
+			<new>Priority</new>
+		</text>
+		<text>
+			<old>To Do</old>
+			<new>To Do</new>
+		</text>
+		<text>
+			<old>Update Note</old>
+			<new>Update Note</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>View</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Yes</new>
+		</text>
+		<text>
+			<old>Title field is empty.</old>
+			<new>Title field is empty.</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Title</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>Create a file</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>Error creating file!</new>
+		</text>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>Please type the name of the new file here:</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Some special chars have been removed.</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Close</old>
+			<new>Close</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Error sending message</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Add file</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Attach</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Message sent</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>New Message</new>
+		</text>
+		<text>
+			<old>To groups</old>
+			<new>To groups</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>To</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Subject</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>"%s" has been restored to your home folder!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Accept</new>
+		</text>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>"%s" could not be restored!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Restore %s</old>
+			<new>Restore %s</new>
+		</text>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>You cannot restore "%s" to a real folder!</new>
+		</text>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>Do you really want to restore "%s"?</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Full Screen</old>
+			<new>Full Screen</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>June</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Del. Column</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Del. Row</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Help</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formula</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Ins. Column</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>March</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Ins. Row</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Copy / paste this code to other spreadsheet applications (e.g. Excel)</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>January</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>July</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>May</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>February</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Friday</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Monday</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Save</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tuesday</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Open</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Position</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Print</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Saturday</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Sheet Size</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Wednesday</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Style</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>New</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>October</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Sunday</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Thursday</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Really empty cell(s) ?</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Save As</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>February</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Fri</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Error %s</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>extracted</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>March</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>May</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Another file</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>July</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>January</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>June</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Mon</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>October</new>
+		</text>
+		<text>
+			<old>Open File</old>
+			<new>Open File</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Sun</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Thu</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Tue</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Upload</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Wed</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sat</new>
+		</text>
+		<text>
+			<old>Save as</old>
+			<new>Save as</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>Clean</old>
+			<new>Clean</new>
+		</text>
+		<text>
+			<old>System console log</old>
+			<new>System console log</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Do you really want to import this vCard?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Error exporting file!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Cancel</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Directory not found</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>File Imported!</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Import %s</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>The file was not found!</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>vCardImport cannot initialize, contact with your administrator</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>No contacts were found in the file!</new>
+		</text>
+	</part>
+</lang>

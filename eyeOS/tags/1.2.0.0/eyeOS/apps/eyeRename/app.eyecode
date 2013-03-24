@@ -1,0 +1,55 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeRename_run($params = '') {
+	if(is_array($params)) {
+		$path = $params[0];
+		$callback = $params[1];
+	} else {
+		proc('end');
+	}
+	$name = basename($path);
+	eyex('messageBox',array(
+		'content' => 'Please type a new name here:',
+		'type' => 3,
+		'title' => 'Rename',
+		'win_name' => 'eyeRename',
+		'btn1_capt' => 'Rename',
+		'btn1_name' => 'rename',
+		'btn2_capt' => 'Cancel',
+		'btn2_name' => 'cancel',
+		'textbox_text' => $name,
+		'textbox_name' => 'rnTextbox',
+		'textbox_event' => 'rename',
+		'hidden_text' => $path,
+		'hidden_name' => 'rnPath',
+		'hidden2_text' => $callback,
+		'hidden2_name' => 'rnCallback',
+		'img' => 'index.php?extern=apps/eyeFiles/gfx/rename_big.png'
+	));
+}
+
+function eyeRename_end($params = '') {
+	reqLib('eyeWidgets','unserialize');
+}
+?>

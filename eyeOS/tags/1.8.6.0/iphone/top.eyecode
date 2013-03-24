@@ -1,0 +1,18 @@
+<?php
+echo '<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="' . INDEX_BASE . 'iphone/" />
+<title>Welcome to eyeOS</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<style type="text/css" media="screen">@import "eyeOs_files/stylesheet.css";</style>
+<script type="application/x-javascript" src="eyeOs_files/iui.js"></script>
+</head>
+<body onload="setTimeout(scrollTo, 0, 0, 1);">
+    <div id="toolbar" class="toolbar">
+        <h1 id="pageTitle"></h1>
+        <a id="backButton" class="button" href="#"></a>
+		<a id="menuButton" class="button" style="display:inline;" href="index.php?actions=eyeMenu&noPropagate=2">Menu</a>
+    </div>';
+?>

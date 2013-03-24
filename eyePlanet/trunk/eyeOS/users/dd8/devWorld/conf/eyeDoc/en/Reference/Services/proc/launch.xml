@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>launch</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>proc</tag>
+		</tags>
+		<shortDesc>Launches an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>In case of success, this function now returns the process ID of the launched application instead of the result returned its starting function.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>launch</functionName>
+		<syntax>mixed proc('launch', array(string $appName [, mixed $appArgs]))</syntax>
+		<desc>Executes an application by calling is start function and adds an entry in the process table.</desc>
+		<params>
+			<type>required</type>
+			<name>appName</name>
+			<desc>String containing the name of the application to execute.</desc>
+		</params>	
+		<params>
+			<type>optional</type>
+			<name>appArgs</name>
+			<desc>Arguments passed to the start function.</desc>
+		</params>
+		<return>If the function succeeds, returns the result of the application's start function in versions older than 1.6. In eyeOS version 1.6 and above, returns the process ID of the application. If it doesn't succeed, returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No application name is specified.</desc>
+			</error>
+			<error>
+				<type>PROC_APP_NOT_FOUND</type>
+				<desc>No application can be found with the provided name.</desc>
+			</error>
+			<error>
+				<type>PROC_APP_DONT_HAVE_RUN_FUNCTION</type>
+				<desc>The application does not have a start function.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

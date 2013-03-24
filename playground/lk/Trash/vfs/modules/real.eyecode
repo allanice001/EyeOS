@@ -1,0 +1,548 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+$charBlackList[] = 'htaccess';
+$charBlackList[] = 'php.ini';
+
+// Other functions
+
+function service_vfs_restoreDir($params = '') { // TODO: 1
+	if (!isset($params[0])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	} elseif (!$params[0] = intern_vfs_real_checkParams(array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_rtrim($params[0],'/') . '.' . EYEOS_TRASH_EXT,1,1))) {
+		return false;
+	} elseif (isset($params[1]) && !$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+		return false;
+	}
+	
+	$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_TRASH_EXT));
+	if (isset($params[1])) {
+		$params[1] .= '/' . utf8_basename($xml['eyeTrash'][0]['restorePoint'][0]);
+	} else {
+		$params[1] = $xml['eyeTrash'][0]['restorePoint'][0];
+	}
+	return vfs('rename',array($params[0],$params[1])) && vfs('real_delete',array($params[0] . '.' . EYEOS_TRASH_EXT));
+}
+
+function service_vfs_restoreFile($params = '') { // TODO: 1
+	if (!isset($params[0])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	} elseif (!$params[0] = intern_vfs_real_checkParams(array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . $params[0] . '.' . EYEOS_TRASH_EXT,1,1))) {
+		return false;
+	} elseif (isset($params[1]) && !$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+		return false;
+	}
+	
+	$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_TRASH_EXT));
+	if (isset($params[1])) {
+		$params[1] .= '/' . utf8_basename($xml['eyeTrash'][0]['restorePoint'][0]);
+	} else {
+		$params[1] = $xml['eyeTrash'][0]['restorePoint'][0];
+	}
+	return vfs('move',array(vfs('getVirtualName',array($params[0])),$params[1])) && vfs('real_delete',array($params[0] . '.' . EYEOS_TRASH_EXT));
+}
+
+// Virtual functions
+
+function service_vfs_checkPermissions($params = '') { // TODO: 1
+	if($params == null || count($params) < 1){
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$file = $params[0];
+	if(!vfs('checkSpecialChars',array(utf8_basename($file)))){
+		reqLib('errorCodes','setErrorCode',array(VFS_INVALID_CHARS));
+		return false;
+	}
+	//Checking if file/dir name contains blacklisted characters.
+	$filename = "";
+	global $currentUser;
+	$userdir = service('um','getCurrentUserDir').'/'.FILES_USER_DIR.'/';
+	if(!is_dir($file)) {
+		$filename = utf8_basename($file);
+		$file = dirname($file);
+	}
+	$userdir_path = realpath($userdir);
+	$file_path = realpath($file);
+	
+	$groups = service('um','getCurrentGroups');
+	foreach($groups as $key=>$value) {
+		$groupDir = EYE_ROOT.'/'.GROUPS_DIR.'/'.$key.'/'.FILES_GROUP_DIR;
+		$groupDir = realpath($groupDir);
+		if($groupDir) {
+			if(realpath($params[0]) == $groupDir && $params[1] == 'e') {
+				return false;
+			} 
+			if (0 === utf8_strpos($file_path,$groupDir)) {
+				$xml = um('retrieveUser',array($currentUser));
+				if (is_array($xml['eyeUser'][0]['maintain']) && in_array($key,$xml['eyeUser'][0]['maintain'])) {
+					return true;
+				}
+				if($filename) {
+					$myFile = $file_path.'/'.$filename;
+					$myRealName = vfs('getRealName',array($myFile));
+					$eyeFile = realpath($myRealName);
+					$eyeInfo = utf8_substr($eyeFile,0,utf8_strrpos($eyeFile,'.'));
+					$eyeInfo .= '.'.EYEOS_INFO_EXT;
+					$eyeInfo = realpath($eyeInfo);
+					if($eyeFile && $eyeInfo && $myRealName) {
+						$mode = $params[1];
+						if($mode == 'r' || $mode == 'R') {
+							return true;
+						}
+						$fp = fopen($eyeInfo,'r');
+						if($fp) {
+							$content = fread($fp,filesize($eyeInfo));
+							fclose($fp);
+							$xml = reqLib('eyeXML','xml2array',array($content));
+							if($xml['eyeFile'][0]['author'][0] == $currentUser) {
+								return true;
+							}
+						} 
+					} else {
+						if(is_dir($file_path) || $params[1] == 'e' || $params[1] == 'd') {
+							if(ALLOW_PUBLIC_DIRS == 0) {
+								return false;
+							}
+						} 
+						return true;
+					}
+				} else {
+					if(is_dir($file_path) || $params[1] == 'e' || $params[1] == 'd') {
+						if(ALLOW_PUBLIC_DIRS == 0) {
+							return false;
+						}
+					} 
+					return true;
+				}
+			}
+		}
+	}
+	if(isset($params[1])) {
+		if($file_path == $userdir_path && $params[1] == 'e') {
+			return false;
+		}		
+	}
+	
+	$web_path = realpath($userdir.'Web');
+	
+	if(($web_path == $file_path) && $params[1] == 'e') {
+		return false;
+	}
+	
+	if (0 === utf8_strpos($file_path,$userdir_path)) {
+		return true;
+	} elseif ($currentUser == ROOTUSER) {
+		//If the user is really an admin and the admins are jailed
+		if(($currentUser != REAL_ROOTUSERS && ADMINS_JAILED == 1) ||
+			($currentUser == REAL_ROOTUSER && ROOT_JAILED == 1)){
+			$real_eyeroot = realpath(EYE_ROOT);
+			if(0 === utf8_strpos ($file_path,$real_eyeroot)){
+				return true;
+			}
+			reqLib('errorCodes','setErrorCode',array(VFS_INSUFFICIENT_PERMISSIONS));
+			return false;
+		//If the user is the real root, and the real root is jailed
+		}
+		return true;
+	} else {
+		reqLib('errorCodes','setErrorCode',array(VFS_INSUFFICIENT_PERMISSIONS));
+		return false;
+	}
+}
+
+function service_vfs_copy($params = '') {
+	if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+		return vfs('copyDir',$params);
+	} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r',1))) {
+		return false;
+	} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+		return false;
+	}
+	
+	if (!vfs('isGroupDir',array($params[0]))) {
+		if (!vfs('isGroupDir',array($params[1]))) {
+			$return = @copy($params[0],$params[1]);
+			if (!$return) {
+				errorCodes('setErrorCode',array(PHP_ERROR_ON_COPY));
+			}
+			return $return;
+		} else {
+			vfs('create',array($params[1]));
+			vfs('writeFile',array($params[1],vfs('getFileContent',array($params[0]))));
+		}
+	} else {
+		if (!vfs('isGroupDir',array($params[1]))) {
+			vfs('create',array($params[1]));
+			vfs('writeFile',array($params[1],vfs('getFileContent',array($params[0]))));
+		} else {
+			$params[0] = vfs('getRealName',array($params[0],1));
+			$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_INFO_EXT));
+			$xml['filename'] = utf8_basename($params[1]);
+			$params[1] .= utf8_substr($params[0],utf8_strrpos($params[0],'_'));
+			$return = @copy($params[0] . '.' . EYEOS_FILE_EXT,$params[1] . '.' . EYEOS_FILE_EXT);
+			if (!$return) {
+				errorCodes('setErrorCode',array(PHP_ERROR_ON_COPY));
+			}
+			return $return && eyeXML('setXMLfile',array($params[1] . '.' . EYEOS_INFO_EXT,$xml));
+		}
+	}
+}
+
+function service_vfs_create($params = '') {
+	global $currentUser;
+	if (!$params[0] = intern_vfs_checkParams(array($params[0],2,1))) {
+		return false;
+	}
+	
+	if (!vfs('isGroupDir',array($params[0]))) {
+		return @file_put_contents($params[0],'') !== false;
+	} else {
+		$file = $params[0] . '_' . md5(uniqid(rand())) . '.';
+		$xml['eyeFile'][0]['author'][0] = $currentUser;
+		$xml['eyeFile'][0]['created'][0] = time();
+		$xml['eyeFile'][0]['creationapp'][0] = $params[1];
+		$xml['eyeFile'][0]['filename'][0] = utf8_basename($params[0]);
+		return @file_put_contents($file . EYEOS_FILE_EXT,'') !== false && eyeXML('setXMLfile',array($file . EYEOS_INFO_EXT,$xml));
+	}
+}
+
+function service_vfs_delete($params = '') { // TODO: 1
+	
+	if($params == null || count($params) < 1){
+		reqLib('errorCodes','setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	
+	$file = $params[0];
+	
+	if(is_dir($file)) {
+		return vfs('rmdir',$params);
+	}
+	
+	if($params[1]) {
+		$sendToTrash = 1;
+	} else {
+		$sendToTrash = 0;
+	}
+	if (!service('vfs','checkPermissions',array($file))) {				
+		return false;
+	}
+	
+	if (service('vfs','fileExists',array($file))) {
+		$ancientName = utf8_basename($file);
+		$file = vfs('getRealName',array($file,1));;
+		if($sendToTrash == 1) {
+			$myUserDir = service('um','getCurrentUserDir');
+			$name = utf8_basename($file);
+			$name .= uniqid(srand(time()));
+			
+			if(vfs('isGroupDir',array($file))) {
+				if (copy($file.'.'.EYEOS_FILE_EXT,$myUserDir.'/'.TRASH_USER_DIR.'/'.$name.'.'.EYEOS_FILE_EXT) && 
+					copy($file.'.'.EYEOS_INFO_EXT,$myUserDir.'/'.TRASH_USER_DIR.'/'.$name.'.'.EYEOS_INFO_EXT) &&
+					unlink($file.'.'.EYEOS_FILE_EXT) && unlink($file.'.'.EYEOS_INFO_EXT)) {
+					$data = array(
+						'eyeTrash' => array( 
+							array(
+							"deleteDate" => array(time()),
+							"restorePoint" => array($file),
+							"lastname" => array($ancientName),
+							"type" => array('file')
+							)
+						)
+					);
+					//converting array to xml
+					$xml = reqLib('eyeXML','array2xml',array($data,1));
+					$fcreate = fopen($myUserDir.'/'.TRASH_USER_DIR.'/'.$name.'.'.EYEOS_TRASH_EXT,'w');
+					fwrite($fcreate, $xml);
+					fclose($fcreate);				
+					return true;
+				} else {
+					reqLib('errorCodes','setErrorCode',array(PHP_ERROR_ON_UNLINK));
+					return false;
+				}
+			} else {
+				if (copy($file,$myUserDir.'/'.TRASH_USER_DIR.'/'.$name.'.'.EYEOS_FILE_EXT) && 
+					unlink($file)) {
+					$data = array(
+						'eyeTrash' => array( 
+							array(
+							"deleteDate" => array(time()),
+							"restorePoint" => array($file),
+							"lastname" => array($ancientName),
+							"type" => array('file')
+							)
+						)
+					);
+					//converting array to xml
+					$xml = reqLib('eyeXML','array2xml',array($data,1));
+					$fcreate = fopen($myUserDir.'/'.TRASH_USER_DIR.'/'.$name.'.'.EYEOS_TRASH_EXT,'w');
+					fwrite($fcreate, $xml);
+					fclose($fcreate);				
+					return true;
+				} else {
+					reqLib('errorCodes','setErrorCode',array(PHP_ERROR_ON_UNLINK));
+					return false;
+				}
+			}
+
+		} else {
+			if(vfs('isGroupDir',array($file))) {
+				if (unlink($file.'.'.EYEOS_FILE_EXT) && unlink($file.'.'.EYEOS_INFO_EXT)) {
+					return true;
+				} else {
+					reqLib('errorCodes','setErrorCode',array(PHP_ERROR_ON_UNLINK));
+					return false;
+				}
+			} else {
+				if (unlink($file)) {
+					return true;
+				} else {
+					reqLib('errorCodes','setErrorCode',array(PHP_ERROR_ON_UNLINK));
+					return false;
+				}
+			}
+		}
+	}else{		
+		reqLib('errorCodes','setErrorCode',array(VFS_FILE_NOT_EXISTS));
+		return false;
+	}	
+}
+
+function service_vfs_fileExists($params = '') {
+	if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+		return false;
+	}
+	
+	if (vfs('isdir',array($params[0]))) {
+		return intern_vfs_checkPermissions($params[0]);
+	} elseif (vfs('isfile',array($params[0]))) {
+		if (!vfs('isGroupDir',array($params[0]))) {
+			return intern_vfs_checkPermissions($params[0]);
+		} else {
+			$file = vfs('getRealName',array($params[0],1)) . '.';
+			return intern_vfs_checkPermissions($file . EYEOS_FILE_EXT) && intern_vfs_checkPermissions($file . EYEOS_INFO_EXT);
+		}
+	}
+	return false;
+}
+
+function service_vfs_getDirContent($params = '') {
+	if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+		return false;
+	} elseif (!vfs('isdir',array($params[0]))) {
+		return false;
+	}
+	
+	$isGroupDir = vfs('isGroupDir',array($params[0]));
+	$return = array();
+	foreach (intern_vfs_getDirContent($params) as $file) {
+		if (!$isGroupDir) {
+			$return[] = $file;
+		} else {
+			if (vfs('isdir',array($file)) || utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_LINK_EXT))) == utf8_strtolower(EYEOS_LINK_EXT)) {
+				$return[] = $file;
+			} elseif (utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_INFO_EXT))) == utf8_strtolower(EYEOS_INFO_EXT)) {
+				$xml = eyeXML('getXMLfile',array($file));
+				if (isset($xml['eyeFile'][0]['filename'][0])) {
+					$return[] = $params[0] . '/' . $xml['eyeFile'][0]['filename'][0];
+				}
+			}
+		}
+	}
+	return $return;
+}
+
+function service_vfs_getVirtualName($params = '') {
+	if (!isset($params[0])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	} elseif (!vfs('isGroupDir',array($params[0]))) {
+		return $params[0];
+	}
+	
+	return utf8_substr($params[0],0,utf8_strrpos($params[0],'_'));
+}
+
+function service_vfs_isfile($params = '') {
+	if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+		return false;
+	}
+	
+	if (!vfs('isGroupDir',array($params[0]))) {
+		return is_file($params[0]);
+	} else {
+		$file = vfs('getRealName',array($params[0],1));
+		if (!$file) {
+			return false;
+		}
+		return is_file($file . '.' . EYEOS_FILE_EXT) && is_file($file . '.' . EYEOS_INFO_EXT);
+	}
+}
+
+function service_vfs_move($params = '') {
+	if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+		return vfs('rename',$params);
+	} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+		return false;
+	} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+		return false;
+	}
+	
+	if (!vfs('isGroupDir',array($params[0]))) {
+		if (!vfs('isGroupDir',array($params[1]))) {
+			return @rename($params[0],$params[1]);
+		} else {
+			vfs('create',array($params[1]));
+			vfs('writeFile',array($params[1],vfs('getFileContent',array($params[0]))));
+			vfs('delete',array($params[0]));
+		}
+	} else {
+		if (!vfs('isGroupDir',array($params[1]))) {
+			vfs('create',array($params[1]));
+			vfs('writeFile',array($params[1],vfs('getFileContent',array($params[0]))));
+			vfs('delete',array($params[0]));
+		} else {
+			$params[0] = vfs('getRealName',array($params[0],1));
+			$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_INFO_EXT));
+			$xml['filename'] = utf8_basename($params[1]);
+			$params[1] .= utf8_substr($params[0],utf8_strrpos($params[0],'_'));
+			$return1 = @rename($params[0] . '.' . EYEOS_FILE_EXT,$params[1] . '.' . EYEOS_FILE_EXT);
+			if (!$return1) {
+				errorCodes('setErrorCode',array(PHP_ERROR_ON_COPY));
+			}
+			$return2 = @unlink($params[0] . '.' . EYEOS_INFO_EXT);
+			if (!$return2) {
+				errorCodes('setErrorCode',array(PHP_ERROR_ON_UNLINK));
+			}
+			return $return1 && $return2 && eyeXML('setXMLfile',array($params[1] . '.' . EYEOS_INFO_EXT,$xml));
+		}
+	}
+}
+
+function service_vfs_readInfo($params = '') {
+	global $currentUser;
+	if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+		return false;
+	}
+	
+	if (!vfs('isGroupDir',array($params[0]))) {
+		$array['eyeFile'][0]['author'][0] = $currentUser;
+		$array['eyeFile'][0]['filename'][0] = utf8_basename($params[0]);
+		return $array;
+	} else {
+		return eyeXML('getXMLfile',array(vfs('getRealName',array($params[0],1)) . '.' . EYEOS_INFO_EXT));
+	}
+}
+
+function service_vfs_virtualToReal($params = '') {
+	if (!vfs('isGroupDir',array($params[0]))) {
+		return true;
+	} elseif (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+		return vfs('virtualToRealDir',$params);
+	}
+	
+	$content = vfs('getFileContent',array($params[0]));
+	return vfs('delete',array($params[0])) && vfs('real_create',array($params[0],$params[1])) && vfs('real_putFileContent',array($params[0],$content));
+}
+
+function service_vfs_virtualToRealDir($params = '') {
+	if (!vfs('isGroupDir',array($params[0]))) {
+		return true;
+	} elseif (!vfs('isdir',array($params[0])) && vfs('isfile',array($params[0]))) {
+		return vfs('virtualToReal',$params);
+	} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+		return false;
+	} elseif (!$params[1] = intern_vfs_real_checkParams(array($params[1],2,1))) {
+		return false;
+	}
+	
+	$n = 0;
+	foreach (vfs('getDirContent',array($params[0])) as $file) {
+		if (vfs('isdir',array($file))) {
+			$n += vfs('virtualToRealDir',array($file));
+		} elseif (vfs('virtualToReal',array($file))) {
+			$n++;
+		}
+	}
+	return $n;
+}
+
+// Real functions
+
+function service_vfs_getRealName($params = '') {
+	if (!vfs('isGroupDir',array($file))) {
+		return $file;
+	} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+		return false;
+	}
+	
+	foreach (intern_vfs_getDirContent(dirname($params[0]),utf8_basename($params[0]) . '_*') as $file) {
+		if (utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_INFO_EXT))) == utf8_strtolower(EYEOS_INFO_EXT)) {
+			$return = utf8_substr($file,0,- 1 - utf8_strlen(EYEOS_INFO_EXT));
+			if (!$params[1]) {
+				$return .= '.' . EYEOS_FILE_EXT;
+			}
+			return $return;
+		}
+	}
+	errorCodes('setErrorCode',array(VFS_FILE_NOT_FOUND));
+	return false;
+}
+
+function service_vfs_realToVirtual($params = '') {
+	if (!vfs('isGroupDir',array($params[0]))) {
+		return true;
+	} elseif (!vfs('real_isfile',array($params[0]))) {
+		return vfs('realToVirtualDir',$params);
+	}
+	
+	$content = vfs('real_getFileContent',array($params[0]));
+	return vfs('real_delete',array($params[0])) && vfs('create',array($params[0],$params[1])) && vfs('writeFile',array($params[0],$content));
+}
+
+function service_vfs_realToVirtualDir($params = '') {
+	if (!vfs('isGroupDir',array($params[0]))) {
+		return true;
+	} elseif (!vfs('real_isdir',array($params[0]))) {
+		return vfs('realToVirtual',$params);
+	} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1))) {
+		return false;
+	} elseif (!$params[1] = intern_vfs_real_checkParams(array($params[1],2,1))) {
+		return false;
+	}
+	
+	$n = 0;
+	foreach (vfs('real_getDirContent',array($params[0])) as $file) {
+		if (vfs('isdir',array($file))) {
+			$n += vfs('realToVirtualDir',array($file));
+		} elseif (utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_INFO_EXT))) != utf8_strtolower(EYEOS_INFO_EXT) && vfs('realToVirtual',array($file))) {
+			$n++;
+		}
+	}
+	return $n;
+}
+?>

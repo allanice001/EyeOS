@@ -1,0 +1,108 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeClipart_on_Message($params="") {
+	eyeWidgets('updateContent',$params);
+}
+
+function eyeClipart_on_Resize($params=null) {
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+
+	$GLOBALS['eyeClipartFrame']->setWidth($width-4);
+	$GLOBALS['eyeClipartFrame']->setHeight($height-30);
+}
+
+function eyeClipart_on_Icon_Clicked($params=null) {
+	global $myPid,$checknum;
+	$ratio = $params['arg1'][0] ;
+	$width = 20 ;
+	$height = 20/$ratio ;
+//	eyex('rawjs',array('js'=>'alert("u'.$params['arg1'][0].'/'.$params['arg0'][0].'")')) ;
+	eyex('rawjs',array('js'=>'callback.call(scope, \''.$params['arg0'][0].'\',\''.$width.'%\',\''.$height.'%\')')) ;
+	eyex('messageBox',array('content'=>'Clipart added to the presentation.'));
+}
+
+function eyeClipart_on_goDir() {
+	global $checknum ;
+	global $myPid ;
+
+	eyex('rawjs',array('js' => 'document.getElementById(\''.$myPid.'_Cliparts\').innerHTML="";'));
+
+	$dir = $GLOBALS['filesTree']->selected;
+	$file = "http://clipart.eyeos.org/index.php?dir=".$dir."&files=1";
+	$content = eyeXML('getXMLfile', array($file)) ;
+
+	$myWidth = 100;
+	$myHeight = 100;
+	$windowWidth = $GLOBALS['Cliparts']->width;
+	$x=5;
+	$y=5;
+
+	if(is_array($content)) {
+		foreach($content['cliparts'][0]['file'] as $value)	{
+		$i++;
+		$dir = str_replace("Cliparts","",$dir);
+		$icon = "http://clipart.eyeos.org".$dir."".$value ;
+		$icon2 = "http://clipart.eyeos.org/thumb.php?src=".$dir."".$value."&w=50&y=50" ;
+
+		$info = @getimagesize($icon);
+		$ratio = $info[0]/$info[1];
+
+		if($info[0]>$info[1]) {
+		$myHeight = 100/$ratio ;
+		$myWidth = 100 ;
+		} else {
+		$myWidth = 100*$ratio ;
+		$myHeight = 100 ;
+		}
+
+		$myName = $value ;
+		$filename = "" ;
+
+		$myIcon = new Icon(array('name'=>$myName,'father'=>'Cliparts',
+		'image'=>$icon2,
+		'content'=>array($icon,$ratio),'x'=>$x,'y'=>$y,'overBorder'=>0,'textColor'=>'black'));	        
+		$myIcon->show();
+
+		$x += 115;
+			if($x > $windowWidth-$myHeight) {
+				$x = 5 ;
+				$y += $myHeight+5;
+			}
+		}
+	}
+
+}
+
+function eyeClipart_on_goWelcome() {
+echo "d" ;
+}
+
+function eyeClipart_on_Close() {
+	proc('end');
+}
+
+?>

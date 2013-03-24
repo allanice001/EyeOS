@@ -1,0 +1,106 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+/**
+ * NOTE: this release is an alpha version which may contain bugs.
+ * 
+ * @author Nanawel (nanawel@gmail.com)
+ * @version 1.0beta
+ * @updated Aug-24-2007
+ * 
+ * @see eyeUpload (most of the PHP code comes directly from it)
+ */
+ 
+function eyeUploadX_run($params=null) {
+	global $myPid;
+	global $checknum;
+	global $sessionId;
+	if(is_array($params)) {
+		$path = $params[0];
+		$callback = $params[1];
+	}
+	$myWindow = new Window(array(
+		'name'=>'eyeUploadX_WND',
+		'father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,
+		'cent'=>1,
+		'width'=>340,
+		'height'=>210,
+		'title'=>'Upload files'
+	));
+	$myWindow->show();
+	
+	$myImage = new Imagebox(array(
+		'name' => 'eyeUploadX_IMG',
+		'father' => 'eyeUploadX_WND_Content',
+		'url' => 'index.php?extern=apps/eyeFiles/gfx/upload_big.png',
+		'x' => 30,
+		'y' => 60
+	));
+	$myImage->show();
+	
+	$flashParamsNames[] = 'flashvars';
+	$flashParamsValues[] = "autostart=yes&loop=no&jscontrol=true"
+							."&urlScript=index.php"
+							."&sid=".$sessionId
+							."&checknum=".$checknum
+							."&signal=uploadComplete";
+	
+	$myFlash = new Flash(array(
+		'name'=>'eyeUploadX_SWF',
+		'title' => 'eyeUploadX',
+		'father' => 'eyeUploadX_WND_Content',
+		'x' => 120,
+		'y' => 5,
+		'height' => 174,
+		'width' => 200,
+		'src' => "index.php?extern=apps/eyeUploadX/swf/eyeuploadx.swf&type=swf",
+		'flashParamsNames' => $flashParamsNames,
+		'flashParamsValues' => $flashParamsValues
+	));
+	
+	if($path) {
+		$myHidden = new Hidden(array(
+			'name'=>'eyeUploadX_upPath_HID',
+			'father'=>'eyeUploadX_WND_Content',
+			'text'=>$path)
+		);
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	if($callback) {
+		$myHidden = new Hidden(array(
+			'name'=>'eyeUploadX_upCallback_HID',
+			'father'=>'eyeUploadX_WND_Content',
+			'text'=>$callback)
+		);
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+	
+	$myFlash->show();
+}
+
+function eyeUploadX_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

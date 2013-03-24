@@ -1,0 +1,86 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeProcess_run($params = '') {
+	$myWindow = new Window(array(
+		'cent' => 1,
+		'father' => 'eyeApps',
+		'name' => 'eyeProcess_Window',
+		'height' => 450,
+		'savePosition' => 1,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'Resize',
+		'title' => 'Process Manager',
+		'width' => 300,
+		'x' => 20,
+		'y' => 20,
+	));
+	$myWindow->show();
+	
+	$mySortabletable = new Sortabletable(array(
+		'father' => 'eyeProcess_Window_Content',
+		'height' => $myWindow->height - 80,
+		'name' => 'eyeProcess_Sortabletable',
+		'sortypes' => array('Number','String','String'),
+		'theader' => array('Pid','Process Name','Username'),
+		'width' => $myWindow->width - 22,
+		'x' => 10,
+		'y' => 10
+	));
+	$mySortabletable->show();
+	$GLOBALS['eyeProcess_Sortabletable'] = $mySortabletable;
+	
+	$myButton = new Button(array(
+		'caption' => 'New process',
+		'father' => 'eyeProcess_Window_Content',
+		'name' => 'eyeProcess_Button_New',
+		'signal' => 'New',
+		'vert' => 1,
+		'x' => 11,
+		'y' => 10
+	));
+	$myButton->show();
+	
+	$myButton = new Button(array(
+		'caption' => 'Kill process',
+		'father' => 'eyeProcess_Window_Content',
+		'horiz' => 1,
+		'name' => 'eyeProcess_Button_Kill',
+		'signal' => 'Kill',
+		'vert' => 1,
+		'x' => 11,
+		'y' => 10
+	));
+	$myButton->addFriend($mySortabletable);
+	$myButton->show();
+	
+	addListenerServiceCall('onClose','proc','close',1);
+	addListenerServiceCall('onLaunch','proc','launch',1);
+}
+
+function eyeProcess_end($params = '') {
+	removeListenerServiceCall('proc','close',1);
+	removeListenerServiceCall('proc','launch',1);
+	eyeWidgets('unserialize',$params);
+}
+?>

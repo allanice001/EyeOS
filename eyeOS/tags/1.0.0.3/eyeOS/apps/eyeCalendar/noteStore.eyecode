@@ -1,0 +1,232 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://sourceforge.net/donate/index.php?group_id=145027         
+*/
+
+define(EYENOTE_EXT,'eyeNote');
+function retriveAllWeekNotes($time){
+	//Creating time for every day
+	$calendarDays = reqLib('eyeSessions','getVar',array('calendarDays'));
+	
+	$notesArray = array();
+	foreach ($calendarDays as $day){
+		$noteDir = getDirTime($day[1]);
+		$notes = service('vfs','real_getDirContent',array($noteDir,'*.'.EYENOTE_EXT));		
+		$notes = vfsToNoteId($notes);
+		foreach($notes as $note){
+			$xml = retriveNote(array('dateInt'=>$note));			
+			array_push($notesArray,$xml);
+		}
+	}	
+	return $notesArray;
+}
+
+function listAllWeekNotes($calendarDays){	
+	$notesArray = array();
+	foreach ($calendarDays as $day){
+		$noteDir = getDirTime($day[1]);
+		$notes = service('vfs','real_getDirContent',array($noteDir,'*.'.EYENOTE_EXT));		
+		$notes = vfsToNoteId($notes);
+		foreach($notes as $note){			
+			array_push($notesArray,$note);
+		}		
+	}	
+	return $notesArray;
+}
+function retriveAllDayNotes($dateInt)
+{
+	$myDate= getdate($dateInt);			
+
+	$noteDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeCalendar/calendars/1/'.$myDate['year'];	
+	$noteDir .= '/'.$myDate['mon'];	
+	$noteDir .= '/'.$myDate['mday'];
+	
+	$notes = service('vfs','real_getDirContent',array($noteDir,'*'.EYENOTE_EXT));
+	
+	$notes = vfsToNoteId($notes);
+	$notesArray = array();
+	foreach($notes as $note){		
+		$xml = retriveNote(array('dateInt'=>$note));
+		array_push($notesArray,$xml);
+	}
+	
+	return $notesArray;	
+}
+
+function getDirTime($time){
+	$myDate = getDate($time);
+	$noteDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeCalendar/calendars/1/'.$myDate['year'];	
+	$noteDir .= '/'.$myDate['mon'];	
+	$noteDir .= '/'.$myDate['mday'];
+	return $noteDir;
+}
+
+function vfsToNoteId($arrayNotes){
+	$notesArray = array();
+	foreach($arrayNotes as $noteName)
+	{				
+		$sec = strrpos($noteName,'.')-1;//-1 used to avoid getting a '_' char
+		$first = strrpos($noteName,'/');//-1 used to avoid getting a '/' char			
+		$dateInt = substr($noteName,$first+1,$sec - $first);		
+		$notesArray[] .= $dateInt;		
+	}
+	return $notesArray;
+}
+ 
+function removeAllDayNotes($time){
+	$allDayNotes = listAllDayNotes($time);
+	deleteNote($allDayNotes[0]);
+}
+function listAllDayNotes($dateInt)
+{
+	$myDate= getdate($dateInt);			
+
+	$noteDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeCalendar/calendars/1/'.$myDate['year'];	
+	$noteDir .= '/'.$myDate['mon'];	
+	$noteDir .= '/'.$myDate['mday'];
+	
+	$notes = service('vfs','real_getDirContent',array($noteDir,'*.'.EYENOTE_EXT));
+	
+	$notesArray = array();
+	foreach($notes as $noteName)
+	{
+		$noteName = strrchr($noteName,'/');
+		$first = strpos($noteName,'_')-1;//-1 used to avoid getting a '_' char_
+		$dateInt = substr($noteName,1,$first);
+				
+		array_push($notesArray,$dateInt);
+	}
+	return $notesArray;	
+}
+
+//Waiting for better location
+function saveNote($params)
+{
+	//TODO: error handler.	
+	$noteTitle = $params['title'][0];
+	$myYear = $params['year'][0];
+	$myMonth = $params['month'][0];
+	$myDay = $params['day'][0];
+	$wDay = $params['wday'][0];
+	
+	$calendarDays = reqLib('eyeSessions','getVar',array('calendarDays'));
+	
+	//Hours
+	$hourFrom = $params['hourFrom'][0];
+	$hourEven = $params['hourEven'][0];
+	$minFrom = $params['minFrom'][0];
+	$minEven = $params['minEven'][0];
+	$time = $params['time'][0];	
+	$noteDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeCalendar/calendars/1/'.$myYear;
+	
+	//Parse zone :)
+	$noteTitle = base64_encode($noteTitle);
+	
+	if(!service('vfs','fileExists',array($noteDir)))
+	{
+		service('vfs','real_mkDir',array($noteDir));
+	}
+	
+	$noteDir .= '/'.$myMonth;
+	if(!service('vfs','fileExists',array($noteDir)))
+	{
+		service('vfs','real_mkDir',array($noteDir));
+	}
+	$noteDir .= '/'.$myDay;
+	if(!service('vfs','fileExists',array($noteDir)))
+	{
+		service('vfs','real_mkDir',array($noteDir));
+	}
+	
+	$noteDir .= '/'.$time.'.'.EYENOTE_EXT;
+	//Making xml.
+	$data = array(
+		'note' => array( 
+			array(
+				"hourFrom" => array($hourFrom),
+				"hourEven" => array($hourEven),
+				"minFrom" => array($minFrom),
+				"minEven" => array($minEven),
+				"day" => array($myDay),
+				"wday"=> array($wDay),
+				"month" => array($myMonth),
+				"year" => array($myYear),
+				"title" => array($noteTitle),
+				"dateInt" => array($time)
+			)
+		)		
+	);	
+	
+	service('vfs','real_create',array($noteDir));
+	$fp = service('vfs','real_open',array($noteDir,'r+'));
+	//converting array to xml.		
+	$xml = reqLib('eyeXML','array2xml',array($data));
+	fwrite($fp,$xml);
+	fclose($fp);
+}
+
+function deleteNote($params)
+{
+	$dateInt = $params['dateInt'];	
+	
+	$myDate = getdate($dateInt);
+	$myYear = $myDate['year'];
+	$myMonth = $myDate['mon'];
+	$myDay = $myDate['mday'];
+	$noteDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeCalendar/calendars/1/'.$myYear;	
+	$noteDir .= '/'.$myMonth;	
+	$noteDir .= '/'.$myDay;
+	$noteDir .= '/'.$dateInt.'.'.EYENOTE_EXT;
+	service('vfs','real_delete',array($noteDir));
+}
+
+function retriveNote($params)
+{
+	$dateInt = $params['dateInt'];	
+	if(!is_numeric($dateInt))
+	{
+		service('eyex','messageBox',array('content' => 'Error '.$dateInt));
+		return;//TODO: put herror handler.
+	}
+	
+	$myDate = getdate($dateInt);
+	$myYear = $myDate['year'];
+	$myMonth = $myDate['mon'];
+	$myDay = $myDate['mday'];
+	$noteDir = service('um','getCurrentUserDir').CONF_USER_DIR.'/eyeCalendar/calendars/1/'.$myYear;	
+	$noteDir .= '/'.$myMonth;	
+	$noteDir .= '/'.$myDay;
+	$noteDir .= '/'.$dateInt.'.'.EYENOTE_EXT;	
+		
+	$fp = service('vfs','real_open',array($noteDir,'r'));
+	$xmlText = fread($fp,10000);//At the moment the filesize method is hardcoded since eyeOS filesize doesn't work yet
+	$xml = reqLib('eyeXML','xml2Array',array($xmlText));
+	return $xml;
+}
+
+function updateNote($params){
+	$noteInfo = $params['info'];
+	$id = $params['dateInt'];	
+	$dir = getDirTime($id);
+	$noteInfo['note'][0]['title'][0] = base64_encode($noteInfo['note'][0]['title'][0]);
+	$file = $dir.'/'.$id.'.'.EYENOTE_EXT;
+	$xml = reqLib('eyeXML','array2xml',array($noteInfo));
+	$fp = service('vfs','real_open',array($file,'r+'));
+	fwrite($fp,$xml);
+	fclose($fp);		
+}
+?>

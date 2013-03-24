@@ -1,0 +1,1454 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/*
+ * TODO list
+ * =========
+ * 1 - Rewrite function.
+ * 2 - Check permissions. Here could be a problem with the file's author.
+ * 3 - Check permissions. Here could be a problem with ALLOW_PUBLIC_DIRS.
+ * 4 - Check quota. Here could be a problem with the group's quota.
+ */
+
+global $charBlackList;
+$charBlackList = array('/','\\','<','>','[',']');
+
+$path = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SERVICE_DIR . '/vfs/modules/' . utf8_basename(VFS_MODULE) . EYE_CODE_EXTENSION;
+if (is_file($path)) {
+	include_once($path);
+}
+
+// Intern functions
+
+if (!function_exists('intern_vfs_checkParams')) {
+	function intern_vfs_checkParams($params = '') { // Real: real_checkParam
+		if (!isset($params[0])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		$params[0] = str_replace('\\','/',$params[0]);
+		if (utf8_strtolower(utf8_substr($params[0],0,7)) == 'home://') {
+			$params[0] = um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/' . utf8_substr($params[0],7);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,9)) == 'groups://') {
+			$params[0] = EYE_ROOT . '/' . GROUPS_DIR . '/' . utf8_substr($params[0],9);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,8)) == 'trash://') {
+			$params[0] = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_substr($params[0],8);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,8)) == 'users://') {
+			$params[0] = EYE_ROOT . '/' . USERS_DIR . '/' . utf8_substr($params[0],8);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,7)) == 'real://') {
+			$params[0] = EYE_ROOT . '/' . utf8_substr($params[0],7);
+		}
+		if ($params[1]) {
+			if ($params[1] == 2) {
+				if (vfs('fileExists',array($params[0]))) {
+					errorCodes('setErrorCode',array(VFS_FILE_ALREADY_EXISTS));
+					return false;
+				}
+			} elseif (!vfs('fileExists',array($params[0]))) {
+				if (vfs('isdir',array($params[0]))) {
+					errorCodes('setErrorCode',array(VFS_DIR_NOT_EXISTS));
+				} else {
+					errorCodes('setErrorCode',array(VFS_FILE_NOT_EXISTS));
+				}
+				return false;
+			}
+		}
+		if ($params[2] && !vfs('checkPermissions',array($params[0],$params[3]))) {
+			errorCodes('setErrorCode',array(VFS_INSUFFICIENT_PERMISSIONS));
+			return false;
+		}
+		if ($params[4] == 2) {
+			if (!vfs('checkQuota',array($params[5],1))) {
+				return false;
+			}
+		} elseif ($params[4] && !vfs('checkQuota',array($params[0]))) {
+			return false;
+		}
+		return $params[0];
+	}
+}
+
+if (!function_exists('intern_vfs_checkPermissions')) {
+	function intern_vfs_checkPermissions($file) {
+		return @is_readable($file) && @is_writable($file);
+	}
+}
+
+if (!function_exists('intern_vfs_copy')) {
+	function intern_vfs_copy($path,$dest) {
+		if (is_file($path)) {
+			return @copy($path,$dest) && @touch($dest,filemtime($path));
+		} else {
+			$return = true;
+			if (!is_dir($dest)) {
+				@mkdir($dest);
+			}
+			foreach (@scandir($path) as $file) {
+				if ($file != '.' && $file != '..') {
+					if (!intern_vfs_copy($path . '/' . $file,$dest . '/' . $file)) {
+						$return = false;
+					}
+				}
+			}
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('intern_vfs_delete')) {
+	function intern_vfs_delete($path) {
+		if (is_file($path)) {
+			return @unlink($path);
+		} else {
+			foreach (@scandir($path) as $file) {
+				if ($file != '.' && $file != '..') {
+					intern_vfs_delete($path . '/' . $file);
+				}
+			}
+		}
+		return @rmdir($path);
+	}
+}
+
+if (!function_exists('intern_vfs_getDirContent')) {
+	function intern_vfs_getDirContent($params = '') {
+		if (!isset($params[1])) {
+			$params[1] = '*';
+		}
+		
+		return glob($params[0] . '/' . $params[1]);
+	}
+}
+
+if (!function_exists('intern_vfs_getDirSize')) {
+	function intern_vfs_getDirSize($path) {
+		if (is_file($path)) {
+			return filesize($path);
+		} else {
+			$size = 0;
+			foreach (@scandir($path) as $file) {
+				if ($file != '.' && $file != '..') {
+					$size += intern_vfs_getDirSize($path . '/' . $file);
+				}
+			}
+		}
+		return $size;
+	}
+}
+
+if (!function_exists('intern_vfs_getExtension')) {
+	function intern_vfs_getExtension($file) {
+		$list['tar'] = array('bz2','gz');
+		$ext = utf8_substr(strrchr($file,'.'),1);
+		$file = utf8_substr($file,0,- (1 + strlen($ext)));
+		$ext2 = utf8_substr(strrchr($file,'.'),1);
+		if (isset($ext2) && in_array($ext,$list[$ext2])) {
+			$ext = $ext2 . '.' . $ext;
+		}
+		return $ext;
+	}
+}
+
+if (!function_exists('intern_vfs_move')) {
+	function intern_vfs_move($path,$dest) {
+		if ($return = @rename($path,$dest)) {
+			return $return;
+		} elseif (is_file($path)) {
+			@unlink($dest);
+			return @rename($path,$dest);
+		} else {
+			if (!is_dir($dest)) {
+				@mkdir($dest);
+			}
+			foreach (@scandir($path) as $file) {
+				if ($file != '.' && $file != '..') {
+					intern_vfs_move($path . '/' . $file,$dest . '/' . $file);
+				}
+			}
+			return @rmdir($path);
+		}
+	}
+}
+
+if (!function_exists('intern_vfs_real_checkParams')) {
+	function intern_vfs_real_checkParams($params = '') { // Virtual: checkParam
+		if (!isset($params[0])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		$params[0] = str_replace('\\','/',$params[0]);
+		if (utf8_strtolower(utf8_substr($params[0],0,7)) == 'home://') {
+			$params[0] = um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/' . utf8_substr($params[0],7);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,9)) == 'groups://') {
+			$params[0] = EYE_ROOT . '/' . GROUPS_DIR . '/' . utf8_substr($params[0],9);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,8)) == 'trash://') {
+			$params[0] = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_substr($params[0],8);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,8)) == 'users://') {
+			$params[0] = EYE_ROOT . '/' . USERS_DIR . '/' . utf8_substr($params[0],8);
+		} elseif (utf8_strtolower(utf8_substr($params[0],0,7)) == 'real://') {
+			$params[0] = EYE_ROOT . '/' . utf8_substr($params[0],7);
+		}
+		if ($params[1]) {
+			if ($params[1] == 2) {
+				if (vfs('real_fileExists',array($params[0]))) {
+					errorCodes('setErrorCode',array(VFS_FILE_ALREADY_EXISTS));
+					return false;
+				}
+			} elseif (!vfs('real_fileExists',array($params[0]))) {
+				if (vfs('real_isdir',array($params[0]))) {
+					errorCodes('setErrorCode',array(VFS_DIR_NOT_EXISTS));
+				} else {
+					errorCodes('setErrorCode',array(VFS_FILE_NOT_EXISTS));
+				}
+				return false;
+			}
+		}
+		if ($params[2] && !vfs('real_checkPermissions',array($params[0],$params[3]))) {
+			errorCodes('setErrorCode',array(VFS_INSUFFICIENT_PERMISSIONS));
+			return false;
+		}
+		if ($params[4] == 2) {
+			if (!vfs('real_checkQuota',array($params[5],1))) {
+				return false;
+			}
+		} elseif ($params[4] && !vfs('real_checkQuota',array($params[0]))) {
+			return false;
+		}
+		return $params[0];
+	}
+}
+
+// Other functions
+
+if (!function_exists('service_vfs_checkSpecialChars')) {
+	function service_vfs_checkSpecialChars($params = '') {
+		global $charBlackList;
+		foreach ($charBlackList as $char) {
+			if (utf8_strpos($params[0],$char) !== false) {
+				return false;
+			}
+		}
+		return true;
+	}
+}
+
+if (!function_exists('service_vfs_cleanTemp')) {
+	function service_vfs_cleanTemp($params = '') {
+		$path = um('getCurrentUserDir') . '/tmp/';
+		return vfs('real_rmdir',array($path)) && vfs('real_mkdir',array($path));
+	}
+}
+
+if (!function_exists('service_vfs_emptyTrash')) {
+	function service_vfs_erase($params = '') {
+		$path = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/';
+		return vfs('real_rmdir',array($path)) && vfs('real_mkdir',array($path));
+	}
+}
+
+if (!function_exists('service_vfs_isGroupDir')) {
+	function service_vfs_isGroupDir($params = '') {
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		} elseif (!vfs('real_isdir',array($params[0]))) {
+			$params[0] = dirname($params[0]);
+		}
+		
+		return utf8_strpos(realpath($params[0]),realpath(EYE_ROOT . '/' . GROUPS_DIR . '/')) === 0;
+	}
+}
+
+if (!function_exists('service_vfs_isTrashPath')) {
+	function service_vfs_isTrashPath($params = '') {
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		} elseif (!vfs('real_isdir',array($params[0]))) {
+			$params[0] = dirname($params[0]);
+		}
+		
+		return utf8_strpos(realpath($params[0]),realpath(um('getCurrentUserDir') . '/' . TRASH_USER_DIR)) === 0;
+	}
+}
+
+/*
+TODO: Use dirname() and filename() instead of realpath()!
+This function should not check if a file exists or not!
+It only parses a path!
+$sub is relative
+*/
+if (!function_exists('service_vfs_cleanPath')) { // TODO: 1, handle FILES
+	function service_vfs_cleanPath($params = '') {
+		global $currentUser;
+		$path = str_replace('\\','/',$params[0]) . '/';
+		$type = $params[1];
+		if (in_array(utf8_strtolower($type),array('home','groups','trash','users','real'))) {
+			$type = utf8_strtolower($type);
+		} elseif (utf8_strtolower(utf8_substr($path,0,7)) == 'home://') {
+			$type = 'home';
+			$path = utf8_substr($path,7);
+		} elseif (utf8_strtolower(utf8_substr($path,0,9)) == 'groups://') {
+			$type = 'groups';
+			$path = utf8_substr($path,9);
+		} elseif (utf8_strtolower(utf8_substr($path,0,8)) == 'trash://') {
+			$type = 'trash';
+			$path = utf8_substr($path,8);
+		} elseif (utf8_strtolower(utf8_substr($path,0,8)) == 'users://') {
+			$type = 'users';
+			$path = utf8_substr($path,8);
+		} elseif (utf8_strtolower(utf8_substr($path,0,7)) == 'real://') {
+			$type = 'real';
+			$path = utf8_substr($path,7);
+		} elseif (utf8_strpos(realpath($path),realpath(um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/')) === 0) {
+			$type = 'home';
+		} elseif (utf8_strpos(realpath($path),realpath(EYE_ROOT . '/' . GROUPS_DIR . '/')) === 0) {
+			$type = 'groups';
+		} elseif (utf8_strpos(realpath($path),realpath(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/')) === 0) {
+			$type = 'trash';
+		} elseif (utf8_strpos(realpath($path),realpath(EYE_ROOT . '/' . USERS_DIR . '/')) === 0) {
+			$type = 'users';
+		} elseif (utf8_strpos(realpath($path),realpath(EYE_ROOT . '/')) === 0) {
+			$type = 'real';
+		}
+		if ($type == 'groups') {
+			$sub = EYE_ROOT . '/' . GROUPS_DIR . '/';
+		} elseif ($type == 'trash') {
+			$sub = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/';
+			$path = $sub;
+		} elseif ($type == 'users') {
+			$sub = EYE_ROOT . '/' . USERS_DIR . '/';
+		} elseif ($type == 'real') {
+			$sub = EYE_ROOT . '/';
+		} else {
+			$type = 'home';
+			$sub = um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/';
+		}
+		/*if ($type == 'groups' || $type == 'users') {
+			if (utf8_strpos(realpath($path),realpath($sub)) === 0) {
+				$path = str_replace('\\','/',utf8_substr(realpath($path),utf8_strlen(realpath($sub))));
+			}
+			$path = str_replace('//','/',str_replace('//','/',utf8_trim($path,'/')));
+			$sPath = $sub.$path;
+			if ((utf8_strpos(realpath($sPath),realpath($sub)) === 0 && vfs('isdir',array($sPath))) && (substr_count($path,'/') > 1 || substr_count($path,'/') && $type != 'users')) {
+				$path = str_replace('\\','/',utf8_substr(realpath($sPath),utf8_strlen(realpath($sub))));
+			} else {
+				$path .= '/';
+				$temp = utf8_substr($path,0,utf8_strpos($path,'/'));
+				if ($type == 'groups' && $temp) {
+					$path = $temp . '/' . FILES_GROUP_DIR . '/' . utf8_substr($path,utf8_strlen($temp));
+				} elseif ($type == 'users' && $temp) {
+					$path = utf8_substr($path,1 + utf8_strlen($temp));
+					$temp2 = utf8_substr($path,0,utf8_strpos($path,'/'));
+					if ($temp2) {
+						$temp .= '/' . $temp2 . '/' . FILES_USER_DIR;
+						$path = utf8_substr($path,utf8_strlen($temp2));
+					}
+					$path = $temp . '/' . $path;
+				} else {
+					$path = '/';
+				}
+			}
+		}
+		if ($type != 'real' && utf8_strpos(realpath($path),realpath($sub)) !== 0 || utf8_substr($path,0,2) != './') {
+			$path = $sub . $path;
+		}
+		if ($type != 'real' && utf8_strpos(realpath($path),realpath($sub)) !== 0) {
+			$path = $sub;
+		}
+		$path = str_replace('//','/',str_replace('//','/',$path));
+		if ($type == 'real' && utf8_strpos(realpath($path),realpath($sub)) !== 0) {
+			$show = utf8_substr($path,2);
+		} else {
+			$show = str_replace('\\','/',utf8_substr(realpath($path),utf8_strlen(realpath($sub))));
+			$show = utf8_trim($show,'/') . '/';
+			if (($type == 'groups' || $type == 'users') && $show != '/') {
+				$temp = utf8_substr($show,0,utf8_strpos($show,'/'));
+				$show = utf8_substr($show,1 + utf8_strlen($temp)) . '/';
+				if ($type == 'users') {
+					$temp2 = utf8_substr($show,0,utf8_strpos($show,'/'));
+					if ($temp2) {
+						$temp .= '/' . $temp2;
+						$show = utf8_substr($show,1 + utf8_strlen($temp2)) . '/';
+					}
+				}
+				$show = $temp . '/' . utf8_substr($show,utf8_strpos($show,'/'));
+				$show = str_replace('//','/',str_replace('//','/',utf8_trim($show,'/'))) . '/';
+			}
+		}*/
+		return array(
+			'basename' => $basename,
+			'dirname' => $dirname,
+			'extension' => $extension,
+			'realpath' => $realpath,
+			'show' => $show,
+			'type' => $type
+		);
+	}
+}
+
+if (!function_exists('service_vfs_real_getDirContent_group')) {
+	function service_vfs_real_getDirContent_group($params = '') {
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		} elseif (!vfs('real_isdir',array($params[0]))) {
+			return false;
+		}
+		
+		return intern_vfs_getDirContent($params);
+	}
+}
+
+if (!function_exists('service_vfs_resolvePath')) {
+	function service_vfs_resolvePath($params = '') {
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		} elseif ($params[1] == 'user_files') {
+			$reference = um('getCurrentUserDir') . '/' . FILES_USER_DIR;
+		} elseif ($params[1] == 'group_files' && $params[3]) {
+			$reference = EYE_ROOT . '/' . GROUPS_DIR . '/' . utf8_basename($params[3]) . '/' . FILES_GROUP_DIR;
+		} else {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		
+		if (stripos(realpath($params[0]),realpath($reference . '/')) === 0) {
+			$params[0] = utf8_substr(realpath($params[0]),utf8_strlen(realpath($reference . '/')));
+			return vfs('resolvePath',$params);
+		} elseif (stripos(realpath($reference . '/' . $params[0]),realpath($reference . '/')) === false) {
+			return false;
+		} elseif ($params[2]) {
+			$params[0] = '/' . utf8_substr(realpath($reference . '/' . $params[0] . '/'),utf8_strlen(realpath($reference . '/')));
+		} else {
+			$params[0] = './' . utf8_substr(realpath($reference . '/' . $params[0] . '/'),utf8_strlen(realpath('./')));
+		}
+		return str_replace('\\','/',$params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_restoreDir')) { // TODO: 4
+	function service_vfs_restoreDir($params = '') {
+		if (!isset($params[0])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_rtrim($params[0],'/') . '.' . EYEOS_TRASH_EXT,1,1))) {
+			return false;
+		} elseif (isset($params[1]) && !$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_TRASH_EXT));
+		if (isset($params[1])) {
+			$params[1] .= '/' . utf8_basename($xml['eyeTrash'][0]['restorePoint'][0]);
+		} else {
+			$params[1] = $xml['eyeTrash'][0]['restorePoint'][0];
+		}
+		return vfs('rename',array($params[0],$params[1])) && vfs('real_delete',array($params[0] . '.' . EYEOS_TRASH_EXT));
+	}
+}
+
+if (!function_exists('service_vfs_restoreFile')) { // TODO: 4
+	function service_vfs_restoreFile($params = '') {
+		if (!isset($params[0])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . $params[0] . '.' . EYEOS_TRASH_EXT,1,1))) {
+			return false;
+		} elseif (isset($params[1]) && !$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_TRASH_EXT));
+		if (isset($params[1])) {
+			$params[1] .= '/' . utf8_basename($xml['eyeTrash'][0]['restorePoint'][0]);
+		} else {
+			$params[1] = $xml['eyeTrash'][0]['restorePoint'][0];
+		}
+		return vfs('move',array(vfs('getVirtualName',array($params[0])),$params[1])) && vfs('real_delete',array($params[0] . '.' . EYEOS_TRASH_EXT));
+	}
+}
+
+// Virtual functions
+
+if (!function_exists('service_vfs_appendToFileBinary')) {
+	function service_vfs_appendToFileBinary($params = '') { // Real: real_appendToFileBinary
+		$params[1] = base64_decode($params[1]);
+		if (!vfs('checkQuota',array(strlen($params[1]),1))) {
+			return false;
+		} elseif (!$handler = vfs('open',array($params[0],'a'))) {
+			return false;
+		}
+		
+		while (!flock($handler,LOCK_EX)) {
+			usleep(200);
+		}
+		fwrite($handler,$params[1]);
+		return fclose($handler);
+	}
+}
+
+if (!function_exists('service_vfs_checkPermissions')) {
+	function service_vfs_checkPermissions($params = '') { // Real: real_checkPermissions
+		global $currentUser;
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		} elseif (!vfs('checkSpecialChars',array(utf8_basename($params[0])))) {
+			errorCodes('setErrorCode',array(VFS_INVALID_CHARS));
+			return false;
+		}
+		
+		$params[1] = utf8_strtolower($params[1]);
+		$file = utf8_basename($params[0]);
+		if ($file) {
+			$params[0] = utf8_substr(utf8_trim(str_replace('\\','/',$params[0]),'/'),0,- utf8_strlen($file));
+			$file = '/' . $file;
+		}
+		$path = utf8_trim(str_replace('\\','/',realpath($params[0])),'/') . $file;
+		$root = utf8_trim(str_replace('\\','/',realpath(EYE_ROOT)),'/');
+		$home = utf8_trim(str_replace('\\','/',realpath(um('getCurrentUserDir') . '/' . FILES_USER_DIR)),'/');
+		$temp = utf8_trim(str_replace('\\','/',realpath(um('getCurrentUserDir') . '/' . EYEOS_TMP_DIR)),'/');
+		$trash = utf8_trim(str_replace('\\','/',realpath(um('getCurrentUserDir') . '/' . TRASH_USER_DIR)),'/');
+		$groupsP = utf8_trim(str_replace('\\','/',realpath(EYE_ROOT . '/' . GROUPS_DIR)),'/');
+		if ($currentUser == ROOTUSER) {
+			if ($currentUser != REAL_ROOTUSERS && !ADMINS_JAILED || $currentUser == REAL_ROOTUSER && !ROOT_JAILED) {
+				return true;
+			} elseif (utf8_strpos($path,$root) == 0) {
+				return true;
+			}
+		} elseif ($path == $home && $params[1] == 'e' || $path == $temp && $params[1] == 'e' || $path == $trash && $params[1] == 'e') {
+			return false;
+		} elseif (utf8_strpos($path,$home) == 0 || utf8_strpos($path,$temp) == 0 || utf8_strpos($path,$trash) == 0) {
+			return true;
+		} elseif (utf8_strpos($path,$groupsP) == 0) {
+			$groups = service('um','getCurrentGroups');
+			foreach($groups as $group => $value) {
+				$groupP = $groupsP . '/' . $group . '/' . FILES_GROUP_DIR;
+				if ($path == $groupP && $params[1] == 'e') {
+					return false;
+				} elseif (utf8_strpos($path,$groupP) === 0) {
+					if (@in_array($group,$xml['eyeUser'][0]['maintain'])) {
+						return true;
+					} elseif ($params[1] == 'r') {
+						return true;
+					} elseif (vfs('isfile',array($params[0]))) {
+						$xml = eyeXML('getXMLfile',array(vfs('getRealName',array($params[0],1)) . '.' . EYEOS_INFO_EXT));
+						if (in_array('[all]',$xml['eyeFile'][0]['author']) || in_array($currentUser,$xml['eyeFile'][0]['author'])) {
+							return true;
+						}
+					} elseif (vfs('isdir',array($path)) && ALLOW_PUBLIC_DIRS) {
+						return true;
+					}
+				}
+			}
+		}
+		errorCodes('setErrorCode',array(VFS_INSUFFICIENT_PERMISSIONS));
+		return false;
+	}
+}
+
+if (!function_exists('service_vfs_checkQuota')) {
+	function service_vfs_checkQuota($params) { // Real: real_checkQuota
+		global $currentUser;
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		} elseif ($currentUser == ROOTUSER) {
+			return true;
+		}
+		
+		if (vfs('isGroupDir',array($params[0]))) {
+			// TODO
+		} else {
+			$xml = um('retrieveUser',array($currentUser));
+			$quota = $xml['eyeUser'][0]['quota'][0];
+		}
+		if (!$quota) {
+			$quota = DEFAULT_QUOTA;
+		}
+		if (intval($quota) < 0) {
+			return true;
+		}
+		
+		if ($params[2]) {
+			$params[0] = $params[2];
+		}
+		if ($params[1]) {
+			$size = $params[0];
+		} elseif (vfs('isdir',array($params[0]))) {
+			$size = vfs('getDirSize',array($params[0]));
+		} else {
+			$size = vfs('filesize',array($params[0]));
+		}
+		return intval($quota) >= vfs('getDirSize',array(um('getCurrentUserDir'))) + $size;
+	}
+}
+
+if (!function_exists('service_vfs_copy')) { // TODO: 4
+	function service_vfs_copy($params = '') { // Real: real_copy
+		if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+			return vfs('copyDir',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r',1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		$params[0] = vfs('getRealName',array($params[0],1));
+		$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_INFO_EXT));
+		$xml['filename'] = utf8_basename($params[1]);
+		$params[1] .= utf8_substr($params[0],utf8_strrpos($params[0],'_'));
+		$return = @copy($params[0] . '.' . EYEOS_FILE_EXT,$params[1] . '.' . EYEOS_FILE_EXT);
+		if (!$return) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_COPY));
+		}
+		return $return && eyeXML('setXMLfile',array($params[1] . '.' . EYEOS_INFO_EXT,$xml));
+	}
+}
+
+if (!function_exists('service_vfs_copyDir')) { // TODO: 3, 4
+	function service_vfs_copyDir($params = '') { // Real: real_copyDir
+		if (!vfs('isdir',array($params[0])) && vfs('isfile',array($params[0]))) {
+			return vfs('copy',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r',1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		return intern_vfs_copy($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_create')) {
+	function service_vfs_create($params = '') { // Real: real_create
+		global $currentUser;
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],2,1))) {
+			return false;
+		}
+		if (!isset($params[1])) {
+			$params[1] = '';
+		}
+		if (!isset($params[2])) {
+			$params[2] = '';
+		}
+		
+		$file = $params[0] . '_' . md5(uniqid(rand())) . '.';
+		$xml['eyeFile'][0]['author'][0] = $currentUser;
+		$xml['eyeFile'][0]['created'][0] = time();
+		$xml['eyeFile'][0]['creationapp'][0] = $params[1];
+		$xml['eyeFile'][0]['filename'][0] = utf8_basename($params[0]);
+		return @file_put_contents($file . EYEOS_FILE_EXT,$params[2]) !== false && eyeXML('setXMLfile',array($file . EYEOS_INFO_EXT,$xml));
+	}
+}
+
+if (!function_exists('service_vfs_delete')) {
+	function service_vfs_delete($params = '') { // Real: real_delete
+		if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+			return vfs('rmdir',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+			return false;
+		}
+		
+		$file = vfs('getRealName',array($params[0],1)) . '.';
+		if ($params[1]) {
+			$path = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . utf8_basename($file) . uniqid(srand(time())) . '.';
+			if (@rename($file . EYEOS_FILE_EXT,$path . EYEOS_FILE_EXT) && @rename($file . EYEOS_INFO_EXT,$path . EYEOS_INFO_EXT)) {
+				$xml['eyeTrash'][0]['deleteDate'][0] = time();
+				$xml['eyeTrash'][0]['lastname'][0] = utf8_basename($params[0]);
+				$xml['eyeTrash'][0]['restorePoint'][0] = $file;
+				$xml['eyeTrash'][0]['type'][0] = 'file';
+				return eyeXML('setXMLfile',array($path . EYEOS_TRASH_EXT,$xml));
+			}
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_UNLINK));
+			return false;
+		}
+		$return = @unlink($file . EYEOS_FILE_EXT) && @unlink($file . EYEOS_INFO_EXT);
+		if (!$return) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_UNLINK));
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('service_vfs_erase')) {
+	function service_vfs_erase($params = '') { // Real: real_erase
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+			return false;
+		} elseif (!vfs('isfile',array($params[0]))) {
+			return false;
+		}
+		
+		return @file_put_contents(vfs('getRealName',array($params[0])),'') !== false;
+	}
+}
+
+if (!function_exists('service_vfs_fileExists')) {
+	function service_vfs_fileExists($params = '') { // Real: fileExists
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		}
+		
+		if (vfs('isdir',array($params[0]))) {
+			return intern_vfs_checkPermissions($params[0]);
+		} elseif (vfs('isfile',array($params[0]))) {
+			$file = vfs('getRealName',array($params[0],1)) . '.';
+			return intern_vfs_checkPermissions($file . EYEOS_FILE_EXT) && intern_vfs_checkPermissions($file . EYEOS_INFO_EXT);
+		}
+		return false;
+	}
+}
+
+if (!function_exists('service_vfs_filesize')) {
+	function service_vfs_filesize($params = '') { // Real: filesize
+		if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+			return vfs('getDirSize',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		return @filesize(vfs('getRealName',array($params[0])));
+	}
+}
+
+if (!function_exists('service_vfs_getDirContent')) {
+	function service_vfs_getDirContent($params = '') { // Real: getDirContent
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		} elseif (!vfs('isdir',array($params[0]))) {
+			return false;
+		}
+		
+		$return = array();
+		foreach (intern_vfs_getDirContent($params) as $file) {
+			if (vfs('isdir',array($file)) || utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_LINK_EXT))) == utf8_strtolower(EYEOS_LINK_EXT)) {
+				$return[] = $file;
+			} elseif (utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_INFO_EXT))) == utf8_strtolower(EYEOS_INFO_EXT)) {
+				$xml = eyeXML('getXMLfile',array($file));
+				if (isset($xml['eyeFile'][0]['filename'][0])) {
+					$return[] = $params[0] . '/' . $xml['eyeFile'][0]['filename'][0];
+				}
+			}
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('service_vfs_getDirSize')) {
+	function service_vfs_getDirSize($params = '') { // Real: getDirSize
+		if (!vfs('isdir',array($params[0])) && vfs('isfile',array($params[0]))) {
+			return vfs('filesize',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		$params[0] = realpath($params[0]);
+		if (function_exists('com_load_typelib')) {
+			$object = new COM('scripting.filesystemobject');
+			if (is_object($object)) {
+				$size = $object->getfolder($params[0])->size;
+			}
+		} else {
+			$size = shell_exec('du -sb ' . escapeshellarg($params[0]));
+		}
+		if (!is_numeric($size)) {
+			$size = intern_vfs_getDirSize($params[0]);
+		}
+		return $size;
+	}
+}
+
+if (!function_exists('service_vfs_getExtension')) {
+	function service_vfs_getExtension($params = '') { // Real: getExtension
+		if (!isset($params[0])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		
+		if (utf8_strtolower(utf8_substr(strrchr($params[0],'.'),1)) == utf8_strtolower(EYEOS_FILE_EXT)) {
+			return EYEOS_FILE_EXT;
+		}
+		return false;
+	}
+}
+
+if (!function_exists('service_vfs_getFileContent')) {
+	function service_vfs_getFileContent($params) { // Real: getFileContent
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		return @file_get_contents(vfs('getRealName',array($params[0])));
+	}
+}
+
+if (!function_exists('service_vfs_getVirtualName')) {
+	function service_vfs_getVirtualName($params = '') { // Real: getRealName
+		if (!isset($params[0])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		}
+		
+		return utf8_substr($params[0],0,utf8_strrpos($params[0],'_'));
+	}
+}
+
+if (!function_exists('service_vfs_isdir')) {
+	function service_vfs_isdir($params = '') { // Real: real_isdir
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		}
+		
+		return is_dir($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_isfile')) {
+	function service_vfs_isfile($params = '') { // Real: real_isfile
+		if (!$params[0] = intern_vfs_checkParams(array($params[0]))) {
+			return false;
+		}
+		
+		$file = vfs('getRealName',array($params[0],1));
+		if (!$file) {
+			return false;
+		}
+		return is_file($file . '.' . EYEOS_FILE_EXT) && is_file($file . '.' . EYEOS_INFO_EXT);
+	}
+}
+
+if (!function_exists('service_vfs_mkdir')) {
+	function service_vfs_mkdir($params = '') { // Real: real_mkDir
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],2,1,'d'))) {
+			return false;
+		} elseif (vfs('isfile',array($params[0]))) {
+			errorCodes('setErrorCode',array(VFS_FILE_ALREADY_EXISTS));
+			return false;
+		}
+		
+		$return = @mkdir($params[0],0777);
+		if (!$return) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_MKDIR));
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('service_vfs_move')) { // TODO: 4
+	function service_vfs_move($params = '') { // Real: real_move
+		if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+			return vfs('rename',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		$params[0] = vfs('getRealName',array($params[0],1));
+		$xml = eyeXML('getXMLfile',array($params[0] . '.' . EYEOS_INFO_EXT));
+		$xml['filename'] = utf8_basename($params[1]);
+		$params[1] .= utf8_substr($params[0],utf8_strrpos($params[0],'_'));
+		$return1 = @rename($params[0] . '.' . EYEOS_FILE_EXT,$params[1] . '.' . EYEOS_FILE_EXT);
+		if (!$return1) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_COPY));
+		}
+		$return2 = @unlink($params[0] . '.' . EYEOS_INFO_EXT);
+		if (!$return2) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_UNLINK));
+		}
+		return $return1 && $return2 && eyeXML('setXMLfile',array($params[1] . '.' . EYEOS_INFO_EXT,$xml));
+	}
+}
+
+if (!function_exists('service_vfs_moveUploadedFile')) { // TODO: real, real module, checkQuota
+	function service_vfs_moveUploadedFile($params = '') { // Real: real_moveUploadedFile
+		if (!is_uploaded_file($params[0])) {
+			return false; // TODO: Error message
+		} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		$i = 0;
+		$extension = utf8_substr(strrchr($params[1],'.'),1);
+		while (vfs('fileExists',array($params[1]))) {
+			$path = utf8_substr($params[1],0,utf8_strlen($params[1]) - utf8_strlen($extension) - 1);
+			if ($i) {
+				$path = utf8_substr($params[1],0,utf8_strlen($path) - utf8_strlen(strrchr($path,'_')));// better solution for this line?
+			}
+			$i++;
+			$params[1] = $path . '_' . $i . '.' . $extension;
+		}
+		return @move_uploaded_file($params[0],$params[1]) && vfs('realToVirtual',array($params[1]));
+	}
+}
+
+if (!function_exists('service_vfs_open')) {
+	function service_vfs_open($params = '') { // Real: real_open
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,$params[1]))) {
+			return false;
+		}
+		
+		return @fopen(vfs('getRealName',array($params[0])),$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_readFile')) {
+	function service_vfs_readFile($params = '') { // Real: printFile
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		$return = @readfile(vfs('getRealName',array($params[0])));
+		if ($params[1]) {
+			exit;
+		} else {
+			return $return;
+		}
+	}
+}
+
+if (!function_exists('service_vfs_readInfo')) {
+	function service_vfs_readInfo($params = '') { // Real: real_readInfo
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		return eyeXML('getXMLfile',array(vfs('getRealName',array($params[0],1)) . '.' . EYEOS_INFO_EXT));
+	}
+}
+
+if (!function_exists('service_vfs_rename')) { // TODO: 2, 3, 4
+	function service_vfs_rename($params = '') { // Real: real_rename
+		if (!vfs('isdir',array($params[0])) && vfs('isfile',array($params[0]))) {
+			return vfs('move',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		return intern_vfs_move($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_rmdir')) { // TODO: 2
+	function service_vfs_rmdir($params = '') { // Real: real_rmdir
+		if (!vfs('isdir',array($params[0])) && vfs('isfile',array($params[0]))) {
+			return vfs('delete',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],0,1,'e'))) {
+			return false;
+		}
+		
+		if ($params[1]) {
+			$path = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/' . uniqid(srand(time()));
+			if (@rename($params[0],$path)) {
+				$xml['eyeTrash'][0]['deleteDate'][0] = time();
+				$xml['eyeTrash'][0]['lastname'][0] = utf8_basename($params[0]);
+				$xml['eyeTrash'][0]['restorePoint'][0] = $params[0];
+				$xml['eyeTrash'][0]['type'][0] = 'dir';
+				return eyeXML('setXMLfile',array($path . '.' . EYEOS_TRASH_EXT,$xml));
+			}
+			return false;
+		}
+		return intern_vfs_delete($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_virtualToReal')) {
+	function service_vfs_virtualToReal($params = '') { // Real: virtualToReal
+		if (!vfs('isfile',array($params[0])) && vfs('isdir',array($params[0]))) {
+			return vfs('virtualToRealDir',$params);
+		}
+		
+		$content = vfs('getFileContent',array($params[0]));
+		return vfs('delete',array($params[0])) && vfs('real_create',array($params[0],$params[1])) && vfs('real_putFileContent',array($params[0],$content));
+	}
+}
+
+if (!function_exists('service_vfs_virtualToRealDir')) { // TODO: 2
+	function service_vfs_virtualToRealDir($params = '') { // Real: virtualToRealDir
+		if (!vfs('isdir',array($params[0])) && vfs('isfile',array($params[0]))) {
+			return vfs('virtualToReal',$params);
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1))) {
+			return false;
+		}
+		
+		$n = 0;
+		foreach (vfs('getDirContent',array($params[0])) as $file) {
+			if (vfs('isdir',array($file))) {
+				$n += vfs('virtualToRealDir',array($file));
+			} elseif (vfs('virtualToReal',array($file))) {
+				$n++;
+			}
+		}
+		return $n;
+	}
+}
+
+if (!function_exists('service_vfs_writeFile')) {
+	function service_vfs_writeFile($params) { // Real: real_putFileContent
+		if (!isset($params[1])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		} elseif (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'w',2,utf8_strlen($params[1]) - utf8_strlen(vfs('getFileContent',array($params[0])))))) {
+			return false;
+		}
+		
+		return @file_put_contents(vfs('getRealName',array($params[0])),$params[1]);
+	}
+}
+
+// Real functions
+
+if (!function_exists('service_vfs_getRealName')) {
+	function service_vfs_getRealName($params = '') { // Virtual: getVirtualName
+		if (!$params[0] = intern_vfs_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		foreach (intern_vfs_getDirContent(dirname($params[0]),utf8_basename($params[0]) . '_*') as $file) {
+			if (utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_INFO_EXT))) == utf8_strtolower(EYEOS_INFO_EXT)) {
+				$return = utf8_substr($file,0,- 1 - utf8_strlen(EYEOS_INFO_EXT));
+				if (!$params[1]) {
+					$return .= '.' . EYEOS_FILE_EXT;
+				}
+				return $return;
+			}
+		}
+		errorCodes('setErrorCode',array(VFS_FILE_NOT_FOUND));
+		return false;
+	}
+}
+
+if (!function_exists('service_vfs_printFile')) {
+	function service_vfs_printFile($params = '') { // Virtual: readFile
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		$return = @readfile($params[0]);
+		if ($params[1]) {
+			exit;
+		} else {
+			return $return;
+		}
+	}
+}
+
+if (!function_exists('service_vfs_real_appendToFileBinary')) {
+	function service_vfs_real_appendToFileBinary($params = '') { // Virtual: appendToBinary
+		$params[1] = base64_decode($params[1]);
+		if (!vfs('real_checkQuota',array(strlen($params[1]),1))) {
+			return false;
+		} elseif (!$handler = vfs('real_open',array($params[0],'a'))) {
+			return false;
+		}
+		
+		while (!flock($handler,LOCK_EX)) {
+			usleep(200);
+		}
+		fwrite($handler,$params[1]);
+		return fclose($handler);
+	}
+}
+
+if (!function_exists('service_vfs_real_checkPermissions')) {
+	function service_vfs_real_checkPermissions($params = '') { // Virtual: checkPermissions
+		global $currentUser;
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0]))) {
+			return false;
+		} elseif (!vfs('checkSpecialChars',array(utf8_basename($params[0])))) {
+			errorCodes('setErrorCode',array(VFS_INVALID_CHARS));
+			return false;
+		}
+		
+		$params[1] = utf8_strtolower($params[1]);
+		$file = utf8_basename($params[0]);
+		if ($file) {
+			$params[0] = utf8_substr(utf8_trim(str_replace('\\','/',$params[0]),'/'),0,- utf8_strlen($file));
+			$file = '/' . $file;
+		}
+		$path = utf8_trim(str_replace('\\','/',realpath($params[0])),'/') . $file;
+		$root = utf8_trim(str_replace('\\','/',realpath(EYE_ROOT)),'/');
+		$user = utf8_trim(str_replace('\\','/',realpath(um('getCurrentUserDir'))),'/');
+		$groupsP = utf8_trim(str_replace('\\','/',realpath(EYE_ROOT . '/' . GROUPS_DIR)),'/');
+		if ($currentUser == ROOTUSER) {
+			if ($currentUser != REAL_ROOTUSERS && !ADMINS_JAILED || $currentUser == REAL_ROOTUSER && !ROOT_JAILED) {
+				return true;
+			} elseif (utf8_strpos($path,$root) == 0) {
+				return true;
+			}
+		} elseif (utf8_strpos($path,$user) == 0) {
+			return true;
+		} elseif (utf8_strpos($path,$groupsP) == 0) {
+			$groups = service('um','getCurrentGroups');
+			foreach($groups as $group => $value) {
+				if (utf8_strpos($path,$groupsP . '/' . $group) === 0 && $params[1] == 'r') {
+					return true;
+				}
+			}
+		}
+		errorCodes('setErrorCode',array(VFS_INSUFFICIENT_PERMISSIONS));
+		return false;
+	}
+}
+
+if (!function_exists('service_vfs_real_checkQuota')) {
+	function service_vfs_real_checkQuota($params) { // Virtual: checkQuota
+		global $currentUser;
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0]))) {
+			return false;
+		} elseif ($currentUser == ROOTUSER) {
+			return true;
+		}
+		
+		if (vfs('isGroupDir',array($params[0]))) {
+			// TODO
+		} else {
+			$xml = um('retrieveUser',array($currentUser));
+			$quota = $xml['eyeUser'][0]['quota'][0];
+		}
+		if (!$quota) {
+			$quota = DEFAULT_QUOTA;
+		}
+		if (intval($quota) < 0) {
+			return true;
+		}
+		
+		if ($params[2]) {
+			$params[0] = $params[2];
+		}
+		if ($params[1]) {
+			$size = $params[0];
+		} elseif (vfs('real_isdir',array($params[0]))) {
+			$size = vfs('real_getDirSize',array($params[0]));
+		} else {
+			$size = vfs('real_filesize',array($params[0]));
+		}
+		return intval($quota) >= vfs('real_getDirSize',array(um('getCurrentUserDir'))) + $size;
+	}
+}
+
+if (!function_exists('service_vfs_real_copy')) { // TODO: 4
+	function service_vfs_real_copy($params = '') { // Virtual: copy
+		if (!vfs('real_isfile',array($params[0]))) {
+			return vfs('real_copyDir',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r',1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_real_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		$return = @copy($params[0],$params[1]);
+		if (!$return) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_COPY));
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('service_vfs_real_copyDir')) { // TODO: 4
+	function service_vfs_real_copyDir($params = '') { // Virtual: copyDir
+		if (!vfs('real_isdir',array($params[0]))) {
+			return vfs('real_copy',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r',1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_real_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		return intern_vfs_copy($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_real_create')) {
+	function service_vfs_real_create($params = '') { // Virtual: create
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],2,1))) {
+			return false;
+		}
+		if (!isset($params[1])) {
+			$params[1] = '';
+		}
+		if (isset($params[2])) {
+			$params[1] = $params[2];
+		}
+		
+		return @file_put_contents($params[0],$params[1]) !== false;
+	}
+}
+
+if (!function_exists('service_vfs_real_delete')) {
+	function service_vfs_real_delete($params = '') { // Virtual: delete
+		if (!vfs('real_isfile',array($params[0]))) {
+			return vfs('real_rmdir',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1))) {
+			return false;
+		}
+		
+		$return = @unlink($params[0]);
+		if (!$return) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_UNLINK));
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('service_vfs_real_erase')) {
+	function service_vfs_real_erase($params = '') { // Virtual: erase
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1))) {
+			return false;
+		} elseif (!vfs('real_isfile',array($params[0]))) {
+			return false;
+		}
+		
+		return @file_put_contents($params[0],'') !== false;
+	}
+}
+
+if (!function_exists('service_vfs_real_fileExists')) {
+	function service_vfs_real_fileExists($params = '') { // Virtual: fileExists
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0]))) {
+			return false;
+		}
+		
+		return intern_vfs_checkPermissions($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_real_filesize')) {
+	function service_vfs_real_filesize($params = '') { // Virtual: filesize
+		if (!vfs('real_isfile',array($params[0]))) {
+			return vfs('real_getDirSize',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		return @filesize($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_real_getDirContent')) {
+	function service_vfs_real_getDirContent($params = '') { // Virtual: getDirContent
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		} elseif (!vfs('real_isdir',array($params[0]))) {
+			return false;
+		}
+		
+		return intern_vfs_getDirContent($params);
+	}
+}
+
+if (!function_exists('service_vfs_real_getDirSize')) {
+	function service_vfs_real_getDirSize($params = '') { // Virtual: getDirSize
+		if (!vfs('real_isdir',array($params[0]))) {
+			return vfs('real_filesize',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		$params[0] = realpath($params[0]);
+		if (function_exists('com_load_typelib')) {
+			$object = new COM('scripting.filesystemobject');
+			if (is_object($object)) {
+				$size = $object->getfolder($params[0])->size;
+			}
+		} else {
+			$size = shell_exec('du -sb ' . escapeshellarg($params[0]));
+		}
+		if (!is_numeric($size)) {
+			$size = intern_vfs_getDirSize($params[0]);
+		}
+		return $size;
+	}
+}
+
+if (!function_exists('service_vfs_real_getExtension')) {
+	function service_vfs_real_getExtension($params = '') { // Virtual: getExtension
+		if (!isset($params[0]) || vfs('real_isdir',array($params[0]))) {
+			return false;
+		}
+		
+		if (utf8_strtolower(intern_vfs_getExtension($params[0])) == utf8_strtolower(EYEOS_FILE_EXT)) {
+			return intern_vfs_getExtension(utf8_substr($path,0,utf8_strrpos($params[0],'_')));
+		}
+		return intern_vfs_getExtension($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_real_getFileContent')) {
+	function service_vfs_real_getFileContent($params = '') { // Virtual: getFileContent
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		return @file_get_contents($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_real_isdir')) {
+	function service_vfs_real_isdir($params = '') { // Virtual: isdir
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0]))) {
+			return false;
+		}
+		
+		return is_dir($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_real_isfile')) {
+	function service_vfs_real_isfile($params = '') { // Virtual: isfile
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0]))) {
+			return false;
+		}
+		
+		return is_file($file);
+	}
+}
+
+if (!function_exists('service_vfs_real_mkDir')) {
+	function service_vfs_real_mkDir($params = '') { // Virtual: mkdir
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],2,1,'d'))) {
+			return false;
+		} elseif (vfs('real_isfile',array($params[0]))) {
+			errorCodes('setErrorCode',array(VFS_FILE_ALREADY_EXISTS));
+			return false;
+		}
+		
+		$return = @mkdir($params[0],0777);
+		if (!$return) {
+			errorCodes('setErrorCode',array(PHP_ERROR_ON_MKDIR));
+		}
+		return $return;
+	}
+}
+
+if (!function_exists('service_vfs_real_move')) { // TODO: 4
+	function service_vfs_real_move($params = '') { // Virtual: move
+		if (!vfs('real_isfile',array($params[0]))) {
+			return vfs('real_rename',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_real_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		return @rename($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_real_moveUploadedFile')) {// TODO: 1
+	function service_vfs_real_moveUploadedFile($params = '') { // Real: real_moveUploadedFile
+		return false;
+	}
+}
+
+if (!function_exists('service_vfs_real_open')) {
+	function service_vfs_real_open($params = '') { // Virtual: open
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,$params[1]))) {
+			return false;
+		}
+		
+		return @fopen($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_real_putFileContent')) {
+	function service_vfs_real_putFileContent($params) { // Virtual: writeFile
+		if (!isset($params[1])) {
+			errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+			return false;
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'w',2,utf8_strlen($params[1]) - utf8_strlen(vfs('real_getFileContent',array($params[0])))))) {
+			return false;
+		}
+		
+		return @file_put_contents($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_real_readInfo')) {
+	function service_vfs_real_readInfo($params = '') { // Virtual: readInfo
+		global $currentUser;
+		if (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1,'r'))) {
+			return false;
+		}
+		
+		$array['eyeFile'][0]['author'][0] = $currentUser;
+		$array['eyeFile'][0]['filename'][0] = utf8_basename($params[0]);
+		return $array;
+	}
+}
+
+if (!function_exists('service_vfs_real_rename')) { // TODO: 4
+	function service_vfs_real_rename($params = '') { // Virtual: rename
+		if (!vfs('real_isdir',array($params[0]))) {
+			return vfs('real_move',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1))) {
+			return false;
+		} elseif (!$params[1] = intern_vfs_real_checkParams(array($params[1],2,1))) {
+			return false;
+		}
+		
+		return intern_vfs_move($params[0],$params[1]);
+	}
+}
+
+if (!function_exists('service_vfs_real_rmdir')) {
+	function service_vfs_real_rmdir($params = '') { // Virtual: rmdir
+		if (!vfs('real_isdir',array($params[0]))) {
+			return vfs('real_delete',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],0,1,'e'))) {
+			return false;
+		}
+		
+		return intern_vfs_delete($params[0]);
+	}
+}
+
+if (!function_exists('service_vfs_realToVirtual')) {
+	function service_vfs_realToVirtual($params = '') { // Virtual: realToVirtual
+		if (!vfs('real_isfile',array($params[0]))) {
+			return vfs('realToVirtualDir',$params);
+		}
+		
+		$content = vfs('real_getFileContent',array($params[0]));
+		return vfs('real_delete',array($params[0])) && vfs('create',array($params[0],$params[1])) && vfs('writeFile',array($params[0],$content));
+	}
+}
+
+if (!function_exists('service_vfs_realToVirtualDir')) {
+	function service_vfs_realToVirtualDir($params = '') { // Virtual: realToVirtualDir
+		if (!vfs('real_isdir',array($params[0]))) {
+			return vfs('realToVirtual',$params);
+		} elseif (!$params[0] = intern_vfs_real_checkParams(array($params[0],1,1))) {
+			return false;
+		}
+		
+		$n = 0;
+		foreach (vfs('real_getDirContent',array($params[0])) as $file) {
+			if (vfs('isdir',array($file))) {
+				$n += vfs('realToVirtualDir',array($file));
+			} elseif (utf8_strtolower(utf8_substr($file,- utf8_strlen(EYEOS_INFO_EXT))) != utf8_strtolower(EYEOS_INFO_EXT) && vfs('realToVirtual',array($file))) {
+				$n++;
+			}
+		}
+		return $n;
+	}
+}
+?>

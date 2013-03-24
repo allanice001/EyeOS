@@ -1,0 +1,36 @@
+﻿Vous permet de créer, éditer et supprimer des utilisateurs. A l'ouverture de "Gérer Utilisateurs", une fenêtre s'ouvre et vous propose des options de filtrage ou de recherche d'utilisateurs.
+
+[b]Nouveau[/b]
+
+	Entrer le nom d'utilisateur, le mot de passe (à répéter) et, si vous le souhaitez le nom complet et l'adresse e-mail.
+
+
+[b]Permissions:[/b]
+[list]
+[*]Administrateur: a les mêmes droits que le root sur tout votre onEye, les Utilisateurs et les groupes mais sans pouvoir désinstaller onEye.
+[*]Gestionnaire : peut gérer les groupes et utilisateurs selon les droits accordés par le root user ou un administrateur.
+[*]Utilisateur: ne peut gérer que les fichiers et dossiers qu'il a créé.
+[/list]
+	Date d'expiration: elle est, par défaut, réglée sur "Aucune". Si vous voulez en fixer une, utilisez le format jj/mm/aaaa: ex. pour le 1er juin 2009 vous devriez inscrire
+
+					01/06/2010
+
+	Vous pouvez, maintenant, assigner l'utilisateur à un groupe.
+	Cliquez sur "Créer un utilisateur" pour finalier la création du nouvel utilisateur.
+
+
+[b]Éditer[/b]
+
+	Sélectionnez l'utilisateur dans la liste puis cliquez sur "Editer" et suivez la même procédure que pour créer un nouvel utilisateur.
+
+
+[b]Supprimer[/b]
+
+	Sélectionnez l'utilisateur dans la liste puis cliquez sur "Supprimer" pour supprimer définitivement cet utilisateur.
+
+
+[b]Charger[/b]
+
+	Cliquez sur "Charger" pour réactualiser la liste.
+
+	Note: [i]Vous ne pouvez pas supprimer le root user et les actions ci-dessus sont DEFINITIVES.[/i]

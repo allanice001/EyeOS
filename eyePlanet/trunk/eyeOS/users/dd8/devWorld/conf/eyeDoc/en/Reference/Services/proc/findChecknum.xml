@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>findChecknum</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>proc</tag>
+		</tags>
+		<shortDesc>Checks if a checknum exists.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>findChecknum</functionName>
+		<syntax>bool proc('findChecknum', array(int $checknum))</syntax>
+		<desc>Checks whether a process with the given checknum exists in the process table.</desc>
+		<params>
+			<type>required</type>
+			<name>checknum</name>
+			<desc>Integer containing the checknum to search.</desc>
+		</params>
+		<return>If a process with the given checknum exists, returns true. Otherwise, returns false. If some error occurs, returns false and set the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No pid is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Icon</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>image</tag>
+		</tags>
+		<shortDesc>An image and text element that sends a signal to the system if clicked.</shortDesc>
+	</general>
+	<name>Icon</name>
+	<description>The Icon widget consists of an image normally used to determine the type of resource it refers to and a text label below showing its name. Every time an Icon is clicked or moved, the app can handle its signals to determine which actions to take when the user interacts with Icons.</description>
+	<image>Icons in the eyeFiles application.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Unique name given to the widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Parent element inside of which the widget is created.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Specifies whether its horizontal coordinate must be taken from the left (0) or the right (1) border of its father element. Default value is 0 (left positioning).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Specifies whether its vertical coordinate must be taken from the upper (0) or from the bottom (1) border of its father element. Default value is 0 (upper positioning).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Specifies the horizontal displacement inside its father element, in pixels. Default value is 10 pixels.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Specifies the vertical displacement inside its father element, in pixels. Default value is 10 pixels.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Specifies how the widget should be centered. Possible values are:
+			 0: no centering. This is the default value.
+			 1: center both horizontal and vertically.
+			 2: center horizontally.
+			 3: center vertically.
+			 4: place the widget at the horizontal and vertical center of its container element.
+			 5: place the widget at the horizontal center of its container element.
+			 6: place the widget at the vertical center of its container element. 
+
+			Please note the difference between options 1-3 and options 4-6. Options 1-3 calculate the size of the widget to ensure that the center of the widget is placed at the central point of its container, while options 4-6 set the central point coordinates as the widget's position, thus making the widget displaced from the central point.
+			</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>content</name>
+			<desc>Array containing the parameters sent along with the signal when the Icon is clicked or moved.</desc>
+		</key>
+		<key>
+			<name>draggable</name>
+			<desc>Specifies if the Icon is draggable or not. The default value of 1 enables it, while a value of 0 disables it.</desc>
+		</key>
+		<key>
+			<name>image</name>
+			<desc>URL to the image of the Icon. It must be inside the extern directory.</desc>
+		</key>
+		<key>
+			<name>myonload</name>
+			<desc>JS code executed when the Icon is loaded.</desc>
+		</key>
+		<key>
+			<name>onclick</name>
+			<desc>Specifies whether or not the signal named 'Icon_Clicked' must be sent every time the Icon is clicked. The default value of 0 disables it, while a value of 1 enables it.</desc>
+		</key>
+		<key>
+			<name>overBorder</name>
+			<desc>Specifies if a border must be drawn when the cursor is over the Icon. The default value of 0 disables it, while a non-zero value enables it.</desc>
+		</key>
+		<key>
+			<name>text</name>
+			<desc>Text shown below the icon.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Makes the system execute a given JavaScript code every time certain event of this widget is triggered.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Name of the JS event. Examples: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>JavaScript code inside the function of the event.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Arguments passed to the function of the event.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>hide()</syntax>
+			<desc>Makes the widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>remove()</syntax>
+			<desc>Removes this widget, along with its child widgets.</desc>
+		</method>
+		<method>
+			<syntax>setCss(array $params)</syntax>
+			<desc>Sets CSS atributes to a widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Specifies, in the form of an associative array, the CSS attributes to be applied. Both the key and value of each element must be valid CSS properties and values respectively.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setCssText(array $params)</syntax>
+			<desc>Sets CSS atributes to the Icon's text.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Specifies, in the form of an associative array, the CSS attributes to be applied. Both the key and value of each element must be valid CSS properties and values respectively.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setHeight(int $height)</syntax>
+			<desc>Changes the height of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>New height, in pixels.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>setWidth(int $width)</syntax>
+			<desc>Changes the width of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>New width, in pixels.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setX(int $x)</syntax>
+			<desc>Changes the horizontal position of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>New X coordinate.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setY(int $y)</syntax>
+			<desc>Changes the vertical position of the widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>New Y coordinate.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show()</syntax>
+			<desc>Draws the widget in the screen.</desc>
+		</method>
+		<method>
+			<syntax>unhide()</syntax>
+			<desc>Makes the widget visible.</desc>
+		</method>
+	</methods>
+</info>

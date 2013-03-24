@@ -1,0 +1,69 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+function eyeUpload_run($params = '') {
+	global $checknum;
+	global $sessionId;
+	
+	$myWindow = new Window(array(
+		'cent' => 1,
+		'father' => 'eyeApps',
+		'name' => 'eyeUpload_Window',
+		'height' => 290,
+		'savePosition' => 1,
+		'style' => TITLE + CLOSE + LISTED,
+		'title' => 'Upload files',
+		'width' => 470,
+		'noZindex'=>true
+	));
+	$myWindow->show(0);
+	eyex('rawjs', array('js' => 'xZIndex("' . $GLOBALS['myPid'] . '_' . $myWindow->name . '", 999999);' ));
+
+	$myHidden = new Hidden(array(
+		'father'=>$myWindow->name . '_Content',
+		'name' => 'eyeUpload_Hidden_Path',
+		'text' => $params[0]
+	));
+	$myHidden->show(0);
+	
+	$myToolbar = new Toolbar(array(
+		'father'=>$myWindow->name . '_Content',
+		'name' => 'eyeUpload_Toolbar'
+	));
+	$myToolbar->show();
+	
+	include_once(EYE_ROOT . '/' . APP_DIR . '/eyeUpload/tabs/simple.eyecode');
+	if ($_SESSION['SCREEN']['flash'] && $_SESSION['SCREEN']['flash_version'] > 8) {
+		include_once(EYE_ROOT . '/' . APP_DIR . '/eyeUpload/tabs/advanced.eyecode');
+	}
+	if (WEB_UPLOAD) {
+		include_once(EYE_ROOT . '/' . APP_DIR . '/eyeUpload/tabs/web.eyecode');
+		include_once(EYE_ROOT . '/' . APP_DIR . '/eyeUpload/tabs/crossShare.eyecode');	
+	}
+	
+	$myToolbar->addItem('help','index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/help.png','Help','',1);
+	
+	if (isset($GLOBALS['eyeUpload_container_advanced'])) {
+		eyeX('runjs',array('js'=>'sendMsg(%s,%s)', 'tokens'=>array($checknum, 'sel_advanced')));
+	} else {
+		eyeX('runjs',array('js'=>'sendMsg(%s,%s)', 'tokens'=>array($checknum, 'sel_simple')));
+	}
+}
+
+function eyeUpload_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

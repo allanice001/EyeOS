@@ -1,0 +1,43 @@
+<eyeFeeds>
+	<base>
+		<feed>
+			<id>4fc35c9e641d77355100da4d996e8e00</id>
+			<type>folder</type>
+			<name>eyeOS</name>
+			<feed>
+				<id>0698982a74846f076f06894ba0bd5829</id>
+				<type>feed</type>
+				<name>eyeOS Blog</name>
+				<url>http://feeds.feedburner.com/eyeOS</url>
+			</feed>
+		</feed>
+		<feed>
+			<id>39a7d44b72c1babd80ae0b16a62301e6</id>
+			<type>folder</type>
+			<name>General</name>
+			<feed>
+				<id>dd82594f5aeb716243ba6e8b7882b024</id>
+				<type>feed</type>
+				<name>Digg</name>
+				<url>http://digg.com/rss/index.xml</url>
+			</feed>
+		</feed>
+		<feed>
+			<id>b5aebcce9e28c284d70a9fbfe9c80c41</id>
+			<type>folder</type>
+			<name>Technology</name>
+			<feed>
+				<id>4370b83317101781d5ddb19aec189f1e</id>
+				<type>feed</type>
+				<name>OSNews</name>
+				<url>http://osnews.com/files/recent.xml</url>
+			</feed>
+			<feed>
+				<id>f9c8d53d6dc7bc5fa8df5fbcd723686a</id>
+				<type>feed</type>
+				<name>Slashdot</name>
+				<url>http://rss.slashdot.org/Slashdot/slashdot</url>
+			</feed>
+		</feed>
+	</base>
+</eyeFeeds>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getXMLfile</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+		</tags>
+		<shortDesc>Reads an XML file and returns it as an array.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getXMLfile</functionName>
+		<syntax>eyeXML('getXMLfile', array($file))</syntax>
+		<desc>Opens an XML file and returns it as an array.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the file.</desc>
+		</params>
+		<return>If the function succeeds, returns an array with the contents of the file. Otherwise, returns false.</return>
+	</definition>
+</info>

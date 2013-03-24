@@ -1,0 +1,1512 @@
+<lang>
+	<info>
+		<lang>Dansk</lang>
+		<lang-en>Danish</lang-en>
+		<author>Steffen Hansen</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Indtast venligst titlen på linket her:</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Lav et link</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Links kan ikke blive downloadet!</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Opdatér</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Redigér %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Kommando der skal udføres:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Tøm papirkurven</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Er du sikker på du vil fjerne "%s"?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Er du sikker på at du vil tømme papirkurven?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Slet %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Administrer docken</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Installér Programmer</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programmer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>No file open</old>
+			<new>Ingen fil åben</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Filen blev udpakket succes</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Komprimeringstypen er ikke supporteret</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Udpakning af fil fejlede</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Filnavn</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Pak ud</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Pak ud til...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Komprimér til...</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Komprimeringen fejlede</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Arkivmanager</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Komprimér</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Komprimeret med succes</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Offentlig Opslagstavle</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Ryd</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Lommeregner</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>To kalendere kan ikke dele det samme ID!</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Næste</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Forrige</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Indtast venligst et navn for kalenderen</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Arbejde</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Vis</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Specificér venligst kalendernavn:</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>Tekst for denne begivenhed:</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Vinduesvisning</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Uge</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>To kalendere kan ikke dele det samme navn!</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>I dag</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Ugyldigt nummer %s</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalendere</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>En kalender med samme navn eksisterer allerede!</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalender blev tilføjet med succes</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Der skal være mindst én kalender!</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Ugyldig afkrydsningsværdi</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalender kører allerede</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Tilføj Kalender</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dag</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Konfigurér kalender</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Konfiguration gemt korrekt</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Administrer kalendere</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Undo</old>
+			<new>Fortryd</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Tårn</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Langsom</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Dronning</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Middel</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Løber</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Skak</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Springer</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Password *</old>
+			<new>Adgangskode *</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Adgangskoden er skiftet.</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Adgangskode</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Office Support</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>ingen</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Nyt baggrundsbillede blev indstillet med succes.</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Der kunne ikke findes en registreret bruger.</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Adgangskoderne stemmer ikke overens!</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Rettigheder *</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Vælg en gruppe der skal slettes.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Vælg en gruppe der skal redigeres.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Vælg kommando der skal redigeres.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Vælg kommando der skal slettes.</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Rettigheder</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Personlig</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Ny kommando</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>Mus</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Administrér standard favoritter</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Administrér standard søgemaskiner</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Vedligeholder</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Vedligehold</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Åbn</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Udseende</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Oversigt</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Administrér dine autokør kommandoer</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Administrér dit systems grupper</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Spejlet blev gemt med succes.</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Spejl</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Spejlet blev slettet med succes.</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Spejlet eksisterer ikke!</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Administrer dit systems brugere</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Adresse på spejl (eksempel: %s)</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Vælg venligst det spejl der skal slettes.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Vælg venligst det spejl der skal redigeres.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Vis brugere...</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Vis brugere</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Indstil som standard</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Indstillinger</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Startside</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Vis fulde navne</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Vis alle</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Systemindstillinger</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>Vinduer</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Baggrundsbillede</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Adgangskode (gentag) *</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Afinstallér</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Andre</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Bruger</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Tema</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Vælg</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Vælg bruger:</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Vælg venligst den bruger der skal slettes.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Vælg venligst den bruger der skal redigeres.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Vælg en gruppe for at anvende den som standardgruppe.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Vælg venligst det spejl der skal testes.</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Udfyld venligst alle påkrævede felter!</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Fjern nu!</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Søg bruger...</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Vælg en fil...</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Screenshot</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Fjern</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Omdøb</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Sidste gang logget på:</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Sprog</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Skift dit fortrukne sprog</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Ændringer blev gemt med succes og brugeren er opdateret.</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Skift dine eyeOpslagstavle indstillinger</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Skift din skrivebordsbaggrund</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Gennemse Plugin</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Skift din nuværende adgangskode</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Skift dit nuværende tema</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Ændringerne blev gemt med succes</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Lav oprydning i oneye</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Konfigurér office support på en Linux server</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Konfigurér office support på en Windows server</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Kommandoer</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Kommando blev gemt med succes</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Kommando blev tilføjet med succes</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Kommando blev slettet med succes</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Favoritter blev importeret med succes.</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Favoritter og søgemaskiner blev eksporteret med succes.</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Tilføj en ny bruger til dit oneye system</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Tilføj spejl</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Om mig</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Standard bruger]</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Tilføj</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administration</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Forfatter</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Autokør Kommandoer</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Tillad upload til web</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Tillad brugerregistrering</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Tillad offentlige mapper</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Konfigurér startsiden</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Standardgruppe er blevet gemt med succes. Du skal genstarte din session nu.</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye Opslagstavle</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksport</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Eksportér standard favoritter og søgemaskiner</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Felter: Ikoner bliver automatisk arrangeret</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Filen kan downloades med succes.</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Redigér</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Redigér den valgte bruger</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Redigér kommando</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Redigér spejl</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Filen kan ikke downloades. Ret venligst adressen.</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Fast: Ikonerne kan ikke flyttes</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Forkert adgangskode!</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grupper</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Gruppenavn</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Hent flere oversættelser</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Grouppe blev slettet med succes</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Vil du virkelig gendanne standard eyeNan favoritterne?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Vil du virkelig fjerne dette spejl fra eyeSoft?</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Slet autokør</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Slet gruppe</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Vil du virkelig fjerne denne kommando?</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Skrivebord</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Standardgruppe: %s | %s gruppe(r)</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Standard indstillinger blev indstillet med succes.</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Slet spejl</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Vil du virkelig fjerne denne gruppe fra systemet?</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s kommando(er)</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Vil du virkelig gendanne standard eyeNav søgning?</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s spejl(e)</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Vil du virkelig gendanne standard eyeSkrivebord indstillingerne?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Vil du virkelig fjerne denne bruger fra systemet?</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s bruger(e) registreret.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Refresh</old>
+			<new>Opdatér</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Omdøb</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Indsæt</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Åbn med</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Åbn papirkurv</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Læser</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Papirkurv</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Egenskaber</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Indstillinger</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Velkommen til %s, %s.</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Upload filer</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Ny starter</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Ny mappe</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Download som zip</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Slet</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiér</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Redigér</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Ny fil</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Hjem</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Tøm papirkurv</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programmer</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>Tak til...</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Supportere</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>Projekter</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Kun root kan installere pakker</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Pakken blev installeret korret!</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Intet at installere!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Installerer</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Er du sikker på du vil installere denne pakke på systemet?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Acceptér</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Udfyld venligst alle felter!</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>Denne bruger eksisterer allerede!</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Gentag adgangskode</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>Sproget eksisterer ikke!</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Systemet tillader ikke brugerregistrering!</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>Brugernavnet er for kort!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Brugernavn</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>Brugernavnet skal være alfanumerisk!</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Din konto er blevet deaktiveret!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Adgangskode</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>( Standard )</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Log på</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Opret konto</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Fejl ved oprettelse af ny bruger!</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Sprog (denne session)</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Sprog</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Adgangskoderne stemmer ikke overens!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Ny Bruger</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Adgangskoden er for kort!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>To</old>
+			<new>Til</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Læs Besked</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Svar</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Opdatér</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Du skal vælge en besked der skal åbnes</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Gendan</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Læs</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Sendt</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Du skal vælge en besked der skal slettes</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Ulæste</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Papirkurv</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Emne</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Besked gendannet i sin oprindelige mappe</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>Fejl ved åbning af besked</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>Er du sikker på du vil fjerne alle beskeder i denne mappe?</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Dato</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>Bekræft tøm</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Interne Beskeder</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Download</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Vedhæft</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>Tømt</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Indbakke</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Fra</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Filen blev gemt korrekt.</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Tom</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Indtast navnet på den nye mappe</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Nogle specialtegn blev fjernet.</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Fejl ved oprettelse af mappe!</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Opret mappe</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Åben "%s" med...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Du har ikke de nødvendige rettigheder!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Redigér</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Velkommen til %s</new>
+		</text>
+		<text>
+			<old>Please wait...</old>
+			<new>Vent venligst...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hej Verden!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Eksempel eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Redigér labeltekst</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>Ingen process er blevet afsluttet!</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Send</old>
+			<new>Send</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Emne</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Til</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Ny Besked</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Besked sendt</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Vedhæft</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Luk</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Fejl ved afsendelse af besked</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>Tilføj fil</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Save As</old>
+			<new>Gem som</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Arkstørrelse</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Udskriv</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Position</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Gem</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tirsdag</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Onsdag</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stil</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Er du sikker på du vil rydde de(n) markerede celle(r)?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Lørdag</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Torsdag</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Søndag</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Åbn</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Ny(t)</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formel</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Indsæt kolonne</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Indsæt række</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Slet kolonne</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Fredag</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Marts</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maj</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januar</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Mandag</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Slet række</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februar</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopiér og indsæt denne kode i et andet regnearksprogram (f.eks. Excel)</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TO</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>L</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>O</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Søn</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Ons</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Man</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Lør</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>LØ</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Tir</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Tor</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>November</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maj</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januar</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Fri</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>December</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februar</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Marts</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>En anden fil</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>udpakket</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Fejl</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>August</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+	</part>
+</lang>

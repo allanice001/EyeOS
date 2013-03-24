@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>append</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+		</tags>
+		<shortDesc>Makes a tag with a given name and content.</shortDesc>	
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>append</functionName>
+		<syntax>eyeXML('append', array($master, $content))</syntax>
+		<desc>Returns a string containing a XML tag with a value inside.</desc>
+		<params>
+			<type>required</type>
+			<name>master</name>
+			<desc>Name of the XML tag.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>content</name>
+			<desc>Value inside the tag.</desc>
+		</params>
+		<return>Returns the result of embedding the value 'content' inside the tag 'master'.</return>
+	</definition>
+</info>

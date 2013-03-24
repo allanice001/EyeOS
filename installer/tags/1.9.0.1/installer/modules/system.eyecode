@@ -1,0 +1,78 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+if ($_REQUEST['action']) {
+	$_SESSION['action'] = $_REQUEST['action'];
+}
+if ($_REQUEST['password']) {
+	$_SESSION['password'] = md5($_REQUEST['password'] . md5($_REQUEST['password']));
+}
+
+include_once('settings.php');
+$xml = xml_xml2array(file_get_contents(path_account(REAL_ROOTUSER)));
+if (in_array($_SESSION['action'],array('remove-installer','reset-system','uninstall')) && $_SESSION['password'] == $xml['eyeUser'][0]['password'][0]) {
+	include(INSTALL_DIR . 'modules/system/' . $_SESSION['action'] . '.eyecode');
+} else {
+	system_start($_REQUEST['action'],$_REQUEST['password']);
+}
+
+function system_start($action,$password) {
+	include_once('settings.php');
+	$xml = xml_xml2array(file_get_contents(path_account(REAL_ROOTUSER)));
+	if (isset($password) && md5($password . md5($password)) != $xml['eyeUser'][0]['password'][0]) {
+		$errorPassword = lang_translate('installer-system-password-error','Incorrect root password!');
+	}
+	$content = '<div class="system" style="top: 142px;">
+	<ul>
+		<li>
+			' . lang_translate('installer-system-message-translations','Translations can be downloaded from [a link].',array('[a link]' => '<a onclick="window.open(this.href); return false;" href="http://eyeos.org/?section=downloads&amp;part=translations">www.eyeos.org</a>')) . '
+			<br />
+			<br />
+			<br />
+		</li>
+		<li><span style="font-weight: bold;">' . lang_translate('installer-system-message-remove','Please remove the installer for security reasons!') . '</span></li>
+	</ul>
+</div>
+<form action="./index.php" method="post">
+	<div class="actions">
+		<div class="action_text">' . lang_translate('installer-system-action','Action') . '</div>
+		<select class="action" name="action">
+			<option value="remove-installer"';
+			if ($action == 'remove-installer') $content .= ' selected="selected"';
+			$content .= '>' . lang_translate('installer-system-action-removeinstaller','Remove the eyeOS installer') . '</option>
+			<option value="reset-system"';
+			if ($action == 'reset-system') $content .= ' selected="selected"';
+			$content .= '>' . lang_translate('installer-system-action-resetsystem','Reset system files') . '</option>
+			<option value="uninstall"';
+			if ($action == 'uninstall') $content .= ' selected="selected"';
+			$content .= '>' . lang_translate('installer-system-action-uninstall','Uninstall eyeOS') . '</option>
+		</select>
+		<div class="password_text">' . lang_translate('installer-system-password','Root password') . '</div>
+		<input class="password" name="password" type="password" value="" />
+		<div class="errorPassword">' . $errorPassword . '</div>
+	</div>
+	<div class="button"><input class="iButton" type="submit" value="' . lang_translate('installer-system-continue','Continue...') . '" /></div>
+</form>';
+	output_do($content,'system',lang_translate('installer-system-title','Please choose one of the following actions:'));
+}
+?>

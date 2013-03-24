@@ -1,0 +1,65 @@
+<lang>
+	<info>
+		<revision>03/03/2012</revision>
+	</info>
+	<texts>
+		<text>%s Directories, %s Images</text>
+		<text>%s Directories, %s Images (%s)</text>
+		<text>An error has occurred during image resize (unserialize failed)</text>
+		<text>Arguments must be passed to showImage serialized. Cannot load the image</text>
+		<text>Author</text>
+		<text>B</text>
+		<text>B&amp;W</text>
+		<text>Back</text>
+		<text>Blur</text>
+		<text>Bright +</text>
+		<text>Bright -</text>
+		<text>Browse</text>
+		<text>Cannot go further up. You are already in the home directory</text>
+		<text>Choose the effect you want to apply.</text>
+		<text>Color effects are not available in browse mode, use view mode instead.</text>
+		<text>Contrast +</text>
+		<text>Contrast -</text>
+		<text>Creation Date</text>
+		<text>Edit Colors</text>
+		<text>Emboss</text>
+		<text>Error during file writing. The file has not been saved</text>
+		<text>Error during the tmp folder creation. Cannot load eyePictures.</text>
+		<text>File Name</text>
+		<text>File name already exists, choose a different file name.</text>
+		<text>File name cannot be empty.</text>
+		<text>File saved successfully.</text>
+		<text>Full Screen</text>
+		<text>GB</text>
+		<text>Go to "%s"</text>
+		<text>Go to the Home directory</text>
+		<text>Home</text>
+		<text>Image rotation is only available in View mode</text>
+		<text>Images</text>
+		<text>Image Size</text>
+		<text>Invert</text>
+		<text>KB</text>
+		<text>Level Up</text>
+		<text>MB</text>
+		<text>Next</text>
+		<text>Places</text>
+		<text>Rotate Left</text>
+		<text>Rotate Right</text>
+		<text>Save</text>
+		<text>Save as:</text>
+		<text>Sepia</text>
+		<text>Settings</text>
+		<text>Size</text>
+		<text>Slide Show</text>
+		<text>Slideshow mode enabled.</text>
+		<text>Slideshow stopped. You are now in browse mode.</text>
+		<text>Slideshow stopped. You are now in view mode.</text>
+		<text>The resolution of this photo is too high to be processed! Resize aborted.</text>
+		<text>This image type is not supported!</text>
+		<text>This is the first image of the folder!</text>
+		<text>This is the last image of the folder!</text>
+		<text>Type</text>
+		<text>Undo all</text>
+		<text>View</text>
+	</texts>
+</lang>

@@ -1,0 +1,21 @@
+<?php
+function eyeContacts_execute() {
+	$contacts = eyeContacts('userList');
+	$cinit=false;
+	echo '<ul id="eyeContacts" title="Contacts" selected="true">';
+	foreach($contacts as $key=>$user) {
+		if (!$cinit) {
+			$letra=substr($user['name'][0],0,1);
+			echo '<li class="group">'.strtoupper($letra).'</li>';
+			$cinit=true;
+		}
+		if ($letra!=substr($user['name'][0],0,1)) {
+			$letra=substr($user['name'][0],0,1);
+			echo '<li class="group">'.strtoupper($letra).'</li>';
+		}
+		echo '<li><a href="index.php?action=eyeContacts&do=showContact&contact[0]='.$user['name'][0].'&contact[1]='.$user['surname'][0].'&contact[2]='.$key.'">'.$user['name'][0].' '.$user['surname'][0].'</a></li>';
+	} 
+	echo '<a href="index.php?action=eyeContacts&do=new"><input type="button" style="margin-top:25px;" value="New Contact"/></a>';
+	echo '</ul>';
+}
+?>

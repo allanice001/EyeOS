@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>updateContent</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyewidgets</tag>
+		</tags>
+		<shortDesc>Updates the serialized widgets' values.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>updateContent</functionName>
+		<syntax>eyeWidgets('updateContent', $params)</syntax>
+		<desc>Updates the values of the serialized widgets in the current process.</desc>
+		<params>
+			<type>required</type>
+			<name>params</name>
+			<desc>Associative array, being the keys of each value the names of the serialized widgets to be updated with the values of each element.</desc>
+		</params>
+		<return>None.</return>
+	</definition>
+</info>

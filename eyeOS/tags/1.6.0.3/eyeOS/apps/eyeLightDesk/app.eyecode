@@ -1,0 +1,288 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+$_SESSION['layerTable']['eyeScreen'] = '';
+
+function eyeLightDesk_run($params=null) {
+	global $myPid;
+	//Preparing eyeapps
+	$js = 'xGetElementById("eyeApps").style.marginLeft = "220px";';
+	eyeX('rawjs',array('js'=>$js));
+	$myWindow = new Window(array('name'=>'eyeLightDeskWND','type'=>INVISIBLE_WINDOW,'father'=>'eyeScreen',
+	'cent'=>0,'width'=>220,'height'=>1300,'title'=>'eyeLightDesk'));
+	$myWindow->show();
+	$myCssText = array(
+		'background-color'=>'white',
+		'height'=>'100%',
+		'top'=>'0px',
+		'left'=>'0px',
+		'background-image'=>'url(index.php?extern=apps/eyeLightDesk/menubg.png)',
+		'background-repeat'=>'repeat-y',
+	);
+	$myWindow->setCss($myCssText);
+	
+	
+	$allAppsButton = new Imagebox(array(
+		'name' => 'eLD_AllApps_Img',
+		'father' => 'eyeLightDeskWND',
+		'url' => 'index.php?extern=apps/eyeLightDesk/allapps.png',
+		'x' => 0,
+		'y' => 0,
+		'disableMsg' => 0,
+		'signal' => 'AllApps_Img'
+	));
+	$allAppsButton->show(0);
+	$allAppsButton->setCss(array('cursor'=>'Pointer'));
+
+	$Label0 = new Label(array(
+		'name' => 'eLD_Label0',
+		'father' => 'eyeLightDeskWND',
+		'text' => 'All Applications',
+		'y' => 6,
+		'x' => 15,
+		'disablemsg' => 0,
+		'signal' => 'AllApps_Img'
+	));
+	$Label0->show(0);
+	$Label0->setCss(array(
+		'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+		'font-size'=>'13px',
+		'color'=>'#155d9a',
+		'cursor'=>'pointer'
+	));
+	
+	$Label1 = new Label(array(
+		'name' => 'eLD_Label1',
+		'father' => 'eyeLightDeskWND',
+		'text' => 'Favorite Applications',
+		'y' => 50,
+		'x' => 15
+	));
+	$Label1->show(0);
+	$Label1->setCss(array(
+		'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+		'font-size'=>'13px',
+		'color'=>'#145c99'
+	));
+	
+	
+	$currentUserDir = service('um','getCurrentUserDir');
+	$myArray = eyeXML('getXMLfile',array($currentUserDir.'/conf/eyeDock/eyeDock.xml'));
+	$i = 0;
+	$y = 75;
+	foreach($myArray['eyeDock'][0]['Group'] as $value) {
+		$key = $value['name'][0];
+		if ($key != "Favorites") {
+			continue;
+		} else {
+			foreach($value['items'][0]['item'] as $intValue) {
+				$intKey = i18n("translate",array($intValue['desc'][0]));
+				$intDesc = i18n("translate",array($intValue['name'][0]));
+				$intText = i18n("translate",array($intValue['text'][0]));
+			
+				$aicon = $intValue["icon"][0];
+				if(!vfs('real_fileExists',array(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon))) {
+					$aicon = 'exec.png';
+				}
+				$myHidden = new Hidden(array('name'=>'appPressed_hid_'.$i,
+					'father'=>'eyeLightDeskWND','text'=>$intValue['exec'][0]));
+				$myHidden->show();
+				$LabelValue = new Label(array(
+					'name' => 'eLD_Label_'.$i,
+					'father' => 'eyeLightDeskWND',
+					'text' => $intKey,
+					'y' => $y,
+					'x' => 50,
+					'disablemsg'=>0,
+					'signal'=>'appPressed'
+				));	
+				$LabelValue->addFriend($myHidden);
+				$LabelValue->show(0);
+				$LabelValue->setCss(array(
+					'font-size'=>'11px',
+					'color'=>'#424242',
+					'cursor'=>'pointer',
+				));
+				
+				$imageValue = new Imagebox(array(
+					'name' => 'eListFav_Imagebox_'.$i,
+					'father' => 'eyeLightDeskWND',
+					'url' => 'index.php?extern=apps/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon,
+					'y' => $y,
+					'x' => 25,
+					'disableMsg'=>0,
+					'signal'=>'appPressed'
+				));	
+				$imageValue->addFriend($myHidden);
+				$imageValue->show(0);
+				$imageValue->setCss(array(
+					'cursor'=>'pointer'
+				));
+				
+				$y = $y + 23;
+				$i++;
+			}
+		}
+	}
+	
+	$y = $y + 20;
+	$Label2 = new Label(array(
+		'name' => 'eLD_Label2',
+		'father' => 'eyeLightDeskWND',
+		'text' => 'Places',
+		'y' => $y,
+		'x' => 10
+	));
+	$Label2->show(0);
+	$Label2->setCss(array(
+		'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+		'font-size'=>'13px',
+		'color'=>'#145c99'
+	));
+	$y = $y + 25;
+	$j = 0;
+	foreach($myArray['eyeDock'][0]['Group'] as $value) {
+		$key = $value['name'][0];
+		if ($key != "Places") {
+			continue;
+		} else {
+			foreach($value['items'][0]['item'] as $intValue) {
+				$intKey = i18n("translate",array($intValue['desc'][0]));
+				$intDesc = i18n("translate",array($intValue['name'][0]));
+				$intText = i18n("translate",array($intValue['text'][0]));
+			
+				$aicon = $intValue["icon"][0];
+				if(!vfs('real_fileExists',array(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon))) {
+					$aicon = 'exec.png';
+				}
+				$myHidden = new Hidden(array('name'=>'placePressed_hid_'.$j,
+					'father'=>'eyeLightDeskWND','text'=>$intValue['exec'][0]));
+				$myHidden->show();
+				$LabelValue = new Label(array(
+					'name' => 'eListPlaces_Label_'.$j,
+					'father' => 'eyeLightDeskWND',
+					'text' => $intKey,
+					'y' => $y,
+					'x' => 50,
+					'disablemsg'=>0,
+					'signal'=>'placePressed'
+				));	
+				$LabelValue->addFriend($myHidden);
+				$LabelValue->show(0);
+				$LabelValue->setCss(array(
+					'font-size'=>'11px',
+					'color'=>'#424242',
+					'cursor'=>'pointer',
+				));
+				
+				$imageValue = new Imagebox(array(
+					'name' => 'eListPlaces_Imagebox_'.$j,
+					'father' => 'eyeLightDeskWND',
+					'url' => 'index.php?extern=apps/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon,
+					'y' => $y,
+					'x' => 25,
+					'disableMsg'=>0,
+					'signal'=>'appPressed'
+				));	
+				$imageValue->addFriend($myHidden);
+				$imageValue->show(0);
+				$imageValue->setCss(array(
+					'cursor'=>'pointer'
+				));
+				
+				$y = $y + 23;
+				$j++;
+			}
+		}
+	}
+	
+	$y = $y + 20;
+	$Label3 = new Label(array(
+		'name' => 'eLD_Label3',
+		'father' => 'eyeLightDeskWND',
+		'text' => 'System',
+		'y' => $y,
+		'x' => 10
+	));
+	$Label3->show(0);
+	$Label3->setCss(array(
+		'font-family'=>'"Lucida Grande",Verdana,Arial,sans-serif,FreeSans',
+		'font-size'=>'13px',
+		'color'=>'#145c99'
+	));
+	$y = $y + 25;
+	$k = 0;
+	
+	$myArray = getConfig('eyeLightDesk','system.xml');
+	foreach($myArray['eyeLightDeskSystem'][0]['items'][0]['item'] as $intValue) {
+			$intDesc = i18n("translate",array($intValue['text'][0]));
+			$aicon = $intValue["icon"][0];
+			if(!vfs('real_fileExists',array(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon))) {
+				$aicon = 'exec.png';
+			}
+			$myHidden = new Hidden(array('name'=>'sysPressed_hid_'.$k,
+				'father'=>'eyeLightDeskWND','text'=>$intValue['exec'][0]));
+			$myHidden->show();
+			$LabelValue = new Label(array(
+				'name' => 'eListSystem_Label_'.$k,
+				'father' => 'eyeLightDeskWND',
+				'text' => $intDesc,
+				'y' => $y,
+				'x' => 50,
+				'disablemsg'=>0,
+				'signal'=>'sysPressed'
+			));	
+			$LabelValue->addFriend($myHidden);
+			$LabelValue->show(0);
+			$LabelValue->setCss(array(
+				'font-size'=>'11px',
+				'color'=>'#424242',
+				'cursor'=>'pointer'
+			));
+			
+			$imageValue = new Imagebox(array(
+				'name' => 'eListSystem_Imagebox_'.$k,
+				'father' => 'eyeLightDeskWND',
+				'url' => 'index.php?extern=apps/eyeX/themes/lightdesk/icons/16x16/apps/'.$aicon,
+				'y' => $y,
+				'x' => 25,
+				'disableMsg'=>0,
+				'signal'=>'sysPressed'
+			));	
+			$imageValue->addFriend($myHidden);
+			$imageValue->show(0);
+			$imageValue->setCss(array(
+				'cursor'=>'pointer'
+			));
+			
+			$y = $y + 23;
+			$k++;
+	}	
+}
+
+function eyeLightDesk_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

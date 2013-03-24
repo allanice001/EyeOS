@@ -1,0 +1,269 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_lib_sortArrayT($params) {
+	$array = $params[0];
+	$path = $params[1];
+	if (!$array || !is_array($array)) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	foreach($array as $temp) {
+		$text = $temp;
+		foreach($path as $pathNow) {
+			$text = $text[$pathNow];
+		}
+		$new[strtolower($text)] = $temp;
+	}
+	if ($params[2]) {
+		krsort($new);
+	} else {
+		ksort($new);
+	}
+	foreach($new as $temp) {
+		$return[] = $temp;
+	}
+	return($return);
+}
+
+function eyeControl_lib_check_system_translation($selType) {
+	if (in_array($selType,array('system','thirdparty'))) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+function eyeControl_lib_clean_translations($selType,$selLang) {
+	// Update the default's file
+	$openDir = vfs('real_getDirContent',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default/','*.xml',2));
+	foreach ($openDir as $part) {
+		$handler = vfs('real_open',array($part,'r'));
+		$content = fread($handler,filesize($part));
+		fclose($handler);
+		if ($content) {
+			$partXml = eyeXML('getXMLfile',array($part));
+			$newPartXml['lang'][0]['info'][0]['revision'][0] = $partXml['lang'][0]['info'][0]['revision'][0];
+			if (eyeControl_lib_check_system_translation($selType)) {
+				foreach($partXml['lang'][0]['texts'][0]['text'] as $value) {
+					if (!$existArray[$value] && $value) {
+						$newPartXml['lang'][0]['texts'][0]['text'][] = $value;
+						$existArray[$value] = 1;
+					}
+				}
+				unset($existArray);
+				sort($newPartXml['lang'][0]['texts'][0]['text']);
+			} else {
+				foreach($partXml['lang'][0]['texts'][0] as $key => $value) {
+					if ($value[0]) {
+						$newPartXml['lang'][0]['texts'][0][$key][0] = $value[0];
+					}
+				}
+				ksort($newPartXml['lang'][0]['texts'][0]);
+			}
+			unset($partXml);
+			eyeXML('setXMLfile',array($part,$newPartXml));
+			unset($newPartXml);
+		} else {
+			vfs('real_delete',array($part));
+		}
+	}
+	// Update the language's file
+	$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/';
+	$oldXml = eyeXML('getXMLfile',array($dir . $selLang . '.xml'));
+	// Update the info section
+	$newXml['lang'][0]['info'][0]['lang'][0] = $oldXml['lang'][0]['info'][0]['lang'][0];
+	if (eyeControl_lib_check_system_translation($selType)) {
+		$newXml['lang'][0]['info'][0]['lang-en'][0] = $oldXml['lang'][0]['info'][0]['lang-en'][0];
+	}
+	$newXml['lang'][0]['info'][0]['author'][0] = $oldXml['lang'][0]['info'][0]['author'][0];
+	$defaultXml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default.xml'));
+	$newXml['lang'][0]['info'][0]['version'][0] = $defaultXml['lang'][0]['version'][0];
+	$newXml['lang'][0]['info'][0]['revision'][0] = $oldXml['lang'][0]['info'][0]['revision'][0];
+	if (!$newXml['lang'][0]['info'][0]['revision'][0]) {
+		$newXml['lang'][0]['info'][0]['revision'][0] = 1;
+	}
+	// Update each part
+	foreach($oldXml['lang'][0]['part'] as $oldPart) {
+		$partXml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default/' . $oldPart['name'][0] . '.xml'));
+		if ($partXml) {
+			$tempPart['name'][0] = $oldPart['name'][0];
+			if (eyeControl_lib_check_system_translation($selType)) {
+				foreach ($oldPart['text'] as $currentText) {
+					foreach($partXml['lang'][0]['texts'][0]['text'] as $partTemp) {
+						if ($partTemp == $currentText['old'][0] && $currentText['new'][0]) {
+							$tempText['old'][0] = $currentText['old'][0];
+							$tempText['new'][0] = $currentText['new'][0];
+							$tempPart['text'][strtolower($currentText['old'][0])] = $tempText;
+							unset($tempText);
+							break;
+						}
+					}
+				}
+			} else {
+				foreach ($oldPart['text'] as $currentText) {
+					foreach($partXml['lang'][0]['texts'][0] as $partTemp => $x) {
+						if ($partTemp == $currentText['old'][0] && $currentText['new'][0]) {
+							$tempText['old'][0] = $currentText['old'][0];
+							$tempText['new'][0] = $currentText['new'][0];
+							$tempPart['text'][strtolower($currentText['old'][0])] = $tempText;
+							unset($tempText);
+							break;
+						}
+					}
+				}
+			}
+			unset($temp);
+			if (count($tempPart['text'])) {
+				ksort($tempPart['text']);
+				$newPartXml[] = $tempPart;
+			}
+			unset($tempPart);
+		}
+		unset($partXml);
+	}
+	$newXml['lang'][0]['part'] = eyeControl_lib_sortArrayT(array($newPartXml,array('name',0)));
+	eyeXML('setXMLFile',array($dir . $selLang . '.xml',$newXml));
+	return true;
+}
+
+function eyeControl_lib_create_system($selType,$selLang,$dir) {
+	if (!$dir) {
+		$dir = EYE_ROOT . '/';
+		$dir2 = $dir;
+	} else {
+		$dir2 = $dir . $selLang . '/';
+	}
+	$oldXml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml'));
+	// Create needed folders
+	if ($dir != EYE_ROOT . '/') {
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/'));
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/'));
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/'));
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/'));
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/'));
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/'));
+	}
+	if (!vfs('real_fileExists',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/i18n/'))) {
+		vfs('real_mkdir',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/i18n/'));
+	}
+	// Update the info section
+	$infoXml['lang'][0]['name'][0] = $oldXml['lang'][0]['info'][0]['lang'][0];
+	$infoXml['lang'][0]['name2'][0] = $oldXml['lang'][0]['info'][0]['lang-en'][0];
+	$infoXml['lang'][0]['version2'][0] = $oldXml['lang'][0]['info'][0]['version'][0];
+	$infoXml['lang'][0]['version'][0] = $oldXml['lang'][0]['info'][0]['revision'][0];
+	$infoXml['lang'][0]['author'][0] = $oldXml['lang'][0]['info'][0]['author'][0];
+	eyeXML('setXMLFile',array($dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/i18n/' . $selLang . '.xml',$infoXml));
+	// Create the part's files
+	foreach($oldXml['lang'][0]['part'] as $oldPart) {
+		if ($oldPart['name'][0] == 'SimpleSpreadSheets') {
+			if ($dir != EYE_ROOT . '/') {
+				vfs('real_mkdir',array($dir2 . EXTERN_DIR . '/'));
+				vfs('real_mkdir',array($dir2 . EXTERN_DIR . '/' . APP_DIR . '/'));
+				vfs('real_mkdir',array($dir2 . EXTERN_DIR . '/' . APP_DIR . '/eyeSheets/'));
+				vfs('real_mkdir',array($dir2 . EXTERN_DIR . '/' . APP_DIR . '/eyeSheets/translations/'));
+			}
+			if (!vfs('real_fileExists',array($dir2 . EXTERN_DIR . '/' . APP_DIR . '/eyeSheets/translations/' . $selLang . '.js'))) {
+				vfs('real_create',array($dir2 . EXTERN_DIR . '/' . APP_DIR . '/eyeSheets/translations/' . $selLang . '.js'));
+			}
+			$content = 'var strings = new Array();' . "\n";
+			foreach($oldPart['text'] as $secondPart) {
+				$content .= 'strings[\'' . htmlentities($secondPart['old'][0],ENT_QUOTES,'UTF-8') . '\'] = \'' . htmlentities($secondPart['new'][0],ENT_QUOTES,'UTF-8') . '\';' . "\n";
+			}
+			$handler = vfs('real_open',array($dir2 . EXTERN_DIR . '/' . APP_DIR . '/eyeSheets/translations/' . $selLang . '.js','w'));
+			fwrite($handler,$content);
+			fclose($handler);
+		} elseif ($oldPart['name'][0] == 'System') {
+			if ($dir != EYE_ROOT . '/') {
+				vfs('real_mkdir',array($dir2 . '/i18n/'));
+			}
+			if (!vfs('real_fileExists',array($dir2 . '/i18n/' . $selLang . EYE_CODE_EXTENSION))) {
+				vfs('real_create',array($dir2 . '/i18n/' . $selLang . EYE_CODE_EXTENSION));
+			}
+			$content = '<?php' . "\n" . 'global $language;' . "\n";
+			foreach($oldPart['text'] as $secondPart) {
+				$content .= '$language[\'share\'][\'' . str_replace('\'','\\\'',$secondPart['old'][0]) . '\'] = \'' . str_replace('\'','\\\'',$secondPart['new'][0]) . '\';' . "\n";
+			}
+			$content .= '?>';
+			$handler = vfs('real_open',array($dir2 . '/i18n/' . $selLang . EYE_CODE_EXTENSION,'w'));
+			fwrite($handler,$content);
+			fclose($handler);
+		} else {
+			if ($dir != EYE_ROOT . '/') {
+				vfs('real_mkdir',array($dir2 . APP_DIR . '/' . $oldPart['name'][0] . '/'));
+			}
+			vfs('real_mkdir',array($dir2 . APP_DIR . '/' . $oldPart['name'][0] . '/lang/'));
+			if (!vfs('real_fileExists',array($dir2 . APP_DIR . '/' . $oldPart['name'][0] . '/lang/' . $selLang . EYE_CODE_EXTENSION))) {
+				vfs('real_create',array($dir2 . APP_DIR . '/' . $oldPart['name'][0] . '/lang/' . $selLang . EYE_CODE_EXTENSION));
+			}
+			$content = '<?php' . "\n" . 'global $language;' . "\n";
+			foreach($oldPart['text'] as $secondPart) {
+				$content .= '$language[\'' . str_replace('\'','\\\'',$secondPart['old'][0]) . '\'] = \'' . str_replace('\'','\\\'',$secondPart['new'][0]) . '\';' . "\n";
+			}
+			$content .= '?>';
+			$handler = vfs('real_open',array($dir2 . APP_DIR . '/' . $oldPart['name'][0] . '/lang/' . $selLang . EYE_CODE_EXTENSION,'w'));
+			fwrite($handler,$content);
+			fclose($handler);
+		}
+	}
+	// Copy the translation file or send message
+	if ($dir != EYE_ROOT . '/') {
+		vfs('real_copy',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml',$dir2 . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $selLang . '.xml'));
+	} else {
+		eyex('messageBox',array('content' => 'Language succesfully saved.'));
+		eyeControl_lib_loadContent('others','translations',array($selType));
+	}
+}
+
+function eyeControl_lib_create_website($selType,$selLang) {
+	$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/';
+	$dir2 = $dir . $selLang . '/';
+	vfs('real_mkdir',array($dir2 . $selLang . '/'));
+	$oldXml = eyeXML('getXMLfile',array($dir . $selLang . '.xml'));
+	// Update the info section
+	$infoXml['lang'][0]['name'][0] = $oldXml['lang'][0]['info'][0]['lang'][0];
+	$infoXml['lang'][0]['author'][0] = $oldXml['lang'][0]['info'][0]['author'][0];
+	eyeXML('setXMLFile',array($dir2 . $selLang . '.xml',$infoXml));
+	// Create the part's files
+	foreach($oldXml['lang'][0]['part'] as $oldPart) {
+		if ($oldPart['name'][0] == 'default') {
+			$partUrl = $dir2 . $selLang . '/' . $oldPart['name'][0] . '.xml';
+		} else {
+			if (!vfs('real_fileExists',array($dir2 . $selLang . '/sections/'))) {
+				vfs('real_mkdir',array($dir2 . $selLang . '/sections/'));
+			}
+			$partUrl = $dir2 . $selLang . '/sections/' . $oldPart['name'][0] . '.xml';
+		}
+		foreach($oldPart['text'] as $secondPart) {
+			$key = $secondPart['old'][0];
+			$partArray['translation'][0][$key][0] = $secondPart['new'][0];
+		}
+		eyeXML('setXMLFile',array($partUrl,$partArray));
+		unset($partUrl);
+		unset($partArray);
+	}
+	// Copy the translation file
+	vfs('real_copy',array($dir . $selLang . '.xml',$dir2 . $selLang . '_all.xml'));
+}
+?>

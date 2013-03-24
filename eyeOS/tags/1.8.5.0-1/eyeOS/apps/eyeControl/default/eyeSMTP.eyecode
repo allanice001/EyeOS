@@ -1,0 +1,140 @@
+<?php
+$Y=13;
+$X=20;
+$myLabel3 = new Label(array(
+	'name' => 'eyeControl_smtp_from_lbl',
+	'father' => $eyeContainer,
+	'x' => $X,
+	'y' => $Y,
+	'text' => 'From'
+));
+$myLabel3->show();
+
+$Y+=30;
+$myLabel1 = new Label(array(
+	'name' => 'eyeControl_smtp_username_lbl',
+	'father' => $eyeContainer,
+	'x' => $X,
+	'y' => $Y,
+	'text' => 'Username'
+));
+$myLabel1->show();
+
+$Y+=30;
+$myLabel2 = new Label(array(
+	'name' => 'eyeControl_smtp_password_lbl',
+	'father' => $eyeContainer,
+	'x' => $X,
+	'y' => $Y,
+	'text' => 'Password'
+));
+$myLabel2->show();
+
+$Y+=30;
+$myLabel4 = new Label(array(
+	'name' => 'eyeControl_smtp_host_lbl',
+	'father' => $eyeContainer,
+	'x' => $X,
+	'y' => $Y,
+	'text' => 'Hostname'
+));
+$myLabel4->show();
+
+$Y+=30;
+$myLabel5 = new Label(array(
+	'name' => 'eyeControl_smtp_port_lbl',
+	'father' => $eyeContainer,
+	'x' => $X,
+	'y' => $Y,
+	'text' => 'Port'
+));
+$myLabel5->show();
+
+$Y+=30;
+$myLabel6 = new Label(array(
+	'name' => 'eyeControl_smtp_ssl_lbl',
+	'father' => $eyeContainer,
+	'x' => $X,
+	'y' => $Y,
+	'text' => 'Use SSL'
+));
+$myLabel6->show();
+
+$y=12;
+$x=160;
+$myTextBox3 = new Textbox (array(
+	'name' => 'eyeControl_smtp_from_txtb',
+	'father' => $eyeContainer,
+	'x' => $x,
+	'y' => $y
+));
+$myTextBox3->show();
+
+$y+=30;
+$myTextBox1 = new Textbox (array(
+	'name' => 'eyeControl_smtp_username_txtb',
+	'father' => $eyeContainer,
+	'x' => $x,
+	'y' => $y
+));
+$myTextBox1->show();
+
+$y+=30;
+$myTextBox2 = new Textbox (array(
+	'name' => 'eyeControl_smtp_password_txtb',
+	'father' => $eyeContainer,
+	'x' => $x,
+	'y' => $y,
+	'password' => 1
+));
+$myTextBox2->show();
+
+$y+=30;
+$myTextBox4 = new Textbox (array(
+	'name' => 'eyeControl_smtp_hostname_txtb',
+	'father' => $eyeContainer,
+	'x' => $x,
+	'y' => $y
+));
+$myTextBox4->show();
+
+$y+=30;
+$myTextBox5 = new Textbox (array(
+	'name' => 'eyeControl_smtp_port_txtb',
+	'father' => $eyeContainer,
+	'x' => $x,
+	'y' => $y
+));
+$myTextBox5->show();
+
+$y+=30;
+$mySelect = new Select(array(
+	'name' => 'eyeControl_smtp_ssl_select',
+	'father' => $eyeContainer,
+	'x' => $x,
+	'y' => $y,
+	'width' => 122
+));
+$mySelect->show();
+$mySelect->addOption('---',1,1);
+$mySelect->addOption('Yes',2);
+$mySelect->addOption('No',3);
+
+$myButton = new Button (array(
+	'name' => 'eyeControl_smtp_save_button',
+	'father' => $eyeContainer,
+	'caption' => 'Save',
+	'signal' => 'save_signal',
+	'x' => 40,
+	'y' => 215,
+	'width' => 64
+));
+$myButton->addFriend($myTextBox1);
+$myButton->addFriend($myTextBox2);
+$myButton->addFriend($myTextBox3);
+$myButton->addFriend($myTextBox4);
+$myButton->addFriend($myTextBox5);
+$myButton->addFriend($mySelect);
+$myButton->show();
+
+?>

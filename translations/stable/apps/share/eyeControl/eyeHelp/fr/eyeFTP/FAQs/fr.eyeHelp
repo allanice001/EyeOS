@@ -1,0 +1,31 @@
+[b]Pourquoi ai-je cet horrible affichage quand j'utilise Internet Explorer?[/b]
+
+Car, comme beaucoup de logiciels diffusés par Microsoft, Internet Explorer respecte essentiellement les standards de Microsoft mais pas les standards W3C. Les icônes PNG ont, donc, un fond gris au lieu de transparent, par exemple. Nous vous encourageons à utiliser Mozilla Firefox (ou Opera, même si on rencontre aussi quelques problème avec) pour utiliser eyeFTP, onEye, et pour naviguer sur le Web d'une façon générale.
+
+Quoi qu'il en soit, en dehors de ces problèmes d'affichage, toutes les fonctionnalités d'eyeFTP sont opérationnelles sous Internet Explorer.
+
+[b]J'ai essayé de télécharger (ou téléverser) un "gros" fichier depuis/vers un serveur FTP avec eyeFTP mais, après un moment, rien ne s'est passé ou j'ai reçu un message d'erreur. Pourquoi?[/b]
+
+Cette question est tout à fait pertinente et je dois apporter quelques lumières.
+
+(EXPLICATIONS "TECHNIQUES" CI-DESSOUS, SOYEZ ATTENTIFS)
+Comme vous pouvez le supposer, eyeFTP s'exécute sur le serveur qui détient onEye, qui est un serveur HTTP (Apache dans la plupart des cas). Lorsque vous naviguez sur un serveur FTP, ce serveur joue le rôle d'une sorte de proxy. Ainsi, chaque action que vous faites sur le serveur FTP à partir de votre navigateur avec eyeFTP et, en réalité, faite par le serveur HTTP, y compris les transferts. Ainsi, les traitements de transfert sont effectués deux fois, par exemple dans le cas d'un téléchargement: une fois à partir de votre ordinateur vers le serveur HTTP, puis à partir du serveur HTTP au serveur FTP. C'est ce qui explique pourquoi les transferts sont plus longs qu'avec un client FTP classique. À partir de l'exemple précédent, le second transfert est géré par le serveur HTTP via PHP. Mais celui-ci dispose d'une protection de sécurité qui fait qu'une opération (une demande que vous faites) ne peut pas durer plus d'un temps défini (30 secondes par défaut). Passé ce délai, l'opération est arrêtée, même si le processus (de votre transfert) n'est pas encore fini.
+(FIN DES EXPLICATIONS "TECHNIQUES")
+
+Donc, pour résumer, les différents problèmes qui pourraient entraîner un échec de transfert sont:
+
+- votre fichier est plus grand que la limite que le serveur HTTP / PHP peut gérer (2 Mo par défaut, peut être modifié dans le fichier de configuration) [UPLOAD]
+
+- le serveur HTTP / PHP ne dispose pas d'assez de temps pour effectuer entièrement l'opération en raison de la protection de la sécurité (voir ci-dessus) [DOWNLOAD/UPLOAD]
+
+- d'autres raisons peuvent être liées au fait que le serveur PHP n'est pas autorisé à créer des fichiers temporaires assez grands pour contenir vos données [DOWNLOAD/UPLOAD]
+
+[b] Pourquoi ai-je des problèmes pour transférer des fichiers avec des noms contenant des caractères spéciaux lorsque j'utilise mon serveur onEye fonctionnant sous Windows?[/b]
+
+Il s'agit d'un problème de codage de caractères. Un grand nombre de serveurs FTP (public) fonctionnent sous *nix et utilisent une norme appelée UTF-8. Si votre serveur onEye est installé sur une plate-forme Windows (selon la norme d'encodage standard ISO-8859-1, par exemple), vous pouvez rencontrer des problèmes avec les accents et autres caractères spéciaux lorsque vous essayez de télécharger des fichiers en raison des différences de codage.
+
+Il n'y a pas de réelle solution, si ce n'est d'éviter d'utiliser les accents et les caractères non-ASCII dans les noms de fichiers.
+
+[b] Pourquoi le problème que j'ai rencontré n'est pas résolu ici?[/b]
+
+Parce qu'il y a tant de petites problèmes qui pourraient survenir que je ne les connais pas tous. Vous êtes libre de m'envoyer un e-mail avec sa description pour que je puisse essayer de le corriger ou l'expliquer dans cette section.

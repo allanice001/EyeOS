@@ -1,0 +1,154 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDesk_run($params = '') {
+	global $checknum;
+	global $currentUser;
+	
+	eyex('runjs',array('js' => 'document.title = %s; EXTERN_CACHE_VERSION = "' . EXTERN_CACHE_VERSION . '"; window.onbeforeunload = function() { return ""; };','tokens' => array($currentUser . '@' . EYEOS_HOSTNAME)));
+	eyex('createDiv',array('class' => 'minimizedApps','father' => 'eyeScreen','name' => 'minimizedApps','nopid' => 1,'removepid' => 1));
+	eyex('createDiv',array('class' => 'minimizedAppsIn','father' => 'minimizedApps','name' => 'minimizedAppsIn','nopid' => 1,'removepid' => 1));
+	eyex('createDiv',array('class' => 'minimizedAppsRight','father' => 'eyeScreen','name' => 'minimizedAppsRight','nopid' => 1,'removepid'=>1));
+	eyex('createDiv',array('class' => 'minimizedAppsLeft','father' => 'eyeScreen','name' => 'minimizedAppsLeft','nopid' => 1,'removepid' => 1));
+	eyex('createDiv',array('class' => 'minIconLeft','father' => 'eyeScreen','name' => 'minIconLeft','nopid' => 1,'removepid' => 1));
+	eyex('createDiv',array('class' => 'minIconRight','father' => 'eyeScreen','name' => 'minIconRight','class' => 'minIconRight','nopid' => 1,'removepid' => 1));
+	$_SESSION['SCREEN']['eyeApps']['height'] -= 31;
+	eyex('rawjs',array('js' => 'document.getElementById("eyeApps").style.height = "' . $_SESSION['SCREEN']['eyeApps']['height'] . 'px";'));
+	
+	$userDir = um('getCurrentUserDir');
+	if (!vfs('real_fileExists',array($userDir . '/tmp/'))) {
+		vfs('real_mkdir',array($userDir . '/tmp/'));
+	}
+	
+	$config = '/' . CONF_USER_DIR . '/eyeDesk/conf.xml';
+	if (!vfs('real_fileExists',array($userDir . $config))) {
+		copy(EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/skel/' . $config,$userDir . $config);
+	}
+	
+	$xml = eyeXML('getXMLfile',array($userDir . $config));
+	$share = getConfig('eyeDesk','conf.xml');
+	if ($xml['eyeDesk'][0]['restoreDock'][0] != $share['eyeDesk'][0]['restoreDock'][0]) {
+		if ($xml['eyeDesk'][0]['restoreDock'][0] < 5) {
+			$key = array_search('eyeDock',$xml['eyeDesk'][0]['autolaunch']);
+			if ($key !== false) {
+				$xml['eyeDesk'][0]['autolaunch'][$key] = 'eyeDockText';
+			}
+		}
+		if ($xml['eyeDesk'][0]['restoreDock'][0] < 3) {
+			copy(EYE_ROOT . '/' . SYSTEM_DIR . '/' . CONF_USER_DIR . '/skel/' . CONF_USER_DIR . '/eyeDock/eyeDock.xml',$userDir . '/' . CONF_USER_DIR . '/eyeDock/eyeDock.xml');
+			if (array_search('miniActions',$xml['eyeDesk'][0]['autolaunch']) === false){
+				$xml['eyeDesk'][0]['autolaunch'][] = 'miniActions';
+			}
+		}
+		$xml['eyeDesk'][0]['restoreDock'][0] = $share['eyeDesk'][0]['restoreDock'][0];
+		eyeXML('setXMLfile',array($userDir . $config,$xml));
+	}
+	
+	$theme = utf8_basename($xml['eyeDesk'][0]['theme'][0]);
+	if ($theme != $_SESSION['usertheme']) {
+		$path = EYE_ROOT . '/' . EXTERN_DIR . '/' . APP_DIR . '/eyeX/themes/';
+		if ($_SESSION['usertheme'] != 'default') {
+			foreach (scandir($path . 'default/css/') as $file) {
+				if (utf8_substr($file,-4) == '.css' && !vfs('real_fileExists',array($path . $_SESSION['usertheme'] . '/css/' . $file))) {
+					eyex('removeCSS',array('id' => utf8_basename($file,'.css') . 'Css'));
+				}
+			}
+		}
+		foreach (scandir($path . $_SESSION['usertheme'] . '/css/') as $file) {
+			if (utf8_substr($file,-4) == '.css') {
+				eyex('removeCSS',array('id' => utf8_basename($file,'.css') . 'Css'));
+			}
+		}
+		if ($theme != 'default') {
+			foreach (scandir($path . 'default/css/') as $file) {
+				if (utf8_substr($file,-4) == '.css' && !vfs('real_fileExists',array($path . $theme . '/css/' . $file))) {
+					$file = utf8_basename($file,'.css');
+					if (utf8_strtolower(utf8_substr($file,-3,-1)) != 'ie' || utf8_strtolower(utf8_substr($file,-3)) == 'ie' . IE) {
+						eyex('loadCSS',array(
+							'id' => $file . 'Css',
+							'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=default&extern=css/' . $file . '.css&type=css'
+						));
+					}
+				}
+			}
+		}
+		foreach (scandir($path . $theme . '/css/') as $file) {
+			if (utf8_substr($file,-4) == '.css') {
+				$file = utf8_basename($file,'.css');
+				if (utf8_strtolower(utf8_substr($file,-3,-1)) != 'ie' || utf8_strtolower(utf8_substr($file,-3)) == 'ie' . IE) {
+					eyex('loadCSS',array(
+						'id' => $file . 'Css',
+						'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=' . $theme . '&extern=css/' . $file . '.css&type=css'
+					));
+				}
+			}
+		}
+		eyex('rawjs',array('js' => 'xGetElementById("background").style.backgroundImage = "url(index.php?version=' . EXTERN_CACHE_VERSION . '&theme=' . $theme . '&extern=images/wallpapers/default.jpg)";'));
+	}
+	eyeSessions('setVar',array('usertheme',$theme));
+	eyex('runjs',array('js' => 'eyeTheme = %s;','tokens' => array($theme)));
+	
+	if ($xml['eyeDesk'][0]['wallpaper'][0] && vfs('fileExists',array($xml['eyeDesk'][0]['wallpaper'][0]))) {
+		eyex('setWallpaper',array('path' => 'index.php?checknum=' . $checknum . '&msg=getWallpaper','repeat' => $xml['eyeDesk'][0]['wallpaperRepeat'][0],'center' => $xml['eyeDesk'][0]['wallpaperCenter'][0]));
+	}
+	
+	include_once(EYE_ROOT . '/' . APP_DIR . '/eyeDesk/events' . EYE_CODE_EXTENSION);
+	eyeDesk_on_OpenPath();
+	
+	eyex('messageBox',array('content' => 'Welcome to %s, %s.','tokens' => array(EYEOS_HOSTNAME,'<strong>' . $currentUser . '</strong>')));
+	
+	addListenerLibraryCall('onEvent','eyeFiles','update');
+	addListenerServiceCall('onResized','eyex','resizedBrowser',1);
+	
+	if ($params[0] == 'autorun') {
+		foreach ($xml['eyeDesk'][0]['autolaunch'] as $value) {
+			$pid = proc('findPidByName',array($value));
+			if ($pid) {
+				proc('getTask',array($pid));
+			} else {
+				proc('launch',array($value));
+			}
+		}
+		$x = 0;
+		if (is_array($xml['eyeDesk'][0]['nextlaunch'])) {
+			foreach ($xml['eyeDesk'][0]['nextlaunch'] as $value) {
+				$pid = proc('findPidByName',array($value));
+				if ($pid) {
+					proc('getTask',array($pid));
+				} else {
+					proc('launch',array($value));
+				}
+				unset($xml['eyeDesk'][0]['nextlaunch'][$x]);
+				$x++;
+			}
+			eyeXML('setXMLfile',array($userDir . $config,$xml));
+		}
+	} else {
+		foreach (proc('getProcessTable') as $key => $value) {
+			if (!in_array(utf8_strtolower($value['appName']),array('eyedesk','eyex'))) {
+				proc('getTask',array($key));
+			}
+		}
+	}
+}
+?>

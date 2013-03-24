@@ -1,0 +1,154 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	eyeDesk
+	
+	This is the whole desktop application.
+*/
+
+/*
+	this function is called when eyeDesk is launched, takes one parameter as argument,
+	this parameter is passed to showDesk.
+*/
+
+define('EYEDESK_DEFAULT_APP_EXT','.app'); //in a near future, this will moved to a config
+
+function eyeDesk_run($params=null) {
+	/**prepare the screen**/
+	service('eyex','createDiv',array('nopid'=>1,'removepid'=>1,'name'=>'eyeMessageBox', 'father' => 'eyeScreen','class'=>'eyeMessageBox'));
+	service('eyex','createDiv',array('nopid'=>1,'removepid'=>1,'name'=>'eyeMessageBoxText', 'father' => 'eyeMessageBox','class'=>'eyeMessageBoxText'));
+	
+	service('eyex','createDiv',array('nopid'=>1,'removepid'=>1,'name'=>'minimizedApps', 'father' => 'eyeScreen','class'=>'minimizedApps'));
+	service('eyex','createDiv',array('nopid'=>1,'removepid'=>1,'name'=>'minimizedAppsIn', 'father' => 'minimizedApps','class'=>'minimizedAppsIn'));
+	
+	service('eyex','createDiv',array('nopid'=>1,'removepid'=>1,'name'=>'minIconLeft', 'father' => 'eyeScreen','class'=>'minIconLeft'));
+	service('eyex','createDiv',array('nopid'=>1,'removepid'=>1,'name'=>'minIconRight', 'father' => 'eyeScreen','class'=>'minIconRight'));
+	//session anti-expiration
+	service('eyex','rawjs',array('js'=>"setInterval(\"sendMsg('','ping','');\",120000);"));
+	eyeDesk_showDesk($params[0]);
+}
+
+/*
+	this function load the user desk, normally is launched by eyeLogin on correct login.
+	
+	basically, this app reads the current config for the user, reload the css of the 
+	visual style according to the user-selected (only if are diferent from the system default)
+	
+	sets the user wallpaper.
+	
+	Show one icon in the desktop for each element into userHome/Desktop
+	
+	And if needed, launch autolaunch apps
+*/
+function eyeDesk_showDesk($autorun) {
+	global $checknum;
+	global $currentUser;
+	global $myPid;
+	//get current user directory
+	$myUserDir = service('um','getCurrentUserDir');
+	
+	//TODO: Add skel here.
+	//check if desktop config exists, if not, generate to default
+	if(!service('vfs','real_fileExists',array($myUserDir.'conf/eyeDesk/conf.xml','r'))) {
+		//create a new config
+		service('vfs','real_create',array($myUserDir.'conf/eyeDesk/conf.xml'));
+		$myDescriptor = service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml'));
+		$myConf = array(
+			'eyeDesk' => array(
+				array(
+					'theme' => DEFAULT_THEME
+				)
+			)
+		);
+		$myXml = reqLib('eyeXML','array2xml',array($myConf));
+		fwrite($myDescriptor,$myXml);
+		fclose($myDescriptor);
+	}
+	
+	//open the config
+	$myDescriptor =	service('vfs','real_open',array($myUserDir.'conf/eyeDesk/conf.xml','r'));
+	//read it content
+	$myContent = fread($myDescriptor,filesize($myUserDir.'conf/eyeDesk/conf.xml'));
+	//store into an array
+	$mySettings = reqLib('eyeXML','xml2array',array($myContent));
+	//check if the theme selected by the user is diferent from the default theme
+	//if true, reload theme to set the prefered by the user.
+	$userTheme = basename($mySettings['eyeDesk'][0]['theme'][0]);
+	if($userTheme != DEFAULT_THEME) {
+		//open the css dir of the user selected theme
+		//TODO: PORT IT TO THE VFS, THIS DIR READ
+		if ($handler = opendir(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/css/')) {
+			//read its content
+			while (false !== ($file = readdir($handler))) {
+				//content that begin with a dot "." are ignored
+				if ($file{0} != ".") {
+					//remove the extension from the file
+					$file = str_replace('.css','',$file);
+					//remove the css from the page, using his id
+					service('eyex','removeCSS',array('id' => $file.'Css'));
+					//load the new css from the user prefered theme
+					service('eyex','loadCSS',array('url' => 'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/css/'.$file.'.css&type=css','id' => $file.'Css'));
+				}
+			}
+			closedir($handler);
+		}
+	}
+	
+	//if the user has a wallpaper uploaded set his wallpaper
+	$myWllpPath = $mySettings["eyeDesk"][0]["wallpaper"][0];
+	if($myWllpPath && service('vfs','fileExists',array($myWllpPath))) {
+		service('eyex','setWallpaper',array('path' => "index.php?checknum=$checknum&msg=getWallpaper&params=", 'repeat' => 0, 'center' => 1));
+	}
+	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesk/draw'.EYE_CODE_EXTENSION);
+	drawDesktop();
+	//if this is the first execution
+	//run auto launch apps
+	//$autorun is getted by showDesk argument.
+
+	if($autorun == 'autorun') {
+			foreach($mySettings['eyeDesk'][0]['autolaunch'] as $value) {
+				$pid = service('proc','findPidByName',array($value));
+				if($pid) {
+					service('proc','getTask',array($pid));
+				} else {
+					service('proc','launch',array($value));
+				}
+		}
+	//if not, re-execute all processes from the process table.
+	} else {
+		//call to the getTask's of launched apps
+		$myProcTable = service('proc','getProcessTable');
+		foreach($myProcTable as $key => $value) {
+			$name = $value['appName'];
+			//eyeX and eyeDesk are in the process table but not should be re-executed
+			if($name != 'eyeX' && $name != 'eyeDesk') {
+				service('proc','getTask',array($key));
+			}
+		}
+	}
+	//Welcome to the system message
+	addListenerServiceCall('onCreate','vfs','create',1);
+	addListenerServiceCall('onDelete','vfs','delete',1);
+	addListenerServiceCall('onMkdir','vfs','mkDir',1);
+	addListenerServiceCall('onRmdir','vfs','rmdir',1);
+	service('eyex','messageBox',array('content'=>'Welcome to '.EYEOS_HOSTNAME.', <strong>'.$currentUser.'</strong>.'));
+}
+
+

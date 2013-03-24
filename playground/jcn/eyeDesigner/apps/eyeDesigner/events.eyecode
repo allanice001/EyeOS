@@ -1,0 +1,511 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+require_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/windowPreferences.eyecode');
+require_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/widgetProperties.eyecode');
+require_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/compile.eyecode');
+require_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/projectManagement.eyecode');
+global $currentUser;
+$oldUser = $currentUser;
+$currentUser = ROOTUSER;
+$chargeModules = vfs('real_getDirContent', array(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/contentModules/'));
+$currentUser = $oldUser;
+foreach($chargeModules as $value){
+	require_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/contentModules/'.utf8_basename($value));
+}
+
+
+function eyeDesigner_on_Message($params="") {
+    reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDesigner_on_resizedMaking($params=null){
+	global $myPid;
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$_SESSION[$myPid.'_wnd']['width'] = $width;
+	$_SESSION[$myPid.'_wnd']['height'] = $height;
+}
+
+function eyeDesigner_on_fullScreen(){
+    $GLOBALS['eyeDesigner']->setFullScreen();
+}
+
+//update de x and y cordinates of the widget
+function eyeDesigner_on_widgetMoved($params=null) {
+	global $myPid;
+	global $checknum;
+
+	$widget = $params['widgetName'][0];
+	$x = $params['x'][0];
+	$y = $params['y'][0];
+
+	$_SESSION[$myPid.'_wo'][$widget]->x = $x;
+	$_SESSION[$myPid.'_wo'][$widget]->y = $y;
+
+	selectWidget($_SESSION[$myPid.'_wo'][$widget]);
+}
+
+function eyeDesigner_on_newFile($params=null){
+	proc('launch',array('eyeDesigner'));
+}
+
+function showWidget($widget) {
+	global $myPid;
+	$return = "";
+	if($widget->compiled != 1) {
+		if($widget->father != "eyeDesigner_making_WND_Content") {
+			$return = showWidget($_SESSION[$myPid.'_wo'][$widget->father]);
+		}	
+
+		$return .= "\n";
+		$cname = get_class($widget);
+
+		$return .= "\t".'$'.$widget->name.' = new '.ucfirst($cname).'(array('."\n";
+		$return .= "\t\t'name' => '".$widget->name."',\n";
+		if($widget->father != "eyeDesigner_making_WND_Content") {
+			$return .= "\t\t'father' => '".$widget->father."',\n";
+		} else {
+        	$return .= "\t\t'father' => ".'$globalFather'.",\n";
+		}
+		$props = getConfig('eyeDesigner','props.xml');
+		foreach($props['widgets'][0]['widget'] as $value) {
+			if(strtolower($value['name'][0]) == strtolower(get_class($widget))) {
+				foreach($value['keys'][0]['key'] as $v) {	
+					if(intval($widget->$v['name'][0]) != -1 && $widget->$v['name'][0] !== NULL) {
+						if(is_numeric($widget->$v['name'][0])){
+                        	$return .= "\t\t'".$v['name'][0]."' => ".$widget->$v['name'][0].",\n";
+						} elseif(is_array($widget->$v['name'][0])) {
+							$cnt = array();
+							foreach($widget->$v['name'][0] as $value){
+                            	$cnt[] = "'".$value."'";
+							}
+                        	$return .= "\t\t'".$v['name'][0]."' => array(".implode(",",$cnt)."),\n";
+						} else {
+	                        $return .= "\t\t'".$v['name'][0]."' => '".$widget->$v['name'][0]."',\n";							                    
+						}
+					}
+				}
+			}
+		}
+
+		$gl = getConfig('eyeDesigner','globals.xml');
+		foreach($gl['globals'][0]['defaults'][0]['default'] as $entry) {
+			if(strtolower($entry['name'][0]) == strtolower(get_class($widget))) {
+				foreach($entry['key'] as $key) {
+					if(intval($widget->$key['name'][0]) != -1 && $widget->$key['name'][0] !== NULL) {
+						$skip = 0;
+						//TODO: hardcoded defaults, it should check against real defaults, once.
+						if($key['name'][0] == 'visible' && $widget->$key['name'][0] == 1){
+                        	$skip++;
+						} elseif($key['name'][0] == 'cent' && $widget->$key['name'][0] == 0){
+                        	$skip++;
+						} elseif($key['name'][0] == 'vert' && $widget->$key['name'][0] == 0){
+                        	$skip++;
+						} elseif($key['name'][0] == 'horiz' && $widget->$key['name'][0] == 0){
+                        	$skip++;
+						}
+						if($skip == 0 ){
+							if(is_numeric($widget->$key['name'][0])){
+                        		$return .= "\t\t'".$key['name'][0]."' => ".$widget->$key['name'][0].",\n";
+							} elseif(is_array($widget->$key['name'][0])) {
+								$cnt = array();
+								foreach($widget->$key['name'][0] as $value){
+                                	$cnt[] = "'".$value."'";
+								}
+                            	$return .= "\t\t'".$key['name'][0]."' => array(".implode($cnt)."),\n";
+							} else {
+                        		$return .= "\t\t'".$key['name'][0]."' => '".$widget->$key['name'][0]."',\n";							
+							}
+						}	
+					}
+				}
+            }
+        }
+
+		$return .= "\t));\n";
+	}
+  	$widget->compiled = 1;
+	return $return;
+}
+
+
+function eyeDesigner_on_updateInfo($params=null) {
+	global $myPid;
+	global $checknum;
+	$widgetName = $GLOBALS['lastWidget']->text->name;
+	foreach($params as $key=>$value) {
+		$field = $key;
+		$property = substr($field,9);
+
+		$fieldtype = substr($field,0,3);
+		if($fieldtype == 'slc') {
+			$content = $GLOBALS[$field]->selected;
+		} else {
+			$content = $GLOBALS[$field]->text;
+		}
+		if($property == 'sortypes' || $property == 'theader') {
+			$cnt = explode(",",$content);
+			if(!is_array($cnt)){
+               	$cnt = array($cnt);
+			}
+				
+            $_SESSION[$myPid.'_wo'][$widgetName]->$property = $cnt;
+			$_SESSION[$myPid.'_wo'][$widgetName]->remove();
+			$_SESSION[$myPid.'_wo'][$widgetName]->show();
+
+			widgetPrepare($_SESSION[$myPid.'_wo'][$widgetName]);
+			selectWidget($_SESSION[$myPid.'_wo'][$widgetName]);
+		} elseif($property == 'horiz' || $property == 'vert' || $property == 'cent') {
+        	$_SESSION[$myPid.'_wo'][$widgetName]->$property = $content;
+			$_SESSION[$myPid.'_wo'][$widgetName]->remove();
+			$_SESSION[$myPid.'_wo'][$widgetName]->show();
+
+			widgetPrepare($_SESSION[$myPid.'_wo'][$widgetName]);
+			selectWidget($_SESSION[$myPid.'_wo'][$widgetName]);
+		} elseif($property == 'name') {
+			$name = $content;
+        	$_SESSION[$myPid.'_wo'][$name] = $_SESSION[$myPid.'_wo'][$widgetName];
+			$_SESSION[$myPid.'_wo'][$widgetName]->remove();
+			deleteFromList($_SESSION[$myPid.'_wo'][$widgetName]);
+			unset($_SESSION[$myPid.'_wo'][$widgetName]);
+			$_SESSION[$myPid.'_wo'][$name]->name = $name;
+			$_SESSION[$myPid.'_wo'][$name]->show();
+			
+			widgetPrepare($_SESSION[$myPid.'_wo'][$name]);
+			$GLOBALS['eyeDesigner_listWidgetsBOX']->addItem($_SESSION[$myPid.'_wo'][$name]->name,'list_'.$_SESSION[$myPid.'_wo'][$name]->name);
+			selectWidget($_SESSION[$myPid.'_wo'][$name]);
+		} elseif(method_exists($_SESSION[$myPid.'_wo'][$widgetName],'set'.$property)) {
+			$call = 'set'.$property;
+           	$_SESSION[$myPid.'_wo'][$widgetName]->$call($content);
+		} else {
+			if($property == 'visible') {
+				if(intval($content)) {
+					$_SESSION[$myPid.'_wo'][$widgetName]->unhide();
+				} else {
+					$_SESSION[$myPid.'_wo'][$widgetName]->hide();
+				}
+			} elseif($property == 'checked') {
+				if(intval($content)) {
+					$_SESSION[$myPid.'_wo'][$widgetName]->check();
+				} else {
+					$_SESSION[$myPid.'_wo'][$widgetName]->uncheck();
+				}
+			} elseif($property == 'father') {
+				$js = '
+					var father = document.getElementById("'.$myPid.'_'.$content.'");
+					if(father) {
+						var obj = document.getElementById("'.$myPid.'_'.$_SESSION[$myPid.'_wo'][$widgetName]->name.'_Container");
+						var cloned = obj.cloneNode(true);
+						obj.parentNode.removeChild(obj);
+						father.appendChild(cloned);
+					}
+				';
+				eyeX('rawjs',array('js'=>$js));
+				$_SESSION[$myPid.'_wo'][$widgetName]->father = $content;
+			} elseif($property == 'serialize' ){
+            	if($content == 'serialize'){
+                	$_SESSION[$myPid.'_wo'][$widgetName]->serializable = 1;
+				} elseif ($content == 'noserialize') {
+                	$_SESSION[$myPid.'_wo'][$widgetName]->serializable = 2;
+				}
+			}  else {
+            	$_SESSION[$myPid.'_wo'][$widgetName]->$property = $content;
+			}
+		}
+	}
+}
+
+function selectWidget($widget) {
+	global $myPid;
+	//TODO: FIX the tree widget to have a _Content, to avoid this if...
+	if(is_object($GLOBALS['lastWidget'])) {
+		if(strtolower(get_class($GLOBALS['lastWidget'])) == 'tree'){
+        	eyeX('updateCss',array('name'=>$myPid.'_'.$GLOBALS['lastWidget']->text->name,'property'=>'border','value'=>'0px solid black'));
+		} else {
+        	eyeX('updateCss',array('name'=>$myPid.'_'.$GLOBALS['lastWidget']->text->name.'_Container','property'=>'border','value'=>'0px solid black'));
+		}
+		
+	}
+	
+	if(strtolower(get_class($widget)) == 'tree'){
+    	eyeX('updateCss',array('name'=>$myPid.'_'.$widget->name,'property'=>'border','value'=>'1px dotted black'));
+	} else {
+		eyeX('updateCss',array('name'=>$myPid.'_'.$widget->name.'_Container','property'=>'border','value'=>'1px dotted black'));
+	}
+	
+
+	$myHidden = new Hidden(array(
+		'name'=>'lastWidget',
+		'father'=>'eyeApps',
+		'text'=>$widget
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	loadProps($widget);
+}
+
+function eyeDesigner_on_eyeDesigner_listWidgetsBOX($params=null) {
+	global $myPid;
+	$name = $params['id'][0];
+	$name = substr($name,5);
+	selectWidget($_SESSION[$myPid.'_wo'][$name]);
+}
+
+function eyeDesigner_on_widgetClicked($params=null) {
+	global $myPid;
+	global $checknum;
+	$widget = $params['name'][0];
+	$widgets = eyeWidgets('getWidgetList');
+	$found = 0;
+	foreach($widgets as $value) {
+		if($widget == $value) {
+			$found = 1;
+			break;
+		}
+    }
+	if($found == 0 || !class_exists($widget)) {
+		exit;
+    }
+	
+	if(!isset($_SESSION[$myPid.'_wd'][$widget])) {
+		$_SESSION[$myPid.'_wd'][$widget] = 1;
+	}
+
+	$props = getProps($widget,$widget.'_'.$_SESSION[$myPid.'_wd'][$widget]);
+	$props['name'] = $widget.'_'.$_SESSION[$myPid.'_wd'][$widget];
+	$props['father'] = 'eyeDesigner_making_WND_Content';
+
+	$var = new $widget ($props);
+	$var->show(0);
+
+	widgetPrepare($var);
+	addWidget($var);
+
+	$_SESSION[$myPid.'_wd'][$widget]++;
+	
+	selectWidget($_SESSION[$myPid.'_wo'][$var->name]);
+}
+
+function eyeDesigner_on_widgetsBar($params=null) {
+
+}
+
+function eyeDesigner_on_deleteWidget($params=null) {
+	global $myPid;
+	if(is_object($GLOBALS['lastWidget']->text)) {
+		unset($_SESSION[$myPid.'_wo'][$GLOBALS['lastWidget']->text->name]);
+		if(isset($_SESSION[$myPid.'content'][$GLOBALS['lastWidget']->text->name])){
+			unset($_SESSION[$myPid.'content'][$GLOBALS['lastWidget']->text->name]);
+		}
+		if(isset($_SESSION[$myPid.'friends'][$GLOBALS['lastWidget']->text->name])){
+			unset($_SESSION[$myPid.'friends'][$GLOBALS['lastWidget']->text->name]);
+		}
+		foreach ($_SESSION[$myPid.'friends'] as $key=>$value){
+			foreach ($_SESSION[$myPid.'friends'][$key] as $key2=>$value2){
+				if ($value2 == $GLOBALS['lastWidget']->text->name){
+					unset($_SESSION[$myPid.'friends'][$key][$value2]);
+				}
+			}
+		}
+		//TODO: the fucking list do not have delete method, so I delete it by hand
+		deleteFromList($GLOBALS['lastWidget']->text);
+		if(method_exists($GLOBALS['lastWidget']->text,'remove')) {
+			$GLOBALS['lastWidget']->text->remove();
+		}
+	}
+}
+
+function deleteFromList($var){
+	global $myPid;
+	$js = "document.getElementById('".$myPid."_list_".$var->name."').parentNode.removeChild(document.getElementById('".$myPid."_list_".$var->name."'));";
+	eyeX('rawjs',array('js'=>$js));
+}
+
+function eyeDesigner_on_resize($params=null) {
+	
+}
+
+function eyeDesigner_on_Close(){
+	global $myPid;
+	
+	unset($_SESSION[$myPid.'_wd']);
+	unset($_SESSION[$myPid.'_wo']);
+	unset($_SESSION[$myPid.'_wnd']);
+	unset($_SESSION[$myPid.'content']);
+	unset($_SESSION[$myPid.'friends']);
+	unset($_SESSION[$myPid.'documentPath']);
+	unset($_SESSION[$myPid.'selectedWidget']);
+	proc('end');
+}
+
+function eyeDesigner_on_friendsManagementWindow($params = ''){
+	global $myPid;
+	
+	if(!is_object($GLOBALS['lastWidget'])){
+		service('eyex','messageBox',array('content'=>'Need to select a widget first'));
+		return;
+	} 
+	$selectedWidgetPops = $GLOBALS['lastWidget']->text;
+	$_SESSION[$myPid.'selectedWidget'] = $selectedWidgetPops->name;
+	$wType = get_class($selectedWidgetPops);
+	if ($wType == 'Listbox'){
+		service('eyex','messageBox',array('content'=>'This widget cannot have friends.'));
+		return;
+	}
+	$friends_management_WND = new Window(array(
+		'name' => 'friends_management_WND',
+		'father' => 'eyeDesigner_Content',
+		'style' => TITLE+CLOSE,
+		'title' => 'Friends Management for '.$selectedWidgetPops->name,
+		'cent' => 1,
+		'width' => 545,
+		'height' => 308,
+		'removepid' => 0,
+	));
+	$friends_management_WND->show();
+
+	$globalFather = "friends_management_WND_Content";
+
+	$listFriends = new Listbox(array(
+		'name' => 'listFriends',
+		'father' => $globalFather,
+		'border' => 1,
+		'x' => 331,
+		'y' => 30,
+		'width' => 200,
+		'height' => 240,
+	));
+
+	$buttonAddFriend = new Button(array(
+		'name' => 'buttonAddFriend',
+		'father' => $globalFather,
+		'caption' => 'Add ->',
+		'x' => 233,
+		'y' => 84,
+		'width' => 80,
+		'signal' => 'addFriendBu',
+	));
+
+	$buttonRemoveFriend = new Button(array(
+		'name' => 'buttonRemoveFriend',
+		'father' => $globalFather,
+		'caption' => '<- Remove',
+		'x' => 233,
+		'y' => 123,
+		'width' => 80,
+		'signal' => 'removeFriendBu',
+	));
+
+	$listAvailableFriends = new Listbox(array(
+		'name' => 'listAvailableFriends',
+		'father' => $globalFather,
+		'border' => 1,
+		'x' => 8,
+		'y' => 30,
+		'width' => 200,
+		'height' => 240,
+	));
+	$availableLabel = new Label(array(
+				'name' => 'availableLabel',
+				'father' => $globalFather,
+				'x' => 8,
+				'y' => 10,
+				'text' => 'Available Friends',
+	));
+	$currentLabel = new Label(array(
+				'name' => 'currentLabel',
+				'father' => $globalFather,
+				'x' => 331,
+				'y' => 10,
+				'text' => 'Current Friends',
+	));
+	
+	$buttonAddFriend->addFriend($listAvailableFriends);
+	$buttonAddFriend->addFriend($listFriends);
+	$buttonRemoveFriend->addFriend($listAvailableFriends);
+	$buttonRemoveFriend->addFriend($listFriends);
+
+	$listAvailableFriends->show(0);
+	$listFriends->show(0);
+	$buttonAddFriend->show();
+	$buttonRemoveFriend->show();
+	$availableLabel->show();
+	$currentLabel->show();
+	
+	$widgets = $_SESSION[$myPid.'_wo'];
+	foreach ($widgets as $key=>$value){
+		$widgetMethod = get_class_methods(get_class($value));
+		foreach ($widgetMethod as $value2){
+			if ($value2 == 'getSyncString'){
+				$widtype = $value->name;
+				if($widtype != $_SESSION[$myPid.'selectedWidget']){	
+					if (isset($_SESSION[$myPid.'friends'][$_SESSION[$myPid.'selectedWidget']][$widtype])){
+						$listFriends->addItem($widtype, 'listID_'.$widtype);
+					}else{
+						$listAvailableFriends->addItem($value->name,'listID_'.$value->name);
+					}
+				}
+			}
+		}
+	}
+}
+
+function eyeDesigner_on_addFriendBu($params = ''){
+	global $myPid;
+	
+	$selectedValueID = $GLOBALS['listAvailableFriends']->selected;
+	$selectedValue = substr($selectedValueID,7);
+	$GLOBALS['listAvailableFriends']-> delItem($selectedValueID);
+	$GLOBALS['listFriends']-> addItem($selectedValue,$selectedValueID);
+	$_SESSION[$myPid.'friends'][$_SESSION[$myPid.'selectedWidget']][$selectedValue] = $selectedValue;
+}
+
+function eyeDesigner_on_removeFriendBu($params = ''){
+	global $myPid;
+	
+	$selectedValueID = $GLOBALS['listFriends']->selected;
+	$selectedValue = substr($selectedValueID,7);
+	$GLOBALS['listFriends']-> delItem($selectedValueID);
+	$GLOBALS['listAvailableFriends']-> addItem($selectedValue,$selectedValueID);
+	unset($_SESSION[$myPid.'friends'][$_SESSION[$myPid.'selectedWidget']][$selectedValue]);
+}
+
+function eyeDesigner_on_LaunchContent($params=''){
+	global $myPid;
+	
+	$selectedWidgetPops = $GLOBALS['lastWidget']->text;
+	$_SESSION[$myPid.'selectedWidget'] = $selectedWidgetPops->name;
+	$widgetType = get_class($selectedWidgetPops);
+	$path = EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/contentModules/'.utf8_basename($widgetType).'.eyecode';
+	$fp = service('vfs','real_fileExists',array($path));
+	if(!$fp) {
+		service('eyex','messageBox',array('content'=>'Module for editing this widget content not found'));
+		return;
+	}
+	call_user_func('eyeDesigner_on_'.$widgetType.'ContentWindow');
+}
+
+?>

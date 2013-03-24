@@ -1,0 +1,374 @@
+<lang>
+	<info>
+		<lang>Occitan</lang>
+		<lang-en>Occitan</lang-en>
+		<author>Jean-François Blanc</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Picatz lo titolat del ligam:</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Crear</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Crear un ligam</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Anullar</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Podètz barrar aquèsta fenèstra</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Lo servidor pren pas los fichièrs ZIP</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Se pòt pas descargar un ligam!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Descargar !</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Descargar "%s" coma fichièr ZIP</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Metre a jorn</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Modificar %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Comanda d'executar:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Voidar la bedosseta</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Segur(a) d'escafar "%s"?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Segur(a) de voidar la bedosseta?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Escafar %s</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Òc</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Anullar</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Adieussiatz monde !</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Exemple d'eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Cambiar l'etiqueta</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Dissabte</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Estrema coma</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Setembre</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Estampar</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Pausicion</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Dobrir</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Estrema</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Dimarç</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Pagèla de la fuèlha</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Dimècres</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Segur(a) de voidar ?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Dijòus</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Dimenge</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Estile</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Novembre</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Octobre</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Crear</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Febrièr</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formula</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Ins. Colona</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Esc. Colona</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Decembre</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Copiar aquèste còde dins d'autres fuèhas (coma Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Divendres</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Març</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Ins. Rega</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Diluns</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Esc. Rega</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Junh</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Julhet</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Genièr</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Abrial</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Agost</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>September</old>
+			<new>Setembre</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>DS</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Novembre</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Octobre</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Dmg</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Mcr</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sbt</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Cargar</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Dmç</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>DJ</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Dij</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Lns</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mai</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Febrièr</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>extraches</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>Error %s</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Agost</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Decembre</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Vdr</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Genièr</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Març</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Junh</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Julhet</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Autre fichièr</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Abrial</new>
+		</text>
+	</part>
+</lang>

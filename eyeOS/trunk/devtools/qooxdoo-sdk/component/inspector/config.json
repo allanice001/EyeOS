@@ -1,0 +1,63 @@
+{
+  "name"    : "Inspector (application) config",
+
+  "include" :
+  [
+    {
+      "path" : "inspector.json"
+    },
+    {
+      "path" : "${QOOXDOO_PATH}/tool/data/config/application.json",
+      "block"   : 
+      [ 
+        "libraries",
+        "common",
+        "build",
+        "build-script",
+        "build-resources",
+        "build-files"
+      ]
+    }
+  ],
+  
+  "default-job" : "source",
+  
+  "export" :
+  [
+    "api",
+    "api-data",
+    "build",
+    "clean",
+    "distclean",
+    "fix",
+    "info",
+    "lint",
+    "migration",
+    "source",
+    "source-all",
+    "test",
+    "test-source"
+  ],
+
+  "let" :
+  {
+    "APPLICATION"  : "inspector",
+    "QOOXDOO_PATH" : "../..",
+    "CACHE"        : "${TMPDIR}/cache",
+    "QXTHEME"      : "inspector.theme.Theme",
+    "API_EXCLUDE"  : ["qx.test.*", "inspector.test.*"],
+    "LOCALES"      : [ "en" ],
+    "ROOT"         : "."
+  },
+  
+  "jobs" :
+  {
+    "common" :
+    {
+      "settings" :
+      {
+        "qx.nativeScrollBars" : true
+      }
+    }
+  }
+}

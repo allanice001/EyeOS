@@ -1,0 +1,270 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://sourceforge.net/donate/index.php?group_id=145027         
+*/
+function eyeCalendar_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeCalendar_on_Launch($params="") {
+	global $myPid;
+	global $checknum;
+	
+	$currentDate = microtime_int();
+	//Calculating the month day for every week day.
+	$calendarDays = getWeekDaysArray($currentDate);
+		
+	//Setting today in weekCalendarTime.
+	reqLib('eyeSessions','setVar',array('weekCalednarTime',$currentDate));
+	reqLib('eyeSessions','setVar',array('calendarDays',$calendarDays));
+		
+	//Component is a gui custom part from eyeCalendar. and noteStore is a small lib for note managing
+	//include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/components/'.'weekPlanner'.EYE_CODE_EXTENSION);	
+ 	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);
+
+//Making the gui
+	//Making the main window
+	$myWindow1 = new Window(array('title'=>'eyeCalendar','name'=>'eyeCalendarWin1','father' => 'eyeApps',
+	'y'=>35,'type'=>NORESIZE_WINDOW,'x'=>0,'cent'=>2,'width'=>864,'height'=>504));
+	$myWindow1->show();	
+		
+	//Main central component
+	$myWeekPlanner = new WeekPlanner(array(
+				'name'=>'weekPlanner',
+				'father'=>'eyeCalendarWin1_Content',
+				'x'=>20,
+				'y'=>20,
+				'dateString'=>$currentDate
+			));	
+	$myWeekPlanner->show();
+//Loading notes    
+  	//$notesArray = retriveAllDayNotes($currentDate);
+  	$notesArray = retriveAllWeekNotes($currentDate);
+	foreach($notesArray as $note)
+	{
+			$hourFrom = $note['note'][0]['hourFrom'][0];
+			$hourEven = $note['note'][0]['hourEven'][0];
+			$minFrom =  $note['note'][0]['minFrom'][0];
+			$minEven = $note['note'][0]['minEven'][0];
+			$day = $note['note'][0]['wday'][0];
+			$title = $note['note'][0]['title'][0];
+			$id = $note['note'][0]['dateInt'][0];
+			
+			$myWeekPlanner->addNote($hourFrom,$hourEven,$minFrom,$minEven,$day,$title,$id);
+	}
+	//Calendar widget.
+	
+	
+	
+	
+	
+	
+	
+	$myCalendarWidget = new Calendar(array(
+							'name'=>'calendarWidget',
+							'father'=>'eyeCalendarWin1_Content',
+							'width'=>168,
+							'height'=>148,
+							'x'=>15,
+							'y'=>50,
+							'rowsAndDate'=>'#519eda',
+							'workDays'=>'black',
+							'preMonthDays'=>'#bbbbbb',
+							'nextMonthDays'=>'#bbbbbb',
+							'weekEnd'=>'#519eda',
+							'todayBorder'=>'#7186a4'));
+	$myCalendarWidget->show();
+}
+
+function eyeCalendar_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+function microtime_int() {
+  	return array_sum(explode(' ',microtime()));
+}
+
+function eyeCalendar_on_reboot($params="") {
+	global $myPid;
+ 	global $checknum;
+ 	eyeCalendar_on_Close();
+ 	if(!service('proc','launch',array('eyeCalendar'))) {
+ 		if(reqLib('errorCodes','getErrorCode') == PROC_APP_NOT_FOUND) {
+ 			service('eyex','messageBox',array('content' => 'restar calendar dont work'));
+ 		}
+ 	}
+}
+
+function eyeCalendar_on_addNote($params="") {
+ 	//service('eyex','messageBox',array('content' => $params['hourFrom'][0]));
+	//Adding calendar monthy and year.
+	$calendarDays = reqLib('eyeSessions','getVar',array('calendarDays'));
+	$weekDay = $params['wday'][0];
+	$date = getDate($calendarDays[$weekDay][1]);
+
+	$params['year'][0] = $date['year'];
+	$params['month'][0] = $date['mon'];	
+	$params['day'][0] = $calendarDays[$weekDay][0];
+	
+	//Creating the noteTime	
+	$someNoteInfo = getDate(time());
+	$noteTime = mktime($params['hourFrom'][0],$params['minFrom'][0],$someNoteInfo['seconds'],$params['month'][0],$params['day'][0],$params['year'][0]);		
+	$params['time'][0] = $noteTime;
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);
+	saveNote($params);
+	$GLOBALS['weekPlanner']->changeNoteId($params['id'][0],$params['time'][0]);
+}
+
+function eyeCalendar_on_delNote($params="") {
+
+	$id = $params['id'][0];
+
+	//Creating the noteTime	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);
+	deleteNote(array('dateInt'=>$id));
+}
+
+function eyeCalendar_on_resizeNote($params=""){
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);
+	$hourEven = $params['hourEven'][0];
+	$minEven = $params['minEven'][0];
+	$time = $params['id'][0];
+	
+	$oldNoteInfo = retriveNote(array('dateInt'=>$time));
+	$oldNoteInfo['note'][0]['minEven'][0] = $minEven;
+	$oldNoteInfo['note'][0]['hourEven'][0] = $hourEven;
+	updateNote(array('dateInt'=>$time,'info'=>$oldNoteInfo));
+}
+
+function eyeCalendar_on_updateTitle($params=""){
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);
+	$title = $params['title'][0];
+	$time = $params['id'][0];
+	
+	$oldNoteInfo = retriveNote(array('dateInt'=>$time));
+	$oldNoteInfo['note'][0]['title'][0] = $title;
+	updateNote(array('dateInt'=>$time,'info'=>$oldNoteInfo));
+}
+
+function eyeCalendar_on_dragNote($params=""){	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);	
+	
+	$hourEven = $params['hourEven'][0];
+	$minEven = $params['minEven'][0];
+	$hourFrom = $params['hourFrom'][0];
+	$minFrom = $params['minFrom'][0];
+	$id = $params['id'][0];	
+	deleteNote(array('dateInt'=>$id));
+	
+	$calendarDays = reqLib('eyeSessions','getVar',array('calendarDays'));
+	$weekDay = $params['wday'][0];	
+	$date = getDate($calendarDays[$weekDay][1]);
+
+	$params['year'][0] = $date['year'];
+	$params['month'][0] = $date['mon'];	
+	$params['day'][0] = $calendarDays[$weekDay][0];
+	//Creating the noteTime	
+	$someNoteInfo = getDate(time());
+	$noteTime = mktime($params['hourFrom'][0],$params['minFrom'][0],$someNoteInfo['seconds'],$params['month'][0],$params['day'][0],$params['year'][0]);		
+	$params['time'][0] = $noteTime;
+	saveNote($params);
+			
+	$GLOBALS['weekPlanner']->changeNoteId($id,$params['time'][0]);
+}
+
+function eyeCalendar_on_changeDate($params=""){
+	
+	$oldTime = reqLib('eyeSessions','getVar',array('weekCalednarTime'));	
+	$oldCalendarDays = reqLib('eyeSessions','getVar',array('calendarDays'));
+	
+	$newDate = $params['date'][0]/1000;
+	$date = date("m.d.y",$newDate);
+	$calendarDays = getWeekDaysArray($newDate);
+	reqLib('eyeSessions','setVar',array('weekCalednarTime',$newDate));	
+	reqLib('eyeSessions','setVar',array('calendarDays',$calendarDays));
+	
+	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeCalendar'.'/noteStore'.EYE_CODE_EXTENSION);
+	//Removing old notes
+	$notes = listAllWeekNotes($oldCalendarDays);	
+	foreach($notes as $note)
+	{
+		$GLOBALS['weekPlanner']->delNote($note);	
+	}	
+	//Putting new notes
+	$notesArray = retriveAllWeekNotes($newDate);
+	foreach($notesArray as $note)
+	{
+			$hourFrom = $note['note'][0]['hourFrom'][0];
+			$hourEven = $note['note'][0]['hourEven'][0];
+			$minFrom =  $note['note'][0]['minFrom'][0];
+			$minEven = $note['note'][0]['minEven'][0];
+			$day = $note['note'][0]['wday'][0];
+			$title = $note['note'][0]['title'][0];
+			$id = $note['note'][0]['dateInt'][0];
+			
+			$GLOBALS['weekPlanner']->addNote($hourFrom,$hourEven,$minFrom,$minEven,$day,$title,$id);
+	}
+}
+
+function getWeekDaysArray($time){
+	$dateInfo = getDate($time);
+	$wDay = $dateInfo['wday'];
+	$mDay = $dateInfo['mday'];
+	
+	$restDays = 6 - $dateInfo['wday']; 	
+	
+	$daysArray = array();
+	$time = mktime(0,0,0,$dateInfo['mon'],$dateInfo['mday'],$dateInfo['year']);
+	$daysArray[$wDay][0] = $mDay;
+	$daysArray[$wDay][1] = $time;
+			
+	for($x=1;$x <= $restDays;$x++){
+		$dayW = $wDay+$x;
+		$dayM = $mDay+$x;
+		$time = mktime(0,0,0,$dateInfo['mon'],$dayM,$dateInfo['year']);
+		$daysArray[$dayW][0] = date('j',$time);
+		$daysArray[$dayW][1] = $time;
+	}
+	for($x=1;$x<=$wDay;$x++){
+		$dayW = $wDay -$x;
+		$dayM = $mDay - $x;		
+		$time = mktime(0,0,0,$dateInfo['mon'],$dayM,$dateInfo['year']);
+		$daysArray[$dayW][0] = date('j',$time);		
+		$daysArray[$dayW][1] = $time;
+		
+	}
+	return $daysArray;
+}
+
+function loadWeekNotes($time){
+	$notesArray = retriveAllDayNotes($time);		
+	foreach($notesArray as $note)
+	{
+			$hourFrom = $note['note'][0]['hourFrom'][0];
+			$hourEven = $note['note'][0]['hourEven'][0];
+			$minFrom =  $note['note'][0]['minFrom'][0];
+			$minEven = $note['note'][0]['minEven'][0];
+			$day = $note['note'][0]['wday'][0];
+			$title = $note['note'][0]['title'][0];
+			$id = $note['note'][0]['dateInt'][0];
+			
+			$GLOBALS['weekPlanner']->addNote($hourFrom,$hourEven,$minFrom,$minEven,$day,$title,$id);
+	}
+}
+?>

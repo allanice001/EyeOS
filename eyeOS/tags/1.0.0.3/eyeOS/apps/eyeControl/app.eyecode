@@ -1,0 +1,55 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeControl_run($params=null) {
+	global $myPid;
+	global $currentUser;
+	$content = "";
+	$myWindow = new Window(array('name'=>'eyeControlWND','father'=>'eyeApps','type'=>NORESIZE_WINDOW,
+	'cent'=>1,'width'=>400,'height'=>320,'title'=>'eyeControl'));
+	$myWindow->show();
+
+	$myTab = new Tab(array('name'=>'eyeControl_TabGRP','father'=>'eyeControlWND_Content','width'=>398,'height'=>280,
+		'x'=>0,'y'=>7,'caption'=>'eyeControl','signal'=>'tabClosed'));
+	$myTab->show();
+
+	/* General Tab */
+	$generalTab = $myTab->addTab("General",1);
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeControl/general'.EYE_CODE_EXTENSION);
+	
+	/* Graphics Tab */	
+	$graphicsTab = $myTab->addTab("Wallpaper",1);
+	$myContainer = new Container(array('father'=>$graphicsTab,'name'=>'graphicsContainer',
+		'width' =>370,'height'=>160,'x'=>0,'y'=>0));
+	$myContainer->show();
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeControl/graphics'.EYE_CODE_EXTENSION);	
+	
+	/* Admin Tab (Only ROOT!) */
+	if ($currentUser == ROOTUSER) {
+		$adminTab = $myTab->addTab("Admin",1);
+		include_once(EYE_ROOT.'/'.APP_DIR.'/eyeControl/admin'.EYE_CODE_EXTENSION);	
+	}
+}
+
+function eyeControl_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

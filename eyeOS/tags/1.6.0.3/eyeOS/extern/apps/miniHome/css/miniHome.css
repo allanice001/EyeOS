@@ -1,0 +1,19 @@
+.miniHomeOuter {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	width: 200px;
+	height: 100px;
+	background-color: #E9EEF5;
+	border: 1px solid #20529B;
+}
+
+.miniHomeInner {
+	position: absolute;
+	top: 19px;
+	width: 200px;
+	height: 75px;
+	background-color: white;
+	border-top: 1px solid #9BBFE4;
+	border-bottom: 1px solid #9BBFE4;
+}

@@ -1,0 +1,20 @@
+.aIconText {
+	color: #000000;
+	font-weight: normal;
+	left: 62px;
+	position: absolute;
+	text-align: left;
+	top: 15px;
+}
+
+.gIconText {
+	color: #044d85;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: normal;
+	left: 33px;
+	position: absolute;
+	text-align: left;
+	top: 1px;
+	width: 100px;
+}

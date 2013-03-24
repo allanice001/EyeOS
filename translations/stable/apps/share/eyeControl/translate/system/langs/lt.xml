@@ -1,0 +1,2914 @@
+<lang>
+	<info>
+		<lang>Lietuvių</lang>
+		<lang-en>Lithuanian</lang-en>
+		<author>Tomas Tirlikas</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Neįmanoma atsiųsti nuorodų.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Atnaujinti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Tvarkyti Doką</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Įdiegti Programas</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programos</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>Rinkmenos pavadinimas</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Rinkmena išskleista sėkmingai.</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Nėra atidaromų rinkmenų</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Toks glaudinimo tipas nepalaikomas</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Rinkmenos išskleisti nepavyko</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Išskleisti</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Išskleisti į...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Glaudinti į...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Suglaudinta sėkmingai</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Suglaudinti nepavyko</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Archyvo Nuostatos.</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Glaudinti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Siųsti</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Viešoji Prieiga</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Išvalyti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Skaičiuotuvas</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Šio įvykio tekstas:</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Šiandien</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Ankstesnis</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Prašom įvesti kalendoriaus pavadinimą</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Toliau</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Du kalendoriai negali dalintis tokiais pačiais identifikatoriais!</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Du kalendoriai negali dalintis tokiais pačiais pavadinimais!</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Parodyti</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Darbas</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Lango būsena</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Savaitė</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Neteisingas Numeris %s</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Netinkama žymimojo langelio reikšmė</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalendorius jau paleistas!</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalendorius pridėtas sėkmingai </new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Bent vienas kalendorius yra privalomas!</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendorius</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Kalendorių valdymas</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Diena</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Nustatyti kalendorių</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Nustatymai išsaugoti sėkmingai</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalendoriai</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Kalendorius tokiu pavadinimu jau yra!</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Pridėti Kalendorių</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Slow</old>
+			<new>Lėtas</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>Atgal</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>Bokštas</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>Karalienė</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Keisti dydį</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Žirgas</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>Rikis</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Šachmatai</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Paieškos varikliai importuoti sėkmingai.</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Ieškoti vartotojo...</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Pažymėti rinkmeną...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Pažymėti vartotoją:</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Administratorius</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>Perkrauti langų pozicijas</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Šalinti laikinas rinkmenas ir aplankus</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Pašalinti</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Pervardyti</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Saugyklos</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Pažymėti</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>Rodyti vartotojus...</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>Atsiprašome, tokia rinkmena neegzistuoja.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Atsiprašome, ši rinkmena negali būti naudojama kaip darbalaukio fonas.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Atsiprašome, šis puslapis neįdiegtas.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Atsiprašome, Jūs turite prisijungti kaip paprastas vartotojas, kad galėtumėte įeiti į šį puslapį.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Atsiprašome, Jūs neturite šio puslapio prieigos teisių.</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>Rodyti vartotojus</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Nustatyti kaip numatytajį</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>Rodyti visus</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>Rodyti pilnus vardus</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>Pašalinti laikinas rinkmenas ir aplankus iš Jūsų oneye sistemos</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Pašalinti dabar!</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Prašom pasirinkti grupę redagavimui.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Prašom pasirinkti grupę, kurią norite nustatyti numatytaja.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Prašom pasirinkti kopiją, kurią norite išbandyti.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Prašom pasirinkti kopiją šalinimui.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Prašom pasirinkti grupę šalinimui.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Prašom pasirinkti komadą redagavimui.</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Prieigos teisės *</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Prieigos teisės</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Asmeniška</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Prašom pasirinkti komandą šalinimui.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Prašom pasirinkti kopiją redagavimui.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Prašom pasirinkti vartotoją šalinimui.</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Apsaugoti sesijas pagal IP</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Prašom įvesti teisingą grupės pavadinimą!</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Prašom įvesti adresą!</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Prašom įvesti vartotojo vardą čia:</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Prašom įvesti komandą!</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Prašom užpildyti visus reikiamus laukus!</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Prašom užpildyti visus privalomus laukus pažymėtus *.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Prašom pasirinkti vartototoją redagavimui.</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Prašom patikslinti Jūsų įvestus nustatymus.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>Atsiprašome, Jūs turite prisijungti kaip šis vartotojas, kad galėtumėte įeiti į šį puslapį.</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Laikinosios rinkmenos ir aplankai pašalinti sėkmingai.</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Naudoti vartotojo darbalaukio foną</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Naudojama vieta:</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Vartotojas sukurtas sėkmingai.</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Išdiegti</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>Vartotojas pašalintas sėkmingai.</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Atnaujinti Jūsų sistemos nuostatas</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Atnaujinti Jūsų sistemos profilį</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Įveskite kuriamos grupės pavadinimą:</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Įveskite grupės pavadinimą:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Įveskite naujos kopijos adresą:</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Vartotojas</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>Jūs negalite pašalinti numatytosios grupės!</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>Vartotojo varde yra neleistinų ženklų, prašom bandyti kitokį!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>Jūs negalite pašalinti numatytosios kopijos!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>Jūs negalite pašalinti administratoriaus vartotojo!</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Ekrano kopija</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>Jūs negalite redaguoti numatytosios kopijos!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>Jūs negalite įrašyti kopijos kaip numatytosios!</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>Galite naudoti /a (pabaigoje), /b (pradžioje) ir /c (skaičiuoti), surikiuojant vartotojus.</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>Langai perkrauti. Prašom perkrauti programas dabar.</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>Jum neleidžiama redaguoti grupių!</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>Jum neleidžiama redaguoti vartotojų!</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Įveskite komandą, kurią norėtumėte paleisti prisijungdami.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Šalinant grupę, įvyko klaida.</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>Tokios komandos nėra!</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>Tokia komanda jau konfigūruota!</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Tokio vartotojo nėra.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Paskyra pašalinta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Testuoti</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Pradinis puslapis</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Sistemos nuostatos</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistema</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Pasirinkta grupė jau nustatyta kaip numatytoji!</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Kopija jau įdiegta!</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Tema</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>Pasirinktas vartotojo vardas yra per trumpas!</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>Toks vartotojas neegzistuoja.</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>Tema pakeista. Paleiskite darbalaukį iš naujo, kad pakeitimai taptų matomi.</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>Pasirinktas vartotojo vardas yra per ilgas!</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>Pasirinkta grupė jau yra!</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>Pasirinktas vartotojas jau yra!</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>Pasirinkta rinkmena nėra eyeNav žymų rinkmena.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>Pasirinkta rinkmena nėra eyeNav paieškos variklio rinkmena.</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Slaptažodžiai nesutampa!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Slaptažodis</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Komandos</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Tvarkyti biuro palaikymą Linux serveryje</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Tvarkyti biuro palaikymą Windows serveryje</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Konfigūruoti pirminį puslapį</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Komanda įrašyta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Komanda pašalinta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Pakeitimai įrašyti ir vartotojas atnaujintas sėkmingai.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Pakeitimai įrašyti sėkmingai.</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Išvalyti oneye</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Komanda pridėta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Numatytoji grupė įrašyta sėkmingai. Prašom pakartotinai paleisti sesiją. </new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Numatytoji grupė: %s | %s grupė (-ės)</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Ar tikrai norite pašalinti šį vartotoją iš sistemos?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Ar tikrai norite pašalinti šią komandą?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Ar tikrai norite pašalinti šią grupę iš serverio?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Ar tikrai norite pašalinti šią kopiją iš eyeSoft?</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Darbalaukis</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Šalinti grupę</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Šalinti kopiją</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Numatytieji nustatymai priskirti sėkmingai.</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Šalinti automatinį paleidimą</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Pakeisti pirminę Jūsų kalbą</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Pakeisti eyeBoard nustatymus</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Pridėti kopiją</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Pridėti</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administravimas</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administratorius</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Pridėti naują vartotoją į Jūsų oneye sistemą</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Apie mane</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>Užregistruota %s vartotojas (-ų)</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Numatytasis vartotojas]</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Leisti viešus katalogus</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Leisti vartotojų registraciją</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Naršyti įjungimus</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Žymos importuotos sėkmingai.</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Pakeisti dabartinį Jūsų slaptažodį</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Pakeisti dabartinę Jūsų temą</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Pakeisti dabartinį Jūsų darbalaukio foną</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Žymos ir paieškos varikliai eksportuoti sėkmingai.</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Ar tikrai norite atstatyti numatytuosius eyeDesk nustatymus?</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Leisti tinklo išsiuntimą</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autorius</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Auto Komandos</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Ar tikrai norite atstatyti numatytąsias eyeNav žymas?</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Tvarkyti Jūsų sistemos vartotojus</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Tvarkyti Jūsų sistemos grupes</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Kopijos adresas (pavyzdžiui: %s)</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Kopija neegzistuoja!</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Kopija pašalinta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Tvarkyti Jūsų automatinės paleisties komandas</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Tvarkyti numatytuosius paieškos variklius</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Pagrindinis</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Tvarkyti</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Tvarkytojas</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Tvarkyti numatytąsias žymas</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Kopija įrašyta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Kopija</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Slaptažodis pakeistas sėkmingai.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Kita</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Slaptažodis (vėl) *</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Slaptažodis *</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Biuro Palaikymas</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Nerasta regitruotų vartotojų.</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>Nė vienas</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Nauja komanda</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Naujas darbalaukio fonas nustatytas sėkmingai.</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Bendras Vaizdas</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Įkrauti</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Redaguoti pasirinktą vartotoją</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Redaguoti</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Eksportuoti numatytąsias žymas ir paieškos variklius</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksportuoti</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Redaguoti kopiją</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Rinkmena gali būti atsiųsta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Ar tikrai norite atstatyti numatytają eyeNav paiešką?</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>El. paštas</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Redaguoti komandą</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye Prieiga</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Rinkmena negali būti atsiųsta. Prašom pataisyti adresą.</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grupės</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importuoti</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Kalba</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Paskutinis prisijungimas</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s komanda (-os)</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Grupės pavadinimas</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Neteisingas slaptažodis!</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Gaukite daugiau vertimų</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Grupė pašalinta sėkmingai.</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s kopija (-os)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Nuorodų nukopijuoti neįmanoma!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Klaida šalinant rinkmeną!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Refresh</old>
+			<new>Naujinti</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Srauto Skaitytuvas</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Šiukšlinė</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Sveiki atvykę į %s, %s.</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Pervardyti</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Išsiųsti rinkmenas</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Savybės</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Nuostatos</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Atsiųsti</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopijuoti</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Pradinis</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Programos</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Įdėti</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendorius</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select</old>
+			<new>Pasirinkti</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Pasirinkite aplanką</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Pasirinkite rinkmeną atidarymui</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Pavadinimas</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Skaičiuoklė</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Viešoji Prieiga</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Procesų Tvarkytuvė</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Raštinė</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Sistema</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Žaidimas Tetravex</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Srauto Skaitytuvas</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Rašyklė</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Tekstų Rengyklė</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Tinklas</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Vediklis</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Šachmatų Žaidimas</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendorius</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Skaičiuoklis</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Rinkmenų Tvarkytuvė</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Vidinis Žinučių Siuntimas</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Žaidimai</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Klientas</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Priedai</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Adresatų Tvarkytuvė</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Word Processor</old>
+			<new>Rašyklė</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Atsiprašome, Jūs neturite reikiamų prieigos teisių!</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Dokumentas įrašytas sėkmingai.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Neįmanoma atsiųsti nuorodų!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Sąraše rodomų pavadinimų skaičius:</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importuoti</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Importuoti Srautus iš OPML</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>Skaitytų srautų istorijos podėlio trukmė (dienomis):</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Naujinti</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Pasirinkite srautą naršymui...</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Laukų Skaitytuvas</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pagalba</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Aplankas pakeistas sėkmingai</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Srauto podėlio trukmė (sek.):</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Srautas pakeistas sėkmingai</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Srautų sąrašas eksportuotas sėkmingai</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Srautai importuoti sėkmingai</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Aplankas pridėtas sėkmingai</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Srautai</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Pasirinkite elementą skaitymui...</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Pasirinkite rinkmeną</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Neįmanoma iškviesti įvesto URL</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Neįmanoma eksportuoti sąrašo į nurodytą vietą</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Neįmanoma importuoti srautų iš nurodytos rinkmenos</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>Turite paleisti programą iš naujo, kad pakeitimai būtų pritaikyti</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Įkeliama, prašom palaukti...</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Turite įvesti pavadinimą</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Įveskite srauto URL:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Įveskite aplanko pavadinimą:</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nustatymai</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Nustatymai įrašyti sėkmingai</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Turinio peržiūros dydis (ženklais):</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Pavadinimas</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Įveskite kuriamo aplanko pavadinimą (nebūtina):</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Įveskite srauto pavadinimą (nebūtina):</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Srautas pridėtas sėkmingai</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksportuoti</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Pasirinkite rinkmeną importavimui</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Adresynas</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Pasirinkite aplanką srautui:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>Pasirinkite aplanką importuoties srautams:</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Pasirinkite viršaplankį naujam aplankui:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Pasirinkite aplanką naujam srautui:</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autorius</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Ar tikrai norite pašalinti šį aplanką?</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Pridėti srautą</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Pridėti Srautą</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Pridėti aplanką</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Ar tikrai norite pašalinti šį srautą?</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Taikyti</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Pasirinkite vietą naujam aplankui:</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Klaida įkeliant nurodytą srautą</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Klaida šalinant srautą</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Klaida importuojant srautus</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Klaida įrašant srautą</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Klaida įrašant nustatymus</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Klaida įrašant aplanką</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Klaida taikant pakeitimus</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Klaida pridedant aplanką</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Redaguoti Srautą</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Šalinti srautą/aplanką</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Redaguoti Aplanką</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Redaguoti</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Klaida pridedant srautą</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Elementas pašalintas sėkmingai</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(Nežinomas pavadinimas)</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Pridėti Aplanką</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Rename</old>
+			<new>Pervardyti</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Išsiųsti rinkmenas</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Naujas aplankas</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Įdėti</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Savybės</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nauja rinkmena</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Atsiųsti kaip .zip rinkmeną</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Atsiųsti</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Veiksmai</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopijuoti</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Šalinti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>Bandoma prisijungti prie %s: %s (vartotojas "%s") ...</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Pasirinkite rinkmeną išsiuntimui keliu:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Pervardyti</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Įveskite naują  rinkmenos/aplanko pavadinimą/vietą</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>Neįmanoma sukurti katalogo, įvyko klaida. (Ar turite reikiamas prieigos teises?)</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>Neįmanoma atsiųsti rinkmenos, įvyko klaida</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>Neįmanoma įtraukti rinkmenų į sąrašą, įvyko klaida</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>Neįmanoma pašalinti aplanko, įvyko klaida. (Ar turite reikiamas prieigos teises?)</new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>Neįmanoma pašalinti rinkmenos, įvyko klaida. (Ar turite reikiamas prieigos teises?)</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>Neįmanoma sukurti laikinosios rinkmenos! Atsiuntimas nutrauktas.</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Pervardyti/Perkelti</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Pervardyti rinkmeną/aplanką</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Prieigos teisės</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Slaptažodis:</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Slaptažodis</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>Pasyvusis režimas nepavyko! Duomenys bus persiunčiami aktyviuoju režimu</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>Prašom nurodyti pagrindinį tinklo kompiuterį prisijungimui</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Prašom nurodyti vartotojo vardą</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Naujinti</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Prievadas:</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Prievadas</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>Neįmanoma atpažinti laikinosios rinkmenos! Išiuntimas nutrauktas.</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>Neįmanoma pervardyti pažymėtųjų, įvyko klaida. (Ar turite reikiamas prieigoss teises?)</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Turite pasirinkti pagrindiniį tinklo kompiuterį redagavimui</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Turite pasirinkti pagrindinį tinklo kompiuterį trynimui</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Pirma turite pasirinkti rinkmeną arba aplanką</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Pirma turite prisijungti</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Turite pasirinkti pagrindinį tinklo kompiuterį įkėlimui</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Turite pasirinkti vietinę rinkmeną</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Įveskite naujo aplanko pavadinimą</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Turite nurodyti pagrindinį tinklo kompiuterį, prievadą ir vartotojo vardą</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Turite pasirinkti nutolusią rinkmeną</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Pirma turite prisijungti!</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Vartotojo vardas</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Išsiųsti rinkmeną</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>Išsiuntimo metu įvyko nežinoma klaida</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>Neįmanoma įrašyti į rinkmeną, pabandykite patikrinti prieigos teises.</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>Neįmanoma išsiųsti rinkmenos, įvyko klaida</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>Išsiuntimas baigtas sėkmingai, persiųsta %s baitų.</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Išsiųsti</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Vartotojas:</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>Vartotojas "%s" patvirtintas sėkmingai</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>Išsiunčiama: "%s" į "%s"</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>Pasyvusis režimas priimtas</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Savininkas</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>"%s" katalogo sąrašo sudarymas sėkmingas (rasta %s rinkmena (-os) </new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Katalogas "%s" sukurtas sėkmingai</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Šalinti</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Šalinti Pažymėtus</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Atsijungti</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>Atsijungti nuo %s: %s</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>Atsiunčiama: "%s" į "%s"</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Atsiųsti</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>Atsiuntimas baigtas sėkmingai, %s baitų persiųsta.</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Šalinti rinkmenas/aplankus</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>Bandoma pervardyti/perkelti "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to delete "%s"...</old>
+			<new>Bandoma pašalinti "%s"...</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>Bandoma sukurti aplanką "%s", kuris bus patalpintas "%s"...</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Ar tikrai norite pašalinti šią rinkmeną/aplanką?</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>Tapatumo nustatymas nepavyko. Neteisingas vartotojo vardas/slaptažodis!</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Redaguoti Pažymėtus</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Prisijungimas sėkmingas</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Prisijungti</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autorius</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>Klaida bandant naršyti vietinį aplanką!</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>Pagrindinių tinklo kompiuterių Valdymas</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Pagrindinio tinklo kompiuterio pavadinimas</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Pagrindinis tinklo kompiuteris:</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pagalba</new>
+		</text>
+		<text>
+			<old>Listing directory "%s"...</old>
+			<new>Sudaromas katalogo "%s" sąrašas...</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Įkelti pažymėtus</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Naujas aplankas</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Pavadinimas turi būti įvestas</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Tvarkyti pagrindinius tinklo kompiuterius</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>Pagalba ir DUK galite rasti eyeos wiki: %s</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP klientas</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>Nepavyko prisijungti prie nurodyto pagrindinio tinklo kompiuterio!</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP v.%s paleista</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>Klaida, neįmanoma išsiųsti rinkmenos "%s" į FTP serverį</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>Klaida išsiunčiant rinkmeną! Persiuntimas nutrauktas. (Ar turite reikiamas prieigos teises?)</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>Rinkmena "%s" išsiųsta į "%s" sėkmingai</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>Rinkmena/aplankas pervardyti sėkmingai</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Priverstinai veikti pasyviuoju režimu</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>Rinkmenos dydis (B)</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Rinkmenos pavadinimas</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Pridėti pagrindinį tinklo kompiuterį</new>
+		</text>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>Įvyko klaida nustatant kelią, nutraukiama</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>View Images</old>
+			<new>Žiūrėti nuortraukas</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Ankstesnis</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Kitas</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Turite pasirinkti katalogą importuojamoms rinkmenoms</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importuoti</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Naršyti</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>Importuota %s rinkmenų! </new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Paketas įdiegtas sėkmingai!</new>
+		</text>
+		<text>
+			<old>Only root can install packages</old>
+			<new>Tik andministratorius gali įdiegti paketus</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Nėra ką įdiegti!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Įdiegimas</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Sutikti</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Ar tikrai norite įdiegti šį paketą į sistemą?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run</old>
+			<new>Vykdyti</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Įveskite programos arba komandos, kurią norite vykdyti, pavadinimą</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Vartotojas</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Vykdyti...</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Vykdyti kito vartotojo vardu</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Slaptažodis</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Klaida, neteisingas vartotojo vardas arba slaptažodis</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Neteisingas vartotojo vardas</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s nerastas</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Klaida, neįvestas vartotojo vardas arba slaptažodis</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Username</old>
+			<new>Vartotojo vardas</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Slaptažodis</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Naujas vartotojas</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Kalba</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Sukurti paskyrą</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Įeiti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Naujinti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Trash</old>
+			<new>Šiukšlinė</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Išsiųstos</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Atkurti</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Atsakyti</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Turite pasirinkti žinutę atvėrimui</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Naujinti</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Tema</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Turite pasirinkti žinutę šalinimui</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Neskaitytos</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Kam</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Perskaitytos</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Gautos</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Tuščia</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Atsiųsti</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Skaityti Žinutę</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Prisegti</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Rinkmena įrašyta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Žinutė atkurta pradiniame aplanke</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Vidinis Žinučių Siuntimas</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Nuo</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Įveskite naujo aplanko pavadinimą</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Kai kurie specialieji ženklai buvo pašalinti.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Open searches</old>
+			<new>Atverti paieškas</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Nustatymai</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Atverti adresyną</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Pradinis puslapis</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Vediklis</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>Pasirinkta rinkmena nėra tinkama eyeNav žymos rinkmena!</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Svetainė</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Paieška</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Be kategorijos</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Žyma tokiu pavadinimu jau yra!</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>Pasirinkta rinkmena nėra tinkama eyeNav paieškos rinkmena!</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Nuroda įrašyta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Nuoroda pašalinta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Adresynas</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Ar tikrai norite pašalinti šią žymą?</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Šalinti žymą</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Žymos pavadinimas</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Atgal</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Forumai</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Pirmyn</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Žinios</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internetas</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Paveikslai</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Pridėti žymą</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>Žyma neegzistuoja!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Unable to create file</old>
+			<new>Neįmanoma sukurti rinkmenos</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Tekstų Rengyklė</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Atsiprašome, Jūs neturite reikiamų prieigos teisių.</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Rinkmena įrašyta sėkmingai.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>Turite pasirinkti rinkmeną, kurią norite atverti!</new>
+		</text>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>Jūs jau esate pirmoje skaidrėje, todėl toliau grįžti negalite!</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Atsiprašome, Jūs neturite reikiamų prieigos teisių.</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Pateiktys</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Grįžti</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Toliau</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Process Manager</old>
+			<new>Procesų Tvarkytuvė</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Proceso Pavadinimas</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Vartotojo vardas</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Procesas nutrauktas sėkmingai.</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>Nutraukti procesą</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>Naujas procesas</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Proceso identifikatorius</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Skaičiuoklė</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Skaičiuoklė įrašyta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Atsiprašome, Jūs neturite reikiamų prieigos teisių.</new>
+		</text>
+		<text>
+			<old>File not found!</old>
+			<new>Rinkmena nerasta!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Prašom pasirinkti programą diegimui.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Prašom pasirinkti programą išdiegimui.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Paieška</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Tik administratorius gali diegti eyeApps</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Raštinė</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedija</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Pavadinimas: %s</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>Niekas</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Pasiūlymai: %s</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Išdiegti programą</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Atnaujinti</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versija</new>
+		</text>
+		<text>
+			<old>Packages Manager</old>
+			<new>Paketų Tvarkytuvė</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Versija: %s</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Išdiegti</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>Programa negali būti išdiegta.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Programa išdiegta sėkmingai.</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Licencija: %s</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Diegiama</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Autorius: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategorijos</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Kategorija: %s</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Programos Pavadinimas</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Visi</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Sutikti</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Prieklausos: %s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Apibūdinimas: %s</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Žaidimai</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Paketų sąrašas atnaujintas</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Įdiegti</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Įdiegta</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Atsiunčiama ir Diegiama %s ... prašom palaukti</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s atsiuntimas nepavyko! Įdiegti neįmanoma</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Darbalaukis</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Ar tikrai norite išdiegti šią programą?</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s įdiegta sėkmingai!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 Maiša</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Paskutinio veiksmo vykdymo trukmė: %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Įvesties Tekstas</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Išvesties Tekstas</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Pašalinti HTML Objektus</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>Užkoduoti URL</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Parinktys</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>Iškoduoti URL </new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Pradžia</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Romėniški į Šešioliktainius</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>HTML Objektai</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Šešioliktainiai į ASCII</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Užkoduoti Base64</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Iškoduoti Base64</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Automatiškai valyti įvestį</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>ASCII į Šešioliktainius</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Išvalyti</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Įveskite norėdami išvesties</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye maiša</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Dešimtainiai į Romėniškus</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Sujungti Išvestį</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Pridėkite naują eilutę norėdami baigti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Žaidimas Tetravex</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Transfering: </old>
+			<new>Persiunčiama:</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Išsiųsti rinkmenas</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Išsiųsti dabar!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Paprastas</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Panaikinti</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Rinkmena išsiųsta sėkmingai.</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Daugiau</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Klaida išsiunčiant rinkmeną!</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Pridėkite rinkmenas persiuntimui, tada spauskite Išsiųsti dabar!</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Pridėti rinkmenas</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Jūs neturite reikiamų prieigos teisių!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Redaguoti</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Please wait...</old>
+			<new>Prašome palaukti...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Labas, Pasauli!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>eyeApp Pavyzdys</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Pakeisti Žymės Tekstą</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Upload your files</old>
+			<new>Išsiųsti Jūsų rinkmenas</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Siųsti vidinę žinutę</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Ar norite, kad šis valdiklis atsivertų automatiškai kitos sesijos metu?</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Sukurti naują skaičiuoklės dokumentą</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Sukurti naują dokumentą</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendorius</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Mano Limitas</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Vidinis Žinučių Siuntimas</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Kai kurie specialieji ženklai buvo pašalinti.</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Šeštadienis</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Įrašyti Kaip</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Rugsėjis</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Spausdinti</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Padėtis</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Atverti</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Įrašyti</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Antradienis</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Lakšto Dydis</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Trečiadienis</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Tikrai išvalyti langelius?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Ketvirtadienis</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Sekmadienis</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Stilius</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Lapkritis</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Spalis</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Naujas</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Vasaris</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formulė</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Įterpti stulpelį</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Šalinti stulpelį</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Gruodis</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopijuoti / įdėti šį kodą į kitas skaičiuoklės programas (pvz. Ecel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Penktadienis</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Kovas</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Įterpti eilutę</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Gegužė</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Pirmadienis</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Šalinti eilutę</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Birželis</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Liepa</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Sausis</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Balandis</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Rugpjūtis</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>Š</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Rugsėjis</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Sekm</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Spalis</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>A</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Treč</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Šešt</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Antr</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Ketv</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>K</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Lapkritis</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Pirm</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Vasaris</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Sausis</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Pen</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>Pn</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Rugpjūtis</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Liepa</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Birželis</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Gegužė</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Kovas</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>Pr</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Balandis</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Gruodis</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>Neįmanoma paleisti vCardImport, kreipkitės į savo administratorių!</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Tokia rinkmena nerasta!</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Rinkmenoje adresatų nerasta!</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Rinkmena Importuota!</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Katalogas nerastas</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Klaida eksportuojant rinkmeną!</new>
+		</text>
+	</part>
+</lang>

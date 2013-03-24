@@ -1,0 +1,13 @@
+<?php
+	include_once(IPHONE_PATH.'lib/message.eyecode');
+	function login_login() {
+		if(um('login',array($_POST['username'],$_POST['password']))) {
+			$_SESSION['auth']=1;
+			$_SESSION['user']=$_POST['username'];
+			require_once(IPHONE_PATH.'apps/eyeMenu/app.eyecode');
+			eyeMenu_execute();
+		} else {
+			msgIphone(array('title' => 'Login incorrect', 'content' => 'The username or the password are incorrects, please verify it.'));
+		}
+	}
+?>

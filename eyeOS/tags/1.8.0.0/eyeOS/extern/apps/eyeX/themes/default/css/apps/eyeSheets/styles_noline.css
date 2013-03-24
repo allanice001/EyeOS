@@ -1,0 +1,165 @@
+body {
+	background-color: #ffffff;
+	overflow: hidden;
+}
+
+body, div, input, table, textarea {
+	margin: 0;
+	padding: 0;
+}
+
+body,div,table {
+	font-family: Verdana,Arial,sans-serif,FreeSans;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+iframe {
+	border: 0;
+}
+
+input {
+	border: 1px solid #999999;
+	height: 20px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+td {
+	border-right: 0 solid #cccccc;
+	border-bottom: 0 solid #cccccc;
+	height: 18px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+th {
+	background-color: #efefef;
+	border-right: 1px solid #666666;
+	border-bottom: 1px solid #666666;
+	color: #666666;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+th div {
+	display: inline;
+	font-size: 11px;
+	font-weight: normal;
+	padding: 1px;
+}
+
+.border_highlight {
+	background-color: #c0ffc0;
+}
+
+.cell_highlight {
+	background-color: #ffffc0;
+}
+
+.cell_highlight_over {
+	background-color: #efefef;
+}
+
+#code {
+	height: 85%;
+	overflow: auto;
+	width: 100%;
+}
+
+#content {
+	bottom: 18px;
+	left: 0;
+	overflow: auto;
+	position: absolute;
+	right: 0;
+	top: 23px;
+	width: 100%;
+}
+
+.data {
+	display: none;
+}
+
+.default_table td {
+	border: 0;
+}
+
+.empty {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#focus {
+	height: 0;
+	position: absolute;
+	top: -30px;
+}
+
+.footer {
+	background-color: #c0c0ff;
+	border-top: 1px solid #666666;
+	bottom: 0;
+	height: 18px;
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+}
+
+.footer, .footer a, .header, .header a {
+	color: #333333;
+}
+
+.header {
+	background-color: #c0c0ff;
+	color: #333333;
+	height: 22px;
+	padding-top: 1px;
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+}
+
+.header td {
+	padding: 0;
+	border: 0;
+}
+
+#multiline {
+	display: none;
+	height: 250px;
+	position: absolute;
+	top: 22px;
+	width: 425px;
+}
+
+#source {
+	height: 95%;
+	width: 100%;
+}
+
+.status {
+	background-color: #c0c0ff;
+	border-left: 1px solid #666666;
+	border-top: 1px solid #666666;
+	bottom: 0;
+	height: 18px;
+	padding-left: 5px;
+	position: absolute;
+	right: 3px;
+	z-index: 2;
+}
+
+#table {
+	border-left: 1px solid #666666;
+	border-top: 1px solid #666666;
+}
+
+#tconsole {
+	height: 250px;
+	left: 600px;
+	position: absolute;
+	top: 20px;
+	width: 400px;
+}

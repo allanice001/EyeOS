@@ -1,0 +1,57 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+ 
+                     Web Operating System
+                           eyeOS.org
+ 
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+ 
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+ 
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+ 
+*/
+	$myCssText = array(
+			'font-family'=>'Verdana',
+			'font-size'=>'11px',
+			'font-weight'=>'bold'
+		);		
+ 
+	$listBox = new Box(array('name'=>'exportImportBox','father'=>$exportImportListTab,'x'=>5,'y'=>7,
+		'width'=>550,'height'=>340,'title'=>'Manage Contacts'));
+	$listBox->show();
+ 
+	$winContent = new Window(array('name'=>'exportWinContent','father' => 'exportImportBox',
+		'y'=>0,'x'=>0,'width'=>452,'height'=>335,'type'=>100,'style'=>MIN + LISTED + CLOSE));
+	$winContent->show();
+ 
+	$myText1 = new Label(array ('name'=>"eyeCardLabel",'father'=>'exportWinContent',
+			'text' =>"vCard Import/Export",'x'=>20,'y'=>35));
+	$myText1->show();
+	$myText1->setCss($myCssText);	
+ 
+	//TODO: lang revision
+	$myText1 = new Label(array ('name'=>"importDest",'father'=>'exportWinContent',
+			'text' =>"Import contacts from vCard files",'x'=>25,'y'=>60));
+	$myText1->show();	
+	$myButton = new Button(array('name'=>'ImportvCard','father'=>'exportWinContent',
+		'x'=>160,'y'=>80,'caption'=>'Import from vCard'));
+	$myButton->show();
+	//TODO: lang revision
+	$myText1 = new Label(array ('name'=>"exportDesc",'father'=>'exportWinContent',
+			'text' =>"Export your contacts to vCard format",'x'=>25,'y'=>125));
+	$myText1->show();
+	$myButton = new Button(array('name'=>'ExportvCard','father'=>'exportWinContent',
+		'x'=>160,'y'=>145,'caption'=>'Export all as vCard'));
+	$myButton->show();
+?>

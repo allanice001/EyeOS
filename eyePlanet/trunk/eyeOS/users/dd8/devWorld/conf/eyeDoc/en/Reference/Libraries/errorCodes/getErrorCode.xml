@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getErrorCode</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>errorcodes</tag>
+		</tags>
+		<shortDesc>Gets the last error occurred.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getErrorCode</functionName>
+		<syntax>errorCodes('getErrorCode')</syntax>
+		<desc>Gets the numerical value of the last error occurred.</desc>
+		<return>This function always returns the value of the global 'errorCode' variable. It can be null if no error has been raised or an integer number otherwise.</return>
+	</definition>
+</info>

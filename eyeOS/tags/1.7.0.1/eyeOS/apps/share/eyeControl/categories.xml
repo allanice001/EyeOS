@@ -1,0 +1,149 @@
+<index>
+	<display>Main</display>
+	<name>index</name>
+	<permissions>all</permissions>
+</index>
+<cat_content>
+	<name>category</name>
+	<permissions>all</permissions>
+</cat_content>
+<category>
+	<display>Personal</display>
+	<name>account</name>
+	<permissions>all</permissions>
+	<content>
+		<description>Update your system's profile</description>
+		<display>About me</display>
+		<name>account</name>
+		<permissions>only_real</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/aboutme.png</img>
+	</content>
+	<content>
+		<description>Change your current password</description>
+		<display>Password</display>
+		<name>password</name>
+		<permissions>only_real</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/password.png</img>
+	</content>
+	<content>
+		<description>Change your preferred language</description>
+		<display>Language</display>
+		<name>lang</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/language.png</img>
+	</content>
+</category>
+<category>
+	<display>Look &amp; Feel</display>
+	<name>look_and_feel</name>
+	<permissions>all</permissions>
+	<content>
+		<description>Change your desktop wallpaper</description>
+		<display>Desktop</display>
+		<name>desktop</name>
+		<permissions>only_this</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/desktop.png</img>
+	</content>
+	<content>
+		<description>Change your current theme</description>
+		<display>Theme</display>
+		<name>theme</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/theme.png</img>
+	</content>
+</category>
+<category>
+	<display>Administration</display>
+	<name>only_root</name>
+	<permissions>root</permissions>
+	<content>
+		<description>Update your system's settings</description>
+		<display>System</display>
+		<name>system</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/admingeneral.png</img>
+	</content>
+	<content>
+		<description>Manage your system's users</description>
+		<display>Manage users</display>
+		<name>users</name>
+		<permissions>maintainer</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/manageusers.png</img>
+	</content>
+	<content>
+		<description>Manage your system's groups</description>
+		<display>Manage groups</display>
+		<name>groups</name>
+		<permissions>maintainer</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/managegroups.png</img>
+	</content>
+	<content>
+		<description>Add a new user to your eyeOS system</description>
+		<display>New user</display>
+		<name>newuser</name>
+		<permissions>maintainer</permissions>
+		<title>yes</title>
+		<show>no</show>
+	</content>
+	<content>
+		<description>Edit the chosen user</description>
+		<display>Edit user</display>
+		<name>edituser</name>
+		<permissions>maintainer</permissions>
+		<title>yes</title>
+		<show>no</show>
+	</content>
+	<content>
+		<description>Manage the eyeSoft mirrors</description>
+		<display>Repositories</display>
+		<name>eyesoft</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/repositories.png</img>
+	</content>
+	<content>
+		<description>Remove temporary files and folders from your eyeOS system</description>
+		<display>Clean eyeOS</display>
+		<name>cleantemp</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/editClean.png</img>
+	</content>
+</category>
+<category>
+	<display>System</display>
+	<name>system</name>
+	<permissions>all</permissions>
+	<content>
+		<description>Change your eyeBoard settings</description>
+		<display>eyeOS Board</display>
+		<name>eyeboard</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/eyeBoard.png</img>
+	</content>
+	<content>
+		<description>Manage your autorun commands</description>
+		<display>Autorun Commands</display>
+		<name>eyedesk</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/autorun.png</img>
+	</content>
+	<content>
+		<description>Manage eyeNav's startpage, bookmarks and search engines</description>
+		<display>Web Browser</display>
+		<name>eyenav</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?theme=1&amp;extern=icons/48x48/webbrowser.png</img>
+	</content>
+</category>

@@ -1,0 +1,168 @@
+<lang>
+	<info>
+		<revision>11/04/2009</revision>
+	</info>
+	<texts>System preferences</texts>
+	<texts>Others</texts>
+	<texts>Select user:</texts>
+	<texts>[Default user]</texts>
+	<texts> - - - - -</texts>
+	<texts>Used space:</texts>
+	<texts>Username</texts>
+	<texts>Change password</texts>
+	<texts>Full name</texts>
+	<texts>E-mail</texts>
+	<texts>Groups</texts>
+	<texts>Maintained users</texts>
+	<texts>Manage users</texts>
+	<texts>Maintained groups</texts>
+	<texts>Manage groups</texts>
+	<texts>Save changes</texts>
+	<texts>Delete user</texts>
+	<texts>Remove temporary files and folders</texts>
+	<texts>Remove now!</texts>
+	<texts>Your eyeOS server does not need cleaning!</texts>
+	<texts>Wallpaper</texts>
+	<texts>Settings</texts>
+	<texts>Use a custom wallpaper</texts>
+	<texts>New wallpaper</texts>
+	<texts>Select a file...</texts>
+	<texts>Repeat wallpaper</texts>
+	<texts>Center wallpaper</texts>
+	<texts>Windows</texts>
+	<texts>Save window positions</texts>
+	<texts>Reset window positions</texts>
+	<texts>Desktop icons</texts>
+	<texts>Fixed: Icons cannot be moved</texts>
+	<texts>Smooth: Icons can be moved everywhere</texts>
+	<texts>Fielded: Icons are aligned automatically</texts>
+	<texts>Reset icon positions</texts>
+	<texts>Mouse</texts>
+	<texts>Use doubleclicks</texts>
+	<texts>Created on</texts>
+	<texts>d/m/Y H:i:s</texts>
+	<texts>Permissions</texts>
+	<texts>Root</texts>
+	<texts>User</texts>
+	<texts>Maintainer</texts>
+	<texts>Administrator</texts>
+	<texts>Block user</texts>
+	<texts>Expiration Date</texts>
+	<texts>Maintain</texts>
+	<texts>x</texts>
+	<texts>Add</texts>
+	<texts>Remove</texts>
+	<texts>Extension</texts>
+	<texts>Open With</texts>
+	<texts>Name</texts>
+	<texts>Description</texts>
+	<texts>---</texts>
+	<texts>Save</texts>
+	<texts>Update</texts>
+	<texts>Add ACL</texts>
+	<texts>Edit ACL</texts>
+	<texts>Delete ACL</texts>
+	<texts>Add File</texts>
+	<texts>Edit File</texts>
+	<texts>Delete File</texts>
+	<texts>From</texts>
+	<texts>Password</texts>
+	<texts>Hostname</texts>
+	<texts>Port</texts>
+	<texts>Use SSL</texts>
+	<texts>Yes</texts>
+	<texts>No</texts>
+	<texts>Show full names</texts>
+	<texts> </texts>
+	<texts>Refresh interval (seconds)</texts>
+	<texts>New</texts>
+	<texts>Edit</texts>
+	<texts>Delete</texts>
+	<texts>Use defaults</texts>
+	<texts>%s command(s)</texts>
+	<texts>Default</texts>
+	<texts>Configure the startpage</texts>
+	<texts>Startpage</texts>
+	<texts>Test address</texts>
+	<texts>Browse Plugin</texts>
+	<texts>Iframe (</texts>
+	<texts>Export default bookmarks and search engines</texts>
+	<texts>Export</texts>
+	<texts>Manage default bookmarks</texts>
+	<texts>Import</texts>
+	<texts>Manage default search engines</texts>
+	<texts>Test</texts>
+	<texts>%s mirror(s)</texts>
+	<texts>Set as default</texts>
+	<texts>Default: %s | %s group(s)</texts>
+	<texts>getXMLfile</texts>
+	<texts>English</texts>
+	<texts>Change language</texts>
+	<texts>Get more translations</texts>
+	<texts>ACL Name:</texts>
+	<texts>Service:</texts>
+	<texts>Function:</texts>
+	<texts>Action:</texts>
+	<texts>extern</texts>
+	<texts>nmap</texts>
+	<texts>proc</texts>
+	<texts>um</texts>
+	<texts>vfs</texts>
+	<texts>Add Rule</texts>
+	<texts>Add Target</texts>
+	<texts>ADD, EDIT OR DELETE YOUR TARGETS</texts>
+	<texts>Update Rule</texts>
+	<texts>Edit Target</texts>
+	<texts>Type:</texts>
+	<texts>Write your target:</texts>
+	<texts>SELECT TYPE AND TARGET NAME</texts>
+	<texts>ADD PARAMS TO FILTER</texts>
+	<texts>Add Params</texts>
+	<texts>Done</texts>
+	<texts>Please fill out all required fields marked with *.</texts>
+	<texts>Username *</texts>
+	<texts>Password *</texts>
+	<texts>Password (again) *</texts>
+	<texts>Permissions *</texts>
+	<texts>Expiration (dd/mm/yyyy)</texts>
+	<texts>Create user</texts>
+	<texts>New password</texts>
+	<texts>New password (again)</texts>
+	<texts>Protect Sessions by IP</texts>
+	<texts>Please follow the instructions at %s.</texts>
+	<texts>System</texts>
+	<texts>Cache System</texts>
+	<texts>Office Support</texts>
+	<texts>Uninstall</texts>
+	<texts>eyeOS hostname</texts>
+	<texts>Default language</texts>
+	<texts>Bytes</texts>
+	<texts>KBytes</texts>
+	<texts>MBytes</texts>
+	<texts>GBytes</texts>
+	<texts>User quota</texts>
+	<texts>Create thumbnails</texts>
+	<texts>Allow user registration</texts>
+	<texts>Allow public dirs</texts>
+	<texts>Allow web upload</texts>
+	<texts>Enable cache system</texts>
+	<texts>Current cache version</texts>
+	<texts>Patch CSS files</texts>
+	<texts>Manual: No automatic patch</texts>
+	<texts>Automatic: Patch on every request</texts>
+	<texts>Semi-automatic: Patch on every cache version change</texts>
+	<texts>Please do not modify anything if you are not sure about what you are going to change. If you have any doubt you can click this warning to see the documentation.</texts>
+	<texts>OpenOffice program folder:</texts>
+	<texts>Used version</texts>
+	<texts>Root password</texts>
+	<texts>Uninstall eyeOS</texts>
+	<texts>Change theme</texts>
+	<texts>Theme</texts>
+	<texts>Author</texts>
+	<texts>Screenshot</texts>
+	<texts>Load</texts>
+	<texts>%s user(s) registered.</texts>
+	<texts>i18n</texts>
+	<texts>content' =&gt; 'Language changed. Please restart eyeOS now.</texts>
+	<texts>rawjs</texts>
+</lang>

@@ -1,0 +1,234 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Generator Config Howto &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="generator-config-howto">
+<span id="pages-generator-config-howto-generator-config-howto"></span><h1>Generator Config Howto<a class="headerlink" href="#generator-config-howto" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is highly experimental info around qooxdoo 1.2. So it may need modification and improvement to be applied to newer qooxdoo versions.</p>
+</div>
+<div class="section" id="how-can-i-create-an-all-in-one-qooxdoo-library">
+<span id="pages-generator-config-howto-how-can-i-create-an-all-in-one-qooxdoo-library"></span><h2>How can I create an &quot;all-in-one&quot; qooxdoo library?<a class="headerlink" href="#how-can-i-create-an-all-in-one-qooxdoo-library" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you may wish to create a library-style build of just qooxdoo framework classes (Reasons for this could be development situations where you don't have the tool chain available, or when you create dynamic qooxdoo code on the server that has to rely on a pre-build class library). Also see the blog post about an <a class="reference external" href="http://news.qooxdoo.org/qooxdoo-all-in-one">qooxdoo &quot;all-in-one&quot;</a>.</p>
+<p>You roughly have to take these steps to accomplish that:</p>
+<ol class="arabic simple">
+<li>define a set of classes you want to include</li>
+<li>An important thing to keep in mind here is that the architecture of qooxdoo is designed around <a class="reference internal" href="generator_config_background.html#pages-generator-config-background-application-startup"><em>running whole applications</em></a>, not just providing a set of library classes. That means that once the qooxdoo runtime starts it will</li>
+</ol>
+<blockquote>
+<ul class="simple">
+<li>create a runtime environment (vars, core classes and objects, etc.)</li>
+<li>look for a main application class to run</li>
+</ul>
+</blockquote>
+<p>In order to do so, for example certain global variables have to be in place.</p>
+<p>All these things define a certain set up that has to be in place for a qooxdoo application to run. Providing this environment is also necessary for your qooxdoo application when you are using a pre-build library.</p>
+<p>This set up includes:</p>
+<ul class="simple">
+<li>define the main application class</li>
+</ul>
+<p>You could build a pre-build qooxdoo library, either using Petr's qxbuild or roll your own.  And then compile your classes in an &quot;application-stuff-only&quot; package, which could be source or build, as you see fit. Then load one after the other.</p>
+<p>E.g., provided you had those two packages and an index.html, in it you
+could say</p>
+<div class="highlight-javascript"><pre>&lt;!-- you need some inline stuff first --&gt;
+  &lt;script type="text/javascript"&gt;
+    qxsettings = { "qx.application" : "Application" };  // if that's
+your main app class
+  &lt;/script&gt;
+
+  &lt;script type="text/javascript" src="path/to/qx.js"&gt;&lt;/script&gt;  &lt;!--
+this for the qooxdoo lib --&gt;
+
+  &lt;script type="text/javascript"
+src="path/to/yourappstuff.js"/&gt;&lt;/script&gt; &lt;!-- this for you app classes --&gt;</pre>
+</div>
+<p>To create the qx.js library you just need a tailored job for your
+config.json file which I could send you.</p>
+<p>To create the yourappstuff.js lib, you just have to limit which classes
+go into the source/build job output. If you are working against trunk,
+put these two job definitions in your config.json:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="s2">&quot;source&quot;</span> <span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;=include&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;=${APPLICATION}.*&quot;</span> <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;build&quot;</span> <span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;=include&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;=${APPLICATION}.*&quot;</span> <span class="p">]</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>assuming your classes are under source/class/&lt;name space&gt;/. Otherwise,
+you can just list their names in the array as strings.</p>
+<p>This all is actually quite manageable. The hairy part is to synchronize
+the two libs sufficently, since qooxdoo establishes e.g. global vars and
+expects other things, in order to work properly and to tailor its
+workings. There is a bit of convention involved, which the build system
+manages out of the box, and which you have then to maintain on your own.
+I don't have much experience with this approach, so it might take some
+effort on your side to sort things out.</p>
+<p>(Old quickstart config.json)</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;jobs&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;build&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;library&quot;</span> <span class="o">:</span>
+      <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;manifest&quot;</span> <span class="o">:</span> <span class="s2">&quot;../../framework/Manifest.json&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;uri&quot;</span>      <span class="o">:</span> <span class="s2">&quot;../../../framework&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+
+      <span class="c1">// use qooxdoo wide cache folder</span>
+      <span class="s2">&quot;cache&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;compile&quot;</span> <span class="o">:</span> <span class="s2">&quot;../../cache&quot;</span>
+      <span class="p">},</span>
+
+      <span class="c1">// hard include all qooxdoo classes, except legacy stuff</span>
+      <span class="s2">&quot;include&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;qx.*&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;exclude&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;=qx.legacy.*&quot;</span><span class="p">],</span>
+
+      <span class="c1">// enable debug build</span>
+      <span class="s2">&quot;variants&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;qx.debug&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;on&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;qx.aspects&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;off&quot;</span><span class="p">]</span>
+      <span class="p">},</span>
+
+      <span class="c1">// Static application class (which is not included in build)</span>
+      <span class="s2">&quot;settings&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;qx.application&quot;</span> <span class="o">:</span> <span class="s2">&quot;Application&quot;</span>
+      <span class="p">},</span>
+
+      <span class="c1">// only support compile target</span>
+      <span class="s2">&quot;compile-dist&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;target&quot;</span> <span class="o">:</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;file&quot;</span> <span class="o">:</span> <span class="s2">&quot;build/script/qx.js&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uri&quot;</span>  <span class="o">:</span> <span class="s2">&quot;script/qx.js&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span> <span class="o">:</span> <span class="s2">&quot;on&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;optimize&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;basecalls&quot;</span><span class="p">,</span> <span class="s2">&quot;variables&quot;</span><span class="p">,</span> <span class="s2">&quot;privates&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;root&quot;</span> <span class="o">:</span> <span class="s2">&quot;build&quot;</span>
+      <span class="p">},</span>
+
+      <span class="s2">&quot;copy-files&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;files&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;button.png&quot;</span><span class="p">,</span> <span class="s2">&quot;Application.js&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;target&quot;</span> <span class="o">:</span> <span class="s2">&quot;build&quot;</span>
+      <span class="p">},</span>
+
+      <span class="s2">&quot;copy-resources&quot;</span> <span class="o">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;target&quot;</span> <span class="o">:</span> <span class="s2">&quot;build&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Generator Config Howto</a><ul>
+<li><a class="reference internal" href="#how-can-i-create-an-all-in-one-qooxdoo-library">How can I create an &quot;all-in-one&quot; qooxdoo library?</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/tool/generator_config_howto.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

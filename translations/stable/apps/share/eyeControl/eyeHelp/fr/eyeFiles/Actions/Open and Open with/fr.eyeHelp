@@ -1,0 +1,10 @@
+﻿Si un fichier est reconnu par onEye et est associé à une application installée, il vous suffit de cliquer sur le fichier en question sans passer par le clic-droit: l'application appropriée se lancera en ouvrant le fichier choisi. Sinon, une boîte de dialogue "Ouvrir avec" apparaîtra. Par ailleurs, vous pouvez utiliser l'action "Ouvrir avec", via un clic-droit sur l'élément choisi pour faire apparaître la boîte de dialogue.
+
+Certains types de fichiers sont reconnus, par défaut, par onEye:
+[list][*]Images (.bmp, .png, .jpg, .jpeg, .gif, .tiff) seront ouvertes avec Image Viewer.
+[*]les fichiers musicaux MP3 (.mp3) s'ouvriront avec le Music Player.
+[*]les vidéos et films (.flv, .avi, .divx...) s'ouvriront avec eyeVideo ou eyeMovies, en fonction de la nécessité d'un plugin DivX.
+[*]les documents Microsoft Word (.doc) et documents onEye (.eyedoc) s'ouvriront avec eyeDocs, le traitement de texte d'onEye.
+[*]les fichiers compressés (.zip, .tar, .tbz, .tbz2, .tgz, .tar.gz, .tar.bz2) s'ouvriront avec eyeArchive, l'utilitaire de compression/décompression d'onEye.
+[*]les fichiers texte (.eyecode, .txt, .py, .pl, .c, .cc) s'ouvriront avec eyeNotes.
+[*]les eyePackages, les paquets installables d'onEye (.eyepackage) s'ouvriront avec eyeInstaller, mais seulement si vous êtes connecté en tant qu'administrateur (root).[/list]

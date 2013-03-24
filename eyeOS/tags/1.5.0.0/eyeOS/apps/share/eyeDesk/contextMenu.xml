@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<entry>
+		<text>Upload files</text>
+		<signal>uploadFile</signal>
+		<icon>upload</icon>
+	</entry>
+	<entry>
+		<text>New Folder</text>
+		<signal>newFolder</signal>
+		<icon>newfolder</icon>
+	</entry>
+	<entry>
+		<text>New Launcher</text>
+		<signal>launcher</signal>
+		<icon>launcher</icon>
+	</entry>
+	<entry>
+		<text>Paste</text>
+		<signal>paste</signal>
+		<icon>paste</icon>
+	</entry>
+	<entry>
+		<text>Refresh</text>
+		<signal>refreshDesk</signal>
+		<icon>refresh</icon>
+	</entry>
+	<entry>
+		<text>Preferences</text>
+		<signal>preferences</signal>
+		<icon>preferences</icon>
+	</entry>
+	<entry>
+		<text>Wallpaper</text>
+		<signal>chgwallpaper</signal>
+		<icon>wallpaper</icon>
+	</entry>
+</menu>

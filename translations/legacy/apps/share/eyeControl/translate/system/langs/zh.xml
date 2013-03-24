@@ -1,0 +1,4059 @@
+<lang>
+	<info>
+		<lang>中文</lang>
+		<lang-en>Chinese</lang-en>
+		<author>HackerGene</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Add an eyeLink</old>
+			<new>新增链接</new>
+		</text>
+		<text>
+			<old>Please type a correct filename.</old>
+			<new>请输入正确的文件名.</new>
+		</text>
+		<text>
+			<old>Please type the link name here:</old>
+			<new>请输入链接名称.</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>该链接无法下载.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>App to be executed:</old>
+			<new>可执行应用程序</new>
+		</text>
+		<text>
+			<old>Edit link</old>
+			<new>编辑链接</new>
+		</text>
+		<text>
+			<old>Invalid link file.</old>
+			<new>无效链接.</new>
+		</text>
+		<text>
+			<old>Link updated.</old>
+			<new>链接已更新.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Are you sure you want to empty trash content?</old>
+			<new>您确定要清空回收站吗?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>清空回收站</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>安装插件</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>管理 Dock</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>压缩</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>压缩到...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>压缩文件成功</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>压缩文件失败</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>解压</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>解压到...</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>文件解压成功</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>文件解压失败</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>文件名</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>未打开文件</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>不支持该压缩类型</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBar</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>关于 eyeOS</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>应用程序</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>关闭会话</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>运行</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>系统首选项</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>清空</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>发送</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>A calendar with same name already exists</old>
+			<new>存在同名日历</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>添加日历</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>至少需要一个日历!</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>日历添加成功</new>
+		</text>
+		<text>
+			<old>Calendar is already runing</old>
+			<new>日历已经运行</new>
+		</text>
+		<text>
+			<old>Calendar Name</old>
+			<new>日历名称</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>日历</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>日历管理</new>
+		</text>
+		<text>
+			<old>Create Calendar</old>
+			<new>新建日历</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>日</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全屏</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>校验栏值无效</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>无效数字%s</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>前进</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>请输入该日历名称</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>后退</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>显示</new>
+		</text>
+		<text>
+			<old>Sorry, you can only create 5 different calendars</old>
+			<new>对不起,您只能创建5个不同的日历.</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>今天</new>
+		</text>
+		<text>
+			<old>Two calendars cannot have the same Id.</old>
+			<new>两日历间不能使用同一ID.</new>
+		</text>
+		<text>
+			<old>Two calendars cannot have the same name.</old>
+			<new>两日历间不能使用同一名称.</new>
+		</text>
+		<text>
+			<old>Update Calendars</old>
+			<new>更新日历</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>周</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>窗口模式</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>工作</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCode</name>
+		<text>
+			<old>Applications</old>
+			<new>程序</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>清空回收站</new>
+		</text>
+		<text>
+			<old>Extern</old>
+			<new>外部</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>文件保存成功.</new>
+		</text>
+		<text>
+			<old>Libraries</old>
+			<new>库</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>新文件</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Only root can run this program</old>
+			<new>只有root用户可运行此程序</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Run App</old>
+			<new>运行</new>
+		</text>
+		<text>
+			<old>Services</old>
+			<new>服务</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>对不起,您的权限不足.</new>
+		</text>
+		<text>
+			<old>Type the name of the new file</old>
+			<new>输入新文件名</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>输入新文件夹名</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeContacts</name>
+		<text>
+			<old>Add Contact</old>
+			<new>添加联系人</new>
+		</text>
+		<text>
+			<old>Address</old>
+			<new>地址</new>
+		</text>
+		<text>
+			<old>ALL</old>
+			<new>全部</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this contact?</old>
+			<new>您确定要删除该联系人吗?</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>公司</new>
+		</text>
+		<text>
+			<old>Company Address</old>
+			<new>公司地址</new>
+		</text>
+		<text>
+			<old>Contact deleted successfully.</old>
+			<new>删除联系人成功!</new>
+		</text>
+		<text>
+			<old>Contact updated successfully.</old>
+			<new>更新联系人成功!</new>
+		</text>
+		<text>
+			<old>Contacts exported in to %s</old>
+			<new>联系人导出了%s</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>删除警告</new>
+		</text>
+		<text>
+			<old>Destination</old>
+			<new>目标</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>电子邮箱</new>
+		</text>
+		<text>
+			<old>Edit Contact</old>
+			<new>编辑联系人</new>
+		</text>
+		<text>
+			<old>Error deleting contact.</old>
+			<new>删除联系人错误</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>文件导出错误</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>导出</new>
+		</text>
+		<text>
+			<old>Export all as vCard</old>
+			<new>以虚拟地址卡导出</new>
+		</text>
+		<text>
+			<old>Export completed successfully.</old>
+			<new>导出成功!</new>
+		</text>
+		<text>
+			<old>Export Contacts</old>
+			<new>导出联系人</new>
+		</text>
+		<text>
+			<old>Export failed!</old>
+			<new>导出失败!</new>
+		</text>
+		<text>
+			<old>Export To File</old>
+			<new>导出到文件</new>
+		</text>
+		<text>
+			<old>Export your contacts to vCard format</old>
+			<new>以虚拟地址卡格式导出联系人</new>
+		</text>
+		<text>
+			<old>eyeContacts can&#039;t initialize, contact with your administrator</old>
+			<new>eyeContacts无法启动,请联系管理员.</new>
+		</text>
+		<text>
+			<old>eyeOS Username</old>
+			<new>eyeOS 用户名</new>
+		</text>
+		<text>
+			<old>Fax</old>
+			<new>传真</new>
+		</text>
+		<text>
+			<old>File &quot;eyeContactsExported.vcf&quot; will be created automatically if you leave this field blank.</old>
+			<new>如果您将这块留空,将自动创建文件&quot;eyeContactsExported.vcf&quot;.</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>不支持该格式!</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>家庭电话</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>导入</new>
+		</text>
+		<text>
+			<old>Import Contacts</old>
+			<new>导入联系人</new>
+		</text>
+		<text>
+			<old>Import contacts from vCard files</old>
+			<new>从虚拟地址卡文件导入联系人</new>
+		</text>
+		<text>
+			<old>Import from .vcf file...</old>
+			<new>从.vcf文件导入</new>
+		</text>
+		<text>
+			<old>Import from vCard</old>
+			<new>从虚拟地址卡导入</new>
+		</text>
+		<text>
+			<old>Instant Messenger</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Internet Information</old>
+			<new>互联网信息</new>
+		</text>
+		<text>
+			<old>Manage Contacts</old>
+			<new>管理联系人</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>移动电话</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>姓名</new>
+		</text>
+		<text>
+			<old>New contact created successfully.</old>
+			<new>新联系人创建成功!</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>昵称</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>备注</new>
+		</text>
+		<text>
+			<old>Personal Information</old>
+			<new>个人信息</new>
+		</text>
+		<text>
+			<old>Phone</old>
+			<new>电话</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be deleted first.</old>
+			<new>请首先选择删除一个联系人</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be edited first.</old>
+			<new>请首先选择编辑一个联系人</new>
+		</text>
+		<text>
+			<old>Please choose a contact you want to send an eyeMessage to first.</old>
+			<new>请首先选择一个您想发送eyeMessage的联系人.</new>
+		</text>
+		<text>
+			<old>Please fill in the eyeOS Username for this contact first.</old>
+			<new>请您首先在eyeOS Username输入用户名</new>
+		</text>
+		<text>
+			<old>Please, fill the name and surname.</old>
+			<new>请输入名和姓</new>
+		</text>
+		<text>
+			<old>Please, select a correct file.</old>
+			<new>请选择一个正确的文件</new>
+		</text>
+		<text>
+			<old>Professional Information</old>
+			<new>专业信息</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>发送消息</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>对不起,该联系人未找到!</new>
+		</text>
+		<text>
+			<old>Sorry, the contact already exists.</old>
+			<new>对不起,该联系人已存在!</new>
+		</text>
+		<text>
+			<old>Source:</old>
+			<new>来源</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>别名</new>
+		</text>
+		<text>
+			<old>The contact can&#039;t be added</old>
+			<new>该联系人无法添加</new>
+		</text>
+		<text>
+			<old>The file was not found.</old>
+			<new>文件未找到</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>vCard Import/Export</old>
+			<new>虚拟地址卡 导入/导出</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>查看</new>
+		</text>
+		<text>
+			<old>View/Edit</old>
+			<new>查看/编辑</new>
+		</text>
+		<text>
+			<old>Voice Over IP</old>
+			<new>IP电话</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>网站</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s用户已注册.</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[默认用户]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>关于我</new>
+		</text>
+		<text>
+			<old>Add a new language</old>
+			<new>添加新语言</new>
+		</text>
+		<text>
+			<old>Add a new language you want to translate.</old>
+			<new>添加您要翻译的新语言</new>
+		</text>
+		<text>
+			<old>Add a new user to your eyeOS system</old>
+			<new>为您的eyeOS添加新用户</new>
+		</text>
+		<text>
+			<old>Add language</old>
+			<new>添加语言</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>添加镜像</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>管理员</new>
+		</text>
+		<text>
+			<old>All texts are translated!</old>
+			<new>所有文本已翻译.</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>准许公共路径</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>准许用户注册</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Author (full name)</old>
+			<new>作者(全名)</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>自动运行命令</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>后退</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>书签和搜索引擎导出成功!</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>书签导出成功!</new>
+		</text>
+		<text>
+			<old>Center wallpaper</old>
+			<new>中心桌面</new>
+		</text>
+		<text>
+			<old>Change language</old>
+			<new>更改语言</new>
+		</text>
+		<text>
+			<old>Change password</old>
+			<new>更改密码</new>
+		</text>
+		<text>
+			<old>Change the language&#039;s information</old>
+			<new>更改语言信息</new>
+		</text>
+		<text>
+			<old>Change theme</old>
+			<new>更改主题</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>更改您的密码</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>更改当前主题</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>更改桌面背景</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>更改语言</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>更改成功并更新!</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>更改成功</new>
+		</text>
+		<text>
+			<old>Clean eyeOS</old>
+			<new>清除 eyeOS</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>命令添加成功</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>命令成功保存</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>命令</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>配置起始页</new>
+		</text>
+		<text>
+			<old>Create group</old>
+			<new>新建组</new>
+		</text>
+		<text>
+			<old>Create user</old>
+			<new>新建用户</new>
+		</text>
+		<text>
+			<old>Created on</old>
+			<new>新建</new>
+		</text>
+		<text>
+			<old>Current password</old>
+			<new>当前密码</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to start a new session now.</old>
+			<new>默认组保存成功.现在您需要开启新会话.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>默认组:%s | %s 组</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>默认设置修改成功</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>删除自动运行</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>删除组</new>
+		</text>
+		<text>
+			<old>Delete language</old>
+			<new>删除语言</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>删除镜像</new>
+		</text>
+		<text>
+			<old>Delete user</old>
+			<new>删除用户</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Do you really want to delete the eyeOS system?</old>
+			<new>您确定删除eyeOS吗?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this account from the server?</old>
+			<new>您确定要将此帐户从该服务器中移除吗?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>确定移除该命令?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>确定将该组从系统中移除?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this language?</old>
+			<new>确定移除该语言?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>您确定要将此镜像从该系统中移除吗?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>确定将该用户从系统中移除?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeDesk settings?</old>
+			<new>确定使用eyeDesk默认设置吗?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav bookmarks?</old>
+			<new>确定使用eyeNav默认书签吗?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav search?</old>
+			<new>确定使用eyeNav默认搜索吗?</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下载</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>电子邮箱</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>编辑</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>编辑命令</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>编辑镜像</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>编辑所选用户</new>
+		</text>
+		<text>
+			<old>Edit translation</old>
+			<new>编辑翻译文件</new>
+		</text>
+		<text>
+			<old>Edit user</old>
+			<new>编辑用户</new>
+		</text>
+		<text>
+			<old>English</old>
+			<new>英语</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>导出</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>导出默认书签和搜索引擎</new>
+		</text>
+		<text>
+			<old>eyeOS hostname</old>
+			<new>eyeOS服务器名</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>文件下载成功</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>文件无法下载.请修改链接.</new>
+		</text>
+		<text>
+			<old>Full name</old>
+			<new>全称</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>更多翻译</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>组名</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>组</new>
+		</text>
+		<text>
+			<old>ID</old>
+			<new>ID</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>导入</new>
+		</text>
+		<text>
+			<old>Info</old>
+			<new>信息</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>语言</new>
+		</text>
+		<text>
+			<old>Language changed. Please restart eyeOS now.</old>
+			<new>语言已更改,请重启您的eyeOS.</new>
+		</text>
+		<text>
+			<old>Language ID</old>
+			<new>语言ID</new>
+		</text>
+		<text>
+			<old>Language name</old>
+			<new>语言名称</new>
+		</text>
+		<text>
+			<old>Language succesfully saved.</old>
+			<new>语言保存成功</new>
+		</text>
+		<text>
+			<old>Language successfully added.</old>
+			<new>语言添加成功</new>
+		</text>
+		<text>
+			<old>Language&#039;s information</old>
+			<new>语言信息</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>主题</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>主要</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>管理默认书签</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>管理默认搜索引擎</new>
+		</text>
+		<text>
+			<old>Manage eyeNav&#039;s startpage, its bookmarks and search engines</old>
+			<new>管理eyeNav的书签和搜索引擎.</new>
+		</text>
+		<text>
+			<old>Manage groups</old>
+			<new>管理用户组</new>
+		</text>
+		<text>
+			<old>Manage the eyeSoft mirrors</old>
+			<new>管理eyeSoft镜像</new>
+		</text>
+		<text>
+			<old>Manage users</old>
+			<new>管理用户</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>管理自动运行命令</new>
+		</text>
+		<text>
+			<old>Manage your system&#039;s groups</old>
+			<new>管理您的系统组</new>
+		</text>
+		<text>
+			<old>Manage your system&#039;s users</old>
+			<new>管理您的系统用户</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>镜像</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>镜像地址(例如:%s)</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>镜像保存成功.</new>
+		</text>
+		<text>
+			<old>Native name</old>
+			<new>本地名称</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>新建命令</new>
+		</text>
+		<text>
+			<old>New password</old>
+			<new>新密码</new>
+		</text>
+		<text>
+			<old>New password (again)</old>
+			<new>重新输入新密码</new>
+		</text>
+		<text>
+			<old>New user</old>
+			<new>新建用户</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>新壁纸设置成功.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>其他</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密码</new>
+		</text>
+		<text>
+			<old>Password (again)</old>
+			<new>重新输入</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>密码修改成功</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>权限</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>个性</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>请选择要删除的命令</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>请选择要编辑的命令</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>请选择要删除的组</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>请选择要编辑的组</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>请选择要设为默认的组</new>
+		</text>
+		<text>
+			<old>Please choose a language to delete.</old>
+			<new>请选择要删除的语言</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to create.</old>
+			<new>请选择您要创建的语言</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to download.</old>
+			<new>请选择您要下载的语言</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to edit.</old>
+			<new>请选择您要编辑的语言</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to translate.</old>
+			<new>请选择您要翻译的语言</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>请选择要测试的镜像</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>请选择要删除的镜像</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>请选择要编辑的镜像</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>请选择要删除的用户</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>请选择要编辑的用户</new>
+		</text>
+		<text>
+			<old>Please choose the text you want to edit.</old>
+			<new>请选择您要编辑的文本</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>请修改您输入的设置.</new>
+		</text>
+		<text>
+			<old>Please fill in all needed fields.</old>
+			<new>请在需要的地方输入</new>
+		</text>
+		<text>
+			<old>Please fill in all textboxes!</old>
+			<new>请在所有文本框内输入</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>请输入命令</new>
+		</text>
+		<text>
+			<old>Please type a correct group name.</old>
+			<new>请输入正确的组名</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>请输入地址</new>
+		</text>
+		<text>
+			<old>Please type the correct root password to uninstall eyeOS!</old>
+			<new>请输入正确的root密码以卸载eyeOS!</new>
+		</text>
+		<text>
+			<old>Please type the new translation here:</old>
+			<new>请输入新翻译.</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>请在此输入用户名:</new>
+		</text>
+		<text>
+			<old>Please use the list of ISO 639-1 codes!</old>
+			<new>请使用ISO 639-1编码.</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>阻止IP会话.</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>现在移除</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>移除临时文件和文件夹</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your eyeOS system</old>
+			<new>清理eyeOS系统临时文件和文件夹.</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Rename group</old>
+			<new>重命名组</new>
+		</text>
+		<text>
+			<old>Repeat wallpaper</old>
+			<new>重复壁纸</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>仓库</new>
+		</text>
+		<text>
+			<old>Revision</old>
+			<new>校正</new>
+		</text>
+		<text>
+			<old>Root password</old>
+			<new>根密码</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>保存更改</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>截图</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>搜索引起导入成功</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>搜索用户...</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>选择</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>选择文件...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>选择用户:</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>设置默认</new>
+		</text>
+		<text>
+			<old>Sorry, but the file does not exist.</old>
+			<new>对不起,该文件不存在.</new>
+		</text>
+		<text>
+			<old>Sorry, the file is not allowed to be a wallpaper.</old>
+			<new>对不起,该文件无法设置为壁纸.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>对不起,该文件不准许设置为壁纸.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be nentered by the default user.</old>
+			<new>对不起,该页面默认用户无法访问.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>对不起,该页面尚未安装.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>对不起,您没有权限访问该页面.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>对不起,访问该页面,您需要以普通用户身边登录.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>起始页</new>
+		</text>
+		<text>
+			<old>Statistic</old>
+			<new>数据</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系统</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>系统首选项</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>临时文件和文件夹已清除.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>测试</new>
+		</text>
+		<text>
+			<old>Test address</old>
+			<new>测试地址</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>该用户不存在.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>帐户成功添加.</new>
+		</text>
+		<text>
+			<old>The chosen file is no correct eyeNav search engines file.</old>
+			<new>您所选择的eyeNav搜索引擎文件不正确.</new>
+		</text>
+		<text>
+			<old>The chosen file is not a correct eyeNav bookmarks file.</old>
+			<new>该文件不是正确的eyeNav书签文件.</new>
+		</text>
+		<text>
+			<old>The chosen group already exist.</old>
+			<new>该组已存在.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>您所选择的组已经是默认组</new>
+		</text>
+		<text>
+			<old>The chosen user already exist.</old>
+			<new>该用户已存在</new>
+		</text>
+		<text>
+			<old>The chosen username is too long.</old>
+			<new>您所选择的文件名过长.</new>
+		</text>
+		<text>
+			<old>The chosen username is too small.</old>
+			<new>您所选择的文件名过短.</new>
+		</text>
+		<text>
+			<old>The command does not exist yet.</old>
+			<new>该命令不存在.</new>
+		</text>
+		<text>
+			<old>The command is already configured.</old>
+			<new>该命令已配置.</new>
+		</text>
+		<text>
+			<old>The command was successfully deleted.</old>
+			<new>命令已删除</new>
+		</text>
+		<text>
+			<old>The download of %s will start after clicking OK.%sPlease send your translation to %s%sThanks!</old>
+			<new>%s将在点击OK后开始下载.%s请将您的翻译发送给%s%s,谢谢!</new>
+		</text>
+		<text>
+			<old>The eyeOS system was successfully deleted.</old>
+			<new>eyeOS系统已经成功删除.</new>
+		</text>
+		<text>
+			<old>The group was successfully deleted.</old>
+			<new>已经成功删除该组</new>
+		</text>
+		<text>
+			<old>The language ID is already in use!</old>
+			<new>该语言ID已使用.</new>
+		</text>
+		<text>
+			<old>The language was successfully deleted.</old>
+			<new>该语言已成功删除</new>
+		</text>
+		<text>
+			<old>The language was successfully updated.</old>
+			<new>该语言更新成功</new>
+		</text>
+		<text>
+			<old>The language&#039;s ID could not be renamed.</old>
+			<new>该语言ID无法重命名.</new>
+		</text>
+		<text>
+			<old>The mirror does not exist, yet.</old>
+			<new>该镜像不存在.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>镜像已安装!</new>
+		</text>
+		<text>
+			<old>The mirror was successfully deleted.</old>
+			<new>镜像删除成功</new>
+		</text>
+		<text>
+			<old>The password you typed is not correct.</old>
+			<new>您输入的密码不正确.</new>
+		</text>
+		<text>
+			<old>The passwords do not match.</old>
+			<new>密码不一致.</new>
+		</text>
+		<text>
+			<old>The translation was successfully updated.</old>
+			<new>翻译更新成功!</new>
+		</text>
+		<text>
+			<old>The user was successfully deleted.</old>
+			<new>该用户删除成功</new>
+		</text>
+		<text>
+			<old>The username is not supported. Please type another one.</old>
+			<new>不支持该用户名,请选择其他用户名.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>主题</new>
+		</text>
+		<text>
+			<old>Theme changed. Please restart your desktop now.</old>
+			<new>主题已更改,请重启动您的eyeOS.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>删除组时发生错误.</new>
+		</text>
+		<text>
+			<old>Translate eyeOS</old>
+			<new>翻译eyeOS</new>
+		</text>
+		<text>
+			<old>Translate eyeOS into your language.</old>
+			<new>将eyeOS翻译成您所需要的语言</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>输入您要运行的命令</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>输入您要创建的用户组名</new>
+		</text>
+		<text>
+			<old>Type the new group name:</old>
+			<new>输入新组名</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>输入新镜像地址</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>卸载</new>
+		</text>
+		<text>
+			<old>Uninstall eyeOS</old>
+			<new>卸载eyeOS</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Update your system&#039;s profile</old>
+			<new>更新您的系统信息.</new>
+		</text>
+		<text>
+			<old>Update your system&#039;s settings</old>
+			<new>更新您的系统设置.</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>使用自定义壁纸!</new>
+		</text>
+		<text>
+			<old>Use defaults</old>
+			<new>使用默认</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>已用空间</new>
+		</text>
+		<text>
+			<old>Used version</old>
+			<new>使用版本</new>
+		</text>
+		<text>
+			<old>User quota</old>
+			<new>用户限额</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>用户创建成功</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>用户名</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>版本</new>
+		</text>
+		<text>
+			<old>Web Browser</old>
+			<new>浏览器</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>您不能删除默认组.</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>您不能删除默认镜像!</new>
+		</text>
+		<text>
+			<old>You cannot delete the eyeBar command!</old>
+			<new>您不能删除eyeBar命令.</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>您无法删除root用户.</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>您不能编辑默认镜像!</new>
+		</text>
+		<text>
+			<old>You cannot edit the eyeBar command!</old>
+			<new>您不能编辑eyeBar命令!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>您无法将该镜像保存为默认镜像.</new>
+		</text>
+		<text>
+			<old>Your eyeOS server does not need to be cleaned.</old>
+			<new>您的eyeOS服务器不需要清理.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>File Copied. You can now paste it in another folder.</old>
+			<new>文件已复制,您可以粘贴到其他文件夹.</new>
+		</text>
+		<text>
+			<old>Links can&#039;t be copied.</old>
+			<new>链接无法复制.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Directory moved to trash.</old>
+			<new>路径移动至回收站.</new>
+		</text>
+		<text>
+			<old>Error deleting file.</old>
+			<new>删除文件错误</new>
+		</text>
+		<text>
+			<old>File moved to trash.</old>
+			<new>文件已移除到回收站.</new>
+		</text>
+		<text>
+			<old>File removed successfully.</old>
+			<new>文件移除成功.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory.</old>
+			<new>无法删除路径.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>复制</new>
+		</text>
+		<text>
+			<old>Delete Launcher</old>
+			<new>删除面板</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下载</new>
+		</text>
+		<text>
+			<old>New File</old>
+			<new>新建文件</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>New Launcher</old>
+			<new>新建面板</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>粘贴</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>首选项</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>属性</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>刷新</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>上传文件</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>壁纸</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>欢迎来到%s, %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>名称</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>选择</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>选择文件夹</new>
+		</text>
+		<text>
+			<old>Select destination file</old>
+			<new>选择目标文件</new>
+		</text>
+		<text>
+			<old>Select file to open</old>
+			<new>选择打开文件</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>大小</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s没有找到</new>
+		</text>
+		<text>
+			<old>Access to all the groups you are allowed to use</old>
+			<new>访问您所准许使用的用户组</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>行为附件</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>计算器</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>日历</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>日历附件</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>国际象棋</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>联系人管理</new>
+		</text>
+		<text>
+			<old>Create and edit events and be organized</old>
+			<new>创建编辑和组织事件.</new>
+		</text>
+		<text>
+			<old>Create and edit rich sheets</old>
+			<new>创建编辑图标.</new>
+		</text>
+		<text>
+			<old>Create and edit rich text documents</old>
+			<new>创建和编辑文本文档</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>喜好</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>文件管理</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP客户端</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>游戏</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>组</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>主目录</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>主目录</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>内部消息</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>邮件客户端</new>
+		</text>
+		<text>
+			<old>Manage and import/export your contacts</old>
+			<new>管理和导入/导出您的联系人</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>消息</new>
+		</text>
+		<text>
+			<old>Navigate through Internet and save your bookmarks</old>
+			<new>网络浏览器和您的书签</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>浏览器</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>网络</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>办公</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>位置</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>显示</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>进程管理</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>公共的</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>公共板</new>
+		</text>
+		<text>
+			<old>Public directory to share files with all the system users</old>
+			<new>和其他系统用户共享文件的公共目录</new>
+		</text>
+		<text>
+			<old>Read and leave messages to all the system users</old>
+			<new>留言板</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS阅读器</new>
+		</text>
+		<text>
+			<old>Save quick notes and edit text and source files</old>
+			<new>保存,编辑文本和源文件</new>
+		</text>
+		<text>
+			<old>See which processes are running in your session and kill them</old>
+			<new>查看当前会话中的进程并杀死它们</new>
+		</text>
+		<text>
+			<old>Send and receive e-mails with your usual POP3 mail accounts</old>
+			<new>使用您的POP3邮箱帐户收发邮件</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the other eyeOS users</old>
+			<new>向其他eyeOS用户发送带有附件的消息</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the system users</old>
+			<new>发送带有附件的私人消息到其他系统用户</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>空白表格</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite blogs</old>
+			<new>和你最爱的blog保持内容一致</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite sources</old>
+			<new>同您最爱的源保持内容一致</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系统</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex游戏</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>文本编辑器</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>回收站</new>
+		</text>
+		<text>
+			<old>unable to open config file for eyeDock</old>
+			<new>不能打开eyeDock的配置文件</new>
+		</text>
+		<text>
+			<old>Upload, manage and work with your files in eyeOS</old>
+			<new>在eyeOS中上传,管理以及使用您的文件</new>
+		</text>
+		<text>
+			<old>Watch your presentations</old>
+			<new>查看您的日程</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>文字处理器</new>
+		</text>
+		<text>
+			<old>Work with any FTP Server in the world</old>
+			<new>和世界上任何一个FTP服务器一起工作</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>文档保存成功</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>对不起,您没有足够的权限.</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>您没有足够的权限</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>无法下载该链接</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>  Loading, please wait...  </old>
+			<new>读取中,请稍后...</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>添加Feed</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>添加文件夹</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>应用</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this %s?</old>
+			<new>您确定删除吗?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>书签</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>选择文件夹</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>选择文件夹</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>选择父文件夹</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>选择父文件夹</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>编辑</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>编辑Feed</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>编辑文件夹</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>元素删除成功</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>添加Feed错误</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>添加文件夹错误</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>应用更改出错</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>删除Feed出错</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>文件夹添加成功</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>文件夹成功更改</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>帮助</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>刷新</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>标题</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>输入文件夹名</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>输入的URL无法获取</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>您必须输入名称</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Actions</old>
+			<new>选项</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>复制</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下载</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>下载为zip</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>文件夹</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>新文件</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>粘贴</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>属性</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>上传</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Actions</old>
+			<new>选项</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>添加主机</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>您确定要删除该文件/文件夹吗?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>连接</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>删除文件/文件夹</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>删除所选</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>断开</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下载</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>编辑所选</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>文件名</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>文件大小</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>强制被动模式</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>帮助</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>主机:</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>主机名</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>加载所选</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>编辑主机</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>名称不能为空</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>所有者</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密码</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>密码:</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>权限</new>
+		</text>
+		<text>
+			<old>Please specify a hostname to connect to</old>
+			<new>请选择主机名以连接</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>请选择用户名</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>端口</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>端口:</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>刷新</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>重命名文件/文件夹</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>重命名/移除</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>请选择文件上传到路径:</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>输入新文件夹名</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>输入新文件/文件夹名称或路径</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>上传</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>上传文件</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>用户:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>用户名</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>您必须先连接</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>您必须先连接</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>您必须先选择文件或文件夹</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>您必须选择一个主机才能删除</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>您必须选择一个主机才能编辑</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>您必须选择一个主机才能加载</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>您必须选择一个本地文件</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>您必须选择一个远程文件</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>您必须确定一个主机名,端口以及用户名</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeGroups</name>
+		<text>
+			<old>Actions</old>
+			<new>选项</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>复制</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下载</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>下载为zip</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>文件夹</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>新建文件</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>粘贴</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>属性</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>删除文件</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Fullscreen</old>
+			<new>全屏</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>前进</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>后退</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s文件已导入</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>浏览</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>导入</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>您必须选择一个路径以导入</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Developers</old>
+			<new>开发者</new>
+		</text>
+		<text>
+			<old>eyeOS Community Developers</old>
+			<new>eyeOS社区开发者</new>
+		</text>
+		<text>
+			<old>eyeOS Engineering Team</old>
+			<new>eyeOS项目团队</new>
+		</text>
+		<text>
+			<old>Team</old>
+			<new>团队</new>
+		</text>
+		<text>
+			<old>Thanks</old>
+			<new>感谢</new>
+		</text>
+		<text>
+			<old>Thanks to</old>
+			<new>感谢</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>您确定将此插件安装到eyeOS系统吗?</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>安装中</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>无安装!</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>插件安装成功!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s未找到</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>错误,用户名或密码为空</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>错误,无效用户名或密码</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>无效用户名</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密码</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>运行</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>以不同用户运行</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>运行...</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>输入应用程序名或命令运行</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>用户</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLightDesk</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>关于eyeOS</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>选项</new>
+		</text>
+		<text>
+			<old>All Applications</old>
+			<new>所有程序</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>程序</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>计算器</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>日历</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>日历</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>国际象棋</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>关闭会话</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>联系人管理</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Favorite Applications</old>
+			<new>喜好</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>文件管理</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP客户端</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>游戏</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>组</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>主目录</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>主目录</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>内部消息</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>应用程序</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>邮件客户端</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>消息</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>浏览器</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>网络</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>办公</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>位置</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>显示</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>访问管理</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>公共的</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>公共的</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS阅读器</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>空白图表</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系统</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>系统首选项</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex游戏</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>文本编辑器</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>回收站</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>字处理器</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Accounts</old>
+			<new>帐户</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>添加</new>
+		</text>
+		<text>
+			<old>Configure Later</old>
+			<new>稍后配置</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>日期:</new>
+		</text>
+		<text>
+			<old>Error deleting mail</old>
+			<new>删除邮件错误</new>
+		</text>
+		<text>
+			<old>eyeMail Configuration</old>
+			<new>eyeMail配置</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>文件夹</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>来自</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>收件箱</new>
+		</text>
+		<text>
+			<old>Inbox (%s)</old>
+			<new>收件箱 (%s)</new>
+		</text>
+		<text>
+			<old>Incoming mail</old>
+			<new>新邮件</new>
+		</text>
+		<text>
+			<old>Mail from:</old>
+			<new>邮件来自:</new>
+		</text>
+		<text>
+			<old>Mail sent to %s</old>
+			<new>邮件发送至%s</new>
+		</text>
+		<text>
+			<old>Mail to:</old>
+			<new>发送到:</new>
+		</text>
+		<text>
+			<old>Manage accounts</old>
+			<new>管理帐户</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>已删除消息</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>名称</new>
+		</text>
+		<text>
+			<old>New Mail</old>
+			<new>新邮件</new>
+		</text>
+		<text>
+			<old>No subject</old>
+			<new>无标题</new>
+		</text>
+		<text>
+			<old>Outgoing mail</old>
+			<new>外出邮件</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密码</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>首选项</new>
+		</text>
+		<text>
+			<old>Save Configuration</old>
+			<new>保存配置</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>发送</new>
+		</text>
+		<text>
+			<old>Server Address</old>
+			<new>服务器地址</new>
+		</text>
+		<text>
+			<old>Server Port</old>
+			<new>服务器端口</new>
+		</text>
+		<text>
+			<old>Server Protocol</old>
+			<new>服务器协议</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>主题</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>主题:</new>
+		</text>
+		<text>
+			<old>This name will be used by eyeMail to identify this account, and has nothing to do with the server&#039;s configuration.</old>
+			<new>该名称将用于eyeMail检测该帐户,和服务器配置无关.</new>
+		</text>
+		<text>
+			<old>Use Secure Sockets</old>
+			<new>使用安全接口</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>用户名</new>
+		</text>
+		<text>
+			<old>Welcome to eyeMail. Please, fill this form with your e-mail account data.</old>
+			<new>欢迎使用eyeMail,请填写以下表格.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>%s added</old>
+			<new>%s已添加</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>选项</new>
+		</text>
+		<text>
+			<old>Add an application</old>
+			<new>添加插件</new>
+		</text>
+		<text>
+			<old>Add Application</old>
+			<new>添加插件</new>
+		</text>
+		<text>
+			<old>Application %s removed</old>
+			<new>程序%s已删除</new>
+		</text>
+		<text>
+			<old>Application entry updated</old>
+			<new>程序入口更新</new>
+		</text>
+		<text>
+			<old>Application moved down</old>
+			<new>插件下移</new>
+		</text>
+		<text>
+			<old>Application moved to last position</old>
+			<new>插件移至最底处</new>
+		</text>
+		<text>
+			<old>Application moved up</old>
+			<new>插件上移</new>
+		</text>
+		<text>
+			<old>Application name</old>
+			<new>插件名</new>
+		</text>
+		<text>
+			<old>Application Properties</old>
+			<new>应用程序首选项</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>计算器</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>日历</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>日历</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>国际象棋</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>关闭</new>
+		</text>
+		<text>
+			<old>Code executed</old>
+			<new>执行代码</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>联系人管理</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>创建组</new>
+		</text>
+		<text>
+			<old>Create new Group</old>
+			<new>创建新组</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>描述</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Enter the name of the new group:</old>
+			<new>输入新组名</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>文件管理</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP客户端</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>游戏</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>组</new>
+		</text>
+		<text>
+			<old>Group %s deleted</old>
+			<new>组%s已添加</new>
+		</text>
+		<text>
+			<old>Group entry updated</old>
+			<new>组更新</new>
+		</text>
+		<text>
+			<old>Group moved down</old>
+			<new>组下移</new>
+		</text>
+		<text>
+			<old>Group moved to last position</old>
+			<new>组移至最底处</new>
+		</text>
+		<text>
+			<old>Group moved up</old>
+			<new>组上移</new>
+		</text>
+		<text>
+			<old>Group Name</old>
+			<new>组名</new>
+		</text>
+		<text>
+			<old>Group properties</old>
+			<new>组首选项</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>组</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>主目录</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>主目录</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>图标</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>内部消息</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>邮件客户端</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>消息</new>
+		</text>
+		<text>
+			<old>Move Down</old>
+			<new>下移</new>
+		</text>
+		<text>
+			<old>Move Up</old>
+			<new>上移</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>浏览器</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>网络</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>办公</new>
+		</text>
+		<text>
+			<old>Parameters</old>
+			<new>属性</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>位置</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>显示</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>进程管理</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>首选项</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>公共的</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>公共的</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>刷新</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS阅读器</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>保存更改</new>
+		</text>
+		<text>
+			<old>Short description</old>
+			<new>小描述</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>空白表格</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系统</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex游戏</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>文本编辑器</new>
+		</text>
+		<text>
+			<old>The code executed by the application must not be left blank</old>
+			<new>程序执行的代码不能留空</new>
+		</text>
+		<text>
+			<old>The specified group name is not valid</old>
+			<new>组名称无效</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>回收站</new>
+		</text>
+		<text>
+			<old>Type the application name in the first text box below, or select an application from the list below and click the &#039;Add&#039; button. You can add multiple applications.</old>
+			<new>输入应用程序名,或者点击&quot;添加&quot;选择程序名,您可以选择多个程序.</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>字处理器</new>
+		</text>
+		<text>
+			<old>You must provide a short description of the application</old>
+			<new>您必须给该插件一个简短描述.</new>
+		</text>
+		<text>
+			<old>You must select a group for the application</old>
+			<new>您必须为该插件选择一个组</new>
+		</text>
+		<text>
+			<old>You must specify the name of the application</old>
+			<new>您必须指定该插件名.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Add file</old>
+			<new>添加文件</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下载</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>清空</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>发送消息错误</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>文件保存成功</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>来自</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>收件箱</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>删除消息</new>
+		</text>
+		<text>
+			<old>Message moved to trash</old>
+			<new>消息移至回收站</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>消息储存至原文件夹</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>消息已发送</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>新建消息</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>阅读</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>阅读消息</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>刷新</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>回复</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>还原</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>发送</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>已发送</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>主题</new>
+		</text>
+		<text>
+			<old>The body of the message cannot be left blank</old>
+			<new>消息内容不能为空</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>至</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>垃圾箱</new>
+		</text>
+		<text>
+			<old>Trash emptied</old>
+			<new>垃圾清空</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>未读消息</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>您必须选择一个要删除的消息</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>您必须选择一个要打开的消息</new>
+		</text>
+		<text>
+			<old>You must specify the receiver of the message</old>
+			<new>您必须指定消息收件人</new>
+		</text>
+		<text>
+			<old>You must specify the subject of the message</old>
+			<new>您必须指定消息主题</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Error creating directory</old>
+			<new>创建目录错误</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建文件夹</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>一些特殊字符被清除</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>输入新文件夹名</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add</old>
+			<new>添加</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>添加书签</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>插件</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>后退</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>书签标题</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>书签</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>删除书签</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>您确定要删除该书签么?</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>论坛</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>前进</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>图片</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>网络</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>链接删除成功.</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>链接成功保存.</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>打开书签</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>打开搜索</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>搜索</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>设置</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>起始页</new>
+		</text>
+		<text>
+			<old>The bookmark doesn&#039;t exist!</old>
+			<new>该书签不存在!</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>同标题的书签已存在!</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>站点</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>维基</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File not found</old>
+			<new>文件未找到</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>文件保存成功.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>对不起,您未授权!</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>无法创建该文件.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>后退</new>
+		</text>
+		<text>
+			<old>Full</old>
+			<new>全部</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>前进</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>对不起,您未授权!</new>
+		</text>
+		<text>
+			<old>You are on the first slide, you can&#039;t go back</old>
+			<new>您已经在首位,无法后退.</new>
+		</text>
+		<text>
+			<old>You have to select a file to open</old>
+			<new>您必须选择要打开的文件.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Kill Process</old>
+			<new>杀死进程</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>进程ID</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>杀死进程成功</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>进程名</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>用户名</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Author: %s</old>
+			<new>作者:</new>
+		</text>
+		<text>
+			<old>Created with: %s</old>
+			<new>创建:%s</new>
+		</text>
+		<text>
+			<old>Creation date: %s</old>
+			<new>创建日期:%s</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>目录</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>文件信息</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>属性</new>
+		</text>
+		<text>
+			<old>Size: %sbytes</old>
+			<new>大小:%sbytes</new>
+		</text>
+		<text>
+			<old>Type: %s</old>
+			<new>类型:%s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Error renaming file.</old>
+			<new>重命名错误</new>
+		</text>
+		<text>
+			<old>Please type a new name here:</old>
+			<new>请输入文件名</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重命名</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>特殊字符被清除</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found</old>
+			<new>文件未找到</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>对不起,您未被授权!</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>空白页保存成功</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s下载文件已损坏!无法安装.</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s安装成功!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>所有</new>
+		</text>
+		<text>
+			<old>App Manager</old>
+			<new>插件管理</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>插件名</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>作者:%s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>分类</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>分类:%s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>依赖:%s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>描述:%s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Development</old>
+			<new>项目</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>您确定要卸载此插件吗?</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>正在下载安装$s...请稍等</new>
+		</text>
+		<text>
+			<old>Extras</old>
+			<new>扩展</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft:软件列表已更新!</new>
+		</text>
+		<text>
+			<old>File Management</old>
+			<new>文件管理</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>游戏</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>安装</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>安装完成</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>正在安装</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>许可证:%s</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>多媒体</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>名称:%s</new>
+		</text>
+		<text>
+			<old>Networking</old>
+			<new>网络</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>无</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>办公</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>只有根用户才能安装插件!</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>请选择要安装的插件</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>请选择要卸载的插件</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>搜索</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>建议:%s</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系统</new>
+		</text>
+		<text>
+			<old>The application can&#039;t be uninstalled.</old>
+			<new>该插件无法卸载.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>该插件成功卸载!</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>卸载</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>卸载插件</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>升级</new>
+		</text>
+		<text>
+			<old>Utilities</old>
+			<new>设备</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>版本</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>版本:%s</new>
+		</text>
+		<text>
+			<old>You are installing a new App in your eyeOS system</old>
+			<new>您正在安装新插件</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Add input to output</old>
+			<new>添加输入到输入</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>在最后添加新行</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii转换Hexa</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>自动清除输入</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64解码</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64编码</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>清除</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>连结输出</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>十进制数转换罗马数字</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa转换Ascii</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>HTML实体</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>输入文本</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>最后执行时间:%s</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>输出文本</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>移除HTML实体</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>罗马数字转换十进制</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL编码</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL解码</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTrash</name>
+		<text>
+			<old>Actions</old>
+			<new>行为</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>清空回收站</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>属性</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Add files</old>
+			<new>添加文件</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>高级</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>更多文件</new>
+		</text>
+		<text>
+			<old>Error uploading file</old>
+			<new>文件上传失败!</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>传输中:</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>上传</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>上传文件</new>
+		</text>
+		<text>
+			<old>Upload finished!</old>
+			<new>上传完成!</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>上传</new>
+		</text>
+		<text>
+			<old>You can now close this window.</old>
+			<new>您可以关闭此窗口.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>编辑</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>您未被授权!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Unable to save position</old>
+			<new>无法保存位置</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>更改标签文本</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>eyeOS插件</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process was killed</old>
+			<new>未杀死任何进程</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>您希望该工具在下次会话中自动打开吗?</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>发送内部消息</new>
+		</text>
+		<text>
+			<old>Start a new document</old>
+			<new>新建文档</new>
+		</text>
+		<text>
+			<old>Start a new spreadsheet</old>
+			<new>新建表格</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>上传文件</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>日历</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>内部消息</new>
+		</text>
+	</part>
+	<part>
+		<name>moveDrag</name>
+		<text>
+			<old>Error moving file</old>
+			<new>文件移动错误</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Error creating file</old>
+			<new>文件创建错误</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>新建文件</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>一些特殊字符被移除</new>
+		</text>
+		<text>
+			<old>Type the name of the new file</old>
+			<new>输入新文件名</new>
+		</text>
+	</part>
+	<part>
+		<name>propertyTrash</name>
+		<text>
+			<old>Deleted at: %s</old>
+			<new>删除时间:%s</new>
+		</text>
+		<text>
+			<old>Filename: %s</old>
+			<new>文件名:%s</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>属性</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Restore completed successfully.</old>
+			<new>转存成功</new>
+		</text>
+		<text>
+			<old>Restore trash</old>
+			<new>转存垃圾</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>April</old>
+			<new>四月</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>八月</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>复制/粘贴这些代码到另一个空白表格中(如Excel)</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>十二月</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>删除列</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>删除行</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>二月</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>公式</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>星期五</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>插入列</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>插入行</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>一月</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>七月</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>六月</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>三月</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>五月</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>星期一</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>新建</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>十一月</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>十月</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>打开</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>位置</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>打印</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>星期六</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>保存</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>另存为</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>九月</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>表格尺寸</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>样式</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>星期天</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>星期四</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>星期二</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>星期三</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>April</old>
+			<new>四月</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>八月</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>创建</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>十二月</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>删除</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>二月</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>一月</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>七月</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>六月</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>三月</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>五月</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>十一月</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>十月</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>系统管理员</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>保存</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>另存为</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>九月</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>星期天</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>星期三</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Are you sure you want to import this vCard?</old>
+			<new>您确定要输入该虚拟地址卡吗?</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>路径未找到</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>输出文件错误</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>文件已输出.</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>不支持该文件格式!</new>
+		</text>
+		<text>
+			<old>Import vCard</old>
+			<new>输出虚拟地址卡.</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>对不起,未找到任何联系人.</new>
+		</text>
+		<text>
+			<old>The contact already exists.</old>
+			<new>该联系人已存在</new>
+		</text>
+		<text>
+			<old>The file was not found.</old>
+			<new>文件未找到</new>
+		</text>
+		<text>
+			<old>vCardImport can&#039;t initialize, contact with your administrator</old>
+			<new>虚拟地址卡输入无法启动,请联系管理员!</new>
+		</text>
+	</part>
+</lang>

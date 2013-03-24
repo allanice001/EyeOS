@@ -1,0 +1,95 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+//create the window
+
+$myHidden = new Hidden(array('name'=>'selectAccount','father'=>'eyeApps','text'=>''));
+reqLib('eyeWidgets','serialize',array($myHidden));
+
+$myWindow = new Window(array('name'=>'main_WND','father'=>'eyeApps','title'=>'eyeMail','cent'=>1,
+	'width'=>800,'height'=>555,'type'=>NORESIZE_WINDOW));
+$myWindow->show();
+
+$myBoxAccounts = new Box(array('name'=>'BOX_ACCOUNTS','father'=>'main_WND_Content','title'=>'Accounts',
+	'width'=>200,'height'=>250,'x'=>10,'y'=>10));
+$myBoxAccounts->show();
+
+$myAccWindow = new Window(array('name'=>'acc_WND','father'=>'BOX_ACCOUNTS','width'=>196,'height'=>230,'x'=>2,
+	'y'=>15,'type'=>INVISIBLE_WINDOW));
+$myAccWindow->show();
+
+$myBoxFolders = new Box(array('name'=>'BOX_FOLDERS','father'=>'main_WND_Content','title'=>'Folders',
+	'width'=>200,'height'=>250,'x'=>10,'y'=>270));
+$myBoxFolders->show();
+
+$myFolderWindow = new Window(array('name'=>'folder_WND','father'=>'BOX_FOLDERS','width'=>196,'height'=>230,'x'=>2,
+	'y'=>15,'type'=>INVISIBLE_WINDOW));
+$myFolderWindow->show();
+
+$myUserDir = um('getCurrentUserDir');
+$confdir = $myUserDir.'/conf/eyeMail/';
+
+$config = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+$counter = 0;
+
+if(isset($config) && is_array($config)) {
+	if(isset($config['accounts']) && is_array($config['accounts'][0])) {
+		foreach($config['accounts'][0]['account'] as $value) {
+			$myImage = new Imagebox(array('name'=>'img_'.$counter,'father'=>'acc_WND_Content','x'=>10,'y'=>$counter*20,
+				'url'=>'index.php?extern=apps/eyeMail/gfx/identity.png'));
+			$myImage->show();
+			$myLabel = new Label(array('name'=>'acc_'.$counter,'father'=>'acc_WND_Content','x'=>40,'y'=>($counter*20)+1,
+				'text'=>$value['name'][0],'signal'=>'goToAccount','disablemsg'=>0));
+			$myLabel->show();
+			$myLabel->setCss(array('cursor'=>'Pointer'));
+			$counter++;
+		}
+	}
+}
+
+$myWindowTable = new Container(array('name'=>'table_WND','father'=>'main_WND_Content','width'=>578,'height'=>485,
+	'x'=>213,'y'=>33));
+$myWindowTable->show();
+
+$sortypes = array("number","String","String","String");
+$myHeader = array('#','Subject','From','Date');
+$myTable = new Sortabletable(array('name'=>'table_1','father'=>'table_WND','sortypes'=>$sortypes,'theader'=>$myHeader,
+	'x'=>2,'y'=>0,'width'=>576,'height'=>485));
+$myTable->show();
+
+$myButton1 = new Button(array('name'=>'BTN_1','father'=>'main_WND_Content','signal'=>'Open',
+	'caption'=>'Open','x'=>220,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/open.png'));
+$myButton1->addFriend($myTable);
+$myButton1->show();
+$myButton2 = new Button(array('name'=>'BTN_2','father'=>'main_WND_Content','signal'=>'delete',
+	'caption'=>'Delete','x'=>300,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/delete.png'));
+$myButton2->addFriend($myTable);
+$myButton2->show();
+$myButton3 = new Button(array('name'=>'BTN_3','father'=>'main_WND_Content','signal'=>'send',
+	'caption'=>'Send','x'=>380,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/send.png'));
+$myButton3->show();
+//TODO: change the icon
+$myButton4 = new Button(array('name'=>'BTN_4','father'=>'main_WND_Content','signal'=>'manage',
+	'caption'=>'Accounts','x'=>460,'y'=>10,'img'=>'index.php?extern=apps/eyeMail/gfx/send.png'));
+$myButton4->show();
+?>

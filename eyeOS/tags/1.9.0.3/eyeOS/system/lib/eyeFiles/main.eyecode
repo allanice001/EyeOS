@@ -1,0 +1,489 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/*
+$params[0] -> path (default: "/")
+$params[1] -> type (default: "home")
+*/
+function lib_eyeFiles_cleanPath($params = '') {
+	global $currentUser;
+	$path = $params[0];
+	$type = $params[1];
+	$path = str_replace('\\','/',$path) . '/';
+	if (in_array(utf8_strtolower($type),array('home','groups','trash')) || $currentUser == ROOTUSER && in_array(utf8_strtolower($type),array('real','users'))) {
+		$type = utf8_strtolower($type);
+	} elseif (utf8_strtolower(utf8_substr($path,0,7)) == 'home://') {
+		$type = 'home';
+		$path = utf8_substr($path,7);
+	} elseif (utf8_strtolower(utf8_substr($path,0,9)) == 'groups://') {
+		$type = 'groups';
+		$path = utf8_substr($path,9);
+	} elseif (utf8_strtolower(utf8_substr($path,0,8)) == 'trash://') {
+		$type = 'trash';
+		$path = utf8_substr($path,8);
+	} elseif ($currentUser == ROOTUSER && utf8_strtolower(utf8_substr($path,0,8)) == 'users://') {
+		$type = 'users';
+		$path = utf8_substr($path,8);
+	} elseif ($currentUser == ROOTUSER && utf8_strtolower(utf8_substr($path,0,7)) == 'real://') {
+		$type = 'real';
+		$path = utf8_substr($path,7);
+	} elseif (utf8_strpos(realpath($path),realpath(um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/')) === 0) {
+		$type = 'home';
+	} elseif (utf8_strpos(realpath($path),realpath(EYE_ROOT . '/' . GROUPS_DIR . '/')) === 0) {
+		$type = 'groups';
+	} elseif (utf8_strpos(realpath($path),realpath(um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/')) === 0) {
+		$type = 'trash';
+	} elseif (utf8_strpos(realpath($path),realpath(EYE_ROOT . '/' . USERS_DIR . '/')) === 0) {
+		$type = 'users';
+	} elseif (utf8_strpos(realpath($path),realpath(EYE_ROOT . '/')) === 0) {
+		$type = 'real';
+	}
+	if ($type == 'groups') {
+		$sub = EYE_ROOT . '/' . GROUPS_DIR . '/';
+	} elseif ($type == 'trash') {
+		$sub = um('getCurrentUserDir') . '/' . TRASH_USER_DIR . '/';
+		$path = $sub;
+	} elseif ($type == 'real') {
+		$sub = EYE_ROOT . '/';
+	} elseif ($type == 'users') {
+		$sub = EYE_ROOT . '/' . USERS_DIR . '/';
+	} else {
+		$type = 'home';
+		$sub = um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/';
+	}
+	if ($type == 'groups' || $type == 'users') {
+		if (utf8_strpos(realpath($path),realpath($sub)) === 0) {
+			$path = str_replace('\\','/',utf8_substr(realpath($path),utf8_strlen(realpath($sub))));
+		}
+		$path = str_replace('//','/',str_replace('//','/',utf8_trim($path,'/')));
+		$sPath = $sub.$path;
+		if ((utf8_strpos(realpath($sPath),realpath($sub)) === 0 && vfs('isdir',array($sPath))) && (substr_count($path,'/') > 1 || substr_count($path,'/') && $type != 'users')) {
+			$path = str_replace('\\','/',utf8_substr(realpath($sPath),utf8_strlen(realpath($sub))));
+		} else {
+			$path .= '/';
+			$temp = utf8_substr($path,0,utf8_strpos($path,'/'));
+			if ($type == 'groups' && $temp) {
+				$path = $temp . '/' . FILES_GROUP_DIR . '/' . utf8_substr($path,utf8_strlen($temp));
+			} elseif ($type == 'users' && $temp) {
+				$path = utf8_substr($path,1 + utf8_strlen($temp));
+				$temp2 = utf8_substr($path,0,utf8_strpos($path,'/'));
+				if ($temp2) {
+					$temp .= '/' . $temp2 . '/' . FILES_USER_DIR;
+					$path = utf8_substr($path,utf8_strlen($temp2));
+				}
+				$path = $temp . '/' . $path;
+			} else {
+				$path = '/';
+			}
+		}
+	}
+	if ($type != 'real' && utf8_strpos(realpath($path),realpath($sub)) !== 0 || utf8_substr($path,0,2) != './') {
+		$path = $sub . $path;
+	}
+	if ($currentUser != ROOTUSER && !vfs('checkPermissions',array($path,'r')) || $type != 'real' && utf8_strpos(realpath($path),realpath($sub)) !== 0 || !vfs('isdir',array($path))) {
+		$path = $sub;
+	}
+	$path = str_replace('//','/',str_replace('//','/',$path));
+	if ($type == 'real' && utf8_strpos(realpath($path),realpath($sub)) !== 0) {
+		$show = utf8_substr($path,2);
+	} else {
+		$show = str_replace('\\','/',utf8_substr(realpath($path),utf8_strlen(realpath($sub))));
+		$show = utf8_trim($show,'/') . '/';
+		if (($type == 'groups' || $type == 'users') && $show != '/') {
+			$temp = utf8_substr($show,0,utf8_strpos($show,'/'));
+			$show = utf8_substr($show,1 + utf8_strlen($temp)) . '/';
+			if ($type == 'users') {
+				$temp2 = utf8_substr($show,0,utf8_strpos($show,'/'));
+				if ($temp2) {
+					$temp .= '/' . $temp2;
+					$show = utf8_substr($show,1 + utf8_strlen($temp2)) . '/';
+				}
+			}
+			$show = $temp . '/' . utf8_substr($show,utf8_strpos($show,'/'));
+			$show = str_replace('//','/',str_replace('//','/',utf8_trim($show,'/'))) . '/';
+		}
+	}
+	return array($path,$type,$show,$sub);
+}
+
+/*
+$params[0] -> path
+$params[1] -> filename
+$params[2] -> max width and height (default: 60)
+*/
+function lib_eyeFiles_createThumbnail($params = '') {
+	if (!$params[0] || !$params[1]) {
+		return false;
+	} elseif (!$params[2]) {
+		$params[2] = 60;
+	}
+	$extension = utf8_strtolower(utf8_substr(strrchr($params[1],'.'),1));
+	$path = eyeFiles('cleanPath',array($params[0]));
+	$type = $path[1];
+	$path = $path[0] . '/' . $params[1];
+	if ($type != 'real') {
+		$path = vfs('getRealName',array($path));
+		if (!vfs('checkPermissions',array($path,'r'))) {
+			exit;
+		}
+	}
+	if ($extension == 'bmp') {
+		$image = eyeFiles('imagecreatefrombmp',array($path));
+	} elseif ($extension == 'jpeg' || $extension == 'jpg') {
+		$image = imagecreatefromjpeg($path);
+	} elseif ($extension == 'gif') {
+		$image = imagecreatefromgif($path);
+	} elseif($extension == 'png') {
+		$image = imagecreatefrompng($path);
+	} else {
+		exit;
+	}
+	$info = @getimagesize($path);
+	if ($info[0] > $info[1]) {
+		$height = $params[2] / $info[0] * $info[1];
+		$width = $params[2];
+	} else {
+		$height = $params[2];
+		$width = $params[2] / $info[1] * $info[0];
+	}
+	$thumbnail = imagecreatetruecolor($width,$height);
+	imagealphablending($thumbnail,0);
+	imagefill($thumbnail,0,0,imagecolorallocatealpha($thumbnail,0,0,0,255));
+	imagesavealpha($thumbnail,1);
+	imagecopyresampled($thumbnail,$image,0,0,0,0,$width,$height,$info[0],$info[1]);
+	header('Content-Disposition: inline; filename="' . utf8_basename($params[1],'.' . $extension) . '_thumbnail.png"');
+	header('Content-Type: image/png');
+	header('Accept-Ranges: bytes');
+	header('X-Pad: avoid browser bug');
+	imagepng($thumbnail);
+	imagedestroy($image);
+	imagedestroy($thumbnail);
+	exit;
+}
+
+/*
+$params[0] -> filename
+$params[1] -> filters
+$params[2] -> filtertype (default: 0)
+*/
+function lib_eyeFiles_filterFile($params = '') {
+	if (!$params[0] || !$params[1]) {
+		return false;
+	}
+	$filters = explode(',',$params[1]);
+	foreach ($filters as $filter) {
+		$filter = utf8_trim($filter,' ');
+		if (utf8_substr($filter,0,1) == '*' && utf8_substr($filter,-1) == '*' && utf8_strpos($params[0],utf8_substr($filter,1,-1)) != false) {
+			$filtered[] = 1;
+		} elseif (utf8_substr($filter,0,1) == '*' && utf8_substr($params[0],1 - utf8_strlen($filter)) == utf8_substr($filter,1)) {
+			$filtered[] = 1;
+		} elseif (utf8_substr($filter,-1) == '*' && utf8_substr($params[0],0,utf8_strlen($filter) - 1) == utf8_substr($filter,0,-1)) {
+			$filtered[] = 1;
+		} elseif ($filter == $params[0]) {
+			$filtered[] = 1;
+		} else {
+			$filtered[] = 0;
+		}
+	}
+	foreach ($filtered as $return) {
+		if ($return && $params[2]) {
+			return 0;
+		} elseif ($return) {
+			return 1;
+		}
+	}
+	if ($params[2]) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function lib_eyeFiles_getDeskContent($params = '') {
+	global $currentUser;
+	$path = um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/Desktop/';
+	if (!vfs('isdir',array($path))) {
+		$oldUser = $currentUser;
+		$currentUser = ROOTUSER;
+		if (!vfs('copyDir',array(EYE_ROOT . '/' . SYSTEM_DIR . '/' . CONF_USER_DIR . '/skel/' . FILES_USER_DIR . '/Desktop/',$path))) {
+			$path = um('getCurrentUserDir') . '/' . FILES_USER_DIR . '/';
+		}
+		$currentUser = $oldUser;
+	}
+	$files = eyeFiles('getDirContent',array($path));
+	$config = eyeXML('getXMLconfig',array('eyeDesk','conf.xml'));
+	if ($config['eyeDesk'][0]['loadIconPositions'][0] != 3) {
+		$icons = eyeXML('getXMLconfig',array('eyeDesk','icons.xml'));
+		if (is_array($icons['icon'])) {
+			foreach ($icons['icon'] as $value) {
+				$list[] = $value['name'][0];
+			}
+			foreach ($files as $key => $file) {
+				if (in_array($file[0],$list)) {
+					$return[] = $file;
+					unset($files[$key]);
+				}
+			}
+		}
+	}
+	if (!is_array($return)) {
+		$return = array();
+	}
+	if (!is_array($files)) {
+		$files = array();
+	}
+	return array_merge($return,$files);
+}
+
+/*
+$params[0] -> path
+$params[1] -> type
+$params[2] -> filters
+$params[3] -> filter type
+$params[4] -> show files (default: 1)
+$params[5] -> show links (default: 1)
+$params[6] -> show folders (default: 1)
+$params[7] -> show folders first (default: 1)
+*/
+function lib_eyeFiles_getDirContent($params = '') {
+	global $currentUser;
+	if (!$params[0]) {
+		return false;
+	}
+
+	$listFiles = array();
+	$listFolders = array();
+	$listLinks = array();
+	$return = array();
+	$type = $params[1];
+	if ($type == 'groups' && realpath($params[0] . '/') == realpath(EYE_ROOT . '/' . GROUPS_DIR . '/')) {
+		$xml = um('retrieveUser',array($currentUser));
+		foreach ($xml['eyeUser'][0]['group'] as $group) {
+			if (vfs('isdir',array(EYE_ROOT . '/' . GROUPS_DIR . '/' . utf8_basename($group)))) {
+				$element = array();
+				$element[] = utf8_basename($group);
+				$element[] = 'folder';
+				$element[] = $element[0];
+				if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+					$element[] = ' ';
+					$element[] = ' ';
+					$element[] = ' ';
+					$listFolders[] = $element;
+				}
+			}
+		}
+	} elseif ($type == 'trash' || $currentUser == ROOTUSER && $type == 'real') {
+		$files = vfs('real_getDirContent',array($params[0]));
+	} else {
+		$files = vfs('getDirContent',array($params[0]));
+	}
+	if (is_array($files)) {
+		foreach ($files as $file) {
+			$element = array();
+			if ($type == 'trash') {
+				if (utf8_strtolower(strrchr($file,'.')) == utf8_strtolower('.' . EYEOS_TRASH_EXT)) {
+					$info = eyeXML('getXMLfile',array($file));
+					$element[] = utf8_basename($file);
+					if ($info['eyeTrash'][0]['type'][0] == 'dir') {
+						$element[] = 'folder';
+						$element[] = $info['eyeTrash'][0]['lastname'][0];
+						if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+							$element[] = ' ';
+							$element[] = ' ';
+							$element[] = ' ';
+							$listFiles[] = $element;
+						}
+					} else {
+						$element[] = 'file';
+						$element[] = $info['eyeTrash'][0]['lastname'][0];
+						if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+							$info2 = eyeXML('getXMLfile',array(utf8_substr($file,0,- utf8_strlen(EYEOS_TRASH_EXT)) . EYEOS_INFO_EXT));
+							$element[] = $info['eyeTrash'][0]['deleteDate'][0];
+							$element[] = vfs('real_filesize',array(utf8_substr($file,0,- utf8_strlen(EYEOS_TRASH_EXT)) . EYEOS_FILE_EXT));
+							$element[] = $info2['eyeFile'][0]['author'][0];
+							$listFiles[] = $element;
+						}
+					}
+				}
+			} elseif (vfs('isdir',array($file))) {
+				$element[] = utf8_basename($file);
+				$element[] = 'folder';
+				$element[] = $element[0];
+				if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+					$element[] = vfs('filemtime',array($file));
+					$element[] = ' ';
+					$element[] = ' ';
+					$listFolders[] = $element;
+				}
+			} elseif ($currentUser == ROOTUSER && $type == 'real') {
+				$element[] = utf8_basename($file);
+				$element[] = 'file';
+				$element[] = $element[0];
+				if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+					$element[] = vfs('filemtime',array($file));
+					$element[] = vfs('real_filesize',array($file));
+					$element[] = ' ';
+					$listFiles[] = $element;
+				}
+			} elseif (utf8_strtolower(strrchr($file,'.')) == utf8_strtolower('.' . EYEOS_LINK_EXT) && vfs('real_fileExists',array($file))) {
+				$element[] = utf8_basename($file);
+				$element[] = 'link';
+				$element[] = $element[0];
+				if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+					$element[] = vfs('filemtime',array($file));
+					$element[] = ' ';
+					$element[] = ' ';
+					$listLinks[] = $element;
+				}
+			} else {
+				$info = vfs('readInfo',array($file));
+				$element[] = $info['eyeFile'][0]['filename'][0];
+				$element[] = 'file';
+				$element[] = $element[0];
+				if (!isset($params[3]) || $params[3] == '1' || eyeFiles('filterFile',array($element[2],$params[2],$params[3] - 2))) {
+					$element[] = vfs('filemtime',array($file));
+					$element[] = vfs('filesize',array($file));
+					$info['eyeFile'][0]['author'][0] ? $element[] = $info['eyeFile'][0]['author'][0] : $element[] = ' ';
+					$listFiles[] = $element;
+				}
+			}
+		}
+	}
+	if ($params[4] || !isset($params[4])) {
+		$return = array_merge($listFiles,$return);
+	}
+	if ($params[5] || !isset($params[5])) {
+		$return = array_merge($listLinks,$return);
+	}
+	if (isset($params[6]) && !$params[6]) {
+		$listFolders = array();
+	}
+	if (isset($params[7]) && !$params[7]) {
+		$return = array_merge($listFolders,$return);
+		uasort($return,'intern_eyeFiles_SortFilesArrays');
+		return $return;
+	} else {
+		uasort($listFolders,'intern_eyeFiles_SortFilesArrays');
+		uasort($return,'intern_eyeFiles_SortFilesArrays');
+		return array_merge($listFolders,$return);
+	}
+}
+
+function intern_eyeFiles_SortFilesArrays($a,$b) {
+	return utf8_strcasecmp($a[2],$b[2]);
+}
+
+/*
+$params[0] -> windows bmp file path
+
+Original function from http://php.net/manual/function.imagecreatefromwbmp.php#86214
+*/
+function lib_eyeFiles_imagecreatefrombmp($params = '') {
+	if (!$params[0]) {
+		return false;
+	}
+	$file = fopen($params[0],'rb');
+	$read = fread($file,10);
+	while (!feof($file) && $read != '') {
+		$read .= fread($file,1024);
+	}
+	$temp = unpack('H*',$read);
+	$hex = $temp[1];
+	$header = utf8_substr($hex,0,108);
+	if (utf8_substr($header,0,4) == '424d') {
+		$header_parts = utf8_str_split($header,2);
+		$width = hexdec($header_parts[19] . $header_parts[18]);
+		$height = hexdec($header_parts[23] . $header_parts[22]);
+	}
+	$x = 0;
+	$y = 1;
+	$image  = imagecreatetruecolor($width,$height);
+	$body = utf8_substr($hex,108);
+	$body_size = (utf8_strlen($body) / 2);
+	$header_size = ($width * $height);
+	$usePadding = ($body_size > $header_size * 3 + 4);
+	for ($i = 0; $i < $body_size; $i += 3) {
+		if ($x >= $width) {
+			if ($usePadding) {
+				$i += $width % 4;
+			}
+			$x = 0;
+			$y++;
+			if ($y > $height) {
+				break;
+			}
+		}
+		$i_pos = $i * 2;
+		$r = hexdec($body[$i_pos + 4] . $body[$i_pos + 5]);
+		$g = hexdec($body[$i_pos + 2] . $body[$i_pos + 3]);
+		$b = hexdec($body[$i_pos] . $body[$i_pos + 1]);
+		$color = imagecolorallocate($image,$r,$g,$b);
+		imagesetpixel($image,$x,$height - $y,$color);
+		$x++;
+	}
+	return $image;
+}
+
+/*
+$params[0] -> command
+*/
+function lib_eyeFiles_launchCommand($params = '') {
+	$link = explode(' ', utf8_trim($params[0]));
+	if (strrchr($link[0],'.') == '.app') {
+		proc('launch',array(utf8_basename($link[0],'.app'),array_slice($link,1)));
+	} elseif (utf8_substr($params[0],0,7) == 'http://' || utf8_substr($params[0],0,8) == 'https://') {
+		proc('launch',array('eyeNav',$params[0]));
+	} elseif (utf8_substr($params[0],0,7) == 'ftp://') {
+		proc('launch',array('eyeFTP',$params[0]));
+	} else {
+		$params[0] = str_replace('\\','/',$params[0]);
+		if (utf8_substr($params[0],-1) == '/') {
+			$temp = $params[0];
+		} else {
+			$file = utf8_basename($params[0]);
+			$temp = utf8_substr($params[0],0,- utf8_strlen($file));
+		}
+		$path = eyeFiles('cleanPath',array($temp));
+		if (isset($file)) {
+			$path[0] .= '/' . $file;
+		}
+		if (vfs('isdir',array($path[0]))) {
+			proc('launch',array('eyeFiles',array($params[0])));
+		} else {
+			$xml = getConfig('filetypes',utf8_strtolower(utf8_substr(strrchr($path[0],'.'),1)) . '.xml');
+			if ($xml['fileType'][0]['app'][0]) {
+				proc('launch',array($xml['fileType'][0]['app'][0],$path[0]));
+			} else {
+				proc('launch',array('eyeOpen',$path[0]));
+			}
+		}
+	}
+}
+
+/*
+This function is called everytime its listeners should update
+*/
+function lib_eyeFiles_update($params = '') {
+	return true;
+}
+?>

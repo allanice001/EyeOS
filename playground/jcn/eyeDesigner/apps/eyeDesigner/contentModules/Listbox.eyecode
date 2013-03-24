@@ -1,0 +1,158 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+function eyeDesigner_on_ListboxContentWindow($params=''){
+	global $myPid;
+	$myWindow1 = new Window(array(
+		'name' => 'WindowContent',
+		'father' => 'eyeDesigner_Content',
+		'style' => TITLE+CLOSE,
+		'title' => 'Edit content of '.$_SESSION[$myPid.'selectedWidget'],
+		'cent' => 1,
+		'width' => 525,
+		'height' => 238,
+		'removepid' => 0,
+	));
+	$myWindow1->show();
+
+	$globalFather = "WindowContent_Content";
+
+	$Label__1 = new Label(array(
+		'name' => 'Label__1',
+		'father' => $globalFather,
+		'text' => 'Item to show',
+		'x' => 16,
+		'y' => 20,
+	));
+
+	$Label__2 = new Label(array(
+		'name' => 'Label__2',
+		'father' => $globalFather,
+		'text' => 'ID of item',
+		'x' => 16,
+		'y' => 70,
+	));
+
+	$textItem = new Textbox(array(
+		'name' => 'textItem',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 16,
+		'y' => 40,
+		'width' => 140,
+	));
+
+	$textID = new Textbox(array(
+		'name' => 'textID',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 16,
+		'y' => 90,
+		'width' => 140,
+	));
+
+	$addItems = new Button(array(
+		'name' => 'addItems',
+		'father' => $globalFather,
+		'caption' => 'Add',
+		'x' => 16,
+		'y' => 150,
+		'width' => 60,
+		'signal' => 'addItem',
+	));
+
+	$removeItems = new Button(array(
+		'name' => 'removeItems',
+		'father' => $globalFather,
+		'caption' => 'Remove',
+		'x' => 100,
+		'y' => 150,
+		'width' => 60,
+		'signal' => 'removeItem',
+	));
+
+	$itemTable = new Sortabletable(array(
+		'name' => 'itemTable',
+		'father' => $globalFather,
+		'master' => 0,
+		'dblsignal' => '',
+		'sizeUnit' => 'px',
+		'sortypes' => array('String','String'),
+		'theader' => array('Text','Value'),
+		'x' => 200,
+		'y' => 5,
+		'width' => 315,
+		'height' => 200,
+		'signal' => 'itemTable',
+	));
+
+	$addItems->addFriend($textItem);
+	$addItems->addFriend($textID);
+	$addItems->addFriend($itemTable);
+	$removeItems->addFriend($itemTable);
+
+	$Label__1->show();
+	$Label__2->show();
+	$textItem->show();
+	$textID->show();
+	$addItems->show();
+	$removeItems->show();
+	$itemTable->show();
+	if(isset($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']])){
+		foreach($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']] as $key => $value){
+			foreach($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$key] as $value2);
+			$GLOBALS['itemTable']->addRow(array($key,$value2));
+		}
+	}
+	
+}
+
+function eyeDesigner_on_addItem($params=''){
+	global $myPid;
+	
+	$textShowed = $GLOBALS['textItem']->text;
+	$textValue = $GLOBALS['textID']->text;
+	if(empty($textShowed) || empty($textValue)){
+		service('eyex','messageBox',array('content'=>'Need a item to show or a ID'));
+		return;
+	}
+	$GLOBALS['itemTable']->addRow(array($textShowed,$textValue));
+	$_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$textShowed][$textValue] = $textValue;
+	$GLOBALS['textItem']->setText('');
+	$GLOBALS['textID']->setText('');
+}
+
+function eyeDesigner_on_removeItem($params=''){
+	global $myPid;
+	
+	$delValue = $GLOBALS['itemTable']-> selected;
+	$GLOBALS['itemTable']->delRow($delValue);
+	unset($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$delValue]);
+}
+
+?>

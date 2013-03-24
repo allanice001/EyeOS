@@ -1,0 +1,211 @@
+<?php
+
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+function eyeDesigner_on_ToolbarContentWindow($params=''){
+	global $currentUser;
+	global $myPid;
+	global $checknum;
+	
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$chargeImages = vfs('real_getDirContent', array(EYE_ROOT.'/extern/apps/eyeX/themes/default/images/toolbar/'));
+	$currentUser = $oldUser;
+	
+	$myWindow = new Window(array(
+		'name' => 'toolWindow',
+		'father' => 'eyeApps',
+		'style' => TITLE+CLOSE,
+		'title' => 'Edit content of '.$_SESSION[$myPid.'selectedWidget'],
+		'cent' => 1,
+		'width' => 500,
+		'height' => 235,
+		'removepid' => 0,
+	));
+	$myWindow->show();
+
+	$globalFather = "toolWindow_Content";
+
+	$Label_text = new Label(array(
+		'name' => 'Label_text',
+		'father' => $globalFather,
+		'text' => 'Text:',
+		'x' => 21,
+		'y' => 10,
+	));
+
+	$Label_signal = new Label(array(
+		'name' => 'Label_signal',
+		'father' => $globalFather,
+		'text' => 'Signal:',
+		'x' => 20,
+		'y' => 50,
+	));
+
+	$txt_bar_text = new Textbox(array(
+		'name' => 'txt_bar_text',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 55,
+		'y' => 10,
+		'width' => 118,
+	));
+
+	$text_bar_signal = new Textbox(array(
+		'name' => 'text_bar_signal',
+		'father' => $globalFather,
+		'noborder' => 0,
+		'password' => 0,
+		'text' => '',
+		'x' => 55,
+		'y' => 55,
+		'width' => 118,
+	));
+
+	$Select_image = new Select(array(
+		'name' => 'Select_image',
+		'father' => $globalFather,
+		'x' => 25,
+		'y' => 100,
+		'width' => 150,
+	));
+
+	$barAdd = new Button(array(
+		'name' => 'barAdd',
+		'father' => $globalFather,
+		'caption' => 'Add',
+		'x' => 25,
+		'y' => 180,
+		'signal' => 'BarAdd',
+	));
+
+	$barRemove = new Button(array(
+		'name' => 'barRemove',
+		'father' => $globalFather,
+		'caption' => 'Remove',
+		'x' => 116,
+		'y' => 179,
+		'signal' => 'BarRemove',
+	));
+
+	$barImage = new Imagebox(array(
+		'name' => 'barImage',
+		'father' => $globalFather,
+		'url' => 0,
+		'alt' => '',
+		'x' => 120,
+		'y' => 130,
+		'signal' => 'Imagebox_1',
+	));
+
+	$barTable = new Sortabletable(array(
+		'name' => 'barTable',
+		'father' => $globalFather,
+		'master' => 0,
+		'dblsignal' => '',
+		'sizeUnit' => 'px',
+		'sortypes' => array('String','String','String'),
+		'theader' => array('Text',' Image',' Signal'),
+		'x' => 200,
+		'y' => 10,
+		'width' => 280,
+		'height' => 185,
+		'signal' => 'Sortabletable_1',
+	));
+
+	$barRemove->addFriend($barTable);
+	$barAdd->addFriend($txt_bar_text);
+	$barAdd->addFriend($text_bar_signal);
+	$barAdd->addFriend($Select_image);
+	$barAdd->addFriend($barTable);
+
+	$Label_text->show();
+	$Label_signal->show();
+	$txt_bar_text->show();
+	$text_bar_signal->show();
+	$Select_image->show();
+	$Select_image->addEvent('onchange','sendMsg('.$checknum.',"toolbar_changeImage",eyeParam("selImage",document.getElementById("'.$myPid.'_Select_image").value));');
+	$barAdd->show();
+	$barRemove->show();
+	$barImage->show(0);
+	$barTable->show();
+	
+	$i = 0;
+	foreach($chargeImages as $imgName){
+		$imgName = utf8_basename($imgName);
+		if($i != 0){
+			$Select_image->addOption($imgName,$imgName);
+		}else{
+			$Select_image->addOption($imgName,$imgName,1);
+			$i = 1;
+		}
+	}
+	$selImage = $Select_image->selected;
+	$barImage->setUrl('index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/'.$selImage);
+	if(isset($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']])){
+		foreach($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']] as $key=>$value){
+			foreach($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$key] as $key2=>$value2){
+				$posPoint = stristr($key2, ".png");
+				if ($posPoint != false){
+					$imageSav = $key2;
+				}
+			}
+			$barTable->addRow(array($key,$imageSav,$key2));
+		}
+	}
+}
+
+function eyeDesigner_on_toolbar_changeImage($params=null) {
+	$image = $params['selImage'][0];
+	$GLOBALS['barImage']->setUrl('index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/'.$image);
+}
+
+function eyeDesigner_on_BarAdd($params=''){
+	global $myPid;
+	
+	$textView = $GLOBALS['txt_bar_text']->text;
+	$imageSelected = $GLOBALS['Select_image']->selected;
+	$textSignal = $GLOBALS['text_bar_signal']->text;
+	if(empty($textView) || empty($textSignal)){
+		service('eyex','messageBox',array('content'=>'Need a text to show or a Signal'));
+		return;
+	}
+	$GLOBALS['barTable']->addRow(array($textView,$imageSelected,$textSignal));
+	$_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$textView][$imageSelected] = $imageSelected;
+	$_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$textView][$textSignal] = $textSignal;
+	$GLOBALS['txt_bar_text']->setText('');
+	$GLOBALS['text_bar_signal']->setText('');
+}
+
+function eyeDesigner_on_BarRemove($params=''){
+	global $myPid;
+	
+	$delValue = $GLOBALS['barTable']-> selected;
+	$GLOBALS['barTable']->delRow($delValue);
+	unset($_SESSION[$myPid.'content'][$_SESSION[$myPid.'selectedWidget']][$delValue]);
+
+}
+?>

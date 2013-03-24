@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>array2xml</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+			<tag>array</tag>
+		</tags>
+		<shortDesc>Transforms an array to XML content.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>array2xml</functionName>
+		<syntax>eyeXML('array2xml', array($myArray, $myHeader))</syntax>
+		<desc>Converts an array to a string in the XML format. Each key of every array element will be transformed to a XML tag, being the value of the key the value of the tag.</desc>
+		<params>
+			<type>required</type>
+			<name>myArray</name>
+			<desc>Array to be converted. It must have a structure with the same notation the function xml2array uses.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>myHeader</name>
+			<desc>If set, precedes the returned text with a XML header.</desc>
+		</params>
+		<return>If the function succeeds, returns the resulting XML content. Otherwise, returns false.</return>
+		<examples>
+			<ex>
+				<name>Example 1. Basic array2xml usage</name>
+				<content>
+				$myArray = array('application' => array(array('name' => array('eyeNav'),
+                                              'icon' => array('eyeNav.png'),
+                                              'group'=> array('Network'),
+                                              'exec' => array('eyeNav,www.eyeos.org')
+                                             ),
+                                        array('name' => array('eyeBoard'),
+                                              'icon' => array('eyeBoard.png'),
+                                              'group'=> array('Accessories'),
+                                              'exec' => array('eyeBoard')
+                                             )
+                                       )
+                );
+				$myXML = eyeXML('array2xml', array($myArray));
+				</content>
+			</ex>
+		</examples>
+	</definition>
+</info>

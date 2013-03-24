@@ -1,0 +1,37 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+/*
+	This application is a "logout" app and is a part of eyeOS utils.
+	When this app is executed, eyeOS end current session and relaunch the base_app,
+	normally eyeLogin, by refreshing the current page.	
+*/
+
+/*
+	Entry point for exit app, this function is called when the app exit is launched,
+	the only two actions performed by this application are:
+	
+	1. Delete the current session via eyeSessions lib
+	2. refresh the page using service eyex, function rawjs
+*/
+function exit_run($params=null) {
+	reqLib('eyeSessions','endSession'); //delete session
+	service('eyex','rawjs',array('js'=>'location.reload(true);')); //refresh the page
+}
+?>

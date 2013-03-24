@@ -1,0 +1,300 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Writing API Documentation &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Development" href="../development.html" />
+    <link rel="next" title="Reporting Bugs" href="reporting_bugs.html" />
+    <link rel="prev" title="Image clipping and combining" href="image_clipping_and_combining.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="reporting_bugs.html" title="Reporting Bugs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="image_clipping_and_combining.html" title="Image clipping and combining"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../development.html" accesskey="U">Development</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="writing-api-documentation">
+<span id="pages-write-api-documentation-writing-api-documentation"></span><h1>Writing API Documentation<a class="headerlink" href="#writing-api-documentation" title="Permalink to this headline">¶</a></h1>
+<p>For documenting the qooxdoo API special comments in the source code (so-called &quot;doc comments&quot;) are used. The doc comments in qooxdoo are similar to <a class="reference external" href="http://jsdoc.sourceforge.net/">JSDoc comments</a> or <a class="reference external" href="http://java.sun.com/j2se/1.5.0/docs/tooldocs/windows/javadoc.html">Javadoc</a> comments. To account for some qooxdoo specific needs there are certain differences to the two systems mentioned above.</p>
+<div class="section" id="the-structure-of-a-documentation-comment">
+<span id="pages-write-api-documentation-the-structure-of-a-documentation-comment"></span><h2>The structure of a documentation comment<a class="headerlink" href="#the-structure-of-a-documentation-comment" title="Permalink to this headline">¶</a></h2>
+<p>A doc comment appears right before the structure (class, property, method or constant) it describes. It begins with <tt class="docutils literal"><span class="pre">/**</span></tt> and ends with <tt class="docutils literal"><span class="pre">*/</span></tt>. The rows in between start with a <tt class="docutils literal"><span class="pre">*</span></tt> followed by the text of the particular row. Within this frame there is a description text at the beginning. Afterwards attributes may follow, describing more aspects.</p>
+<p>Description texts may also include HTML tags for a better structuring.</p>
+<p>An example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * Shows a message to the user.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param text {string} the message to show.</span>
+<span class="cm"> */</span>
+<span class="nx">showMessage</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This comment describes the method <tt class="docutils literal"><span class="pre">showMessage</span></tt>. At the beginning there is a short text, describing the method itself. A <tt class="docutils literal"><span class="pre">&#64;param</span></tt> attribute follows, describing the parameter <tt class="docutils literal"><span class="pre">text</span></tt>.</p>
+<p>The docgenerator recognizes the following structures:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/** Class definitions (resp. constructors). */</span>
+<span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;mypackage.MyClass&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="nx">extend</span> <span class="o">:</span> <span class="nx">blubb</span><span class="p">.</span><span class="nx">MySuperClass</span><span class="p">,</span>
+
+  <span class="nx">construct</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="cm">/** Property definitions. */</span>
+<span class="nx">properties</span> <span class="o">:</span>
+<span class="p">{</span>
+   <span class="s2">&quot;myProperty&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+       <span class="nx">check</span> <span class="o">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">,</span>
+       <span class="nx">init</span> <span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+
+<span class="cm">/** Method definitions. */</span>
+<span class="nx">members</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="nx">myMethod</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bla</span><span class="p">,</span> <span class="nx">blubb</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+
+<span class="cm">/** Static method definitions. */</span>
+<span class="nx">statics</span> <span class="o">:</span>
+<span class="p">{</span>
+  <span class="nx">myStaticMethod</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bla</span><span class="p">,</span> <span class="nx">blubb</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">},</span>
+
+  <span class="nx">MY_CONSTANT</span> <span class="o">:</span> <span class="mi">100</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>The class description is taken as the first comment in the file which starts with <tt class="docutils literal"><span class="pre">/**</span></tt>. Therefore if you have a comment at the start of the file which has a first line of <tt class="docutils literal"><span class="pre">/**********</span></tt>, that will be taken as the class description, overriding any comment above the class itself. Therefore use <tt class="docutils literal"><span class="pre">/*</span> <span class="pre">*********</span></tt> or <tt class="docutils literal"><span class="pre">/*</span> <span class="pre">==========</span></tt> etc.</p>
+</div>
+<div class="section" id="inline-markup">
+<span id="pages-write-api-documentation-inline-markup"></span><h2>Inline Markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<p>Running text can be formatted using inline markup which uses special characters around the target text:</p>
+<ul class="simple">
+<li>*strong* (will render as <strong>strong</strong>)</li>
+<li>__emphasis__  (will render as <em>emphasis</em>)</li>
+</ul>
+<p>There is no escape character, so in order to e.g. enter a literal &quot;<em>&#64;</em>&quot; into the text, use the HTML entity equivalent (&quot;<em>&amp;#64;</em>&quot; in this case).</p>
+</div>
+<div class="section" id="supported-attributes">
+<span id="pages-write-api-documentation-supported-attributes"></span><h2>Supported attributes<a class="headerlink" href="#supported-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Within a doc comment the following attributes are supported:</p>
+<div class="section" id="param-only-for-methods-and-constructors">
+<span id="pages-write-api-documentation-param"></span><h3>&#64;param (only for methods and constructors):<a class="headerlink" href="#param-only-for-methods-and-constructors" title="Permalink to this headline">¶</a></h3>
+<p>Describes a parameter. <tt class="docutils literal"><span class="pre">&#64;param</span></tt> is followed by the name of the parameter. Following that is the type in curly brackets (Example: <tt class="docutils literal"><span class="pre">{Integer}</span></tt>), followed by the description text. Types are described more in detail in the next section.</p>
+<p>When the parameter is optional, the curly brackets include the default value in addition to the type. The default value implies the value that has to be passed in, in order to get the same effect as when omitting the parameter. Example: <tt class="docutils literal"><span class="pre">{Boolean</span> <span class="pre">?</span> <span class="pre">true}</span></tt></p>
+<p>You can also define multiple possible types. Example: <tt class="docutils literal"><span class="pre">{Boolean</span> <span class="pre">|</span> <span class="pre">Integer</span> <span class="pre">?</span> <span class="pre">0}</span></tt></p>
+</div>
+<div class="section" id="return-only-for-methods">
+<span id="pages-write-api-documentation-return"></span><h3>&#64;return (only for methods):<a class="headerlink" href="#return-only-for-methods" title="Permalink to this headline">¶</a></h3>
+<p>Describes the return value. After the <tt class="docutils literal"><span class="pre">&#64;return</span></tt> comes the type in curly brackets followed by the description text.</p>
+</div>
+<div class="section" id="throws-only-for-methods-and-constructors">
+<span id="pages-write-api-documentation-throws"></span><h3>&#64;throws (only for methods and constructors):<a class="headerlink" href="#throws-only-for-methods-and-constructors" title="Permalink to this headline">¶</a></h3>
+<p>Describes in which cases an exception is thrown.</p>
+</div>
+<div class="section" id="see">
+<span id="pages-write-api-documentation-see"></span><h3>&#64;see:<a class="headerlink" href="#see" title="Permalink to this headline">¶</a></h3>
+<p>Adds a cross reference to another structure (class, property, method or constant). The text is structured as follows: At first comes the full name of the class to link to. If you want to link to a property, method or constant, then a <tt class="docutils literal"><span class="pre">#</span></tt> comes, followed by the name of the property, method or constant.</p>
+<p>If you refer to a structure within the same class, then the class name may be omitted. If you refer to a class in the same package, then the package name before the class may be omitted. In all other cases you have to specify the fully qualified class name (e.g. <tt class="docutils literal"><span class="pre">qx.ui.table.Table</span></tt>).</p>
+<p>Some examples:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">qx.ui.form.Button</span></tt> refers to the class <tt class="docutils literal"><span class="pre">Button</span></tt> in the package <tt class="docutils literal"><span class="pre">qx.ui.form</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">qx.constant.Type#NUMBER</span></tt> links to the constant <tt class="docutils literal"><span class="pre">NUMBER</span></tt> of the class <tt class="docutils literal"><span class="pre">qx.constant.Type</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">qx.core.Init#defineMain</span></tt> refers to the method <tt class="docutils literal"><span class="pre">defineMain</span></tt> in the class <tt class="docutils literal"><span class="pre">qx.core.Init</span></tt></li>
+</ul>
+<p>After this target description an alternative text may follow. If missing the target description is shown.</p>
+</div>
+<div class="section" id="link">
+<span id="pages-write-api-documentation-link"></span><h3>&#64;link:<a class="headerlink" href="#link" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">&#64;link</span></tt> attribute is similar to the <tt class="docutils literal"><span class="pre">&#64;see</span></tt> attribute, but it is used for linking to other structures within description texts. Unlike the other attributes, the <tt class="docutils literal"><span class="pre">&#64;link</span></tt> attribute is not standalone, but in curly brackets and within the main description text or a description text of another attribute.</p>
+</div>
+<div class="section" id="signature">
+<span id="pages-write-api-documentation-signature"></span><h3>&#64;signature:<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h3>
+<p>sometimes the API documentation generator is not able to extract the method signature from the source code. This is for example the case, when the method is defined using <tt class="docutils literal"><span class="pre">variants</span></tt> of if the method is assigned from a method constant like <tt class="docutils literal"><span class="pre">qx.lang.Function.returnTrue</span></tt>.</p>
+<p>In these cases the method signature can be declared inside the documentation comment using the &#64;signature attribute.</p>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">members</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Always returns true</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return {Boolean} returns true</span>
+<span class="cm">     * @signature function()</span>
+<span class="cm">     */</span>
+    <span class="nx">sayTrue</span><span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nb">Function</span><span class="p">.</span><span class="nx">returnTrue</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<span id="pages-write-api-documentation-example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Example for a fully extended doc comment:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">* Handles a drop.</span>
+<span class="cm">*</span>
+<span class="cm">* @param dragSource {qx.bla.DragSource} the drag source that was dropped.</span>
+<span class="cm">* @param targetElement {Element} the target element the drop aims to.</span>
+<span class="cm">* @param dropType {Integer ? null} the drop type. This is the same type as used in</span>
+<span class="cm">*        {@link qx.bla.DragEvent}.</span>
+<span class="cm">* @return {Boolean} whether the event was handled.</span>
+<span class="cm">* @throws if the targetElement is no child of this drop target.</span>
+<span class="cm">*</span>
+<span class="cm">* @see #getDragEvent(dragSource, elem, x, y)</span>
+<span class="cm">* @see com.ptvag.webcomponent.ui.dnd.DragEvent</span>
+<span class="cm">*/</span>
+<span class="nx">handleDrop</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dragSource</span><span class="p">,</span> <span class="nx">targetElement</span><span class="p">,</span> <span class="nx">dropType</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This comment is shown in the API viewer like this:</p>
+<p><img alt="Example output of the API viewer" src="../../_images/apiviewer-example.png" /></p>
+</div>
+<div class="section" id="handling-of-data-types">
+<span id="pages-write-api-documentation-handling-of-data-types"></span><h2>Handling of data types<a class="headerlink" href="#handling-of-data-types" title="Permalink to this headline">¶</a></h2>
+<p>Because JavaScript has no strong typing, the types of the parameters accepted by a method may not be read from the method's definition. For showing the accepted types in the API documentation the data type may be specified in the doc attributes <tt class="docutils literal"><span class="pre">&#64;param</span></tt> and <tt class="docutils literal"><span class="pre">&#64;return</span></tt>.</p>
+<p>The following types are accepted:</p>
+<ul class="simple">
+<li>Primitive: <tt class="docutils literal"><span class="pre">var</span></tt>, &quot;void&quot;, &quot;undefined&quot;</li>
+<li>Builtin classes: <tt class="docutils literal"><span class="pre">Object</span></tt>, <tt class="docutils literal"><span class="pre">Boolean</span></tt>, <tt class="docutils literal"><span class="pre">String</span></tt>, <tt class="docutils literal"><span class="pre">Number</span></tt>, <tt class="docutils literal"><span class="pre">Integer</span></tt>, <tt class="docutils literal"><span class="pre">Float</span></tt>, <tt class="docutils literal"><span class="pre">Double</span></tt>, <tt class="docutils literal"><span class="pre">Regexp</span></tt>, <tt class="docutils literal"><span class="pre">Function</span></tt>, <tt class="docutils literal"><span class="pre">Error</span></tt>, <tt class="docutils literal"><span class="pre">Map</span></tt>, <tt class="docutils literal"><span class="pre">Date</span></tt> and <tt class="docutils literal"><span class="pre">Element</span></tt></li>
+<li>Other classes: Here the full qualified name is specified (e.g. <tt class="docutils literal"><span class="pre">qx.ui.core.Widget</span></tt>). If the referenced class is in the same package as the currently documented class, the plain class name is sufficient (e.g. <tt class="docutils literal"><span class="pre">Widget</span></tt>).</li>
+</ul>
+<p>Arrays are specified by appending one or more <tt class="docutils literal"><span class="pre">[]</span></tt> to the type. E.g.: <tt class="docutils literal"><span class="pre">String[]</span></tt> or <tt class="docutils literal"><span class="pre">Integer[][]</span></tt>.</p>
+</div>
+<div class="section" id="init-js-files">
+<span id="pages-write-api-documentation-init-js-files"></span><h2>__init__.js Files<a class="headerlink" href="#init-js-files" title="Permalink to this headline">¶</a></h2>
+<p>While using doc comments in class files where they are interleaved with the class code is straight forward, this is not so trivial if you want to provide documentation for a <em>package</em>, i.e. a collection of classes under a common name space (like <em>qx.ui.core</em>, <em>qx.util</em>, etc.).</p>
+<p>In order to fill this gap you can add a __init.js__ file to a package. This file should only contain a single doc comment that describes the package as a whole. These files are then scanned during a <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">api</span></tt> run and the documentation is inserted at the package nodes of the resulting documentation tree.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Writing API Documentation</a><ul>
+<li><a class="reference internal" href="#the-structure-of-a-documentation-comment">The structure of a documentation comment</a></li>
+<li><a class="reference internal" href="#inline-markup">Inline Markup</a></li>
+<li><a class="reference internal" href="#supported-attributes">Supported attributes</a><ul>
+<li><a class="reference internal" href="#param-only-for-methods-and-constructors">&#64;param (only for methods and constructors):</a></li>
+<li><a class="reference internal" href="#return-only-for-methods">&#64;return (only for methods):</a></li>
+<li><a class="reference internal" href="#throws-only-for-methods-and-constructors">&#64;throws (only for methods and constructors):</a></li>
+<li><a class="reference internal" href="#see">&#64;see:</a></li>
+<li><a class="reference internal" href="#link">&#64;link:</a></li>
+<li><a class="reference internal" href="#signature">&#64;signature:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#handling-of-data-types">Handling of data types</a></li>
+<li><a class="reference internal" href="#init-js-files">__init__.js Files</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="image_clipping_and_combining.html"
+                                  title="previous chapter">Image clipping and combining</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="reporting_bugs.html"
+                                  title="next chapter">Reporting Bugs</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/development/write_api_documentation.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

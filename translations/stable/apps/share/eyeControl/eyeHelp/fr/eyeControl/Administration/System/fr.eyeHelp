@@ -1,0 +1,76 @@
+[b]Les descriptions ci-dessous concernent les différents onglets disponibles sur la page "Système"[/b]
+
+[b]Nom du système[/b]
+
+	C'est le nom qui apparaîtra dans la barre titre du navigateur internet, juste après "NomD'Utilisateur@" et le message de bienvenue lors de la 1ère connexion à un compte.
+	
+	[color=red]N'oubliez pas de cliquer sur le bouton "Enregistrer les modifications" pour valider vos changements.[/color]
+
+
+[b]Langue par défaut[/b]
+
+	Vous pouvez choisir, dans le menu déroulant, la langue par défaut de votre système onEye. Pour ajouter d'autres langues, merci de consulter la page d'aide "Personnel > Langue".
+	
+	[color=red]N'oubliez pas de cliquer sur le bouton "Enregistrer les modifications" pour valider vos changements.[/color]
+
+
+
+[b]Quota utilisateur[/b]
+
+	Le quota est la quantité d'espace disque limite qui peut être utilisée. Il est, donc, possible de définir, ici, le quota attribué pour chaque utilisateur ou, en décochant la case, ne pas mettre de quota. Pour définir un quota, laissez la case cochée et entrez une valeur numérique dans la case et choisissez, dans le menu déroulant, s'il s'agit de kilo, mega ou gigabytes.
+	
+	[color=red]N'oubliez pas de cliquer sur le bouton "Enregistrer les modifications" pour valider vos changements.[/color]
+
+
+[b]Créer des vignettes[/b]
+
+	Cochez cette case si vous souhaitez qu'eyeFiles affiche une miniature de prévisualisation de vos fichiers images.
+	
+	[color=red]N'oubliez pas de cliquer sur le bouton "Enregistrer les modifications" pour valider vos changements.[/color]
+
+
+[b]Permissions[/b]
+[list]
+[*]Autoriser nouv. utilisateurs
+		Si la case est cochée, de nouveaux utilisateurs pourront créer un compte depuis la page d'accueil (d'identification) de votre onEye.
+
+[*]Autoriser rép. publics
+		Cochez la case si vous souhaitez que vos utilisateurs puissent partager leurs fichiers dans un répertoire publique partagé.
+
+[*]Autoriser téléversement depuis le web
+		Si la case est cochée, vos utilisateurs pourront télécharger des fichiers dans leur onEye en tapant les liens vers des fichiers disponibles sur internet.
+		
+	[color=red]N'oubliez pas de cliquer sur le bouton "Enregistrer les modifications" pour valider vos changements.[/color]
+[/list]
+
+
+[b]Système de cache[/b]
+	Le système de cache est activé par défaut, avec la configuration la plus compatible. Sinon, si vous avez mis à niveau votre système ou si vous voulez vérifier ce que les possibilités du système de cache vous offre, vous pouvez le configurer dans son intégralité avec un module eyeControl. 
+[list][*]Activer le système de cache
+		Permet d'activer ou désactiver le système de cache.
+
+[*]Version de cache en cours
+		Si vous avez modifié un thème d'onEye, vous devriez augmenter ce chiffre pour être sûr que tous vos utilisateurs bénéficient des dernières données.
+
+[*]Fichiers de correctifs CSS
+		Vous permet de modifier la façon dont onEye corrige les urls situées dans les fichiers css.
+
+			Il y a 3 possibilités:
+				*Manuel : onEye n'applique pas les correctifs des fichiers css et vous devrez le faire manuellement.
+				*Automatique : onEye applique automatiquement les correctifs de tous les fichiers CSS à chaque fois qu'il y accède.
+				*Semi-automatique : onEye applique les correctifs à chaque changement de version de cache.
+
+	[color=red]N'oubliez pas de cliquer sur le bouton "Enregistrer les modifications" pour valider vos changements.[/color]
+[/list]
+
+[b]Office Support[/b]
+
+	A REDIGER
+
+
+[b]Désinstaller[/b]
+
+	Permet de désinstaller complètement votre onEye en tapant votre mot de passe de root user et en cliquant sur le bouton “Désinstaller onEye”. Cela peut être utile si vous ne pouvez pas accéder à certains fichiers onEye du fait des permissions attribuées lors de l'Installation.
+
+	[color=red]Note: la désinstallation d'onEye est définitive.[/color] Pensez, SVP, que tous vos utilisateurs devraient avoir sauvegarder leurs documents/fichiers importants au préalable.
+

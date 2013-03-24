@@ -1,0 +1,65 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+function eyeControl_on_newlang_add($params = '') {
+	global $currentUser;
+	$selType = $GLOBALS['eyeControl_newlang_hidden']->text;
+	$id = $GLOBALS['eyeControl_newlang_textbox_id']->text;
+	if ($currentUser != ROOTUSER) {
+		$myUserXml = um('retrieveUser',array($currentUser));
+		if (!in_array($id,$myUserXml['eyeUser'][0]['group']) || $id == 'public') {
+			eyeControl_lib_loadContent('others','translations',array($selType));
+			return;
+		}
+	}
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	
+	$lang = $GLOBALS['eyeControl_newlang_textbox_lang']->text;
+	if (eyeControl_lib_check_system_translation($selType)) {
+		$lang_en = $GLOBALS['eyeControl_newlang_textbox_lang_en']->text;
+	} else {
+		$lang_en = 1;
+	}
+	$author = $GLOBALS['eyeControl_newlang_textbox_author']->text;
+	if ($id && $lang && $lang_en && $author) {
+		if ($id == 'en' || vfs('real_fileExists',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $id . '.xml'))) {
+			eyex('messageBox',array('content' => 'Language ID already in use!'));
+		} else {
+			$xml['lang'][0]['info'][0]['lang'][0] = $lang;
+			if (eyeControl_lib_check_system_translation($selType)) {
+				$xml['lang'][0]['info'][0]['lang-en'][0] = $lang_en;
+			}
+			$xml['lang'][0]['info'][0]['author'][0] = $author;
+			$defaultXml = eyeXML('getXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/default.xml'));
+			$xml['lang'][0]['info'][0]['version'][0] = $defaultXml['lang'][0]['version'][0];
+			$xml['lang'][0]['info'][0]['revision'][0] = 1;
+			eyeXML('setXMLFile',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/infos/' . $id . '.xml',$xml));
+			eyeXML('setXMLFile',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/' . $id . '.xml',$xml));
+			eyex('messageBox',array('content' => 'Language successfully added.'));
+			$currentUser = $oldUser;
+			eyeControl_lib_loadContent('others','translations',array($selType));
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please fill in all textboxes!'));
+	}
+	$currentUser = $oldUser;
+}
+
+function eyeControl_on_newlang_wikipedia($params = '') {
+	proc('launch',array('eyeNav','http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'));
+}
+?>

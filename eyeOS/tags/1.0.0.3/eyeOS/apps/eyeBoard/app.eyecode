@@ -1,0 +1,51 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeBoard_run($params=null) {
+	global $checknum;
+	$myWindow = new Window(array('name'=>'eyeBoard','father'=>'eyeApps',
+		'type'=>NORESIZE_WINDOW,'cent'=>1,'width'=>450,'height'=>380,
+		'title'=>'eyeBoard'));
+	$myWindow->show();
+	$myTextBox = new Textbox(array('name'=>'MessageB','father'=>'eyeBoard_Content',
+		'x'=>5,'y'=>330,'width'=>310));
+	$myTextBox->show();
+	$myTextBox->addEnterEventMsg('addMsg');
+	$myTextBox->focus();
+	$myButton = new Button(array('name'=>'myButton','father'=>'eyeBoard_Content',
+		'caption'=>'Send','x'=>330,'y'=>327,'signal'=>'addMsg'));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();
+	global $currentUser;
+	if($currentUser == ROOTUSER) {
+		$myButton2 = new Button(array('name'=>'myButton','father'=>'eyeBoard_Content',
+			'caption'=>'Clear','x'=>390,'y'=>327,'signal'=>'clear'));
+		$myButton2->show();
+	}
+	$myFrame = new Iframe(array('name'=>'eyeBoardFrame','father'=>'eyeBoard_Content','x'=>1,
+		'y'=>8,'height'=>300,'width'=>444,
+		'url'=>"index.php?checknum=$checknum&msg=getMessages"));
+	$myFrame->show();
+}
+
+function eyeBoard_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

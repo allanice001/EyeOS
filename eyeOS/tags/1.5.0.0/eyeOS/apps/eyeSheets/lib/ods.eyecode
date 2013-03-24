@@ -1,0 +1,124 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+
+class ods {
+	var $fonts;
+	var $styles;
+	var $sheets;
+	var $lastElement;
+	var $fods;
+	var $currentSheet;
+	var $currentRow;
+	var $currentCell;
+	var $lastRowAtt;
+	var $repeat;
+	
+	function ods($filename) {
+		$this->styles = array();
+		$this->fonts = array();
+		$this->sheets = array();
+		$this->currentRow = 0;
+		$this->currentSheet = 0;
+		$this->currentCell = 0;
+		$this->repeat = 0;
+		$this->fods = $filename;	
+	}
+	
+	function parse() {
+		$xml_parser = xml_parser_create(); 
+		xml_set_object ( $xml_parser, $this );
+		xml_set_element_handler($xml_parser, "startElement", "endElement");
+		xml_set_character_data_handler($xml_parser, "characterData");
+		$fp = vfs('real_open',array($this->fods,'r'));
+		while ($data = fread($fp, 4096)) {
+			xml_parse($xml_parser, $data, feof($fp));
+		}
+		fclose($fp); 
+		xml_parser_free($xml_parser);
+	}
+	
+	function startElement($parser, $tagName, $attrs) {
+		$cTagName = utf8_strtolower($tagName);
+		if($cTagName == 'style:font-face') {
+			$this->fonts[$attrs['STYLE:NAME']] = $attrs;
+		} elseif($cTagName == 'style:style') {
+			$this->lastElement = $attrs['STYLE:NAME'];
+		} elseif($cTagName == 'style:table-column-properties' || $cTagName == 'style:table-row-properties' 
+			|| $cTagName == 'style:table-properties') {
+			$this->styles[$this->lastElement] = $attrs;
+		} elseif($cTagName == 'table:table-cell') {
+			$this->lastElement = $cTagName;
+			$this->sheets[$this->currentSheet]['rows'][$this->currentRow][$this->currentCell]['attrs'] = $attrs;
+			if(isset($attrs['TABLE:NUMBER-COLUMNS-REPEATED'])) {
+				$times = intval($attrs['TABLE:NUMBER-COLUMNS-REPEATED']);
+				$times--;
+				for($i=1;$i<=$times;$i++) {
+					$cnum = $this->currentCell+$i;
+					$this->sheets[$this->currentSheet]['rows'][$this->currentRow][$cnum]['attrs'] = $attrs;
+				}
+				$this->currentCell += $times;
+				$this->repeat = $times;
+			}
+			if(isset($this->lastRowAtt['TABLE:NUMBER-ROWS-REPEATED'])) {
+				$times = intval($this->lastRowAtt['TABLE:NUMBER-ROWS-REPEATED']);
+				$times--;
+				for($i=1;$i<=$times;$i++) {
+					$cnum = $this->currentRow+$i;
+					$this->sheets[$this->currentSheet]['rows'][$cnum][$i-1]['attrs'] = $attrs;
+				}
+				$this->currentRow += $times;
+			}
+		} elseif($cTagName == 'table:table-row') {
+			$this->lastRowAtt = $attrs;
+		}
+	}
+	
+	function endElement($parser, $tagName) {
+		$cTagName = utf8_strtolower($tagName);
+		if($cTagName == 'table:table') {
+			$this->currentSheet++;
+			$this->currentRow = 0;
+		} elseif($cTagName == 'table:table-row') {
+			$this->currentRow++;
+			$this->currentCell = 0;
+		} elseif($cTagName == 'table:table-cell') {
+			$this->currentCell++;
+			$this->repeat = 0;
+		}
+	}
+	
+	function characterData($parser, $data) {
+		if($this->lastElement == 'table:table-cell') {
+			$this->sheets[$this->currentSheet]['rows'][$this->currentRow][$this->currentCell]['value'] = $data;
+			if($this->repeat > 0) {
+				for($i=0;$i<$this->repeat;$i++) {
+					$cnum = $this->currentCell - ($i+1);
+					$this->sheets[$this->currentSheet]['rows'][$this->currentRow][$cnum]['value'] = $data;
+				}
+			}
+		}
+	}
+}
+
+?>

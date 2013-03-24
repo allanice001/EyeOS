@@ -1,0 +1,186 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+global $checknum;
+global $currentUser;
+global $myPid;
+
+if ($currentUser != ROOTUSER && !um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+	eyex('messageBox',array('content' => 'You are not allowed to manage users!'));
+	eyeControl_lib_loadContent();
+	return;
+} elseif (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+	$myUserXml = um('retrieveUser',array(eyeControl_lib_getConfigUser()));
+}
+
+// $myTable
+$sortypes = array('String','String','String','String','Date','Date', 'Date');
+$theader = array('User Name','Full Name','E-mail','Groups','Created On','Last login', 'Expiration Date');
+
+$myTable = new Sortabletable(array(
+	'name' => 'eyeControl_users_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes,
+	'theader' => $theader,
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 375,
+	'dblsignal' => 'users_edit'
+));
+$myTable->show();
+$selUser = $contentParams[0];
+if ($selUser) {
+	$_SESSION['eyeControl'][$myPid]['content']['users'] = $selUser;
+}
+$allUsers = array();
+$oldUser = $currentUser;
+if (um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+	$currentUser = ROOTUSER;
+	foreach ($myUserXml['eyeUser'][0]['mngUser'] as $oneUser) {
+		if (um('userExist',array($oneUser))) {
+			$allUsers[] = $oneUser;
+		}
+	}
+} elseif ($selUser == '[all]') {
+	$allUsers = um('getAllUsersBy');
+} elseif (um('userExist',array($selUser))) {
+	$allUsers[] = $selUser;
+} elseif (utf8_strlen($selUser)) {
+	$params = explode('/',$selUser);
+	foreach ($params as $param) {
+		if ($param{0} == 'a') {
+			$array['after'] = utf8_trim(utf8_substr($param,1));
+		} elseif ($param{0} == 'b') {
+			$array['beginning'] = utf8_trim(utf8_substr($param,1));
+		} elseif ($param{0} == 'c') {
+			$array['count'] = intval(utf8_trim(utf8_substr($param,1)));
+		}
+	}
+	if ($array) {
+		$allUsers = um('getAllUsersBy',$array);
+	}
+	if (!$allUsers) {
+		eyex('messageBox',array('content' => 'No registered user could be found.'));
+		eyex('rawjs',array('js' => 'sendMsg(' . $checknum . ',"users_load","");'));
+	}
+} else {
+	eyex('rawjs',array('js' => 'sendMsg(' . $checknum . ',"users_load","");'));
+}
+foreach ($allUsers as $user) {
+	$userXML = um('retrieveUser',array($user));
+	$userXML = $userXML['eyeUser'][0];
+	($userXML['fullname'][0]) ? $fullname = $userXML['fullname'][0] : $fullname = ' ';
+	$groups = '';
+	foreach ($userXML['group'] as $group) {
+		($groups) ? $groups = $groups . ', ' . $group : $groups = $group;
+	}
+	($userXML['email'][0]) ? $email = $userXML['email'][0] : $email = ' ';
+	($userXML['createDate'][0]) ? $createdate = date('d/m/Y',$userXML['createDate'][0]) : $createdate = ' ';
+	if (!$createdate) {
+		$createdate = ' ';
+	}
+	($userXML['lastLogin'][0]) ? $lastlogin = date('d/m/Y',$userXML['lastLogin'][0]) : $lastlogin = ' ';
+	if (!$lastlogin) {
+		$lastlogin = ' ';
+	}
+	($userXML['expirationDate'][0]) ? $expirationDate = date('d/m/Y',$userXML['expirationDate'][0]) : $expirationDate = i18n('translate',array('Never'));
+	if (!$expirationDate || intval($userXML['expirationDate'][0]) == 0) {
+		$expirationDate = i18n('translate',array('Never'));
+	}
+	$myTable->addRow(array(
+		$user,
+		$fullname,
+		$email,
+		$groups,
+		$createdate,
+		$lastlogin,
+		$expirationDate
+	));
+}
+$currentUser = $oldUser;
+// New
+$myButton = new Button(array(
+	'name' => 'eyeControl_users_button_new',
+	'father' => $eyeContainer,
+	'signal' => 'users_new',
+	'caption' => 'New',
+	'width' => 80,
+	'x' => 10,
+	'y' => 0,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/new.png'
+));
+$myButton->show();
+// Edit
+$myButton = new Button(array(
+	'name' => 'eyeControl_users_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'users_edit',
+	'caption' => 'Edit',
+	'width' => 80,
+	'x' => 90,
+	'y' => 0,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/paste.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Delete
+$myButton = new Button(array(
+	'name' => 'eyeControl_users_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'users_delete',
+	'caption' => 'Delete',
+	'width' => 80,
+	'x' => 170,
+	'y' => 0,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/delete.png'
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+if (!um('checkMaintainer',array(eyeControl_lib_getConfigUser()))) {
+	// Load
+	$myButton = new Button(array(
+		'name' => 'eyeControl_users_button_load',
+		'father' => $eyeContainer,
+		'signal' => 'users_load',
+		'caption' => 'Load',
+		'width' => 80,
+		'x' => 250,
+		'y' => 0,
+		'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/refresh.png'
+	));
+	$myButton->show();
+	if ($selUser == '[all]') {
+		// x user(s) registered.
+		$myLabel = new Label(array(
+			'name' => 'eyeControl_account_label_users',
+			'father' => $eyeContainer,
+			'horiz' => 1,
+			'y' => 2,
+			'text' => '%s user(s) registered.',
+			'tokens' => array(count($allUsers))
+		));
+		$myLabel->show();
+	}
+}
+?>

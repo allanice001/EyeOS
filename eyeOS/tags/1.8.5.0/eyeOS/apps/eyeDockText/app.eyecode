@@ -1,0 +1,56 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDockText_run($params=null) {
+	global $myPid,$checknum;
+		
+	$checkPid = proc('findPidByName', array('eyeDock'));
+	if($checkPid != false && $checkPid != $myPid) {
+		proc('end');
+		return false;
+	}
+	
+	if(is_array($params) && isset($params[0]['redraw'])) {
+		proc('end');
+		eyeX('sendMessage', array('msg' => 'Launch', 'params' => '.'));
+	} else {
+		//Load js if it wasn't loaded
+		eyeX('loadScript',array('url'=>'index.php?version='.EXTERN_CACHE_VERSION.'&extern=apps/eyeDock/js/eyeDock'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+	}
+}
+
+function eyeDockText_end($params=null) {
+	global $myPid;
+	eyeWidgets('unserialize');
+	$currentUserDir = service('um','getCurrentUserDir');
+	$myArray = eyeXML('getXMLfile',array($currentUserDir.'/conf/eyeDock/eyeDock.xml'));
+	foreach($myArray['eyeDock'][0]['Group'] as $value) {
+		$key = $value['name'][0];
+		$divId = $myPid.'_menu_items_'.$key;
+		$divText = $myPid.'_menu_text_items_'.$key;
+		eyex('rawjs',array('js'=>"xGetElementById('eyeApps').removeChild(xGetElementById('".$divId."'));"));
+		eyex('rawjs',array('js'=>"xGetElementById('eyeApps').removeChild(xGetElementById('".$divText."'));"));
+	}
+}
+
+?>

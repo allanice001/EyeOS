@@ -1,0 +1,61 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+require_once(IPHONE_PATH.'apps/eyeFiles/lib.eyecode');
+
+function eyeFiles_getIcon() {
+	$icon = utf8_basename($_GET['icon']);
+	$rpath = eyex('getThemeImage',array('icons/16x16/'.$icon,2));
+	$mime = getimagesize($rpath);
+	if(!$mime) {
+		exit;
+	}
+	$len = filesize($rpath);
+	header('Content-Type: '.$mime['mime']);
+	header("Content-Length: $len");
+	header("Accept-Ranges: bytes");
+	header("X-Pad: avoid browser bug");
+	readfile($rpath);
+	exit;
+}
+
+function eyeFiles_viewTempImg() {
+	if (!isset($_GET['params'])) {
+		return false;
+	}
+	$params = $_GET['params'];
+	$path = um('getCurrentUserDir') . '/tmp/' . utf8_basename($params);
+	$info = @getimagesize($path);
+	if ($info !== false) {
+		header('Content-Type: ' . $info['mime']);
+		header('Accept-Ranges: bytes');
+		header('X-Pad: avoid browser bug');
+		vfs('printFile',array($path));
+	}
+	exit;
+}
+function eyeFiles_open() {
+	$file = $_GET['file'];
+	eyeFiles_openLocation($file);
+}
+?>

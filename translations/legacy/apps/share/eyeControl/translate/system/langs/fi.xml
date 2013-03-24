@@ -1,0 +1,4269 @@
+<lang>
+	<info>
+		<lang>suomen kieli</lang>
+		<lang-en>Finnish</lang-en>
+		<author>vilu</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Add an eyeLink</old>
+			<new>Lisää eyeLink</new>
+		</text>
+		<text>
+			<old>Please type a correct filename.</old>
+			<new>Anna oikea tiedoston nimi.</new>
+		</text>
+		<text>
+			<old>Please type the link name here:</old>
+			<new>Anna linkin nimi tähän:</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>Linkkejä ei voida ladata.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>App to be executed:</old>
+			<new>Suoritettava sovellus:</new>
+		</text>
+		<text>
+			<old>Edit link</old>
+			<new>Muokkaa linkkiä</new>
+		</text>
+		<text>
+			<old>Invalid link file.</old>
+			<new>Viallinen linkki tiedosto.</new>
+		</text>
+		<text>
+			<old>Link updated.</old>
+			<new>Linkki päivitetty.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Päivitä</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Are you sure you want to empty trash content?</old>
+			<new>Haluatko varmasti tyhjentää roskakorin sisällön?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Tyhjennä roskakori</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Install Apps</old>
+			<new>Asenna sovelluksia</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>Muokkaa yläpalkkia</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Compress</old>
+			<new>Pakkaus</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Pakkaa kohteeseen...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Pakkaaminen onnistui</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Pakkaaminen epäonnistui</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Pura</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Pura kohteeseen...</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Tiedosto purettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Tiedoston purkaminen epäonnistui</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Tiedosto</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Ei tiedostoa avattu</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Pakkaus tyyppi ei ole tuettu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBar</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>Tietoja</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Ohjelmat</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>Sulje istunto</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Suorita...</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Asetukset</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Clear</old>
+			<new>Tyhjennä</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Lähetä</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>A calendar with same name already exists</old>
+			<new>Kalenteri tällä nimellä on jo olemassa</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Lisää Kalenteri</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Vähintään yksi kalenteri vaaditaan!</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalenteri lisätty onnistuneesti</new>
+		</text>
+		<text>
+			<old>Calendar is already runing</old>
+			<new>Kalenteri on jo käynnissä</new>
+		</text>
+		<text>
+			<old>Calendar Name</old>
+			<new>Kalenterin nimi</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalenterit</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Kalenterien hallinta</new>
+		</text>
+		<text>
+			<old>Create Calendar</old>
+			<new>Luo Kalenteri</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Päivä</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>Kokonäyttö</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Viallinen valintalaatikon arvo</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Virheellinen Num %s</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Seuraava</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Anna nimi kalenterille</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Edellinen</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Näytä</new>
+		</text>
+		<text>
+			<old>Sorry, you can only create 5 different calendars</old>
+			<new>Valitan, voit luoda vain 5 erilaista kalenteria</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Tämä päivä</new>
+		</text>
+		<text>
+			<old>Two calendars cannot have the same Id.</old>
+			<new>Kaksi kalenteria eivät voi olla samalla ID:llä</new>
+		</text>
+		<text>
+			<old>Two calendars cannot have the same name.</old>
+			<new>Kaksi kalenteria ei voi olla samalla nimellä.</new>
+		</text>
+		<text>
+			<old>Update Calendars</old>
+			<new>Päivitä Kalenterit</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Viikko</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Ikkuna tila</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Työ</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCode</name>
+		<text>
+			<old>Applications</old>
+			<new>Sovellukset</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Tyhjennä roskakori</new>
+		</text>
+		<text>
+			<old>Extern</old>
+			<new>Extern</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Tiedosto tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Libraries</old>
+			<new>Kirjastot</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Uusi tiedosto</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Uusi kansio</new>
+		</text>
+		<text>
+			<old>Only root can run this program</old>
+			<new>Vain root voi suorittaa tämän ohjelman</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Run App</old>
+			<new>Suorita sovellus</new>
+		</text>
+		<text>
+			<old>Services</old>
+			<new>Palvelut</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Valitan, sinulla ei ole riittäviä käyttöoikeuksia.</new>
+		</text>
+		<text>
+			<old>Type the name of the new file</old>
+			<new>Anna uudelle tiedostolle nimi</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Anna uudelle kansiolle nimi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeContacts</name>
+		<text>
+			<old>Add Contact</old>
+			<new>Lisää Yhteystieto</new>
+		</text>
+		<text>
+			<old>Address</old>
+			<new>Osoite</new>
+		</text>
+		<text>
+			<old>ALL</old>
+			<new>KAIKKI</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this contact?</old>
+			<new>Haluatko varmasti poistaa tämän yhteystiedon?</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Yritys</new>
+		</text>
+		<text>
+			<old>Company Address</old>
+			<new>Yrityksen Osoite</new>
+		</text>
+		<text>
+			<old>Contact deleted successfully.</old>
+			<new>Yhteystieto poistettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Contact updated successfully.</old>
+			<new>Yhteystieto päivitetty onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Contacts exported in to %s</old>
+			<new>Yhteystiedot viety kohteeseen %s</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>Poisto varoitus</new>
+		</text>
+		<text>
+			<old>Destination</old>
+			<new>Kohde</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Edit Contact</old>
+			<new>Muokkaa Yhteystietoa</new>
+		</text>
+		<text>
+			<old>Error deleting contact.</old>
+			<new>Virhe poistettaessa yhteystietoa.</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>Virhe tiedoston viemisessä.</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Vie</new>
+		</text>
+		<text>
+			<old>Export all as vCard</old>
+			<new>Vie kaikki vCard:ina</new>
+		</text>
+		<text>
+			<old>Export completed successfully.</old>
+			<new>Vienti suoritettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Export Contacts</old>
+			<new>Vie Yhteystiedot</new>
+		</text>
+		<text>
+			<old>Export failed!</old>
+			<new>Vienti epäonnistui!</new>
+		</text>
+		<text>
+			<old>Export To File</old>
+			<new>Vie Tiedostoon</new>
+		</text>
+		<text>
+			<old>Export your contacts to vCard format</old>
+			<new>Vie yhteystietosi vCard muotoon</new>
+		</text>
+		<text>
+			<old>eyeContacts can&#039;t initialize, contact with your administrator</old>
+			<new>eyeContacts ei pysty alustumaan, ota yhteyttä järjestelmänvalvojaan.</new>
+		</text>
+		<text>
+			<old>eyeOS Username</old>
+			<new>eyeOS Käyttäjänimi</new>
+		</text>
+		<text>
+			<old>Fax</old>
+			<new>Faksi</new>
+		</text>
+		<text>
+			<old>File &quot;eyeContactsExported.vcf&quot; will be created automatically if you leave this field blank.</old>
+			<new>Tiedosto &quot;eyeContactsExported.vcf&quot; luodaan automaattisesti jos jätät tämän kentän tyhjäksi.</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>Muotoa ei tueta!</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>Koti puhelin</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Tuo</new>
+		</text>
+		<text>
+			<old>Import Contacts</old>
+			<new>Tuo Yhteystiedot</new>
+		</text>
+		<text>
+			<old>Import contacts from vCard files</old>
+			<new>Tuo yhteystiedot vCard tiedostoista</new>
+		</text>
+		<text>
+			<old>Import from .vcf file...</old>
+			<new>Tuo .vcf tiedostosta...</new>
+		</text>
+		<text>
+			<old>Import from vCard</old>
+			<new>Tuo vCard</new>
+		</text>
+		<text>
+			<old>Instant Messenger</old>
+			<new>Pikaviestintä</new>
+		</text>
+		<text>
+			<old>Internet Information</old>
+			<new>Internet tiedot</new>
+		</text>
+		<text>
+			<old>Manage Contacts</old>
+			<new>Yhteystietojen hallinta</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>Kännykkä</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nimi</new>
+		</text>
+		<text>
+			<old>New contact created successfully.</old>
+			<new>Uusi yhteystieto luotu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>Lempinimi</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>Muistiinpanot</new>
+		</text>
+		<text>
+			<old>Personal Information</old>
+			<new>Henkilö Tiedot</new>
+		</text>
+		<text>
+			<old>Phone</old>
+			<new>Puhelin</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be deleted first.</old>
+			<new>Valitse poistettava yhteystieto ensin.</new>
+		</text>
+		<text>
+			<old>Please choose a contact to be edited first.</old>
+			<new>Valitse muokattava yhteystieto ensin.</new>
+		</text>
+		<text>
+			<old>Please choose a contact you want to send an eyeMessage to first.</old>
+			<new>Valitse ensin yhteystieto, jolle haluat lähettää eyeMessagen.</new>
+		</text>
+		<text>
+			<old>Please fill in the eyeOS Username for this contact first.</old>
+			<new>Täytä eyeOS Käyttäjätunnus tälle yhteystiedolle ensin.</new>
+		</text>
+		<text>
+			<old>Please, fill the name and surname.</old>
+			<new>Täytä nimi ja sukunimi.</new>
+		</text>
+		<text>
+			<old>Please, select a correct file.</old>
+			<new>Valitse oikea tiedosto.</new>
+		</text>
+		<text>
+			<old>Professional Information</old>
+			<new>Ammatilliset Tiedot</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>Lähetä Viesti</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>Valitan, yhteystietoja ei löytynyt tiedostosta.</new>
+		</text>
+		<text>
+			<old>Sorry, the contact already exists.</old>
+			<new>Valitan, yhteystieto on jo olemassa.</new>
+		</text>
+		<text>
+			<old>Source:</old>
+			<new>Lähde:</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>Sukunimi</new>
+		</text>
+		<text>
+			<old>The contact can&#039;t be added</old>
+			<new>Yhteystietoa ei voida lisätä</new>
+		</text>
+		<text>
+			<old>The file was not found.</old>
+			<new>Tiedostoa ei löytynyt.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>vCard Import/Export</old>
+			<new>vCard Tuonti/Vienti</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>Katso</new>
+		</text>
+		<text>
+			<old>View/Edit</old>
+			<new>Katso/Muokkaa</new>
+		</text>
+		<text>
+			<old>Voice Over IP</old>
+			<new>VoIP</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Verkkosivusto</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s komento(a)</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s peili(ä)</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s käyttäjä(ä) rekisteröitynyt.</new>
+		</text>
+		<text>
+			<old>%s% translated! %s from %s texts left.</old>
+			<new>%s% käännetty! %s jäljellä %s tekstistä.</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Oletus käyttäjä]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>Tietoja minusta</new>
+		</text>
+		<text>
+			<old>Add a new language</old>
+			<new>Lisää uusi kieli</new>
+		</text>
+		<text>
+			<old>Add a new language you want to translate.</old>
+			<new>Lisää uusi kieli jonka haluat kääntää.</new>
+		</text>
+		<text>
+			<old>Add a new user to your eyeOS system</old>
+			<new>Lisää uusi käyttäjä eyeOS järjestelmääsi</new>
+		</text>
+		<text>
+			<old>Add language</old>
+			<new>Lisää kieli</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Lisää peili</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Hallinta</new>
+		</text>
+		<text>
+			<old>All texts are translated!</old>
+			<new>Kaikki tekstit on käännetty!</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Salli julkiset kansiot</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Salli käyttäjien vapaa rekisteröinti</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Tekijä</new>
+		</text>
+		<text>
+			<old>Author (full name)</old>
+			<new>Tekijä (koko nimi)</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Käynnistykset</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Takaisin</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Kirjanmerkit ja hakukoneet viety onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Kirjanmerkit tuotu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Center wallpaper</old>
+			<new>Keskitä taustakuva</new>
+		</text>
+		<text>
+			<old>Change language</old>
+			<new>Vaihda kieli</new>
+		</text>
+		<text>
+			<old>Change password</old>
+			<new>Vaihda salasana</new>
+		</text>
+		<text>
+			<old>Change the language&#039;s information</old>
+			<new>Vaihda kielen tietoja</new>
+		</text>
+		<text>
+			<old>Change theme</old>
+			<new>Vaihda teema</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Vaihda nykyinen salasanasi</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Vaihda nykyinen teemasi</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Vaihda työpöytäsi taustakuva</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Vaihda käytettävä kieliasetus</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Muutokset tallennettu ja käyttäjätiedot päivitetty.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Muutokset tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Clean eyeOS</old>
+			<new>Puhdista eyeOS</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Komento lisätty onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Komento onnistuneesti tallennettu.</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Komennot</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Konfiguroi aloitussivu</new>
+		</text>
+		<text>
+			<old>Create group</old>
+			<new>Luo ryhmä</new>
+		</text>
+		<text>
+			<old>Create user</old>
+			<new>Luo käyttäjä</new>
+		</text>
+		<text>
+			<old>Created on</old>
+			<new>Luotu</new>
+		</text>
+		<text>
+			<old>Current password</old>
+			<new>Nykyinen salasana</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to start a new session now.</old>
+			<new>Oletus ryhmä tallennettu onnistuneesti. Sinun täytyy käynnistää uusi istunto nyt.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Oletus ryhmä: %s | %s ryhmä(ä)</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Oletus asetukset tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Poista autorun</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Poista ryhmä</new>
+		</text>
+		<text>
+			<old>Delete language</old>
+			<new>Poista kieli</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Poista peili</new>
+		</text>
+		<text>
+			<old>Delete user</old>
+			<new>Poista käyttäjä</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Työpöytä</new>
+		</text>
+		<text>
+			<old>Do you really want to delete the eyeOS system?</old>
+			<new>Haluatko varmasti poistaa koko eyeOS järjestelmän?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this account from the server?</old>
+			<new>Haluatko varmasti poistaa tämän käyttäjätilin palvelimelta?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Haluatko varmasti poistaa tämän komennon?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Haluatko varmasti poistaa tämän ryhmän järjestelmästä?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this language?</old>
+			<new>Haluatko varmasti poistaa tämän kielen?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Haluatko varmasti poistaa tämän peilin eyeSoftista?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Haluatko varmasti poistaa tämän käyttäjän järjestelmästä?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeDesk settings?</old>
+			<new>Haluatko varmasti käyttää oletus eyeDesk asetuksia?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav bookmarks?</old>
+			<new>Haluatko varmasti käyttää oletus eyeNav kirjanmerkkejä?</new>
+		</text>
+		<text>
+			<old>Do you really want to use the default eyeNav search?</old>
+			<new>Haluatko varmasti käyttää oletus eyeNav hakuja?</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Lataa</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>Sähköposti</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Muokkaa</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Muokkaa komentoa</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Muokkaa peiliä</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>Muokkaa valittua käyttäjää</new>
+		</text>
+		<text>
+			<old>Edit translation</old>
+			<new>Muokkaa käännöstä</new>
+		</text>
+		<text>
+			<old>Edit user</old>
+			<new>Muokkaa käyttäjää</new>
+		</text>
+		<text>
+			<old>English</old>
+			<new>Englanti</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Vie</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Vie oletus kirjanmerkit ja hakukoneet</new>
+		</text>
+		<text>
+			<old>eyeOS hostname</old>
+			<new>eyeOS isäntänimi</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Tiedosto voidaan ladata onnistuneesti.</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Tiedostoa ei voida ladata. Korjaa osoite.</new>
+		</text>
+		<text>
+			<old>Full name</old>
+			<new>Koko nimi</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Hae lisää käännöksiä</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Ryhmän nimi</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Ryhmä</new>
+		</text>
+		<text>
+			<old>ID</old>
+			<new>ID</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Tuo</new>
+		</text>
+		<text>
+			<old>Info</old>
+			<new>Info</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Kieli</new>
+		</text>
+		<text>
+			<old>Language changed. Please restart eyeOS now.</old>
+			<new>Kieli vaihdettu. Käynnistä eyeOS uudelleen nyt.</new>
+		</text>
+		<text>
+			<old>Language ID</old>
+			<new>Kieli ID</new>
+		</text>
+		<text>
+			<old>Language name</old>
+			<new>Kielen nimi</new>
+		</text>
+		<text>
+			<old>Language succesfully saved.</old>
+			<new>Kieli tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Language successfully added.</old>
+			<new>Kieli lisätty onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Language&#039;s information</old>
+			<new>Kielen tiedot</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Ulkoasu</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Päävalikko</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Hallitse oletus kirjanmerkkejä</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Hallitse oletus hakukoneita</new>
+		</text>
+		<text>
+			<old>Manage eyeNav&#039;s startpage, its bookmarks and search engines</old>
+			<new>Hallitse eyeNav:in aloitussivua, kirjanmerkkejä sekä hakukoneita</new>
+		</text>
+		<text>
+			<old>Manage groups</old>
+			<new>Ryhmien hallinta</new>
+		</text>
+		<text>
+			<old>Manage the eyeSoft mirrors</old>
+			<new>eyeSoft peilien hallinta</new>
+		</text>
+		<text>
+			<old>Manage users</old>
+			<new>Käyttäjien hallinta</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Hallitse autorun komentoja</new>
+		</text>
+		<text>
+			<old>Manage your system&#039;s groups</old>
+			<new>Hallitse järjestelmäsi ryhmiä</new>
+		</text>
+		<text>
+			<old>Manage your system&#039;s users</old>
+			<new>Hallitse järjestelmäsi käyttäjiä</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Peili</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Peilin osoite (esimerkiksi: %s)</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Peili tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Native name</old>
+			<new>Natiivinen nimi</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Uusi komento</new>
+		</text>
+		<text>
+			<old>New password</old>
+			<new>Uusi salasana</new>
+		</text>
+		<text>
+			<old>New password (again)</old>
+			<new>Uusi salasana (toista)</new>
+		</text>
+		<text>
+			<old>New user</old>
+			<new>Uusi käyttäjä</new>
+		</text>
+		<text>
+			<old>New wallpaper</old>
+			<new>Uusi taustakuva</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Uusi taustakuva asetettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Muut</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Salasana</new>
+		</text>
+		<text>
+			<old>Password (again)</old>
+			<new>Salasana (toista)</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Salasana vaihdettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Käyttöoikeudet</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Omat tiedot</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Valitse poistettava komento.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Valitse muokattava komento.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Valitse poistettava ryhmä.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Valitse muokattava ryhmä.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Valitse ryhmä joka asetetaan oletusryhmäksi.</new>
+		</text>
+		<text>
+			<old>Please choose a language to delete.</old>
+			<new>Valitse poistettava kieli.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to create.</old>
+			<new>Valitse kieli jonka haluat luoda.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to download.</old>
+			<new>Valitse kieli jonka haluat ladata.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to edit.</old>
+			<new>Valitse kieli jota haluat muokata.</new>
+		</text>
+		<text>
+			<old>Please choose a language you want to translate.</old>
+			<new>Valitse kieli jonka haluat kääntää.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Valitse testattava peili.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Valitse poistettava peili.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Valitse muokattava peili.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Valitse poistettava käyttäjä.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Valitse muokattava käyttäjä.</new>
+		</text>
+		<text>
+			<old>Please choose the text you want to edit.</old>
+			<new>Valitse teksti jota haluat muokata.</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Korjaa kirjoittamasi asetukset.</new>
+		</text>
+		<text>
+			<old>Please fill in all needed fields.</old>
+			<new>Täytä kaikki tarvittavat kohdat.</new>
+		</text>
+		<text>
+			<old>Please fill in all textboxes!</old>
+			<new>Täytä kaikki tekstikentät!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Anna komento!</new>
+		</text>
+		<text>
+			<old>Please type a correct group name.</old>
+			<new>Kirjoita oikea ryhmän nimi.</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Anna osoite!</new>
+		</text>
+		<text>
+			<old>Please type the correct root password to uninstall eyeOS!</old>
+			<new>Anna oikea pääkäyttäjän salasana poistaaksesi eyeOS järjestelmän asennuksen!</new>
+		</text>
+		<text>
+			<old>Please type the new translation here:</old>
+			<new>Kirjoita uusi käännös tähän:</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Anna käyttäjänimi tähän:</new>
+		</text>
+		<text>
+			<old>Please use the list of ISO 639-1 codes!</old>
+			<new>Käytä ISO 639-1 koodien listaa!</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>Käytä IP suojausta istunnoissa</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Poista nyt!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>Poista väliaikaiset tiedostot ja kansiot</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your eyeOS system</old>
+			<new>Poista väliaikaiset tiedostot ja kansiot eyeOS järjestelmästäsi</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Rename group</old>
+			<new>Nimeä uudelleen ryhmä</new>
+		</text>
+		<text>
+			<old>Repeat wallpaper</old>
+			<new>Toista taustakuva</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Ohjelmasäiliöt</new>
+		</text>
+		<text>
+			<old>Revision</old>
+			<new>Revision</new>
+		</text>
+		<text>
+			<old>Root password</old>
+			<new>Root:in salasana</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>Tallenna muutokset</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Kuvakaappaus</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Hakukoneet tuotu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Etsi käyttäjä...</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Valitse</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Valitse tiedosto...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Valitse käyttäjä:</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Aseta oletukseksi</new>
+		</text>
+		<text>
+			<old>Sorry, but the file does not exist.</old>
+			<new>Valitan, mutta tiedostoa ei löydy.</new>
+		</text>
+		<text>
+			<old>Sorry, the file is not allowed to be a wallpaper.</old>
+			<new>Valitan, tätä tiedostoa ei ole sallittu käyttää taustakuvana.</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Valitan, tätä tiedostoa ei ole sallittu käyttää taustakuvana.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be nentered by the default user.</old>
+			<new>Valitan, tälle sivulle ei voida siirtyä oletus käyttäjänä.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>Valitan, tätä sivua ei ole asennettu.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>Valitan, sinulla ei ole valtuuksia siirtyä tälle sivulle.</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>Valitan, sinun täytyy kirjautua sisään normaalina käyttäjänä päästäksesi tälle sivulle.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Aloitussivu</new>
+		</text>
+		<text>
+			<old>Statistic</old>
+			<new>Tilastot</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Järjestelmä</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Järjestelmän asetukset</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>Väliaikaiset tiedostot ja kansiot poistettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Testaa</new>
+		</text>
+		<text>
+			<old>Test address</old>
+			<new>Testaa osoite</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>Tätä käyttäjää ei ole olemassa.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>Käyttäjätili poistettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The chosen file is no correct eyeNav search engines file.</old>
+			<new>Valittu tiedosto ei ole oikea eyeNav hakukone tiedosto.</new>
+		</text>
+		<text>
+			<old>The chosen file is not a correct eyeNav bookmarks file.</old>
+			<new>Valittu tiedosto ei ole kelvollinen eyeNav kirjanmerkki tiedosto.</new>
+		</text>
+		<text>
+			<old>The chosen group already exist.</old>
+			<new>Valittu ryhmä on jo olemassa.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Valittu ryhmä on jo määritetty oletusryhmäksi!</new>
+		</text>
+		<text>
+			<old>The chosen user already exist.</old>
+			<new>Valittu käyttäjä on jo olemassa.</new>
+		</text>
+		<text>
+			<old>The chosen username is too long.</old>
+			<new>Valittu käyttäjänimi on liian pitkä.</new>
+		</text>
+		<text>
+			<old>The chosen username is too small.</old>
+			<new>Valittu käyttäjänimi on liian lyhyt.</new>
+		</text>
+		<text>
+			<old>The command does not exist yet.</old>
+			<new>Komentoa ei ole olemassa vielä.</new>
+		</text>
+		<text>
+			<old>The command is already configured.</old>
+			<new>Komento on jo määritetty</new>
+		</text>
+		<text>
+			<old>The command was successfully deleted.</old>
+			<new>Komento poistettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The download of %s will start after clicking OK.%sPlease send your translation to %s%sThanks!</old>
+			<new>%s lataaminen alkaa kun painat OK.%sLähetäthän käännöksesi %s%sKiitos!</new>
+		</text>
+		<text>
+			<old>The download of %s will start after clicking OK.%sTo create an .eyepackage file please follow these instructions:%s1. Download the .tar.gz file%s2. Extract the .tar.gz file%s3. Create a .tar.gz file from the content of %s%s4. Rename the new .tar.gz file to %s%sReady!</old>
+			<new>%s lataus käynnistyy kun painat OK.%sTehdäksesi .eyepackage tiedoston, seuraa näitä ohjeita:%s1. Lataa .tar.gz tiedosto%s2. Pura .tar.gz tiedosto%s3. Luo .tar.gz tiedosto %s%s sisällöstä. 4. Nimeä uusi .tar.gz tiedosto %s%sValmis!</new>
+		</text>
+		<text>
+			<old>The eyeOS system was successfully deleted.</old>
+			<new>eyeOS järjestelmä poistettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The group was successfully deleted.</old>
+			<new>Ryhmä poistettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The language ID is already in use!</old>
+			<new>Kielen ID on jo käytössä!</new>
+		</text>
+		<text>
+			<old>The language was successfully deleted.</old>
+			<new>Kieli poistettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The language was successfully updated.</old>
+			<new>Kieli päivitettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The language&#039;s ID could not be renamed.</old>
+			<new>Kielen ID:tä ei voida nimetä uudelleen</new>
+		</text>
+		<text>
+			<old>The mirror does not exist, yet.</old>
+			<new>Peiliä ei ole olemassa, vielä.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Peili on asennettu vielä!</new>
+		</text>
+		<text>
+			<old>The mirror was successfully deleted.</old>
+			<new>Peili poistettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The password you typed is not correct.</old>
+			<new>Salasana jonka annoit ei ole oikein.</new>
+		</text>
+		<text>
+			<old>The passwords do not match.</old>
+			<new>Salasanat eivät täsmää.</new>
+		</text>
+		<text>
+			<old>The translation was successfully updated.</old>
+			<new>Käännös päivitetty onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The user was successfully deleted.</old>
+			<new>Käyttäjä poistettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>The username is not supported. Please type another one.</old>
+			<new>Käyttäjänimi ei ole tuettu. Valitse jokin toinen.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Teema</new>
+		</text>
+		<text>
+			<old>Theme changed. Please restart your desktop now.</old>
+			<new>Teema vaihdettu. Käynnistä uudelleen työpöytäsi nyt.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Ryhmän poistamisessa tapahtui ongelma.</new>
+		</text>
+		<text>
+			<old>Translate eyeOS</old>
+			<new>eyeOS kielikäännös</new>
+		</text>
+		<text>
+			<old>Translate eyeOS into your language.</old>
+			<new>Käännä eyeOS omalle kielellesi.</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Kirjoita komento jonka haluat suorittaa kirjautumisessa.</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Anna ryhmän nimi jonka haluat luoda:</new>
+		</text>
+		<text>
+			<old>Type the new group name:</old>
+			<new>Kirjoita uusi ryhmän nimi:</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Anna uusi peilin osoite:</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Poista asennus</new>
+		</text>
+		<text>
+			<old>Uninstall eyeOS</old>
+			<new>Poista eyeOS asennus</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>Update your system&#039;s profile</old>
+			<new>Päivitä järjestelmän profiili</new>
+		</text>
+		<text>
+			<old>Update your system&#039;s settings</old>
+			<new>Päivitä järjestelmän asetukset</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Käytä itse valittua taustakuvaa</new>
+		</text>
+		<text>
+			<old>Use defaults</old>
+			<new>Käytä oletuksia</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Käytetty tila:</new>
+		</text>
+		<text>
+			<old>Used version</old>
+			<new>Käytetty versio</new>
+		</text>
+		<text>
+			<old>User quota</old>
+			<new>Käyttäjä kiintiö</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Käyttäjä luotu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Käyttäjänimi</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versio</new>
+		</text>
+		<text>
+			<old>Web Browser</old>
+			<new>Verkkoselain</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>Et voi poistaa oletus ryhmää!</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>Et voi poistaa oletus peiliä!</new>
+		</text>
+		<text>
+			<old>You cannot delete the eyeBar command!</old>
+			<new>Et voi poistaa eyeBar komentoa!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>Et voi poistaa root käyttäjää!</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>Et voi muokata oletus peiliä!</new>
+		</text>
+		<text>
+			<old>You cannot edit the eyeBar command!</old>
+			<new>Et voi muokata eyeBar komentoa!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>Et voi tallentaa peiliä oletus peiliksi!</new>
+		</text>
+		<text>
+			<old>Your eyeOS server does not need to be cleaned.</old>
+			<new>eyeOS palvelimesi ei tarvitse puhdistusta.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>File Copied. You can now paste it in another folder.</old>
+			<new>Tiedosto Kopioitu. Voit nyt liittää sen toiseen kansioon.</new>
+		</text>
+		<text>
+			<old>Links can&#039;t be copied.</old>
+			<new>Linkkejä ei voida kopioida.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Directory moved to trash.</old>
+			<new>Kansio siirretty roskakoriin.</new>
+		</text>
+		<text>
+			<old>Error deleting file.</old>
+			<new>Virhe poistettaessa tiedostoa.</new>
+		</text>
+		<text>
+			<old>File moved to trash.</old>
+			<new>Tiedosto siirretty roskakoriin.</new>
+		</text>
+		<text>
+			<old>File removed successfully.</old>
+			<new>Tiedosto poistettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Unable to delete directory.</old>
+			<new>Kansion poisto ei onnistu.</new>
+		</text>
+		<text>
+			<old>Unable to delete file.</old>
+			<new>Tiedoston poisto epäonnistui.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Copy</old>
+			<new>Kopioi</new>
+		</text>
+		<text>
+			<old>Delete Launcher</old>
+			<new>Poista Linkki</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Lataa</new>
+		</text>
+		<text>
+			<old>New File</old>
+			<new>Uusi Tiedosto</new>
+		</text>
+		<text>
+			<old>New Folder</old>
+			<new>Uusi Kansio</new>
+		</text>
+		<text>
+			<old>New Launcher</old>
+			<new>Uusi Linkki</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Liitä</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Asetukset</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ominaisuudet</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Lisää tiedostoja</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Taustakuva</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Tervetuloa %s järjestelmään, %s.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Name</old>
+			<new>Nimi</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Valitse</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Valitse kansio</new>
+		</text>
+		<text>
+			<old>Select destination file</old>
+			<new>Valitse kohde tiedosto</new>
+		</text>
+		<text>
+			<old>Select file to open</old>
+			<new>Valitse avattava tiedosto</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>Koko</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s ei löytynyt</new>
+		</text>
+		<text>
+			<old>Access to all the groups you are allowed to use</old>
+			<new>Pääsy kaikkiin ryhmiin joita sinun on sallittu käyttää</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Apuohjelmat</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>Toiminto widget</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Laskin</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalenteri</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>Kalenteri widget</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Shakki Peli</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Yhteystietojen hallinta</new>
+		</text>
+		<text>
+			<old>Create and edit events and be organized</old>
+			<new>Luo ja muokkaa merkintöjä ja organisoi</new>
+		</text>
+		<text>
+			<old>Create and edit rich sheets</old>
+			<new>Luo ja muokkaa taulukkolaskentoja</new>
+		</text>
+		<text>
+			<old>Create and edit rich text documents</old>
+			<new>Luo ja muokkaa dokumentteja</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Työpöytä</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>Suosikit</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Tiedostohallinta</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP ohjelma</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Pelit</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Ryhmät</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Koti</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>Koti widget</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Sisäinen Viestintä</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Sähköposti ohjelma</new>
+		</text>
+		<text>
+			<old>Manage and import/export your contacts</old>
+			<new>Yhteystietojen hallinta ja tuonti/vienti</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>Viestintä widget</new>
+		</text>
+		<text>
+			<old>Navigate through Internet and save your bookmarks</old>
+			<new>Navigoi läpi Internetin ja tallenna kirjanmerkkejä</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Internet selain</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Verkko</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Toimisto</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>Alueet</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Esitykset</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Prosessien hallinta</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>Julkinen</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Julkinen Taulu</new>
+		</text>
+		<text>
+			<old>Public directory to share files with all the system users</old>
+			<new>Julkinen kansio tiedostojen jakamiseen järjestelmän käyttäjien kanssa</new>
+		</text>
+		<text>
+			<old>Read and leave messages to all the system users</old>
+			<new>Lue ja jätä viestejä järjestelmän kaikille käyttäjille</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Syöte Lukija</new>
+		</text>
+		<text>
+			<old>Save quick notes and edit text and source files</old>
+			<new>Tallenna nopeita muistiinpanoja ja muokkaa tekstiä sekä lähdekoodeja</new>
+		</text>
+		<text>
+			<old>See which processes are running in your session and kill them</old>
+			<new>Katso mitä prosesseja on käynnissä istunnossasi ja sulje niitä</new>
+		</text>
+		<text>
+			<old>Send and receive e-mails with your usual POP3 mail accounts</old>
+			<new>Lähetä ja vastaanota sähköposteja normaalilta POP3 posti tileiltä</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the other eyeOS users</old>
+			<new>Lähetä yksityisiä viestejä liitteiden kanssa toisille eyeOS käyttäjille</new>
+		</text>
+		<text>
+			<old>Send private messages with attachments to the system users</old>
+			<new>Lähetä yksityisiä viestejä liitteiden kanssa toisille järjestelmän käyttäjille</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Taulukkolaskenta</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite blogs</old>
+			<new>Pysy ajantasalla suosikki blogejesi viimeisimmistä uutisista</new>
+		</text>
+		<text>
+			<old>Stay tuned to the latest news from your favorite sources</old>
+			<new>Pysy ajantasalla suosikki lähteittesi viimeisimmistä uutisista</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Järjestelmä</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Peli</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Teksti Editori</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Roskakori</new>
+		</text>
+		<text>
+			<old>unable to open config file for eyeDock</old>
+			<new>eyeDock asetustiedoston avaaminen epäonnistui</new>
+		</text>
+		<text>
+			<old>Upload, manage and work with your files in eyeOS</old>
+			<new>Lisää, hallitse ja työskentele tiedostojesi kanssa eyeOSissa</new>
+		</text>
+		<text>
+			<old>Watch your presentations</old>
+			<new>Katso esityksiäsi</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekstinkäsittely</new>
+		</text>
+		<text>
+			<old>Work with any FTP Server in the world</old>
+			<new>Työskentele minkä tahansa FTP palvelimen kanssa</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Dokumentti tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Valitan, sinulla ei ole riittäviä oikeuksia.</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>Sinulla ei ole riittäviä oikeuksia</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links can&#039;t be downloaded.</old>
+			<new>Linkkejä ei voida ladata.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>  Loading, please wait...  </old>
+			<new>Ladataan, odota hetki...</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Lisää Syöte</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Lisää Kansio</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Käytä</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this %s?</old>
+			<new>Oletko varma että haluat poistaa tämän %s?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Tekijä</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Kirjanmerkit</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Valitse kansio syötteelle:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Valitse kansio uudelle syötteelle:</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Valitse isäntä kansio uudelle kansiolle:</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Valitse isäntä kansiolle:</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Päivämäärä</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Poista syöte/kansio</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Muokkaa</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Muokkaa Syötettä</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Muokkaa Kansiota</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Elementti poistettu onnistuneesti</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Virhe syötteen lisäämisessä</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Virhe kansion lisäämisessä</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Virhe muutosten käyttöönotossa</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Virhe poistettaessa syötettä</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Virhe haettaessa määritettyä syötettä</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Virhe tallennettaessa syötettä</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Virhe tallennettaessa kansiota</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Syöte lisätty onnistuneesti</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Syöte muutettu onnistuneesti</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Syötteet</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Kansio lisätty onnistuneesti</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Kansio muutettu onnistuneesti</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Ohje</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Valitse selattava syöte...</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Valitse luettava osio...</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Otsikko</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Kirjoita syötteen nimi (valinnainen):</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Kirjoita kansion nimi:</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Kirjoita syötteen URL:</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Syötettyä URLia ei kyetty hakemaan</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Sinun täytyy kirjoittaa nimi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Actions</old>
+			<new>Toiminnot</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopioi</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Luo kansio</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Poista</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Lataa</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Lataa zip muodossa</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Kansiot</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Uusi tiedosto</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Uusi kansio</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Liitä</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ominaisuudet</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Lisää tiedostoja</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Actions</old>
+			<new>Toiminnot</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Lisää isäntä</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Haluatko varmasti poistaa tämän tiedoston/kansion?</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Tekijä</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Yhdistä</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Päivämäärä</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Poista</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Poista tiedosto/kansio</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Poista Valinta</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Katkaise yhteys</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Lataa</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Muokkaa Valintaa</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Tiedostonimi</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>Tiedostokoko</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Pakota passiivinen tila</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Ohje</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Isäntä:</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Isäntänimi</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Lataa Valinta</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Hallinnoi isäntiä</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>Nimi ei voi olla tyhjä</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Uusi kansio</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Omistaja</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Salasana</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Salasana:</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Käyttöoikeudet</new>
+		</text>
+		<text>
+			<old>Please specify a hostname to connect to</old>
+			<new>Määritä isäntänimi johon yhdistetään</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>Määritä käyttäjänimi</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Portti</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Portti:</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Nimeä uudelleen tiedosto/kansio</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Nimeä uudelleen/Siirrä</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Valitse tiedosto joka lähetetään polkuun:</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Kirjoita uuden kansion nimi</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Kirjoita tiedoston/kansion uusi nimi/sijainti</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Lähetä</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Lähetä tiedosto</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Käyttäjä:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Käyttäjänimi</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>Sinun täytyy avata yhteys ensin</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Sinun täytyy avata yhteys ensin!</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Sinun täytyy valita tiedosto tai kansio ensin</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Sinun täytyy valita isäntä joka poistetaan</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Sinun täytyy valita isäntä jota muokataan</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Sinun täytyy valita isäntä joka ladataan</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>Sinun täytyy valita paikallinen tiedosto</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>Sinun täytyy valita palvelimen tiedosto</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Sinun täytyy määrittää isäntänimi, portti ja käyttäjänimi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeGroups</name>
+		<text>
+			<old>Actions</old>
+			<new>Toiminnot</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopioi</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Luo kansio</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Poista</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Lataa</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Lataa zip muodossa</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Kansiot</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Uusi tiedosto</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Uusi kansio</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Liitä</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ominaisuudet</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Lisää tiedostoja</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>Fullscreen</old>
+			<new>Kokonäyttö</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Seuraava</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Edellinen</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>%s files imported!</old>
+			<new>%s tiedosto(a) tuotu!</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Selaa</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Tuo</new>
+		</text>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Sinun täytyy valita kansio mihin tiedostot tuodaan</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Developers</old>
+			<new>Kehittäjät</new>
+		</text>
+		<text>
+			<old>eyeOS Community Developers</old>
+			<new>eyeOS yhteisön kehittäjät</new>
+		</text>
+		<text>
+			<old>eyeOS Engineering Team</old>
+			<new>eyeOS Tekniikka Tiimi</new>
+		</text>
+		<text>
+			<old>Team</old>
+			<new>Tiimi</new>
+		</text>
+		<text>
+			<old>Thanks</old>
+			<new>Kiitokset</new>
+		</text>
+		<text>
+			<old>Thanks to</old>
+			<new>Kiitokset</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Accept</old>
+			<new>Hyväksy</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Haluatko todella asentaa tämän paketin järjestelmään?</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Asennetaan</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Ei mitään asennettavaa!</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Paketti asennettu onnistuneesti!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>%s not found</old>
+			<new>%s ei löytynyt</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>Virhe, tyhjä käyttäjänimi tai salasana</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>Virhe, väärä käyttäjänimi tai salasana</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Väärä käyttäjänimi</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Salasana</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>Suorita</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>Suorita toisena käyttäjänä</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Suorita...</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Kirjoita suoritettavan ohjelman tai komennon nimi</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Käyttäjä</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLightDesk</name>
+		<text>
+			<old>About eyeOS</old>
+			<new>Tietoa eyeOSista</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Apuohjelmat</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>Toiminto widget</new>
+		</text>
+		<text>
+			<old>All Applications</old>
+			<new>Kaikki Sovellukset</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Sovellukset</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Laskin</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalenteri</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>Kalenteri widget</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Shakki Peli</new>
+		</text>
+		<text>
+			<old>Close session</old>
+			<new>Sulje istunto</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Yhteystietojen Hallinta</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Työpöytä</new>
+		</text>
+		<text>
+			<old>Favorite Applications</old>
+			<new>Suosikki Ohjelmat</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Tiedoston Hallinta</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP Asiakas</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Pelit</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Ryhmät</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Koti</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>Koti widget</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Sisäinen Viestintä</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>Käynnistä Ohjelma</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Posti Ohjelma</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>Viesti widget</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Verkkoselain</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Verkko</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Toimisto</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>Alueet</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Esitykset</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Prosessien Hallinta</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>Julkinen</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Ilmoitustaulu</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Syötteen Lukija</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Taulukkolaskenta</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Järjestelmä</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Järjestelmän asetukset</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Peli</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Teksti Editori</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Roskakori</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekstinkäsittely</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Accounts</old>
+			<new>Tilit</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Lisää</new>
+		</text>
+		<text>
+			<old>Configure Later</old>
+			<new>Määritä myöhemmin</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Päivämäärä</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>Päivämäärä:</new>
+		</text>
+		<text>
+			<old>Error deleting mail</old>
+			<new>Virhe poistettaessa viestiä</new>
+		</text>
+		<text>
+			<old>eyeMail Configuration</old>
+			<new>eyeMail Konfiguraatio</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Kansiot</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Lähettäjä</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Saapuneet</new>
+		</text>
+		<text>
+			<old>Inbox (%s)</old>
+			<new>Saapuneet (%s)</new>
+		</text>
+		<text>
+			<old>Incoming mail</old>
+			<new>Saapuva posti</new>
+		</text>
+		<text>
+			<old>Mail from:</old>
+			<new>Posti lähettäjältä:</new>
+		</text>
+		<text>
+			<old>Mail sent to %s</old>
+			<new>Posti lähetetty osoitteeseen %s</new>
+		</text>
+		<text>
+			<old>Mail to:</old>
+			<new>Vastaanottaja:</new>
+		</text>
+		<text>
+			<old>Manage accounts</old>
+			<new>Tilien hallinta</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>Viesti poistettu</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nimi</new>
+		</text>
+		<text>
+			<old>New Mail</old>
+			<new>Uusi Posti</new>
+		</text>
+		<text>
+			<old>No subject</old>
+			<new>Ei aihetta</new>
+		</text>
+		<text>
+			<old>Outgoing mail</old>
+			<new>Lähtevät postit</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Salasana</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Asetukset</new>
+		</text>
+		<text>
+			<old>Save Configuration</old>
+			<new>Tallenna Konfiguraatio</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Lähetä</new>
+		</text>
+		<text>
+			<old>Server Address</old>
+			<new>Palvelimen Osoite</new>
+		</text>
+		<text>
+			<old>Server Port</old>
+			<new>Palvelimen Portti</new>
+		</text>
+		<text>
+			<old>Server Protocol</old>
+			<new>Palvelimen Protokolla</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Aihe</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>Aihe:</new>
+		</text>
+		<text>
+			<old>This name will be used by eyeMail to identify this account, and has nothing to do with the server&#039;s configuration.</old>
+			<new>Tätä nimeä eyeMail käyttää yksilöimään tämän tilin, ja sillä ei ole mitään merkitystä palvelimen asetuksiin.</new>
+		</text>
+		<text>
+			<old>Use Secure Sockets</old>
+			<new>Ota käyttöön Secure Sockets</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Käyttäjänimi</new>
+		</text>
+		<text>
+			<old>Welcome to eyeMail. Please, fill this form with your e-mail account data.</old>
+			<new>Tervetuloa eyeMail ohjelmaan. Täytä tämä lomake sähköposti tilisi tiedoilla.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>%s added</old>
+			<new>%s lisätty</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Apuohjelmat</new>
+		</text>
+		<text>
+			<old>Actions widget</old>
+			<new>Toiminto widget</new>
+		</text>
+		<text>
+			<old>Add an application</old>
+			<new>Lisää sovellus</new>
+		</text>
+		<text>
+			<old>Add Application</old>
+			<new>Lisää ohjelma</new>
+		</text>
+		<text>
+			<old>Application %s removed</old>
+			<new>Sovellus %s poistettu</new>
+		</text>
+		<text>
+			<old>Application entry updated</old>
+			<new>Sovellus valinta päivitetty</new>
+		</text>
+		<text>
+			<old>Application moved down</old>
+			<new>Sovellus siirretty alas</new>
+		</text>
+		<text>
+			<old>Application moved to last position</old>
+			<new>Sovellus siirretty viimeiseen sijaintiin</new>
+		</text>
+		<text>
+			<old>Application moved up</old>
+			<new>Sovellus siirretty ylös</new>
+		</text>
+		<text>
+			<old>Application name</old>
+			<new>Sovelluksen nimi</new>
+		</text>
+		<text>
+			<old>Application Properties</old>
+			<new>Sovelluksen Tiedot</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Laskin</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalenteri</new>
+		</text>
+		<text>
+			<old>Calendar widget</old>
+			<new>Kalenteri widget</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Shakki Peli</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>Sulje</new>
+		</text>
+		<text>
+			<old>Code executed</old>
+			<new>Suoritettava koodi</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>Yhteystietojen hallinta</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>Luo Ryhmä</new>
+		</text>
+		<text>
+			<old>Create new Group</old>
+			<new>Luo uusi Ryhmä</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>Kuvaus</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Työpöytä</new>
+		</text>
+		<text>
+			<old>Enter the name of the new group:</old>
+			<new>Anna uuden ryhmän nimi:</new>
+		</text>
+		<text>
+			<old>Favorites</old>
+			<new>Suosikit</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Tiedostojen hallinta</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP asiakas</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Pelit</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>Ryhmä</new>
+		</text>
+		<text>
+			<old>Group %s deleted</old>
+			<new>Ryhmä %s poistettu</new>
+		</text>
+		<text>
+			<old>Group entry updated</old>
+			<new>Ryhmä valinta päivitetty</new>
+		</text>
+		<text>
+			<old>Group moved down</old>
+			<new>Ryhmä siirretty alas</new>
+		</text>
+		<text>
+			<old>Group moved to last position</old>
+			<new>Ryhmä siirretty viimeiseen sijaintiin</new>
+		</text>
+		<text>
+			<old>Group moved up</old>
+			<new>Ryhmä siirretty ylös</new>
+		</text>
+		<text>
+			<old>Group Name</old>
+			<new>Ryhmän Nimi</new>
+		</text>
+		<text>
+			<old>Group properties</old>
+			<new>Ryhmän tiedot</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Ryhmät</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Koti</new>
+		</text>
+		<text>
+			<old>Home widget</old>
+			<new>Koti widget</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>Kuvake</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Sisäinen Viestintä</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>Posti asiakas</new>
+		</text>
+		<text>
+			<old>Messages widget</old>
+			<new>Viestintä widget</new>
+		</text>
+		<text>
+			<old>Move Down</old>
+			<new>Siirrä Alas</new>
+		</text>
+		<text>
+			<old>Move Up</old>
+			<new>Siirrä Ylös</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Web-navigointi</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Verkko</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Toimisto</new>
+		</text>
+		<text>
+			<old>Parameters</old>
+			<new>Parametrit</new>
+		</text>
+		<text>
+			<old>Places</old>
+			<new>Alueet</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>Esitykset</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Prosessien hallinta</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ominaisuudet</new>
+		</text>
+		<text>
+			<old>Public</old>
+			<new>Julkinen</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Julkiset ilmoitukset</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS Syöte Lukija</new>
+		</text>
+		<text>
+			<old>Save changes</old>
+			<new>Tallenna muutokset</new>
+		</text>
+		<text>
+			<old>Short description</old>
+			<new>Lyhyt kuvaus</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>Taulukkolaskenta</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Järjestelmä</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex Peli</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Teksti Editori</new>
+		</text>
+		<text>
+			<old>The code executed by the application must not be left blank</old>
+			<new>Sovelluksen suorittamaa koodia ei voida jättää tyhjäksi</new>
+		</text>
+		<text>
+			<old>The specified group name is not valid</old>
+			<new>Määritelty ryhmän nimi ei ole kunnollinen</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Roskakori</new>
+		</text>
+		<text>
+			<old>Type the application name in the first text box below, or select an application from the list below and click the &#039;Add&#039; button. You can add multiple applications.</old>
+			<new>Anna ohjelman nimi ensimmäiseen tekstikenttään alhaalla, tai valitse sovellus listasta alempaa ja paina Lisää painiketta. Voit lisätä useampia ohjelmia kerralla.</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Tekstinkäsittely</new>
+		</text>
+		<text>
+			<old>You must provide a short description of the application</old>
+			<new>Sinun täytyy antaa lyhyt kuvaus sovelluksesta</new>
+		</text>
+		<text>
+			<old>You must select a group for the application</old>
+			<new>Sinun täytyy valita ryhmä sovellukselle</new>
+		</text>
+		<text>
+			<old>You must specify the name of the application</old>
+			<new>Sinun täytyy määrittää sovelluksen nimi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Add file</old>
+			<new>Lisää tiedosto</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Liite</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Päivämäärä</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Lataa</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Tyhjennä</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>Virhe lähetettäessä viestiä</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Tiedosto tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Lähettäjä</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Saapuneet</new>
+		</text>
+		<text>
+			<old>Message deleted</old>
+			<new>Viesti poistettu</new>
+		</text>
+		<text>
+			<old>Message moved to trash</old>
+			<new>Viesti siirretty roskakoriin</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Viesti palautettu sen alkuperäiseen kansioon</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>Viesti lähetetty</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>Uusi Viesti</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Lue</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Lue Viesti</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Vastaa</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Palauta</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>Lähetä</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Lähetetyt</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Aihe</new>
+		</text>
+		<text>
+			<old>The body of the message cannot be left blank</old>
+			<new>Viestin runkoa ei voida jättää tyhjäksi</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Vastaanottaja</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Roskakori</new>
+		</text>
+		<text>
+			<old>Trash emptied</old>
+			<new>Roskakori tyhjennetty</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Lukemattomat</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Sinun täytyy valita poistettava viesti</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Sinun täytyy valita avattava viesti</new>
+		</text>
+		<text>
+			<old>You must specify the receiver of the message</old>
+			<new>Sinun täytyy määrittää viestin vastaanottaja</new>
+		</text>
+		<text>
+			<old>You must specify the subject of the message</old>
+			<new>Sinun täytyy määrittää viestin aihe</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Error creating directory</old>
+			<new>Virhe kansion luomisessa</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Uusi kansio</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Joitain erikoismerkkejä on poistettu.</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Kirjoita uuden kansion nimi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug! Is a problem with flash players!</old>
+			<new>Tämä ei ole vika! Flash playerissasi on ongelma!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Add</old>
+			<new>Lisää</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Lisää kirjanmerkki</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Ohjelmat</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Takaisin</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Kirjanmerkin otsikko</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Kirjanmerkit</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Poista kirjanmerkki</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Haluatko varmasti poistaa tämän kirjanmerkin?</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Foorumit</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>Eteenpäin</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Kuvat</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Tieto</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Linkki poistettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Linkki tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Avaa kirjanmerkit</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Avaa hakukoneet</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Haku</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Asetukset</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Aloitussivu</new>
+		</text>
+		<text>
+			<old>The bookmark doesn&#039;t exist!</old>
+			<new>Kirjanmerkkiä ei ole olemassa!</new>
+		</text>
+		<text>
+			<old>The choosen file is not a correct eyeNav searches file.</old>
+			<new>Valittu tiedosto ei ole oikea eyeNav haku tiedosto.</new>
+		</text>
+		<text>
+			<old>The chosen file is not a correct eyeNav bookmarks file.</old>
+			<new>Valittu tiedosto ei ole oikea eyeNav kirjanmerkki tiedosto.</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Tällä nimellä on jo olemassa toinen kirjanmerkki!</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>Ei kategoriaa</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Verkkosivusto</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>File not found</old>
+			<new>Tiedostoa ei löytynyt</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Tiedosto tallennettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Valitan, sinulla ei ole riittäviä oikeuksia.</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Tiedoston luominen ei onnistu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Back</old>
+			<new>Takaisin</new>
+		</text>
+		<text>
+			<old>Full</old>
+			<new>Kokonäyttö</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Seuraava</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Valitan, sinulla ei ole riittäviä oikeuksia.</new>
+		</text>
+		<text>
+			<old>You are on the first slide, you can&#039;t go back</old>
+			<new>Olet ensimmäisellä sivulla, et voi palata takaisin päin</new>
+		</text>
+		<text>
+			<old>You have to select a file to open</old>
+			<new>Sinun täytyy valita avattava tiedosto</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Kill Process</old>
+			<new>Tapa Prosessi</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>Pid</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Prosessi tapettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Prosessin Nimi</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Käyttäjänimi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>Author: %s</old>
+			<new>Tekijä: %s</new>
+		</text>
+		<text>
+			<old>Created with: %s</old>
+			<new>Luotu käyttämällä: %s</new>
+		</text>
+		<text>
+			<old>Creation date: %s</old>
+			<new>Luomisen pvm: %s</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>Kansio</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>Tiedoston informaatio</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Tiedot</new>
+		</text>
+		<text>
+			<old>Size: %sbytes</old>
+			<new>Koko: %sbittiä</new>
+		</text>
+		<text>
+			<old>Type: %s</old>
+			<new>Tyyppi: %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeRename</name>
+		<text>
+			<old>Error renaming file.</old>
+			<new>Virhe uudelleen nimettäessä tiedostoa.</new>
+		</text>
+		<text>
+			<old>Please type a new name here:</old>
+			<new>Kirjoita uusi nimi tähän:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Nimeä uudelleen</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Joitain erikoismerkkejä on poistettu.</new>
+		</text>
+		<text>
+			<old>You must type a new filename.</old>
+			<new>Sinun täytyy antaa uusi tiedoston nimi.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>File not found</old>
+			<new>Tiedostoa ei löytynyt</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Valitan, sinulla ei ole riittäviä oikeuksia.</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>Taulukkolaskenta tallennettu onnistuneesti.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s lataus on vioittunut! asennus ei onnistu</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s asennettu onnistuneesti!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Hyväksy</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>Kaikki</new>
+		</text>
+		<text>
+			<old>App Manager</old>
+			<new>Sovellusten hallinta</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Sovelluksen nimi</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Tekijä: %s</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategoriat</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Kategoria: %s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Riippuvuudet: %s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Kuvaus: %s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Työpöytä</new>
+		</text>
+		<text>
+			<old>Development</old>
+			<new>Kehitys</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Haluatko varmasti poistaa tämän sovelluksen asennuksen?</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Ladataan ja Asennetaan %s ... odota hetki</new>
+		</text>
+		<text>
+			<old>Extras</old>
+			<new>Extrat</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft: Paketti lista päivitetty</new>
+		</text>
+		<text>
+			<old>File Management</old>
+			<new>Tiedoston hallinta</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Pelit</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Asenna</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Asennettu</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Asennetaan</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Lisenssi: %s</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>Multimedia</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Nimi: %s</new>
+		</text>
+		<text>
+			<old>Networking</old>
+			<new>Verkko</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>ei mitään</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Toimisto</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Vain root voi asentaa sovelluksia</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Valitse asennettava sovellus.</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Valitse sovellus jonka asennus poistetaan.</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Etsi</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Suositukset: %s</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>Järjestelmä</new>
+		</text>
+		<text>
+			<old>The application can&#039;t be uninstalled.</old>
+			<new>Sovelluksen asennusta ei voida poistaa.</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Sovelluksen asennus poistettiin onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Poista asennus</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Poista sovelluksen asennus</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Päivitä</new>
+		</text>
+		<text>
+			<old>Utilities</old>
+			<new>Työkalut</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Versio</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Versio: %s</new>
+		</text>
+		<text>
+			<old>You are installing a new App in your eyeOS system</old>
+			<new>Olet asentamassa uuden sovelluksen eyeOS järjestelmääsi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Add input to output</old>
+			<new>Lisää lähde kohteeseen</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Lisää uusi rivi loppuun</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii to Hexa</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Tyhjennä lähde automaattisesti</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64 Decode</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64 Encode</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Tyhjennä</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Liitä kohteeseen</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Decimal to Roman</new>
+		</text>
+		<text>
+			<old>eyeOS hash</old>
+			<new>eyeOS hash</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa to Ascii</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Html Entities</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Lähde teksti</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Viime suorituksen aika: %s</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5 Hash</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>Ok</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Asetukset</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Kohde Teksti</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Remove Html Entities</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Roman to Decimal</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL Decode</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL Encode</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTrash</name>
+		<text>
+			<old>Actions</old>
+			<new>Toiminnot</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Tyhjennä roskakori</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Ominaisuudet</new>
+		</text>
+		<text>
+			<old>Restore element</old>
+			<new>Palauta tiedosto</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Add files</old>
+			<new>Lisää tiedostoja</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Lisää siirrettäviä tiedostoja, paina sitten Lisää nyt!</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Kehittynyt</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>Toinen tiedosto</new>
+		</text>
+		<text>
+			<old>Error uploading file</old>
+			<new>Virhe lähetettäessä tiedostoa palvelimelle</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Poista</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Yksinkertainen</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>Siirretään:</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Lisää</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Lisää tiedostoja</new>
+		</text>
+		<text>
+			<old>Upload finished!</old>
+			<new>Lähetys valmistui!</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Lisää nyt!</new>
+		</text>
+		<text>
+			<old>You can now close this window.</old>
+			<new>Voit nyt sulkea tämän ikkunan.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>Edit</old>
+			<new>Muokkaa</new>
+		</text>
+		<text>
+			<old>You don&#039;t have sufficient permissions</old>
+			<new>Sinulla ei ole riittäviä oikeuksia.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Unable to save position</old>
+			<new>Sijainnin tallennus ei onnistunut</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Change Label Text</old>
+			<new>Vaihda Label tekstiä</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Esimerkki eyeApp</new>
+		</text>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process was killed</old>
+			<new>Ei yhtään prosessia tapettu</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Haluatko että tämä widget avataan automaattisesti seuraavassa istunnossasi?</new>
+		</text>
+		<text>
+			<old>Lock session</old>
+			<new>Lukitse istunto</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Lähetä sisäinen viesti</new>
+		</text>
+		<text>
+			<old>Start a new document</old>
+			<new>Aloita uusi dokumentti</new>
+		</text>
+		<text>
+			<old>Start a new spreadsheet</old>
+			<new>Aloita uusi taulukkolaskenta</new>
+		</text>
+		<text>
+			<old>Upload your files</old>
+			<new>Lisää tiedostojasi</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Kalenteri</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Oma tila</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Sisäinen Viestintä</new>
+		</text>
+	</part>
+	<part>
+		<name>moveDrag</name>
+		<text>
+			<old>Error moving file</old>
+			<new>Virhe tiedoston siirrossa</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Error creating file</old>
+			<new>Virhe luodessa tiedostoa</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Uusi tiedosto</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Joitain erikoismerkkejä poistettiin.</new>
+		</text>
+		<text>
+			<old>Type the name of the new file</old>
+			<new>Anna uuden tiedoston nimi</new>
+		</text>
+	</part>
+	<part>
+		<name>propertyTrash</name>
+		<text>
+			<old>Deleted at: %s</old>
+			<new>Poistettu: %s</new>
+		</text>
+		<text>
+			<old>Filename: %s</old>
+			<new>Tiedostonimi: %s</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Tiedot</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Are you sure you want to restore this element?</old>
+			<new>Haluatko varmasti palauttaa tämän kohteen?</new>
+		</text>
+		<text>
+			<old>Restore completed successfully.</old>
+			<new>Palautus suoritettu onnistuneesti.</new>
+		</text>
+		<text>
+			<old>Restore trash</old>
+			<new>Palauta roskakorista</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>April</old>
+			<new>Huhtikuu</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Elokuu</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Kopioi / liitä tämä koodi muihin taulukkolaskenta ohjelmiin (esim. Excel)</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Joulukuu</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Poista Sarake</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Poista Rivi</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Helmikuu</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Kaava</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Perjantai</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Aseta sarake</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Aseta Rivi</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Tammikuu</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Heinäkuu</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Kesäkuu</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Maaliskuu</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Toukokuu</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Maanantai</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Uusi</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Marraskuu</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Lokakuu</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Avaa</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Sijainti</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Tulosta</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Tyhjennetäänkö varmasti solu(t) ?</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>Lauantai</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Tallenna</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Tallenna Nimellä</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Syyskuu</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Taulukon Koko</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Tyyli</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Sunnuntai</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Torstai</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Tiistai</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Keskiviikko</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>April</old>
+			<new>Huhtikuu</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Elokuu</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Peruuta</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Luo</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Joulukuu</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Poista</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>Pe</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Helmikuu</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Per</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Tammikuu</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Heinäkuu</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Kesäkuu</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>Ma</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Maaliskuu</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Toukokuu</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Maa</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Uusi</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>Ei</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Marraskuu</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Lokakuu</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Avaa</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>Su</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>La</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Lau</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Tallenna</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Tallenna Nimellä</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Syyskuu</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Sun</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>Ti</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>To</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Tor</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Tii</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>Ke</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Kes</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>Kyllä</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Are you sure you want to import this vCard?</old>
+			<new>Oletko varma että haluat tuoda tämän vCardin?</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Kansiota ei löytynyt</new>
+		</text>
+		<text>
+			<old>Error exporting file.</old>
+			<new>Virhe tiedoston viennissä.</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Tiedosto Tuotu!</new>
+		</text>
+		<text>
+			<old>Format unsupported!</old>
+			<new>Ei-tuettu formaatti!</new>
+		</text>
+		<text>
+			<old>Import vCard</old>
+			<new>Tuo vCard</new>
+		</text>
+		<text>
+			<old>Sorry, no contacts found in the file</old>
+			<new>Valitan, tiedostosta ei löytynyt yhteystietoja</new>
+		</text>
+		<text>
+			<old>The contact already exists.</old>
+			<new>Yhteystieto on jo olemassa.</new>
+		</text>
+		<text>
+			<old>The file was not found.</old>
+			<new>Tiedostoa ei löytynyt.</new>
+		</text>
+		<text>
+			<old>vCardImport can&#039;t initialize, contact with your administrator</old>
+			<new>vCardImport alustus ei onnistu, ota yhteyttä järjestelmän valvojaan</new>
+		</text>
+	</part>
+</lang>

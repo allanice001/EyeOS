@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>serialize</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyewidgets</tag>
+			<tag>serialization</tag>
+		</tags>
+		<shortDesc>Adds a widget to the serialized widgets table.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>serialize</functionName>
+		<syntax>eyeWidgets('serialize', array($object))</syntax>
+		<desc>Adds the specified object to the table of serialized widgets of the current process.</desc>
+		<params>
+			<type>required</type>
+			<name>object</name>
+			<desc>Widget to serialize</desc>
+		</params>
+		<return>None.</return>
+	</definition>
+</info>

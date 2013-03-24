@@ -1,0 +1,65 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+$myImagebox = new Imagebox(array(
+	'father' => $webTab,
+	'name' => 'eyeUpload_web_Imagebox',
+	'url' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/48x48/upload.png',
+	'x' => 22,
+	'y'=> 43
+));
+$myImagebox->show();
+
+$myLabel = new Label(array(
+	'father' => $webTab,
+	'name' => 'eyeUpload_web_Label',
+	'text' => 'Please enter the HTTP address to a file:',
+	'x' => 75,
+	'y' => 50
+));
+$myLabel->show();
+$myLabel->setCss(array('text-align' => 'center','width' => '390px'));
+
+$myTextbox = new Textbox(array(
+	'father' => $webTab,
+	'name' => 'eyeUpload_web_Textbox',
+	'width' => 300,
+	'x' => 120,
+	'y' => 70
+));
+$myTextbox->show();
+$myTextbox->addEnterEvent('web_Do');
+
+$myButton = new Button(array(
+	'caption' => 'Upload',
+	'father' => $webTab,
+	'name' => 'eyeUpload_web_Button',
+	'signal' => 'web_Do',
+	'width' => 100,
+	'x' => 210,
+	'y' => 130
+));
+$myButton->addFriend($myLabel);
+$myButton->addFriend($myTextbox);
+$myButton->show();
+?>

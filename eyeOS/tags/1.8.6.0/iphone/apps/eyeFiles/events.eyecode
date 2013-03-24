@@ -1,0 +1,44 @@
+<?php
+
+require_once(IPHONE_PATH.'apps/eyeFiles/lib.eyecode');
+
+function eyeFiles_getIcon() {
+	$icon = utf8_basename($_GET['icon']);
+	$rpath = eyex('getThemeImage',array('icons/16x16/'.$icon,2));
+	$mime = getimagesize($rpath);
+	if(!$mime) {
+		exit;
+	}
+	$fp = fopen($rpath,'r');
+	if(!$fp) {
+		return;
+	}
+	$len = filesize($rpath);
+	header('Content-Type: '.$mime['mime']);
+	header("Content-Length: $len");
+	header("Accept-Ranges: bytes");
+	header("X-Pad: avoid browser bug");
+	$content = fread($fp,$len);
+	echo $content;
+	fclose($fp);
+	exit;
+}
+
+function eyeFiles_viewTempImg() {
+	if (!isset($_GET['params'])) {
+		return false;
+	}
+	$params = $_GET['params'];
+	$path = um('getCurrentUserDir') . '/tmp/' . utf8_basename($params);
+	$info = getimagesize($path);
+	header('Content-Type: ' . $info['mime']);
+	header('Accept-Ranges: bytes');
+	header('X-Pad: avoid browser bug');
+	vfs('printFile',array($path));
+	exit;
+}
+function eyeFiles_open() {
+	$file = $_GET['file'];
+	eyeFiles_openLocation($file);
+}
+?>

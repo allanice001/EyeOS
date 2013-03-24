@@ -1,0 +1,35 @@
+<lang>
+	<info>
+		<revision>20/05/2008</revision>
+	</info>
+	<texts>
+		<text>You must select a game to edit</text>
+		<text>View/Edit game</text>
+		<text>This form shows the parameters of a game. In case of editing them, please remember not to leave any field empty or with an incorrect value.</text>
+		<text>Name</text>
+		<text>Description</text>
+		<text>URL</text>
+		<text>Width</text>
+		<text>pixels</text>
+		<text>Height</text>
+		<text>Update</text>
+		<text>Add new game</text>
+		<text>With this form you can add a new game. Please make sure you fill all the fields, the URL field points to an accessible SWF flash game and the Width and Height fields are numeric and according to the values given to the Flash in its original page.</text>
+		<text>Add</text>
+		<text>You must select a game to remove</text>
+		<text>Error deleting game from list</text>
+		<text>None of the fields can be left blank.</text>
+		<text>Error loading configuration. Cancelling add</text>
+		<text>None of the fields can be left blank.</text>
+		<text>Error loading configuration. Cancelling update</text>
+		<text>You must select a game to launch</text>
+		<text>You must be the root user to run this application</text>
+		<text>Add Game</text>
+		<text>View/Edit</text>
+		<text>Remove</text>
+		<text>Launch</text>
+		<text>This is the administration tool of eyeGamesGallery. You are the only one who can add games. To add one, make sure you add the URL to the .SWF game in the form, and NOT the webpage that contains it</text>
+		<text>First time information</text>
+		<text>Ok</text>
+	</texts>
+</lang>

@@ -1,0 +1,58 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function propertyTrash_run($params=null) {
+	global $myPid;    
+	$userTheme = 'default'; //hardcoded
+	if(is_array($params)) {
+        $file = $params[0][0];
+	}
+	$mime = getConfig('mime','mime.xml');    
+	$myWindow = new Window(array('name'=>'prop','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>300,'height'=>150,
+		'title'=>'Properties'));    
+	$myWindow->show();    
+	$myUserDir = service('um','getCurrentUserDir').TRASH_USER_DIR.'/';        
+    $fileTrash = $myUserDir.$file;
+	$myArray = reqLib('eyeXML','getXMLfile',array($fileTrash));     
+	$myArray = $myArray['eyeTrash'][0];
+	$lastname = $myArray['lastname'][0];
+	$deleteDate = $myArray['deleteDate'][0];
+	$info = pathinfo($lastname);
+	$extension = $info['extension'];
+	$icon = 'unknown';
+	foreach($mime['mimeTypes'][0]['mime'] as $value) {
+		if($value['extension'][0] == $extension) {
+			$icon = $value['type'][0];
+		}
+	} 
+	$myImage = new Imagebox(array('name'=>'image','father'=>'prop_Content',
+		'url'=>'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEFILES_ICON_SIZE.'/filetypes/'.$icon.'.png',
+		'x'=>10,'y'=>10));
+	$myImage->show();
+	$myLabel = new Label(array('name'=>'Label','father'=>'prop_Content',
+		'text'=>"Filename: $lastname",'y'=>75,'x'=>15));
+	$myLabel->show();
+	$myLabel = new Label(array('name'=>'Label','father'=>'prop_Content',
+		'text'=>"Deleted at: ".date('Y-m-d H:i:s',$deleteDate),'y'=>95,'x'=>15));
+	$myLabel->show();
+	service('proc','close',array($myPid));
+}
+
+?>

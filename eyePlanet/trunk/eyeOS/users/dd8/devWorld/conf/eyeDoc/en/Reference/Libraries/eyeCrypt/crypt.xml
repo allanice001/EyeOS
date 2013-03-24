@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>crypt</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyecrypt</tag>
+		</tags>
+		<shortDesc>Crypts a string.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.2</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>crypt</functionName>
+		<syntax>reqLib('eyeCrypt', 'crypt', array('data' => $data, 'key' => $key, 'cipher' => $cipher))</syntax>
+		<desc>Ciphers a string with a specified encryption algorithm.</desc>
+		<params>
+			<type>required</type>
+			<name>data</name>
+			<desc>String to crypt.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>key</name>
+			<desc>Key needed to crypt the string.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>cipher</name>
+			<desc>Ciphering algorithm in which to encrypt the data. The supported algorithms are rc4 and xxtea for eyeOS 1.2.</desc>
+		</params>
+		<return>If the function succeeds, returns the crypted string. Else, if the specified algorithm is not present in the system, returns false.</return>
+	</definition>
+</info>

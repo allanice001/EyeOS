@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>rawjs</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+			<tag>javascript</tag>
+			<tag>js</tag>
+		</tags>
+		<shortDesc>Executes given JS code.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>rawjs</functionName>
+		<syntax>boolean eyex('rawjs', array(string 'js' => $js))</syntax>
+		<desc>Executes a specified JS code. We recommend to use the runjs() function, which has a better token content handling.</desc>
+		<params>
+			<type>required</type>
+			<name>js</name>
+			<desc>JavaScript code to be evaluated.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, if no code is specified, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No code is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

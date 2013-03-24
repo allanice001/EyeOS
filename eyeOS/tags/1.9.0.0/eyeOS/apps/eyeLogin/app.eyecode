@@ -1,0 +1,70 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeLogin_run($params = '') {
+	global $currentUser;
+	$pid = proc('findPidByName',array('eyeDesk'));
+	if ($pid) {
+		proc('end');
+		proc('getTask',array($pid));
+	} else {
+		//we need um module preload
+		um('init');
+
+		// Preload $langs var
+		$langs = array(array('English','en'));
+		$path = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/i18n/';
+		if (vfs('isdir',array($path))) {
+			$oldUser = $currentUser;
+			$currentUser = ROOTUSER;
+			$files = vfs('real_getDirContent',array($path,'*.xml'));
+			foreach ($files as $file){
+				$xml = eyeXML('getXMLfile',array($file));
+				if ($xml['lang'][0]['name2'][0]) {
+					$xml['lang'][0]['name'][0] .= ' (' . $xml['lang'][0]['name2'][0] . ')';
+				}
+				$langs[] = array($xml['lang'][0]['name'][0],utf8_basename($file,'.xml'));
+			}
+			$currentUser = $oldUser;
+		}
+		// Load themable eyeLogin part
+		loadConfig('eyeLogin');
+		$_SESSION['usertheme'] = LOGIN_THEME;
+		if (SECURE_LOGIN == 1 && function_exists('service_um_loginWidthHash')) {
+			$_SESSION['sawasc'] = md5(uniqid(rand()));
+		} else {
+			$_SESSION['sawasc'] = '';
+		}
+		$file = EYE_ROOT . '/' . APP_DIR . '/eyeLogin/themes/' . LOGIN_THEME . '/window' . EYE_CODE_EXTENSION;
+		if (vfs('real_fileExists',array($file))) {
+			include_once($file);
+		} else {
+			include_once(EYE_ROOT . '/' . APP_DIR . '/eyeLogin/themes/default/window' . EYE_CODE_EXTENSION);
+		}
+	}
+}
+
+function eyeLogin_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

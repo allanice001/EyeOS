@@ -1,0 +1,11 @@
+<package>
+	<name>eyePdf</name>
+	<category>Office</category>
+	<version>1.8</version>
+	<description>Utility to open pdf files</description>
+	<author>eyeOS Team</author>
+	<license>AGPL</license>
+	<type>Utility</type>
+	<icon>index.php?theme=1&amp;extern=icons/48x48/filetypes/pdf.png</icon>
+	<openWith>1</openWith>
+</package>

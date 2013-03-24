@@ -1,0 +1,882 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTML Editing In General &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="HTML Editing" href="../ui_html_editing.html" />
+    <link rel="next" title="Copy and Paste" href="copy_and_paste.html" />
+    <link rel="prev" title="Recommendations" href="recommendations.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="copy_and_paste.html" title="Copy and Paste"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="recommendations.html" title="Recommendations"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../gui_toolkit.html" >GUI Toolkit</a> &raquo;</li>
+          <li><a href="../ui_html_editing.html" accesskey="U">HTML Editing</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="html-editing-in-general">
+<span id="pages-ui-html-editing-html-editing-in-general-html-editing-in-general"></span><h1>HTML Editing In General<a class="headerlink" href="#html-editing-in-general" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="external-information">
+<span id="pages-ui-html-editing-html-editing-in-general-external-information"></span><h2>External Information<a class="headerlink" href="#external-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-infos">
+<span id="pages-ui-html-editing-html-editing-in-general-general-infos"></span><h3>General infos<a class="headerlink" href="#general-infos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://dev.opera.com/articles/view/rich-html-editing-in-the-browser-part-1/">Rich HTML editing - Part 1</a></li>
+</ul>
+</div>
+<div class="section" id="browsers">
+<span id="pages-ui-html-editing-html-editing-in-general-browsers"></span><h3>Browsers<a class="headerlink" href="#browsers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mozilla-midas">
+<span id="pages-ui-html-editing-html-editing-in-general-mozilla-midas"></span><h4>Mozilla (&quot;Midas&quot;)<a class="headerlink" href="#mozilla-midas" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="http://www.mozilla.org/editor/midas-spec.html">Midas specification</a></li>
+<li><a class="reference external" href="http://www.mozilla.org/editor/midasdemo/">Demo</a></li>
+<li><a class="reference external" href="http://www.mozilla.org/editor/ie2midas.html">Migrationguide IE -&gt; Gecko</a></li>
+<li><a class="reference external" href="http://lxr.mozilla.org/seamonkey/source/editor/docs/midas-spec.html">Documentation</a></li>
+<li><a class="reference external" href="http://lxr.mozilla.org/seamonkey/ident?i=MidasCommand">Source code (see list under MidasCommand in nsHTMLDocument.cpp)</a></li>
+<li><a class="reference external" href="http://developer.mozilla.org/en/docs/DOM_Client_Object_Cross-Reference">DOM Client Object Cross-Reference</a></li>
+</ul>
+</div>
+<div class="section" id="ie-html-edit">
+<span id="pages-ui-html-editing-html-editing-in-general-ie-html-edit"></span><h4>IE (&quot;HTML Edit&quot;)<a class="headerlink" href="#ie-html-edit" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="http://msdn2.microsoft.com/en-us/library/aa770039(VS.85).aspx">MSDN Overview and tutorials</a></li>
+<li><a class="reference external" href="http://msdn.microsoft.com/workshop/author/editing/tutorials/html_editor.asp">Documentation</a></li>
+<li><a class="reference external" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/commandids.asp">Overview of Command Identifiers</a></li>
+<li><a class="reference external" href="http://blogs.msdn.com/ie/archive/2006/06/27/648850.aspx">A Note about the DHTML Editing Control in IE7+</a></li>
+</ul>
+</div>
+<div class="section" id="opera">
+<span id="pages-ui-html-editing-html-editing-in-general-opera"></span><h4>Opera<a class="headerlink" href="#opera" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="http://operawiki.info/TextAreaEditor/">Opera Browser Wiki</a></li>
+</ul>
+</div>
+<div class="section" id="safari">
+<span id="pages-ui-html-editing-html-editing-in-general-safari"></span><h4>Safari<a class="headerlink" href="#safari" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="http://webkit.org/projects/editing/index.html">WebKit: HTML Editing</a></li>
+<li><a class="reference external" href="http://www.musingsfrommars.org/2007/03/quietly-safaris-rendering-engine-gains-wysiwyg-editing-powers.html">Quietly, Safari Finally Gains WYSIWYG Editing Powers</a></li>
+<li><a class="reference external" href="http://lists.apple.com/archives/Webcore-dev/2005/May/msg00013.html">execCommand list</a></li>
+<li><a class="reference external" href="http://allforces.com/2005/04/19/wysiwyg-comes-to-safari-13/">WYSIWYG comes to Safari 1.3</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="compatibility">
+<span id="pages-ui-html-editing-html-editing-in-general-compatibility"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://mozile.mozdev.org/0.8/doc/jsdoc/">The Mozile project</a> contains code which adapts Internet Explorer's Selection object to an interface like Mozilla's.</li>
+<li><a class="reference external" href="http://www.mozilla.org/editor/ie2midas.html">Converting your app from IE to Midas</a></li>
+<li><a class="reference external" href="http://www.quirksmode.org/dom/execCommand.html">execCommand compatibility</a></li>
+</ul>
+</div>
+<div class="section" id="general">
+<span id="pages-ui-html-editing-html-editing-in-general-general"></span><h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.htmlarea.com">htmlarea.com</a></li>
+<li><a class="reference external" href="http://www.cmsreview.com/WYSIWYG/OpenSource/directory.html">cmsreview.com</a></li>
+<li><a class="reference external" href="http://www.geniisoft.com/showcase.nsf/WebEditors">geniisoft.com</a></li>
+<li><a class="reference external" href="http://bulletproofbox.com/web-based-rich-text-editors-compared">Web-Based Rich Text Editors Compared</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="overview-of-exisiting-wysiwyg-editors">
+<span id="pages-ui-html-editing-html-editing-in-general-overview-of-exisiting-wysiwyg-editors"></span><h2>Overview of exisiting WYSIWYG editors<a class="headerlink" href="#overview-of-exisiting-wysiwyg-editors" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Editor</th>
+<th class="head">License</th>
+<th class="head">Pro/Con</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference external" href="http://developer.yahoo.com/yui/editor/">YUI RTE</a></td>
+<td>BSD</td>
+<td><strong>Pro</strong>: works with all well-known browsers ( IE / Gecko / Opera / Safari / Konquerer ); <strong>Con</strong>: Still in Beta (although the final release version should be out soon).</td>
+</tr>
+<tr><td><a class="reference external" href="http://xinha.python-hosting.com/">Xinha</a></td>
+<td>HTMLArea (BSD based)</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.kevinroth.com/rte/">RTE</a></td>
+<td>Creative Commons</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.rtef.info/">RTEF</a></td>
+<td>MIT</td>
+<td><strong>Pro</strong>: works with all well-known browsers ( IE / Gecko / Opera / Safari / Konquerer ); <strong>Con</strong>: no user-feedback e.g. which font or size is currently used.</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.wymeditor.org/en/">WYMEditor</a></td>
+<td>MIT/GPL</td>
+<td><strong>Pro</strong>: produces XHTML, uses CSS; <strong>Con</strong>: currently only available for IE and Gecko.</td>
+</tr>
+<tr><td><a class="reference external" href="http://dojotoolkit.org/docs/rich_text.html">dojo</a></td>
+<td>BSD</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://tinymce.moxiecode.com/">TinyMCE</a></td>
+<td>LGPL</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.fckeditor.net/demo/default.html">FCKEdit</a></td>
+<td>GPL, LGPL and MPL</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.solmetra.com/en/">Solmetra</a></td>
+<td>GPL</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.freerichtexteditor.com/">FreeRTE</a></td>
+<td>Creative Commons</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.cmsimple.dk/">CMSimple</a></td>
+<td>AGPL</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.xstandard.com">XStandard lite</a></td>
+<td>Freeware</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://apps.carleton.edu/opensource/loki/">Loki</a></td>
+<td>GPL</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://www.unverse.net/">Whizzywig</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="browser-specific-overview-of-execcommand">
+<span id="pages-ui-html-editing-html-editing-in-general-browser-specific-overview-of-execcommand"></span><h2>Browser-specific overview of &quot;execCommand&quot;<a class="headerlink" href="#browser-specific-overview-of-execcommand" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">command</th>
+<th class="head">Mozilla</th>
+<th class="head">IE</th>
+<th class="head">Opera</th>
+<th class="head">Safari</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Bold</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Italic</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Underline</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Strikethrough</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Color</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>BackColor</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>ForeColor</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>HiliteColor</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Font Handling</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>FontName</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>FontSize</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>IncreaseFontSize</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>DecreaseFontSize</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Subscript</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Superscript</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Formatting and CSS</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ContentReadOnly</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>StyleWidthCSS</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>UseCSS</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>RemoveFormat</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>User actions</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Copy</td>
+<td>x</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+</tr>
+<tr><td>Paste</td>
+<td>x</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+</tr>
+<tr><td>Cut</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Delete</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Undo</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Redo</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Print</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+</tr>
+<tr><td>SaveAs</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Alignment</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>JustifyLeft</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>JustifyCenter</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>JustifyRight</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>JustifyFull</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Indent</td>
+<td>x</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+</tr>
+<tr><td>Outdent</td>
+<td>x</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Hyperlinks</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CreateLink</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Unlink</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Lists</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertOrderedList</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>InsertUnorderedList</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Basic (formatting) elements</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>FormatBlock</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Heading</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertParagraph</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>InsertImage</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>InsertButton</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertFieldset</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertHorizontalRule</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>InsertHTML</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>InsertIFrame</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Form elements</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputButton</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputCheckbox</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputFileUpload</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputHidden</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputImage</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputPassword</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputRadio</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputReset</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputSubmit</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertInputText</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertSelectDropdown</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertSelectListbox</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertTextArea</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InsertMarquee</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Bookmarking</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CreateBookmark</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>UnBookmark</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Selection and status handling</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>SelectAll</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>Unselect</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr><td>MultipleSelection</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Overwrite</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Refresh</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>Misc</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>2D-Position</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>AbsolutePosition</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>LiveResize</td>
+<td>&nbsp;</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>gethtml</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>contentReadOnly</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>insertBrOnReturn</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>enableObjectResizing</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>enableInlineTableEditing</td>
+<td>x</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">HTML Editing In General</a><ul>
+<li><a class="reference internal" href="#external-information">External Information</a><ul>
+<li><a class="reference internal" href="#general-infos">General infos</a></li>
+<li><a class="reference internal" href="#browsers">Browsers</a><ul>
+<li><a class="reference internal" href="#mozilla-midas">Mozilla (&quot;Midas&quot;)</a></li>
+<li><a class="reference internal" href="#ie-html-edit">IE (&quot;HTML Edit&quot;)</a></li>
+<li><a class="reference internal" href="#opera">Opera</a></li>
+<li><a class="reference internal" href="#safari">Safari</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li><a class="reference internal" href="#general">General</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overview-of-exisiting-wysiwyg-editors">Overview of exisiting WYSIWYG editors</a></li>
+<li><a class="reference internal" href="#browser-specific-overview-of-execcommand">Browser-specific overview of &quot;execCommand&quot;</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="recommendations.html"
+                                  title="previous chapter">Recommendations</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="copy_and_paste.html"
+                                  title="next chapter">Copy and Paste</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/ui_html_editing/html_editing_in_general.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

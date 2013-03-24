@@ -1,0 +1,69 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeManageApps_on_Bottom_AddElement($params = '') {
+	eyex('rawjs', array('js' => 'sendMsg(' . proc('findChecknumByName', array('eyeDock')) . ', "AddElement", eyeParam("type", "bottom"));'));
+}
+
+function eyeManageApps_on_Bottom_Refresh($params = '') {
+	eyex('rawjs', array('js' => 'sendMsg(' . proc('findChecknumByName', array('eyeDock')) . ', "Refresh", eyeParam("type", "bottom"));'));
+}
+
+function eyeManageApps_on_Bottom_ShowHide($params = '') {
+	$xml = eyeXML('getXMLconfig',array('eyeDock', 'conf.xml'));
+	if ($xml['eyeDock'][0]['bottom'][0]['show'][0]) {
+		$xml['eyeDock'][0]['bottom'][0]['show'][0] = '0';
+	} else {
+		$xml['eyeDock'][0]['bottom'][0]['show'][0] = '1';
+	}
+	eyeXML('setXMLconfig',array('eyeDock', 'conf.xml', $xml));
+	eyeManageApps_on_Bottom_Refresh();
+}
+
+function eyeManageApps_on_Close($params = '') {
+	proc('end');
+}
+
+function eyeManageApps_on_Message($params = '') {
+	eyeWidgets('updateContent', $params);
+}
+
+function eyeManageApps_on_Top_AddElement($params = '') {
+	eyex('rawjs', array('js' => 'sendMsg(' . proc('findChecknumByName', array('eyeDock')) . ', "AddElement", eyeParam("type", "top"));'));
+}
+
+function eyeManageApps_on_Top_Refresh($params = '') {
+	eyex('rawjs', array('js' => 'sendMsg(' . proc('findChecknumByName', array('eyeDock')) . ', "Refresh", eyeParam("type", "top"));'));
+}
+
+function eyeManageApps_on_Top_ShowHide($params = '') {
+	$xml = eyeXML('getXMLconfig',array('eyeDock', 'conf.xml'));
+	if ($xml['eyeDock'][0]['top'][0]['show'][0]) {
+		$xml['eyeDock'][0]['top'][0]['show'][0] = '0';
+	} else {
+		$xml['eyeDock'][0]['top'][0]['show'][0] = '1';
+	}
+	eyeXML('setXMLconfig',array('eyeDock', 'conf.xml', $xml));
+	eyeManageApps_on_Top_Refresh();
+}
+?>

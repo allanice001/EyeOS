@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getLang</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>i18n</tag>
+		</tags>
+		<shortDesc>Get's the user's eyeOS language.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getLang</functionName>
+		<syntax>i18n('getLang')</syntax>
+		<desc>Retrieves the eyeOS language of the user.</desc>
+		<return>Returns an string with the language of the user's eyeOS session.</return>
+	</definition>
+</info>

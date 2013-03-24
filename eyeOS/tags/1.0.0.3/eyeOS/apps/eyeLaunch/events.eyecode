@@ -1,0 +1,44 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	events resource for eyeLaunch
+*/
+
+function eyeLaunch_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeLaunch_on_doLaunch($params="") {
+	$myApp = $GLOBALS['eyeLaunch_run']->text;
+
+	$myApp = service('sec','cleanOutPutString',array('var'=>$myApp,'maxLen' => 50,'noreturn' => 1));
+
+	if(!service('proc','launch',array($myApp))) {
+		if(reqLib('errorCodes','getErrorCode') == PROC_APP_NOT_FOUND) {
+			service('eyex','messageBox',array('content' => $myApp.' not found'));
+		}
+	}
+}
+
+function eyeLaunch_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+?>

@@ -1,0 +1,488 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeContacts_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+//GUI WINDOWS
+function eyeContacts_on_EditContact(){
+	global $myPid;
+	$mySelect = $GLOBALS['eyeContacts_Contacts']->selected;
+	if ($mySelect == "undefined" || !$mySelect) {
+		service('eyex','messageBox',array('content'=>'Please choose a contact to be edited first.'));
+		return;
+	}
+	if($GLOBALS['editContact']){
+		$GLOBALS['editContact']->close();
+	}
+	$myWindow1 = new Window(array('title'=>'Edit Contact','name'=>'editContact','father'=>'eyeApps','cent'=>1,'width'=>558,'height'=>370,'sigClose'=>'editConact_Closed','style'=>TITLE + MIN + CLOSE));
+	$myWindow1->show();
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/edit_contact_form'.EYE_CODE_EXTENSION);
+}
+function eyeContacts_on_AddContact(){
+	if($GLOBALS['addContact']){
+		$GLOBALS['addContact']->focus();
+		return true;
+	}
+	$myWindow1 = new Window(array('title'=>'Add Contact','name'=>'addContact','father'=>'eyeApps','cent'=>1,'width'=>558,'height'=>370,'sigClose'=>'addConact_Closed','style'=>TITLE + MIN + CLOSE));
+	$myWindow1->show();
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/new_contact_form'.EYE_CODE_EXTENSION);	
+}
+function eyeContacts_on_Import(){
+	if($GLOBALS['importContact']){
+		$GLOBALS['importContact']->focus();
+		return true;
+	}
+	$myWindow1 = new Window(array('title'=>'Import Contacts','name'=>'importContact','father'=>'eyeApps','cent'=>1,'width'=>300,'height'=>150,'sigClose'=>'importConact_Closed','style'=>TITLE + MIN + CLOSE));
+	$myWindow1->show();
+	
+	$myCssText = array(
+		'font-family'=>'Verdana',
+		'font-size'=>'11px',
+		'font-weight'=>'bold'
+	);
+	$myLabel1 = new Label(array ('name' => "tittle",'father' => 'importContact_Content',
+		'text' =>"Import from .vcf file...",'x' =>10,'y' =>5));
+	$myLabel1->show();
+	$myLabel1->setCss($myCssText);
+	
+	$myLabel1 = new Label(array ('name' => "directory",'father' => 'importContact_Content',
+		'text' =>"Source:",'x' =>10,'y' =>52));
+	$myLabel1->show(); 
+	
+	$myTextBox = new Textbox(array('name'=>'importFileDir','father'=>'importContact_Content','width'=>190,'y'=>50,'x'=>60,'text'=>'/'));
+	$myTextBox->show();
+	
+	$myButton = new Button(array('name'=>'selectDest','father'=>'importContact_Content','signal'=>'SelectImportDest',
+	'caption'=>'...','x'=>260,'y'=>50,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png'));
+	$myButton->show();
+	
+	$myButton = new Button(array('name'=>'importFromFile','father'=>'importContact_Content','signal'=>'importFromFile',
+	'caption'=>'Import Contacts','x'=>175,'y'=>100));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();	
+}
+function eyeContacts_on_Export(){
+	//Creating a window for calendar info
+	if($GLOBALS['exportContact']){
+		$GLOBALS['exportContact']->focus();
+		return true;
+	}
+	$myWindow1 = new Window(array('title'=>'Export Contacts','name'=>'exportContact','father'=>'eyeApps','cent'=>1,'width'=>300,'height'=>170,'sigClose'=>'exportConact_Closed','style'=>TITLE + MIN + CLOSE));
+	$myWindow1->show();
+	
+	$myCssText = array(
+		'font-family'=>'Verdana',
+		'font-size'=>'11px',
+		'font-weight'=>'bold'
+	);
+	$myLabel1 = new Label(array ('name' => "title",'father' => 'exportContact_Content','text' =>"Export To File",'x' =>10,'y' =>5));
+	$myLabel1->show();
+	$myLabel1->setCss($myCssText);
+	
+	$text = "File \"eyeContactsExported.vcf\" will be created automatically if you leave this field blank.";
+	$myLabel1 = new Label(array ('name' => "destination",'father' => 'exportContact_Content','text' =>$text,'x' =>10,'y' =>30));
+	$myLabel1->show(); 
+	
+	$myLabel1 = new Label(array ('name' => "destination",'father' => 'exportContact_Content',
+		'text' =>"Destination",'x' =>10,'y' =>75));
+	$myLabel1->show(); 
+
+	$myTextBox = new Textbox(array('name'=>'exportFileDir','father'=>'exportContact_Content','width'=>170,'y'=>75,'x'=>80,'text'=>'/'));
+	$myTextBox->show();
+	
+	$myButton = new Button(array('name'=>'selectDest','father'=>'exportContact_Content','signal'=>'SelectExportDest',
+	'caption'=>'...','x'=>260,'y'=>75,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png'));
+	$myButton->show();
+	
+	$myButton = new Button(array('name'=>'importFromFile','father'=>'exportContact_Content','signal'=>'exportToFile',
+	'caption'=>'Export Contacts','x'=>175,'y'=>110));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();	
+}
+
+//ACTIONS
+function eyeContacts_on_Delete() {
+	global $myPid;
+	$mySelect = $GLOBALS['eyeContacts_Contacts']->selected;
+
+	//echo $mySelect;exit;
+	if ($mySelect == "undefined" || !$mySelect) {
+		service('eyex','messageBox',array('content'=>'Please choose a contact to be deleted first.'));
+		return;
+	} else {
+		$myPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeContacts/";
+		$myFile = $myPath.$mySelect.".xml";
+		if (service('vfs', 'real_fileExists', array($myFile))) {
+			service('vfs','real_delete',array($myFile));
+			$GLOBALS['eyeContacts_Contacts']->delRow($mySelect);
+			service('eyex','messageBox',array('content'=>'Contact deleted successfully.'));	
+		}else{			
+			echo $mySelect;
+			service('eyex','messageBox',array('content'=>'Error deleting contact.'));
+		}
+	}
+}
+function eyeContacts_on_Create() {
+	global $myPid;
+	
+	$txt_name = $GLOBALS['eyeContacts_txtb_2']->text;
+	$txt_surname = $GLOBALS['eyeContacts_txtb_1']->text;
+	$txt_homeph = $GLOBALS['eyeContacts_txtb_3']->text;
+	$txt_mobileph = $GLOBALS['eyeContacts_txtb_4']->text;
+	$txt_address = $GLOBALS['eyeContacts_txtb_5']->text;
+	
+	$txt_nick = $GLOBALS['eyeContacts_txtb_6']->text;
+	$txt_email = $GLOBALS['eyeContacts_txtb_7']->text;
+	$txt_website = $GLOBALS['eyeContacts_txtb_8']->text;
+	$txt_im = $GLOBALS['eyeContacts_txtb_9']->text;
+	$txt_voip = $GLOBALS['eyeContacts_txtb_10']->text;
+	$txt_eyeos_user = $GLOBALS['eyeContacts_txtb_17']->text;
+	
+	$txt_company = $GLOBALS['eyeContacts_txtb_11']->text;
+	$txt_companyph = $GLOBALS['eyeContacts_txtb_12']->text;
+	$txt_companymobph = $GLOBALS['eyeContacts_txtb_13']->text;
+	$txt_companyfax = $GLOBALS['eyeContacts_txtb_14']->text;
+	$txt_companyad = $GLOBALS['eyeContacts_txtb_15']->text;
+	
+	$txt_notes = $GLOBALS['eyeContacts_txtb_16']->text;
+	
+	if (utf8_trim($txt_name) == "" || utf8_trim($txt_surname) == "") {
+		service('eyex','messageBox',array('content'=>'Please, fill the name and surname.'));
+		return;
+	}
+	
+	if (utf8_trim($txt_homeph) == "") {
+		$txt_homeph = " ";
+	}
+	
+	$filename = md5($txt_surname."_".$txt_name).".xml";
+		
+	$myPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeContacts/";
+	$myContactFile = $myPath.$filename;
+	$myFileContent = array(
+		'name' => array($txt_name),
+		'surname' => array($txt_surname),
+		'home_phone' => array($txt_homeph),
+		'mobile_phone' => array($txt_mobileph),
+		'address' => array($txt_address),
+		'nick' => array($txt_nick),
+		'email' => array($txt_email),
+		'website' => array($txt_website),
+		'im' => array($txt_im),
+		'voip' => array($txt_voip),
+		'eyeos-user' => array($txt_eyeos_user),
+		'company' => array($txt_company),
+		'company_phone' => array($txt_companyph),
+		'company_mobile_phone' => array($txt_companymobph),
+		'company_fax' => array($txt_companyfax),
+		'company_address' => array($txt_companyad),
+		'notes' => array($txt_notes)
+	);
+	$myFileContent = reqLib('eyeXML','array2xml',array($myFileContent,1));
+
+	if(!service('vfs', 'fileExists', array($myPath))) {
+		service('vfs', 'real_mkDir', array($myPath));
+	}
+
+	if(service('vfs', 'real_fileExists', array($myContactFile))) {
+		service('eyex','messageBox',array('content'=>"Sorry, there is already a contact with this Name and Surname."));
+	} else {
+		service('vfs','real_create',array($myContactFile,'eyeContacts'));
+		$fp = service('vfs','real_open',array($myContactFile,'w'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Error writing file'));
+			return;
+		}
+		fwrite($fp,$myFileContent);
+		fclose($fp);
+		$GLOBALS['eyeContacts_txtb_1']->setText("");
+		$GLOBALS['eyeContacts_txtb_2']->setText("");
+		$GLOBALS['eyeContacts_txtb_3']->setText("");
+		$GLOBALS['eyeContacts_txtb_4']->setText("");
+		$GLOBALS['eyeContacts_txtb_5']->setText("");
+		$GLOBALS['eyeContacts_txtb_6']->setText("");
+		$GLOBALS['eyeContacts_txtb_7']->setText("");
+		$GLOBALS['eyeContacts_txtb_8']->setText("");
+		$GLOBALS['eyeContacts_txtb_9']->setText("");
+		$GLOBALS['eyeContacts_txtb_10']->setText("");
+		$GLOBALS['eyeContacts_txtb_11']->setText("");
+		$GLOBALS['eyeContacts_txtb_12']->setText("");
+		$GLOBALS['eyeContacts_txtb_13']->setText("");
+		$GLOBALS['eyeContacts_txtb_14']->setText("");
+		$GLOBALS['eyeContacts_txtb_15']->setText("");
+		$GLOBALS['eyeContacts_txtb_16']->setText("");
+		$GLOBALS['eyeContacts_txtb_17']->setText("");
+		$GLOBALS['addContact']->close();
+		
+		if (empty($txt_name)) {
+			$name = " ";
+		} else {
+			$name = $txt_name;
+		}
+		
+		if (empty($txt_surname)) {
+			$surname = " ";
+		} else {
+			$surname = $txt_surname;
+		}
+		
+		if (empty($txt_homeph)) {
+			$phone = " ";
+		} else {
+			$phone = $txt_homeph;
+		}
+		
+		if (empty($txt_mobileph)) {
+			$mobphone = " ";
+		} else {
+			$mobphone = $txt_mobileph;
+		}
+		
+		if (empty($txt_email)) {
+			$email = " ";
+		} else {
+			$email = $txt_email;
+		}
+		
+		$GLOBALS['eyeContacts_Contacts']->addRow(array(
+			$name,
+			$surname,
+			$phone,
+			$mobphone,
+			$email,
+			md5($txt_surname."_".$txt_name)
+		));
+		
+		service('eyex','messageBox',array('content'=>'New contact created successfully.'));
+	}
+	
+}
+function eyeContacts_on_Update() {
+	global $myPid;
+	$txt_name = $GLOBALS['eyeContacts_upd_2']->text;
+	$txt_surname = $GLOBALS['eyeContacts_upd_1']->text;
+	$txt_homeph = $GLOBALS['eyeContacts_upd_3']->text;
+	$txt_mobileph = $GLOBALS['eyeContacts_upd_4']->text;
+	$txt_address = $GLOBALS['eyeContacts_upd_5']->text;
+	
+	$txt_nick = $GLOBALS['eyeContacts_upd_6']->text;
+	$txt_email = $GLOBALS['eyeContacts_upd_7']->text;
+	$txt_website = $GLOBALS['eyeContacts_upd_8']->text;
+	$txt_im = $GLOBALS['eyeContacts_upd_9']->text;
+	$txt_voip = $GLOBALS['eyeContacts_upd_10']->text;
+	$txt_eyeos_user = $GLOBALS['eyeContacts_upd_17']->text;
+	
+	$txt_company = $GLOBALS['eyeContacts_upd_11']->text;
+	$txt_companyph = $GLOBALS['eyeContacts_upd_12']->text;
+	$txt_companymobph = $GLOBALS['eyeContacts_upd_13']->text;
+	$txt_companyfax = $GLOBALS['eyeContacts_upd_14']->text;
+	$txt_companyad = $GLOBALS['eyeContacts_upd_15']->text;
+	
+	$txt_notes = $GLOBALS['eyeContacts_upd_16']->text;
+	
+	if (utf8_trim($txt_name) == "" || utf8_trim($txt_surname) == "") {
+		service('eyex','messageBox',array('content'=>'Please, fill the name and surname.'));
+		return;
+	}
+	
+	$filename = md5($txt_surname."_".$txt_name).".xml";
+		
+	$myPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeContacts/";
+	$myContactFile = $myPath.$filename;
+	$myFileContent = array(
+		'name' => array($txt_name),
+		'surname' => array($txt_surname),
+		'home_phone' => array($txt_homeph),
+		'mobile_phone' => array($txt_mobileph),
+		'address' => array($txt_address),
+		'nick' => array($txt_nick),
+		'email' => array($txt_email),
+		'website' => array($txt_website),
+		'im' => array($txt_im),
+		'voip' => array($txt_voip),
+		'eyeos-user' => array($txt_eyeos_user),
+		'company' => array($txt_company),
+		'company_phone' => array($txt_companyph),
+		'company_mobile_phone' => array($txt_companymobph),
+		'company_fax' => array($txt_companyfax),
+		'company_address' => array($txt_companyad),
+		'notes' => array($txt_notes)
+	);
+	$myFileContent = reqLib('eyeXML','array2xml',array($myFileContent,1));
+
+	if(!service('vfs', 'fileExists', array($myPath))) {
+		service('vfs', 'real_mkDir', array($myPath));
+	}
+
+	if(service('vfs', 'real_fileExists', array($myContactFile))) {
+		service('vfs','real_delete',array($myContactFile));
+	}
+	service('vfs','real_create',array($myContactFile,'eyeContacts'));
+	$fp = service('vfs','real_open',array($myContactFile,'w'));
+	if(!$fp) {
+		service('eyex','messageBox',array('content'=>'Error writing file'));
+		return;
+	}
+	fwrite($fp,$myFileContent);
+	fclose($fp);
+		
+	$GLOBALS['editContact']->close();
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/show_contact_table'.EYE_CODE_EXTENSION);
+	$GLOBALS['eyeContacts_Contacts']->remove();
+	eyeContacts_show_table('ALL');
+	service('eyex','messageBox',array('content'=>'Contact updated successfully.'));	
+}
+function eyeContacts_on_SendMessage() {
+	$mySelect = $GLOBALS['eyeContacts_Contacts']->selected;
+	if ($mySelect == "undefined" || !$mySelect) {
+		service('eyex','messageBox',array('content'=>'Please choose a contact you want to send an eyeMessage to first.'));
+	} else {
+		$file = um('getCurrentUserdir') . CONF_USER_DIR . '/eyeContacts/' . $mySelect . '.xml';
+		$xml = eyeXML('getXMLfile',array($file));
+		if ($xml['eyeos-user'][0]) {
+			proc('launch',array('eyeMessages',array('action' => 'new','to' => $xml['eyeos-user'][0])));
+		} else {
+			service('eyex','messageBox',array('content'=>'Please fill in the eyeOS Username for this contact first.'));
+		}
+	}
+}
+function eyeContacts_on_exportToFile($params){	
+	global $myPid;
+	$path = $params['exportFileDir'][0];
+	if($path == ''){
+		$path = '/';
+	}
+	if(!reqLib('eyeContacts','export',array($path))){
+		eyeX('messageBox',array('content'=>'Export failed!'));
+		return false;
+	}
+	$path .= '/';
+	$path = dirname($path);
+	
+	eyeX('messageBox',array('content'=>'Contacts exported in to %s','tokens'=>array($path)));	
+	service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_".$GLOBALS['exportContact']->name."'))slideClose(document.getElementById('".$myPid."_".$GLOBALS['exportContact']->name."').parentNode.id,'".$myPid."_".$GLOBALS['exportContact']->name."')"));
+	$GLOBALS['exportContact']->close();
+	eyeX('messageBox',array('content'=>'Export completed successfully.'));
+}
+function eyeContacts_on_importFromFile($params=''){
+	global $myPid;
+	$path = $params['importFileDir'][0];
+	if($path == ''){
+		eyeX('messageBox',array('content'=>'Please, select a correct file.'));
+		return false;
+	}
+	$filePath = service('um', 'getCurrentUserdir').FILES_USER_DIR.'/'.$path;
+	unset($path);//now only use filepath
+	
+	if(!reqLib('eyeContacts','import',array($filePath))){
+		$error = errorCodes('getErrorCode');
+		if($error == VFS_FILE_NOT_EXISTS){
+			eyeX('messageBox',array('content'=>'Sorry, the file not found.'));
+			return false;
+		}else if($error == CONTACT_EXISTS){
+			eyeX('messageBox',array('content'=>'Sorry, the contact already exists.'));
+			return false;
+		}else if($error == NO_CONTACT_FOUND){
+			eyeX('messageBox',array('content'=>'Sorry, no contacts found in the file'));
+			return false;
+		}else if($error == NO_SUPPORTED_FORMAT){
+			eyeX('messageBox',array('content'=>'Format unsupported!'));
+			return false;
+		}else{
+			eyeX('messageBox',array('content'=>'Error exporting file.'));
+			return false;
+		}
+		return false;
+	}	
+	$GLOBALS['eyeContacts_Contacts']->remove();
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/show_contact_table'.EYE_CODE_EXTENSION);
+	eyeContacts_show_table('ALL');
+	eyeX('messageBox',array('content'=>'File imported successfully.'));
+	service('eyex','rawjs',array('js'=>"if(document.getElementById('".$myPid."_".$GLOBALS['importContact']->name."'))slideClose(document.getElementById('".$myPid."_".$GLOBALS['importContact']->name."').parentNode.id,'".$myPid."_".$GLOBALS['importContact']->name."')"));
+	$GLOBALS['importContact']->close();
+	return true;
+}
+
+//Select eyeDialog functions
+function eyeContacts_on_SelectDestExport($params = null){		
+	global $currentUser,$checknum,$myPid;	
+	$fileDir = $params['arg'][0];			
+	//If project are started, fill the object with the new workPath
+	$GLOBALS['exportFileDir']->setText($fileDir);	
+}
+function eyeContacts_on_SelectDestImport($params = null){		
+	global $currentUser,$checknum,$myPid;	
+	$fileDir = $params['arg'][0];			
+	//If project are started, fill the object with the new workPath
+	$GLOBALS['importFileDir']->setText($fileDir);	
+}
+function eyeContacts_on_SelectExportDest(){
+	global $checknum;
+	$options = array(
+		1,
+		'SelectDestExport',
+		$checknum
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+function eyeContacts_on_SelectImportDest(){
+	global $checknum;
+	$options = array(
+		0,
+		'SelectDestImport',
+		$checknum
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+//WINDOW close functions
+function eyeContacts_on_addConact_Closed(){
+	$GLOBALS['addContact']->close();
+}
+function eyeContacts_on_editConact_Closed(){
+	$GLOBALS['editContact']->close();
+}
+function eyeContacts_on_importConact_Closed(){
+	$GLOBALS['importContact']->close();
+}
+function eyeContacts_on_exportConact_Closed(){
+	$GLOBALS['exportContact']->close();
+}
+
+function eyeContacts_on_sortContacts($params){
+	if(count($params) !== 1){
+		return false;
+	}
+	$letter = array_values($params);
+	$letter = $letter[0][0];	
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeContacts/show_contact_table'.EYE_CODE_EXTENSION);
+	$GLOBALS['eyeContacts_Contacts']->remove();
+	eyeContacts_show_table($letter);
+	
+}
+function eyeContacts_on_Close(){		
+	proc('end');
+}
+?>

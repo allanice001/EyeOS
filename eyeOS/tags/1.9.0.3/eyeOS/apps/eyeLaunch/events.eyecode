@@ -1,0 +1,169 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+/*
+	events resource for eyeLaunch
+*/
+
+function eyeLaunch_on_Message($params="") {
+	eyeWidgets('updateContent',$params);
+}
+
+function eyeLaunch_on_doLaunch($params="") {
+	global $currentUser;
+
+	$myApp = $GLOBALS['eyeLaunch_run']->text;
+
+	$myApp = sec('cleanOutPutString',array('var'=>$myApp,'maxLen' => 50,'noreturn' => 1));
+
+	$arguments = parseArguments($myApp);
+	$myApp = $arguments[0];
+	array_shift($arguments);
+
+	if($GLOBALS['su_chk']->checked == 1) {
+		$user = $GLOBALS['eyeLaunch_user']->text;
+		$pass = base64_decode($GLOBALS['eyeLaunch_pass']->text);
+		if(empty($user) || (empty($pass) && $currentUser != ROOTUSER)) {
+			eyex('messageBox',array('content' => 'Error, empty username or password'));
+			return false;
+		}
+
+		if(!um('userExist',array($user))) {
+			eyex('messageBox',array('content' => 'Invalid username'));
+			return false;
+		}
+
+		if(um('login',array($user,$pass)) || $currentUser == ROOTUSER) {
+			$oldUser = $currentUser;
+			$currentUser = $user;
+			if(!proc('launch',array($myApp,$arguments))) {
+				$currentUser = $oldUser;
+				if(errorCodes('getErrorCode') == PROC_APP_NOT_FOUND) {
+					eyex('messageBox',array('content' => '%s not found','tokens' => array($myApp)));
+					return false;
+				}elseif(errorCodes('getErrorCode') == PROC_APP_DONT_HAVE_RUN_FUNCTION) {
+					eyex('messageBox',array('content' => '%s has had a problem and could not be executed','tokens' => array($myApp)));
+					return false;
+				}else{
+					eyex('messageBox',array('content' => '%s has had an unknow problem and could not be executed','tokens' => array($myApp)));
+					return false;
+				}
+			}
+			$currentUser = $oldUser;
+		} else {
+			eyex('messageBox',array('content' => 'Error, invalid username or password'));
+			return false;
+		}
+	} else {
+		if(!proc('launch',array($myApp,$arguments))) {
+			if(errorCodes('getErrorCode') == PROC_APP_NOT_FOUND) {
+				eyex('messageBox',array('content' => '%s not found','tokens' => array($myApp)));
+				return false;
+			}elseif(errorCodes('getErrorCode') == PROC_APP_DONT_HAVE_RUN_FUNCTION) {
+				eyex('messageBox',array('content' => '%s has had a problem and could not be executed','tokens' => array($myApp)));
+				return false;
+			}else{
+				eyex('messageBox',array('content' => '%s has had an unknow problem and could not be executed','tokens' => array($myApp)));
+				return false;
+			}
+		} 
+	}
+
+	proc('end');
+}
+
+
+function parseArguments($myApp){
+/*Remplacing escaped quotes and spaces
+ * 
+ * We can do it with a conditional in a regexp, but i decide dot it because more programers
+ * don't know more abou regexp.
+ * 
+ * First remplace \" and \ for unique number.
+ * Then, apply the regexp for extract every quoted text "text here"
+ * and then, split the text. 
+ */
+ 
+ //Remplace scaped chars with a rand string
+	if(utf8_strpos($myApp,'\"')){
+		//remplace
+		$quoteRemplace = utf8_substr(uniqid(rand()),0,8);
+		$myApp = str_replace('\"',$quoteRemplace,$myApp);
+	}
+	//Remplacing scaped spaces
+	if(utf8_strpos($myApp,'\ ')){
+		//remplace
+		$quoteRemplace = utf8_substr(uniqid(rand()),0,8);
+		$myApp = str_replace('\ ',$quoteRemplace,$myApp);
+	}
+
+	$items = array();
+//Getting the name if it is a quoted string.
+	if($myApp{0} == '"'){
+		preg_match("/\".+\"/U",$myApp,$appName);
+		//Removing from myApp string
+		$myApp = str_replace($appName[0],'',$myApp);
+		//Removing the quotes
+		$appName = str_replace('"','',$appName[0]);
+		$items[0] = $appName;
+	}else{
+		if(utf8_strpos($myApp,' ')){
+			$appName = utf8_substr($myApp,0,utf8_strpos($myApp,' '));
+			$myApp = str_replace($appName,'',$myApp);
+			$items[0] = $appName;
+		}else{
+			$appName = $myApp;
+			$items[0] = $appName;
+			return $items;
+		}
+
+	}
+
+//Getting quoted arguments
+	$con = array();
+	preg_match_all("/\".+\"/U",$myApp,$con);
+	foreach ($con[0] as $quotedString){
+		//First delete it from myApp string
+		$myApp = str_replace($quotedString,'',$myApp);
+		//Add word without quotes to items
+		$quotedString = str_replace('"','',$quotedString);
+		//Add it to items array
+		$items[] = $quotedString; 
+	}
+//Getting rest of arguments
+	preg_match_all("/ .+ /U",$myApp,$rest);
+	foreach($rest[0] as $argument){
+		$myApp = str_replace($argument,'',$myApp);
+		$items[] = utf8_trim($argument);
+	}
+
+//The last argument if it exists
+	$items[] = utf8_trim($myApp);
+	return $items;
+}
+
+function eyeLaunch_on_Close(){
+	proc('end');
+}
+
+?>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>checkPermissions</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Checks a file's permissisons.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>checkPermissions</functionName>
+		<syntax>bool vfs('checkPermissions', array(string $file))</syntax>
+		<desc>Checks the permissions of a file.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>URL to the file.</desc>
+		</params>	
+		<return>If there are enough permissions on the file, returns true. Otherwise, returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No file has been specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions on the file.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

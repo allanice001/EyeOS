@@ -1,0 +1,207 @@
+<lang>
+	<info>
+		<lang>Magyar</lang>
+		<author>Szabó Zoltán</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>Root-jelszó</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>Nem</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]Nem-re[/span] nyomva visszatérhet az előző oldalra.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Biztosan eltávolítja az oneye telepítőjét?</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Kérem válasszon az alábbi lehetőségek közül!</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Fordításokat innen tölthet le: [a link]</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>Kérem, hogy biztonsági okokból távolítsa el a telepítőt!</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Az oneye eltávolítása</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Visszatérés a menübe</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Folytatás...</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]Igen-re[/span] nyomva letörlődik az oneye-telepítő minden állománya.</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>A frissítéshez szükséges állományokat nem lehetett kicsomagolni. Kézi frissítéshez nevezze át a(z) "[package]"-t "package.tar.gz"-vé és ugyanoda csomagolja ki a tartalmát.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>Tényleg eltávolítja az oneye-rendszert?</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Ez a frissítő csak az 1.5-ös vagy annál frissebb eyeos-okkal használható. Ön most a következő verziójú eyeos-t használja: [version1]. Először frissítse fel rendszerét az 1.5-ös verziójú eyeos-ra és utána felfrissítheti a rendszert a legfrissebb változatra ([version2]).</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Kattintson a folytatás gombra az oneye [version] verziójának frissítéséhez.</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Frissítse az oneye-t!</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Nem jó a root-jelszó!</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>Nem lehetett átnevezni az "./eyeOS/" könyvtárat. Kérem nevezze át kézzel erre: "[hash]", majd írja felül a már meglévő állományokat!</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Folytatás...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]Igen-re[/span] nyomva törlődik az egész oneye-rendszer, minden beállításával együtt.</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Igen</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Rendszerállományok visszaállítása</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]Nem-re[/span] nyomva visszatérhet az előző oldalra.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Lehetőségek</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Az oneye-telepítő eltávolítása</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>Be kell írnia egy root-jelszót!</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>A root-jelszónak több, mint három karakterből kell állnia!</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Kérem, töltse ki a következőket a telepítéshez!</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>A kiszolgáló nem tudja kezelni a gzip-csomagokat. Kézi telepítéshez nevezze át a(z) "[package]"-t "package.tar.gz"-vé és ugyanoda csomagolja ki a tartalmát.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>A már feltelepített oneye rendszer frissebb, mint a most telepítendő. Kérem, hogy biztonsági okokból távolítsa el a(z) "[installer]" könyvtárat.</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Root jelszó</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Jelszó újból</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Folytatás...</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>A telepítőállományokat nem lehetett kicsomagolni. Kézi telepítéshez nevezze át a(z) "[package]"-t "package.tar.gz"-vé és ugyanoda csomagolja ki a tartalmát.</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>Nem lehetett átnevezni az "./eyeOS/" könyvtárat. Kérem nevezze át kézzel erre: "[hash]".</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Figyelem! Kérem ellenőrizze a(z) "[package]" tartalmát, mert hibás lehet!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Kiválasztott nyelv</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Figylelem! Kérem adjon teljes jogosultságokat (CHMOD 777) a(z) "[file]" állománynak!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>Az oneye telepítése</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>Ez a PHP-verzió nem támogatja teljes mértékben az UTF-8-kóldolást. Ha lehetősége van rá, frissítse a PHP-t, vagy telepítse fel az mbstring modult. Ha nem változtat semmit, akkor a rendszer még működőképes lesz, de hiányos lesz a nyelvi támogatása.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>Fordította:</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>A root-jelszó nem egyezik meg!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>További nyelvek</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>A következő gondok adódtak a telepítés során:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>A kiszolgáló egy régebbi, nem támogatott PHP-verziót használ. Kérem frissítse rendszerét legalább 5.0-ás verziójú PHP-re!</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>Sajnos az oneye működéséhez a SAFE_MODE kapcsolónak OFF állapotban kell lennie. A kiszolgálón, melyre telepítené a rendszert, ez a mód be van kapcsolva. Kérem módosítsa a php.ini-t, vagy keresse meg a rendszer üzemeltetőjét és kérjen tőle segítséget!</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>A felhasználók regisztrálhatnak</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Hiba: A(z) "[file]" állomány nem létezik!</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Telepítés</new>
+		</text>
+	</part>
+</lang>

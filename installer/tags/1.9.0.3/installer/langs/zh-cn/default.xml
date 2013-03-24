@@ -1,0 +1,49 @@
+<translation>
+	<installer-install-allow-creation>允许用户创建帐号</installer-install-allow-creation>
+	<installer-install-continue>继续…</installer-install-continue>
+	<installer-install-do>安装 eyeOS！</installer-install-do>
+	<installer-install-error-extract>无法解压缩安装文件。手工安装 eyseOS，请将“[package]”重命名为“package.tar.gz”并将其解压到相同的目录中。</installer-install-error-extract>
+	<installer-install-error-renaming>无法重命名“./eyeOS/”目录。请手工将其重命名为“[hash]”。</installer-install-error-renaming>
+	<installer-install-password-retype>重新输入密码</installer-install-password-retype>
+	<installer-install-password-root>root 密码</installer-install-password-root>
+	<installer-install-passwords-characters>root 用户密码应当长于 3 个字符！</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>输入的 root 密码不匹配！</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>必须输入 root 用户密码！</installer-install-passwords-required>
+	<installer-install-title>请您填写以下各项以安装 eyeOS</installer-install-title>
+	<installer-lib-check-gzip>您的服务器似乎没有 gzip 支持。要手工安装 eyeOS，请将“[package]”重命名为“package.tar.gz”并将其解压到相同目录下。</installer-lib-check-gzip>
+	<installer-lib-check-md5>警告：请检查“[package]”，它可能已损坏。</installer-lib-check-md5>
+	<installer-lib-check-newer>当前的 eyeOS 安装版本高于此更新。为了安全起见，请删除“[installer]”目录。</installer-lib-check-newer>
+	<installer-lib-check-notexist>错误：“[file]”不存在。</installer-lib-check-notexist>
+	<installer-lib-check-permissions>警告：请将“[file]”的权限设置为777(chmod 777)。</installer-lib-check-permissions>
+	<installer-lib-check-php>您的服务器使用的 PHP 版本不能使用 eyeOS，请在安装 eyeOS 前升级PHP到5.0或更新的版本。</installer-lib-check-php>
+	<installer-lib-check-safemode>抱歉，eyeOS需要您关闭安全模式(SAFE_MODE OFF)。您当前弃用了安全模式。请更改 php.ini 以关闭安全模式，或询问系统管理员以寻求帮助。</installer-lib-check-safemode>
+	<installer-lib-output-errors>安装过程出错：</installer-lib-output-errors>
+	<installer-lib-output-lang-by>由</installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>当前语言</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>语言</installer-lib-output-lang-langs>
+	<installer-lib-output-title>eyeOS 安装</installer-lib-output-title>
+	<installer-lib-output-utf8>您的 PHP 没有完整的 UTF-8 支持。请考虑升级 PHP 或者安装 mbstring 模块。尽管没有他们您也可以安装和升级您的 eyeOS，但是当您的系统需要国际化支持时就可能遇到各种问题。</installer-lib-output-utf8>
+	<installer-system-action-removeinstaller>移除 eyeOS 安装程序</installer-system-action-removeinstaller>
+	<installer-system-action-uninstall>卸载 eyeOS</installer-system-action-uninstall>
+	<installer-system-action>动作</installer-system-action>
+	<installer-system-continue>继续…</installer-system-continue>
+	<installer-system-message-remove>为了安全保障，请删除安装程序！</installer-system-message-remove>
+	<installer-system-message-translations>您可以在以下地址下载到语言包：[a link]</installer-system-message-translations>
+	<installer-system-no>否</installer-system-no>
+	<installer-system-password-error>root 用户密码错误！</installer-system-password-error>
+	<installer-system-password>root 用户密码</installer-system-password>
+	<installer-system-removeinstaller-no>[span]否[/span]将会使您回到系统页面。</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>您确实要删除 eyeOS 安装程序么？</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>[span]是[/span]将会删除 eyeOS 安装程序。</installer-system-removeinstaller-yes>
+	<installer-system-title>请在以下动作中选择一个：</installer-system-title>
+	<installer-system-uninstall-no>[span]否[/span]将会使您回到系统页面。</installer-system-uninstall-no>
+	<installer-system-uninstall-really>您确实要删除 eyeOS 么？</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>[span]是[/span]将会完整删除 eyeOS 。</installer-system-uninstall-yes>
+	<installer-system-yes>是</installer-system-yes>
+	<installer-update-continue>继续…</installer-update-continue>
+	<installer-update-do>更新 eyeOS！</installer-update-do>
+	<installer-update-error-extract>无法解压缩升级文件。要手工更新 eyseOS，请将“[package]”重命名为“package.tar.gz”并将其解压到相同的目录中。</installer-update-error-extract>
+	<installer-update-error-renaming>无法重命名“./eyeOS/”目录。请手工将其重命名为“[hash]”并覆盖所有已存在文件。</installer-update-error-renaming>
+	<installer-update-error-under15>这个更新程序仅能用于更新 eyeOS 1.5或更新版本。您正在使用的版本是 eyeOS [version1]，请在升级到 eyeOS [version2]前先升级到 eyeOS 1.5。</installer-update-error-under15>
+	<installer-update-title>请继续更新您的 eyeOS 安装到 [version] 版本。</installer-update-title>
+</translation>

@@ -1,0 +1,250 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+require_once(EYE_ROOT.'/'.APP_DIR.'/eyeDesigner/projectManagement.eyecode');
+
+function eyeDesigner_run($params='') {
+	global $myPid;
+	global $checknum;
+	
+    $myWindow = new Window(array(
+        'name' => 'eyeDesigner',
+        'father' => 'eyeApps',
+        'title' => 'Applications Designer',
+        'cent' => 1,
+        'width' => 900,
+        'height' => 550,
+        'sendResizeMsg'=> 1,
+        'sigResize'=> 'resize',
+        'type'=>NORMAL_WINDOW,
+        'savePosition' => 1
+    ));
+    $myWindow->show();
+    
+    $myToolbar = new Toolbar(array(
+        'name'=>'eyeDesigner_toolbar',
+        'father'=>'eyeDesigner_Content'
+    ));
+    $myToolbar->show(0);
+    $myToolbar->addItem('newFile','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/create.png','New Window');
+    $myToolbar->addItem('openFile','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/fileopen.png','Open Project');
+    $myToolbar->addItem('DoSave','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/filesave.png','Save');
+    $myToolbar->addItem('doSaveAs','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/filesaveas.png','Save As');
+    $myToolbar->addLine();
+    $myToolbar->addItem('compile','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/fileexport.png','Compile');
+    $myToolbar->addItem('viewCode','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/search.png','View Code');
+	$myToolbar->addItem('runCode','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/1rightarrow.png','Run');
+    $myToolbar->addLine();
+    $myToolbar->addItem('wndprefs','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/details.png','Window Preferences');
+    $myToolbar->addItem('friendsManagementWindow','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/addcontact.png','Friends Management');
+	$myToolbar->addItem('LaunchContent','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/edit.png','Edit Content');
+    $myToolbar->addItem('fullscreen','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/fullScreen.png','Full Screen','',1);
+    addListenerServiceCall('fullResized','eyex','resizedbrowser');
+	//The widgdets window container
+    $widgetsWindow = new Window(array(
+        'name' => 'eyeDesigner_widgetsWND',
+        'father' => 'eyeDesigner_Content',
+        'title' => 'Widget',
+        'x' => 0,
+        'y' => 59,
+        'width' => 200,
+        'height' => 450,
+        'style'=>TITLE+CLOSE+RESIZE,
+		'sigClose' => 'closedWdigetsWND'
+    ));
+    $widgetsWindow->show();
+	//fill the widget window
+
+	$widgets = eyeWidgets('getWidgetList');//get the widgets of the system
+
+	$y = 10;
+	$i = 0;
+	$config = getConfig('eyeDesigner','exclude.xml');//read an xml with the excluded widgets(not showed in list)
+	
+	foreach($widgets as $value) {
+		$found = 0;
+		//read each one of the widgets in the excluded config and compare with the whole list of widgets
+		foreach($config['excluded'][0]['exclude'] as $excluded) {
+			if(strtolower($value) == strtolower($excluded)) {
+				$found = 1;
+			}
+		}
+		if($found == 0) {
+			//draw a simplebox with a generic name 
+			$myBox = new Simplebox(array(
+				'name' => 'SimpleBox_widget_'.$i,
+				'father' => 'eyeDesigner_widgetsWND_Content',
+				'x' => 0,
+				'y' => $y,
+				'width' => 180,
+				'height' => 30,
+				'border' => 0
+			));
+			$myBox->show();
+			//Change the background color of the simplebox with the widget name and the pointer(to the hand)
+			$myBox->addEvent('onmouseover','
+				for(i=0;i<'.count($widgets).';i++) { 
+					var obj = document.getElementById("'.$myPid.'_SimpleBox_widget_"+i);
+					if(obj) {
+						obj.style.backgroundColor = "white";
+					}
+				}
+	
+				this.style.backgroundColor = "#e9e9e9";	
+			');
+			$myBox->addEvent('onmouseout','this.style.backgroundColor = "white"');
+			$myBox->setCss(array('cursor'=>'Pointer'));
+			$myBox->addEvent('onclick','sendMsg('.$checknum.',"widgetClicked",eyeParam("name","'.$value.'"));');
+			//draw the left icon of the widget name
+			$myImage = new Imagebox(array(
+				'name' => 'img_widget_'.$i,
+				'father' => 'SimpleBox_widget_'.$i,
+				'x' => 10,
+				'y' => 5,
+				'url' => 'index.php?theme=1&extern=images/apps/eyeDesigner/'.$value.'.png'
+ 			));
+			$myImage->show();
+			//draw the names of the widget list and put in one of the simpleboxs
+			$myLabel = new Label(array(
+				'name' => 'label_widget_'.$i,
+				'father' => 'SimpleBox_widget_'.$i,
+				'x' => 50,
+				'y' => 7,
+				'text' => $value
+			));
+			$myLabel->show();
+			$myLabel->setCss(array('cursor'=>'Pointer'));
+			$y+=30;
+			$i++;
+	    }
+	}
+
+    $propertiesWindow = new Window(array(
+        'name' => 'eyeDesigner_PropertiesWND',
+        'father' => 'eyeDesigner_Content',
+        'title' => 'Properties',
+        'y' => 59,
+        'horiz' => 1,
+        'x' => 0,
+        'width' => 200,
+        'height' => 250,
+        'style'=>TITLE+CLOSE+RESIZE,
+		'sigClose' => 'closedPropWND'
+    ));
+    $propertiesWindow->show();
+
+    $listWidgetsWindow = new Window(array(
+        'name' => 'eyeDesigner_listWidgetsWND',
+        'father' => 'eyeDesigner_Content',
+        'title' => 'Widget List',
+        'y' => $propertiesWindow->height+65,
+        'horiz' => 1,
+        'x' => 0,
+        'width' => 200,
+        'height' => 200,
+        'style'=>TITLE+CLOSE+RESIZE,
+		'sigClose' => 'closedPropWND'
+    ));
+    $listWidgetsWindow->show();
+
+	$myListBox = new Listbox(array(
+		'name' => 'eyeDesigner_listWidgetsBOX',
+		'father' => 'eyeDesigner_listWidgetsWND_Content',
+		'x' => 2,
+		'y' => 32,
+		'width' => 192,
+		'height' => 140,
+		'border' => 0
+	));
+	$myListBox->show(0);
+
+	$myImageDelete = new Imagebox(array(
+		'name' => 'delete_img',
+		'father' => 'eyeDesigner_listWidgetsWND_Content',
+		'x' => 5,
+		'y' => 6,
+		'url' => 'index.php?extern=images/apps/eyeDesigner/delete.png&theme=1',
+		'disableMsg' => 0,
+		'signal' => 'deleteWidget'
+	));
+	$myImageDelete->show();
+	$myImageDelete->setCss(array('cursor' => 'pointer'));
+
+	//controls over listbox
+	$myLabel = new Label(array(
+		'name'=>'delete_lbl',
+		'father' => 'eyeDesigner_listWidgetsWND_Content',
+		'x' => 24,
+		'y' => 6,
+		'text' => 'delete',
+		'disablemsg' => 0,
+		'signal' => 'deleteWidget'
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor'=>'pointer'));
+	
+	$checker = stristr($params[0],'./');
+	if($checker != false){
+		$_SESSION[$myPid.'documentPath'] = $params[0];
+		eyeDesigner_on_loadWndPrefs();
+	}else{
+		$_SESSION[$myPid.'documentPath'] = '';
+		
+		$makingWindow = new Window(array(
+			'name' => 'eyeDesigner_making_WND',
+			'father' => 'eyeDesigner_Content',
+			'title' => 'Window',
+			'cent' => 1,
+			'width' => 350,
+			'height' => 300,
+			'style' => TITLE+RESIZE,
+			'sendResizeMsg' => 1,
+			'sigResize' => 'resizedMaking'
+		));
+	
+		$makingWindow->show();
+		
+		//saving the window in design preferences to the PHPsession
+		$_SESSION[$myPid.'_wnd']['width'] = 350;
+		$_SESSION[$myPid.'_wnd']['height'] = 300;
+		$_SESSION[$myPid.'_wnd']['title'] = 1;
+		$_SESSION[$myPid.'_wnd']['close'] = 1;
+		$_SESSION[$myPid.'_wnd']['min'] = 1;
+		$_SESSION[$myPid.'_wnd']['max'] = 0;
+		$_SESSION[$myPid.'_wnd']['listed'] = 1;
+		$_SESSION[$myPid.'_wnd']['resize'] = 0;
+		$_SESSION[$myPid.'_wnd']['titleStr'] = "Window";
+		$_SESSION[$myPid.'_wnd']['sendResizeMsg'] = 0;
+		$_SESSION[$myPid.'_wnd']['sendResizeMsgStr'] = '';
+		$_SESSION[$myPid.'_wnd']['name'] = 'eyeDesigner_making_WND';
+		
+	}
+
+}
+
+function eyeDesigner_end($params=null) {
+    eyeWidgets('unserialize',$params);
+}
+
+?>

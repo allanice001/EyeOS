@@ -1,0 +1,79 @@
+<lang>
+	<info>
+		<lang>PORTUGUÊS</lang>
+		<author>Daniel Sousa</author>
+		<version>20/05/2008</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>dev-1-text</old>
+			<new>Apresente-se à comunidade de programadores do eyeOS</new>
+		</text>
+		<text>
+			<old>dev-1-title</old>
+			<new>Comece por aqui</new>
+		</text>
+		<text>
+			<old>dev-2-text</old>
+			<new>HOW-TO&#039;s, informações e manuais para programadores</new>
+		</text>
+		<text>
+			<old>dev-2-title</old>
+			<new>Wiki para programadores</new>
+		</text>
+		<text>
+			<old>dev-3-text</old>
+			<new>Aprenda como criar aplicações, serviços e bibliotecas para o eyeOS</new>
+		</text>
+		<text>
+			<old>dev-3-title</old>
+			<new>Manual para programadores (versão [version])</new>
+		</text>
+		<text>
+			<old>dev-4-text</old>
+			<new>Registe as suas ideias/projectos e veja os projectos dos outros</new>
+		</text>
+		<text>
+			<old>dev-4-title</old>
+			<new>Blueprints</new>
+		</text>
+		<text>
+			<old>dev-5-text</old>
+			<new>Cada função de uma biblioteca, serviço, widget e kernal documentado!</new>
+		</text>
+		<text>
+			<old>dev-5-title</old>
+			<new>Centro de documentação</new>
+		</text>
+		<text>
+			<old>dev-6-text</old>
+			<new>Reporte bugs e ajude a corrigir os que já existem</new>
+		</text>
+		<text>
+			<old>dev-6-title</old>
+			<new>Bugs</new>
+		</text>
+		<text>
+			<old>site-header-dev</old>
+			<new>COMUNIDADE DE DESENVOLVEDORES</new>
+		</text>
+		<text>
+			<old>site-header-eyeoscom</old>
+			<new>SERVIÇOS PROFESSIONAIS</new>
+		</text>
+		<text>
+			<old>site-header-eyeosorg</old>
+			<new>PÁGINA INICIAL DO EYOS</new>
+		</text>
+		<text>
+			<old>site-header-lang-by</old>
+			<new>por</new>
+		</text>
+		<text>
+			<old>site-title</old>
+			<new>eyeOS  Web Desktop - Web OS - Web Office - Os seu ficheiros e aplicações em todo o lado!</new>
+		</text>
+	</part>
+</lang>

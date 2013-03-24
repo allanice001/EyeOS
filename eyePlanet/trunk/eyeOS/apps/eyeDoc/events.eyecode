@@ -1,0 +1,236 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/   eyePlanet, based on eyeOS 1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDoc_on_Message($params) {
+	eyeWidgets('updateContent', $params);	
+}
+
+function eyeDoc_on_Close() {
+	proc('end');
+}
+
+function eyeDoc_on_Search($params=null) {	
+	if($params[0]){
+		$word = $params[0];		
+	}else{
+		$word = $GLOBALS['tboxSearch']->text;	
+	}		
+	if(sectionExists($word)){		
+		eyeDoc_on_gotoSection(array('section'=>array($word)));
+		return true;
+	}
+	$result = eyeDocIndex('searchWord',array($word));	
+	
+	if(count($result) == 1){		
+		$name = eyeDocIndex('getName',array($result[0]['wid']));
+		$name = utf8_substr($name,0,strrpos($name,'.'));
+		eyeDoc_on_gotoSection(array('section'=>array($name)));
+		$dir = utf8_substr($name, 0, strpos($name, '/'));
+		if(!empty($dir)) {
+			$lang = i18n('getLang');
+			concatTree(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/'.$dir);
+		}
+	} else if(count($result) > 0) {
+		eyeDoc_formatSearch($result);
+	}
+}
+
+function eyeDoc_formatSearch($result) {
+	if(is_array($result)) {
+		eyex('resetDiv', array('name' => 'eyeContent', 'usepid' => 1));
+		
+		$lblResults = new Label(array(
+			'name' => 'lblResults',
+			'father' => 'eyeContent',
+			'x' => 0,
+			'y' => 30,
+			'text' => 'The search found the following entries:'
+		));
+		$lblResults->show();
+		$lblResults->setCss(array('font-size' => '11pt'));
+	
+		$counter = 0;
+		$myY = 60;
+		for($i=0; $i < count($result); $i++) {
+			$name = eyeDocIndex('getName',array($result[$i]['wid']));
+			$name = utf8_substr($name, 0, utf8_strpos($name, '.'));
+			$caption = utf8_basename($name);
+			$lblEntry = new Label(array(
+				'name' => $name,
+				'father' => 'eyeContent',
+				'x' => 10,
+				'y' => $myY,
+				'text' => $caption,
+				'disablemsg' => 0,
+				'signal' => 'clickResult'
+			));
+			$lblEntry->show();
+			$lblEntry->setCss(array('cursor' => 'pointer'));
+			
+			$counter++;
+			$myY+=25;
+		}
+	}
+}
+
+function eyeDoc_on_clickResult($params=null) {
+	foreach($params as $key=>$label) {
+		$section = utf8_substr($key, stripos($key, '_')+1);
+		if(!empty($section)) {
+			eyeDoc_on_gotoSection(array('section' => array($section)));
+		}
+	}
+}
+
+function eyeDoc_on_gotoSection($params=null) {
+	$section = $params['section'][0];	
+	if(empty($section)) {
+		return;
+	}
+
+	$lang = i18n('getLang');
+	$file = '/en/Reference/'.$section.'.xml';
+	if($lang != 'en' && vfs('real_fileExists', array(um('getCurrentUserDir').'/conf/eyeDoc/'.$lang.'/Reference/'.$section.'.xml'))) {
+		$file = '/'.$lang.'/Reference/'.$section.'.xml';
+	}
+	$conf = eyeXML('getXMLConfig', array('eyeDoc', $file));
+
+	if(!is_array($conf)) {
+		return;
+	}
+
+	$type = $conf['info'][0]['type'][0];
+
+	if($type == "Widget") {
+		include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDoc/libraries/formatWidget.eyecode');			
+		eyeDoc_formatWidget($conf);
+	} else if($type == "Function") {
+		include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDoc/libraries/formatFunction.eyecode');			
+    	eyeDoc_formatFunction($conf);
+	} else if($type == "Section"){
+		include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDoc/libraries/formatSection.eyecode');
+		eyeDoc_formatSection($conf);	
+	} else if($type == "Class") {
+		include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDoc/libraries/formatClass.eyecode');
+		eyeDoc_formatClass($conf);
+	}
+}
+
+function concatTree($dir) {
+	$content = vfs('real_getDirContent',array($dir));
+	if(is_array($content)) {
+		foreach($content as $value)	{
+			if(is_dir($value)) {
+				$html = '<ul><li id="Sections/'.utf8_basename($value).'" onclick="gS(this)">'.utf8_basename($value).'</li>'.makeTree($value).'</ul>';
+				eyeX('concatDiv', array('name' => 'eyeTree', 'value' => $html, 'usepid' => 1));
+			} else {
+				$html = makeTree($dir);
+				eyeX('concatDiv', array('name' => 'eyeTree', 'value' => $html, 'usepid' => 1));
+				return;
+			}
+		}
+		
+	}
+}
+
+function makeTree($dir) {
+	$content = vfs('real_getDirContent',array($dir));
+	if(is_array($content)) {
+		$html = '<ul>';
+		foreach($content as $value)	{
+			$value = substr($value, strpos($value, 'Reference/')+10);
+			if(is_dir($value)) {
+				$html .= '<li id="Sections/'.utf8_basename($value).'" onclick="gS(this)">'.utf8_basename($value).'</li>';
+				$html .= makeTree($value);
+			} else {
+				$value = substr($value, 0, utf8_strpos($value, '.'));
+				$html .= '<li id="'.$value.'" onclick="gS(this)">'.utf8_basename($value).'</li>';
+			}
+		}
+		$html .= '</ul>';
+		return $html;
+	}
+}
+
+function eyeDoc_on_Kernel($params=null) {
+	eyeX('resetDiv', array('name' => 'eyeTree', 'usepid' => 1));
+	$lang = i18n('getLang');
+	if(empty($lang) || !vfs('isDir', array(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Kernel'))) {
+		$lang = 'en';
+	}
+	concatTree(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Kernel');
+	eyeDoc_on_gotoSection(array('section' => array('Sections/Kernel')));
+}
+
+function eyeDoc_on_Widgets($params=null) {
+	eyeX('resetDiv', array('name' => 'eyeTree', 'usepid' => 1));
+	$lang = i18n('getLang');
+	if(empty($lang) || !vfs('isDir', array(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Widgets'))) {
+		$lang = 'en';
+	}
+	concatTree(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Widgets');
+	eyeDoc_on_gotoSection(array('section' => array('Sections/Widgets')));
+}
+
+function eyeDoc_on_Services($params=null) {
+	eyeX('resetDiv', array('name' => 'eyeTree', 'usepid' => 1));
+	$lang = i18n('getLang');
+	if(empty($lang) || !vfs('isDir', array(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Services'))) {
+		$lang = 'en';
+	}
+	concatTree(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Services');
+	eyeDoc_on_gotoSection(array('section' => array('Sections/Services')));
+}
+
+function eyeDoc_on_Libraries($params=null) {
+	eyeX('resetDiv', array('name' => 'eyeTree', 'usepid' => 1));
+	$lang = i18n('getLang');
+	if(empty($lang) || !vfs('isDir', array(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Libraries'))) {
+		$lang = 'en';
+	}
+	concatTree(EYE_ROOT.'/'.USERS_DIR.'/dd8/devWorld/conf/eyeDoc/'.$lang.'/Reference/Libraries');
+	eyeDoc_on_gotoSection(array('section' => array('Sections/Libraries')));
+}
+function sectionExists($section){
+	$lang = i18n('getLang');
+	$file = '/en/Reference/'.$section.'.xml';
+	if($lang != 'en' && vfs('real_fileExists', array(um('getCurrentUserDir').'/conf/eyeDoc/'.$lang.'/Reference/'.$section.'.xml'))) {
+		$file = '/'.$lang.'/Reference/'.$section.'.xml';
+	}
+	$conf = eyeXML('getXMLConfig', array('eyeDoc', $file));
+
+	if(!is_array($conf)) {
+		return false;
+	}else{
+		return true;
+	}
+}
+
+function eyeDoc_on_changeLanguage($params=null) {
+	$lang = $GLOBALS['selectLanguage']->selected;
+	if(!empty($lang)) {
+		i18n('setLang', array($lang));
+	}
+}
+
+?>

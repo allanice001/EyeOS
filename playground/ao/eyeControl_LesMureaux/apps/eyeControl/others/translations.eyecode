@@ -1,0 +1,167 @@
+﻿<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.5
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+global $checknum;
+$selType = $contentParams[0];
+if (!$selType) {
+	$selType = 'system';
+}
+// $myHidden
+$myHidden = new Hidden(array(
+	'name' => 'eyeControl_translations_hidden',
+	'father' => $eyeContainer,
+	'text' => $selType
+));
+$myHidden->show();
+eyeWidgets('serialize',array($myHidden));
+
+// $myTable
+$myTable = new Sortabletable(array(
+	'name' => 'eyeControl_translations_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => array('String','String','String','String'),
+	'theader' => array('ID','Language','Version','Author'),
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 345,
+	'dblsignal' => 'translations_edit'
+));
+$myTable->show();
+$dir = EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/langs/';
+$openDir = vfs('real_getDirContent',array($dir,'*.xml',2));
+foreach ($openDir as $file) {
+	$xml = eyeXML('getXMLfile',array($file));
+	$xml = $xml['lang'][0]['info'][0];
+	$display = $xml['lang'][0];
+	if ($xml['lang-en'][0]) {
+		$xml['lang'][0] .= ' (' . $xml['lang-en'][0] . ')';
+	}
+	if (isset($xml['version'][0]) && isset($xml['revision'][0])) {
+		$xml['version'][0] .= ' - ' . $xml['revision'][0];
+	} elseif (!isset($xml['version'][0])) {
+		$xml['version'][0] = ' ';
+	}
+	$myTable->addRow(array(utf8_basename($file,'.xml'),$xml['lang'][0],$xml['version'][0],$xml['author'][0]));
+}
+// Select
+$mySelect = new Select(array(
+	'name' => 'eyeControl_translations_select',
+	'father' => $eyeContainer,
+	'width' => 175,
+	'horiz' => 1,
+	'y' => 3
+));
+$mySelect->show();
+$openDir = vfs('real_getDirContent',array(EYE_ROOT. '/' . APP_DIR .'/' . APP_CONF_SHARE . '/eyeControl/translate/','*.xml',2));
+foreach ($openDir as $file) {
+	$type = utf8_basename($file,'.xml');
+	if ($type == $selType) {
+		$select = 1;
+	} else {
+		$select = 0;
+	}
+	$xmlType = eyeXML('getXMLfile',array($file));
+	$mySelect->addOption($xmlType['type'][0]['display'][0],$type,$select);
+}
+$mySelect->addEvent('onchange','sendMsg(' . $checknum . ',"translations_select",eyeParam("selected",this.value));');
+// New
+$myButton = new Button(array(
+	'name' => 'eyeControl_translations_button_new',
+	'father' => $eyeContainer,
+	'signal' => 'translations_new',
+	'caption' => 'New',
+	'width' => 90,
+	'x' => 10,
+	'y' => 0,
+	'img' => eyex('getThemeImage',array('icons/16x16/new.png',1))
+));
+$myButton->show();
+// Edit
+$myButton = new Button(array(
+	'name' => 'eyeControl_translations_button_edit',
+	'father' => $eyeContainer,
+	'signal' => 'translations_edit',
+	'caption' => 'Edit',
+	'width' => 90,
+	'x' => 100,
+	'y' => 0,
+	'img' => eyex('getThemeImage',array('icons/16x16/paste.png',1))
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Info
+$myButton = new Button(array(
+	'name' => 'eyeControl_translations_button_info',
+	'father' => $eyeContainer,
+	'signal' => 'translations_info',
+	'caption' => 'Info',
+	'width' => 90,
+	'x' => 190,
+	'y' => 0,
+	'img' => eyex('getThemeImage',array('icons/16x16/properties.png',1))
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Delete
+$myButton = new Button(array(
+	'name' => 'eyeControl_translations_button_delete',
+	'father' => $eyeContainer,
+	'signal' => 'translations_delete',
+	'caption' => 'Delete',
+	'width' => 90,
+	'x' => 280,
+	'y' => 0,
+	'img' => eyex('getThemeImage',array('icons/16x16/delete.png',1))
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+// Download
+$myButton = new Button(array(
+	'name' => 'eyeControl_translations_button_download',
+	'father' => $eyeContainer,
+	'signal' => 'translations_download',
+	'caption' => 'Download',
+	'width' => 125,
+	'x' => 10,
+	'y' => 385,
+	'img' => eyex('getThemeImage',array('icons/16x16/download.png',1))
+));
+$myButton->addFriend($myTable);
+$myButton->show();
+if (eyeControl_lib_check_system_translation($selType)) {
+	// Create
+	$myButton = new Button(array(
+		'name' => 'eyeControl_translations_button_create',
+		'father' => $eyeContainer,
+		'signal' => 'translations_create',
+		'caption' => 'Create',
+		'width' => 90,
+		'x' => 115,
+		'y' => 385,
+		'img' => 'index.php?extern=apps/eyeControl/gfx/exec.png'
+	));
+	$myButton->addFriend($myTable);
+	$myButton->show();
+}
+?>

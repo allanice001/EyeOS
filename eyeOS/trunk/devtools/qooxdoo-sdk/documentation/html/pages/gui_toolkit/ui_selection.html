@@ -1,0 +1,371 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Selection Handling &mdash; qooxdoo v1.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.2 documentation" href="../../index.html" />
+    <link rel="up" title="GUI Toolkit" href="../gui_toolkit.html" />
+    <link rel="next" title="Drag & Drop" href="ui_dragdrop.html" />
+    <link rel="prev" title="Resources" href="ui_resources.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ui_dragdrop.html" title="Drag & Drop"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ui_resources.html" title="Resources"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.2 documentation</a> &raquo;</li>
+          <li><a href="../gui_toolkit.html" accesskey="U">GUI Toolkit</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="selection-handling">
+<span id="pages-ui-selection-selection-handling"></span><h1>Selection Handling<a class="headerlink" href="#selection-handling" title="Permalink to this headline">¶</a></h1>
+<p>The framework contains a couple of widgets which support selection handling. These are divided into widgets that support <tt class="docutils literal"><span class="pre">Single</span> <span class="pre">Selection</span></tt> and others that support <tt class="docutils literal"><span class="pre">Multi</span> <span class="pre">Selection</span></tt>. A widget which supports multi selection also supports single selection.</p>
+<p>Here is a list of widgets which support single and/or multi selection:</p>
+<ul class="simple">
+<li>Multi Selection:<ul>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/#widget~Tree.html">Tree</a> <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.tree.Tree">(API)</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/#widget~List.html">List</a> <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.form.List">(API)</a></li>
+</ul>
+</li>
+<li>Single Selection:<ul>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/#widget~SelectBox.html">SelectBox</a> <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.form.SelectBox">(API)</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/#widget~RadioButton.html">RadioGroup</a> <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.form.RadioGroup">(API)</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/#widget~TabView.html">TabView</a> <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.tabview.TabView">(API)</a></li>
+<li><a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/#widget~StackContainer.html">Stack</a> <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.container.Stack">(API)</a></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="what-was-wrong-with-the-old-api-in-0-8-x">
+<span id="pages-ui-selection-what-was-wrong-with-the-old-api-in-0-8-x"></span><h2>What was wrong with the old API in 0.8.x?<a class="headerlink" href="#what-was-wrong-with-the-old-api-in-0-8-x" title="Permalink to this headline">¶</a></h2>
+<p>The  <a class="reference external" href="http://qooxdoo.org/documentation/0.8/ui_selection">old selection API</a> had different methods for single and multi selection and partially different events, because an interface describing the specification was missing. To offer a consistend API an interface specification was needed. The standardization has shown, that having only one interface for single and multi selection is not enough, because it would be possible to have different events for multi and single selection (remember all multi selection widgets also supports single selection).</p>
+<p>One possible solution was to have the same methods and events for single and multi selection. This is possible if the single and multi selection both work with arrays. Due to that fact it is possible to change widgets without having to worry about the selection method, because the method and event names don&#8217;t change.</p>
+</div>
+<div class="section" id="selection-interfaces">
+<span id="pages-ui-selection-selection-interfaces"></span><h2>Selection Interfaces<a class="headerlink" href="#selection-interfaces" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Selection API Interfaces" src="../../_images/new_selection_api.png" /></p>
+<div class="section" id="event">
+<span id="pages-ui-selection-event"></span><h3>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h3>
+<p>Both selections fire a <tt class="docutils literal"><span class="pre">changeSelection</span></tt> event if the selection has changed. Listeners can register the event to be notified about the changes. The event contains an array with the new selected widgets. If the array is empty no widgets are selected.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">list</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSelection&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">selection</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">selection</span><span class="p">.</span><span class="nx">lenght</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Selected item: &quot;</span> <span class="o">+</span> <span class="nx">selection</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selection-methods">
+<span id="pages-ui-selection-selection-methods"></span><h3>Selection Methods<a class="headerlink" href="#selection-methods" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">ISingleSelection</span></tt> interface specifies the methods for single selection handling. Since the methods of the single selecting interface are re-used, the <tt class="docutils literal"><span class="pre">IMultiSelection</span></tt> only extends the interface with methods for multi selection handling.</p>
+<p>The re-using of the methods requires a uniform handling for setting and getting the current selection. This has been achieved by using an array for the selection handling, see <tt class="docutils literal"><span class="pre">setSelection</span></tt> and <tt class="docutils literal"><span class="pre">getSelection</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="single-selection">
+<span id="pages-ui-selection-single-selection-methods"></span><h2>Single Selection<a class="headerlink" href="#single-selection" title="Permalink to this headline">¶</a></h2>
+<p>The listed single selection widgets above implement the <tt class="docutils literal"><span class="pre">ISingleSelection</span></tt>. To implement the behavior they use the <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.core.MSingleSelectionHandling">MSingleSelectionHandling</a> mixin. The mixin offers the methods for selection handling and it also initialize the manager for selection management.</p>
+<p>The widget itself configures the mixin for allowing an empty selection or not. Dependent on the configuration, the <tt class="docutils literal"><span class="pre">resetSelection</span></tt> clears the current selection (empty array) or selects the first selectable element.</p>
+<p>The user interactions (mouse and keyboard) are managed from the widget, which only calls the selection methods if the user interaction has an effect on the selection. So the selection management and the user interaction handling are separated. This is one thing that has changed with the new selection API.</p>
+</div>
+<div class="section" id="multi-selection">
+<span id="pages-ui-selection-multi-selection-methods"></span><h2>Multi Selection<a class="headerlink" href="#multi-selection" title="Permalink to this headline">¶</a></h2>
+<p>The multi selection implementation has hardly changed. The widgets supporting multiselection, also listed above, have already used a mixin called <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.core.MSelectionHandling">MSelectionHandling</a> for selection handling. It offers, like the mixin for the single selection, the methods for selection and initializes the selection manager. The mixin has only been changed to be conform to the new <tt class="docutils literal"><span class="pre">IMultiSelection</span></tt> interface.</p>
+<div class="section" id="selection-modes">
+<span id="pages-ui-selection-selection-modes"></span><h3>Selection Modes<a class="headerlink" href="#selection-modes" title="Permalink to this headline">¶</a></h3>
+<p>Due to the small changes the configuration for the selection mode hasn&#8217;t changed. The widgets also suport the property <tt class="docutils literal"><span class="pre">selectionMode</span></tt> with these different modes:</p>
+<ul class="simple">
+<li><strong>single:</strong> Only one element or none at all can be selected.</li>
+<li><strong>one:</strong> Exactly one item is selected if possible. The first selectable item is selected per default.</li>
+<li><strong>multi:</strong>  Multiple items can be selected by using the modifier keys together with mouse or keyboard actions. This type also allows empty selections.</li>
+<li><strong>adaptive:</strong> Easy Web-2.0 selection mode: multiple items can be selected without modifier keys. Empty selections are possible.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>Multi</em> and <em>Adaptive</em> selections are dealing with <strong>selection ranges</strong>, <em>Single</em> and <em>One</em> are dealing with one <strong>selected item</strong>.</p>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">list</span><span class="p">.</span><span class="nx">setSelectionMode</span><span class="p">(</span><span class="s2">&quot;multi&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selection-options">
+<span id="pages-ui-selection-selection-options"></span><h3>Selection Options<a class="headerlink" href="#selection-options" title="Permalink to this headline">¶</a></h3>
+<p>This options change the way a selection is created or modified. Per default items can be selected by holding down the mouse button and hovering them or by holding down the modifier key and pressing the arrow keys to traverse them.</p>
+<ul class="simple">
+<li><strong>Quick:</strong> One item can be selected by hovering it (no need to click on it or hit keys) Only possible for modes <em>single</em> and <em>one</em>.</li>
+<li><strong>Drag:</strong> Multiselection of items through dragging the mouse in pressed states. Only possible for the modes <em>multi</em> and <em>additive</em>.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">list</span><span class="p">.</span><span class="nx">setDragSelection</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-use-the-selection-api">
+<span id="pages-ui-selection-how-to-use-the-selection-api"></span><h2>How to use the selection API<a class="headerlink" href="#how-to-use-the-selection-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pages-ui-selection-single-selection">
+<span id="id1"></span><h3>Single Selection<a class="headerlink" href="#pages-ui-selection-single-selection" title="Permalink to this headline">¶</a></h3>
+<p>The example below shows how to use the single selection API, this example uses the <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.form.SelectBox">SelectBox</a> widget:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// creates the SelectBox</span>
+<span class="kd">var</span> <span class="nx">selectBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">SelectBox</span><span class="p">();</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="nx">selectBox</span><span class="p">,</span> <span class="p">{</span><span class="nx">top</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">left</span><span class="o">:</span> <span class="mi">20</span><span class="p">});</span>
+
+<span class="c1">// registers the listener</span>
+<span class="nx">selectBox</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSelection&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Selected (event): &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">getData</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="nx">getLabel</span><span class="p">());</span>
+<span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+
+<span class="c1">// creates the items and select one of them</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ListItem</span><span class="p">(</span><span class="s2">&quot;ListItem&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+  <span class="nx">selectBox</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">selectBox</span><span class="p">.</span><span class="nx">setSelection</span><span class="p">([</span><span class="nx">item</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Selected (selectBox): &quot;</span> <span class="o">+</span> <span class="nx">selectBox</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="nx">getLabel</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>The output should be:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Selected</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="o">:</span> <span class="nx">ListItem0</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="nx">Selected</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="o">:</span> <span class="nx">ListItem5</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="nx">Selected</span> <span class="p">(</span><span class="nx">selectBox</span><span class="p">)</span><span class="o">:</span> <span class="nx">ListItem5</span>
+</pre></div>
+</div>
+<p>The SelectBox&#8217;s implemention doesn&#8217;t allow empty selections, so if the first item is added to the SelectBox it will be selected (1). (2) occurs, due to the selection and (3) from <tt class="docutils literal"><span class="pre">getSelection</span></tt>.</p>
+</div>
+<div class="section" id="pages-ui-selection-multi-selection">
+<span id="id2"></span><h3>Multi Selection<a class="headerlink" href="#pages-ui-selection-multi-selection" title="Permalink to this headline">¶</a></h3>
+<p>The next example uses the <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/apiviewer/#qx.ui.form.List">List</a> widget:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// creates the List and sets the selection mode</span>
+<span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">List</span><span class="p">();</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">setSelectionMode</span><span class="p">(</span><span class="s2">&quot;multi&quot;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">getRoot</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="p">{</span><span class="nx">top</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">left</span><span class="o">:</span> <span class="mi">20</span><span class="p">});</span>
+
+<span class="c1">// registers the listener</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSelection&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Selection (event): &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
+<span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+
+<span class="c1">// creates the items</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ListItem</span><span class="p">(</span><span class="s2">&quot;ListItem&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+  <span class="nx">list</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// sets selection</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">setSelection</span><span class="p">([</span><span class="nx">list</span><span class="p">.</span><span class="nx">getChildren</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">list</span><span class="p">.</span><span class="nx">getChildren</span><span class="p">()[</span><span class="mi">4</span><span class="p">]]);</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Selection (list): &quot;</span> <span class="o">+</span> <span class="nx">list</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>The output could look like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Selection</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ListItem</span><span class="p">[</span><span class="mi">1</span><span class="nx">p</span><span class="p">],</span><span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ListItem</span><span class="p">[</span><span class="mi">2</span><span class="nx">a</span><span class="p">]</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="nx">Selection</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ListItem</span><span class="p">[</span><span class="mi">1</span><span class="nx">p</span><span class="p">],</span><span class="nx">qx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ListItem</span><span class="p">[</span><span class="mi">2</span><span class="nx">a</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-migrate-from-the-0-8-x-to-the-1-2-x-selection-api">
+<span id="pages-ui-selection-how-to-migrate-from-the-0-8-x-to-the-1-2-x-selection-api"></span><h2>How to migrate from the 0.8.x to the 1.2.x selection API<a class="headerlink" href="#how-to-migrate-from-the-0-8-x-to-the-1-2-x-selection-api" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The old selection API is set to deprecated. This mean that the old selection API can still be used, but deprecation warnings occur in the source version of the application. So the old code runs with using the old selection API, but in the future the deprecated methods will be removed, so please change as soon as possible to the new selection API.</p>
+</div>
+<p>By changing the framework applications, like the <a class="reference external" href="http://demo.qooxdoo.org/1.2.x/demobrowser/">Demo Browser</a>, to the new selection API, useful steps have been found:</p>
+<ol class="arabic simple">
+<li>Search the source code for only one widget that uses the old selection API.</li>
+<li>Replace the old method/event with the new one, but only for the classes that contain a reference from the widget.</li>
+<li>Run <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">source</span></tt>, start the application and test your changes.</li>
+<li>If the application runs without errors go to step one and choose the next widget, otherwise fix the problem.</li>
+<li>If you have searched for all widgets and renamed the old methods/events in these classes, search for the old method/event names in the complete source code and rename them if they are really using the old API.</li>
+<li>Run <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">source</span></tt>, start your application and test your changes again.</li>
+<li>If there are no errors or deprecation warnings while testing your code, you have finished the migration.</li>
+</ol>
+<div class="section" id="what-does-rename-the-method-event-mean">
+<span id="pages-ui-selection-what-does-rename-the-method-event-mean"></span><h3>What does &#8216;rename&#8217; the method/event mean?<a class="headerlink" href="#what-does-rename-the-method-event-mean" title="Permalink to this headline">¶</a></h3>
+<p>It means to replace the old method/event names with the new method/event names, but don&#8217;t forget to customize the <strong>method parameter</strong> and <strong>return values</strong>!!! If you only rename the method/event-names you will get many errors!!!</p>
+<p>The examples below show some use cases, for renaming the old methods/events.</p>
+<p>All examples started with step (1) searching for <tt class="docutils literal"><span class="pre">qx.ui.form.SelectBox</span></tt>. We found the variable <tt class="docutils literal"><span class="pre">__group</span></tt> that references a <tt class="docutils literal"><span class="pre">SelectBox</span></tt> instance.</p>
+<div class="section" id="example-for-renaming-setselected-to-setselection">
+<span id="pages-ui-selection-example-for-renaming-setselected-to-setselection"></span><h4>Example for renaming &#8216;setSelected&#8217; to &#8216;setSelection&#8217;<a class="headerlink" href="#example-for-renaming-setselected-to-setselection" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">__group</span><span class="p">.</span><span class="nx">setSelected</span><span class="p">(</span><span class="nx">firstItem</span><span class="p">);</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * To rename this method, we have to change the method &#39;setSelected&#39;</span>
+<span class="cm">   * to &#39;setSelection&#39; and putting the &#39;firstItem&#39; into an array.</span>
+<span class="cm">   */</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">__group</span><span class="p">.</span><span class="nx">setSelection</span><span class="p">([</span><span class="nx">firstItem</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-renaming-getselected-to-getselection">
+<span id="pages-ui-selection-example-renaming-getselected-to-getselection"></span><h4>Example renaming &#8216;getSelected&#8217; to &#8216;getSelection&#8217;<a class="headerlink" href="#example-renaming-getselected-to-getselection" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">selectedGroup</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">__group</span><span class="p">.</span><span class="nx">getSelected</span><span class="p">();</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * To rename this method, we have to change the method &#39;getSelected&#39;</span>
+<span class="cm">   * to &#39;getSelection&#39; and select the first element from the returned array.</span>
+<span class="cm">   */</span>
+
+  <span class="kd">var</span> <span class="nx">selectedGroup</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">__group</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-renaming-changeselected-to-changeselection">
+<span id="pages-ui-selection-example-renaming-changeselected-to-changeselection"></span><h4>Example renaming &#8216;changeSelected&#8217; to &#8216;changeSelection&#8217;<a class="headerlink" href="#example-renaming-changeselected-to-changeselection" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">__group</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSelected&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">selectedGroup</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>
+  <span class="p">});</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * To rename that event, we have to change the event &#39;changeSelected&#39;</span>
+<span class="cm">   * to &#39;changeSelection&#39; and select the first element from the data array.</span>
+<span class="cm">   */</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">__group</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;changeSelection&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">selectedGroup</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">getData</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Be careful with mindless renaming methods and events, because an error only occurs if the code part is executed.</p>
+<p class="last">So if you are not sure that the method or event is the right to rename, then add a <strong>TODO</strong> comment and rename it later, by trying to execute this code part, if this is relay a old method/event a deprecation warning occurs.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Selection Handling</a><ul>
+<li><a class="reference internal" href="#what-was-wrong-with-the-old-api-in-0-8-x">What was wrong with the old API in 0.8.x?</a></li>
+<li><a class="reference internal" href="#selection-interfaces">Selection Interfaces</a><ul>
+<li><a class="reference internal" href="#event">Event</a></li>
+<li><a class="reference internal" href="#selection-methods">Selection Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-selection">Single Selection</a></li>
+<li><a class="reference internal" href="#multi-selection">Multi Selection</a><ul>
+<li><a class="reference internal" href="#selection-modes">Selection Modes</a></li>
+<li><a class="reference internal" href="#selection-options">Selection Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-use-the-selection-api">How to use the selection API</a><ul>
+<li><a class="reference internal" href="#pages-ui-selection-single-selection">Single Selection</a></li>
+<li><a class="reference internal" href="#pages-ui-selection-multi-selection">Multi Selection</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-migrate-from-the-0-8-x-to-the-1-2-x-selection-api">How to migrate from the 0.8.x to the 1.2.x selection API</a><ul>
+<li><a class="reference internal" href="#what-does-rename-the-method-event-mean">What does &#8216;rename&#8217; the method/event mean?</a><ul>
+<li><a class="reference internal" href="#example-for-renaming-setselected-to-setselection">Example for renaming &#8216;setSelected&#8217; to &#8216;setSelection&#8217;</a></li>
+<li><a class="reference internal" href="#example-renaming-getselected-to-getselection">Example renaming &#8216;getSelected&#8217; to &#8216;getSelection&#8217;</a></li>
+<li><a class="reference internal" href="#example-renaming-changeselected-to-changeselection">Example renaming &#8216;changeSelected&#8217; to &#8216;changeSelection&#8217;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="ui_resources.html"
+                                  title="previous chapter">Resources</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="ui_dragdrop.html"
+                                  title="next chapter">Drag &amp; Drop</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/gui_toolkit/ui_selection.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeUpload_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeUpload_on_upLoadFile($params=null) {
+	if(is_object($GLOBALS['upPath'])) {
+		$path = $GLOBALS['upPath']->text;
+	} else {
+		$path = '/';
+	}
+	$myFolderName = basename($GLOBALS['nfTextbox']->text);
+	$myUserDir .= '/'.$myFolderName;
+	$filename = $_FILES['myFile']['name']; 
+	$myUserDir = $path.'/'.$filename;
+	if (is_uploaded_file($_FILES['myFile']['tmp_name'])) {
+		$content = file_get_contents($_FILES['myFile']['tmp_name']);
+		if(!service('vfs','create',array($myUserDir,'eyeUpload'),1)) {
+			echo "<div style='font-family: Verdana; font-size: 12pt; margin-left: 30px; margin-top: 20px;'><strong>Error writing file!</div>";
+			exit;
+		}
+		$fp = service('vfs','open',array($myUserDir,'w'));
+		if(!$fp) {
+			//TODO: HANDLE ERROR
+			echo "<div style='font-family: Verdana; font-size: 12pt; margin-left: 30px; margin-top: 20px;'><strong>Error writing file!</div>";
+			exit;
+		}
+		fwrite($fp,$content,strlen($content));
+		fclose($fp);
+		echo "<div style='font-family: Verdana; font-size: 12pt; margin-left: 30px; margin-top: 20px;'><strong>Upload finished!</strong><br />
+		You can now close this window.</div>";
+		exit;
+	} else {
+		//TODO: HANDLE ERROR
+		echo "<div style='font-family: Verdana; font-size: 12pt; margin-left: 30px; margin-top: 20px;'><strong>Error uploading file</div>";
+		exit;
+	}
+	exit;
+}
+
+function eyeUpload_on_Close(){
+	global $myPid;
+	if(is_object($GLOBALS['upCallback'])) {
+		$callback = $GLOBALS['upCallback']->text;
+		service('eyex','rawjs',array('js'=>$callback));
+	}
+	service('proc','close',array($myPid));
+}
+
+?>

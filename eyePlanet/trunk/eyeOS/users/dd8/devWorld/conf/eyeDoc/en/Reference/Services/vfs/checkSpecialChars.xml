@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>checkSpecialChars</name>
+		<tags>
+			<tag>function</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Checks if a file has illegal characters in its name.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.5</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>checkSpecialChars</functionName>
+		<syntax>bool vfs('checkSpecialChars', array(string $filename))</syntax>
+		<desc>Checks if a file has illegal characters in its name.</desc>
+		<params>
+			<type>required</type>
+			<name>filename</name>
+			<desc>Path to check.</desc>
+		</params>	
+		<return>If the file name is valid returns true, otherwise returns false.</return>
+	</definition>
+</info>

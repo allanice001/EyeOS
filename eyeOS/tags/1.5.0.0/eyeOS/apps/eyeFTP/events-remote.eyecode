@@ -1,0 +1,389 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+
+/**
+ * @author Nanawel (nanawel@eyeos.org)
+ * @version 3.0.0
+ * @updated 12-Jan-2008
+ */
+
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFTP/lib-global'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFTP/lib-local'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFTP/lib-remote'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFTP/dialogs'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFTP/lib-ftp'.EYE_CODE_EXTENSION);
+include_once(EYE_ROOT.'/'.APP_DIR.'/eyeFTP/hosts'.EYE_CODE_EXTENSION);
+
+define('EYEFTP_USE_REQUEST_BOUNCING',true);
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*					FUNCTIONS TRIGGERED BY SIGNALS RAISED BY THE INTERFACE					 */
+/*********************************************************************************************/
+/*********************************************************************************************/
+
+function eyeFTP_on_eyeFTP_remoteHome_IMG() {
+	eyeFTP_browseRemote('/');
+}
+
+function eyeFTP_on_eyeFTP_refreshRemote() {
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		eyeFTP_refreshRemote();
+	}
+	else {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+	}
+}
+
+/**
+ * @see eyeFTP_browseRemote()
+ */
+function eyeFTP_on_eyeFTP_browseRemote_bounced($params="") {
+	$conf = eyeFTP_getConf();
+	// === BOUNCED REQUEST PROCESSING ===
+	if (eyeFTP_isFromBouncedRequest($params)) {
+		if ($conf['isConnectionActive']) {
+			eyeFTP_ftpListDir(base64_decode($params['dir_b64'][0]));
+			return;
+		}
+		else {
+			eyeX('messageBox',array('content'=>'You must connect first!'));
+		}
+	}
+	// === END OF BOUNCED REQUEST PROCESSING ===
+}
+
+function eyeFTP_on_eyeFTP_createFolderRemote() {
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		showCreateFolderDialog();
+	}
+	else {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+	}
+}
+/* EVENT FOR 'CREATE FOLDER' DIALOG BOX */
+function eyeFTP_on_eyeFTP_newFolder_createFolder_BTN($params="") {
+	$conf = eyeFTP_getConf();
+	$newFolderName = $GLOBALS['eyeFTP_newFolder_TXTBOX']->text;
+	
+	if ($newFolderName) {
+		eyeFTP_logConsole('Attempting to create folder \''.$GLOBALS['eyeFTP_newFolder_TXTBOX']->text
+							.'\' in \''.$conf['displayedCurrentRemoteDir'].'\'...');
+		
+		//reload files list to display changes if successful
+		if (eyeFTP_ftpMkdir($conf['currentRemoteDir'],$newFolderName)) {
+			eyeFTP_refreshRemote();
+		}
+
+		$GLOBALS['eyeFTP_newFolder_DLG']->close();
+	}
+	else {
+		eyeX('messageBox',array('content'=>'Name must not be empty!'));
+		return;
+	}
+}
+
+function eyeFTP_on_eyeFTP_renameMoveRemote() {
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		if ($conf['selectedRemoteFile']) {
+			showRenameDialog(array('selectedFileLocation' => eyeFTP_getFormatedDirPath(
+															$conf['currentRemoteDir'].'/'.$conf['selectedRemoteFile']['name']),
+									'displayedFileLocation' => eyeFTP_getFormatedDirPath(
+															$conf['displayedCurrentRemoteDir'].'/'.$conf['selectedRemoteFile']['displayedName'])
+			));
+		}
+		else {
+			eyeX('messageBox',array('content'=>'You must select a file or a folder first'));
+		}
+	}
+	else {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+	}
+}
+/* EVENT FOR 'RENAME FILE/FOLDER' DIALOG BOX */
+function eyeFTP_on_eyeFTP_rename_rename_BTN($params="") {
+	$conf = eyeFTP_getConf();
+	$currentFileLocation = $GLOBALS['eyeFTP_rename_currentLocation_HID']->text;
+	$newFileLocation = $GLOBALS['eyeFTP_rename_TXTBOX']->text;
+	
+	if ($newFileLocation) {
+		eyeFTP_logConsole('Attempting to rename/move \''.$currentFileLocation.'\'...');
+		
+		//reload file list to display changes if successful
+		if (eyeFTP_ftpRename($currentFileLocation,$newFileLocation)) {
+			eyeFTP_refreshRemote();
+		}
+
+		$GLOBALS['eyeFTP_rename_DLG']->close();
+	}
+	else {
+		eyeX('messageBox',array('content'=>'Name must not be empty!'));
+		return;
+	}
+}
+
+function eyeFTP_on_eyeFTP_deleteRemote() {
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		if ($conf['selectedRemoteFile']) {
+			showConfirmDeleteDialog(array(
+				'serializedFileInfos' => serialize(array(
+					'location' => eyeFTP_getFormatedDirPath($conf['currentRemoteDir'].'/'.$conf['selectedRemoteFile']['name']),
+					'type' => $conf['selectedRemoteFile']['type']
+				))
+			));
+		}
+		else {
+			eyeX('messageBox',array('content'=>'You must select a file or a folder first'));
+		}
+	}
+	else {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+	}
+}
+/* EVENTS FOR 'DELETE FILE/FOLDER' DIALOG BOX */
+function eyeFTP_on_eyeFTP_delete_deleteYes_BTN($params="") {
+	$conf = eyeFTP_getConf();
+	$fileInfos = unserialize($GLOBALS['eyeFTP_delete_serializedFileInfos_HID']->text);
+	
+	eyeFTP_logConsole('Attempting to delete \''.$fileInfos['location'].'\'...');
+	
+	//reload file list to display changes if successful
+	if (eyeFTP_ftpDelete($fileInfos['location'],$fileInfos['type'])) {
+		eyeFTP_refreshRemote();
+	}
+
+	$GLOBALS['eyeFTP_delete_DLG']->close();
+}
+function eyeFTP_on_eyeFTP_delete_deleteNo_BTN($params="") {
+	$GLOBALS['eyeFTP_delete_DLG']->close();
+}
+
+function eyeFTP_on_eyeFTP_downloadRemote($params="") {
+	// === BOUNCED REQUEST PROCESSING ===
+	if (eyeFTP_isFromBouncedRequest($params)) {
+		$downloadParams = array(
+			'target' => 'browser',
+			'path' => ''
+		);
+		if (! eyeFTP_ftpGet(base64_decode($params['dir_b64'][0]),
+							base64_decode($params['filename_b64'][0]),
+							$downloadParams)) {
+			eyeFTP_logConsole('Unable to download file, error occured');
+		}
+		return;
+	}
+	// === END OF BOUNCED REQUEST PROCESSING ===
+	
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		if ($conf['selectedRemoteFile'] && $conf['selectedRemoteFile']['type'] != 'd') {
+			//
+			eyeFTP_logConsole('Downloading: '.
+							eyeFTP_getFormatedDirPath($conf['currentRemoteDir']
+														.'/'.$conf['selectedRemoteFile']['name']
+			));
+			
+			if (EYEFTP_USE_REQUEST_BOUNCING) {
+				eyeFTP_bounceRequest(array(
+					'__signal' => 'eyeFTP_downloadRemote',
+					'dir_b64' => base64_encode($conf['currentRemoteDir']),
+					'filename_b64' => base64_encode($conf['selectedRemoteFile']['name'])
+				));
+			}
+			else {
+				$downloadParams = array('target' => 'browser','path' => '');
+				if (! eyeFTP_ftpGet($conf['currentRemoteDir'],$conf['selectedRemoteFile']['name'])) {
+					eyeFTP_logConsole('Unable to download file, error occured');
+				}
+			}
+		}
+	}
+	else {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+	}
+}
+function eyeFTP_on_eyeFTP_downloadRemote_finished($params=null) {
+	if ($params == null) exit;
+	$params = unserialize(urldecode($params));
+	
+	$size = filesize($params['tmpfilepath']);
+	if ($size !== false) {
+		$tmpfile = fopen($params['tmpfilepath'],'r');
+		$content = fread($tmpfile,$size);
+		fclose($tmpfile);
+		
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="'.$params['filename'].'"');
+		echo $content;
+		
+		//once file's content has been read, the file could be deleted to avoid space wasting
+		//but if download fails, the file will have to be transfered to eyeOS server again :(
+		unlink($params['tmpfilepath']);
+	}
+	exit;
+}
+
+function eyeFTP_on_eyeFTP_uploadRemote($params="") {
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		showUploadDialog(array('path' => $conf['currentRemoteDir'],
+								'displayedPath' => $conf['displayedCurrentRemoteDir']
+								));
+	}
+	else {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+	}
+}
+
+/* EVENTS FOR 'UPLOAD FILE' DIALOG BOX */
+function eyeFTP_on_eyeFTP_uploadRemote_initForm($params="") {
+	global $checknum;
+	$pathDisplayed = urldecode($_GET['params'][0]);
+	if (! $pathDisplayed) {
+		$pathDisplayed = '[unknown]';
+	}
+	
+	echo '<html>
+	<head>
+	</head>
+</html>	
+<body>
+	<form enctype="multipart/form-data" action="index.php?checknum='.$checknum.'&msg=eyeFTP_uploadRemote_uploadComplete" method="POST">
+		<div style="font-family:Verdana;font-size:11px;position:absolute;top:20px;left:5px;">
+			'.i18n("translate",array("Select a file to upload to path:")).'<br>' .
+					'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>'.$pathDisplayed.'</i>
+		</div>
+		<input type="file" name="myFile" style="font-family:Verdana;font-size:11px;position:absolute;top:60px;left:5px;" />
+		<input type="submit" value="'.i18n("translate",array("Upload")).'" style="font-family:Verdana;font-size:11px;position:absolute;top:90px;left:5px;" />
+	</form>
+</body>
+</html>';
+	exit;
+}
+/*
+ * IMPORTANT NOTE ABOUT THIS FUNCTION:
+ * The following code is not executed during an AJAX request, so it's impossible to use the main functions
+ * of the eyeOS API (services, etc.).
+ * Moreover, the HTML code generated is "displayed" INTO the Iframe located in the upload dialog box, so the
+ * JS elements and functions located in the eyeOS interface must be accessed through the following syntax:
+ *      window.parent.[ELEMENT_ID]    or    window.parent.[FUNCTION_NAME]
+ * 
+ * In order to refresh the interface (among other things...) at the end of a transfer, the function makes
+ * an AJAX call through the JS function "sengMsg()" which sends another signal received and processed by
+ * the next function named "eyeFTP_on_eyeFTP_upload_notifyEndOfUpload()". This one can now interact with
+ * the interface.
+ * 
+ * Update: this work I made has finally been introduced in eyeOS by the Core Team to create the File Widget.
+ *         I'm very happy the several hours I spent in front of my screen were so useful :)
+ */
+function eyeFTP_on_eyeFTP_uploadRemote_uploadComplete() {
+	global $checknum;
+	$remotePath = $GLOBALS['eyeFTP_upload_path_HID']->text;
+	$sendMsgParams = 'window.parent.eyeParam("remotePath","'.$remotePath.'")'.
+					'+window.parent.eyeParam("filename","'.$_FILES['myFile']['name'].'")';
+	
+	if (is_uploaded_file($_FILES['myFile']['tmp_name'])) {
+		$uploadParams = array('source' => 'browser',
+								'tmpName' => $_FILES['myFile']['tmp_name'],
+								'realName' => $_FILES['myFile']['name'],
+								'remotePath' => $remotePath);
+		if (eyeFTP_ftpPut($uploadParams)) {
+			$sendMsgParams .= '+window.parent.eyeParam("statut","UPLOAD_SUCCESS")';
+		}
+		else {
+			$sendMsgParams .= '+window.parent.eyeParam("statut","UPLOAD_FTP_FAILED")';
+		}
+	}
+	else {
+		$sendMsgParams .= '+window.parent.eyeParam("statut","UPLOAD_PHP_FAILED")';
+	}
+	header('Content-type: text/html; charset="utf-8"');
+	echo
+		'<html><head>'.
+		'<body><script type="text/javascript" language="Javascript">'.
+			'window.parent.sendMsg('.$checknum.',"eyeFTP_uploadRemote_notifyEndOfUpload",'.$sendMsgParams.');'.
+		'</script>'.
+		'</body></html>';
+	exit;
+}
+function eyeFTP_on_eyeFTP_uploadRemote_notifyEndOfUpload($params="") {
+	$conf = eyeFTP_getConf();
+	
+	$GLOBALS['eyeFTP_upload_DLG']->close();
+	switch ($params['statut'][0]) {
+		//success
+		case 'UPLOAD_SUCCESS':
+			eyeFTP_logConsole('File \''.$params['filename'][0].'\' successfully uploaded to \''.$params['remotePath'][0].'\'');
+			if ($conf['currentRemoteDir'] == $params['remotePath'][0]) {
+				eyeFTP_refreshRemote();
+			}
+			break;
+		
+		//error: file not uploaded to eyeOS
+		case 'UPLOAD_PHP_FAILED':
+			eyeFTP_logConsole('Error, can\'t upload file \''.$params['filename'][0].'\' to eyeOS server (check maximum filesize accepted by PHP?)');
+			break;
+		
+		//error: file not (entirely?) transfered to FTP
+		case 'UPLOAD_FTP_FAILED':
+			eyeFTP_logConsole('Error, can\'t upload file \''.$params['filename'][0].'\' to FTP server');
+			if ($conf['currentRemoteDir'] == $params['remotePath'][0]) {
+				eyeFTP_refreshRemote();
+			}
+			break;
+		
+		default:
+			eyeFTP_logConsole('Unknown error occured during upload operation');
+	}
+}
+
+/*********************************************************************************************/
+//		TABLE CLICKS MANAGEMENT
+/*********************************************************************************************/
+
+function eyeFTP_on_eyeFTP_remoteFilesClick($params="") {
+	eyeFTP_setActiveView('remote');
+}
+
+function eyeFTP_on_eyeFTP_remoteFilesDblClick($params="") {
+	$conf = eyeFTP_getConf();
+	if ($conf['isConnectionActive']) {
+		//browse only if selected element is a directory
+		switch ($conf['selectedRemoteFile']['type']) {
+			case 'd':
+				eyeFTP_browseRemote($conf['currentRemoteDir'].'/'.$conf['selectedRemoteFile']['name']);
+				break;
+			
+			case '-':
+				eyeFTP_on_eyeFTP_transferToLeft_IMG();
+				break;
+		}
+	}
+}
+
+?>

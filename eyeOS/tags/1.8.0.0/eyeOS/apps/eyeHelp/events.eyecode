@@ -1,0 +1,275 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeHelp_on_Message($params=null) {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeHelp_on_Resize($params = ''){
+	if(intval($params['arg'][0])>=300) $width = intval($params['arg'][0]);
+		else $width = 300;
+	if(intval($params['arg'][1])>=200) $height = intval($params['arg'][1]);
+		else $height = 200;
+	$GLOBALS['BOX_1']->setHeight($height - 100);
+	$GLOBALS['WND_3']->setHeight($height - 75);
+	$GLOBALS['WND_BOX_1']->setHeight($height - 110);
+	$GLOBALS['WND_1']->setHeight($height);
+	$GLOBALS['WND_1']->setWidth($width);
+	$GLOBALS['WND_2']->setHeight($height - 80);
+	$GLOBALS['WND_2']->setWidth($width - 225);
+}
+
+function eyeHelp_getFolder($params=null){
+	global $myPid;
+	
+	$return = EYE_ROOT.'/'.APP_DIR.'/'.SHARE_USER_DIR.'/eyeHelp/1.8';
+	if($params[0]){
+		eyeSessions('setVar',array('eyeHelp_'.$myPid.'_app',$params[0]));
+	}
+	$app = eyeSessions('getVar',array('eyeHelp_'.$myPid.'_app'));
+	if($app!='' && $params['root']!=1)
+		$return .= '/'.$app;
+	
+	return $return;
+}
+
+function eyeHelp_on_goto($params=null){
+	global $myPid,$checknum;
+	global $currentUser;
+	
+	$folder = eyeHelp_getFolder();
+	$open = substr($params['itemName'][0],5);
+	if($params[0]){
+		$open = str_replace('..','.',$params[0]);
+	}
+	//Don't know why, but sometimes when the tree is clicked, this is the param received...
+	if($open=='OX_1_Content')$stop = TRUE;
+
+	if($open && $stop!==TRUE){
+		$myDir = $open;
+		if($myDir{strlen($myDir)-1}!='/')$myDir = $myDir.'/';
+
+		$oldUser = $currentUser;
+		$currentUser = ROOTUSER;
+		$myInfoFile = $myDir.'info.xml';
+		$size = service('vfs','real_filesize',array($myInfoFile));
+		if ($size > 0) {
+			$fp = service('vfs','real_open',array($myInfoFile,'r'));
+			$InfoContent = fread($fp,$size);
+			fclose($fp);
+		}
+	
+		$info = eyeXML('xml2array',array($InfoContent));
+		$info = $info['eyeHelp'][0];;
+		if(filesize($myDir.$_SESSION['lang'].'.eyeHelp')>0)
+			$myIndexFile = $myDir.$_SESSION['lang'].'.eyeHelp';
+			else $myIndexFile = $myDir.'index.eyeHelp';
+		$size = service('vfs','real_filesize',array($myIndexFile));
+		if ($size > 0) {
+			$fp = service('vfs','real_open',array($myIndexFile,'r'));
+			$IndexContent = fread($fp,$size);
+			fclose($fp);
+		}
+		$currentUser = $oldUser;
+
+		if($info['title-'.$_SESSION['lang']][0]!='')$title = trim($info['title-'.$_SESSION['lang']][0]);
+			else $title = trim($info['title'][0]);
+		$myDir2 = substr($myDir,0,strlen($myDir)-1);
+		if($title=="")$title = utf8_basename($myDir2);
+	
+		eyeX('runjs',array('js'=>'document.getElementById("'.$myPid.'_label1").innerHTML="<h1>'.str_replace('"','\\"',$title).'</h1><hr />";'));
+		
+		if(trim($info['HTML-only'][0])!=1)$IndexContent = eyeHelp_BBCode($IndexContent);
+		$IndexContent_array = explode('<br />[split]<br />',$IndexContent);
+		
+		foreach($IndexContent_array as $value){
+			eyeX('concatDiv',array('name'=>$myPid.'_label1','value'=>$value));
+		}		
+	}
+}
+
+function eyeHelp_on_open($param){
+	if(strpos($param,'..'))$getfolder_param['root']=1;
+	$goto = array(eyeHelp_getFolder($getfolder_param).$param);
+	eyeHelp_on_goto($goto);
+}
+
+function eyeHelp_on_pref() {
+	global $checknum;
+	global $currentUser;
+	if($currentUser == ROOTUSER){
+		$xml = getConfig('eyeHelp','conf.xml');
+		eyex('messageBox',array(
+			'btn1_capt' => 'Submit',
+			'btn1_name' => 'submit',
+			'content' => 'User to contact to ask for help:',
+			'textbox_name' => 'eyeHelp_contact_box',
+			'textbox_text' => $xml['eyeHelp'][0]['contact'][0],
+			'textbox_event' => 'submit',
+			'title' => 'eyeHelp preferences',
+			'type' => 3,
+			'win_name' => 'eyeHelp_prefs',
+			'win_removepid'=>0,
+			'win_style' => TITLE + NOT_LISTED + CLOSE
+		));
+	}else eyex('messageBox',array('content'=>'You are not allowed to do this.'));
+}
+
+function eyeHelp_on_submit(){
+	global $currentUser;
+	if($currentUser == ROOTUSER){	
+		if($GLOBALS['eyeHelp_contact_box']->text!=''){
+			$xml['eyeHelp'][0]['contact'][0] = $GLOBALS['eyeHelp_contact_box']->text;
+			eyeXML('setXMLfile',array(EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeHelp/conf.xml',$xml));
+			eyex('messageBox',array('content'=>'Changes successfully applied.'));
+			$GLOBALS['eyeHelp_prefs']->close();
+		}else{
+			eyex('messageBox',array('content'=>'The field must not be left empty.'));
+		}
+	}else{
+		eyex('messageBox',array('content'=>'You are not allowed to do this.'));
+		$GLOBALS['eyeHelp_prefs']->close();
+	}
+}
+
+function eyeHelp_on_SendMessage() {
+	$xml = getConfig('eyeHelp','conf.xml');
+	proc('launch',array('newMessage',array('action' => 'new','to' => $xml['eyeHelp'][0]['contact'][0])));
+}
+
+function eyeHelp_on_eyeNav($param) {
+	proc('launch',array('eyeNav',$param));
+}
+
+//BBcode 2 HTML was written by WAY2WEB.net (but a lot modified by me :P)
+function eyeHelp_BBCode($Text){
+	global $checknum;
+
+	// Convert new line chars to html <br /> tags
+	$Text = str_replace("\n",'<br />',$Text);
+	$Text = str_replace("\t",'&nbsp;&nbsp;&nbsp;&nbsp;',$Text);
+
+	// Set up the parameters for a URL search string
+	$URLSearchString = " a-zA-Z0-9\:\/\-\?\&\.\=\_\~\#\'";
+	// Set up the parameters for a MAIL search string
+	$MAILSearchString = $URLSearchString . " a-zA-Z0-9\.@";
+
+	// Perform GOTO Search
+	$Text = preg_replace("/\[goto\]([$URLSearchString]*)\[\/goto\]/", '<span style="color:blue; cursor:pointer;" onclick="sendMsg(\''.$checknum.'\',\'open\',\'$1\');">$1</span>', $Text);
+	$Text = preg_replace("(\[goto\=([$URLSearchString]*)\](.+?)\[/goto\])", '<span style="color:blue; cursor:pointer;" onclick="sendMsg(\''.$checknum.'\',\'open\',\'$1\');">$2</span>', $Text);
+
+	// Perform URL Search
+	$Text = preg_replace("/\[url\]([$URLSearchString]*)\[\/url\]/", '<span style="color:blue; cursor:pointer;" onclick="sendMsg(\''.$checknum.'\',\'eyeNav\',\'$1\');">$1</span>', $Text);
+	$Text = preg_replace("(\[url\=([$URLSearchString]*)\](.+?)\[/url\])", '<span style="color:blue; cursor:pointer;" onclick="sendMsg(\''.$checknum.'\',\'eyeNav\',\'$1\');">$2</span>', $Text);
+	/*$Text = preg_replace("/\[url\]([$URLSearchString]*)\[\/url\]/", '<a href="$1" style="color:blue;" target="_blank">$1</a>', $Text);
+	$Text = preg_replace("(\[url\=([$URLSearchString]*)\](.+?)\[/url\])", '<a href="$1" style="color:blue;" target="_blank">$2</a>', $Text);*/
+         //$Text = preg_replace("(\[url\=([$URLSearchString]*)\]([$URLSearchString]*)\[/url\])", '<a href="$1" target="_blank">$2</a>', $Text);
+
+	// Perform MAIL Search
+	$Text = preg_replace("(\[mail\]([$MAILSearchString]*)\[/mail\])", '<a href="mailto:$1" style="color:blue; cursor:pointer;">$1</a>', $Text);
+	$Text = preg_replace("/\[mail\=([$MAILSearchString]*)\](.+?)\[\/mail\]/", '<a href="mailto:$1" style="color:blue; cursor:pointer;">$2</a>', $Text);
+         
+	// Check for bold text
+	$Text = preg_replace("(\[b\](.+?)\[\/b])is",'<span style="font-weight: bold;">$1</span>',$Text);
+
+	// Check for Italics text
+	$Text = preg_replace("(\[i\](.+?)\[\/i\])is",'<span style="font-style: italic;">$1</span>',$Text);
+
+	// Check for Underline text
+	$Text = preg_replace("(\[u\](.+?)\[\/u\])is",'<span style="text-decoration: underline;">$1</span>',$Text);
+
+	// Check for strike-through text
+	$Text = preg_replace("(\[s\](.+?)\[\/s\])is",'<span style="text-decoration: line-through;">$1</span>',$Text);
+
+	// Check for over-line text
+	$Text = preg_replace("(\[o\](.+?)\[\/o\])is",'<span style="text-decoration: overline;">$1</span>',$Text);
+
+	// Check for header text (applies a h2 and then a hr)
+	$Text = preg_replace("(\[h\](.+?)\[\/h\])is",'<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1</h2><hr style="width:90%" />',$Text);
+
+	// Check for colored text
+	$Text = preg_replace("(\[color=(.+?)\](.+?)\[\/color\])is","<span style=\"color: $1\">$2</span>",$Text);
+
+	// Check for sized text
+	$Text = preg_replace("(\[size=(.+?)\](.+?)\[\/size\])is","<span style=\"font-size: $1px\">$2</span>",$Text);
+
+	// Check for list text
+	$Text = preg_replace("/\[list\](.+?)\[\/list\]/is", '<ul style="list-style-type: disc; list-style-position: inside;">$1</ul>' ,$Text);
+	$Text = preg_replace("/\[list=1\](.+?)\[\/list\]/is", '<ul style="list-style-type: decimal; list-style-position: inside;">$1</ul>' ,$Text);
+	$Text = preg_replace("/\[list=i\](.+?)\[\/list\]/s", '<ul style="list-style-type: lower-roman; list-style-position: inside;">$1</ul>' ,$Text);
+	$Text = preg_replace("/\[list=I\](.+?)\[\/list\]/s", '<ul style="list-style-type: upper-roman; list-style-position: inside;">$1</ul>' ,$Text);
+	$Text = preg_replace("/\[list=a\](.+?)\[\/list\]/s", '<ul style="list-style-type: lower-alpha; list-style-position: inside;">$1</ul>' ,$Text);
+	$Text = preg_replace("/\[list=A\](.+?)\[\/list\]/s", '<ul style="list-style-type: upper-alpha; list-style-position: inside;">$1</ul>' ,$Text);
+	$Text = str_replace("[*]", "<li>", $Text);
+
+	// Check for font change text
+	$Text = preg_replace("(\[font=(.+?)\](.+?)\[\/font\])","<span style=\"font-family: $1;\">$2</span>",$Text);
+
+	// Declare the format for [code] layout
+	$CodeLayout = '<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+		<td style="font-family: Verdana, arial, helvetica, sans-serif; font-size: 12px; font-weight: bold;"> Code:</td>
+		</tr>
+	        <tr>
+		<td style="background-color: #FFFFFF; font-family: Courier new, courier, mono; font-size: 12px; color: #006600; border: 1px solid #BFBFBF">$1</td>
+		</tr>
+		</table>';
+	// Check for [code] text
+	$Text = preg_replace("/\[code\](.+?)\[\/code\]/is","$CodeLayout", $Text);
+
+	// Declare the format for [quote] layout
+	$QuoteLayout = '<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+		<td style="font-family: Verdana, arial, helvetica, sans-serif; font-size: 12px; font-weight: bold;"> Quote:</td>
+		</tr>
+		<tr>
+		<td style="background-color: #FFFFFF; font-family: Courier new, courier, mono; font-size: 12px; color: #006600; border: 1px solid #BFBFBF">$1</td>
+		</tr>
+		</table>';
+	         
+	// Check for [quote] text
+	$Text = preg_replace("/\[quote\](.+?)\[\/quote\]/is","$QuoteLayout", $Text);
+         
+	// Images
+	// [img]pathtoimage[/img]
+	$Text = preg_replace("/\[img\](.+?)\[\/img\]/", '<img src="$1">', $Text);
+         
+	// [img=widthxheight]image source[/img]
+	$Text = preg_replace("/\[img\=([0-9]*)x([0-9]*)\](.+?)\[\/img\]/", '<img src="$3" height="$2" width="$1">', $Text);
+         
+	return $Text;
+}
+
+function eyeHelp_on_Restart(){
+	global $myPid;
+	proc('end');
+	proc('launch',array('eyeHelp'));
+}
+
+function eyeHelp_on_Close(){
+	global $myPid;
+	eyeSessions('delVar',array('eyeHelp_'.$myPid.'_app',$OnlyRunApp));
+	proc('end');
+}
+
+?>

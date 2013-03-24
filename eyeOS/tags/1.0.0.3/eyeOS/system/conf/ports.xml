@@ -1,0 +1,21 @@
+<eyePorts>
+	<mirrors>
+		<mirror>
+			<address>soft.eyeos.org</address>
+			<path>/ports.xml</path>
+		</mirror>
+	</mirrors>
+	<categories>
+		<category>All</category>
+		<category>Development</category>
+		<category>Multimedia</category>
+		<category>Office</category>
+		<category>Utilities</category>
+		<category>Networking</category>
+		<category>Games</category>
+		<category>Desktop</category>
+		<category>extras</category>
+		<category>File Management</category>
+		<category>System</category>
+	</categories>
+</eyePorts>

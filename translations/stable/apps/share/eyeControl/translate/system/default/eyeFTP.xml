@@ -1,0 +1,125 @@
+<lang>
+	<info>
+		<revision>03/03/2012</revision>
+	</info>
+	<texts>
+		<text>Add -a to LIST command</text>
+		<text>Add host</text>
+		<text>An error occurred during path resolving, aborting</text>
+		<text>Are you sure you want to delete this file/folder?</text>
+		<text>Attempting to create folder "%s" in "%s"...</text>
+		<text>Attempting to delete "%s"...</text>
+		<text>Attempting to rename/move "%s"...</text>
+		<text>Authenticating user...</text>
+		<text>Authentication failed. Invalid username/password!</text>
+		<text>Author</text>
+		<text>Cancel</text>
+		<text>Connect</text>
+		<text>Connection accepted</text>
+		<text>Create</text>
+		<text>Date</text>
+		<text>Delete</text>
+		<text>Delete file/folder</text>
+		<text>Delete Selection</text>
+		<text>Directory "%s" created successfully</text>
+		<text>Directory listing successful for "%s" (%s file(s) found)</text>
+		<text>Disconnect</text>
+		<text>Disconnected - FTP Client</text>
+		<text>Disconnecting from %s:%s</text>
+		<text>Download</text>
+		<text>Download finished successfully, %s bytes transfered.</text>
+		<text>Downloading: "%s" to "%s"</text>
+		<text>Download of directory "%s" finished.</text>
+		<text>Download of file "%s" finished.</text>
+		<text>Edit Selection</text>
+		<text>Error, can't upload file "%s" to FTP server</text>
+		<text>Error, can't upload file "%s" to oneye server (check maximum filesize accepted by PHP?)</text>
+		<text>Error while downloading file "%s"! Transfer aborted.</text>
+		<text>Error while trying to browse local folder!</text>
+		<text>Error while uploading file! Transfer aborted.</text>
+		<text>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</text>
+		<text>Error while uploading file "%s"! Transfer aborted.</text>
+		<text>eyeFTP v.%s started</text>
+		<text>Failed to connect to specified host!</text>
+		<text>File "%s" already exists, overwriting.</text>
+		<text>File "%s" deleted successfully</text>
+		<text>File "%s" successfully uploaded to "%s"</text>
+		<text>File/folder renamed successfully</text>
+		<text>Filename</text>
+		<text>Filesize</text>
+		<text>Filesize (B)</text>
+		<text>Folder "%s" deleted successfully</text>
+		<text>Force passive mode</text>
+		<text>FTP Client</text>
+		<text>Full Screen</text>
+		<text>Help</text>
+		<text>Help and FAQ available on the eyeOS wiki: %s</text>
+		<text>Host: </text>
+		<text>Hostname</text>
+		<text>Hosts Management</text>
+		<text>Listing directory "%s"...</text>
+		<text>Load Selection</text>
+		<text>Manage hosts</text>
+		<text>Name must not be empty</text>
+		<text>New folder</text>
+		<text>no</text>
+		<text>No</text>
+		<text>Only files can be downloaded</text>
+		<text>Owner</text>
+		<text>Passive mode accepted</text>
+		<text>Passive mode failed! Data transfers will be performed in active mode</text>
+		<text>Password</text>
+		<text>Password: </text>
+		<text>Permissions</text>
+		<text>Please specify a host to connect to</text>
+		<text>Please specify a username</text>
+		<text>Port</text>
+		<text>Port: </text>
+		<text>Refresh</text>
+		<text>Rename</text>
+		<text>Rename/Move</text>
+		<text>Rename file/folder</text>
+		<text>Select a file to upload to path:</text>
+		<text>Trying to connect to %s:%s (user "%s") ...</text>
+		<text>Type the name of the new folder</text>
+		<text>Type the new name/location of the file/folder</text>
+		<text>Unable to browse directory's content at "%s".</text>
+		<text>Unable to connect to %s</text>
+		<text>Unable to create directory "%s".</text>
+		<text>Unable to create directory, error occured. (Do you have sufficient permissions?)</text>
+		<text>Unable to create file "%s".</text>
+		<text>Unable to create temporary file! Download aborted.</text>
+		<text>Unable to delete directory's content at "%s".</text>
+		<text>Unable to delete file, error occured. (Do you have sufficient permissions?)</text>
+		<text>Unable to delete folder, error occured. (Do you have sufficient permissions?)</text>
+		<text>Unable to download directory, error occured</text>
+		<text>Unable to download file, error occured</text>
+		<text>Unable to list files, error occured</text>
+		<text>Unable to list files, error occured. (Do you have sufficient permissions?)</text>
+		<text>Unable to read file "%s"</text>
+		<text>Unable to read temporary file! Upload aborted.</text>
+		<text>Unable to rename selection, error occured. (Do you have sufficient permissions?)</text>
+		<text>Unable to upload file, error occured</text>
+		<text>Unable to write file, try to check permissions.</text>
+		<text>Unknown error occured during upload operation</text>
+		<text>Upload</text>
+		<text>Upload a file</text>
+		<text>Upload finished successfully, %s bytes transfered.</text>
+		<text>Uploading: "%s" to "%s"</text>
+		<text>Upload of file "%s" finished.</text>
+		<text>User "%s" authenticated successfully</text>
+		<text>User: </text>
+		<text>Username</text>
+		<text>Yes</text>
+		<text>yes</text>
+		<text>You must connect first</text>
+		<text>You must connect first!</text>
+		<text>You must select a file or a folder first</text>
+		<text>You must select a host to delete</text>
+		<text>You must select a host to edit</text>
+		<text>You must select a host to load</text>
+		<text>You must select a local file</text>
+		<text>You must select a remote file</text>
+		<text>You must specify a hostname, a port and a username</text>
+	</texts>
+</lang>

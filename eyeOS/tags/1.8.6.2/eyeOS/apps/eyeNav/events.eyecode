@@ -1,0 +1,332 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+global $currentUser;
+
+include_once(EYE_ROOT . '/' . APP_DIR . '/eyeNav/libs.eyecode');
+
+$conf = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+$url = EYE_ROOT . '/' . APP_DIR . '/eyeNav/plugins/';
+$url2 = $url . $conf['eyeNav'][0]['plugin'][0] . EYE_CODE_EXTENSION;
+if (vfs('real_fileExists',array($url2))) {
+	include_once $url2;
+} else {
+	include_once $url . 'iframe.eyecode';
+}
+
+function eyeNav_on_Message($params = '') {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeNav_on_Resize($params = '') {
+	$GLOBALS['eyeNav_window']->width = intval($params['arg'][0]);
+	$GLOBALS['eyeNav_window']->height = intval($params['arg'][1]);
+	$GLOBALS['eyeNav_url']->setWidth($GLOBALS['eyeNav_window']->width - 80);
+	$GLOBALS['eyeNav_image_url_right']->setX($GLOBALS['eyeNav_image_url_left']->x + $GLOBALS['eyeNav_url']->width);
+	$GLOBALS['eyeNav_window_box']->setHeight($GLOBALS['eyeNav_window']->height - $GLOBALS['eyeNav_url']->y - 65);
+	$GLOBALS['eyeNav_line']->setHeight($GLOBALS['eyeNav_window_box']->height);
+	$GLOBALS['eyeNav_frame']->setHeight($GLOBALS['eyeNav_window_box']->height);
+	if ($GLOBALS['eyeNav_box']) {
+		$GLOBALS['eyeNav_frame']->setX($GLOBALS['eyeNav_window_box']->width + 20);
+		$GLOBALS['eyeNav_frame']->setWidth($GLOBALS['eyeNav_window']->width - $GLOBALS['eyeNav_window_box']->width - 35);
+	} else {
+		$GLOBALS['eyeNav_frame']->setWidth($GLOBALS['eyeNav_window']->width - 25);
+		$GLOBALS['eyeNav_frame']->setX(10);
+	}
+}
+
+function eyeNav_on_Fullscreen($params = '') {
+	global $myPid;
+	$GLOBALS['eyeNav_window']->setFullScreen();
+	if ($GLOBALS['eyeNav_window']->fullScreen) {
+		$press = 'Press';
+	}
+	eyex('rawjs',array('js' => 'e = xGetElementById("' . $myPid . '_eyeNav_toolbar");
+	for (var i = 0; i < e.childNodes.length; i++) {
+		if (e.childNodes[i].id == "Fullscreen_Container") {
+			e.childNodes[i].className = "blockbarItem' . $press . '_right";
+		}
+	}'));
+}
+
+function eyeNav_on_Back($params = '') {
+	global $myPid;
+	eyex('rawjs',array('js' => 'parent.frames["' . $myPid . '_eyeNav_frame"].history.back();'));
+}
+
+function eyeNav_on_Forward($params = '') {
+	global $myPid;
+	eyex('rawjs',array('js' => 'parent.frames["' . $myPid . '_eyeNav_frame"].history.forward();'));
+}
+
+function eyeNav_on_Refresh($params = '') {
+	global $myPid;
+	$js = 'var obj = document.getElementById("' . $myPid . '_eyeNav_frame");';
+	$js .= 'obj.parentNode.appendChild(obj)';
+	eyex('rawjs',array('js' => $js));
+}
+
+function eyeNav_on_Startpage($params = '') {
+	eyeNav_lib_doUrl();
+}
+
+function eyeNav_on_Bookmarks($params = '') {
+	global $myPid;
+	if (is_object($GLOBALS['eyeNav_box']) && (is_object($GLOBALS['eyeNav_hidden_bookmarks_url']) && $GLOBALS['eyeNav_hidden_bookmarks_url']->text == '<none>')) {
+		$GLOBALS['eyeNav_box']->remove();
+		$GLOBALS['eyeNav_frame']->setWidth($GLOBALS['eyeNav_window']->width - 25);
+		$GLOBALS['eyeNav_frame']->setX(10);
+		$GLOBALS['eyeNav_line']->hide();
+		$xml = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+		$xml['eyeNav'][0]['sidebar'][0] = 0;
+		eyeXML('setXMLconfig',array('eyeNav','conf.xml',$xml));
+	} else {
+		eyeNav_lib_ShowBookmarks();
+		$GLOBALS['eyeNav_frame']->setWidth($GLOBALS['eyeNav_window']->width - $GLOBALS['eyeNav_window_box']->width - 35);
+		$GLOBALS['eyeNav_frame']->setX($GLOBALS['eyeNav_window_box']->width + 20);
+		$GLOBALS['eyeNav_line']->unhide();
+		eyex('rawjs',array('js' => 'e = xGetElementById("' . $myPid . '_eyeNav_toolbar");
+		for (var i = 0; i < e.childNodes.length; i++) {
+			if (e.childNodes[i].id == "Bookmarks_Container") {
+				e.childNodes[i].className = "blockbarItemPress";
+			} else if (e.childNodes[i].id == "Search_Container") {
+				e.childNodes[i].className = "blockbarItem";
+			}
+		}'));
+	}
+}
+
+function eyeNav_on_bookmarks_label($params = '') {
+	foreach($params as $key => $value) {
+		if (utf8_stristr($key,'eyeNav_box_hiddenURL_')) {
+			eyeNav_lib_doUrl(array('page' => array($value[0])));
+		}
+	}
+}
+
+function eyeNav_on_delBookmark($params = '') {
+	foreach($params as $key => $value) {
+		if(utf8_stristr($key,'eyeNav_box_hidden_del_')) {
+			eyex('messageBox',array(
+				'buttons' => array(array('delBookmark_yes','Yes'),array('delBookmark_no','No')),
+				'content' => 'Do you really want to delete this bookmark?',
+				'father' => 'eyeNav_window',
+				'hiddens' => array(array('eyeNav_hidden_delBookmark',$value[0])),
+				'img' => '?',
+				'title' => 'Delete bookmark',
+				'type' => 3,
+				'win_name' => 'eyeNav_window_delBookmark',
+				'win_removepid' => 0,
+				'win_style' => TITLE + CLOSE
+			));
+			return;
+		}
+	}
+}
+
+function eyeNav_on_delBookmark_yes($params = '') {
+	$name = $GLOBALS['eyeNav_hidden_delBookmark']->text;
+	
+	if ($GLOBALS['eyeNav_hidden_bookmarks_url']->text == '<none>') {
+		$xml = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+	} else {
+		$path = $GLOBALS['eyeNav_hidden_bookmarks_url']->text;
+		$xml = eyeXML('getXMLfile',array(vfs('getRealName',array($path))));
+	}
+	
+	$x = eyeNav_lib_array_findIdByText(array($xml['eyeNav'][0]['bookmarks'][0]['category'],'Uncategorized',array('name',0)));
+	if (isset($x[0])) {
+		$y = eyeNav_lib_array_findIdByText(array($xml['eyeNav'][0]['bookmarks'][0]['category'][$x[0]]['link'],$name,array('name',0)));
+		if (isset($y[0])) {
+			unset($xml['eyeNav'][0]['bookmarks'][0]['category'][$x[0]]['link'][$y[0]]);
+			if ($GLOBALS['eyeNav_hidden_bookmarks_url']->text == '<none>') {
+				eyeXML('setXMLconfig',array('eyeNav','conf.xml',$xml));
+			} else {
+				eyeXML('setXMLfile',array(vfs('getRealName',array($path)),$xml));
+			}
+			eyex('messageBox',array('content' => 'Link successfully deleted.'));
+			eyeNav_lib_ShowBookmarks();
+		} else {
+			eyex('messageBox',array('content' => 'Bookmark does not exist!'));
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Bookmark does not exist!'));
+	}
+	$GLOBALS['eyeNav_window_delBookmark']->close();
+}
+
+function eyeNav_on_delBookmark_no($params = '') {
+	$GLOBALS['eyeNav_window_delBookmark']->close();
+}
+
+/*function eyeNav_on_manage_bookmarks($params = '') {
+}*/
+
+function eyeNav_on_open_bookmarks($params = '') {
+	global $checknum;
+	proc('launch',array('eyeDialog',
+		array(
+			EYEDIALOG_TYPE_OPENFILE,
+			'open_bookmarks_now',
+			$checknum
+		)
+	));
+}
+
+function eyeNav_on_open_bookmarks_now($params = '') {
+	eyeNav_lib_ShowBookmarks($params);
+}
+
+function eyeNav_on_Search($params = '') {
+	global $myPid;
+	if (is_object($GLOBALS['eyeNav_box']) && (is_object($GLOBALS['eyeNav_hidden_search_url']) && $GLOBALS['eyeNav_hidden_search_url']->text == '<none>')) {
+		$GLOBALS['eyeNav_box']->remove();
+		$GLOBALS['eyeNav_frame']->setWidth($GLOBALS['eyeNav_window']->width - 25);
+		$GLOBALS['eyeNav_frame']->setX(10);
+		$GLOBALS['eyeNav_line']->hide();
+		$xml = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+		$xml['eyeNav'][0]['sidebar'][0] = 0;
+		eyeXML('setXMLconfig',array('eyeNav','conf.xml',$xml));
+	} else {
+		eyeNav_lib_ShowSearch();
+		$GLOBALS['eyeNav_frame']->setWidth($GLOBALS['eyeNav_window']->width - $GLOBALS['eyeNav_window_box']->width - 35);
+		$GLOBALS['eyeNav_frame']->setX($GLOBALS['eyeNav_window_box']->width + 20);
+		$GLOBALS['eyeNav_line']->unhide();
+		eyex('rawjs',array('js' => 'e = xGetElementById("' . $myPid . '_eyeNav_toolbar");
+		for (var i = 0; i < e.childNodes.length; i++) {
+			if (e.childNodes[i].id == "Search_Container") {
+				e.childNodes[i].className = "blockbarItemPress";
+			} else if (e.childNodes[i].id == "Bookmarks_Container") {
+				e.childNodes[i].className = "blockbarItem";
+			}
+		}'));
+	}
+}
+
+function eyeNav_on_search_label($params = '') {
+	foreach($params as $key => $value) {
+		if (utf8_stristr($key,'eyeNav_box_hiddenSearch_')) {
+			$page = str_replace('%s',$GLOBALS['eyeNav_search']->text,$value[0]);
+			eyeNav_lib_doUrl(array('page' => array($page)));
+		}
+	}
+}
+
+function eyeNav_on_search_default($params = '') {
+	$page = str_replace('%s',$GLOBALS['eyeNav_search']->text,$GLOBALS['eyeNav_box_search_default']->text);
+	eyeNav_lib_doUrl(array('page' => array($page)));
+}
+
+/*function eyeNav_on_configure_search($params = '') {
+}*/
+
+function eyeNav_on_open_searches($params = '') {
+	global $checknum;
+	proc('launch',array('eyeDialog',
+		array(
+			EYEDIALOG_TYPE_OPENFILE,
+			'open_searches_now',
+			$checknum
+		)
+	));
+}
+
+function eyeNav_on_open_searches_now($params = '') {
+	eyeNav_lib_ShowSearch($params);
+}
+
+function eyeNav_on_Settings($params = '') {
+	service('proc','launch',array('eyeControl',array(
+		'category' => 'system',
+		'content' => 'eyenav',
+		'hidemenu' => 1
+	)));
+}
+
+function eyeNav_on_OpenURL($params = '') {
+	eyeNav_lib_doUrl(array('page' => array($GLOBALS['eyeNav_url']->text)));
+}
+
+function eyeNav_on_saveUrl($params = '') {
+	eyex('messageBox',array(
+		'buttons' => array(array('saveUrl_add','Accept'),array('saveUrl_cancel','Cancel')),
+		'content' => 'Bookmark title',
+		'father' => 'eyeNav_window',
+		'textbox_event' => 'saveUrl_add',
+		'textbox_name' => 'eyeNav_textbox_saveUrl',
+		'title' => 'Add bookmark',
+		'type' => 3,
+		'win_name' => 'eyeNav_window_saveUrl',
+		'win_removepid' => 0,
+		'win_style' => TITLE + CLOSE
+	));
+}
+
+function eyeNav_on_saveUrl_add($params = '') {
+	$url = $GLOBALS['eyeNav_url']->text;
+	$array['url'][0] = $url;
+	$title = $GLOBALS['eyeNav_textbox_saveUrl']->text;
+	if (!$title) {
+		$title = $url;
+	}
+	$array['name'][0] = $title;
+	
+	if ($GLOBALS['eyeNav_hidden_bookmarks_url']->text == '<none>') {
+		$xml = eyeXML('getXMLconfig',array('eyeNav','conf.xml'));
+	} else {
+		$path = $GLOBALS['eyeNav_hidden_bookmarks_url']->text;
+		$xml = eyeXML('getXMLfile',array(vfs('getRealName',array($path))));
+	}
+	
+	$x = eyeNav_lib_array_findIdByText(array($xml['eyeNav'][0]['bookmarks'][0]['category'],'Uncategorized',array('name',0)));
+	if (isset($x[0])) {
+		$y = eyeNav_lib_array_findIdByText(array($xml['eyeNav'][0]['bookmarks'][0]['category'][$x[0]]['link'],$title,array('name',0)));
+		if (isset($y[0])) {
+			eyex('messageBox',array('content' => 'There is already another bookmark with this title!'));
+			$GLOBALS['eyeNav_window_saveUrl']->close();
+			return;
+		}
+		$xml['eyeNav'][0]['bookmarks'][0]['category'][$x[0]]['link'][] = $array;
+	} else {
+		$arrayCat['name'][0] = 'Uncategorized';
+		$arrayCat['link'][0] = $array;
+		$xml['eyeNav'][0]['bookmarks'][0]['category'][] = $arrayCat;
+	}
+	if ($GLOBALS['eyeNav_hidden_bookmarks_url']->text == '<none>') {
+		eyeXML('setXMLconfig',array('eyeNav','conf.xml',$xml));
+	} else {
+		eyeXML('setXMLfile',array(vfs('getRealName',array($path)),$xml));
+	}
+	$GLOBALS['eyeNav_window_saveUrl']->close();
+	eyex('messageBox',array('content' => 'Link successfully saved.'));
+	eyeNav_lib_ShowBookmarks();
+}
+
+function eyeNav_on_saveUrl_cancel($params = '') {
+	$GLOBALS['eyeNav_window_saveUrl']->close();
+}
+
+function eyeNav_on_Close($params = '') {
+	proc('end');
+}
+?>

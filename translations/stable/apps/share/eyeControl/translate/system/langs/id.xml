@@ -1,0 +1,827 @@
+<lang>
+	<info>
+		<lang>Bahasa Indonesia</lang>
+		<lang-en>Indonesian</lang-en>
+		<author>Joko Frank Octo &amp; Hendryk B. Nugraha</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Masukan Judul Link disini</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>Buat</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Buat Link</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Batal</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>Kamu dapat menutup window sekarang</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>Server tidak mendukung file zip</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Link Tidak Dapat didownload!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>Unduh!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>Unduh "%s" sebagai .zip</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Perbaharui</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Ubah %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Perintah untuk dijalankan</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Kosongkan Tempat Sampah</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Buang "%s" ?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Tempat Sampah ingin dikosongkan ?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Hapus %s</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ijinkan</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Batal</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Delete</old>
+			<new>Hapus</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>E-Mail</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>Database untuk menyimpan kontak</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>Kontak</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>Detil</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>Tidak Dapat Menghapus Kontak</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>Kontak yang Berhasil diubah</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>Hapus Kontak</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>Tidak Dapat Membuat Grup</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Ubah</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>Kontak Berhasil dihapus</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>Perusahaan</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>Semua File</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>Ingin Hapus kontak ("%s") ?</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Tambah</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>Tambah Grup Baru</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>Semua Grup</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>Fax Perusahaan</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Ijinkan</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>BukuAlamat</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>Tidak Dapat Mengubah Kontak</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>Tidak Dapat Membuat Kontak</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>Batal</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>Tambah Kontak</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Atur Dok</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Pasang Aplikasi</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplikasi</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>Nama File</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>File Berhasil diekstrak</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>Tidak Ada File yang dibuka</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Tipe Kompresi Tidak didukung</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Gagal Meng-ekstrak File</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Ekstrak</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Ekstrak ke...</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Kompres ke...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Kompresi Berhasil</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Kompresi gagal</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Manager Archive</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Kompres</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Kirim</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Papan Pengumuman</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Bersihkan</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Teks Untuk Kegiatan Ini:</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Dua Kalender Tidak Dapat Berbagi Dengan ID yang sama!</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Sebelumnya</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Masukkan Nama Kalender</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Hari Ini</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Pekerjaan</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Lanjut</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Tampilkan</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Mode Window</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Mingguan</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Dua Kalender Tidak Dapat Berbagi Dengan Nama Sama!</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Masukkan Spesifikasi Nama Kalender:</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Nomor %s Salah</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalender</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalender Berhasil ditambahkan</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Dibutuhkan Minimum Satu Kalender!</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Manajemen Kalender</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Isi CheckBox Salah</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Kalender Dengan Nama Yang Sama Sudah Ada!</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalender Sudah Berjalan!</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Hari</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Konfigurasi Kalender</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Konfigurasi Berhasil disimpan</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Tambah Kalender</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>Anda Tidak diperbolehkan Melakukan Ini.</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>Kolom Tidak Boleh Kosong</new>
+		</text>
+		<text>
+			<old>Topics</old>
+			<new>Topik</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>Kontak Akun Untuk Pertolongan</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>Kirim</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Seting</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>Minta Pertolongan</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>Perubahan Berhasil</new>
+		</text>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>Seting eyeHelp</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>Terima Kasih kepada ...</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>Pendukung</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>Proyek</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>That user already exists!</old>
+			<new>Akun Sudah Ada</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>Ketik Kata Sandi</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>Tidak diijinkan Melakukan Pendaftaran</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>Nama Pengguna Terlalu Pendek!</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>Akun Anda tidak aktif!</new>
+		</text>
+		<text>
+			<old>The language does not exist!</old>
+			<new>Bahasa Tidak Ada</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Nama Pengguna</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>Nama Pengguna Harus Berupa Huruf dan Angka</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>Harap Isi Semua Kolom!</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Kata Sandi</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Bahasa</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>Bahasa (Sesi Ini)</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>Tidak Dapat Membuat Akun Baru!</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Akun Baru</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Buat Akun</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>Kata Sandi Terlalu Pendek</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>Kata Sandi Tidak Sama</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>Masuk</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Anda Tidak Memiliki Akses!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Ubah</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Please wait...</old>
+			<new>Mohon Tunggu...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hallo Dunia!!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Contoh eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Ganti Teks Label</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>Kalender</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>Disk Space</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Pesan Internal</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Beberapa Karakter Spesial Telah dibuang.</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Sabtu</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Simpan Sebagai</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Cetak</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Letak</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Buka</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Simpan</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Selasa</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Ukuran Lembaran</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Rabu</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Apakah sel (-sel) benar-benar kosong?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Kamis</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Minggu</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Gaya</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Nopember</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Baru</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Februari</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Rumus</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Sisip Kolom</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Hapus Kolom</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Desember</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Jiplak/tempelkan kode ini pada aplikasi lembar-hitung lain (mis. Excel)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Jum'at</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Maret</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Sisip Baris</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mei</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Senin</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Hapus Baris</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januari</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Agustus</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>September</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Ming</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Oktober</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Rab</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sab</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Sel</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Kam</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TH</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Nopember</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Sen</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Pebuari</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Januari</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Jum</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Agustus</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Juli</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Juni</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Mei</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Maret</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>April</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Desember</new>
+		</text>
+	</part>
+</lang>

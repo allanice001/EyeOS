@@ -1,0 +1,1471 @@
+<lang>
+	<info>
+		<lang>한국어</lang>
+		<lang-en>Korean</lang-en>
+		<author>Lee Gangmin</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>바로가기의 이름을 입력하세요:</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>바로가기 생성</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>바로가기는 다운로드 할 수 없습니다.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>수정</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>%s 수정</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>이 바로가기가 실행할 명령어:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>휴지통 비우기</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>정말로 "%s"를 삭제하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>정말로 휴지통을 비우시겠습니까?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>%s 삭제</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>빠른 메뉴 관리</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>프로그램 설치</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>프로그램</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>파일명</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>압축을 해제하였습니다.</new>
+		</text>
+		<text>
+			<old>No file open</old>
+			<new>내용이 없습니다.</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>이 압축 파일은 지원하지 않는 형식입니다.</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>압축해제 실패</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>압축 풀기</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>압축을 풀 폴더</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>압축을 할 폴더</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>파일을 압축하였습니다.</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>압축에 실패하였습니다.</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>압축 관리자</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>압축하기</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>등록</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>공용 게시판</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>초기화</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>계산기</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>이 일정의 설명</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>일정표는 같은 ID를 가질 수 없습니다.</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>이전</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>일정표의 이름을 입력해야합니다.</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>오늘</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>작업</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>다음</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>보기</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>창모드</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>주</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>일정표는 같은 이름을 가질 수 없습니다.</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>일정표의 이름을 지정해야합니다.</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>%s는 잘못된 숫자입니다.</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>일정표</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>일정표</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>새 일정표가 등록되었습니다.</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>적어도 하나의 일정표는 존재해야합니다.</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>일정표 관리</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>잘못된 체크박스 값입니다.</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>이미 같은 이름의 일정이 존재합니다.</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>일정표가 이미 실행되어있습니다.</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>일</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>일정표 환경설정</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>환경설정을 저장했습니다.</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>새 일정표</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Slow</old>
+			<new>어려움</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>무르기</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>루크</new>
+		</text>
+		<text>
+			<old>Queen</old>
+			<new>퀸</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>보통</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>나이트</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>비숍</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>체스 게임</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Search user...</old>
+			<new>사용자 찾기...</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>파일 선택...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>사용자 선택:</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>미리보기</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>창 위치 저장하기</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>저장소</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>아이콘 위치 초기화</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>창 위치 초기화</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>선택</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>기본으로 설정</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>존재하지 않는 파일입니다.</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>사용자 보기</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>배경화면으로 사용할 수 없는 파일입니다.</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>설치되지 않은 페이지입니다.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>이 페이지에 접근 할 권한이 없습니다.</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>사용자 보기...</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>수정</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>설정</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>모두 보기</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>긴 이름으로 보여주기</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>제거</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>기본 그룹으로 설정할 그룹을 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>테스트 할 미러 사이트를 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>삭제할 미러 사이트를 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>편집할 미러 사이트를 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>편집할 그룹을 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>삭제할 그룹을 선택하세요.</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>권한</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>개인정보</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>삭제할 명령을 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>편집할 명령을 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>삭제할 사용자를 선택하세요.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>편집할 사용자를 선택하세요.</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>IP에 의한 세션 보호</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>정확한 주소를 입력하세요!</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>지금 제거!</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>oneye 시스템에서 임시 파일과 폴더를 삭제합니다</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>임시 파일과 폴더 삭제</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>정확한 그룹명을 입력하세요!</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>이 페이지에 접근하기 위해서는 일반 사용자로 로그인 해야합니다.</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>필요한 모든 양식을 채워주세요!</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>*표가 된 모든 양식을 채워주세요!</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>명령을 입력하세요!</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>이 페이지에 접근하기 위해서는 이 사용자로 로그인 해야합니다.</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>새로운 사용자가 등록되었습니다.</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>사용자가 정상적으로 삭제되었습니다.</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>사용자</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>사용자 이름에 사용 불가능한 문자가 포함되어 있습니다. 다시 시도하세요.</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>배경화면</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>사용중인 개인 공간:</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>사용자 배경화면 사용</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>새로운 미러 사이트 주소를 입력하세요:</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>삭제</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>개인 정보를 업데이트 하세요</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>시스템 설정을 변경하세요</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>창 위치가 복구되었습니다. 프로그램을 재시작하세요.</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>사용자 목록을 정렬하기 위해 /a (끝), /b (시작), /c (숫자) 명령을 사용할 수 있습니다.</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>기본 미러 사이트는 삭제할 수 없습니다.</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>root 계정은 삭제할 수 없습니다.</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>기본 미러 사이트는 수정할 수 없습니다.</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>검색 엔진이 성공적으로 삽입되었습니다.</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>기본 미러 사이트에는 저장할 수 없습니다.</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>기본 그룹은 삭제할 수 없습니다.</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>창</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>그룹 관리에 대한 권한이 없습니다.</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>사용자 관리에 대한 권한이 없습니다.</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>새로운 그룹 이름을 입력하세요:</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>생성하기를 원하는 그룹 이름을 입력하세요:</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>이미 설정된 명령입니다.</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>존재하지 않는 사용자입니다.</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>사용자 계정이 삭제되었습니다.</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>선택한 그룹은 이미 기본 그룹으로 설정되어 있습니다.</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>명령이 잘못되었습니다.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>테스트</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>시작페이지</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>시스템 환경설정</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>시스템</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>임시 파일과 폴더가 삭제되었습니다.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>선택한 파일은 eyeNav 즐겨찾기 파일이 아닙니다.</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>선택한 파일은 eyeNav 검색 엔진 파일이 아닙니다.</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>로그인시 실행될 명령을 입력하세요.</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>테마가 변경되었습니다. 테마는 시스템을 재시작 한 후에 적용됩니다.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>테마</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>그룹을 삭제하는 도중에 문제가 발생했습니다.</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>존재하지 않는 사용자입니다.</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>선택한 사용자 이름은 너무 깁니다.</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>선택한 사용자 이름은 너무 짧습니다.</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>선택한 그룹은 이미 존재합니다.</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>선택한 사용자 이름은 이미 존재합니다.</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>권한 *</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>비밀번호가 일치하지 않습니다.</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>윈도우즈 서버에서 Office(오피스) 설정</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>시작페이지 설정</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>기본 그룹이 저장되었습니다. 로그오프 하시고 다시 접속하세요.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>기본 그룹: %s | %s 그룹</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>리룩스 서버에서 Office(오피스) 설정</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>명령</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>oneye 청소</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>새 명령이 추가되었습니다.</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>명령이 삭제되었습니다.</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>명령이 저장되었습니다.</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>기본 설정이 저장되었습니다.</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>바탕화면</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>정말 이 그룹을 삭제하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>정말 이 eyeSoft 미러를 삭제하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>정말 이 사용자를 삭제하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>정말 eyeNav 기본 즐겨찾기로 복구하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>정말 eyeDesk 기본 설정으로 복구하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>정말 이 명령을 삭제하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>시작프로그램 제거</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>그룹 삭제</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>미러사이트 삭제</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>변경사항이 저장되었습니다.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>변경사항이 적용되었습니다.</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>시스템 관리</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>최고관리자</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>공유 폴더 접근 허가</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>새 아이디 생성 허가</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>등록</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>미러 사이트 추가</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>새 사용자 %s가 등록되었습니다.</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[기본 사용자]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>내 정보</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>당신의 oneye 시스템에 새로운 사용자를 등록합니다.</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>웹 업로드 허가</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>즐겨찾기가 삽입되었습니다.</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>비밀번호를 변경합니다.</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>테마를 변경합니다.</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>바탕화면을 변경합니다.</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>사용할 언어를 변경합니다.</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>eyeBoard의 설정을 변경합니다.</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>브라우져 형식</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>작성자</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>시작프로그램</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>즐겨찾기와 검색 엔진이 추출되었습니다.</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>정말 eyeNav 기본 검색으로 복구하시겠습니까?</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>미러 사이트 주소 (예: %s)</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>미러 사이트가 존재하지 않습니다!</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>미러 사이트가 삭제되었습니다.</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>미러 사이트가 저장되었습니다.</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>사용자를 관리합니다.</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>그룹을 관리합니다.</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>처음으로</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>기본 즐겨찾기 관리</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>기본 검색엔진 관리</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>시스템 시작시 실행할 명령들을 관리합니다</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>미러 사이트</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>마우스</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>비밀번호</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>비밀번호 재입력 *</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>비밀번호 *</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>비밀번호가 성공적으로 변경되었습니다.</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>기타</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>등록된 사용자를 찾을 수 없습니다.</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>오피스 지원</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>새 명령</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>새 바탕화면이 설정되었습니다.</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>인터페이스 설정</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>불러오기</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>기본 즐겨찾기와 검색 엔진 내보내기</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>내보내기</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye 게시판</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Fielded: 아이콘이 자동정렬됩니다.</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>편집</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>선택한 유저 수정</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>명령 수정</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>미러 수정</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>파일이 성공적으로 다운로드 되었습니다.</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>파일을 다운로드 할 수 없습니다. 정확한 주소를 입력하세요.</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>삽입</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>그룹</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>비밀번호가 틀렸습니다!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>언어</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>최근접속일</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>그룹명</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s 개의 명령</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Fixed: 아이콘을 움직일 수 없습니다.</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>다른 언어 다운받기</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>그룹이 성공적으로 삭제되었습니다.</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s 개의 미러 사이트</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>"%s"를 다른 폴더에 붙여넣을 수 있습니다.</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>바로가기는 복사할 수 없습니다.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>파일 삭제에 문제가 발생했습니다.</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s"를 휴지통에 버렸습니다.</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s"를 성공적으로 삭제했습니다.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Properties</old>
+			<new>상세정보</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>이름 바꾸기</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>붙여넣기</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>연결프로그램</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>새로고침</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>%s에 오신 것을 환영합니다, %s님.</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>새 바로가기</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>속성</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>파일 업로드</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>휴지통</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS 구독기</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>휴지통 열기</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>새 폴더</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>다운로드</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>휴지통 비우기</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>삭제</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>복사</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>편집</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>새 파일</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>프로그램</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>zip으로 다운로드</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>실행</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>홈</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>탐색</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>일정표</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Save as...</old>
+			<new>다른 이름으로 저장</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>폴더를 선택하세요</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>선택</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>파일을 선택해야 합니다.</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>열고자 하는 파일을 선택하세요</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>이름을 입력해야 합니다.</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>이름</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>홈</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>날짜</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>파일 덮어쓰기 확인</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>폴더를 여는 중에 오류가 발생했습니다.</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>정말로 이 파일을 덮어쓰시겠습니까?</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>폴더</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>작성자</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Hello World!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>eye 예제 프로그램</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>라벨 텍스트 변경</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>토요일</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>다른 이름으로 저장</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>9월</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>인쇄</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>위치</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>열기</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>저장</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>화요일</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>시트 크기</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>수요일</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>정말로 셀을 삭제하시겠습니까?</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>목요일</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>일요일</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>스타일</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>11월</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>10월</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>새 파일</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>2월</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>수식</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>열 삽입</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>열 삭제</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>12월</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>이 코드를 복사해서 다른 스프레드시트 프로그램에 붙여넣으세요(엑셀 등)</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>금요일</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>3월</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>줄 삽입</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>5월</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>월요일</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>행 삭제</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>6월</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>7월</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>1월</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>4월</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>8월</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>토</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>9월</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>토</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>일</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>10월</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>목</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>수</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>수</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>토</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>화</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>목</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>목</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>11월</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>월</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>2월</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>1월</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>금</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>금</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>8월</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>7월</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>6월</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>5월</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>3월</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>월</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>4월</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>12월</new>
+		</text>
+	</part>
+</lang>

@@ -1,0 +1,44 @@
+<translation>
+	<installer-install-allow-creation>Permitir que os usuários criem contas</installer-install-allow-creation>
+	<installer-install-continue>Continuar...</installer-install-continue>
+	<installer-install-do>Instalar EyeOS!</installer-install-do>
+	<installer-install-error-extract>Os arquivos da instalação não puderam ser extraídos. Para instalar o eyeOS manualmente renomeie "[package]" para "package.tar.gz" e extráia o conteúdo para o mesmo diretório.</installer-install-error-extract>
+	<installer-install-error-renaming>Não foi possível renomear o diretório "./eyeOS/". Por favor, renomeie ele para "[hash]".</installer-install-error-renaming>
+	<installer-install-hostname-error>Você deve especificar um Hostname!</installer-install-hostname-error>
+	<installer-install-hostname>Hostname</installer-install-hostname>
+	<installer-install-password-retype>Redigite a senha</installer-install-password-retype>
+	<installer-install-password-root>Senha de "root"</installer-install-password-root>
+	<installer-install-passwords-characters>A senha de "root" deve ter mais de 3 digitos!</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>As senhas de root não coincidem!</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>Senha de root requerida</installer-install-passwords-required>
+	<installer-install-title>Preencha com os dados abaixo para instalar o EyeOS</installer-install-title>
+	<installer-lib-check-gzip>Não foi possível detectar o suporte gzip no seu servidor. Para instalar o eyeOS manualmente renomeie "[package]" para "package.tar.gz" e extraia o conteúdo dele no mesmo diretório.</installer-lib-check-gzip>
+	<installer-lib-check-md5>Aviso: O arquivo "[package]" parece estar corrompido.</installer-lib-check-md5>
+	<installer-lib-check-newer>A instalação atual do eyeOS é mais nova que esta atualização. Por favor delete o diretório "[installer]" por razões de segurança;</installer-lib-check-newer>
+	<installer-lib-check-notexist>Erro: "[file]" não existe.</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Aviso: Dê permissões totais (chmod 777) a "[file]".</installer-lib-check-permissions>
+	<installer-lib-check-php>Seu servidor está usando uma versão não suportada do PHP. Por favor atualize para o PHP 5.0 ou mais novo antes de instalar o eyeOS.</installer-lib-check-php>
+	<installer-lib-check-safemode>Desculpe, o eyeOS necessita que o SAFE_MODE esteja desligado (OFF). A configuração do servidor está com o SAFE_MODE ligado (ON). Por favor modifique o seu arquivo php.ini e desligue o SAFE_MODE, ou peça ajuda ao administrador do servidor.</installer-lib-check-safemode>
+	<installer-lib-output-errors>Ocorreram alguns problemas durante a instalação:</installer-lib-output-errors>
+	<installer-lib-output-lang-by>por</installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>Idioma atual</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Idiomas</installer-lib-output-lang-langs>
+	<installer-lib-output-title>Instalação EyeOS</installer-lib-output-title>
+	<installer-system-action-removeinstaller>Remover instalador do EyeOS</installer-system-action-removeinstaller>
+	<installer-system-action-uninstall>Desinstalar EyeOs</installer-system-action-uninstall>
+	<installer-system-action>Ação</installer-system-action>
+	<installer-system-back>Voltar ao Menu</installer-system-back>
+	<installer-system-continue>Continuar...</installer-system-continue>
+	<installer-system-message-remove>Remova os arquivos de instalação por segurança!</installer-system-message-remove>
+	<installer-system-message-translations>Traduções podem ser encontradas em [a link].</installer-system-message-translations>
+	<installer-system-no>Não</installer-system-no>
+	<installer-system-password-error>Senha de root incorreta!</installer-system-password-error>
+	<installer-system-password>Senha de root</installer-system-password>
+	<installer-system-removeinstaller-really>Você quer remover o instalador do EyeOS ?</installer-system-removeinstaller-really>
+	<installer-system-title>Escolha um dos procedimentos:</installer-system-title>
+	<installer-system-uninstall-really>Quer mesmo desinstalar o EyeOS?</installer-system-uninstall-really>
+	<installer-system-yes>Sim</installer-system-yes>
+	<installer-update-continue>Continuar...</installer-update-continue>
+	<installer-update-do>Atualizar EyeOS!</installer-update-do>
+	<installer-update-title>Continue para atualizar o eyeOS para versão [version]</installer-update-title>
+</translation>

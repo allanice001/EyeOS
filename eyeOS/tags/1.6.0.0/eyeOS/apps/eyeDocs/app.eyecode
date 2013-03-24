@@ -1,0 +1,100 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeDocs_run($params=null) {
+	global $myPid;
+	$content = "";
+	if($params[0]) {
+		$file = $params[0];
+		$info = utf8_pathinfo($file);
+		$extension = utf8_strtolower($info['extension']);
+		$tCheckNum = proc('findChecknumByName',array('eyeDesk'));
+		$real = vfs('getRealName',array($file));
+		if(!vfs('checkPermissions',array($real))) {
+			eyeX('messageBox',array('content'=>'You don\'t have sufficient permissions'));
+			return false;
+		}
+		$nfile = um('getCurrentUserDir').'tmp/'.$myPid.'.'.$info['extension'];
+		$myHTML = um('getCurrentUserDir').'tmp/'.$myPid.'_new.tmp';
+		copy($real,$nfile);
+		$tfp = vfs('real_open',array($nfile,'r'));
+		$bytes = fread($tfp,5);
+		$real = 1;
+		if($bytes == '<html') {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		$bytes = fread($tfp,25);
+		if(strstr($bytes,'<!--')) {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		if($extension == 'eyedoc') {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		fclose($tfp);
+		$to = 'HTML (StarWriter)';
+		if($real == 1) {
+			eyeConverter('convert',array($nfile,$myHTML,$to,1));
+			$fp = vfs('real_open',array($myHTML,'r'));
+			$content = fread($fp,vfs('real_filesize',array($myHTML)));
+			fclose($fp);
+			$content = str_replace('<IMG SRC="','<IMG SRC="index.php?checknum='.$tCheckNum.'&msg=viewTempImg&params=',$content);
+		} else {
+			$pattern = '/<img[^\/]*\/>/i';
+			$replacement = '';
+			$content = preg_replace($pattern, $replacement, $content);
+		}
+
+		$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		fclose($fp);
+	}
+	$myWindow = new Window(array('name'=>'eyeDocsWND','father'=>'eyeApps',
+	'cent'=>1,'width'=>600,'height'=>500,'title'=>'eyeDocs','sendResizeMsg'=>1,'sigResize'=>'Resize','removeWin'=>0));
+	$myWindow->show();
+	if (IE > 0) {
+		$restWidth = 19;
+		$restHeight = 100;
+	} else {
+		$restWidth = 18;
+		$restHeight = 100;
+	}
+	$myTextArea = new Textarea(array('name'=>'noteContent','father'=>'eyeDocsWND_Content',
+		'width'=>$myWindow->width-$restWidth,'height'=>$myWindow->height-$restHeight,'x'=>5,'y'=>65,'rich'=>1,'text'=>$content));
+	$myTextArea->show();
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeDocsWND_Content'));
+	$myToolbar->show();
+	$myToolbar->addItem('new','index.php?extern=apps/eyeX/themes/default/images/toolbar/filenew.png','New');
+	$myToolbar->addItem('open','index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png','Open');
+	$myToolbar->addItem('save','index.php?extern=apps/eyeX/themes/default/images/toolbar/filesave.png','Save',array($myTextArea));
+	$myToolbar->addItem('saveAs','index.php?extern=apps/eyeX/themes/default/images/toolbar/filesaveas.png','Save As',array($myTextArea));
+}
+
+function eyeDocs_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

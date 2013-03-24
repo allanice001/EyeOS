@@ -1,0 +1,69 @@
+<lang>
+	<info>
+		<lang>français</lang>
+		<lang-en>French</lang-en>
+		<author>Fred Delsemme</author>
+		<version>1.6.0.1</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>eyeEditor</name>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Fichier sauvegardé avec succès</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Désolé, vous ne disposez pas des  permissions nécessaires</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>Impossible de créer un fichier</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSnow</name>
+		<text>
+			<old>eyeSnow is already runing</old>
+			<new>eyeSnow est déjà en cours de fonctionnement</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeXMLviewer</name>
+		<text>
+			<old>File not found</old>
+			<new>Fichier non trouvé</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Désolé, vous ne disposez pas des authorisattions nécessaires</new>
+		</text>
+	</part>
+	<part>
+		<name>publicMon</name>
+		<text>
+			<old>Check Config</old>
+			<new>Verifier la configuration</new>
+		</text>
+		<text>
+			<old>Check User</old>
+			<new>Vérifier l&#039;utilisateur</new>
+		</text>
+		<text>
+			<old>Del Config</old>
+			<new>Effacer la configuration</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nom</new>
+		</text>
+		<text>
+			<old>Refresh Config</old>
+			<new>Actueliser la configuration</new>
+		</text>
+		<text>
+			<old>Sub Files</old>
+			<new>Sous-Fichiers</new>
+		</text>
+	</part>
+</lang>

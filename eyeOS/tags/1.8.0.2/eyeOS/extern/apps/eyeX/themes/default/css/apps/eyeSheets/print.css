@@ -1,0 +1,40 @@
+body, div, input, table, textarea {
+	margin: 0;
+	padding: 0;
+}
+
+body, div, table {
+	font-family: Verdana,Arial,sans-serif,FreeSans;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+td {
+	border-bottom: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	height: 18px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+th {
+	background-color: #efefef;
+	border-bottom: 1px solid #666666;
+	border-right: 1px solid #666666;
+	color: #666666;
+}
+
+th div {
+	padding: 1px;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+#spacer {
+	display: none;
+}
+
+#table {
+	border-left: 1px solid #666666;
+	border-top: 1px solid #666666;
+}

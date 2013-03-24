@@ -1,0 +1,74 @@
+<?php
+
+$myButton0 = new Button(array(
+	'name' => 'eyeControl_eyeExt_add_btn',
+	'father' => $eyeContainer,
+	'signal' => 'add_ext',
+	'caption' => 'Add File',
+	'width' => 80,
+	'x' => 10,
+	'y' => 0,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/new.png'
+));
+$myButton0->show();
+
+$myButton1 = new Button(array(
+	'name' => 'eyeControl_eyeExt_edit_btn',
+	'father' => $eyeContainer,
+	'signal' => 'edit_ext',
+	'caption' => 'Edit File',
+	'width' => 80,
+	'x' => 90,
+	'y' => 0,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/paste.png'
+));
+
+$myButton2 = new Button(array(
+	'name' => 'eyeControl_eyeExt_delete_btn',
+	'father' => $eyeContainer,
+	'signal' => 'delete_ext',
+	'caption' => 'Delete File',
+	'width' => 80,
+	'x' => 474,
+	'y' => 0,
+	'img' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=icons/16x16/delete.png'
+));
+
+$sortypes = array('Stirng','String','String','String');
+$theader = array('Open With','Extension','Name','Description');
+
+$mySortableTable = new Sortabletable(array(
+	'name' => 'eyeControl_eyeExt_sortabletable',
+	'father' => $eyeContainer,
+	'sortypes' => $sortypes,
+	'theader' => $theader,
+	'x' => 0,
+	'y' => 30,
+	'width' => 560,
+	'height' => 375,
+	'master' => 1,
+	'dblsignal' => 'edit_ext'
+));
+$mySortableTable->show();
+$myButton1->addFriend($mySortableTable);
+$myButton1->show();
+$myButton2->addFriend($mySortableTable);
+$myButton2->show();
+
+
+$path = EYE_ROOT .'/'. APP_DIR .'/'. APP_CONF_SHARE .'/filetypes';
+$file = vfs('real_getDirContent', array($path));
+
+foreach($file as $content){
+	if(!is_dir($content)){
+		$info = pathinfo($content);
+		$extension = $info['filename'];
+	}
+	$config = eyeXML('getXMLfile', array($content));
+	$name = $description = $config['fileType'][0]['name'][0];
+	$description = $config['fileType'][0]['description'][0];
+	$app = $config['fileType'][0]['app'][0];
+	$row = array($app,$extension,$name,$description);
+	$mySortableTable->addRow($row);
+}
+?>

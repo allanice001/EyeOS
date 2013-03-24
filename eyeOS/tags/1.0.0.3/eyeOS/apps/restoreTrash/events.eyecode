@@ -1,0 +1,52 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function restoreTrash_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function restoreTrash_on_yes($params=null) {
+	global $myPid;
+	$myUserDir = service('um','getCurrentUserDir').TRASH_USER_DIR.'/';
+	$file =$GLOBALS['nfFile']->text;
+	$myArray = reqLib('eyeXML','getXMLfile',array($myUserDir.$file));
+	$myArray = $myArray['eyeTrash'][0];
+    $file = substr($file,0,strrpos($file,'.'));
+	if($myArray['restorePoint'][0]) {
+		service('vfs','real_move',array($myUserDir.$file.'.'.EYEOS_INFO_EXT,$myArray['restorePoint'][0].'.'.EYEOS_INFO_EXT));
+		service('vfs','real_move',array($myUserDir.$file.'.'.EYEOS_FILE_EXT,$myArray['restorePoint'][0].'.'.EYEOS_FILE_EXT));
+		service('vfs','real_delete',array($myUserDir.$file.'.'.EYEOS_TRASH_EXT));
+	}
+	$callback = $GLOBALS['nfCallback']->text;
+	if($callback) {
+		service('eyex','rawjs',array('js'=>$callback));
+	}
+	$icon = 'unknown';
+	service('proc','close',array($myPid));	
+}
+
+function restoreTrash_on_no($params=null) {
+	global $myPid;
+	service('proc','close',array($myPid));	
+}
+
+function restoreTrash_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}

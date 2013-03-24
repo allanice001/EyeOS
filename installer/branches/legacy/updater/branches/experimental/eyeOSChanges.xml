@@ -1,0 +1,116 @@
+<deleteFiles>
+	<eyeBar.css>exterm/apps/eyeX/css/eyeBar.css</eyeBar.css>
+	<eyeBar_IE6.css>exterm/apps/eyeX/css/eyeBar_IE6.css</eyeBar_IE6.css>
+	<eyeBox.css>exterm/apps/eyeX/css/eyeBox.css</eyeBox.css>
+	<eyeButton.css>exterm/apps/eyeX/css/eyeButton.css</eyeButton.css>
+	<eyeChess.css>exterm/apps/eyeX/css/eyeChess.css</eyeChess.css>
+	<eyeDesk_extras.css>exterm/apps/eyeX/css/eyeDesk_extras.css</eyeDesk_extras.css>
+	<eyeDesk_extras_IE6.css>exterm/apps/eyeX/css/eyeDesk_extras_IE6.css</eyeDesk_extras_IE6.css>
+	<eyeDock.css>exterm/apps/eyeX/css/eyeDock.css</eyeDock.css>
+	<eyeDock_IE6.css>exterm/apps/eyeX/css/eyeDock_IE6.css</eyeDock_IE6.css>
+	<eyeDock_IE7.css>exterm/apps/eyeX/css/eyeDock_IE7.css</eyeDock_IE7.css>
+	<eyeMenu.css>exterm/apps/eyeX/css/eyeMenu.css</eyeMenu.css>
+	<eyeTab.css>exterm/apps/eyeX/css/eyeTab.css</eyeTab.css>
+	<eyeTextarea.css>exterm/apps/eyeX/css/eyeTextarea.css</eyeTextarea.css>
+	<eyeTextBox.css>exterm/apps/eyeX/css/eyeTextBox.css</eyeTextBox.css>
+	<global.css>exterm/apps/eyeX/css/global.css</global.css>
+	<icons.css>exterm/apps/eyeX/css/icons.css</icons.css>
+	<MessageBox.css>exterm/apps/eyeX/css/MessageBox.css</MessageBox.css>
+	<MessageBox_IE6.css>exterm/apps/eyeX/css/MessageBox_IE6.css</MessageBox_IE6.css>
+	<slider.css>exterm/apps/eyeX/css/slider.css</slider.css>
+	<Sortabletable.css>exterm/apps/eyeX/css/Sortabletable.css</Sortabletable.css>
+	<window.css>exterm/apps/eyeX/css/window.css</window.css>
+	<windows_IE6.css>exterm/apps/eyeX/css/windows_IE6.css</windows_IE6.css>
+</deleteFiles>
+
+<updateConfigs>	
+	<system1>
+		<path>test/configs/system.xml</path>
+		<addValue>
+			<UPDATE_WORK>YES, VERY NICE!</UPDATE_WORK>
+			<UPDATE_IS_NICE>yes, is a little nice</UPDATE_IS_NICE>
+		</addValue>
+		<updateValue>
+			<EYEOS_HOSTNAME>We love eyeos!</EYEOS_HOSTNAME>
+		</updateValue>
+		<delValue>
+			<ALLOW_USER_REGISTER></ALLOW_USER_REGISTER>
+		</delValue>
+	</system1>
+	<system2>
+		<path>test/configs/system2.xml</path>
+		<updateValue>
+			<EYEOS_HOSTNAME>We love eyeos!!!</EYEOS_HOSTNAME>
+		</updateValue>
+		<delValue>
+			<ALLOW_USER_REGISTER></ALLOW_USER_REGISTER>
+			<DEFAULT_GROUP></DEFAULT_GROUP>
+			<EYEOS_DEBUG_MODE></EYEOS_DEBUG_MODE>
+			<EYEOS_HOSTNAME></EYEOS_HOSTNAME>
+			<BASE_APP></BASE_APP>
+			<ALLOW_PUBLIC_DIRS></ALLOW_PUBLIC_DIRS>
+		</delValue>
+	</system2>	
+</updateConfigs>
+
+<updateIndex>
+PD9waHAKLyoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fX18gICBfX19f
+XyAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLyBfXyBcIC8gX19fX3wKICAg
+ICAgICAgICAgICAgICAgX19fIF8gICBfICBfX198IHwgIHwgfCAoX19fICAKICAgICAgICAg
+ICAgICAgICAvIF8gXCB8IHwgfC8gXyBcIHwgIHwgfFxfX18gXCAKICAgICAgICAgICAgICAg
+IHwgIF9fLyB8X3wgfCAgX18vIHxfX3wgfF9fX18pIHwKICAgICAgICAgICAgICAgICBcX19f
+fFxfXywgfFxfX198XF9fX18vfF9fX19fLyAKICAgICAgICAgICAgICAgICAgICAgICBfXy8g
+fCAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgIHxfX18vICAgICAg
+ICAgICAgICAxLjAKCiAgICAgICAgICAgICAgICAgICAgIFdlYiBPcGVyYXRpbmcgU3lzdGVt
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgIGV5ZU9TLm9yZwoKICAgICAgICAgICAgIGV5
+ZU9TIEVuZ2luZWVyaW5nIFRlYW0gLSBleWVPUy5vcmcvd2hvYXJld2UKCiAgICAgZXllT1Mg
+aXMgcmVsZWFzZWQgdW5kZXIgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIChHUEwp
+CiAgICAgICAgICAgIHByb3ZpZGVkIHdpdGggdGhpcyByZWxlYXNlIGluIGxpY2Vuc2UudHh0
+CiAgICAgICAgICAgICBvciB2aWEgd2ViIGF0IGdudS5vcmcvbGljZW5zZXMvZ3BsLnR4dAoK
+ICAgICAgICBDb3B5cmlnaHQgMjAwNS0yMDA3IGV5ZU9TIFRlYW0gKHRlYW1AZXllb3Mub3Jn
+KQoKKi8KCi8vTG9hZGluZyBiYXNpYyBzZXR0aW5ncyBmb3IgZXllT1MgS2VybmVsIGFuZCBT
+ZXJ2aWNlcwppbmNsdWRlX29uY2UoJ3NldHRpbmdzLnBocCcpOwoKLy9Mb2FkaW5nIHRoZSBL
+ZXJuZWwKaW5jbHVkZV9vbmNlKEVZRV9ST09ULicvJy5TWVNURU1fRElSLicvJy5LRVJORUxf
+RElSLicva2VybmVsJy5FWUVfQ09ERV9FWFRFTlNJT04pOwoKLy9Mb2FkaW5nIHRoZSBzZXJ2
+aWNlIGNvbmZpZ3VyYXRpb24gZnJvbSBYTUwKbG9hZFNlcnZpY2VDb25maWcoKTsKCi8vSGlk
+ZGluZyB3YXJuaW5ncyBhbmQgbm90aWNlcyBpZiBEZWJ1ZyBNb2RlIGlzIE9mZgppZihFWUVP
+U19ERUJVR19NT0RFID09IDApIHsKCWVycm9yX3JlcG9ydGluZygwKTsKfSBlbHNlIHsKCWVy
+cm9yX3JlcG9ydGluZyhFX0VSUk9SKTsgLy9UT0RPOiBTVVBQT1JUIEVfQUxMCn0KCi8vTG9h
+ZGluZyB0aGUgRXJyb3IgQ29kZXMKcmVxTGliKCdlcnJvckNvZGVzJywnbG9hZENvZGVzJyk7
+CgovL1NldHRpbmcgdGhlIFJ1bm5pbmcgTG9nIGNoZWNrIHZhciB0byAwCmdsb2JhbCAkTE9H
+X1JVTk5JTkc7CiRMT0dfUlVOTklORyA9IDA7CgovL0xvYWRpbmcgdGhlIFNlY3VyaXR5IFNl
+cnZpY2UgKHNlYykgaWYgZXllT1MgU2VjdXJpdHkgaXMgdHVybmVkIG9uIChieSBkZWZhdWx0
+IGlzIE9uKQppZihFWUVPU19TRUNVUklUWSA9PSAxKSB7CglzZXJ2aWNlKCdzZWMnLCdzdGFy
+dCcpOwp9CgovL0NoZWNrIGlmIGluZGV4LnBocCBpcyBiZWluZyB1c2VkIHRvIGxvYWQgaW1h
+Z2VzL2ZpbGVzIGZyb20gZXh0ZXJuIGRpcmVjdG9yeQppZiAoaXNzZXQoJF9HRVRbJ2V4dGVy
+biddKSkgewoJCSRteUV4dGVybiA9ICRfR0VUWydleHRlcm4nXTsKCQlpZihpc3NldCgkX0dF
+VFsndHlwZSddKSkgewoJCQkkdHlwZSA9ICRfR0VUWyd0eXBlJ107CgkJfSBlbHNlIHsKCQkJ
+JHR5cGUgPSAiIjsKCQl9CgkJc2VydmljZSgnZXh0ZXJuJywnZ2V0RmlsZScsYXJyYXkoJG15
+RXh0ZXJuLCR0eXBlKSwxKTsKfSBlbHNlIHsKCS8vTG9hZGluZyBleWVXaWRnZXRzIGRlZmlu
+aXRpb25zCglyZXFMaWIoJ2V5ZVdpZGdldHMnLCdsb2FkV2lkZ2V0cycpOwoJLy9TdGFydGlu
+ZyBhIHNpbXBsZSBzZXNzaW9uCglyZXFMaWIoJ2V5ZVNlc3Npb25zJywnc3RhcnRTZXNzaW9u
+Jyk7CgoJLy9JZiB3aWRnZXQgdGFibGUgZG9lcyBub3QgZXhpc3QsIGNyZWF0ZSBpdCAKCXJl
+cUxpYignZXllV2lkZ2V0cycsJ2NoZWNrVGFibGUnKTsKCSRteUluZm8gPSAkX1NFUlZFUlsn
+UEFUSF9JTkZPJ107CglpZigkbXlJbmZvKSB7CgkJaWYoJG15SW5mb3swfSA9PSAnLycpIHsK
+CQkJJG15SW5mbyA9IHN1YnN0cigkbXlJbmZvLDEsc3RybGVuKCRteUluZm8pKTsKCQl9Cgl9
+CglpZigkbXlJbmZvKSB7CgkJaWYoaXNfYXJyYXkoJF9TRVNTSU9OWydzaG9ydFVybHMnXVsk
+bXlJbmZvXSkpIHsKCQkJJG1zZyA9ICRfU0VTU0lPTlsnc2hvcnRVcmxzJ11bJG15SW5mb11b
+J21zZyddOwoJCQkkY2hlY2tudW0gPSAkX1NFU1NJT05bJ3Nob3J0VXJscyddWyRteUluZm9d
+WydjaGVja251bSddOwoJCQkkX0dFVFsnbXNnJ10gPSAkbXNnOwoJCQkkX1JFUVVFU1RbJ21z
+ZyddID0gJG1zZzsKCQkJJF9HRVRbJ2NoZWNrbnVtJ10gPSAkY2hlY2tudW07CgkJCSRfUkVR
+VUVTVFsnY2hlY2tudW0nXSA9ICRjaGVja251bTsKCQl9Cgl9CgkvL0NoZWNraW5nIGlmIGNo
+ZWNrbnVtIGFuZCBtZXNzYWdlIGFyZSBzZXQJCglpZihpc3NldCgkX0dFVFsnY2hlY2tudW0n
+XSkgJiYgIWVtcHR5KCRfR0VUWydjaGVja251bSddKSkgewoJCWlmKGlzc2V0KCRfUkVRVUVT
+VFsncGFyYW1zJ10pICYmICFlbXB0eSgkX1JFUVVFU1RbJ3BhcmFtcyddKSkgewoJCQkkcGFy
+YW1zID0gJF9SRVFVRVNUWydwYXJhbXMnXTsKCQl9IGVsc2UgewoJCQkkcGFyYW1zID0gbnVs
+bDsKCQl9CgkJaWYoaXNzZXQoJF9HRVRbJ21zZyddKSkgewoJCQkkbXNnID0gJF9HRVRbJ21z
+ZyddOwoJCX0gZWxzZSB7CgkJCSRtc2cgPSBudWxsOwoJCX0KCQkkYXJyYXlfbXNnID0gYXJy
+YXkoJF9HRVRbJ2NoZWNrbnVtJ10sJG1zZywkcGFyYW1zKTsKCQllY2hvIHNlcnZpY2UoJ21t
+YXAnLCdyb3V0ZW1zZycsJGFycmF5X21zZyk7Cgl9IGVsc2UgewoJCWlmKCRfR0VUWydtc2cn
+XSA9PSAncGluZycpIHsKCQkJaGVhZGVyKCJDb250ZW50LXR5cGU6dGV4dC94bWwiKTsvL292
+ZXJyaWRlIGhlYWRlciB0eXBlCgkJCWVjaG8gIjxleWVNZXNzYWdlPjxhY3Rpb24+PHRhc2s+
+cG9uZzwvdGFzaz48L2FjdGlvbj48L2V5ZU1lc3NhZ2U+IjsKCQkJZXhpdDsKCQl9CgkJLy9M
+b2FkaW5nIHRoZSBkZWZhdWx0IGFwcGxpY2F0aW9uICh1c3VhbGx5IExvZ2luIEFwcCkKCQlp
+bmNsdWRlX29uY2UoRVlFX1JPT1QuJy8nLlNZU1RFTV9ESVIuJy8nLktFUk5FTF9ESVIuJy9p
+bml0Jy5FWUVfQ09ERV9FWFRFTlNJT04pOwoJfQp9Cgo/Pg==
+</updateIndex>

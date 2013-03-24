@@ -1,0 +1,55 @@
+<translation>
+	<installer-install-allow-creation>ব্যবহারকারীদের অ্যাকাউন্ট তৈরি করতে অনুমতি প্রদান করুন</installer-install-allow-creation>
+	<installer-install-continue>এগিয়ে চল..</installer-install-continue>
+	<installer-install-do>eyeOS ইনস্টল কর!</installer-install-do>
+	<installer-install-error-extract>ইন্সটলার ফাইলটি এক্সট্রাক্ট করা সম্ভব হচ্ছে না। eyeOS ম্যানুয়ালি ইন্সটল করার জন্য, "[package]" ফাইলটির নাম "[package.tar.gz]" নামে পরিবর্তন করুন এবং একই ফোল্ডারে এর কন্টেন্টগুলো বিস্তারণ করুন।</installer-install-error-extract>
+	<installer-install-error-renaming>"./eyeOS/" ডাইরেক্টরীটির নাম পরিবর্তন করা যাচ্ছে না। অনুগ্রহপূর্বক, ফোল্ডারটির নাম "[hash]"-এ পরিবর্তন করুন।</installer-install-error-renaming>
+	<installer-install-password-retype>কূটশব্দ পূনর্বার</installer-install-password-retype>
+	<installer-install-password-root>রুট পাসওয়ার্ড</installer-install-password-root>
+	<installer-install-passwords-characters>রুটের কূটশব্দটি  ৩ বা ততোধিক অক্ষরের হতে হবে!</installer-install-passwords-characters>
+	<installer-install-passwords-notmatch>রুট পাসওয়ার্ডটি মিলছে না।</installer-install-passwords-notmatch>
+	<installer-install-passwords-required>রুট এর কূটশব্দটি অত্যাবশ্যক!</installer-install-passwords-required>
+	<installer-install-systemname-error>আপনি অবশ্যই একটি সিস্টেমর নাম উল্লেখ করবেন!</installer-install-systemname-error>
+	<installer-install-systemname>সিস্টেমের নাম</installer-install-systemname>
+	<installer-install-title>দয়া করে, আই ও.এস. ইন্সটল করার জন্য ফর্মটি পূরণ করুন:</installer-install-title>
+	<installer-lib-check-gzip>আপনার সার্ভারটি মনে হয়না জি.জিপ (gzip) সাপোর্ট করে। ম্যানুয়ালী আই ও.এস. ইন্সটল করার জন্য, “[package]” নামক ফাইলটি “[package.tar.gz]” নামে নামকরণ করুন এবং একই ফোল্ডারে এটিকে এক্সট্রাক্ট করুন।</installer-lib-check-gzip>
+	<installer-lib-check-md5>সতর্কবাণী: দয়া করে, "[package]" ফাইলটি চেক করুন, ফাইলটি সম্ভবত করাপ্টেড হয়ে গেছে।</installer-lib-check-md5>
+	<installer-lib-check-newer>বর্তমান eyeOS ইন্সটলেশনটি এই আপডেট থেকে নতুন। দয়া করে "installer" ফোল্ডারটি নিরাপত্তার জন্য মছে ফেলুন।</installer-lib-check-newer>
+	<installer-lib-check-notexist>ভূল: "[file]" টির অস্তিত্ব নেই।</installer-lib-check-notexist>
+	<installer-lib-check-permissions>সতর্কীকরণঃ  দয়া করে, "[file]" -টিকে পূর্ণ অনুমতি [CHMOD 777] দিন।</installer-lib-check-permissions>
+	<installer-lib-check-php>আপনার সার্ভারটিতে অগ্রহনযোগ্য ভার্সনের পি.এইচ.পি ব্যবহৃত হচ্ছে। eyeOS ইন্সটল করার পূর্বে দয়া করে পি.এইচ.পি ৫.০ বা এর পরবর্তী ভার্সনগুলোর একটিতে আপডেট করুন।</installer-lib-check-php>
+	<installer-lib-check-safemode>দু:খিত, কিন্তু  eyeOS ব্যবহারের জন্য SAFE_MODE টি OFF করে রাখতে হবে। আপনার বর্তমানে কনফিগারেশনে SAFE_MODE টি সচল করা আছে। দয়া করে, php.ini ফাইলটি খুলে SAFE_MODE টি বন্ধ করুন, অথবা আপনার সিসটেম এডমিনিট্রেটরকে আরও সাহায্যের জন্য জিজ্ঞাসা করুন।</installer-lib-check-safemode>
+	<installer-lib-output-errors>ইন্সটলশনের সময় কিছু সমস্যা ছিলঃ</installer-lib-output-errors>
+	<installer-lib-output-imap>আপনার পি.এইচ.পি ইন্সটলেশনে IMAP মডিউলটি বিদ্যমান নেই। দয়া করে, মডিউলটি ইন্সটল করুন। এটি ছাড়া, আপনি মেইল ক্লায়েন্ট ব্যবহার করতে পারবেন না।</installer-lib-output-imap>
+	<installer-lib-output-lang-by>তৈরী করেছেন</installer-lib-output-lang-by>
+	<installer-lib-output-lang-currentlang>বর্তমান ভাষা</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>ভাষাসমূহ</installer-lib-output-lang-langs>
+	<installer-lib-output-sqlite>আপনার পি.এইচ.পি ইন্সটলেশনে SQLite মডিউলটি নেই। দয়া করে, মডিউলটি ইন্সটল করে নিন। এটি ছাড়া আপনি মেইল ক্লায়েন্ট ব্যবহার করতে পারবেন না।</installer-lib-output-sqlite>
+	<installer-lib-output-title>eyeOS ইন্সটলেসন</installer-lib-output-title>
+	<installer-lib-output-utf8>আপনার পি.এইচ.পি. ভার্সনটিতে ইউ.টি.এফ-৮ এর জন্য সম্পূর্ণ সাপোর্ট নেই। দয়া করে, আপনার পি.এইচ.পি এর ভার্সনটি আপডেট করুন অথবা mbstring মডিউলটি আপডেট করুন।</installer-lib-output-utf8>
+	<installer-system-action-removeinstaller>eyeOS ইন্সটলারটি মুছে ফেল</installer-system-action-removeinstaller>
+	<installer-system-action-resetsystem>সিস্টেম ফাইলগুলো রিসেট কর</installer-system-action-resetsystem>
+	<installer-system-action-uninstall>eyeOS আনইন্সটল কর</installer-system-action-uninstall>
+	<installer-system-action>পদক্ষেপ</installer-system-action>
+	<installer-system-back>মেনুতে ফিরে চল</installer-system-back>
+	<installer-system-continue>এগিয়ে চল ...</installer-system-continue>
+	<installer-system-message-remove>নিরাপত্তার কারণে দয়া করে ইন্সটলারটি অপসারণ করুন।</installer-system-message-remove>
+	<installer-system-message-translations>এই [a link] লিংক থেকে অনুবাদগুলো ডাউনলোড করা যাবে।</installer-system-message-translations>
+	<installer-system-no>না</installer-system-no>
+	<installer-system-password-error>রুট কূটশব্দটি সঠিক নয়!</installer-system-password-error>
+	<installer-system-password>রুটের কূটশব্দ</installer-system-password>
+	<installer-system-removeinstaller-no>[span]না[/span] নির্বাচন করলে আপনাকে সিস্টেম পাতায় ফিরিয়ে আনা হবে।</installer-system-removeinstaller-no>
+	<installer-system-removeinstaller-really>আপনি কি সত্যিই eyeOS ইন্সটলারটি মুছে ফেলতে চান?</installer-system-removeinstaller-really>
+	<installer-system-removeinstaller-yes>[span]হ্যা[/span] নির্বাচন করলে eyeOS এর সকল ইন্সটলার ফাইলগুলো মুছে ফেলা হবে!</installer-system-removeinstaller-yes>
+	<installer-system-title>দয়া করে, যে কোন একটি একশন পছন্দ করুন:</installer-system-title>
+	<installer-system-uninstall-no>[span]না[/span] নির্বাচন করলে আপনাকে সিস্টেম পাতায় ফিরিয়ে আনা হবে।</installer-system-uninstall-no>
+	<installer-system-uninstall-really>আপনি কি সত্যিই eyeOS আনইন্সটল করতে চান?</installer-system-uninstall-really>
+	<installer-system-uninstall-yes>[span]হ্যা[/span], eyeOS  টি সম্পূর্ণরুপে মুছে ফেলা হবে।</installer-system-uninstall-yes>
+	<installer-system-yes>হ্যা</installer-system-yes>
+	<installer-update-continue>চালিয়ে যান (কন্টিনিউ) ...</installer-update-continue>
+	<installer-update-do>eyeOS পরিবর্ধন কর !</installer-update-do>
+	<installer-update-error-extract>পরিবর্ধন ফাইলটি বিস্তারণ করা সম্ভব হচ্ছে না। eyeOS ম্যানুয়ালি আপডেট করার জন্য, "[package]" ফাইলটির নাম "[package.tar.gz]" নামে পরিবর্তন করুন এবং একই ফোল্ডারে এর কন্টেন্টগুলো বিস্তারণ করুন।</installer-update-error-extract>
+	<installer-update-error-renaming>"./eyeOS/" ডিরেক্টরীটির নাম পরিবর্তন করা যাচ্ছে না। অনুগ্রহপূর্বক, ফোল্ডারটির নাম "[hash]"-এ পরিবর্তন করুন।</installer-update-error-renaming>
+	<installer-update-error-under15>এই পরিবর্ধক ফাইলটি শুদুমাত্র eyeOS এর  ১.৫ এবং তদুর্দ্ধ ভার্সনের জন্য । আপনি ব্যবহার করছেন eyeOS [ভার্সন ১] । eyeOS [ভার্সন ২] এ পরিবর্ধনের পূর্বে দয়া করে eyeOS ভার্সন ১.৫ এ পরিবর্ধন করুন।</installer-update-error-under15>
+	<installer-update-title>দয়া করে, আপনার ইনস্টলকৃত  eyeOS সিস্টেমকে  [version]  ভার্সনে পরিবর্ধন করুন</installer-update-title>
+</translation>

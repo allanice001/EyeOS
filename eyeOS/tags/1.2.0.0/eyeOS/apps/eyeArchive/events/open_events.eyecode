@@ -1,0 +1,112 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.1
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+///
+///		Dialog actions
+///
+ 
+/**
+ * Only a event for select the output folder
+ *
+ * @param unknown_type $params
+ */
+function eyeArchive_on_Open($params=null){
+	global $checknum;
+	$options = array(
+		0,
+		'SelectOpenFile',
+		$checknum,
+		'',
+		1
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+
+
+///
+///		real open events (called generally by eyeDialog)
+///
+
+/**
+ * A event for recive the selected folder from eyeDialog
+ *
+ * @param unknown_type $params
+ */
+function eyeArchive_on_SelectOpenFile($params = null){		
+	global $currentUser,$archivedExtensions,$myPid;
+	
+	//Getting real path (eyDialog return ~/ path).
+	if(substr($file,0,strlen('/' . GROUPS_DIR . '/')) == '/' . GROUPS_DIR . '/') {
+		$file = EYE_ROOT;
+	} else {
+		$file = service('um','getCurrentUserDir') . FILES_USER_DIR . '/';
+	}
+	if(!isset($params['arg'][0])){
+		$file = $GLOBALS['argSrc']->text;
+	}else{
+		$file .= $params['arg'][0];	
+	}	
+		
+	//Getting the real extension	
+	$extension = vfs('real_getExtension',array($file));	
+	//Include the correct wrapper
+	if(vfs('isDir',array($file))){		
+		require_once(EYE_ROOT.'/'.APP_DIR.'/eyeArchive/libraries/directory_wrapper.eyecode');				
+		if($GLOBALS['workingPath']->text == '/'){
+			$GLOBALS['workingPath']->setText($GLOBALS['workingPath']->text.basename($file).'.zip');
+		}else{
+			$GLOBALS['workingPath']->setText(dirname($GLOBALS['workingPath']->text).'/'.basename($file).'.zip');
+		}
+		$GLOBALS['actionLabel']->setText('Compress to...');
+	}elseif(array_search($extension,$archivedExtensions) !== false){		
+		require_once(EYE_ROOT.'/'.APP_DIR.'/eyeArchive/libraries/archived_wrapper.eyecode');
+		$GLOBALS['actionLabel']->setText('Extract to...');		
+	}else{
+		require_once(EYE_ROOT.'/'.APP_DIR.'/eyeArchive/libraries/file_wrapper.eyecode');
+	}
+	
+	//Getting files from source
+	$content = getFiles($file);
+	
+	//Getting type (each driver have a hardcoded type).
+	$type = getFileType();
+	
+	//Getting the working path (for output result)
+	$workPath = $GLOBALS['workingPath']->text;
+	
+	require_once(EYE_ROOT.'/'.APP_DIR.'/eyeArchive/libraries/project_class.eyecode');
+	//Getting the project object.
+	$myClass = new project(array('files'=>$content,'type'=>$type,'src'=>$file,'workPath'=>$workPath));
+	
+	//Saving the project object
+	_eyeArchive_setProject($myClass);
+	
+	//Setting a started project
+	$GLOBALS['projectStarted']->setText('true');
+	
+	//Print the files
+	require_once(EYE_ROOT.'/'.APP_DIR.'/eyeArchive/libraries/main.eyecode');
+	_updateTable($content);		
+}
+?>

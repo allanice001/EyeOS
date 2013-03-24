@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Java RPC &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Communication" href="../communication.html" />
+    <link rel="next" title="PHP RPC" href="rpc_php.html" />
+    <link rel="prev" title="RPC (Remote Procedure Call)" href="rpc.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rpc_php.html" title="PHP RPC"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rpc.html" title="RPC (Remote Procedure Call)"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../communication.html" accesskey="U">Communication</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="java-rpc">
+<span id="pages-rpc-java-java-rpc"></span><h1>Java RPC<a class="headerlink" href="#java-rpc" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This information refers to releases up to 0.7.x. It needs to be updated for the current releases 1.3.</p>
+</div>
+<div class="section" id="building-a-qooxdoo-test-application">
+<span id="pages-rpc-java-building-a-qooxdoo-test-application"></span><h2>Building a qooxdoo test application<a class="headerlink" href="#building-a-qooxdoo-test-application" title="Permalink to this headline">¶</a></h2>
+<p>The Java backend comes with a <tt class="docutils literal"><span class="pre">build.xml</span></tt> file that generates a web application archive (WAR). (In order to use this build file, you need to have <a class="reference external" href="http://ant.apache.org/">Ant</a> installed.) The resulting WAR contains all the necessary server-side and client-side classes to experiment with the RPC mechanism.</p>
+<p>To build the test WAR, simply follow these steps on the command line:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">cd</span> <span class="o">/</span><span class="nx">qooxdoo</span><span class="o">/</span><span class="nx">frontend</span>
+<span class="nx">make</span> <span class="nx">build</span>
+<span class="nx">cd</span> <span class="o">/</span><span class="nx">qooxdoo</span><span class="o">/</span><span class="nx">backend</span><span class="o">/</span><span class="nx">java</span>
+<span class="nx">ant</span>
+</pre></div>
+</div>
+<p>Now deploy the WAR in a Java web server of your choice (e.g. <a class="reference external" href="http://tomcat.apache.org/">Apache Tomcat</a>). You can then point your browser to one of the RPC test pages (e.g. <tt class="docutils literal"><span class="pre">http://localhost:8080/qooxdoo/sample/html/test/RPC_1.html</span></tt>) to see the RPC mechanism in action.</p>
+<p>Future qooxdoo releases may also include a pre-built Java backend.</p>
+</div>
+<div class="section" id="building-your-own-applications">
+<span id="pages-rpc-java-building-your-own-applications"></span><h2>Building your own applications<a class="headerlink" href="#building-your-own-applications" title="Permalink to this headline">¶</a></h2>
+<p>You can use the supplied <tt class="docutils literal"><span class="pre">build.xml</span></tt> as a starting point for your own applications. For example, you can modify it to include your own applications instead of the qooxdoo examples. Or you can modify it to build a JAR with the qooxdoo RPC classes and add that to an already existing webapp of yours. In this case, you have to add a mapping for the RpcServlet in your web.xml (see <tt class="docutils literal"><span class="pre">webapp/WEB-INF/web.xml</span></tt> in the Java backend).</p>
+<p>For development, you can use cross-domain calls (see below). This way, you can load HTML and script files via <tt class="docutils literal"><span class="pre">file://</span></tt> URLs, and only the server part needs to be packaged in a WAR. To see any client-side changes, simply reload the page. When you're ready to put the application into production, set cross-domain to false and add the client part to the WAR. There are also more sophisticated solutions (e.g. using a servlet and a custom classloader to load scripts), but these are beyond the scope of this article.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Java RPC</a><ul>
+<li><a class="reference internal" href="#building-a-qooxdoo-test-application">Building a qooxdoo test application</a></li>
+<li><a class="reference internal" href="#building-your-own-applications">Building your own applications</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="rpc.html"
+                                  title="previous chapter">RPC (Remote Procedure Call)</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="rpc_php.html"
+                                  title="next chapter">PHP RPC</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/communication/rpc_java.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

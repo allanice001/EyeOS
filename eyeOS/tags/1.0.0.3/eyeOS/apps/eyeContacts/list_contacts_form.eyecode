@@ -1,0 +1,61 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+	$myContainer = new Container(array('father'=>$contactListTab,'name'=>'tableContainer',
+		'width' =>540,'height'=>300,'x'=>10,'y'=>8));
+	$myContainer->show();
+	
+	$sortypes = array("String","String","String","Hidden");
+	$myHeader = array('Name','Surname','Phone Number','id');
+	
+	$myTable = new Sortabletable(array('name'=>'eyeContacts_Contacts','father'=>'tableContainer',
+		'sortypes'=>$sortypes,'theader'=>$myHeader,'x'=>0,'y'=>0,'width'=>535,'height'=>300,
+		'master'=>3));
+	$myTable->show();
+	$myPath = service('um', 'getCurrentUserdir').CONF_USER_DIR."/eyeContacts";
+	$myFiles = service('vfs', 'real_getDirContent', array($myPath));
+	
+	foreach($myFiles as $key) {
+		$size = service('vfs','real_filesize',array($key));
+		$fp = "";
+		$myContent = "";
+		if ($size > 0) {
+			$fp = service('vfs','real_open',array($key,'r'));
+			$myContent = fread($fp,$size);
+			fclose($fp);
+			$myFileContent = reqLib('eyeXML','xml2array',array($myContent));
+			if(empty($myFileContent['home_phone'][0])) {
+				$myFileContent['home_phone'][0] = " ";
+			}
+			$myTable->addRow(array($myFileContent['name'][0],$myFileContent['surname'][0],$myFileContent['home_phone'][0],md5($myFileContent['surname'][0]."_".$myFileContent['name'][0])));
+		}
+	}
+	/* Edit Button */
+	$editBut = new Button(array('name'=>'Edit','father'=>'tableContainer',
+			'x'=>3,'horiz'=>1,'y'=>310,'caption'=>'View'));
+	$editBut->addFriend($myTable);
+	$editBut->show();
+
+	/* Delete Button */
+	$deleteBut = new Button(array('name'=>'Delete','father'=>'tableContainer',
+			'x'=>55,'horiz'=>1,'y'=>310,'caption'=>'Delete'));
+	$deleteBut->addFriend($myTable);
+	$deleteBut->show();
+	
+?>

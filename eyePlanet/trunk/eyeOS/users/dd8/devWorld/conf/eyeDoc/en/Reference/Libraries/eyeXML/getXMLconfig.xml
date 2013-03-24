@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>getXMLconfig</name>
+		<tags>
+			<tag>function</tag>
+			<tag>library</tag>
+			<tag>eyexml</tag>
+			<tag>xml</tag>
+			<tag>config</tag>
+		</tags>
+		<shortDesc>Opens a user config file of an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>getXMLconfig</functionName>
+		<syntax>eyeXML('getXMLconfig', array($appname, $filename))</syntax>
+		<desc>Opens an XML config file of a specified application inside the user's configurations directory, and returns it in the form of an array.</desc>
+		<params>
+			<type>required</type>
+			<name>appname</name>
+			<desc>Name of the application.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>filename</name>
+			<desc>Name of the file to open.</desc>
+		</params>
+		<return>If the function succeeds, returns an array with the contents of the read file. Otherwise, returns false.</return>
+	</definition>
+</info>

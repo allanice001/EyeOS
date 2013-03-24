@@ -1,0 +1,98 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function miniHome_run($params=null) {
+	global $myPid;
+	
+	$pid = proc('findPidByName', array('miniHome'));
+	
+	if($pid !== $myPid) {
+		proc('end');
+		return;
+	}
+	
+	eyeX('createDiv', array('name' => 'miniHomeOuter', 'father' => 'eyeApps', 'class' => 'miniHomeOuter'));
+	eyeX('createDiv', array('name' => 'miniHomeInner', 'father' => 'miniHomeOuter', 'class' => 'miniHomeInner'));
+	eyeX('loadCss', array('url' => 'index.php?extern=apps/miniHome/css/miniHome.css', 'id' => 'miniHome'));
+	
+	$myLabel0 = new Label(array(
+		'name' => 'myQuota',
+		'father' => 'miniHomeOuter',
+		'x' => 20,
+		'y' => 2,
+		'text' => 'My Quota',
+	));
+	$myLabel0->show();
+	$myLabel0->setCss(array('color' => '#155D9A', 'font-weight' => 'bold'));
+	
+	$myImage1 = new Imagebox(array(
+		'name' => 'imgClose',
+		'father' => 'miniHomeOuter',
+		'horiz' => 1,
+		'x' => 5,
+		'y' => 4,
+		'url' => 'index.php?extern=apps/eyeX/themes/default/images/desktop/close.png',
+		'disableMsg' => 0,
+		'signal' => 'Close'
+	));
+	$myImage1->show();
+	$myImage1->setCss(array('cursor' => 'Pointer'));
+	
+	$myImage2 = new Imagebox(array(
+		'name' => 'imgRefresh',
+		'father' => 'miniHomeOuter',
+		'horiz' => 1,
+		'x' => 20,
+		'y' => 4,
+		'url' => 'index.php?extern=apps/eyeX/themes/default/images/desktop/refresh.png',
+		'disableMsg' => 0,
+		'signal' => 'Refresh'
+	));
+	$myImage2->show();
+	$myImage2->setCss(array('cursor' => 'Pointer'));
+	
+	$dir = um('getCurrentUserDir');
+	$size = vfs('getDirSize',array($dir));
+	$percent = round($size / DEFAULT_QUOTA * 100);
+
+	$quotaBar = new ProgressBar(array(
+		'name' => 'quotaBar',
+		'father' => 'miniHomeInner',
+		'width' => 180,
+		'y' => 30,
+		'x' => 12,
+		'max' => DEFAULT_QUOTA,
+		'progress' => $percent
+	));
+	$quotaBar->show();
+	eyeWidgets('serialize', array($quotaBar));
+	
+	eyeX('makeDrag', array('name' => $myPid.'_miniHomeOuter', 'father' => 'eyeApps', 'noIndex' => 1));
+}
+
+function miniHome_end() {
+	eyeWidgets('unserialize');
+	eyeX('removeWidget', array('name' => 'miniHomeOuter'));
+}
+
+?>

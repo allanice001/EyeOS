@@ -1,0 +1,82 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	EyeOS security service
+*/
+
+function service_sec_init($params = null) {
+
+}
+
+/***
+*
+* Description: clean a string's content
+*
+* Arguments:
+* 	+ var: the desired string to clean
+* 	- nohtml: converts special characters to HTML entities
+*	- maxLen: specifies the maximun length of the string
+*	- notreturn: eliminates newline and carriage return in string
+*
+* Return: Original var parameter with specified cleaning rules applied.
+*
+* Last update 2007-06-3
+***/
+function service_sec_cleanOutPutString($params) {
+	$string = $params['var'];
+	if(isset($params['nohtml'])) {
+		$string = htmlspecialchars($string,ENT_QUOTES);
+	}
+	if(isset($params['maxLen']) && is_numeric($params['maxLen']) && $params['maxLen'] > 0) {
+		if(strlen($string) > $params['maxLen']) {
+			$string = substr($string,0,$params['maxLen']);
+		}
+	}
+	if(isset($params['noreturn'])) {
+		$string = str_replace("\n",'',$string);
+		$string = str_replace("\r",'',$string);
+	}
+	return $string;
+}
+
+function service_sec_start($params=null){
+	unset($GLOBALS); //Emulate register globals off
+	
+	if (@get_magic_quotes_gpc() == 1) {
+		$_POST =multidimensionalArrayMap('stripslashes', $_POST);
+		$_REQUEST =multidimensionalArrayMap('stripslashes', $_REQUEST);
+		$_GET = multidimensionalArrayMap('stripslashes', $_GET);
+		$_COOKIE = multidimensionalArrayMap('stripslashes', $_COOKIE);
+	}
+}
+
+function multidimensionalArrayMap($func, $arr) {
+	$newArr = array();
+	foreach($arr as $key => $value) {
+		$newArr[ $key ] = (is_array($value) ? multidimensionalArrayMap($func, $value) : $func($value));
+	}
+	return $newArr;
+}
+
+?>

@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Recommendations &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="HTML Editing" href="../ui_html_editing.html" />
+    <link rel="next" title="HTML Editing In General" href="html_editing_in_general.html" />
+    <link rel="prev" title="Available Keyboard Shortcuts" href="available_shortcuts.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="html_editing_in_general.html" title="HTML Editing In General"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="available_shortcuts.html" title="Available Keyboard Shortcuts"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../gui_toolkit.html" >GUI Toolkit</a> &raquo;</li>
+          <li><a href="../ui_html_editing.html" accesskey="U">HTML Editing</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="recommendations">
+<span id="pages-ui-html-editing-recommendations-recommendations"></span><h1>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h1>
+<p>This page should help developers using the HtmlArea to stick with some recommendations to avoid known issues or to call attention how to use a specific feature.</p>
+<div class="section" id="common-font-families">
+<span id="pages-ui-html-editing-recommendations-common-font-families"></span><h2>Common Font Families<a class="headerlink" href="#common-font-families" title="Permalink to this headline">¶</a></h2>
+<p>Since the HtmlArea <em>&quot;only&quot;</em> is a editing component it does not offer a complete toolbar or other features which an full-blown Html Editor might offer.
+So if you setup an own toolbar and decide to offer the user a possibility to change the default font family you should be careful not to use a font family which is not widely available. If the client computer does not has the listed font family installed it will certainly fall back to the systems default. The user will be irritated by different choices which end up with the same result if he applies them to his written content.</p>
+<p>To avoid this problem you should play safe and offer the following font families:</p>
+<ul class="simple">
+<li>Arial</li>
+<li>Arial Black</li>
+<li>Verdana</li>
+<li>Courier New</li>
+<li>Courier</li>
+<li>Georgia</li>
+<li>Impact</li>
+<li>Comic Sans MS</li>
+<li>Tahoma</li>
+<li>Lucida Console</li>
+</ul>
+<p>A nice list of the most common font families is listed at <a class="reference external" href="http://www.codestyle.org/css/font-family/sampler-CombinedResults.shtml">CodeStyle.org</a></p>
+</div>
+<div class="section" id="inserthtml-command">
+<span id="pages-ui-html-editing-recommendations-inserthtml-command"></span><h2>InsertHtml Command<a class="headerlink" href="#inserthtml-command" title="Permalink to this headline">¶</a></h2>
+<p>This command lets you insert you HTML code directly into the component's document. It is powerful and can be an easy way to accomplish your goals, but you should keep in mind that this method should only be used if there is no other possibility offered.</p>
+<p>If you e.g. want to insert an image into the document use the dedicated <tt class="docutils literal"><span class="pre">insertImage</span></tt> command instead of putting your HTML code together.</p>
+</div>
+<div class="section" id="avoid-div-elements-with-fixed-width-or-height">
+<span id="pages-ui-html-editing-recommendations-avoid-div-elements-with-fixed-width-or-height"></span><h2>Avoid DIV elements with fixed width or height<a class="headerlink" href="#avoid-div-elements-with-fixed-width-or-height" title="Permalink to this headline">¶</a></h2>
+<p>The problem with DIV elements which have <em>width</em> or <em>height</em> set with CSS styles is that IE offers for those DIV elements resize/move handles. This is in the most cases not desired. So better use <em>margin</em>, <em>padding</em> or <em>top|left|right|bottom</em> to position your DIV element.</p>
+<p>Additionally if you set a width of 600px to a DIV element users with a small resolution (like 800 x 600 ) might end up with horizontal scrollbars.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Recommendations</a><ul>
+<li><a class="reference internal" href="#common-font-families">Common Font Families</a></li>
+<li><a class="reference internal" href="#inserthtml-command">InsertHtml Command</a></li>
+<li><a class="reference internal" href="#avoid-div-elements-with-fixed-width-or-height">Avoid DIV elements with fixed width or height</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="available_shortcuts.html"
+                                  title="previous chapter">Available Keyboard Shortcuts</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="html_editing_in_general.html"
+                                  title="next chapter">HTML Editing In General</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/ui_html_editing/recommendations.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

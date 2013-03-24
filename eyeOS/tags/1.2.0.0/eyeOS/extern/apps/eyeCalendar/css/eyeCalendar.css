@@ -1,0 +1,233 @@
+.calendarBase{
+	height: 405px;
+	right: 15px;
+	bottom: 25px;
+	border: solid #999999 1px;
+	background-color: #F9F9F9;
+	position: absolute;
+	font-family: verdana,arial,century;
+}
+
+.calendarMenus{
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+ 	height: 405px;
+	width: 168px;
+	border: solid gray 1px;
+	overflow: auto;
+}
+
+.calendarDayName{
+	height: 20px;
+	position: absolute;
+}
+
+.calendarDayTodo{
+	height: 20px; 	
+	top: 20px;					/*This is the calendarDayName height !!!*/	
+	position: absolute;
+}
+
+.dayNameSpacer{
+	width: 44px;
+	height: 20px;
+	position: absolute;
+}
+
+.dayNameSpacer2{
+	width: 44px;
+	height: 20px;
+	position: absolute;
+}
+
+.calendarBody{
+	width: 642;
+	position: absolute;
+	top: 40px;
+}
+.calendarBodyHour{
+	width: 46px;
+	position: absolute;
+}
+
+.dayName{
+	height: 16px;
+	position: absolute;
+	border-Right: solid gray 1px;
+	border-Top: solid gray 1px;
+	border-Bottom: solid gray 1px;
+}
+
+.hour{
+	width: 46px;
+	height: 59px;	
+	border-Top: 1px solid #E6E6E6;
+	color: #595858;
+	text-Align: center;
+}
+
+.hourDay{
+	height: 59px;
+	position: absolute;			
+	border-Right: solid #E6E6E6 1px;
+	border-Top: 1px solid #E6E6E6;
+}
+
+.halfHourTop{
+	border-Bottom: dotted #E6E6E6 1px;
+	top: 0px;			
+	height: 30px;
+	position: absolute;
+}
+
+.halfHourBottom{
+	top: 30px;	
+	height: 30px;		
+	position: absolute;
+}
+
+/**Notes area **/
+.noteName{
+	height: 10px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-size: 10px;
+	font-family: century;
+}
+ .noteNameLeft{
+	height: 10px;
+	width: 10px;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	margin-right: 1px;
+	background-image:
+ url(index.php?extern=/apps/eyeX/themes/default/images/apps/eyeCalendar/notes/BlueTopLeft.png);
+	cursor: move;
+}
+.noteNameRight{
+	height: 10px;
+	width: 10px;
+	top: 0px;
+	right: 0px;	
+	position: absolute;
+	background-image: url(index.php?extern=/apps/eyeX/themes/default/images/apps/eyeCalendar/notes/BlueTopRight.png);
+	cursor: move;
+}
+.noteNameMidle{
+	left: 10px;
+	background-color: #136dbb;
+	height: 10px;
+ 	top: 0px;
+	position: absolute;
+	cursor: move;
+	font-family: century;
+}
+.noteBottom{
+	height: 10px;
+	line-height: 10px;
+	font-size: 0;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	cursor: s-resize;
+}
+.noteBottomLeft{
+	height: 10px;
+	line-height: 10px;
+	font-size: 0;
+	width: 10px;
+	left: 0px;
+	bottom: 0px;
+	position: absolute;
+	margin-right: 1px;
+	background-image: url(index.php?extern=/apps/eyeX/themes/default/images/apps/eyeCalendar/notes/BlueDownLeft.png);	
+}
+.noteBottomMidle{
+	left: 10px;
+	background-color: #2199ff;
+	height: 9px;  /*This is 10-1 because have a bottom border*/
+	line-height: 9px;
+	font-size: 0;
+ 	bottom: 0px;
+	position: absolute;
+	border-bottom: solid 1px #196ab1;	
+}
+.noteBottomRight{
+	height: 10px;
+	width: 10px;
+	bottom: 0px;
+	right: 0px;	
+	position: absolute;
+	background-image: url(index.php?extern=/apps/eyeX/themes/default/images/apps/eyeCalendar/notes/BlueDownRight.png);
+}
+.noteBody{
+ 	background-Color: #2199ff;
+	position: absolute;
+	border-right: solid 1px #196ab1;
+	border-left: solid 1px #196ab1;	
+	top: 10px;
+	left: 0px;
+}
+.noteBodyTop{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 5px;	
+	background-Color: #2199ff;
+	cursor: move;
+}
+.noteBodyLeft{
+	position: absolute;	
+	left: 0px;
+	top: 5px;
+	width: 5px;
+	background-color: #2199ff;
+	cursor: move;
+}
+.noteBodyRight{
+	position: absolute;
+	top: 5px;
+	right: 0px;
+	width: 5px;	
+	background-color: #2199ff;
+	cursor: move;
+}
+.noteBodyBottom{
+	position: absolute;
+	bottom: 0px;
+	left: 5px;
+	background-color: #2199ff;	
+	cursor: move;
+}
+
+.noteNameContainer{	
+	position: absolute;
+	top: -2px;
+	left: 0px;
+	height: 10px;
+	color: white;
+	font-size: 0.8em;
+	padding-top: 0px;
+}
+
+.noteRemoveButton{
+	width: 10px;
+	height: 10px;
+	background-color: transparent;
+	background-image: url(index.php?extern=/apps/eyeCalendar/gfx/notes/exit.png);
+	background-repeat: no-repeat;
+	padding: 0 0 0 0;
+	position: absolute;
+	right: 10px;	
+	top: 0px;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+
+.noteTextArea{
+	/*scrollbar css for ie? maybe.*/
+}

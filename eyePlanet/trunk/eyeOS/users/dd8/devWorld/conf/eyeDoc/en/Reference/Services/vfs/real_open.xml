@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>real_open</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+			<tag>real</tag>
+		</tags>
+		<shortDesc>Opens a file and returns a handler.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>real_open</functionName>
+		<syntax>resource vfs('real_open', array(string $file, string $mode))</syntax>
+		<desc>Returns a handler to work with a file.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>Path to the file to open.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>mode</name>
+			<desc>Mode used to open the file. It is the same notation as used in the PHP native fopen() function.</desc>
+		</params>
+		<return>If the function succeeds, returns a handler of the file. Otherwise, it returns false and sets the error code according to the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No file or mode have been specified.</desc>
+			</error>
+			<error>
+				<type>VFS_INSUFFICIENT_PERMISSIONS</type>
+				<desc>There are not enough permissions to open the file.</desc>
+			</error>
+			<error>
+				<type>VFS_FILE_NOT_FOUND</type>
+				<desc>The file to open does not exist.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

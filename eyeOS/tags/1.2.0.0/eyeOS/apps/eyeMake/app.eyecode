@@ -1,0 +1,79 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+function eyeMake_run($params=null){
+	//If have any params, run in terminal mode
+	global $currentUser;	
+	if($currentUser != ROOTUSER){
+		eyex('messageBox',array('content'=>'Only root user can make eyepackages!'));
+		proc('end');
+		return false;
+	}
+	
+	if($params[1]){
+		$appName = $params[1];
+		$appName = basename($appName);
+		if($appName == '..'){
+			proc('end');
+			return false;
+		}
+		$dest = $params[2];
+		require_once(EYE_ROOT.'/'.APP_DIR.'/eyeMake/libraries/eyepackage.eyecode');
+		_makeEyepackage($appName,$dest);
+		return true;
+	}
+	
+		
+	//If not have any params (it is null) run in GUI mode
+	$myWindow1 = new Window(array('name' => 'mainWindow','father' => 'eyeApps','cent' => 1,'width' => 350,'height' => 200,'title' => 'eyeMake'));
+	$myWindow1->show();
+	
+	$Label1 = new Label(array('name' => 'appNameLabel','father' => 'mainWindow','x' => 40,'y' => 35,'text' => 'Write the app Name'));
+	$Label1->show();
+	
+	$myTextBox = new Textbox(array('name'=>'eyeAppName','father'=>'mainWindow','width'=>150,'x'=>40,'y'=>60));
+	$myTextBox->show();
+	
+	$Label2 = new Label(array('name' => 'appNameLabel','father' => 'mainWindow','x' => 40,'y' => 95,'text' => 'Select or write the output directory'));
+	$Label2->show();
+	
+	$myTextBox2 = new Textbox(array('name'=>'appDest','father'=>'mainWindow','width'=>150,'x'=>40,'y'=>120));
+	$myTextBox2->show();
+	
+	$myCheckBox = new Checkbox(array('name'=>'forcePkg','father'=>'mainWindow','x'=>40,'y'=>140,'text'=>'Force eyePackage extension','checked'=>1));
+	$myCheckBox->show();
+	
+	$myCheckBox2 = new Checkbox(array('name'=>'directDownload','father'=>'mainWindow','x'=>40,'y'=>160,'text'=>'Download it'));
+	$myCheckBox2->show();
+
+	$myButton = new Button(array('name'=>'selectDest','father'=>'mainWindow','signal'=>'SelectDest',
+	'caption'=>'Select...','x'=>200,'y'=>120,'img'=>'index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png'));
+	$myButton->show();
+
+	$myButton1 = new Button(array('name'=>'make','caption'=>'Make','father'=>'mainWindow','x'=>10,'y'=>10,'horiz'=>1,'vert'=>1));
+	$myButton1->addFriend($myTextBox);
+	$myButton1->addFriend($myTextBox2);
+	$myButton1->addFriend($myCheckBox);
+	$myButton1->addFriend($myCheckBox2);
+	$myButton1->show();
+}
+?>

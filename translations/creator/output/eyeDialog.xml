@@ -1,0 +1,19 @@
+<lang>
+	<info>
+		<revision>11/04/2009</revision>
+	</info>
+	<texts>Select a file to open</texts>
+	<texts>Open</texts>
+	<texts>Select a folder</texts>
+	<texts>Select</texts>
+	<texts>Save as...</texts>
+	<texts>Save</texts>
+	<texts>;$formattedFiletype = '';foreach ($ft as $value) {$formattedLabel .= $value.</texts>
+	<texts>Folders</texts>
+	<texts>Cancel</texts>
+	<texts>translate</texts>
+	<texts>You must select a file</texts>
+	<texts>You must enter a name</texts>
+	<texts>item_root</texts>
+	<texts>Error while trying to browse folder</texts>
+</lang>

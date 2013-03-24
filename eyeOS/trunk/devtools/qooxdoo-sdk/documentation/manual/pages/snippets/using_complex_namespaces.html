@@ -1,0 +1,287 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Complex Name Spaces &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="<no title>" href="toctree.html" />
+    <link rel="next" title="Enterprise Application Development" href="../development/enterprise_application_development.html" />
+    <link rel="prev" title="User-defined data" href="user-defined_data.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../development/enterprise_application_development.html" title="Enterprise Application Development"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user-defined_data.html" title="User-defined data"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../development.html" >Development</a> &raquo;</li>
+          <li><a href="../snippets.html" >User Snippets</a> &raquo;</li>
+          <li><a href="toctree.html" accesskey="U">&lt;no title&gt;</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-complex-name-spaces">
+<span id="pages-snippets-using-complex-namespaces-using-complex-name-spaces"></span><h1>Using Complex Name Spaces<a class="headerlink" href="#using-complex-name-spaces" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="pages-snippets-using-complex-namespaces-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Originally, a qooxdoo application or library had a simple name space, like <tt class="docutils literal"><span class="pre">feedreader</span></tt> or <tt class="docutils literal"><span class="pre">qx</span></tt>. The classes of a name space would be organized in packages under its root, with arbitrary deep nesting, so you got well-known package names like <tt class="docutils literal"><span class="pre">feedreader.view</span></tt> or <tt class="docutils literal"><span class="pre">qx.ui.core.queue</span></tt>.</p>
+<p>But increasingly, people are using complex name spaces in their qooxdoo projects. This could be because they are following a certain Java-like naming convention in their environment like <tt class="docutils literal"><span class="pre">org.myorg.webclient.util</span></tt>, or maybe they want to break up a larger body of code into multiple libraries, but retain a common root name like <tt class="docutils literal"><span class="pre">webclient.pro.util</span></tt>, <tt class="docutils literal"><span class="pre">webclient.pro.ui</span></tt> asf.</p>
+<p>So expanding on this notion of name spaces and packages, you can have a complex name space as the root for packages under this name space. But this only plays a role when creating the initial structure of applications and managing them in the build process. On the class level, you will not be able to see where the name space ends and the package identifiers start. Also, the directory path leading to a class will reflect this, so you will have a class</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;org.myorg.webclient.util.ClassA&quot;</span><span class="p">,</span> <span class="p">{...})</span>
+</pre></div>
+</div>
+<p>living in a path like</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">...</span><span class="o">/</span><span class="nx">source</span><span class="o">/</span><span class="kr">class</span><span class="o">/</span><span class="nx">org</span><span class="o">/</span><span class="nx">myorg</span><span class="o">/</span><span class="nx">webclient</span><span class="o">/</span><span class="nx">util</span><span class="o">/</span><span class="nx">ClassA</span><span class="p">.</span><span class="nx">js</span>
+</pre></div>
+</div>
+<p>The only noticealbe difference on this level to applications with simple name spaces is only the sequence of quasi &#8220;empty&#8221; directories (apart from subdirectories) leading up to the level where the actual class files start.</p>
+</div>
+<div class="section" id="showcase">
+<span id="pages-snippets-using-complex-namespaces-showcase"></span><h2>Showcase<a class="headerlink" href="#showcase" title="Permalink to this headline">¶</a></h2>
+<p>Here is a simple walk-through through a showcase, where two applications with complex name spaces are being set up, and one is used as a library by the other.</p>
+<div class="section" id="create-two-new-apps-with-complex-name-spaces">
+<span id="pages-snippets-using-complex-namespaces-create-two-new-apps-with-complex-name-spaces"></span><h3>Create two new apps with complex name spaces<a class="headerlink" href="#create-two-new-apps-with-complex-name-spaces" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><pre>thron7@pcthron7&gt; create-application.py -n jbb1 -s a.b.c
+ &gt;&gt;&gt; Copy skeleton into the output directory: ./jbb1
+ &gt;&gt;&gt; Patching file './jbb1/generate.py'
+ &gt;&gt;&gt; Patching file './jbb1/config.json'
+ &gt;&gt;&gt; Patching file './jbb1/Manifest.json'
+ &gt;&gt;&gt; Patching file './jbb1/source/index.html'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/Application.js'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/test/DemoTest.js'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/theme/Color.js'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/theme/Decoration.js'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/theme/Theme.js'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/theme/Font.js'
+ &gt;&gt;&gt; Patching file './jbb1/source/class/a/b/c/theme/Appearance.js'
+ &gt;&gt;&gt; DONE
+
+thron7@pcthron7&gt; create-application.py -n jbb2 -s d.e.f
+ &gt;&gt;&gt; Copy skeleton into the output directory: ./jbb2
+ &gt;&gt;&gt; Patching file './jbb2/generate.py'
+ &gt;&gt;&gt; Patching file './jbb2/config.json'
+ &gt;&gt;&gt; Patching file './jbb2/Manifest.json'
+ &gt;&gt;&gt; Patching file './jbb2/source/index.html'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/Application.js'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/test/DemoTest.js'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/theme/Color.js'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/theme/Decoration.js'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/theme/Theme.js'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/theme/Font.js'
+ &gt;&gt;&gt; Patching file './jbb2/source/class/d/e/f/theme/Appearance.js'
+ &gt;&gt;&gt; DONE</pre>
+</div>
+</div>
+<div class="section" id="add-a-lib-class-to-jbb2">
+<span id="pages-snippets-using-complex-namespaces-add-a-lib-class-to-jbb2"></span><h3>Add a lib class to jbb2<a class="headerlink" href="#add-a-lib-class-to-jbb2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><pre>thron7@pcthron7&gt; cat &gt; jbb2/source/class/d/e/f/ClassA.js
+qx.Class.define("d.e.f.ClassA", {});
+^D</pre>
+</div>
+</div>
+<div class="section" id="edit-jbb1-config-json-to-use-the-jbb2-lib-in-jbb1">
+<span id="pages-snippets-using-complex-namespaces-edit-jbb1-config-json-to-use-the-jbb2-lib-in-jbb1"></span><h3>Edit jbb1/config.json to use the jbb2 lib in jbb1<a class="headerlink" href="#edit-jbb1-config-json-to-use-the-jbb2-lib-in-jbb1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span>    <span class="o">:</span> <span class="s2">&quot;jbb1&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;include&quot;</span> <span class="o">:</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;path&quot;</span> <span class="o">:</span> <span class="s2">&quot;${QOOXDOO_PATH}/tool/data/config/application.json&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+
+  <span class="s2">&quot;let&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;APPLICATION&quot;</span>  <span class="o">:</span> <span class="s2">&quot;a.b.c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;QOOXDOO_PATH&quot;</span> <span class="o">:</span> <span class="s2">&quot;../../../qooxdoo.trunk&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;QXTHEME&quot;</span>      <span class="o">:</span> <span class="s2">&quot;a.b.c.theme.Theme&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;API_EXCLUDE&quot;</span>  <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;qx.legacy.*&quot;</span><span class="p">,</span><span class="s2">&quot;qx.test.*&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;LOCALES&quot;</span>      <span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;en&quot;</span> <span class="p">],</span>
+    <span class="s2">&quot;CACHE&quot;</span>        <span class="o">:</span> <span class="s2">&quot;${TMPDIR}/cache&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ROOT&quot;</span>         <span class="o">:</span> <span class="s2">&quot;.&quot;</span>
+  <span class="p">},</span>
+
+  <span class="s2">&quot;jobs&quot;</span> <span class="o">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;libraries&quot;</span> <span class="o">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;library&quot;</span> <span class="o">:</span>
+      <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;manifest&quot;</span> <span class="o">:</span> <span class="s2">&quot;../jbb2/Manifest.json&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modify-jbb1-s-application-js-to-use-the-classa-from-jbb2">
+<span id="pages-snippets-using-complex-namespaces-modify-jbb1s-application-js-to-use-the-classa-from-jbb2"></span><h3>Modify jbb1&#8217;s Application.js, to use the ClassA from jbb2<a class="headerlink" href="#modify-jbb1-s-application-js-to-use-the-classa-from-jbb2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">qx</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">&quot;a.b.c.Application&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="nx">extend</span> <span class="o">:</span> <span class="nx">qx</span><span class="p">.</span><span class="nx">application</span><span class="p">.</span><span class="nx">Standalone</span><span class="p">,</span>
+
+  <span class="p">...</span>
+
+      <span class="c1">// Add an event listener</span>
+      <span class="nx">button1</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s2">&quot;execute&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">d</span><span class="p">.</span><span class="nx">e</span><span class="p">.</span><span class="nx">f</span><span class="p">.</span><span class="nx">ClassA</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-generator-in-jbb1">
+<span id="pages-snippets-using-complex-namespaces-run-the-generator-in-jbb1"></span><h3>Run the generator in jbb1<a class="headerlink" href="#run-the-generator-in-jbb1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><pre>thron7@pcthron7&gt; cd jbb1; ./generate.py source
+
+============================================================================
+    INITIALIZING: JBB1
+============================================================================
+ &gt;&gt;&gt; Configuration: config.json
+ &gt;&gt;&gt; Jobs: source
+ &gt;&gt;&gt; Resolving config includes...
+  - ! Shadowing job "libraries" with local one
+ &gt;&gt;&gt; Resolving jobs...
+ &gt;&gt;&gt; Incorporating job defaults...
+ &gt;&gt;&gt; Resolving macros...
+ &gt;&gt;&gt; Resolving libs/manifests...
+
+============================================================================
+    EXECUTING: SOURCE::SOURCE-SCRIPT
+============================================================================
+ &gt;&gt;&gt; Scanning libraries...
+  - Scanning /home/thron7/workspace/packages/test/jbb2...
+  - Scanning /home/thron7/workspace/packages/test/jbb1...
+ &gt;&gt;&gt; Resolving dependencies...
+  - Sorting 186 classes...
+ &gt;&gt;&gt; Resolving dependencies...
+  - Sorting 186 classes...
+ &gt;&gt;&gt; Generate source version...
+  - Processing translation for 2 locales...
+  - Analysing assets...
+    - Compiling resource list...
+  - Generating boot loader...
+ &gt;&gt;&gt; Done</pre>
+</div>
+<p>That&#8217;s it :-) .</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Using Complex Name Spaces</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#showcase">Showcase</a><ul>
+<li><a class="reference internal" href="#create-two-new-apps-with-complex-name-spaces">Create two new apps with complex name spaces</a></li>
+<li><a class="reference internal" href="#add-a-lib-class-to-jbb2">Add a lib class to jbb2</a></li>
+<li><a class="reference internal" href="#edit-jbb1-config-json-to-use-the-jbb2-lib-in-jbb1">Edit jbb1/config.json to use the jbb2 lib in jbb1</a></li>
+<li><a class="reference internal" href="#modify-jbb1-s-application-js-to-use-the-classa-from-jbb2">Modify jbb1&#8217;s Application.js, to use the ClassA from jbb2</a></li>
+<li><a class="reference internal" href="#run-the-generator-in-jbb1">Run the generator in jbb1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="user-defined_data.html"
+                                  title="previous chapter">User-defined data</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../development/enterprise_application_development.html"
+                                  title="next chapter">Enterprise Application Development</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/snippets/using_complex_namespaces.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

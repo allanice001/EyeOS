@@ -1,0 +1,219 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_eyesoft_new($params = '') {
+	eyex('messageBox',array(
+		'content' => 'Mirror address (example: http://soft.eyeos.org/ports.xml)',
+		'type' => 3,
+		'title' => 'Add mirror',
+		'win_name' => 'eyeControl_eyesoft_add_window',
+		'btn1_capt' => 'Add',
+		'btn1_name' => 'eyesoft_add',
+		'btn2_capt' => 'Test',
+		'btn2_name' => 'eyesoft_add_test',
+		'btn3_capt' => 'Cancel',
+		'btn3_name' => 'eyesoft_add_cancel',
+		'textbox_event' => 'eyesoft_add_save',
+		'textbox_name' => 'eyeControl_eyesoft_add_textbox',
+		'father' => 'eyeControl_container_big'
+	));
+}
+
+function eyeControl_on_eyesoft_add($params = '') {
+	$selected = $GLOBALS['eyeControl_eyesoft_add_textbox']->text;
+	if ($selected) {
+		$dir = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/ports.xml';
+		$mirrorXML = eyeXML('getXMLfile',array($dir));
+		$x = array_findIdByText(array($mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'],$selected));
+		if (isset($x[0])) {
+			eyex('messageBox',array('content' => 'The mirror is installed, yet!'));
+		} else {
+			$mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'][] = $selected;
+			eyeXML('setXMLFile',array($dir,$mirrorXML));
+			eyex('messageBox',array('content' => 'Mirror successfully saved.'));
+			loadContent('apps','eyesoft');
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please type an address!'));
+	}
+}
+
+function eyeControl_on_eyesoft_add_test($params = '') {
+	$selected = $GLOBALS['eyeControl_eyesoft_add_textbox']->text;
+	if ($selected) {
+		$httpClient = eyeURL('getHTTPClient');
+		$httpClient->setURL($selected);
+		$httpClient->sendRequest();
+		$xml = trim($httpClient->getResponseBody());
+		$array = eyeXML('xml2array',array($xml));
+		if ($array['eyePorts'][0]['portServer'][0]['path'][0]) {
+			eyex('messageBox',array('content' => 'File can be downloaded successfully.'));
+		} else {
+			eyex('messageBox',array('content' => 'File can\'t be downloaded. Please correct the address.'));
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please type an address!'));
+	}
+}
+
+function eyeControl_on_eyesoft_add_cancel($params = '') {
+	$GLOBALS['eyeControl_eyesoft_add_window']->close();
+}
+
+function eyeControl_on_eyesoft_edit($params = '') {
+	$mirror = $GLOBALS['eyeControl_eyesoft_sortabletable']->selected;
+	if ($mirror && $mirror != 'http://soft.eyeos.org/ports.xml') {
+		eyex('messageBox',array(
+			'content' => 'Type the new mirror address:',
+			'type' => 3,
+			'title' => 'Edit mirror',
+			'win_name' => 'eyeControl_eyesoft_edit_window',
+			'btn1_capt' => 'Save',
+			'btn1_name' => 'eyesoft_edit_save',
+			'btn2_capt' => 'Test',
+			'btn2_name' => 'eyesoft_edit_test',
+			'btn3_capt' => 'Cancel',
+			'btn3_name' => 'eyesoft_edit_cancel',
+			'textbox_event' => 'eyesoft_edit_save',
+			'textbox_name' => 'eyeControl_eyesoft_edit_textbox',
+			'textbox_text' => $mirror,
+			'hidden_name' => 'eyeControl_eyesoft_edit_hidden',
+			'hidden_text' => $mirror,
+			'father' => 'eyeControl_container_big'
+		));
+	} elseif ($mirror == 'http://soft.eyeos.org/ports.xml') {
+		eyex('messageBox',array('content' => 'You can\'t edit the default mirror!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a mirror to edit.'));
+	}
+}
+
+function eyeControl_on_eyesoft_edit_save($params = '') {
+	$mirror_old = $GLOBALS['eyeControl_eyesoft_edit_hidden']->text;
+	$mirror_new = $GLOBALS['eyeControl_eyesoft_edit_textbox']->text;
+	if ($mirror_new && $mirror_new != 'http://soft.eyeos.org/ports.xml') {
+		$dir = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/ports.xml';
+		$mirrorXML = eyeXML('getXMLfile',array($dir));
+		$x = array_findIdByText(array($mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'],$mirror_old));
+		$x = $x[0];
+		if (isset($x)) {
+			$mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'][$x] = $mirror_new;
+			eyeXML('setXMLFile',array($dir,$mirrorXML));
+			eyex('messageBox',array('content' => 'Mirror successfully saved.'));
+			loadContent('apps','eyesoft');
+		} else {
+			eyex('messageBox',array('content' => 'The mirror doesn\'t exists, yet.'));
+		}
+	} elseif ($mirror == 'http://soft.eyeos.org/ports.xml') {
+		eyex('messageBox',array('content' => 'You can\'t save a mirror as the default mirror!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please type an address!'));
+	}
+}
+
+function eyeControl_on_eyesoft_edit_test($params = '') {
+	$selected = $GLOBALS['eyeControl_eyesoft_edit_textbox']->text;
+	if ($selected) {
+		$httpClient = eyeURL('getHTTPClient');
+		$httpClient->setURL($selected);
+		$httpClient->sendRequest();
+		$xml = trim($httpClient->getResponseBody());
+		$array = eyeXML('xml2array',array($xml));
+		if ($array['eyePorts'][0]['portServer'][0]['path'][0]) {
+			eyex('messageBox',array('content' => 'File can be downloaded successfully.'));
+		} else {
+			eyex('messageBox',array('content' => 'File can\'t be downloaded. Please correct the address.'));
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please type an address!'));
+	}
+}
+
+function eyeControl_on_eyesoft_edit_cancel($params = '') {
+	$GLOBALS['eyeControl_eyesoft_edit_window']->close();
+}
+
+function eyeControl_on_eyesoft_launch($params = '') {
+	proc('launch',array('eyeSoft'));
+}
+
+function eyeControl_on_eyesoft_delete($params = '') {
+	$mirror = $GLOBALS['eyeControl_eyesoft_sortabletable']->selected;
+	if ($mirror && $mirror != 'http://soft.eyeos.org/ports.xml') {
+		eyex('messageBox',array(
+			'content' => 'Do you really want to remove this mirror from eyeSoft?',
+			'type' => 3,
+			'title' => 'Delete mirror',
+			'win_name' => 'eyeControl_eyesoft_delete_window',
+			'btn1_capt' => 'Yes',
+			'btn1_name' => 'eyesoft_delete_yes',
+			'btn2_capt' => 'No',
+			'btn2_name' => 'eyesoft_delete_no',
+			'hidden_text' => $mirror,
+			'hidden_name' => 'eyesoft_delete_hidden',
+			'father' => 'eyeControl_container_big',
+			'img' => '?'
+		));
+	} elseif ($mirror == 'http://soft.eyeos.org/ports.xml') {
+		eyex('messageBox',array('content' => 'You can\'t delete the default mirror!'));
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a mirror to delete.'));
+	}
+}
+
+function eyeControl_on_eyesoft_delete_yes($params = '') {
+	$mirror = $GLOBALS['eyesoft_delete_hidden']->text;
+	if ($mirror && $mirror != 'http://soft.eyeos.org/ports.xml') {
+		$file = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/ports.xml';
+		$mirrorXML = eyeXML('getXMLfile',array($file));
+		$x = array_findIdByText(array($mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'],$mirror));
+		$x = $x[0];
+		unset($mirrorXML['eyePorts'][0]['mirrors'][0]['mirror'][$x]);
+		eyeXML('setXMLFile',array($file,$mirrorXML));
+		eyex('messageBox',array('content' => 'The mirror was successfully deleted.'));
+		loadContent('apps','eyesoft');
+	}
+}
+
+function eyeControl_on_eyesoft_test($params = '') {
+	$mirror = $GLOBALS['eyeControl_eyesoft_sortabletable']->selected;
+	if ($mirror) {
+		$httpClient = eyeURL('getHTTPClient');
+		$httpClient->setURL($mirror);
+		$httpClient->sendRequest();
+		$xml = trim($httpClient->getResponseBody());
+		$array = eyeXML('xml2array',array($xml));
+		if ($array['eyePorts'][0]['portServer'][0]['path'][0]) {
+			eyex('messageBox',array('content' => 'File can be downloaded successfully.'));
+		} else {
+			eyex('messageBox',array('content' => 'File can\'t be downloaded. Please correct the address.'));
+		}
+	} else {
+		eyex('messageBox',array('content' => 'Please choose a mirror to be tested.'));
+	}
+}
+
+function eyeControl_on_eyesoft_delete_no($params = '') {
+	$GLOBALS['eyeControl_eyesoft_delete_window']->close();
+}
+?>

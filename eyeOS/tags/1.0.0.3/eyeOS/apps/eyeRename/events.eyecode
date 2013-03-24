@@ -1,0 +1,64 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeRename_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeRename_on_rename($params=null) {
+	$dest = null;
+	$callback = null;
+	$orig = null;
+	if(is_object($GLOBALS['rnPath'])) {
+		$orig = $GLOBALS['rnPath']->text;
+	}
+	if(is_object($GLOBALS['rnCallback'])) {
+		$callback = $GLOBALS['rnCallback']->text;
+	}
+	if(is_object($GLOBALS['rnTextbox'])) {
+		$dest = $GLOBALS['rnTextbox']->text;
+		$dest = str_replace('/','',$dest);
+		$dest = str_replace('\\','',$dest);
+		$dest = str_replace('\'','',$dest);
+		$dest = str_replace('"','',$dest);
+	}
+	if($orig) {
+		$info = pathinfo($orig);
+		$dest = $info['dirname'].'/'.$dest;
+		if(service('vfs','fileExists',array($orig))) {
+			if(!service('vfs','rename',array($orig,$dest))) {
+				service('eyex','messageBox',array('content'=>'error renaming file'));
+			}
+			if($callback) {
+				service('eyex','rawjs',array('js'=>$callback));
+			}
+		} else {
+			service('eyex','messageBox',array('content'=>'error renaming file'));
+		}
+	}
+	eyeRename_on_Close();
+}
+
+function eyeRename_on_Close($params=null) {
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+
+?>

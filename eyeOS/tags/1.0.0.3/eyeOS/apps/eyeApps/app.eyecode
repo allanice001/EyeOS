@@ -1,0 +1,62 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+//WARNING: THIS APPS IS NOT AN EXAMPLE OF A GOOD APP, IS A SPECIAL SITUATION
+//THIS SITUATION SHOULD BE FIXED IN 1.1 USING SYSTEM APIS
+
+function eyeApps_run($params=null) {
+	$myWindow1 = new Window(array('title'=>'eyeApps','name'=>'eyeApplications','father' => 'eyeApps',
+	'y'=>0,'type'=>NORESIZE_WINDOW,'x'=>0,'cent'=>1,'width'=>520,'height'=>400));
+	$myWindow1->show();	
+	
+	$AppDir  = EYE_ROOT.'/'.APP_DIR.'/';
+	$x = 20;
+	$y = 20;
+	global $myPid;
+	if($dir = opendir($AppDir)) {
+		while(($myFile = readdir($dir)) !== false) {
+			if($myFile[0] != ".") {
+				$xml = getAppInfo($myFile);
+				if(is_array($xml)) {
+					$xml = $xml['package'][0];
+					if($xml['type'][0] == 'Application') {
+						$myIcon = new Icon(array('name'=>$xml['name'][0],'text'=>$xml['name'][0],'father'=>'eyeApplications_Content',
+							'image'=>$xml['icon'][0],
+							'content'=>array($xml['name'][0]),'x'=>$x,'y'=>$y));	        			
+						$myIcon->show();
+						service('eyex','updateCss',array('name'=>$myPid.'_'.$xml['name'][0].'_text','property'=>'color','value'=>'black'));
+						$x += 100;
+						if($x > 500) {
+							$x = 20;
+							$y += 100;
+						}
+					}
+				}
+			}
+		}
+		closedir($dir);
+	}
+}
+
+function eyeApps_end($params=null) {
+	global $myPid;
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

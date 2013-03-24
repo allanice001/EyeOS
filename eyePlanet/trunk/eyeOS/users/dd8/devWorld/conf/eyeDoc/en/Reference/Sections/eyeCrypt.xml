@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>eyeCrypt, the encryption managing library</title>
+	<general>
+		<name>eyeCrypt</name>
+		<tags>
+			<tag>library</tag>
+		</tags>
+		<shortDesc>Manages the cryptograhpy.</shortDesc>
+	</general>
+	<desc>The eyeCrypt library contains support for crypting and decrypting data in any available encryption algorithm present on the system.</desc>
+</info>

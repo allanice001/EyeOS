@@ -1,0 +1,156 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function miniMessages_run($params=null) {
+	global $myPid;
+	
+	$pid = proc('findPidByName', array('miniMessages'));
+	
+	if($pid !== $myPid) {
+		proc('end');
+		return;
+	}
+	
+	eyeX('createDiv', array('name' => 'miniMessagesOuter', 'father' => 'eyeApps', 'class' => 'miniMessagesOuter'));
+	eyeX('createDiv', array('name' => 'miniMessagesInner', 'father' => 'miniMessagesOuter', 'class' => 'miniMessagesInner'));
+	eyeX('loadCSS', array('url' => 'index.php?extern=apps/miniMessages/css/miniMessages.css', 'id' => 'miniMessages'));
+	
+	//We want to list the messages of the eyeMessages namespace
+	$newMsgs = reqLib('eyeSwap', 'list', array('eyeMessages'));
+	
+	$myImage = new Imagebox(array(
+		'name' => 'imgLaunch',
+		'father' => 'miniMessagesOuter',
+		'x' => 4,
+		'y' => 5,
+		'url' => 'index.php?extern=apps/eyeX/themes/default/images/desktop/open.png',
+		'disableMsg' => '0',
+		'signal' => 'Launch'
+	));
+	$myImage->show();
+	$myImage->setCss(array('cursor' => 'Pointer'));
+	
+	$myLabel = new Label(array(
+		'name' => 'Launch',
+		'father' => 'miniMessagesOuter',
+		'x' => 20,
+		'y' => 2,
+		'text' => 'Internal Messaging',
+		'disablemsg' => 0
+	));
+	$myLabel->show();
+	$myLabel->setCss(array('cursor' => 'Pointer', 'color' => '#155D9A', 'font-weight' => 'bold'));
+	
+	$myImage1 = new Imagebox(array(
+		'name' => 'imgClose',
+		'father' => 'miniMessagesOuter',
+		'horiz' => 1,
+		'x' => 5,
+		'y' => 5,
+		'url' => 'index.php?extern=apps/eyeX/themes/default/images/desktop/close.png',
+		'disableMsg' => 0,
+		'signal' => 'Close'
+	));
+	$myImage1->show();
+	$myImage1->setCss(array('cursor' => 'Pointer'));
+	
+	$myImage2 = new Imagebox(array(
+		'name' => 'imgRefresh',
+		'father' => 'miniMessagesOuter',
+		'horiz' => 1,
+		'x' => 20,
+		'y' => 4,
+		'url' => 'index.php?extern=apps/eyeX/themes/default/images/desktop/refresh.png',
+		'disableMsg' => 0,
+		'signal' => 'Refresh'
+	));
+	$myImage2->show();
+	$myImage2->setCss(array('cursor' => 'Pointer'));
+	
+	if(is_array($newMsgs)) {
+		$newMsgs = date_sort($newMsgs);
+		
+		$count = 0;
+		$Yoffset = 5;
+		foreach($newMsgs as $msg) {
+			$msgLabel = new Label(array(
+				'name' => 'msgFrom'.$count,
+				'father' => 'miniMessagesInner',
+				'x' => 12,
+				'y' => $Yoffset,
+				'text' => $msg['author']
+			));
+			$msgLabel->show(1);
+			
+			$strSubject = $msg['subject'];
+			if(utf8_strlen($strSubject) > 27) {
+				$strSubject = utf8_substr($strSubject, 0, 25).'...';
+			}
+			$msgLabel = new Label(array(
+				'name' => 'msgSubject'.$count,
+				'father' => 'miniMessagesInner',
+				'x' => 80,
+				'y' => $Yoffset,
+				'text' => $strSubject
+			));
+			$msgLabel->show(1);
+			
+			if(date('d') == date('d', $msg['date'])) {
+				$date = date('G:i', $msg['date']);
+			} else {
+				$date = date('m/d/Y',$msg['date']);
+			}
+			$msgLabel = new Label(array(
+				'name' => 'msgDate'.$count,
+				'father' => 'miniMessagesInner',
+				'horiz' => 1,
+				'x' => 20,
+				'y' => $Yoffset,
+				'text' => $date
+			));
+			$msgLabel->show(1);
+			
+			$Yoffset+=25;
+			$count++;
+		}
+	}
+	eyeX('makeDrag', array('name' => $myPid.'_miniMessagesOuter', 'father' => 'eyeApps', 'noIndex' => 1));
+}
+
+function date_sort($list) {
+	$myArray = array();
+
+	foreach($list as $msg) {
+		$myArray[$msg['date']] = $msg;
+	}
+	
+	krsort($myArray);
+	
+	return $myArray;
+}
+
+function miniMessages_end() {
+	eyeX('removeWidget', array('name' => 'miniMessagesOuter'));
+}
+
+?>

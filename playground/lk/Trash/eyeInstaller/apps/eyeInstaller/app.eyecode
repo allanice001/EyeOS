@@ -1,0 +1,361 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.7
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeInstaller_run($params = '') { // TODO
+	global $currentUser;
+	global $myPid;
+	
+	if ($currentUser != ROOTUSER) {
+		eyex('messageBox',array('content' => 'Only root is allowed to install applications!'));
+		proc('end');
+	} elseif ($params[0]) {
+		eyex('messageBox',array('content' => 'No package is chosen!'));
+		proc('end');
+	} else {
+		$file = utf8_basename($params[0]);
+		$path = eyeFiles(); // TODO
+		$myWindow = new Window(array(
+			'cent' => 1,
+			'father' => 'eyeApps',
+			'height' => 300,
+			'name' => 'eyeInstaller_Window',
+			'style' => TITLE + LISTED + MIN + CLOSE,
+			'title' => i18n('translate',array('Install')) . ' ' . $file,
+			'width' => 500
+		));
+		$myWindow->show();
+		
+	// Attention messages
+		if ($params[1]) {
+			$file = $params[0];
+		} else {
+			$file = vfs('getRealName',array($params[0]));
+		}
+		$attentionXml = getConfig('eyeInstaller','verified.xml');
+		if ($attentionXml) {
+			$md5 = md5_file($file);
+			if ($attentionXml['apps'][0][$md5][0]['status'][0] == 'unsafe') {
+				$attentionText = i18n('translate',array('The package you are trying to install has been verified as "unsafe".')) . '<br /><br />' . i18n('translate',array('Please stop installing!'));
+				$attentionColor = '#FF0000';
+			} elseif ($attentionXml['apps'][0][$md5][0]['status'][0] == 'outdated') {
+				$attentionText = i18n('translate',array('The package you are trying to install is outdated.')) . '<br /><br />' . i18n('translate',array('Please stop installing and check for a newer version!'));
+				$attentionColor = '#FF0000';
+			} else if ($attentionXml['apps'][0][$md5][0]['status'][0] == 'safe') {
+				$attentionText = i18n('translate',array('The package you are about to install has been verified as "safe".')) . '<br /><br />' . i18n('translate',array('Please continue.'));
+				$attentionColor = '#55AA55';
+			} elseif ($attentionXml['apps'][0][$md5][0]['status'][0] == 'team') {
+				$attentionText = i18n('translate',array('The package you are about to install has been published by the eyeOS Team.')) . '<br /><br />' . i18n('translate',array('Please continue.'));
+				$attentionColor = '#55AA55';
+			}
+			$attentionName = $attentionXml['apps'][0][$md5][0]['name'][0];
+			$attentionVersion = $attentionXml['apps'][0][$md5][0]['version'][0];
+			$attentionAuthor = $attentionXml['apps'][0][$md5][0]['author'][0];
+			$attentionLicense = $attentionXml['apps'][0][$md5][0]['license'][0];
+			$attentionNotes = $attentionXml['apps'][0][$md5][0]['notes'][0];
+		}
+		if (!$attentionText || !$attentionColor) {
+			// Update verified.xml message!
+			$attentionText = i18n('translate',array('The package you are about to install has not been verified.')) . '<br /><br />' . i18n('translate',array('Please continue with caution!'));
+			$attentionColor = '#FF8811';
+			//$attentionText = $md5;
+		}
+// Hidden widgets
+		$myHidden = new Hidden(array(
+			'name' => 'eyeInstaller_hidden_file',
+			'father' => 'eyeInstaller_Window_Content',
+			'text' => $file
+		));
+		$myHidden->show();
+		eyeWidgets('serialize',array($myHidden));
+		
+		if ($attentionLicense) {
+			$hidden = 'license';
+		} elseif ($attentionNotes) {
+			$hidden = 'notes';
+		} else {
+			$hidden = 'install';
+		}
+		$myHidden = new Hidden(array(
+			'name' => 'eyeInstaller_hidden_step',
+			'father' => 'eyeInstaller_Window_Content',
+			'text' => $hidden
+		));
+		$myHidden->show();
+		eyeWidgets('serialize',array($myHidden));
+	// Simplebox
+		$mySimplebox = new Simplebox(array(
+			'name' => 'eyeInstaller_simplebox',
+			'father' => 'eyeInstaller_Window_Content',
+			'x' => 10,
+			'y' => 10,
+			'width' => 150,
+			'height' => 255
+		));
+		$mySimplebox->show();
+	// Welcome
+		$myLabel = new Label(array(
+			'name' => 'eyeInstaller_label_step_welcome',
+			'father' => 'eyeInstaller_simplebox',
+			'text' => 'Welcome',
+			'x' => 25,
+			'y' => 30
+		));
+		$myLabel->show();
+		$myLabel->setCss(array(
+			'font-size' => '13px',
+			'font-weight' => 'bold'
+		));
+		eyeWidgets('serialize',array($myLabel));
+		$yLabel = 70;
+	// License
+		if ($attentionLicense) {
+			$myLabel = new Label(array(
+				'name' => 'eyeInstaller_label_step_license',
+				'father' => 'eyeInstaller_simplebox',
+				'text' => 'License',
+				'x' => 25,
+				'y' => $yLabel
+			));
+			$myLabel->show();
+			$myLabel->setCss(array('font-size' => '13px'));
+			eyeWidgets('serialize',array($myLabel));
+			$yLabel += 40;
+		}
+	// Notes
+		if ($attentionNotes) {
+			$myLabel = new Label(array(
+				'name' => 'eyeInstaller_label_step_notes',
+				'father' => 'eyeInstaller_simplebox',
+				'text' => 'Notes',
+				'x' => 25,
+				'y' => $yLabel
+			));
+			$myLabel->show();
+			$myLabel->setCss(array('font-size' => '13px'));
+			eyeWidgets('serialize',array($myLabel));
+			$yLabel += 40;
+		}
+	// Install
+		if ($params[0]) {
+			$myLabel = new Label(array(
+				'name' => 'eyeInstaller_label_step_install',
+				'father' => 'eyeInstaller_simplebox',
+				'text' => 'Install',
+				'x' => 25,
+				'y' => $yLabel
+			));
+			$myLabel->show();
+			$myLabel->setCss(array('font-size' => '13px'));
+			eyeWidgets('serialize',array($myLabel));
+			$yLabel += 40;
+	// Ready
+			$myLabel = new Label(array(
+				'name' => 'eyeInstaller_label_step_ready',
+				'father' => 'eyeInstaller_simplebox',
+				'text' => 'Ready',
+				'x' => 25,
+				'y' => $yLabel
+			));
+			$myLabel->show();
+			$myLabel->setCss(array('font-size' => '13px'));
+			eyeWidgets('serialize',array($myLabel));
+		}
+	// Box
+		$myBox = new Box(array(
+			'name' => 'eyeInstaller_box',
+			'father' => 'eyeInstaller_Window_Content',
+			'x' => 170,
+			'y' => 10,
+			'width' => 320,
+			'height' => 255,
+			'title' => 'Install an eyePackage'
+		));
+		$myBox->show();
+	// Main label
+		if (!$params[0]) {
+			$text = 'You need to choose an eyePackage to install!';
+		} else {
+			$text = 'Welcome to eyeInstaller!';
+		}
+		$myLabel = new Label(array(
+			'name' => 'eyeInstaller_label_text',
+			'father' => 'eyeInstaller_box',
+			'text' => $text,
+			'x' => 10,
+			'y' => 40
+		));
+		$myLabel->show();
+		$myLabel->setCss(array(
+			'font-weight' => 'bold',
+			'text-align' => 'center',
+			'width' => '300px'
+		));
+		eyeWidgets('serialize',array($myLabel));
+		
+		if ($params[0]) {
+	// Name label
+			if ($attentionName && $attentionAuthor) {
+				$myLabel = new Label(array(
+					'name' => 'eyeInstaller_label_name',
+					'father' => 'eyeInstaller_box',
+					'text' => '%s from %s',
+					'tokens' => array($attentionName . ' ' . $attentionVersion,$attentionAuthor),
+					'x' => 10,
+					'y' => 80
+				));
+				$myLabel->show();
+				$myLabel->setCss(array(
+					'text-align' => 'center',
+					'width' => '300px'
+				));
+				eyeWidgets('serialize',array($myLabel));
+				$yLabel = 120;
+			} else {
+				$yLabel = 100;
+			}
+	// Attention text
+			$myLabel = new Label(array(
+				'name' => 'eyeInstaller_label_attention',
+				'father' => 'eyeInstaller_box',
+				'x' => 10,
+				'y' => $yLabel
+			));
+			$myLabel->show();
+			$myLabel->setCss(array(
+				'color' => $attentionColor,
+				'font-weight' => 'bold',
+				'text-align' => 'center',
+				'width' => '300px'
+			));
+			eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_label_attention").innerHTML = "' . $attentionText . '";'));
+			eyeWidgets('serialize',array($myLabel));
+	// License label
+			if ($attentionLicense) {
+				$myLabel = new Label(array(
+					'name' => 'eyeInstaller_label_license_1',
+					'father' => 'eyeInstaller_box',
+					'text' => $attentionLicense,
+					'x' => 10,
+					'y' => 110,
+					'disablemsg' => 0,
+					'signal' => 'License'
+				));
+				$myLabel->show();
+				$myLabel->hide();
+				$myLabel->setCss(array(
+					'cursor' => 'Pointer',
+					'font-weight' => 'bold',
+					'text-align' => 'center',
+					'width' => '300px'
+				));
+				eyeWidgets('serialize',array($myLabel));
+				
+				$myLabel = new Label(array(
+					'name' => 'eyeInstaller_label_license_2',
+					'father' => 'eyeInstaller_box',
+					'text' => '(Click to view)',
+					'x' => 10,
+					'y' => 130
+				));
+				$myLabel->show();
+				$myLabel->hide();
+				$myLabel->setCss(array(
+					'text-align' => 'center',
+					'width' => '300px'
+				));
+				eyeWidgets('serialize',array($myLabel));
+			}
+	// Notes window
+			if ($attentionNotes) {
+				$myWindow = new Window(array(
+					'name' => 'eyeInstaller_Window_notes',
+					'father' => 'eyeInstaller_box',
+					'x' => 10,
+					'y' => 70,
+					'width' => 300,
+					'height' => 140,
+					'type' => INVISIBLE_WINDOW
+				));
+				$myWindow->show();
+				$myWindow->hide();
+				$myWindow->setCss(array('overflow' => 'auto'));
+				eyeWidgets('serialize',array($myWindow));
+				
+				$myLabel = new Label(array(
+					'name' => 'eyeInstaller_label_notes',
+					'father' => 'eyeInstaller_Window_notes',
+					'x' => 0,
+					'y' => 0
+				));
+				$myLabel->show();
+				$myLabel->setCss(array('width' => '300px'));
+				eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_label_notes").innerHTML = "' . $attentionNotes . '";'));
+			}
+		}
+	// Back button
+		$myButton = new Button(array(
+			'name' => 'eyeInstaller_button_back',
+			'father' => 'eyeInstaller_box',
+			'caption' => 'Back',
+			'vert' => 1,
+			'x' => 10,
+			'y' => 20,
+			'signal' => 'Back',
+			'img' => 'index.php?extern=apps/eyeInstaller/back.png'
+		));
+		$myButton->show();
+		$myButton->hide();
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_back_cpt").style.width = "130px";'));
+		eyeWidgets('serialize',array($myButton));
+	// Continue button
+		if (!$params[0]) {
+			$caption = 'Close';
+		} elseif ($attentionLicense || $attentionNotes) {
+			$caption = 'Continue';
+		} else {
+			$caption = 'Install';
+		}
+		$myButton = new Button(array(
+			'name' => 'eyeInstaller_button_continue',
+			'father' => 'eyeInstaller_box',
+			'caption' => $caption,
+			'horiz' => 1,
+			'vert' => 1,
+			'x' => 10,
+			'y' => 20,
+			'signal' => 'Continue',
+			'img' => 'index.php?extern=apps/eyeInstaller/continue.png'
+		));
+		$myButton->show();
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").style.left = "auto";'));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").style.right = "21px";'));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").style.width = "130px";'));
+		eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeInstaller_button_continue_cpt").style.textAlign = "right";'));
+		eyeWidgets('serialize',array($myButton));
+	}
+}
+
+function eyeInstaller_end($params = '') {
+	eyeWidgets('unserialize',$params);
+}
+?>

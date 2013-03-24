@@ -1,0 +1,165 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+define('EYEFILES_ICON_SIZE','60x60');
+define('EYEFILES_ICON_SEPARATION',30);
+define('EYEFILES_TOP_MARGIN',0);
+define('EYEFILES_ICON_START',10);
+
+function eyeTrash_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeTrash_on_openFile($params=null) {
+	global $myPid;
+	$fileToShow = '/';
+
+	$myUserDir = service('um','getCurrentUserDir');
+	$file = $myUserDir.'/'.TRASH_USER_DIR.'/';
+	
+	$userTheme = 'default'; //hardcoded
+	//TODO: hardcoded
+	$windowWidth = $params['size'];
+	
+	service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_WND_2_Content').innerHTML='';"));
+	$content = service('vfs','real_getDirContent',array($file));
+	$mime = getConfig('mime','mime.xml');
+	if($content) {
+		if(is_array($content)) {
+			$counter = 0;
+			$x = EYEFILES_ICON_START;
+			$y = EYEFILES_TOP_MARGIN;
+			foreach($content as $current) {		
+				$fileName = false;   
+                $current = str_replace("//","/",$current); 
+				if(ltrim(strrchr($current,'.'),'.') == EYEOS_TRASH_EXT) {
+					$icon = 'unknown';
+					$fp = service('vfs','real_open',array($current,'r'));
+					if($fp && filesize($current) > 0) {
+						$xml = fread($fp,filesize($current));
+						fclose($fp);
+						$myArray = reqLib('eyeXML','xml2array',array($xml));
+						$myArray = $myArray['eyeTrash'][0];
+						$type = $myArray['type'][0];
+						$fileName = $myArray['lastname'][0];
+						$info = pathinfo($fileName);
+						$extension = strtolower($info['extension']);                                      
+						$realFileName = basename($current);                        
+						$dinfo = pathinfo($realFileName);
+						$realFileName = $dinfo['basename'];                        
+						foreach($mime['mimeTypes'][0]['mime'] as $value) {
+							if($value['extension'][0] == $extension) {
+								$icon = $value['type'][0];
+							}
+						} 
+					}
+					//TODO: HANDLE ICONS
+				}
+				if($fileName) {
+					//create new icon using a folder icon.
+					$myName = "eyeFiles_icon_$counter";	
+					//get icon size using eyeGraphics
+					$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEFILES_ICON_SIZE.'/filetypes/'.$icon.'.png');
+					$myWidth = $info[0];
+					$myHeight = $info[1];
+					//TODO: MAKE A BETTER AND CONFIGURABLE TOOLTIPS
+					$myTooltip = filesize($current);
+					$myIcon = new Icon(array('name'=>$myName,'text'=>$fileName,'father'=>'WND_2_Content',
+					'image'=>'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEFILES_ICON_SIZE.'/filetypes/'.$icon.'.png',
+					'realname'=>EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEFILES_ICON_SIZE.'/filetypes/'.$icon.'.png',
+					'content'=>array($realFileName,$windowWidth),'x'=>$x,'y'=>$y,'tooltip'=>$myTooltip));	        			
+					$myIcon->show();
+					$counter++;
+					$x += $myHeight+EYEFILES_ICON_SEPARATION;
+					if($x > $windowWidth-$myHeight) {
+						$x = EYEFILES_ICON_START;
+						$y += $myWidth+EYEFILES_ICON_SEPARATION;
+					}
+					$myIcon->setCssText(array('color'=>'black','font-weight'=>'normal'));
+					$myIcon->setCss(array('z-index'=>'1'));
+				}
+			}
+		} 
+	}
+}
+
+function eyeTrash_on_Icon_Clicked($params=null) {
+    if(is_object($GLOBALS['execApp']) && $GLOBALS['execApp']->text != "") {
+		global $myPid;
+		global $checknum;
+		$callback = "eyeFiles_reloadFiles($myPid,$checknum);";
+		$app = $GLOBALS['execApp']->text;
+		if(!empty($app)) {
+			service('proc','launch',array($app,array($params['arg0'][0],$callback)));
+			$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			service('eyex','rawjs',array('js'=>"eyeFiles_clean($myPid);"));
+		}
+	} else {
+		 eyeTrash_on_openFile(array('size'=>$params['arg1'][0]));
+	} 
+}
+
+function eyeTrash_on_actionExecute($params=null) {
+	global $myPid;
+	global $checknum;
+	$callback = "eyeFiles_reloadFiles($myPid,$checknum);";
+	service('eyex','rawjs',array('js'=>"eyeFiles_clean($myPid);"));
+	foreach($params as $key=>$value) {
+		if(strstr($key,'action_hid_')) {
+			service('proc','launch',array($value[0],array($callback)));
+			return;
+		}
+	}
+}
+
+function eyeTrash_on_siteExecute($params=null) {
+	global $myPid;
+	global $checknum;
+	foreach($params as $key=>$value) {
+		if(strstr($key,'place_hid_')) {
+			service('proc','launch',array('eyeFiles',$value[0]));
+			return;
+		}
+	}
+}
+
+function eyeTrash_on_actionSelect($params=null) {
+	foreach($params as $key=>$value) {
+		if(strstr($key,'action_hid_')) {
+			if(is_object($GLOBALS['execApp'])) {
+				if($GLOBALS['execApp']->text == $value[0]) {
+					$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+					reqLib('eyeWidgets','serialize',array($myHidden));
+					return;
+				}
+			}
+			$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>$value[0]));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			return;
+		}
+	}
+}
+
+function eyeTrash_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+?>

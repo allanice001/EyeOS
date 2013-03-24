@@ -1,0 +1,27 @@
+<translation>
+	<installer-install-allow-creation>Luba kasutajatel luua kontosid</installer-install-allow-creation>
+	<installer-install-continue>Jätka...</installer-install-continue>
+	<installer-install-do>Installi eyeOS!</installer-install-do>
+	<installer-install-password-retype>Korda parooli</installer-install-password-retype>
+	<installer-install-password-root>Root kasutaja parool</installer-install-password-root>
+	<installer-lib-check-gzip>Tundub , et sinu server ei toeata gzipi. EyeOS-i manuaalseks installeerimiseks nimeta ümber ''[package]'' ''package.tar.gz'' ja paki lahti nad samasse kausta.</installer-lib-check-gzip>
+	<installer-lib-check-newer>Praegune eyeOS on uuem kui see uuendus. Palun kustuta ''[installer]'' turvariski tõttu.</installer-lib-check-newer>
+	<installer-lib-check-notexist>Viga: ''[file]'' ei eksisteeri.</installer-lib-check-notexist>
+	<installer-lib-check-permissions>Hoiatus: Palun anna ''[file]'' kõik õigused serveri poolt (CHMOD 777).</installer-lib-check-permissions>
+	<installer-lib-output-lang-currentlang>Praegune keel</installer-lib-output-lang-currentlang>
+	<installer-lib-output-lang-langs>Keeled</installer-lib-output-lang-langs>
+	<installer-system-action-removeinstaller>Palun eemalda eyeOS install fail</installer-system-action-removeinstaller>
+	<installer-system-action-resetsystem>Taasta süsteemi failid</installer-system-action-resetsystem>
+	<installer-system-action>Tegevus</installer-system-action>
+	<installer-system-back>Tagasi algusesse</installer-system-back>
+	<installer-system-continue>Jätka...</installer-system-continue>
+	<installer-system-no>Ei</installer-system-no>
+	<installer-system-password-error>Root parool pole õige!</installer-system-password-error>
+	<installer-system-password>Root parool</installer-system-password>
+	<installer-system-removeinstaller-really>Oled sa kindel , et tahad eemalda eyeOS install faili?</installer-system-removeinstaller-really>
+	<installer-system-title>Palun vali üks järgnevast tegevusest :</installer-system-title>
+	<installer-system-yes>Jah</installer-system-yes>
+	<installer-update-continue>Jätka...</installer-update-continue>
+	<installer-update-do>Uuenda eyeOS!</installer-update-do>
+	<installer-update-title>Palun jätka eyeOS [version] versiooni uuendamisega.</installer-update-title>
+</translation>

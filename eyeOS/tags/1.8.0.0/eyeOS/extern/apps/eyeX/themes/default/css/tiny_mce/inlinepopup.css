@@ -1,0 +1,65 @@
+.mceWindow {
+	background-color: #d4d0c8;
+	border: 1px solid #424d5f;
+	border-top: 0;
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+.mceWindowBody {
+	background-color: #ffffff;
+	clear: both;
+}
+
+.mceWindowClose {
+	margin-left: 2px;
+}
+
+.mceWindowClose, .mceWindowMaximize, .mceWindowMinimize {
+	display: block;
+	float: right;
+	margin-top: 2px;
+	overflow: hidden;
+}
+
+.mceWindowHead {
+	background-color: #799fd3;
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=default&extern=images/windows/bg_top.png);
+	background-repeat: repeat-x;
+	height: 23px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.mceWindowHeadTools {
+	margin-right: 5px;
+	margin-top: 1px;
+}
+
+.mceWindowResize {
+	cursor: se-resize;
+	display: block;
+	float: right;
+	height: 12px;
+	overflow: hidden;
+	width: 12px;
+}
+
+.mceWindowStatusbar {
+	background-color: #d4d0c8;
+	border-top: 1px solid black;
+	height: 12px;
+}
+
+.mceWindowTitle {
+	color: #ffffff;
+	float: left;
+	font-family: Verdana,Arial,sans-serif,FreeSans;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 18px;
+	margin-left: 9px;
+	margin-top: 2px;
+	overflow: hidden;
+}

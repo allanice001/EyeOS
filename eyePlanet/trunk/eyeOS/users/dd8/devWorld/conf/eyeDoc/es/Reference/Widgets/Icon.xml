@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Icon</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>image</tag>
+		</tags>
+		<shortDesc>An image and text element that sends a signal to the system if clicked.</shortDesc>
+	</general>
+	<name>Icon</name>
+	<description>The Icon widget consists of an image normally used to determine the type of resource it refers to and a text label below showing its name. Every time an Icon is clicked or moved, the app can handle its signals to determine which actions to take when the user interacts with Icons.</description>
+	<image>Iconos en la aplicación eyeFiles.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Nombre unívoco dado al widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Nombre de su elemento padre dentro del cual se crea.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Especifica si la coordenada horizontal debe tomarse desde el borde izquierdo (0) o derecho (1) de su contenedor. El valor por defecto es 0 (borde izquierdo).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Especifica si la coordenada vertical debe tomarse desde el borde superior (0) o inferior (1) de su contenedor. El valor por defecto es 0 (borde superior).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Especifica la coordenada horizontal dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Especifica la coordenada vertical dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Especifica cómo debe centrarse el widget. Los valores posibles son:
+			 0: sin centrar. Es el valor por defecto.
+			 1: centrar horizontal y verticalmente.
+			 2: centrar horizontalmente.
+			 3: centrar verticalmente.
+			 4: especifica como coordenadas horizontales y verticales del widget el centro del contenedor.
+			 5: especifica como coordenada horizontal del widget el centro del contenedor.
+			 6: especifica como coordenada vertical del widget el centro del contenedor.
+
+			Ten en cuenta la diferencia que hay entre las opciones 1-3 y 4-6. Las opciones 1-3 calculan el tamaño del widget para asegurarse que su punto central coincide con el centro de su contenedor, mientras que las opciones 4-6 sólo posicionan el widget con las coordenadas del punto central del contenedor, haciendo que el widget pueda verse desplazado del centro.
+			</desc>
+		</key>
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>content</name>
+			<desc>Array containing the parameters sent along with the signal when the Icon is clicked or moved.</desc>
+		</key>
+		<key>
+			<name>draggable</name>
+			<desc>Specifies if the Icon is draggable or not. The default value of 1 enables it, while a value of 0 disables it.</desc>
+		</key>
+		<key>
+			<name>image</name>
+			<desc>URL to the image of the Icon. It must be inside the extern directory.</desc>
+		</key>
+		<key>
+			<name>myonload</name>
+			<desc>JS code executed when the Icon is loaded.</desc>
+		</key>
+		<key>
+			<name>onclick</name>
+			<desc>Specifies whether or not the signal named 'Icon_Clicked' must be sent every time the Icon is clicked. The default value of 0 disables it, while a value of 1 enables it.</desc>
+		</key>
+		<key>
+			<name>overBorder</name>
+			<desc>Specifies if a border must be drawn when the cursor is over the Icon. The default value of 0 disables it, while a non-zero value enables it.</desc>
+		</key>
+		<key>
+			<name>text</name>
+			<desc>Text shown below the icon.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Hace que el sistema ejecute un código JavaScript dado cada vez que se produzca un evento en este widget.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Nombre del evento JS. Ejemplos: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>Código JavaScript que se ejecutará cada vez que se dispare el evento. El código se ejecutará dentro de una función para que puedan recibirse argumentos.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Argumentos pasados a la función del evento.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Hace el widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>void remove()</syntax>
+			<desc>Elimina el widget, y con él todos los widgets en su interior.</desc>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Aplica atributos CSS al widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Especifica, en forma de un array asociativo, los atributos a aplicar. La clave del elemento del array corresponde a la propiedad, mientras que el valor representa al valor de la propiedad. Tanto las claves como los valores deben ser válidos en la sintaxis de CSS.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setCssText(array $params)</syntax>
+			<desc>Sets CSS atributes to the Icon's text.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Specifies, in the form of an associative array, the CSS attributes to be applied. Both the key and value of each element must be valid CSS properties and values respectively.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setHeight(int $height)</syntax>
+			<desc>Cambia la altura de un widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>Nueva altura, expresada en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>void setWidth(int $width)</syntax>
+			<desc>Cambia la anchura del widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>Nueva anchura del widget, en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setX(int $x)</syntax>
+			<desc>Cambia la posición horizontal del widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>Nueva coordenada horizontal.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setY(int $y)</syntax>
+			<desc>Cambia la posición vertical del widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>Nueva posición vertical.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show()</syntax>
+			<desc>Draws the widget in the screen.</desc>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Hace el widget visible.</desc>
+		</method>
+	</methods>
+</info>

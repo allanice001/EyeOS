@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>resolvePath</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+		</tags>
+		<shortDesc>Resolves a user or group given path.</shortDesc>
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>resolvePath</functionName>
+		<syntax>string vfs('resolvePath', array(string $path, string $referenceDirectory [, bool $returnReferenceDirectoryRelative = false] [, string $groupName]))</syntax>
+		<desc>Returns the resolved path to a specified directory. The path can be part of the user's directory or to a group directory, and cap be returned as a relative or absolute path from the eyeOS root directory.</desc>
+		<params>
+			<type>required</type>
+			<name>path</name>
+			<desc>Path to the directory to resolve.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>referenceDirectory</name>
+			<desc>It has two possible values: 'user_files' for current user's files directory or 'group_files' for group files directory.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>returnReferenceDirectoryRelative</name>
+			<desc>Specifies if the function must return a relative resolved path or not. The default value of false returns the resolve path from the eyeOS root directory, while a value of true returns the relative path from the reference directory.</desc>
+		</params>	
+		<params>
+			<type>required</type>
+			<name>groupName</name>
+			<desc>Name of the group to resolve path, in case the 'referenceDirectory' parameter is set to group_files.</desc>
+		</params>	
+		<return>The resolved path, or false if the given path is not in the reference directory or if an error occured.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>The path and referenceDirectory parameters have not been specified, or the referenceDirectory parameter has a value other than 'user_files' or 'group_files' or no group name is specified when using the 'group_files' option.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

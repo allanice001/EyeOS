@@ -1,0 +1,263 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RPC with a Perl server &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Communication" href="../communication.html" />
+    <link rel="next" title="RPC with a Python server" href="rpc_python.html" />
+    <link rel="prev" title="PHP RPC" href="rpc_php.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rpc_python.html" title="RPC with a Python server"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rpc_php.html" title="PHP RPC"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../communication.html" accesskey="U">Communication</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rpc-with-a-perl-server">
+<span id="pages-rpc-perl-rpc-with-a-perl-server"></span><h1>RPC with a Perl server<a class="headerlink" href="#rpc-with-a-perl-server" title="Permalink to this headline">¶</a></h1>
+<p><em>qooxdoo includes an advanced RPC mechanism for direct calls to server-side methods. It allows you to write true client/server applications without having to worry about the communication details.</em></p>
+<p>As described in the <a class="reference internal" href="rpc.html"><em>RPC overview</em></a>, qooxdoo RPC is based on <a class="reference external" href="http://json-rpc.org/">JSON-RPC</a> as the serialization and method call protocol. This page describes how to set up and implement a Perl-based server.</p>
+<div class="section" id="setup">
+<span id="pages-rpc-perl-setup"></span><h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Get a copy of the qooxdoo perl backend (<tt class="docutils literal"><span class="pre">Qooxdoo::JSONRPC</span></tt>) from our sourceforge <a class="reference external" href="https://sourceforge.net/project/showfiles.php?group_id=190279">download area</a>. In the archive you will find a <tt class="docutils literal"><span class="pre">README.txt</span></tt> file as well as a <tt class="docutils literal"><span class="pre">README.CONFIGURE</span></tt> which contains details of how to set up the server. The steps involved are:</p>
+<ul>
+<li><p class="first">First, make sure that you have the Perl <tt class="docutils literal"><span class="pre">JSON</span></tt> module installed. This can be found on CPAN, and if you can't get it prepackaged, can be installed with</p>
+<div class="highlight-javascript"><pre># perl -MCPAN -e 'install JSON'</pre>
+</div>
+</li>
+<li><p class="first">If you care for performance at all, you may want to make sure that you have the <tt class="docutils literal"><span class="pre">FCGI</span></tt> module installed as well as mod_fcgid in your apache server.</p>
+<div class="highlight-javascript"><pre># perl -MCPAN -e 'install FCGI'</pre>
+</div>
+</li>
+<li><p class="first">The <tt class="docutils literal"><span class="pre">JSONRPC</span></tt> module requires a module to take care of the session handling. You can either use the <tt class="docutils literal"><span class="pre">SessionLite</span></tt> module included with RpcPerl or you can get <tt class="docutils literal"><span class="pre">CGI::Session</span></tt> from CPAN.</p>
+</li>
+<li><p class="first">Next you'll need to configure a list of places to look for modules and services: Open <tt class="docutils literal"><span class="pre">jsonrpc.pl</span></tt> and add as many (space-separated) directories as you need to the lib list. Usually this need only contain the full path to wherever you have put your <tt class="docutils literal"><span class="pre">Qxoodoo::JSONRPC</span></tt> module.</p>
+<p>It does however mean that services can be spread across different directories for different projects. These are searched for as <tt class="docutils literal"><span class="pre">&lt;path&gt;/Qooxdoo/Services/&lt;service</span> <span class="pre">name&gt;</span></tt>, and should have package names such as <tt class="docutils literal"><span class="pre">Qooxdoo::Services::qooxdoo::test</span></tt> (which corresponds to <tt class="docutils literal"><span class="pre">&lt;path&gt;/Qooxdoo/Services/qooxdoo/test.pm</span></tt>).</p>
+<p>The harness will obviously be run as the user that the web server is configured to run as, so needs access to the perl backend files.</p>
+</li>
+<li><p class="first">Test that the script has all its dependencies, and can find the runtime module:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">$</span> <span class="p">.</span><span class="o">/</span><span class="nx">jsonrpc</span><span class="p">.</span><span class="nx">pl</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span> <span class="nx">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span> <span class="nx">charset</span><span class="o">=</span><span class="nx">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="nx">Your</span> <span class="nx">HTTP</span> <span class="nx">Client</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">using</span> <span class="nx">the</span> <span class="nx">JSON</span><span class="o">-</span><span class="nx">RPC</span> <span class="nx">protocol</span>
+</pre></div>
+</div>
+<p>If you get &quot;Can't locate Qooxdoo/JSONRPC.pm in &#64;INC&quot; then you didn't get you library path right.</p>
+</li>
+<li><p class="first">Now you have a few choices, depending on how you plan to integrate with your web server. The quickest way to get going is to simply copy <tt class="docutils literal"><span class="pre">jsonrpc.pl</span></tt> into you <tt class="docutils literal"><span class="pre">cgi-bin</span></tt> directory.</p>
+</li>
+<li><p class="first">You can now point your web browser at the following address, and confirm that you get the JSON-RPC protocol error shown above.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">http</span><span class="o">:</span><span class="c1">//localhost/cgi-bin/jsonrpc.pl</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="writing-your-own-services">
+<span id="pages-rpc-perl-writing-your-own-services"></span><h2>Writing your own services<a class="headerlink" href="#writing-your-own-services" title="Permalink to this headline">¶</a></h2>
+<p>Let's start by writing our own first service which will add its arguments up. The service will be called example.wiki and have a method called add.</p>
+<p>To do this, we create a package called Qooxdoo::Services::example::wiki which will live in a file <tt class="docutils literal"><span class="pre">Qooxdoo/Services/example/wiki.pm</span></tt>. It doesn't matter where this file lives, but it will be searched for using the path(s) that you specified in the jsonrpc.pl harness. For this example you can create the new file under <tt class="docutils literal"><span class="pre">backend/perl/Qooxdoo/Services/example</span></tt>. Our service contains:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="nb">package</span> <span class="nn">Qooxdoo::Services::example::</span><span class="n">wiki</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nn">Qooxdoo::</span><span class="n">JSONRPC</span><span class="p">;</span>
+
+<span class="k">sub </span><span class="nf">method_add</span>
+<span class="p">{</span>
+    <span class="k">my</span> <span class="nv">$error</span>  <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">@params</span> <span class="o">=</span> <span class="nv">@_</span><span class="p">;</span>
+
+    <span class="k">my</span> <span class="nv">$count</span>  <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="nv">$#params</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$count</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$error</span><span class="o">-&gt;</span><span class="n">set_error</span> <span class="p">(</span><span class="nn">Qooxdoo::JSONRPC::</span><span class="n">JsonRpcError_ParameterMismatch</span><span class="p">,</span>
+                           <span class="s">&quot;Expected 1 parameter, but got $count&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nv">$error</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">my</span> <span class="nv">@numbers</span> <span class="o">=</span> <span class="nb">split</span> <span class="p">(</span><span class="sr">/\s+/</span><span class="p">,</span> <span class="nv">$params</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+    <span class="k">my</span> <span class="nv">$total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nv">$total</span> <span class="o">+=</span> <span class="nv">$_</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">@numbers</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$total</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The service is just a Perl package containing functions called method_* which are exposed through RPC. When called, the first argument will always be an error object, and subsequent ones will be supplied by the calling Javascript. In this example we just add the numbers in the first argument, which is space separated. [In practice we would probably pass each number as a separate argument, but doing it this way allows us to use <tt class="docutils literal"><span class="pre">RPC_1.html</span></tt> for testing]</p>
+<p>You can also see how the method has done a check on the supplied parameters, and raised an exception which will be raised in the client.</p>
+<p>Now, let's give it a try using the <tt class="docutils literal"><span class="pre">RPC_1.html</span></tt> test harness. Change the URL to be the address of jsonrpc.pl, for example /cgi-bin/jsonrpc.pl, the service to be example.wiki and the method to be add. Finally, supply a list of numbers in the final field and click 'Send to server' to see a result.</p>
+<p>If you get an error, particularly a server error, have a look in Apache's error_log to see if there is an error recorded. There is also a debug flag in <tt class="docutils literal"><span class="pre">JSONRPC.pm</span></tt> which can be enabled. All being well, you should receive a popup with the result.</p>
+</div>
+<div class="section" id="a-more-advanced-example">
+<span id="pages-rpc-perl-a-more-advanced-example"></span><h2>A more advanced example<a class="headerlink" href="#a-more-advanced-example" title="Permalink to this headline">¶</a></h2>
+<p>Let's write something that's a little more &quot;real world&quot; -- an address book! We'll use the <tt class="docutils literal"><span class="pre">NDBM</span></tt> database backend as I believe you should have it with Perl. We'll provide a couple of helper functions which open and close the database, as well as methods which list the database keys, fetch a record and store a record. These routines can be added to <tt class="docutils literal"><span class="pre">wiki.pm</span></tt>.</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="k">use</span> <span class="n">Fcntl</span><span class="p">;</span>
+<span class="k">use</span> <span class="n">NDBM_File</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="n">vars</span> <span class="sx">qw(%database)</span><span class="p">;</span>
+
+<span class="k">sub </span><span class="nf">open_database</span>
+<span class="p">{</span>
+    <span class="c1"># Please choose a better database path on a public system</span>
+    <span class="nb">tie</span> <span class="nv">%database</span><span class="p">,</span> <span class="s">&#39;NDBM_File&#39;</span><span class="p">,</span> <span class="s">&#39;/tmp/database&#39;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="o">|</span><span class="n">O_CREAT</span><span class="p">,</span> <span class="mo">0666</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">close_database</span>
+<span class="p">{</span>
+    <span class="nb">untie</span> <span class="nv">%database</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">method_get_record_ids</span>
+<span class="p">{</span>
+    <span class="k">my</span> <span class="nv">$error</span>  <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+
+    <span class="n">open_database</span> <span class="p">();</span>
+    <span class="k">my</span> <span class="nv">@k</span> <span class="o">=</span> <span class="nb">keys</span> <span class="nv">%database</span><span class="p">;</span>
+    <span class="n">close_database</span> <span class="p">();</span>
+
+    <span class="k">return</span> <span class="o">\</span><span class="nv">@k</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">method_get_record</span>
+<span class="p">{</span>
+    <span class="k">my</span> <span class="nv">$error</span> <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$id</span>    <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+
+    <span class="n">open_database</span> <span class="p">();</span>
+    <span class="k">my</span> <span class="nv">$record</span> <span class="o">=</span> <span class="nv">$database</span><span class="p">{</span><span class="nv">$id</span><span class="p">};</span>
+    <span class="n">close_database</span> <span class="p">();</span>
+
+    <span class="k">return</span> <span class="nv">$record</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">method_set_record</span>
+<span class="p">{</span>
+    <span class="k">my</span> <span class="nv">$error</span>  <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$id</span>     <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$record</span> <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+
+    <span class="n">open_database</span> <span class="p">();</span>
+    <span class="nv">$database</span><span class="p">{</span><span class="nv">$id</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$record</span><span class="p">;</span>
+    <span class="n">close_database</span> <span class="p">();</span>
+
+    <span class="k">return</span> <span class="nv">$record</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now to implement the front-end. Bear with me for a mo while I write it....</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">RPC with a Perl server</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#writing-your-own-services">Writing your own services</a></li>
+<li><a class="reference internal" href="#a-more-advanced-example">A more advanced example</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="rpc_php.html"
+                                  title="previous chapter">PHP RPC</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="rpc_python.html"
+                                  title="next chapter">RPC with a Python server</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/communication/rpc_perl.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

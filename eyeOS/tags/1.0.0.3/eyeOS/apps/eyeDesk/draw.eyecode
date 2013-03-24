@@ -1,0 +1,195 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+define('EYEDESK_ICON_SEPARATION',30);
+define('EYEDESK_MINLEN_LINK',39); //minimun lenght of a link pointing to 'a'
+define('EYEDESK_ICON_SIZE','60x60');
+
+function drawDesktop() {
+	global $myPid;
+	global $checknum;
+	$userTheme = 'default'; //hardcoded
+	//load user icons from the Desktop dir, begining from the top + 20 and left + 20
+	$counter = 0;
+	$x = 25;
+	$y = 70;
+	$scrHeight = $_SESSION['SCREEN']['height'];
+	//open desktop directory
+	$myUserDir = service('um','getCurrentUserDir');
+	$listFile = service('vfs','getDirContent',array($myUserDir.'files/Desktop'));
+	$mime = getConfig('mime','mime.xml');
+	service('eyex','rawjs',array('js'=>'cleanDesktop('.$myPid.');'));
+	$store = service('um','getCurrentUserDir').'/'.CONF_USER_DIR.'/eyeDesk/icons.xml';
+	$pos = reqLib('eyeXML','getXMLfile',array($store));
+	foreach ($listFile as $file){
+		//content that begins with a dot "." are ignored
+		$fileName = basename($file);
+		$found = false;
+		$handled = false;
+		if ($fileName{0} != ".") {
+			//if current element is a directory
+			if(is_dir($file)){
+	        	//create new icon using a folder icon.
+	          	$myName = "eyeDesk_icon_$counter";	
+          		//get icon size using eyeGraphics
+          		$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/folder.png');
+          		$myWidth = $info[0];
+          		$myHeight = $info[1];
+				$my = false;
+				$mx = false;
+          		if(is_array($pos['icon'])) {
+					foreach($pos['icon'] as $key=>$value) {
+						if($value['name'][0] == $fileName) {
+							$mx =$pos['icon'][$key]['x'][0];
+							$my = $pos['icon'][$key]['y'][0];
+							$handled = true;
+						}
+					}
+				}
+				if(!$mx || !$my) {
+					$mx = $x;
+					$my = $y;
+				}
+           		$myIcon = new Icon(array('name'=>$myName,'text'=>$fileName,'father'=>'eyeApps',
+           		'image'=>'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/folder.png',
+           		'content'=>$fileName,'father'=>'eyeApps','x'=>$mx,'y'=>$my));	        			
+	           	$myIcon->show();
+	           	$found=true;
+			} elseif(ltrim(strrchr($file,'.'),'.') == EYEOS_INFO_EXT)  {
+	          	$myName = "eyeDesk_icon_$counter";	
+          		//get icon size using eyeGraphics
+          		$icon = 'unknown';
+  				$fp = service('vfs','real_open',array($file,'r'));
+				if($fp && filesize($file) > 0) {
+					$xml = fread($fp,filesize($file));
+					fclose($fp);
+					$myArray = reqLib('eyeXML','xml2array',array($xml));
+					$myArray = $myArray['eyeFile'][0];
+					$fileName = $myArray['filename'][0];
+					$realFileName = str_replace($myUserDir.'/files/','',$current);
+					$tmpName = basename($realFileName);
+					$realFileName = substr($realFileName,0,strlen($realFileName)-strlen($tmpName));
+					$realFileName .= $fileName;
+					$info = pathinfo($realFileName);
+					$extension = strtolower($info['extension']);
+					foreach($mime['mimeTypes'][0]['mime'] as $value) {
+						if($value['extension'][0] == $extension) {
+							$icon = $value['type'][0];
+						}
+					} 
+				}
+          		$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/filetypes/'.$icon.'.png');
+          		$myWidth = $info[0];
+          		$myHeight = $info[1];
+				$my = false;
+				$mx = false;
+          		if(is_array($pos['icon'])) {
+					foreach($pos['icon'] as $key=>$value) {
+						if($value['name'][0] == $realFileName) {
+							$mx =$pos['icon'][$key]['x'][0];
+							$my = $pos['icon'][$key]['y'][0];
+							$handled = true;
+						}
+					}
+				}
+				if(!$mx || !$my) {
+					$mx = $x;
+					$my = $y;
+				}
+           		$myIcon = new Icon(array('name'=>$myName,'text'=>$fileName,'father'=>'eyeApps',
+           		'image'=>'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/filetypes/'.$icon.'.png',
+           		'content'=>$realFileName,'father'=>'eyeApps','x'=>$mx,'y'=>$my));	        			
+	           	$myIcon->show();
+	           	$found = true;	
+			} elseif(is_file($file)){				
+				if(ltrim(strrchr($file,'.'),'.') == EYEOS_LINK_EXT) {	
+					//open the link
+					if(filesize($file)>=EYEDESK_MINLEN_LINK) {
+						$fp = service('vfs','real_open',array($file,'r'));
+						if($fp) {
+							//now, read the link content, and put it into the link
+							$fileContent = fread($fp,filesize($file));
+							fclose($fp);
+							$xml = reqLib('eyeXML','xml2array',array($fileContent));
+							$linkContent = "";
+							$linkIcon='link';
+							
+							if($xml['eyeLink'][0]) {
+								if($xml['eyeLink'][0]['content'][0]) {
+									$linkContent = service('sec','cleanOutPutString',array('var'=>$xml['eyeLink'][0]['content'][0],'nohtml' => 1));
+									if(is_array($xml['eyeLink'][0]['args'])) {
+										$args = $xml['eyeLink'][0]['args'][0];
+									} else {
+										$args = "";
+									}
+								}
+								if($xml['eyeLink'][0]['icon'][0]) {
+									$linkIcon = $xml['eyeLink'][0]['icon'][0];
+								}
+							} 
+							
+							$publicName = substr($fileName,0,strlen($fileName)-strlen(EYEOS_LINK_EXT)-1);
+							$myName = "eyeDesk_icon_$counter";
+							
+							$info = getimagesize(EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png');
+							$myWidth = $info[0];
+							$myHeight = $info[1];
+							$my = false;
+							$mx = false;
+			          		if(is_array($pos['icon'])) {
+								foreach($pos['icon'] as $key=>$value) {
+									if($value['name'][0] == $linkContent) {
+										$mx =$pos['icon'][$key]['x'][0];
+										$my = $pos['icon'][$key]['y'][0];
+										$handled = true;
+									}
+								}
+							}
+							if(!$mx || !$my) {
+								$mx = $x;
+								$my = $y;
+							}
+							$myLinkIcon = new Icon(array('name'=>$myName,'text'=>$publicName,'father'=>'eyeApps',
+									'image'=>'index.php?extern=/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png',
+		           					'realname'=>EYE_ROOT.'/'.EXTERN_DIR.'/apps/eyeX/themes/'.$userTheme.'/icons/'.EYEDESK_ICON_SIZE.'/'.$linkIcon.'.png',
+		           					'content'=>array($linkContent,$args),'father'=>'eyeApps','x'=>$mx,'y'=>$my));	  
+		           			$myLinkIcon->show();
+						}
+					}
+					$found = true;
+				} 
+			}
+			if($found) {
+				$counter++;
+	           	//make a separation between icons relative to icon size + 30.
+	           	if(!$handled) {
+	           		$y += $myHeight+EYEDESK_ICON_SEPARATION;
+		           	if($y > ($scrHeight-$myHeight-EYEDESK_ICON_SEPARATION)) {
+		           		$y = 70;
+		           		$x = $myWidth + EYEDESK_ICON_SEPARATION;
+		           	}
+	           	}
+           		$found = false;
+           		$handled = false;
+			}
+		}
+	}
+}
+
+?>

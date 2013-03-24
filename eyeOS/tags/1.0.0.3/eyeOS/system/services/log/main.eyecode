@@ -1,0 +1,340 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.0
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License (GPL)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	eyeOs logging service.
+*/
+
+/*
+	this service intercept service calls and log it into one or more log files
+*/
+
+/*EYEOS_LOG TYPES: (related to where the logs are stored)
+ * 0 = LOG OFF.
+ * 1 = SAVE ALL in /log/all/trace.log, save  ServiceName ServiceFunction User Ip Date.
+ * 2 = SAVE ALL in /log/userAcronim/user/ServiceName/trace.log
+ * 3 = 1 + 2 types, save in /log/all and /log/user....
+ */
+
+/***
+* 
+* Description: check EYEOS_LOG value
+*
+* Arguments: none
+* 
+* Return: If EYEOS_LOG is incorrect, return false, if all ok, return true
+* 
+* Last update 2007-02-20
+***/
+function service_log_init(){
+	if(EYEOS_LOG != 1 && EYEOS_LOG != 2){
+		reqLib('errorCodes','setErrorCode',array(EYEOS_LOG_BAD_VALUE));
+		return false;
+	}
+	return true;
+}
+
+/*--------------------------------------------------------------------*/
+/* LOG add function.
+/*--------------------------------------------------------------------*/
+/***
+* 
+* Description: append a log line in the log files
+*
+* Arguments:
+* 	+ serviceName: name of the called service
+*	+ serviceFunction: name of the called function
+*	- serviceArgs: arguments passed to the called function
+* 
+* Return: return EYEOS_LOG_SERVICE_IGNORED if service is in the list of ignored services
+*		  and EYEOS_LOG_BAD_VALUE if log service is incorrectly configured
+* 
+* Last update 2007-02-19
+***/
+function service_log_addLog($params) {
+	
+	$serviceName = $params[0];
+	$serviceFunction = $params[1];
+	$serviceArgs = $params[2];
+	$ignoredServices = array('mmap','eyex','extern');
+	$servicesWithParams = array('proc','vfs');
+	
+	foreach ($ignoredServices as $value)
+	{
+		if($serviceName == $value){
+			reqLib('errorCodes','setErrorCode',array(EYEOS_LOG_SERVICE_IGNORED));
+			return false;
+		}
+	}
+	
+	global $currentUser;
+	$remoteIp = $_SERVER['REMOTE_ADDR'];//Get addres by service? maybe...
+	$time = time();
+	
+	
+	foreach ($servicesWithParams as $value){
+		if($serviceName == $value)
+		{
+			if(is_array($serviceArgs))
+			{
+				//If are a valid service save the params.
+				foreach ($serviceArgs as $param)
+				{
+					$serviceParams .= "$param ";	
+				}	
+			}else{
+				$serviceParams = $serviceArgs;
+			}
+		}
+	}
+	
+	//Making the string
+	$log = $serviceName."\t"."\t".$serviceFunction."\t"."\t"."\t".$serviceParams."\t"."\t".$currentUser."\t"."\t".$remoteIp."\t"."\t".$time."\n";
+	
+	//Every EYEOS_LOG types have a function.
+	if(EYEOS_LOG == 1)
+	{
+		saveOne(array($log));
+	}
+	elseif(EYEOS_LOG == 2)
+	{
+		saveServer(array($log,$serviceName));
+	}else{
+		reqLib('errorCodes','setErrorCode',array(EYEOS_LOG_BAD_VALUE));
+		return false;
+	}
+	return true;
+}
+
+/*--------------------------------------------------------------------*/
+/* LOG SEMAHORE funtions.
+/*--------------------------------------------------------------------*/
+/***
+* 
+* Description: disable logging
+*
+* Arguments: none
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_log_lock()
+{
+	global $logRunning;
+	$logRunning = true;
+}
+
+/***
+* 
+* Description: enable logging
+*
+* Arguments: none
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function service_log_unlock()
+{
+	global $logRunning;
+	$logRunning = false;	
+}
+
+/***
+* 
+* Description: return the enabled or disabled log status
+*
+* Arguments: none
+* 
+* Return: return true when logging is locked and false when logging is unlocked
+*
+* Last update 2007-02-19
+***/
+function service_log_checkLog()
+{
+	global $logRunning;
+	return $logRunning;
+}
+
+/*--------------------------------------------------------------------*/
+/* LOG PRIVATE FUNCTIONS.
+/*--------------------------------------------------------------------*/
+
+/***
+* 
+* Description: write a log entry when log value is set to 1, and backup the log if
+*		it's bigger than MAX_SIZE
+*
+* Arguments:
+* 	+ log: string of the log entry to write
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function saveOne($params){
+	
+	$log = $params[0];
+	$path = onePath();
+	if(!service('vfs','fileExists',array($path))){
+		if(!service('vfs','create',array($path)));
+		{
+			return false;
+		}
+	}
+	
+	if(filesize($path) > LOG_FILE_SIZE)
+	{
+		if(!backupLog()){
+			return false;
+		}
+	}
+		
+	$fp = service('vfs','real_open',array($path,'a+'));
+	
+	//Error handling
+	if(!$fp){
+		return false;
+	}
+	fwrite($fp,$log);
+	fclose($fp);
+	return true;
+}
+
+/***
+* 
+* Description: write a log entry in a service's log dir
+*
+* Arguments:
+* 	+ log: string containing the log information
+* 	+ serviceName: name of the service called
+* 
+* Return: none
+* 
+* Last update 2007-02-19
+***/
+function saveServer($params){
+	
+	$log = $params[0];
+	$serviceName = $params[1];			
+	$path = servicePath($serviceName);
+	
+	if(!service('vfs','fileExists',array($path))){
+		if(!service('vfs','create',array($path)));
+		{
+			return false;
+		}
+	}
+	if(filesize($path) > LOG_FILE_SIZE)
+	{
+		if(!backupLog()){
+			return false;
+		}	
+	}
+	
+	$fp = service('vfs','real_open',array($path,'a+'));
+	
+	//Error handling
+	if(!$fp){
+		return false;
+	}
+	fwrite($fp,$log);
+	fclose($fp);
+	return true;
+}
+
+/***
+* 
+* Description: rotate the log file when logging mode 1 is set
+*
+* Arguments: none
+*
+* Return: none
+*		
+* Last update 2007-02-19
+***/
+function backupLog($path)
+{
+	//Mode 1, save One i.e.: /log/all/trace.log21483817
+	if(LOG_SAVE_ALL == 1)
+	{
+		$newPath = $path.time();
+		if(!service('vfs','real_move',array($path,$newPath)))
+		{
+			return false;
+		}else{
+			return true;
+		}
+	}
+	elseif(LOG_SAVE_ALL == 0)
+	{
+		$newPath = $path.'.back';
+		//Put file cheks? is_file etc...
+		//First delete old .back. real_delete automatically checks if it exists	
+		
+		//Error handling
+		if(!service('vfs','real_delete',array($newPath))){
+			return false;
+		}
+		
+		if(!service('vfs','real_move',array($path,$newPath)))
+		{
+			return false;
+		}
+			
+		return true;		
+	}
+}
+
+/***
+* 
+* Description: return the path of the log file when working in mode 1
+*
+* Arguments: none
+*
+* Return: path pointing to the log file for mode 1
+* 
+* Last update 2007-02-19
+***/
+function onePath()
+{
+	return  EYE_ROOT.'/'.LOG_DIR.'/'.LOG_ONE.'/'.LOG_NAME;	
+}
+
+/***
+* 
+* Description: return the path of the service's log file when working in mode 2
+*
+* Arguments:
+*	+ serviceName: name of the service
+* 
+* Return: path pointing to the given service's log file
+* 
+* Last update 2007-02-19
+***/
+function servicePath($serviceName)
+{
+	return EYE_ROOT.'/'.LOG_DIR.'/'.$serviceName.'/'.LOG_NAME;	
+}
+?>

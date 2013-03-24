@@ -1,0 +1,46 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_eyenav_test($params = '') {
+	proc('launch',array('eyeNav',$GLOBALS['eyeControl_eyenav_textbox']->text));
+}
+
+function eyeControl_on_eyenav_test_default($params = '') {
+	proc('launch',array('eyeNav',$GLOBALS['eyeControl_eyenav_textbox_default']->text));
+}
+
+function eyeControl_on_eyenav_save($params = '') {
+	global $currentUser;
+	$File = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeNav/conf.xml';
+	$XML = eyeXML('getXMLfile',array($File));
+	$XML['eyeNav'][0]['home'][0] = $GLOBALS['eyeControl_eyenav_textbox']->text;
+	eyeXML('setXMLFile',array($File,$XML));
+	if ($currentUser == ROOTUSER) {
+		$File = EYE_ROOT . '/' . SYSTEM_DIR . '/' . SYSTEM_CONF_DIR . '/skel/' . CONF_USER_DIR . '/eyeNav/conf.xml';
+		$XML = eyeXML('getXMLfile',array($File));
+		$XML['eyeNav'][0]['home'][0] = $GLOBALS['eyeControl_eyenav_textbox_default']->text;
+		eyeXML('setXMLFile',array($File,$XML));
+	}
+	eyex('messageBox',array('content' => 'Changes successfully saved.'));
+}
+?>

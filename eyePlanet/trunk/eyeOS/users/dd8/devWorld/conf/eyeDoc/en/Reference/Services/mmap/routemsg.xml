@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>routemsg</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>mmap</tag>
+		</tags>
+		<shortDesc>Executes event of an application.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>routemsg</functionName>
+		<syntax>string mmap('routemsg', array(int $checknum, string $action, array $args))</syntax>
+		<desc>Calls an event function of an application. This function is automatically called every time an application sends a signal from a user's client.</desc>
+		<params>
+			<type>required</type>
+			<name>checknum</name>
+			<desc>Checknum of the application executing the action.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>action</name>
+			<desc>Name of the event.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>args</name>
+			<desc>Arguments passed to the function.</desc>
+		</params>
+		<return>The output buffer of the system, updated.</return>
+	</definition>
+</info>

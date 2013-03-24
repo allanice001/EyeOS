@@ -1,0 +1,81 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeManageApps_run($params=null) {
+	global $myPid;
+	$myWindow = new Window(array(
+		'name' => 'eyeManageAppsWND',
+		'father' => 'eyeApps',
+		'title' => 'Manage Applications',
+		'width' => 775,
+		'height' => 525,
+		'type' => NORESIZE_WINDOW,
+		'savePosition' => 1
+	));
+	$myWindow->show();
+	eyeX('rawjs',array('js' => 'document.getElementById("'.$myPid.'_eyeManageAppsWND_Content").style.overflow="hidden";'));
+	
+	eyeX('loadCSS', array('url' => 'index.php?version='.EXTERN_CACHE_VERSION.'&extern=apps/eyeManageApps/css/eyeManageApps.css', 'id' => 'eyeManageApps'));
+	
+	$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'eyeManageAppsWND_Content'));
+	$myToolbar->show();
+	$myToolbar->addItem('createGroup', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/create.png','Create Group');
+	$myToolbar->addItem('addApplication','index.php?version='.EXTERN_CACHE_VERSION.'&theme=1&extern=images/toolbar/installapps.png','Add Application');
+	$myToolbar->addLine();
+	$myToolbar->addItem('clickProperties', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/edit.png','Properties');
+	$myToolbar->addItem('clickDelete', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/delete.png','Delete');
+	$myToolbar->addLine();
+	$myToolbar->addItem('ListApps', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/refresh.png','Refresh');
+	$myToolbar->addLine();
+	$myToolbar->addItem('clickMoveUp', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/up.png', 'Move Up');
+	$myToolbar->addItem('clickMoveDown', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/down.png', 'Move Down');
+	$myToolbar->addLine();
+	$myToolbar->addItem('useDefaults', 'index.php?version=' . EXTERN_CACHE_VERSION . '&theme=1&extern=images/toolbar/edit-undo.png', 'Reset to defaults');
+
+	$myContainer = new Container(array(
+		'name' => 'appsContainer',
+		'father' => 'eyeManageAppsWND_Content',
+		'x' => 2,
+		'y' => 60,
+		'width' => 771,
+		'height' => 441
+	));
+	$myContainer->show();
+	eyeX('rawjs',array('js' => 'document.getElementById("'.$myPid.'_appsContainer_Container").style.width="771px";document.getElementById("'.$myPid.'_appsContainer_Container").style.overflowX="hidden";document.getElementById("'.$myPid.'_appsContainer_Container").style.overflowY="auto";'));
+	eyeWidgets('serialize', array($myContainer));
+	
+	$myHidden = new Hidden(array(
+		'name' => 'context',
+		'father' => 'eyeManageAppsWND',
+		'text' => ''
+	));
+	eyeWidgets('serialize', array($myHidden));
+	
+	eyeX('sendMessage', array('msg' => 'ListApps'));
+}
+
+function eyeManageApps_end() {
+	eyeWidgets('unserialize');
+}
+
+?>

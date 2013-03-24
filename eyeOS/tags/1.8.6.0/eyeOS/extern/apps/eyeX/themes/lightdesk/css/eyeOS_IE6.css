@@ -1,0 +1,159 @@
+.activeWindow, .eyeWindowTitle, .inactiveWindow {
+	background: url();
+	border: 1px solid #214e79;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/windows/bg_top.png', sizingMethod='scale');
+	height: 23px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: expression(this.parentNode.offsetWidth - 0 - 0 - 0);
+}
+
+.activeWindow_border_left {} 
+.activeWindow_border_right {}
+
+.eyeBarItemsText {
+	width: 155px;
+	height: 22px !important;
+}
+
+.eyeBoxBottCent {
+	background-image: url(); 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/widgets/bg_bottom_center.png', sizingMethod='scale');
+	height: 17px !important;
+}
+
+.eyeBoxSupCent {
+	background-image: url(); 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/widgets/boxbg.png', sizingMethod='scale');
+	border-bottom: 1px solid #acacac;
+	height: 21px !important;
+	width: 100%;
+}
+
+.eyeBoxTable {}
+
+.eyeBoxText {
+	background: transparent; 
+	border: 0px;
+}
+
+.eyeButtonClass {
+	background-image: url(); 
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=2EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/widgets/buttonbg.png', sizingMethod='scale');
+}
+
+.eyeClock, .minimizedApps, .minimizedAppsRight {
+	top: -2px;
+}
+
+.eyeDesk_iconsOver, .eyeFiles_icons {
+	border: 0;
+}
+
+.eyeDesk_miniCalendar {
+	bottom: 29px;
+}
+
+.eyeMenu {
+	bottom: 30px;
+}
+
+.eyeMenuButton {
+	bottom: 18px;
+}
+
+.eyeMenu_bot {
+	background: #dddddd;
+	border-left: 2px groove #ffffff;
+	filter:alpha(opacity=90);
+	height: 15px;
+}
+
+.eyeMessageBoxText {
+	width: 280px !important;
+}
+
+.eyeSplitter_horizontal {
+	border-top: 1px dashed #acacac;
+	margin-top: 2px;
+}
+
+.eyeSplitter_vertical {
+	border-left: 1px dashed #acacac;
+	margin-left: 2px;
+}
+
+.eyeWindowOnBar_Off, .eyeWindowOnBar_On {
+	margin-top: 1px;
+}
+
+.eyeWindowCloseButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/windows/close.png', sizingMethod='scale');
+}
+
+.eyeWindowContent {
+	height: expression(this.parentNode.offsetHeight - 24);
+	width: expression(this.parentNode.offsetWidth - 0);
+}
+
+.eyeWindowContentInvisible {
+	height: expression(this.parentNode.offsetHeight);
+	width: expression(this.parentNode.offsetWidth) - 2;
+}
+
+.eyeWindowMaxButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/windows/max.png', sizingMethod='crop');
+	padding-right: 31px;
+	right: 100px;
+}
+
+.eyeWindowMinimizeButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/windows/min.png', sizingMethod='crop');
+	padding-right: 37px;
+}
+
+.eyeWindowResizeButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/windows/resizebutton.png', sizingMethod='crop');
+}
+
+.eyeWindowTitle {/*look at .activeWindow*/}
+
+.eyeWindowTitle_text {
+	color: #ffffff;
+	cursor: default;
+	font-weight: 600;
+	margin-left: 10px;
+	margin-top: 4px;
+	white-space: nowrap;
+	width: 100%;
+	height: 100%;
+}
+.inactiveWindow{
+	background: url();
+	border: 1px solid #acacac;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/windows/bg_top_x.png', sizingMethod='scale');
+}
+
+.inactiveWindow_border_left {}
+.inactiveWindow_border_right {}
+
+.shadowLayer {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/widgets/bg.png', sizingMethod='scale');
+}
+
+.sort-arrow.ascending {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/widgets/upsimple.png', sizingMethod='scale');
+}
+
+.sort-arrow.descending {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=lightdesk&extern=images/widgets/downsimple.png', sizingMethod='scale');
+}

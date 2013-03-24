@@ -1,0 +1,156 @@
+<content>
+	<display>Main</display>
+	<name>index</name>
+	<permissions>all</permissions>
+</content>
+<category>
+	<display>Personal</display>
+	<name>account</name>
+	<permissions>all</permissions>
+	<content>
+		<description>Change your system information.</description>
+		<display>About me</display>
+		<name>account</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/aboutme.png</img>
+	</content>
+	<content>
+		<description>Change your password.</description>
+		<display>Password</display>
+		<name>password</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/password.png</img>
+	</content>
+	<content>
+		<description>Change your preferred language</description>
+		<display>Language</display>
+		<name>lang</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/language.png</img>
+	</content>
+</category>
+<category>
+	<display>Look &amp; Feel</display>
+	<name>look_and_feel</name>
+	<permissions>all</permissions>
+	<content>
+		<description>Change your desktop wallpaper.</description>
+		<display>Desktop</display>
+		<name>desktop</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/desktop.png</img>
+	</content>
+	<content>
+		<description>Change the actual theme.</description>
+		<display>Theme</display>
+		<name>theme</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/theme.png</img>
+	</content>
+</category>
+<category>
+	<display>Administration</display>
+	<name>only_root</name>
+	<permissions>root</permissions>
+	<content>
+		<description>Change general settings of your eyeOS system.</description>
+		<display>General</display>
+		<name>general</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/admingeneral.png</img>
+	</content>
+	<content>
+		<description>Manage the users of your eyeOS system.</description>
+		<display>Manage users</display>
+		<name>users</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/manageusers.png</img>
+	</content>
+	<content>
+		<description>Manage the groups of your eyeOS system.</description>
+		<display>Manage groups</display>
+		<name>groups</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/managegroups.png</img>
+	</content>
+	<content>
+		<description>Add a new user to your eyeOS system.</description>
+		<display>New user</display>
+		<name>newuser</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<show>no</show>
+	</content>
+	<content>
+		<description>Edit the chosen user.</description>
+		<display>Edit user</display>
+		<name>edituser</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<show>no</show>
+	</content>
+	<content>
+		<description>Manage the eyeSoft mirrors.</description>
+		<display>Repositories</display>
+		<name>eyesoft</name>
+		<permissions>root</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/repositories.png</img>
+	</content>
+</category>
+<category>
+	<description>Settings for eyeOS applications</description>
+	<display>System</display>
+	<name>apps</name>
+	<permissions>all</permissions>
+	<title>yes</title>
+	<link>yes</link>
+	<content>
+		<description>Manage the autorun applications.</description>
+		<display>Autorun Apps</display>
+		<name>eyedesk</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/autorun.png</img>
+	</content>	
+	<content>
+		<description>Manage the eyeFiles sites and configure eyeUpload.</description>
+		<display>File Manager</display>
+		<name>eyefiles</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/home.png</img>
+	</content>	
+	<content>
+		<description>Edit the eyeNav's Start Page.</description>
+		<display>Web Browser</display>
+		<name>eyenav</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<img>index.php?extern=apps/eyeX/themes/default/icons/48x48/eyeNav.png</img>
+	</content>
+	<content>
+		<description>Add a new site to eyeFiles.</description>
+		<display>New site</display>
+		<name>newsite</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<show>no</show>
+	</content>
+	<content>
+		<description>Edit a site from eyeFiles.</description>
+		<display>Edit site</display>
+		<name>editsite</name>
+		<permissions>all</permissions>
+		<title>yes</title>
+		<show>no</show>
+	</content>
+</category>

@@ -1,0 +1,21 @@
+<?php 
+
+function get_dynamic_content($params) {
+
+	$myPid=intval($params[0]);
+	$checknum=$params[1];
+	if(!is_int($myPid) || !is_numeric($checknum)) {
+		exit;
+	}
+	if(is_readable(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeFiles/js/eyefiles.js')) {
+		$fp = fopen(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeFiles/js/eyefiles.js','r');
+		$content = fread($fp,filesize(EYE_ROOT.'/'.EXTERN_DIR.'/'.'apps/eyeFiles/js/eyefiles.js'));
+		fclose($fp);
+		$content = str_replace('$myPid',$myPid,$content);
+		$content = str_replace('$checknum',$checknum,$content);
+		return $content;
+	}
+	exit;
+}
+
+?>

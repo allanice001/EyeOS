@@ -1,0 +1,60 @@
+<?php
+function eyeControl_on_updateSignal($params=''){
+
+	$name = $GLOBALS['eyeControl_eyeExt_sortabletable']->selected;
+
+	if(empty($GLOBALS['eyeControl_eyeExt_name_txtb']->text) && empty($GLOBALS['eyeControl_eyeExt_description_txtb']->text) && $GLOBALS['eyeControl_eyeExt_openwith_select']->selected == 1){
+		eyeX('messageBox',array('content'=>'Please fill a field or select an application to open with before save'));
+	} else {
+		
+		$file = EYE_ROOT .'/'. APP_DIR .'/'. APP_CONF_SHARE . '/filetypes/' . "$name" . '.xml';
+		$config = eyeXML('getXMLfile', array($file));
+			
+		if($GLOBALS['eyeControl_eyeExt_openwith_select']->selected != 1){
+			$config['fileType'][0]['app'][0] = $GLOBALS['eyeControl_eyeExt_openwith_select']->selected;
+		}
+		
+		if(!empty($GLOBALS['eyeControl_eyeExt_name_txtb']->text)){
+			$config['fileType'][0]['name'][0] = $GLOBALS['eyeControl_eyeExt_name_txtb']->text;
+		}
+		
+		if(!empty($GLOBALS['eyeControl_eyeExt_description_txtb']->text)){
+			$config['fileType'][0]['description'][0] = $GLOBALS['eyeControl_eyeExt_description_txtb']->text;
+		}
+
+		eyeXML('setXMLfile', array($file,$config));
+		eyeX('messageBox',array('content'=>'File type association modified successfully'));
+		eyeControl_lib_loadContent('only_root','eyeExt');
+	}
+}
+
+function eyeControl_on_saveSignal($params=''){
+
+	if(empty($GLOBALS['eyeControl_eyeExt_ext_txtb']->text) || empty($GLOBALS['eyeControl_eyeExt_name_txtb']->text) || empty($GLOBALS['eyeControl_eyeExt_description_txtb']->text) || $GLOBALS['eyeControl_eyeExt_openwith_select']->selected == 1){
+		eyeX('messageBox',array('content'=>'Please fill all fields and select an application to open with before save'));
+	} else {
+
+		$ext = $GLOBALS['eyeControl_eyeExt_ext_txtb']->text;
+		$app = $GLOBALS['eyeControl_eyeExt_openwith_select']->selected;
+		$name = $GLOBALS['eyeControl_eyeExt_name_txtb']->text;
+		$description = $GLOBALS['eyeControl_eyeExt_description_txtb']->text;
+
+		$file = EYE_ROOT .'/'. APP_DIR .'/'. APP_CONF_SHARE . '/filetypes/' . "$ext" . '.xml';
+		if(file_exists($file)){
+			eyeX('messageBox',array('content'=>'Please this file type already exist, choose anorther file type to be created'));
+		} else {
+			$fileType = array(
+				'name' => array($name),
+				'description' => array($description),
+				'app' => array($app)
+			);
+			$config = array('fileType' => array());
+			$config['fileType'] = array($fileType);
+		}
+
+		eyeXML('setXMLfile', array($file,$config));
+		eyeX('messageBox',array('content'=>'File type association created successfully'));
+		eyeControl_lib_loadContent('only_root','eyeExt');
+	}
+}
+?>

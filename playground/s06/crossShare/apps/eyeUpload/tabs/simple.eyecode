@@ -1,0 +1,71 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+	$myToolbar->addItem('sel_simple','index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/upload.png','Simple');
+	
+	$myContainer = new Container(array(
+		'father'=>$myWindow->name . '_Content',
+		'name' => 'eyeUpload_container_simple',
+	//	'x' => 132,
+		'x' => 2,
+		'y' => 60,
+		'height' => $myWindow->height - 86,
+	//	'width' => $myWindow->width - 136
+		'width' => $myWindow->width - 6
+	));
+	$myContainer->show();
+	$myContainer->hide();
+	
+	$myImagebox = new Imagebox(array(
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_simple_Imagebox',
+		'url' => 'index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/48x48/upload.png',
+		'x' => 16,
+		'y'=> 16
+	));
+	$myImagebox->show();
+	
+	$myText = new Textbox(array(
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_simple_text',
+		'x' => 0,
+		'y'=> 0
+	));
+//	$myText->show();	
+	$myText = new Textbox(array(
+		'father' => $myContainer->name,
+		'name' => 'eyeUpload_simple_text2',
+		'vert' => 1,
+		'horiz' => 1,
+		'x' => 0,
+		'y'=> 0
+	));
+//	$myText->show();
+
+	$myFile = new File(array(
+		'father' => $myContainer->name,
+		'callback' => 'simple_Do',
+		'filename' => 'myFile',
+		'multiple' => 1,
+		'name' => 'eyeUpload_simple_File',
+		'horiz' => 1,
+		'x' => 0,
+		'y' => 0
+	));
+	$myFile->show();
+	$myFile->setHeight(190);
+	$myFile->setWidth(375);
+	
+?>

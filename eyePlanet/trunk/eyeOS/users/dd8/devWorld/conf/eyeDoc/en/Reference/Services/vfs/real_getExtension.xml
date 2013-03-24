@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>real_getExtension</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+			<tag>real</tag>
+		</tags>
+		<shortDesc>Checks a real file's extension.</shortDesc>
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.2</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>real_getExtension</functionName>
+		<syntax>string vfs('real_getExtension', array(string $path))</syntax>
+		<desc>Checks whether a file has the same extension as the one used for storing a virtual file's content (defined by the EYEOS_FILE_EXT constant).</desc>
+		<params>
+			<type>required</type>
+			<name>path</name>
+			<desc>Path to the file.</desc>
+		</params>
+		<return>If the file has the EYEOS_FILE_EXT extension, returns this extension. Otherwise, it returns false.</return>
+	</definition>
+</info>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>loadScript</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+			<tag>javascript</tag>
+			<tag>js</tag>
+		</tags>
+		<shortDesc>Loads a JavaScript file.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>loadScript</functionName>
+		<syntax>boolean eyex('loadScript', array(string 'url' => $url))</syntax>
+		<desc>Loads a JS script from a specified URL in the extern folder.</desc>
+		<params>
+			<type>required</type>
+			<name>url</name>
+			<desc>URL of the script. The script must be loaded via the extern service.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No name is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

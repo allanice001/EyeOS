@@ -1,0 +1,809 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+define('ICON_SIZE',48);
+define('LINE_DISTANCE',104);
+define('ICON_TEXT_DISTANCE',10);
+define('DEFAULT_APP_ICON','exec.png');
+define('CONFIG_NAME', 'eyeDock');
+define('DEFAULT_GROUP_ICON', 'default.png');
+
+//Generic events
+function eyeManageApps_on_Message($params) {
+	eyeWidgets('updateContent', $params);
+}
+
+function eyeManageApps_on_Close() {
+	proc('end');
+}
+
+//Specific events
+function eyeManageApps_on_ListApps($reloadDock = true) {
+	if(is_object($GLOBALS['appsContainer']) && method_exists($GLOBALS['appsContainer'], 'setContent')) {
+		$GLOBALS['appsContainer']->setContent("");
+	}
+	$myConfig = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+	$userTheme = eyeSessions('getVar',array('usertheme'));
+
+	$myY = 1;
+	$counter = 0;
+	foreach($myConfig['eyeDock'][0]['Group'] as $group) {
+		if(is_array($group['name'])) {
+			$gname = $group['name'][0];
+		} else {
+			continue;
+		}
+				
+		$groupLabel = new Label(array('name' => 'lbl'.$counter, 'father' => 'appsContainer', 'x' => 10,
+		 'y' => $myY+10, 'text' => $group['name'][0], 'disablemsg' => 0, 'signal' => 'clickGroup'));
+		$groupLabel->show();
+		$groupLabel->setCss(array('font-size'=>'14px', 'color' => '#044d85', 'cursor' => 'Pointer'));
+		
+		$col = 0;
+		$appX = 10;
+		$excedent = 0;
+		$appCounter = 0;
+		if(is_array($group['items'])) {
+			foreach($group['items'][0]['item'] as $app) {
+				if($col > 3) {
+					$myY += ICON_SIZE;
+					$col = 0;
+					$excedent = 1;
+					$appX = 10;
+				}
+				
+				if(is_array($app['name'])) {
+					$aname = $app['name'][0];
+				} else {
+					continue;
+				}
+				
+				$aicon = $app['icon'][0];
+				if(!vfs('real_fileExists',array(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/'.$userTheme.'/icons/'.ICON_SIZE.'x'.ICON_SIZE.'/'.$aicon))){
+					$aicon = DEFAULT_APP_ICON;
+				}
+				$appIcon = new Icon(array('name' => 'icon_'.$appCounter, 'father' => 'appsContainer',
+				 'x' => $appX, 'y' => $myY+40, 'onclick' => 1, 'draggable' => 0, 'text' => $app['name'][0],
+				 'image' => 'index.php?extern=apps/eyeX/themes/'.$userTheme.'/icons/'.ICON_SIZE.'x'.ICON_SIZE.'/'.$aicon,
+				 'content' => array($aicon,$aname,$group['name'][0], $app['exec'][0], $app['desc'][0])));
+				
+				$appIcon->show();
+				$appIcon->setCssText(array('position'=>'absolute',
+										   'left'=>(ICON_SIZE+ICON_TEXT_DISTANCE).'px',
+										   'top'=>'15px',
+										   'color'=>'black',
+										   'font-weight'=>'normal',
+										   'text-align'=>'left'
+										   )
+									);
+				$appX += 140; 
+				$appCounter++;
+				$col++;
+			}
+		}
+		if($excedent) {
+			$myY += ICON_SIZE*2;
+		} else {
+			$myY += LINE_DISTANCE;
+		}
+		$counter++;
+		
+		$groupLine = new Line(array('name' => 'line'.$counter, 'father' => 'appsContainer', 'x' => 10,
+		 'y' => $myY, 'width' => 560));
+		$groupLine->show();
+	}
+	if($reloadDock == true) {
+		$dock = proc('findPidByName', array('eyeDock'));
+		if($dock != false) {
+			proc('close', array($dock));
+			proc('launch', array("eyeDock"));
+		}
+	}
+}
+
+function eyeManageApps_on_actionExecute($params=null) {
+	global $myPid;
+
+	eyeX('rawjs',array('js'=>"eyeManageApps_clean($myPid);"));
+	foreach($params as $key=>$value) {
+		if(strstr($key,'action_hid_')) {
+			call_user_func('eyeManageApps_on_'.$value[0]);
+			return;
+		}
+	}
+}
+
+function eyeManageApps_on_actionSelect($params=null) {
+	foreach($params as $key=>$value) {
+		if(strstr($key,'action_hid_')) {
+			if(is_object($GLOBALS['execApp'])) {
+				if($GLOBALS['execApp']->text == $value[0]) {
+					$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+					$myHidden->show();
+					return;
+				}
+			}			
+			$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>$value[0]));
+			$myHidden->show();
+			return;
+		}
+	}
+}
+
+function eyeManageApps_on_Icon_Clicked($params=null) {		
+	if(isset($GLOBALS['execApp']) && is_object($GLOBALS['execApp']) && $GLOBALS['execApp']->text != "") {
+		global $myPid;
+
+		$app = $GLOBALS['execApp']->text;
+		eyeX('rawjs',array('js'=>"eyeManageApps_clean($myPid);"));
+		if($app == 'delete') {
+			if(_removeApp($params['arg1'][0],$params['arg2'][0])){
+				eyeX('messageBox',array('content'=>'Application removed'));
+			}else{
+				eyeX('messageBox',array('content'=>"Could not remove the application"));
+			}
+			$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+			$myHidden->show();
+		} else if($app == 'addApp' && is_array($params['arg0'])) {
+			$GLOBALS['tboxappName']->setText($params['arg0'][0]);
+			$GLOBALS['tboxappExec']->setText($params['arg0'][0]);
+			$GLOBALS['tboxappDesc']->setText($params['arg0'][0]);
+		} else if($app == 'properties') {
+			appProperties($params);
+			$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+			$myHidden->show();
+		}
+	} else {//No selected action: just launch an application
+		if(isset($params['arg3'][0])) {
+			proc('launch', array($params['arg3'][0]));
+		}
+	}
+}
+
+function eyeManageApps_on_createGroup($params) {
+	//Always close any other action's window first
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+	if(!is_array($params)) {
+		$myWindow2 = new Window(array('name' => 'WND2', 'father' => 'eyeApps', 'removepid' => 0,
+		 'title' => 'Create new Group', 'width' => 300, 'height' => 150, 'cent' => 1,
+		 'type' => NOLIST_CLOSE_WINDOW));
+		$myWindow2->show();
+		
+		$myLabel = new Label(array('name' => 'nameLabel','father' => 'WND2_Content','x' => 30,'y' => 30,'text' => 'Enter the name of the new group:'));
+		$myLabel->show();
+		
+		$myTextBox1 = new Textbox(array('name'=>'groupName','father'=>'WND2_Content','width'=>240,'x'=>30,'y'=>60));
+		$myTextBox1->show();
+		$myTextBox1->addEnterEventMsg('createGroup');
+		$myTextBox1->focus();
+		
+		$myButton = new Button(array('name'=>'CancelWND','caption'=>'Cancel','father'=>'WND2_Content','x'=>20,'y'=>10,'horiz'=>1,'vert'=>1));
+		$myButton->show();
+		
+		$myButton1 = new Button(array('name'=>'createGroup','caption'=>'Create','father'=>'WND2_Content','x'=>90,'y'=>10,'horiz'=>1,'vert'=>1));
+		$myButton1->addFriend($myTextBox1);
+		$myButton1->show();
+	} else {//Filter groupname
+		$gname = trim($params['groupName'][0]);
+		if(isGroup($gname) || $gname == "") {
+			return;
+		}
+	
+		$config = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+		$newGroup = array('name'  => array($gname),
+						  'icon'  => array(DEFAULT_GROUP_ICON)
+						);
+		$config['eyeDock'][0]['Group'][] = $newGroup;
+		if(eyeXML('setXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml', $config))) {
+			global $checknum;
+			eyeX('rawjs',array('js'=>"eyeManageApps_refresh($checknum);"));
+		}
+	}
+}
+
+function eyeManageApps_on_CancelWND() {
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+}
+
+function eyeManageApps_on_CancelAdd() {
+	$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+	$myHidden->show();
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+}
+function eyeManageApps_on_addApp($params) {
+	//Always close any other action's window first
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+	if(!is_array($params)) {
+		$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>'addApp'));
+		$myHidden->show();
+		
+		$myWindow2 = new Window(array('title' => 'Add an application','name'=>'WND2',
+		 'father' => 'eyeApps', 'y'=>0,'type'=>NOLIST_CLOSE_WINDOW,'x'=>0,'cent'=>1,'width'=>530,
+		 'height'=>500, 'removepid' => 0));
+		$myWindow2->show();	
+		
+		$myLabel1 = new Label(array('name' => 'lblInfo', 'father' => 'WND2_Content',
+		 'y' => 10, 'text' => 'Type the application name in the first text box below, or select an application from the list below and click the \'Add\' button.'));
+		$myLabel1->show();
+	
+		$myLabel2 = new Label(array('name' => 'lblappName', 'father' => 'WND2_Content',
+		 'y' => 50, 'x' => 20, 'text' => 'Application name', 'width' => 120));
+		$myLabel2->show();
+					
+		$myTextbox1 = new Textbox(array('name' => 'tboxappName', 'father' => 'WND2_Content',
+		 'y' => 50, 'x' => 160, 'width' => 200));
+		$myTextbox1->show();
+			
+		$myLabel3 = new Label(array('name' => 'lblGroup', 'father' => 'WND2_Content',
+		 'y' => 72, 'x' => 20, 'text' => 'Group', 'width' => 120));
+		$myLabel3->show();
+		
+		$mySelect = new Select(array('name' => 'selectappgroup', 'father' => 'WND2_Content',
+		 'y' => 70, 'x' => 160, 'width' => 205));
+		$mySelect->show();
+		
+		//Add the different groups inside the Select
+		$myApps = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+		foreach($myApps['eyeDock'][0]['Group'] as $group) {
+			$mySelect->addOption($group['name'][0], $group['name'][0]);
+		}
+			
+		$myLabel4 = new Label(array('name' => 'lblappExec', 'father' => 'WND2_Content',
+		 'y' => 96, 'x' => 20, 'text' => 'Code executed', 'width' => 120));
+		$myLabel4->show();
+			
+		$myTextbox2 = new Textbox(array('name' => 'tboxappExec', 'father' => 'WND2_Content',
+		 'y' => 94, 'x' => 160, 'width' => 200));
+		$myTextbox2->show();
+		
+		$myLabel5 = new Label(array('name' => 'lblappDesc', 'father' => 'WND2_Content',
+		 'y' => 118, 'x' => 20, 'text' => 'Description', 'width' => 120));
+		$myLabel5->show();
+					
+		$myTextbox3 = new Textbox(array('name' => 'tboxappDesc', 'father' => 'WND2_Content',
+		 'y' => 114, 'x' => 160, 'width' => 200));
+		$myTextbox3->show();
+		
+		$myButton1 = new Button(array('name' => 'CancelAdd', 'father' => 'WND2_Content', 'x' => 30,
+		 'y' => 150, 'horiz' => 1, 'width' => 30, 'caption' => 'Close'));
+		$myButton1->show();
+			
+		$myButton2 = new Button(array('name' => 'addApp', 'father' => 'WND2_Content',
+		 'x' => 70, 'y' => 150, 'horiz' => 1, 'caption' => 'Add Application', 'width' => 100));
+		$myButton2->addFriend($myTextbox1);
+		$myButton2->addFriend($mySelect);
+		$myButton2->addFriend($myTextbox2);
+		$myButton2->addFriend($myTextbox3);
+		$myButton2->show();
+			
+		$myLine1 = new Line(array('name' => 'line1', 'father' => 'WND2_Content', 'width' => 510,
+		 'height' => 1, 'y' => 180, 'x' => 0));
+		$myLine1->show();
+		
+		$AppDir  = EYE_ROOT.'/'.APP_DIR.'/';
+		$x =10;
+		$y = 190;
+		global $myPid;
+		if($dir = opendir($AppDir)) {
+			while(($myFile = readdir($dir)) !== false) {
+				if($myFile[0] != ".") {
+					$xml = getAppInfo($myFile);
+					if(is_array($xml)) {
+						$xml = $xml['package'][0];
+						if($xml['type'][0] == 'Application') {
+							$myIcon = new Icon(array('name'=>'addIcon'.$xml['name'][0],'text'=>$xml['name'][0],'father'=>'WND2_Content',
+								'image'=>$xml['icon'][0], 'content'=>array($xml['name'][0]),'x'=>$x,'y'=>$y));	        			
+							$myIcon->show();
+							eyeX('updateCss',array('name'=>$myPid.'_addIcon'.$xml['name'][0].'_text','property'=>'color','value'=>'black'));
+							$x += 100;
+							if($x > 500) {
+								$x = 20;
+								$y += 100;
+							}
+						}
+					}
+				}
+			}
+			closedir($dir);
+		}
+	} else {
+		$aname = trim($params['tboxappName'][0]);
+		$agroup = trim($params['selectappgroup'][0]);
+		$aexec = trim($params['tboxappExec'][0]);
+		$adesc = trim($params['tboxappDesc'][0]);
+		
+		if(!$aname) {
+			eyeX('messageBox', array('content' => "You must specify the name of the application"));
+			return;
+		}
+		
+		if(!$agroup) {
+			eyeX('messageBox', array('content' => "You must select a group for the application"));
+			return;
+		}
+		
+		if(!$aexec) {
+			eyeX('messageBox', array('content' => "The code executed by the application must not be left blank"));
+			return;
+		}
+		
+		if(!$adesc) {
+			eyeX('messageBox', array('content' => "You must provide a short description of the application"));
+			return;
+		}
+		
+		$userTheme = eyeSessions('getVar',array('usertheme'));
+		$aicon = $aname.'.png';
+		if(!vfs('real_fileExists',array(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/'.$userTheme.'/icons/'.ICON_SIZE.'x'.ICON_SIZE.'/'.$aicon))) {
+			$aicon = DEFAULT_APP_ICON;
+		}
+	
+		$myApps = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+		$newApp = array('name' => array($aname),
+						'desc' => array($adesc),
+						'icon' => array($aicon),
+						'exec' => array($aexec)
+					   );
+		for($i = 0; $i < count($myApps['eyeDock'][0]['Group']); $i++) {
+			if(strcmp($myApps['eyeDock'][0]['Group'][$i]['name'][0], $agroup) == 0) {
+				if(!is_array($myApps['eyeDock'][0]['Group'][$i]['items'][0]['item'])) {
+					$myApps['eyeDock'][0]['Group'][$i]['items'] = array(array('item' => array($newApp)));
+				} else {			
+					$myApps['eyeDock'][0]['Group'][$i]['items'][0]['item'][] = $newApp;
+				}
+
+				if(eyeXML('setXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml', $myApps))) {
+					global $checknum;
+			                eyeX('rawjs',array('js'=>"eyeManageApps_refresh($checknum);"));
+					eyeX('messageBox', array('content' => $aname.' added'));
+				}
+				$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+				$myHidden->show();
+				return;
+			}
+		}
+	}
+}
+
+function eyeManageApps_on_updateApp($params) {
+	//Always close any other action's window first
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+	
+	$saveChanges = false;
+	$oldName = $params['tOldName'][0];
+	$oldGroup = $params['tOldGroup'][0];
+	$newIcon = $params['iconSelect'][0];
+	$newGroup = $params['selectGroupUpdate'][0];
+	$newName = $params['tboxNameUpdate'][0];
+	$newExec = $params['tboxExecUpdate'][0];
+	$newDesc = $params['tboxDescUpdate'][0];
+	
+	$found = false;
+	$config = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+	for($j = 0; $j < count($config['eyeDock'][0]['Group']) && !$found; $j++) {
+		if(strcmp($config['eyeDock'][0]['Group'][$j]['name'][0], $oldGroup) != 0) {
+			continue;
+		}
+		
+		for($i = 0; $i < count($config['eyeDock'][0]['Group'][$j]['items'][0]['item']); $i++) {
+			if(strcmp($config['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i]['name'][0], $oldName) == 0) {
+				$myApp = $config['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i];
+				$found = true;
+				break;
+			}
+		}
+	}
+	$j--; //dirty trick to maintain the app's index
+	
+	if(!is_array($myApp)) {
+		return;
+	}
+	
+	if(strcmp($oldName, $newName) != 0) {
+		$myApp['name'][0] = $newName;
+		$saveChanges = true;
+	}
+
+	if(strcmp($myApp['exec'][0], $newExec) != 0) {
+		$myApp['exec'][0] = $newExec;
+		$saveChanges = true;
+	}
+	
+	if(strcmp($myApp['desc'][0], $newDesc) != 0) {
+		$myApp['desc'][0] = $newDesc;
+		$saveChanges = true;
+	}
+	
+	if(strcmp($myApp['icon'][0], $newIcon) != 0) {
+		$myApp['icon'][0] = $newIcon;
+		$saveChanges = true;
+	}
+	
+	if(strcmp($oldGroup, $newGroup) != 0) {
+		if(is_array($config['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i])) {
+			unset($config['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i]);
+		}
+		
+		for($k = 0; $k < count($config['eyeDock'][0]['Group']); $k++) {
+			if(strcmp($config['eyeDock'][0]['Group'][$k]['name'][0], $newGroup) == 0) {
+				if(!is_array($config['eyeDock'][0]['Group'][$k]['items'][0]['item'])) {
+					$config['eyeDock'][0]['Group'][$k]['items'] = array(array('item' => array($myApp)));
+				} else {			
+					$config['eyeDock'][0]['Group'][$k]['items'][0]['item'][] = $myApp;
+				}
+				break;
+			}
+		}
+		$saveChanges = true;
+	} else if ($saveChanges){ //Update only the original entry if a change has been made
+		$config['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i] = $myApp;
+	}
+	
+	if($saveChanges == true) {
+		if(eyeXML('setXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml', $config)) == true) {
+			global $checknum;
+			eyeX('rawjs',array('js'=>"eyeManageApps_refresh($checknum);"));
+		}
+	}
+}
+
+function eyeManageApps_on_updateGroup($params) {
+	if(!is_array($params)) {
+		return;
+	}
+
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+	
+	$saveChanges = false;
+	$oldGroupName = $params['oldGroupName'][0];
+	$newGroupName = trim($params['newGroupName'][0]);
+	$icon = $params['selectIcon'][0];
+	
+	//Trying to pass no group name or a different but existing group name?
+	if(!$newGroupName || isGroup($newGroupName) && strcmp($oldGroupName, $newGroupName)) {
+		eyeX('messageBox', array('content' => "The specified group name is not valid."));
+		return;
+	}
+	
+	$config = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+	//Get the group in question
+	for($i = 0; $i < count($config['eyeDock'][0]['Group']); $i++) {
+		if(strcmp($config['eyeDock'][0]['Group'][$i]['name'][0], $oldGroupName) == 0) {
+			break;	
+		}
+	}
+	
+	if($newGroupName && strcmp($oldGroupName, $newGroupName) != 0) {
+		$config['eyeDock'][0]['Group'][$i]['name'][0] = $newGroupName;
+		$saveChanges = true;
+	}
+	
+	if($icon && strcmp($icon, $config['eyeDock'][0]['Group'][$i]['icon'][0]) != 0) {
+		$config['eyeDock'][0]['Group'][$i]['icon'][0] = $icon;
+		$saveChanges = true;
+	}
+	
+	if($saveChanges == true) {
+		if(eyeXML('setXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml', $config)) == true) {
+			global $checknum;
+			eyeX('rawjs',array('js'=>"eyeManageApps_refresh($checknum);"));
+		}
+	}
+}
+
+function eyeManageApps_on_clickGroup($params){
+	global $myPid, $checknum;
+	eyeX('rawjs',array('js'=>"eyeManageApps_clean($myPid);"));
+	if(is_array($params) && isset($GLOBALS['execApp']) && is_object($GLOBALS['execApp'])) {
+		$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+		$myHidden->show();
+			
+		foreach($params as $key=>$value) {
+			$groupName = $value[0];
+		}
+		
+		if($GLOBALS['execApp']->text == 'delete') {	
+			$myApps = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+			for($j = 0; $j < count($myApps['eyeDock'][0]['Group']); $j++) {
+				if(strcmp($groupName, $myApps['eyeDock'][0]['Group'][$j]['name'][0]) == 0) {
+					unset($myApps['eyeDock'][0]['Group'][$j]);
+					eyeXML('setXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml', $myApps));
+	                		eyeX('rawjs',array('js'=>"eyeManageApps_refresh($checknum);"));
+					return;
+				}
+			}
+		} else if($GLOBALS['execApp']->text == 'properties') {
+			groupProperties($groupName);
+		}
+	}
+}
+
+//Private function (maybe we should put it in a new lib?)
+function _removeApp($appName, $groupName){
+	$myHidden = new Hidden(array('name'=>'execApp','father'=>'WND_1','text'=>''));
+	$myHidden->show();
+	
+	$myApps = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+
+	if($appName == "" || $groupName == "" || !is_array($myApps)) {
+		return false;
+	}
+
+	for($j = 0; $j < count($myApps['eyeDock'][0]['Group']); $j++) {
+		if(!is_array($myApps['eyeDock'][0]['Group'][$j]['items'][0]) || strcmp($groupName, $myApps['eyeDock'][0]['Group'][$j]['name'][0]) != 0) {
+			continue;
+		}
+		for($i = 0; $i < count($myApps['eyeDock'][0]['Group'][$j]['items'][0]['item']); $i++) {
+			if(strcmp($myApps['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i]['name'][0], $appName) == 0) {
+				unset($myApps['eyeDock'][0]['Group'][$j]['items'][0]['item'][$i]);
+				$result = eyeXML('setXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml', $myApps));
+				if($result == true) {
+					global $checknum;
+		                	eyeX('rawjs',array('js'=>"eyeManageApps_refresh($checknum);"));
+				}
+				return $result;
+			}
+		}
+	}
+	return false;
+}
+
+function appProperties($params) {
+	global $myPid;
+	
+	//Always close any other action's window first
+	if(isset($GLOBALS['WND2']) && is_object($GLOBALS['WND2'])) {
+		$GLOBALS['WND2']->close();
+	}
+	
+	$name = $params['arg1'][0];
+	$icon = $params['arg0'][0];
+	$group= $params['arg2'][0];
+	$exec = $params['arg3'][0];
+	$desc = $params['arg4'][0];
+	
+	if(!$name || !$icon || !$group || !$exec || !$desc) {
+		return;
+	}
+	
+	$myWindow2 = new Window(array('name' => 'WND2', 'father' => 'eyeApps', 'y'=>0,
+	'type'=>NOLIST_CLOSE_WINDOW,'x'=>0,'cent'=>1,'width'=>385, 'height'=>270,
+	'removepid' => 0, 'title' => 'Application Properties'));
+	$myWindow2->show();
+
+	//Name
+	$lblName = new Label(array('name' => 'lblName', 'father' => 'WND2_Content',
+	 'y' => 30, 'x' => 20, 'text' => 'Application name', 'width' => 120));
+	$lblName->show();
+					
+	$myTextbox1 = new Textbox(array('name' => 'tboxNameUpdate', 'father' => 'WND2_Content',
+	 'y' => 30, 'x' => 140, 'width' => 200));
+	$myTextbox1->show();
+	$myTextbox1->setText($name);
+	$myHidden1 = new Hidden(array('name' => 'tOldName', 'father' => 'WND2', 'text' => $name));
+	$myHidden1->show();
+
+	//Group
+	$lblGroup = new Label(array('name' => 'lblGroup', 'father' => 'WND2_Content',
+	 'y' => 50, 'x' => 20, 'text' => 'Group', 'width' => 120));
+	$lblGroup->show();
+
+	$mySelect = new Select(array('name' => 'selectGroupUpdate', 'father' => 'WND2_Content',
+	 'y' => 50, 'x' => 140, 'width' => 205));
+	$mySelect->show();
+	 
+	$myGroupList = getGroupList();
+	foreach($myGroupList as $element) {
+		if(strcmp($element, $group) == 0) {
+			$mySelect->addOption($element, $element, 1);
+			$currentGroup = $element;
+		} else {
+			$mySelect->addOption($element, $element);
+		}
+	}
+	$myHidden2 = new Hidden(array('name' => 'tOldGroup', 'father' => 'WND2', 'text' => $currentGroup));
+	$myHidden2->show();
+	
+	//Exec
+	$lblExec = new Label(array('name' => 'lblExec', 'father' => 'WND2_Content',
+	 'y' => 74, 'x' => 20, 'text' => 'Parameters', 'width' => 120));
+	$lblExec->show();
+					
+	$myTextbox3 = new Textbox(array('name' => 'tboxExecUpdate', 'father' => 'WND2_Content',
+	 'y' => 73, 'x' => 140, 'width' => 200));
+	$myTextbox3->show();
+	$myTextbox3->setText($exec);
+	
+	//Description
+	$lblDesc = new Label(array('name' => 'lblDesc', 'father' => 'WND2_Content',
+	 'y' => 94, 'x' => 20, 'text' => 'Short description', 'width' => 120));
+	$lblDesc->show();
+	
+	$myTextbox4 = new Textbox(array('name' => 'tboxDescUpdate', 'father' => 'WND2_Content',
+	 'y' => 93, 'x' => 140, 'width' => 200));
+	$myTextbox4->show();
+	$myTextbox4->setText($desc);
+	
+	//Icon
+	$userTheme = eyeSessions('getVar',array('usertheme'));
+	$currentPath = 'index.php?'.EXTERN_DIR.'=/'.APP_DIR.'/eyeX/themes/'.$userTheme.'/icons/'.ICON_SIZE.'x'.ICON_SIZE.'/'.$icon;
+
+	$lblIcon = new Label(array('name' => 'label4', 'father' => 'WND2_Content',
+	 'y' => 118, 'x' => 20, 'text' => 'Icon', 'width' => 120));
+	$lblIcon->show();
+
+	$mySelect2 = new Select(array('name'=>'iconSelect','father'=>'WND2_Content',
+		'x'=>140,'y'=>116,'width'=>160));
+	$mySelect2->show();
+	
+	if ($handle = opendir(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/'.$userTheme.'/icons/'.ICON_SIZE.'x'.ICON_SIZE.'/')) {
+	    while (false !== ($file = readdir($handle))) {
+	        if ($file != "." && $file != ".." && $file{0} != "." && strtolower(ltrim(strrchr($file,'.'),'.')) == 'png' && $file != $icon) {
+	        	$mySelect2->addOption($file,$file);
+	        }
+	    }
+	    closedir($handle);
+	}
+	$mySelect2->addOption($icon,$icon,1);
+	
+	$myAppImage = new Imagebox(array('name' => 'imageIcon', 'father' => 'WND2_Content',
+	 'widht' => ICON_SIZE, 'height' => ICON_SIZE, 'x' => 140, 'y' => 140,
+	 'alt' => '(Could not load Application\'s Icon)', 'url' => $currentPath));
+	$myAppImage->show();	
+
+	$mySelect2->addEvent('onchange','document.getElementById("'.$myPid.'_imageIcon").src="index.php?extern=apps/eyeX/themes/'.$userTheme.'/icons/'.ICON_SIZE.'x'.ICON_SIZE.'/"+this.value'.';');
+
+	//Window Burrons
+	$myButton1 = new Button(array('name' => 'CancelWND', 'father' => 'WND2_Content', 'x' => 60,
+	 'y' => 15, 'horiz' => 1, 'vert' => 1, 'width' => 30, 'caption' => 'Close'));
+	$myButton1->show();
+			
+	//A save changes button that is displayed only if some parameter changes
+	$myButton2 = new Button(array('name' => 'updateBttn', 'father' => 'WND2_Content', 'x' => 95,
+	 'y' => 15, 'horiz' => 1, 'vert' => 1, 'caption' => 'Save changes', 'width' => 100,
+	 'disableMsg' => 0, 'signal' => 'updateApp'));
+	$myButton2->addFriend($myTextbox1);
+	$myButton2->addFriend($mySelect);
+	$myButton2->addFriend($mySelect2);
+	$myButton2->addFriend($myTextbox3);
+	$myButton2->addFriend($myTextbox4);
+	$myButton2->addFriend($myHidden1);
+	$myButton2->addFriend($myHidden2);
+	$myButton2->show();
+
+}
+
+function groupProperties($groupName) {
+	if(!$groupName) {
+		return;
+	}
+	
+	$myWindow2 = new Window(array('name' => 'WND2', 'father' => 'eyeApps', 'removepid' => 0,
+	 'title' => 'Group properties', 'width' => 350, 'height' => 160, 'cent' => 1,
+	 'type' => NOLIST_CLOSE_WINDOW));
+	$myWindow2->show();
+	
+	//Name
+	$myLabel1 = new Label(array('name' => 'lblgroupName','father' => 'WND2_Content','x' => 30,
+	 'y' => 30,'text' => 'Group Name', 'width' => 100));
+	$myLabel1->show();
+	
+	$myHidden1 = new Hidden(array('name' => 'oldGroupName', 'father' => 'WND2', 'text' => $groupName));
+	$myHidden1->show();
+	
+	$myTextBox1 = new Textbox(array('name'=>'newGroupName','father'=>'WND2_Content','width'=>240,
+	 'x'=>130,'y'=>30, 'width' => 200));
+	$myTextBox1->show();
+	$myTextBox1->setText($groupName);
+	$myTextBox1->focus();
+	
+	//Icon
+	$myLabel2 = new Label(array('name' => 'lblIcon','father' => 'WND2_Content','x' => 30,'y' => 52,
+	 'text' => 'Icon', 'width' => 100));
+	$myLabel2->show();
+
+	//Get the group's icon
+	$config = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+	foreach($config['eyeDock'][0]['Group'] as $group) {
+		if(strcmp($groupName, $group['name'][0]) == 0) {
+			$icon = $group['icon'][0];
+			break;
+		}
+	}
+	
+	if(!$icon) {
+		$icon = 'default.png';
+	}
+	
+	$mySelect1 = new Select(array('name' => 'selectIcon', 'father' => 'WND2_Content', 'x' => 130,
+	 'y' => 50, 'width' => 160));
+	$mySelect1->show();
+
+	$userTheme = eyeSessions('getVar', array('usertheme'));
+	if ($handle = opendir(EYE_ROOT.'/'.EXTERN_DIR.'/'.APP_DIR.'/eyeX/themes/'.$userTheme.'/images/'.APP_DIR.'/'.CONFIG_NAME.'/icons')) {
+	    while (false !== ($file = readdir($handle))) {
+	        if ($file != "." && $file != ".." && $file{0} != "." && strtolower(ltrim(strrchr($file,'.'),'.')) == 'png' && !strpos($file, '_')) {
+	        	if(strcmp($icon, $file) == 0) {
+	        		$mySelect1->addOption($file, $file, 1);
+	        	} else {
+	        		$mySelect1->addOption($file,$file);
+	        	}
+	        }
+	    }
+	    closedir($handle);
+	}
+	$currentPath = 'index.php?'.EXTERN_DIR.'=/'.APP_DIR.'/eyeX/themes/'.$userTheme.'/images/'.APP_DIR.'/'.CONFIG_NAME.'/icons/'.$icon;
+	
+	$myAppImage = new Imagebox(array('name' => 'imgIcon', 'father' => 'WND2_Content',
+	 'widht' => 21, 'height' => 21, 'x' => 294, 'y' => 50,
+	 'alt' => '(Could not load Icon)', 'url' => $currentPath));
+	$myAppImage->show();
+	$myAppImage->setCss(array('background-color' => '#BBBBBB'));
+	global $myPid;
+	$mySelect1->addEvent('onchange','document.getElementById("'.$myPid.'_imgIcon").src="index.php?extern=apps/eyeX/themes/'.$userTheme.'/images/'.APP_DIR.'/'.CONFIG_NAME.'/icons/"+this.value'.';');
+		
+	$myButton = new Button(array('name'=>'CancelWND','caption'=>'Cancel','father'=>'WND2_Content','x'=>25,'y'=>10,'horiz'=>1,'vert'=>1, 'width' => 40));
+	$myButton->show();
+		
+	$myButton1 = new Button(array('name'=>'updateGroup','caption'=>'Save changes','father'=>'WND2_Content','x'=>68,'y'=>10,'horiz'=>1,'vert'=>1, 'width' => 90));
+	$myButton1->addFriend($myTextBox1);
+	$myButton1->addFriend($mySelect1);
+	$myButton1->addFriend($myHidden1);
+	$myButton1->show();
+}
+
+//Returns an indexed array with the usable groups
+function getGroupList() {
+	$list = array();
+	$myApps = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+	foreach($myApps['eyeDock'][0]['Group'] as $group) {
+		if(is_array($group['name'])) {
+			$list[] = $group['name'][0];
+		}
+	}
+	return $list;
+}
+
+//Checks wheter a given group exists or not
+function isGroup($groupname) {
+	$myApps = eyeXML('getXMLConfig', array(CONFIG_NAME, CONFIG_NAME.'.xml'));
+	foreach($myApps['eyeDock'][0]['Group'] as $group) {
+		if(strcmp($group['name'][0], $groupname) == 0) {
+			return true;
+		}
+	}
+	return false;
+}
+?>

@@ -1,0 +1,7 @@
+<?php
+global $language;
+//SAturday as S
+$language['share']['SA'] = 'S';
+//Same as Saturday
+$language['share']['TH'] = 'T';
+?>

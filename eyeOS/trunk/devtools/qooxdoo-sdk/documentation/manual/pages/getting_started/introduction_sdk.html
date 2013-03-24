@@ -1,0 +1,122 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction to the SDK &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../../index.html" />
+    <link rel="up" title="Getting Started" href="../getting_started.html" />
+    <link rel="next" title="Framework Structure" href="framework_structure.html" />
+    <link rel="prev" title="Tutorial Part 4.3: Translation" href="../tutorials/tutorial-part-4-3.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="framework_structure.html" title="Framework Structure"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../tutorials/tutorial-part-4-3.html" title="Tutorial Part 4.3: Translation"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="../getting_started.html" accesskey="U">Getting Started</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction-to-the-sdk">
+<span id="pages-introduction-sdk-introduction-to-the-sdk"></span><h1>Introduction to the SDK<a class="headerlink" href="#introduction-to-the-sdk" title="Permalink to this headline">¶</a></h1>
+<p>Or <em>&quot;Everything is a library.&quot;</em></p>
+<p>While the <a class="reference internal" href="helloworld.html"><em>Hello World</em></a> tutorial is geared towards getting you started with your own project, this page walks you through the basic structure of the qooxdoo SDK itself.</p>
+<p>There is a page that gives you an overview of the <a class="reference internal" href="framework_structure.html"><em>physical structure</em></a> of the SDK. As you can see there the SDK has four main components represented through the subdirectories <em>application</em>, <em>component</em>, <em>framework</em> and <em>tool</em>. Three of them, <em>application</em>, <em>component</em> and <em>framework</em> contain (either directly or in further subdirectories) qooxdoo applications or libraries that follow the general scheme for a <a class="reference internal" href="application_structure.html"><em>qooxdoo application</em></a>. In each you will find a <em>Manifest.json</em> file which signifies the adherance to the skeleton scheme. They also all contain a <em>generate.py</em> script which offers all or a subset of the standard <a class="reference internal" href="../tool/generator_usage.html"><em>qooxdoo jobs</em></a> that you can run on a library, like <em>source</em>, <em>build</em>, <em>test</em> or <em>api</em>.</p>
+<p>The fourth component, <em>tool</em>, comprises the <a class="reference internal" href="../tool/generator.html"><em>tool chain</em></a> and its various parts. You shouldn't need to worry about that since you interact with the tool chain through the <em>generate.py</em> script or one of the tool/bin scripts like <em>create-application.py</em>.</p>
+<p>In the SDK's root directory there is - besides <em>readme.txt</em> and <em>license.txt</em> - an <em>index.html</em> that gives you an overview over and access to most of the SDK's applications and components. Just be aware (as mentioned on that page) that all of them need a <tt class="docutils literal"><span class="pre">generate.py</span> <span class="pre">build</span></tt> first in their respective directories. Only the Apiviewer for the framework is shipped pre-built with the SDK currently and can be invoked immediately.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../tutorials/tutorial-part-4-3.html"
+                                  title="previous chapter">Tutorial Part 4.3: Translation</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="framework_structure.html"
+                                  title="next chapter">Framework Structure</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/getting_started/introduction_sdk.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

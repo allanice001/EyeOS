@@ -1,0 +1,60 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeImages_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeImages_on_getImage($params=null) {
+	$file = $GLOBALS['iPath']->text;
+	if(!$file) {
+		return;
+	}
+	$len = service('vfs','filesize',array($file));
+	$rfile = service('vfs','getRealName',array($file));
+	$info = getimagesize($rfile.'.'.EYEOS_FILE_EXT);
+	$fp = service('vfs','open',array($file,'r'),1);
+	if(!$fp) {
+		return;
+	}
+	header('Content-Type: '.$info['mime']);
+	header("Content-Length: $len");
+	header("Accept-Ranges: bytes");
+	header("X-Pad: avoid browser bug");
+	$content = fread($fp,$len);
+	echo $content;
+	fclose($fp);
+	exit;
+}
+
+function eyeImages_on_Resize($params=null) {
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$GLOBALS['imgFrame']->setWidth($width-15);
+	$GLOBALS['imgFrame']->setHeight($height-30);
+}
+
+function eyeImages_on_Close(){
+	global $myPid;
+	service('proc','close',array($myPid));
+}
+
+?>

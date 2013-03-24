@@ -1,0 +1,446 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	Window widget abstraction
+*/
+
+
+// define custom window style templates
+define('NORMAL_WINDOW',1);
+//old window options
+define('NOCLOSE_WINDOW',2);
+define('NORESIZE_WINDOW',3);
+define('FIXED_WINDOW',4);
+define('NOLIST_WINDOW',5);
+define('NOLIST_CLOSE_WINDOW',6);
+define('LIST_CLOSE_WINDOW',7);
+define('LIST_WINDOW',8);
+define('INVISIBLE_WINDOW',100);
+define('WIN_IMAGE_DRAGGABLE',101);
+define('WIN_IMAGE_DRAGGABLE_NOTLISTED',102);
+
+// define custom window style options
+define('TITLE',1);
+define('LISTED',2);
+define('MIN',4);
+define('MAX',8);
+define('CLOSE',16);
+define('RESIZE',32);
+define('NODRAG',64);
+
+class Window {
+	//pid controller
+	
+	var $creatorPid;
+	//global widgets options without default
+	var $name;
+	var $father;
+
+	//generic widget options with default
+	var $x;
+	var $y;
+	var $horiz;
+	var $vert;
+	var $cent;
+	
+	var $showed = 0;
+	
+	//custom widget options
+	var $title;
+	var $type;
+	var $style;
+	// can't be set by developer! Will be set using style!
+	var $listed;
+	var $min;
+	var $min_pos;
+	var $max;
+	var $max_pos;
+	var $close;
+	var $close_pos;
+	var $resize;
+	var $nodrag;
+	var $width;
+	var $height;
+	var $removepid;
+	var $sendResizeMsg;
+	var $background;
+	var $sigResize;
+	var $removeWin;
+	var $savePosition;
+	var $saveFunc;
+	var $xChecknum;
+	var $sigClose;
+	var $dragBgColor;
+	var $dragBgAlpha;
+	var $showDragContent;
+	var $titleCss;
+	var $cssReplace;
+	var $noZindex;
+	var $allDrag;
+	var $showtitle;
+	//raw vars
+	var $content;
+	//cssClasses
+	var $cssClasses = array('wMain'=>'eyeWindowMain', 
+							'wTitle'=>'eyeWindowTitle',
+							'wTitleRight'=>'eyeWindowTitle_border_right',
+							'wTitleLeft'=>'eyeWindowTitle_border_left',
+							'wTitleCenter'=>'eyeWindowTitle_center',
+							'wTitleText'=>'eyeWindowTitle_text',
+							'wBottomCenter'=>'eyeWindowBottom_center',
+							'wBottomRight'=>'eyeWindowBottom_right',
+							'wBottomLeft'=>'eyeWindowBottom_left',
+							'wLeft'=>'eyeWindowLeft',
+							'wRight'=>'eyeWindowRight',
+							'wContent'=>'eyeWindowContent',				
+							);
+							
+	//function Window($name,$title,$father="eyeApps",$type=NORMAL_WINDOW,$width=200,$height=200,$cent=0,$x=20,$y=20,$horiz=0,$vert=0) {
+	function Window($params) {	
+		global $myPid;
+		$this->creatorPid = $myPid;
+		//generic widget options without default
+		$this->name = $params['name'];
+		$this->father = $params['father'];
+
+		//generic widget options with default
+		isset($params['horiz']) ? $this->horiz = $params['horiz'] : $this->horiz = 0;
+		isset($params['vert']) ? $this->vert = $params['vert'] : $this->vert = 0;
+		isset($params['cent']) ? $this->cent = $params['cent'] : $this->cent = 0;
+		if(!isset($params['savePosition'])) {
+			isset($params['x']) ? $this->x = $params['x'] : $this->x = 20;
+			isset($params['y']) ? $this->y = $params['y'] : $this->y = 20;	
+		}elseif(isset($params['forcePosition']) && $params['forcePosition'] == 1) {
+			isset($params['x']) ? $this->x = $params['x'] : $this->x = 20;
+			isset($params['y']) ? $this->y = $params['y'] : $this->y = 20;
+		} else {
+			$position = $this->getSavedPositions();
+			if(!$position) {
+				isset($params['x']) ? $this->x = $params['x'] : $this->x = 20;
+				isset($params['y']) ? $this->y = $params['y'] : $this->y = 20;	
+			} else {
+				$screen = reqLib('eyeSessions','getVar',array('SCREEN'));
+				if($position['top'][0] > $screen['height'] || $position['left'][0] > $screen['width']) {
+					$this->cent = 1;
+					$this->x = 20;//default values
+					$this->y = 20;	
+				} else {
+					$this->x = $position['left'][0];
+					$this->y = $position['top'][0];	
+					$this->cent = 0;
+				}					
+			}			
+		}				
+		
+		//specific window options
+		isset($params['title']) ? $this->title = $params['title'] : $this->title = $this->name;
+		isset($params['width']) ? $this->width = $params['width'] : $this->width = 200;
+		isset($params['height']) ? $this->height = $params['height'] : $this->height = 200;
+		isset($params['removepid']) ? $this->removepid = $params['removepid'] : $this->removepid = 1;
+		isset($params['sendResizeMsg']) ? $this->sendResizeMsg = $params['sendResizeMsg'] : $this->sendResizeMsg = 0;
+		isset($params['background']) ? $this->background = $params['background'] : $this->background = "";
+		isset($params['sigResize']) ? $this->sigResize = $params['sigResize'] : $this->sigResize = $this->name.'_Resize';
+		isset($params['removeWin']) ? $this->removeWin = $params['removeWin'] : $this->removeWin = 1;
+		isset($params['savePosition']) ? $this->savePosition = $params['savePosition'] : $this->savePosition = 0;
+		isset($params['saveFunc']) ? $this->saveFunc = $params['saveFunc'] : $this->saveFunc = '';
+		isset($params['sigClose']) ? $this->sigClose = $params['sigClose'] : $this->sigClose = 'Close';
+		isset($params['dragBgColor']) ? $this->dragBgColor = $params['dragBgColor'] : $this->dragBgColor = '#A1BFE6';
+		isset($params['dragBgAlpha']) ? $this->dragBgAlpha = $params['dragBgAlpha'] : $this->dragBgAlpha = '80';
+		isset($params['showDragContent']) ? $this->showDragContent = $params['showDragContent'] : $this->showDragContent = false;
+		isset($params['cssReplace']) ? $this->cssReplace = $params['cssReplace'] : $this->cssReplace = '';
+		isset($params['noZindex']) ? $this->noZindex = $params['noZindex'] : $this->noZindex = '';
+		isset($params['allDrag']) ? $this->allDrag = $params['allDrag'] : $this->allDrag = '';
+			
+		//specific window type options
+		$this->type = $params['type'];
+		if (!isset($params['type'])) {
+			$this->type = 1;
+			isset($params['style']) ? $this->style = $params['style'] : $this->style = TITLE + LISTED + MIN + MAX + CLOSE + RESIZE;
+		} elseif ($this->type == 1) {
+			$this->type = 1;
+			$this->style = TITLE + LISTED + MIN + MAX + CLOSE + RESIZE;
+		} elseif ($this->type == 2) {
+			$this->type = 1;
+				$this->style = TITLE + LISTED + MIN + MAX + RESIZE;
+		} elseif ($this->type == 3) {
+			$this->type = 1;
+				$this->style = TITLE + LISTED + MIN + CLOSE;
+		} elseif ($this->type == 4) {
+			$this->type = 1;
+				$this->style = LISTED + NODRAG;
+		} elseif ($this->type == 5) {
+			$this->type = 1;
+				$this->style = TITLE;
+		} elseif ($this->type == 6) {
+			$this->type = 1;
+				$this->style = TITLE + CLOSE;
+		} elseif ($this->type == 7) {
+			$this->type = 1;
+				$this->style = TITLE + LISTED + CLOSE;
+		} elseif ($this->type == 8) {
+			$this->type = 1;
+				$this->style = TITLE + LISTED;
+		} elseif ($this->type == 100) {
+			$this->type = 2;
+		} elseif ($this->type == 101) {
+			$this->type = 3;
+			$this->allDrag = true;
+			$this->showDragContent = true;
+		} elseif ($this->type == 102) {
+			$this->allDrag = true;
+			$this->showDragContent = true;
+			$this->type = 4;
+		}
+		
+		if ($this->type == 1) {
+			// specific the window options and styles
+			if ($this->style >= 64) {
+				$this->style = $this->style - 64;
+				$this->nodrag = 1;
+			} else {
+				$this->nodrag = 0;
+			}
+			if ($this->style >= 32) {
+				$this->style = $this->style - 32;
+				$this->resize = 1;
+			} else {
+				$this->resize = 0;
+			}
+			if ($this->style >= 16) {
+				$this->style = $this->style - 16;
+				$this->close = 1;
+			} else {
+				$this->close = 0;
+			}
+			if ($this->style >= 8) {
+				$this->style = $this->style - 8;
+				$this->max = 1;
+			} else {
+				$this->max = 0;
+			}
+			if ($this->style >= 4) {
+				$this->style = $this->style - 4;
+				$this->min = 1;
+			} else {
+				$this->min = 0;
+			}
+			if ($this->style >= 2) {
+				$this->style = $this->style - 2;
+				$this->listed = 1;
+			} else {
+				$this->listed = 0;
+			}
+			if ($this->style >= 1) {
+				$this->style = $this->style - 1;
+				$this->showtitle = 1;
+			} else {
+				$this->showtitle = 0;
+			}
+			
+			// specific the positions of the buttons!
+			$x = 1;
+			if ($this->close == 1) {
+				$this->close_pos = $x;
+				$x++;
+			}
+			if ($this->max == 1) {
+				$this->max_pos = $x;
+				$x++;
+			}
+			if ($this->min == 1) {
+				$this->min_pos = $x;
+			}
+		}
+		
+		//Getting eyeX checknum for call eyeX events
+		$this->xChecknum = service('proc','findChecknumByName',array('eyeX'));
+	}
+	
+	//event handling
+	function addEvent($eventName,$eventFunc,$args="") {
+		global $myPid;
+		$name = $myPid.'_'.$this->name;
+		if($this->showed == 0) {
+			$this->show();
+		}
+		service('eyex','addEvent',array('name' => $name, 'action' => $eventFunc, 'event' => $eventName,'args'=>$args));
+	}
+
+	function show() {
+		if(is_array($this->cssReplace)){
+			foreach($this->cssReplace as $key=>$value){
+				$this->cssClasses[$key] = $value;
+			}			
+		}
+		
+		$this->title = i18n('translate',array($this->title));
+		$this->title = $this->title;
+		$widgetsparams = array(
+			'height' => $this->height,
+			'width' => $this->width,
+			'title' => $this->title,
+			'type' => $this->type,
+			'showtitle' => $this->showtitle,
+			'listed' => $this->listed,
+			'min' => $this->min,
+			'min_pos' => $this->min_pos,
+			'max' => $this->max,
+			'max_pos' => $this->max_pos,
+			'close' => $this->close,
+			'close_pos' => $this->close_pos,
+			'resize' => $this->resize,
+			'nodrag' => $this->nodrag,
+			'sendCloseMsg' => $this->removepid,
+			'sendResizeMsg' => $this->sendResizeMsg,
+			'background' => $this->background,
+			'sigResize' => $this->sigResize,
+			'removeWin' => $this->removeWin,
+			'savePosition'=>$this->savePosition,
+			'saveFunc'=>$this->saveFunc,
+			'xChecknum'=>$this->xChecknum,
+			'sigClose'=>$this->sigClose,
+			'dragBgColor'=>$this->dragBgColor,
+			'dragBgAlpha'=>$this->dragBgAlpha,
+			'showDragContent'=>$this->showDragContent,
+			'wMain'=>$this->cssClasses['wMain'],
+			'wTitle'=>$this->cssClasses['wTitle'],
+			'wTitleRight'=>$this->cssClasses['wTitleRight'],
+			'wTitleLeft'=>$this->cssClasses['wTitleLeft'],
+			'wTitleCenter'=>$this->cssClasses['wTitleCenter'],
+			'wTitleText'=>$this->cssClasses['wTitleText'],
+			'wBottomCenter'=>$this->cssClasses['wBottomCenter'],
+			'wBottomRight'=>$this->cssClasses['wBottomRight'],
+			'wBottomLeft'=>$this->cssClasses['wBottomLeft'],
+			'wLeft'=>$this->cssClasses['wLeft'],
+			'wRight'=>$this->cssClasses['wRight'],
+			'wContent'=>$this->cssClasses['wContent'],
+			'noZindex'=>$this->noZindex,
+			'allDrag'=>$this->allDrag
+		);
+		$widgetsparams = service("mmap","array2js",array($widgetsparams));
+		
+		$myWindow = array(
+			'name' => $this->name,
+			'x' => $this->x,
+			'y' => $this->y,
+			'horiz' => $this->horiz,
+			'vert' => $this->vert,
+			'father' => $this->father,
+			'widgetname' => 'Window',
+			'params' => $widgetsparams,
+			'center' => $this->cent,
+		);
+		$this->showed=1;
+		service('eyex','createWidget',$myWindow);
+		if(!$this->noZindex){
+			$this->focus();	
+		}		
+		reqLib('eyeWidgets','serialize',array($this));
+	}
+	
+	function focus() {
+		global $myPid;
+		service('eyex','rawjs',array('js'=>'xZIndex("'.$myPid.'_'.$this->name.'",zindex);zindex++;'));
+	}
+	
+	function setCss($params) {
+		global $myPid;
+		if(is_array($params)) {
+			foreach($params as $key => $value) {
+				service('eyex','updateCss',array('name' => $myPid.'_'.$this->name,'property' => $key,'value' => $value));
+			}
+		}
+	}
+
+	function setWidth($width) {
+		global $myPid;
+		$this->width = intval($width);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.width="'.$this->width.'px";'));
+	}
+	
+	function setHeight($height) {
+		global $myPid;
+		$this->height = intval($height);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.height="'.$this->height.'px";'));
+	}
+	
+	function setX($x) {
+		global $myPid;
+		$this->x = intval($x);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.left="'.$this->x.'px";'));
+	}
+	
+	function setY($y) {
+		global $myPid;
+		$this->y = intval($y);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.top="'.$this->y.'px";'));
+	}
+	function clear() {
+		global $myPid;
+		service('eyex','rawjs',array('js'=>"document.getElementById('".$myPid."_".$this->name."_Content').innerHTML='';"));
+	}
+	
+	function close() {
+		global $myPid;
+		$father = $this->father;
+		$isLayer = service('eyex','isLayer',array('name'=>$father));
+		if(!$isLayer) {
+			$father = $myPid.'_'.$father;
+		}
+		$name = $myPid.'_'.$this->name;
+		service('eyex','rawjs',array('js'=>"document.getElementById('".$father."').removeChild(document.getElementById('".$name."'));"));
+		reqLib('eyeWidgets','singleUnserialize',array($this->name));
+	}
+	//This is a private function ? maybe
+	function getSavedPositions(){
+		global $myPid;
+		$appName = service('proc','findNameByPid',array($myPid));
+		$fileName .= $appName.'.xml';
+		$currentArray = reqLib('eyeXML','getXMLconfig',array('eyex',$fileName));
+		if(!$currentArray) {
+			return false;
+		}
+		return $currentArray[$this->name][0];		
+	}
+	
+	function hide() {
+		global $myPid;
+		$this->visible = 0;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.display="none"'));
+	}
+	
+	function unhide() {
+		global $myPid;
+		$this->visible = 1;
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'").style.display="block"'));
+	}
+	
+	function setRawContent($myContent) {
+		global $myPid;
+		$this->content = $myContent;
+		$myContent = base64_encode($myContent);
+		service('eyex','rawjs',array('js' => 'document.getElementById("'.$myPid.'_'.$this->name.'_Content").innerHTML=Base64.decode("'.$myContent.'")'));
+	}
+}
+?>

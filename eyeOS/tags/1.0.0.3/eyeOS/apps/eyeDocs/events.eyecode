@@ -1,0 +1,139 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeDocs_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDocs_on_Open($params=null) {
+	global $checknum;
+	$options = array(
+		0,
+		'SelectFileOpen',
+		$checknum
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeDocs_on_Resize($params=null) {
+	global $myPid;
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$width = $width - 19;
+	$height = $height - 60;
+	service('eyex','rawjs',array('js'=>'TinyMCE_AdvancedTheme._resizeTo(tinyMCE.getInstanceById("'.$myPid.'_noteContent"),'.$width.','.$height.',true)'));
+}
+
+function eyeDocs_on_Save($params=null) {
+	global $checknum;
+	$options = array(
+		1,
+		'SelectFileSave',
+		$checknum
+	);
+	if(is_object($GLOBALS['notePath']) && $GLOBALS['notePath']->text) {
+		$fp = service('vfs','open',array($GLOBALS['notePath']->text,'w'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+			return;
+		}
+		fwrite($fp,$GLOBALS['noteContent']->text);
+		fclose($fp);
+		service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+	} else {
+		service('proc','launch',array('eyeDialog',$options));
+	}
+}
+
+function eyeDocs_on_SaveAs($params=null) {
+	global $checknum;
+	$options = array(
+		1,
+		'SelectFileSave',
+		$checknum
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+
+function eyeDocs_on_SelectFileSave($params=null) {
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		if (substr($file,-4) == ".doc") {
+			include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDocs/html_to_doc'.EYE_CODE_EXTENSION);
+			$htmltodoc= new HTML_TO_DOC();
+			$myContent = $GLOBALS['noteContent']->text;
+			if (!empty($myContent)) {
+				$htmltodoc->createDoc($myContent,$file);
+				service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+			}
+		} else {
+			if (substr($file,-7) != ".eyedoc") {
+				$file = $file.'.eyedoc';
+			}
+			service('vfs','create',array($file,'eyeDocs'));
+			$fp = service('vfs','open',array($file,'w'));
+			if(!$fp) {
+				service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+				return;
+			}
+			fwrite($fp,$GLOBALS['noteContent']->text);
+			fclose($fp);
+			$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeDocsWND','text'=>$file));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+		}
+
+	}
+}
+
+function eyeDocs_on_SelectFileOpen($params=null) {
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		$fp = service('vfs','open',array($file,'r'));
+		if(!$fp) {
+			service('eyex','messageBox',array('content'=>'Error opening file'));
+			return;
+		}
+		$size = service('vfs','filesize',array($file));
+		if ($size > 0) {
+			$fp = service('vfs','open',array($file,'r'));
+			$myContent = fread($fp,$size);
+			fclose($fp);
+			$GLOBALS['noteContent']->setText($myContent);
+			$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeDocsWND','text'=>$file));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+		}
+	}
+}
+
+function eyeDocs_on_Close(){
+	global $myPid;
+	$GLOBALS['noteContent']->richClean();
+	service('proc','close',array($myPid));
+}
+
+function eyeDocs_on_New(){
+	service('proc','launch',array('eyeDocs'));
+}
+?>

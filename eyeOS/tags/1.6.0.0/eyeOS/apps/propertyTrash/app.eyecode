@@ -1,0 +1,62 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)
+*/
+
+function propertyTrash_run($params=null) {
+	global $myPid;    
+	$userTheme = $_SESSION['usertheme'];
+	if(is_array($params)) {
+        $file = $params[0];
+	}
+	$mime = getConfig('mime','mime.xml');    
+	$myWindow = new Window(array('name'=>'prop','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>300,'height'=>150,
+		'title'=>'Properties'));    
+	$myWindow->show();    
+	$myUserDir = service('um','getCurrentUserDir').TRASH_USER_DIR.'/';        
+    $fileTrash = $myUserDir.$file;
+	$myArray = reqLib('eyeXML','getXMLfile',array($fileTrash));     
+	$myArray = $myArray['eyeTrash'][0];
+	$lastname = $myArray['lastname'][0];
+	$deleteDate = $myArray['deleteDate'][0];
+	$info = utf8_pathinfo($lastname);
+	$extension = $info['extension'];
+	$icon = 'unknown';
+	foreach($mime['mimeTypes'][0]['mime'] as $value) {
+		if($value['extension'][0] == $extension) {
+			$icon = $value['type'][0];
+		}
+	} 
+	$myImage = new Imagebox(array('name'=>'image','father'=>'prop_Content',
+		'url'=>'index.php?extern=apps/eyeX/themes/'.$userTheme.'/icons/'.EYEFILES_ICON_SIZE.'/filetypes/'.$icon.'.png',
+		'x'=>10,'y'=>10));
+	$myImage->show();
+	$myLabel = new Label(array('name'=>'Label','father'=>'prop_Content',
+		'text'=>"Filename: %s",'y'=>75,'x'=>15,'tokens' => array($lastname)));
+	$myLabel->show();
+	$myLabel = new Label(array('name'=>'Label','father'=>'prop_Content',
+		'text'=>"Deleted at: %s",'tokens' => array(date('Y-m-d H:i:s',$deleteDate)),'y'=>95,'x'=>15));
+	$myLabel->show();
+	proc('end');
+}
+
+?>

@@ -1,0 +1,6172 @@
+<lang>
+	<info>
+		<lang>繁體中文</lang>
+		<lang-en>Traditional Chinese</lang-en>
+		<author>Liao Te Kai</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>請在此輸入連結名稱</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>新建</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>新建一個連結</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>您可以關閉本視窗</new>
+		</text>
+		<text>
+			<old>The server does not support zip files.</old>
+			<new>這個伺服器不支援zip檔案</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>連結無法被下載!</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>下載!</new>
+		</text>
+		<text>
+			<old>Download "%s" as zip</old>
+			<new>以zip格式下載"%s"</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>編輯 %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>要被執行的命令:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>您確定要移除"%s"嗎?</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>清空資源回收桶</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>您確定要清空資源回收桶嗎?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>刪除 %s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeAddressBook</name>
+		<text>
+			<old>Please, fill in the name and surname</old>
+			<new>請輸入姓名</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>個人</new>
+		</text>
+		<text>
+			<old>notes</old>
+			<new>註記</new>
+		</text>
+		<text>
+			<old>Please, select a group</old>
+			<new>請選擇群組</new>
+		</text>
+		<text>
+			<old>Please, select one contact to edit</old>
+			<new>請選取要編輯的聯絡人</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to edit</old>
+			<new>請只選取一個要編輯的聯絡人</new>
+		</text>
+		<text>
+			<old>Please, select one or more contacts</old>
+			<new>請選取聯絡人</new>
+		</text>
+		<text>
+			<old>Please, select one contact to send message</old>
+			<new>請選取要傳送訊息的連絡人</new>
+		</text>
+		<text>
+			<old>Notes</old>
+			<new>註記</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>名</new>
+		</text>
+		<text>
+			<old>Mobile</old>
+			<new>行動</new>
+		</text>
+		<text>
+			<old>Mobile Phone</old>
+			<new>行動電話</new>
+		</text>
+		<text>
+			<old>New contact created succesfully</old>
+			<new>新聯絡人增加成功</new>
+		</text>
+		<text>
+			<old>New Contact</old>
+			<new>新聯絡人</new>
+		</text>
+		<text>
+			<old>nick</old>
+			<new>暱稱</new>
+		</text>
+		<text>
+			<old>Nick</old>
+			<new>暱稱</new>
+		</text>
+		<text>
+			<old>Please, select only one contact to send message</old>
+			<new>請只選取一個要傳送訊息的連絡人</new>
+		</text>
+		<text>
+			<old>Please, write the new group's name</old>
+			<new>請輸入新群組的名稱</new>
+		</text>
+		<text>
+			<old>Work Fax</old>
+			<new>工作傳真機</new>
+		</text>
+		<text>
+			<old>Work E-Mail</old>
+			<new>工作E-Mail</new>
+		</text>
+		<text>
+			<old>Work Address</old>
+			<new>工作地址</new>
+		</text>
+		<text>
+			<old>Work Mobile</old>
+			<new>工作行動電話</new>
+		</text>
+		<text>
+			<old>Work Phone</old>
+			<new>工作電話</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>工作</new>
+		</text>
+		<text>
+			<old>Work Website</old>
+			<new>工作網站</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>網站</new>
+		</text>
+		<text>
+			<old>voip</old>
+			<new>voip</new>
+		</text>
+		<text>
+			<old>Send Message</old>
+			<new>傳送訊息</new>
+		</text>
+		<text>
+			<old>Save Contact</old>
+			<new>儲存聯絡人</new>
+		</text>
+		<text>
+			<old>Role</old>
+			<new>職稱</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Surname</old>
+			<new>姓</new>
+		</text>
+		<text>
+			<old>VoIP</old>
+			<new>VoIP</new>
+		</text>
+		<text>
+			<old>user</old>
+			<new>使用者</new>
+		</text>
+		<text>
+			<old>Mobile Company</old>
+			<new>行動(公司)</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>匯入</new>
+		</text>
+		<text>
+			<old>Company</old>
+			<new>公司</new>
+		</text>
+		<text>
+			<old>Company Fax</old>
+			<new>公司傳真機</new>
+		</text>
+		<text>
+			<old>Cannot edit contact</old>
+			<new>無法編輯聯絡人</new>
+		</text>
+		<text>
+			<old>Contact edited succesfully</old>
+			<new>聯絡人成功編輯</new>
+		</text>
+		<text>
+			<old>Contacts deleted succesfully</old>
+			<new>聯絡人刪除成功</new>
+		</text>
+		<text>
+			<old>Delete Contacts</old>
+			<new>刪除聯絡人</new>
+		</text>
+		<text>
+			<old>Database to store contacts: </old>
+			<new>儲存聯絡人的資料庫</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>聯絡人</new>
+		</text>
+		<text>
+			<old>Cannot create contact</old>
+			<new>無法增加聯絡人</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>增加</new>
+		</text>
+		<text>
+			<old>Add new group</old>
+			<new>增加群組</new>
+		</text>
+		<text>
+			<old>Add Contact</old>
+			<new>增加聯絡人</new>
+		</text>
+		<text>
+			<old>AddressBook</old>
+			<new>通訊錄</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete these contacts(%s)?</old>
+			<new>您確定要刪除這些聯絡人?</new>
+		</text>
+		<text>
+			<old>All Groups</old>
+			<new>所有群組</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>詳細內容</new>
+		</text>
+		<text>
+			<old>Home Address</old>
+			<new>住址</new>
+		</text>
+		<text>
+			<old>Group deleted succesfully</old>
+			<new>群組順利刪除</new>
+		</text>
+		<text>
+			<old>Group added succesfully</old>
+			<new>群組順利增加</new>
+		</text>
+		<text>
+			<old>Home Phone</old>
+			<new>電話(家裡)</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>家</new>
+		</text>
+		<text>
+			<old>Import completed</old>
+			<new>匯入完成</new>
+		</text>
+		<text>
+			<old>im</old>
+			<new>im</new>
+		</text>
+		<text>
+			<old>IM</old>
+			<new>IM</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Family</old>
+			<new>家人</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編輯</new>
+		</text>
+		<text>
+			<old>E-Mail</old>
+			<new>E-Mail</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>Error creating a group</old>
+			<new>增加群組發生錯誤</new>
+		</text>
+		<text>
+			<old>Error deleting contacts</old>
+			<new>刪除聯絡人發生錯誤</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>匯出</new>
+		</text>
+		<text>
+			<old>Export completed</old>
+			<new>匯出完成</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Office</old>
+			<new>辦公</new>
+		</text>
+		<text>
+			<old>PDF File Reader</old>
+			<new>PDF閱讀器</new>
+		</text>
+		<text>
+			<old>Presentation</old>
+			<new>展示工具</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>程序管理員</new>
+		</text>
+		<text>
+			<old>Networking</old>
+			<new>網路</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>網頁領航員</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>管理 Dock</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>媒體撥放器</new>
+		</text>
+		<text>
+			<old>Messages Widget</old>
+			<new>訊息附件</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>多媒體</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>公告板</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS閱讀器</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>垃圾桶</new>
+		</text>
+		<text>
+			<old>Utilities</old>
+			<new>系統工具</new>
+		</text>
+		<text>
+			<old>Widgets</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>文件編輯器</new>
+		</text>
+		<text>
+			<old>ToDo Widget</old>
+			<new>簡記附件</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>文字編輯器</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>電子表格</new>
+		</text>
+		<text>
+			<old>System Preferences</old>
+			<new>系統設定</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>郵件工具</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>啟動程式</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>行事曆</new>
+		</text>
+		<text>
+			<old>Catching Game</old>
+			<new>閃躲遊戲</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>西洋棋</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>聯絡人管理</new>
+		</text>
+		<text>
+			<old>Calendar Widget</old>
+			<new>行事曆附件</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>計算機</new>
+		</text>
+		<text>
+			<old>Actions Widget</old>
+			<new>行動附件</new>
+		</text>
+		<text>
+			<old>All Applications</old>
+			<new>所有程式</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>應用程式</new>
+		</text>
+		<text>
+			<old>File Management</old>
+			<new>檔案管理</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>檔案管理員</new>
+		</text>
+		<text>
+			<old>Home Widget</old>
+			<new>主目錄附件</new>
+		</text>
+		<text>
+			<old>Image Viewer</old>
+			<new>影像瀏覽器</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>安裝程式</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>內部訊息</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>幫助</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>群組</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP客戶端</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>遊戲</new>
+		</text>
+		<text>
+			<old>About oneye</old>
+			<new>關於 oneye</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>No file open</old>
+			<new>未打開檔案</new>
+		</text>
+		<text>
+			<old>GZip files</old>
+			<new>Gzip檔案</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>檔案名稱</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>解壓檔案縮失敗</new>
+		</text>
+		<text>
+			<old>Open a folder or file</old>
+			<new>開啟資料夾或檔案</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>開啟</new>
+		</text>
+		<text>
+			<old>Zip files</old>
+			<new>Tar檔案</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>不支援該類型的壓縮檔案</new>
+		</text>
+		<text>
+			<old>Tar files</old>
+			<new>Tar檔案</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>解壓縮成功</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>解壓縮</new>
+		</text>
+		<text>
+			<old>BZip files</old>
+			<new>Bzip 檔案</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>壓縮管理器</new>
+		</text>
+		<text>
+			<old>Archive files</old>
+			<new>壓縮檔</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>壓縮到...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>壓縮</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>解壓縮到...</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>壓縮失敗</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>壓縮成功</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>發送</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>公告板</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>清空</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Factorial of a negative number is invalid!</old>
+			<new>無法對負數取層階</new>
+		</text>
+		<text>
+			<old>Exponentiation of zero by a negative number or zero is invalid!</old>
+			<new>無法對零取冪</new>
+		</text>
+		<text>
+			<old>Logarithm of a negative number or zero is invalid!</old>
+			<new>無法對負數或零取對數</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>簡易</new>
+		</text>
+		<text>
+			<old>Square root of a negative number is invalid!</old>
+			<new>無法對負數取平方根</new>
+		</text>
+		<text>
+			<old>Division by zero is invalid!</old>
+			<new>零不能被倒數！</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>清除</new>
+		</text>
+		<text>
+			<old>C</old>
+			<new>C</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>計算機</new>
+		</text>
+		<text>
+			<old>CE</old>
+			<new>CE</new>
+		</text>
+		<text>
+			<old>Del</old>
+			<new>清除</new>
+		</text>
+		<text>
+			<old>Adv.</old>
+			<new>進階</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Show</old>
+			<new>顯示</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>星期天</new>
+		</text>
+		<text>
+			<old>Text for this event:</old>
+			<new>該事件描述資訊</new>
+		</text>
+		<text>
+			<old>ThursDay</old>
+			<new>星期四</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>星期六</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>上一個</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>星期一</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>下一個</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>請輸入日程名稱</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>請輸入該日曆名稱</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>今天</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>星期二</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>視窗模式</new>
+		</text>
+		<text>
+			<old>Work View Configuration:</old>
+			<new>工作檢視選項</new>
+		</text>
+		<text>
+			<old>Work View</old>
+			<new>工作檢視</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>工作</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>周</new>
+		</text>
+		<text>
+			<old>Week starts on:</old>
+			<new>一週開始於</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>兩個日曆不能共用ID</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>兩個日曆不能共用名稱</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>星期三</new>
+		</text>
+		<text>
+			<old>Week ends on:</old>
+			<new>一週結束於</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>無效數字%s</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>校驗欄值無效</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>日曆管理</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>日曆</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>設定成功儲存</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>日曆</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>日曆已在執行中</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>增加日曆</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>至少需要一個日曆!</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new> 增加日曆成功</new>
+		</text>
+		<text>
+			<old>Configuration Saved</old>
+			<new>設定已儲存</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>日曆設定</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>General Configuration:</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>General</old>
+			<new>全域</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>幫助</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>星期五</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Configure</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Day ends at:</old>
+			<new>一天結束於</new>
+		</text>
+		<text>
+			<old>Day starts at:</old>
+			<new>一天開始於</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>日</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>已有同名日曆</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCatch</name>
+		<text>
+			<old>Please select a map first.</old>
+			<new>請先選擇地圖</new>
+		</text>
+		<text>
+			<old>Restart Game</old>
+			<new>重新開始</new>
+		</text>
+		<text>
+			<old>To be able to play this map was my first milestone while developing eyeCatch.</old>
+			<new>能夠成功遊玩這張地圖，是我設計eyeCatch的里程碑</new>
+		</text>
+		<text>
+			<old>X is not the spot!!</old>
+			<new>X也不能碰！</new>
+		</text>
+		<text>
+			<old>Play Map</old>
+			<new>遊玩此地圖</new>
+		</text>
+		<text>
+			<old>Just Play</old>
+			<new>就是玩</new>
+		</text>
+		<text>
+			<old>Choose Map</old>
+			<new>選擇地圖</new>
+		</text>
+		<text>
+			<old>eyeCatch Map</old>
+			<new>eyeCatch地圖</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Queen</old>
+			<new>皇后</new>
+		</text>
+		<text>
+			<old>Rook</old>
+			<new>城堡</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>緩慢的</new>
+		</text>
+		<text>
+			<old>Undo</old>
+			<new>復原</new>
+		</text>
+		<text>
+			<old>Movements</old>
+			<new>移動</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>普通的</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>西洋棋</new>
+		</text>
+		<text>
+			<old>Easy</old>
+			<new>簡單</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>騎士</new>
+		</text>
+		<text>
+			<old>Bishop</old>
+			<new>主教</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeConsole</name>
+		<text>
+			<old>Command not found</old>
+			<new>命令無法找到</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Remove temporary files and folders from your oneye system</old>
+			<new>清理oneye系統暫存檔案和資料夾.</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>現在移除！</new>
+		</text>
+		<text>
+			<old>Refresh Interval (seconds)</old>
+			<new>重新整理間隔(秒)</new>
+		</text>
+		<text>
+			<old>Remove temporary files and folders</old>
+			<new>移除暫存檔案和資料夾</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>移除</new>
+		</text>
+		<text>
+			<old>Repeat Wallpaper</old>
+			<new>重複壁紙</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重新命名</new>
+		</text>
+		<text>
+			<old>Rename Group</old>
+			<new>重命名群組</new>
+		</text>
+		<text>
+			<old>Protect sessions by IPs</old>
+			<new>透過IP保護登入狀態</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>埠</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>請填寫所有要求的欄位</new>
+		</text>
+		<text>
+			<old>Please fill out all fields.</old>
+			<new>請完成所有空格</new>
+		</text>
+		<text>
+			<old>Please fill in and select the proper fields to add params</old>
+			<new>請填入必要的參數</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>請輸入命令</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>請輸入正確的群組！</new>
+		</text>
+		<text>
+			<old>Please type your password to remove this account.</old>
+			<new>請輸入您的密碼以刪除此帳號</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>請在此輸入使用者名稱:</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>請輸入位址</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>倉庫</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>重定圖示位置</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>選擇使用者:</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>選擇檔案...</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>安全</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>選擇</new>
+		</text>
+		<text>
+			<old>Service</old>
+			<new>服務</new>
+		</text>
+		<text>
+			<old>Set new password on next login</old>
+			<new>在下次登入設定新密碼</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>設為預設</new>
+		</text>
+		<text>
+			<old>Service:</old>
+			<new>服務：</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>搜索使用者...</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>搜索引擎匯入成功</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Root</new>
+		</text>
+		<text>
+			<old>Root Password</old>
+			<new>Root密碼</new>
+		</text>
+		<text>
+			<old>Reset window positions</old>
+			<new>重定視窗位置</new>
+		</text>
+		<text>
+			<old>Save Changes</old>
+			<new>儲存更變</new>
+		</text>
+		<text>
+			<old>Save window positions</old>
+			<new>儲存視窗位置</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>截圖</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>Please fill in all required fields!</old>
+			<new>請完成所有必要的空格</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>請填充必要的輸入域！</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>密碼（再次輸入）*</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>其他</new>
+		</text>
+		<text>
+			<old>OpenOffice program folder:</old>
+			<new>OpenOffice程式資料夾</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>密碼*</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>密碼修改成功</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>權限*</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>密碼不合！</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密碼</new>
+		</text>
+		<text>
+			<old>Office Support</old>
+			<new>Office支援</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>沒有</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>新壁紙設定成功.</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>新使用者</new>
+		</text>
+		<text>
+			<old>New Password</old>
+			<new>新密碼</new>
+		</text>
+		<text>
+			<old>New Wallpaper</old>
+			<new>新壁紙</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>新增</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>沒有發現登記註冊的使用者</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>權限</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>個人</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>請選擇要刪除的使用者</new>
+		</text>
+		<text>
+			<old>Please choose a target to delete</old>
+			<new>請選取要刪除的目標</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>請選擇要編輯的鏡像</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>請選擇要編輯的使用者</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to delete</old>
+			<new>請選取要刪除的ACL</new>
+		</text>
+		<text>
+			<old>Please fill and select all fields</old>
+			<new>請完成所有空格及選項</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>請修改您輸入的設定.</new>
+		</text>
+		<text>
+			<old>Please choose an ACL to edit from the list</old>
+			<new>請選取要編輯的ACL</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>請選擇要刪除的鏡像</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>請選擇要測試的鏡像</new>
+		</text>
+		<text>
+			<old>Please choose a filetype to be edited.</old>
+			<new>請選取要編輯的檔案類型</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>請選擇要編輯的命令</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>請選擇要刪除的命令</new>
+		</text>
+		<text>
+			<old>Please choose a filetype to delete.</old>
+			<new>請選取要刪除的檔案類型</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>請選擇要刪除的群組</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>請選擇要設為預設的群組</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>請選擇要編輯的群組</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>顯示全部</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>使用自訂桌布</new>
+		</text>
+		<text>
+			<old>Use a custom background color</old>
+			<new>使用自訂背景顏色</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>更新您的系統設定.</new>
+		</text>
+		<text>
+			<old>Use Defaults</old>
+			<new>使用預設</new>
+		</text>
+		<text>
+			<old>Use Doubleclicks</old>
+			<new>使用雙重點擊</new>
+		</text>
+		<text>
+			<old>Used Version</old>
+			<new>使用版本</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>已用空間</new>
+		</text>
+		<text>
+			<old>Use SSL</old>
+			<new>使用SSL加密協定</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>更新您的系統資訊.</new>
+		</text>
+		<text>
+			<old>Update Rule</old>
+			<new>更新規則</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>輸入您要執行的命令</new>
+		</text>
+		<text>
+			<old>Turn system sound off</old>
+			<new>關閉系統音效</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>標題</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>輸入您要創建的群組名稱</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>輸入新的群組名稱：</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>卸載</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>輸入新鏡像位址</new>
+		</text>
+		<text>
+			<old>User Name *</old>
+			<new>使用者名稱*</new>
+		</text>
+		<text>
+			<old>User Name</old>
+			<new>使用者名稱</new>
+		</text>
+		<text>
+			<old>You can use /a (ending), /b (beginning) and /c (counts) to list users.</old>
+			<new>你可以使用/a（結束）,/b（開始）,/c（繼續）列出使用者清單。</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage users!</old>
+			<new>你不能管理使用者！</new>
+		</text>
+		<text>
+			<old>You are not allowed to manage groups!</old>
+			<new>你不能管理群組！</new>
+		</text>
+		<text>
+			<old>You cannot delete the default group!</old>
+			<new>您不能刪除預設群組.</new>
+		</text>
+		<text>
+			<old>You cannot delete the default mirror!</old>
+			<new>您不能刪除預設鏡像!</new>
+		</text>
+		<text>
+			<old>You cannot save a mirror as the default mirror!</old>
+			<new>您無法將該鏡像儲存為預設鏡像.</new>
+		</text>
+		<text>
+			<old>You cannot edit the default mirror!</old>
+			<new>您不能編輯預設鏡像!</new>
+		</text>
+		<text>
+			<old>You cannot delete the root user!</old>
+			<new>您無法刪除root使用者.</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Windows</old>
+			<new>視窗</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>刪除使用者成功。</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>創建使用者成功</new>
+		</text>
+		<text>
+			<old>User Quota</old>
+			<new>使用者配額</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>使用者</new>
+		</text>
+		<text>
+			<old>Username contains invalid characters, please try another!</old>
+			<new>使用者名稱包含非法字元，請嘗試另外的使用者名稱！</new>
+		</text>
+		<text>
+			<old>Windows successfully restored. Please restart the applications now.</old>
+			<new>視窗成功恢復，請重啟程式。</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>桌布</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>刪除群組時發生錯誤.</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>主題</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as this user to enter this page.</old>
+			<new>對不起，您必須登入後才能進入此頁面</new>
+		</text>
+		<text>
+			<old>Sorry, you need to login as normal user to enter this page.</old>
+			<new>對不起,使用該頁面,您需要以普通使用者身分登錄.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have permissions to enter this page.</old>
+			<new>對不起,您沒有權限使用該頁面.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>起始頁</new>
+		</text>
+		<text>
+			<old>System Name</old>
+			<new>系統名稱</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系統</new>
+		</text>
+		<text>
+			<old>System Sound</old>
+			<new>系統音效</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>系統選項</new>
+		</text>
+		<text>
+			<old>Sorry, this page is not installed.</old>
+			<new>對不起,該頁面尚未安裝.</new>
+		</text>
+		<text>
+			<old>Sorry, this page cannot be entered by the default user.</old>
+			<new>對不起，本頁面不能以預設使用者進入</new>
+		</text>
+		<text>
+			<old>Show users</old>
+			<new>顯示使用者</new>
+		</text>
+		<text>
+			<old>Show users...</old>
+			<new>顯示使用者...</new>
+		</text>
+		<text>
+			<old>Show full names</old>
+			<new>顯示全名稱</new>
+		</text>
+		<text>
+			<old>Smooth: Icons can be moved anywhere</old>
+			<new>滑順：圖示可以自由移動</new>
+		</text>
+		<text>
+			<old>SMTP</old>
+			<new>SMTP</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>對不起,該檔案不能被設定為桌布.</new>
+		</text>
+		<text>
+			<old>Sorry, but that file does not exist.</old>
+			<new>對不起，該檔案不存在。</new>
+		</text>
+		<text>
+			<old>Target</old>
+			<new>目標</new>
+		</text>
+		<text>
+			<old>Temporary files and folders successfully removed.</old>
+			<new>暫存檔案和資料夾已清除.</new>
+		</text>
+		<text>
+			<old>The selected group already exists!</old>
+			<new>選擇的群組已存在！</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav search engine file.</old>
+			<new>選中的檔案並非eyeNav搜尋引擎檔案</new>
+		</text>
+		<text>
+			<old>The selected file is not an eyeNav bookmarks file.</old>
+			<new>選中的檔案並非eyeNav書籤檔案。</new>
+		</text>
+		<text>
+			<old>The selected user already exists!</old>
+			<new>選擇的使用者已存在！</new>
+		</text>
+		<text>
+			<old>The selected username is too long!</old>
+			<new>指定的使用者名稱太長！</new>
+		</text>
+		<text>
+			<old>Theme changed. You must restart your desktop for the changes to become active.</old>
+			<new>主題已更改。您必須重新登入以套用修改。</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>使用者不存在。</new>
+		</text>
+		<text>
+			<old>The selected username is too small!</old>
+			<new>指定的使用者名稱太短！</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>鏡像已安裝!</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>您所選擇的群組已經是預設群組</new>
+		</text>
+		<text>
+			<old>That command does not exist!</old>
+			<new>該命令不存在！</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>測試</new>
+		</text>
+		<text>
+			<old>Test Address</old>
+			<new>測試地址</new>
+		</text>
+		<text>
+			<old>That command is already configured!</old>
+			<new>該命令已設定！</new>
+		</text>
+		<text>
+			<old>That user does not exist.</old>
+			<new>該使用者不存在.</new>
+		</text>
+		<text>
+			<old>The category does not exist!</old>
+			<new>此類別不存在！</new>
+		</text>
+		<text>
+			<old>The account was successfully deleted.</old>
+			<new>刪除帳戶成功</new>
+		</text>
+		<text>
+			<old>New Password (again)</old>
+			<new>新密碼(再輸入)</new>
+		</text>
+		<text>
+			<old>New Filetypes</old>
+			<new>新檔案類型</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>命令儲存成功</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>命令刪除成功</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>命令增加成功</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>命令</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>設定linux伺服器上的文書軟體支援</new>
+		</text>
+		<text>
+			<old>Create ACL</old>
+			<new>新增ACL</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>設定起始頁</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>設定windows伺服器上的文書軟體支援</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>清除 oneye</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>更改成功</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>更改您的密碼</new>
+		</text>
+		<text>
+			<old>Change Theme</old>
+			<new>更改主題</new>
+		</text>
+		<text>
+			<old>Change Password</old>
+			<new>更改密碼</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>更改當前主題</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>更改桌面背景</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>更改成功執行！</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>更改語言</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>改變你的公告板（eyeBoard）設定</new>
+		</text>
+		<text>
+			<old>Create an ACL rule for your oneye system</old>
+			<new>新增oneye系統的ACL</new>
+		</text>
+		<text>
+			<old>Create Filetype</old>
+			<new>新增檔案類型</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>刪除自動執行</new>
+		</text>
+		<text>
+			<old>Delete ACL</old>
+			<new>刪除ACL</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>預設設定修改成功</new>
+		</text>
+		<text>
+			<old>Delete filetype</old>
+			<new>刪除檔案類型</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>刪除群組</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>刪除警告</new>
+		</text>
+		<text>
+			<old>Delete User</old>
+			<new>刪除使用者</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>刪除鏡像</new>
+		</text>
+		<text>
+			<old>Default Language</old>
+			<new>預設語言</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>預設群組:%s | %s 群組</new>
+		</text>
+		<text>
+			<old>Create Thumbnails</old>
+			<new>新增標籤</new>
+		</text>
+		<text>
+			<old>Create Target</old>
+			<new>新增目標</new>
+		</text>
+		<text>
+			<old>Create Group</old>
+			<new>新增群組</new>
+		</text>
+		<text>
+			<old>Create User</old>
+			<new>新增使用者</new>
+		</text>
+		<text>
+			<old>Created On</old>
+			<new>啟用創建</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>預設群組已儲存。您需要重新登入。</new>
+		</text>
+		<text>
+			<old>Current Password</old>
+			<new>現用密碼</new>
+		</text>
+		<text>
+			<old>Change Language</old>
+			<new>更改語言</new>
+		</text>
+		<text>
+			<old>Center Wallpaper</old>
+			<new>中央壁紙</new>
+		</text>
+		<text>
+			<old>Add ACL</old>
+			<new>增加ACL</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>為您的oneye增加新使用者</new>
+		</text>
+		<text>
+			<old>Action:</old>
+			<new>動作:</new>
+		</text>
+		<text>
+			<old>Add an ACL target to your oneye system</old>
+			<new>為您的oneye增加ACL</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>增加鏡像</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>增加</new>
+		</text>
+		<text>
+			<old>Add, edit or remove your Access Control List settings</old>
+			<new>增加、編輯或移除你的「啟用管理」清單設定</new>
+		</text>
+		<text>
+			<old>Add Rule</old>
+			<new>增加規則</new>
+		</text>
+		<text>
+			<old>Action</old>
+			<new>動作</new>
+		</text>
+		<text>
+			<old>ACL Name:</old>
+			<new>ACL名稱:</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s使用者已註冊.</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s 個鏡像</new>
+		</text>
+		<text>
+			<old>%s filetype(s)</old>
+			<new>%s 個檔案類型</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[預設使用者]</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>關於我</new>
+		</text>
+		<text>
+			<old>ACL Name</old>
+			<new>ACL名稱</new>
+		</text>
+		<text>
+			<old>Access Control</old>
+			<new>啟用管理</new>
+		</text>
+		<text>
+			<old>Admin</old>
+			<new>估臉</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>管理</new>
+		</text>
+		<text>
+			<old>Background Color</old>
+			<new>背景顏色</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>自動執行命令</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Block User</old>
+			<new>阻擋使用者</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>書籤和搜尋引擎匯出成功!</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>瀏覽器外掛程式</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>書籤匯出成功!</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this target?</old>
+			<new>你確定要刪除目標？</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this param?</old>
+			<new>你確定要刪除這個參數？</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>允許使用者註冊</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>允許公共資料夾</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>管理員</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>允許網頁上傳</new>
+		</text>
+		<text>
+			<old>Allow</old>
+			<new>允許</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this ACL?</old>
+			<new>你確定要刪除這個ACL？</new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>程式</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Deny</old>
+			<new>否定</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>主要</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>主題</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>載入</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>維護</new>
+		</text>
+		<text>
+			<old>Maintained Groups</old>
+			<new>維護群組</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>管理預設書籤</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>維護管理員</new>
+		</text>
+		<text>
+			<old>Maintained Users</old>
+			<new>維護使用者</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>上次登錄</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>語言</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>群組名稱</new>
+		</text>
+		<text>
+			<old>Group</old>
+			<new>群組</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>群組成功被刪除。</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>群組</new>
+		</text>
+		<text>
+			<old>Host Name</old>
+			<new>主機名稱</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>密碼不正確！</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>匯入</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>管理預設搜尋引擎</new>
+		</text>
+		<text>
+			<old>Manage Groups</old>
+			<new>管理群組</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>鏡像儲存成功.</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>刪除鏡像成功。</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>鏡像不存在</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>鏡像</new>
+		</text>
+		<text>
+			<old>Mouse</old>
+			<new>滑鼠</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>新建命令</new>
+		</text>
+		<text>
+			<old>Never</old>
+			<new>永不</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>網頁領航員</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>鏡像地址(例如:%s)</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>管理您的系統使用者</new>
+		</text>
+		<text>
+			<old>Manage Users</old>
+			<new>管理使用者</new>
+		</text>
+		<text>
+			<old>Manage the packages repositories</old>
+			<new>管理包裹資料庫</new>
+		</text>
+		<text>
+			<old>Manage the navigator's startpage, bookmarks and search engines</old>
+			<new>管理網頁領航員的首頁、書籤以及蒐尋引擎</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>管理自動執行命令</new>
+		</text>
+		<text>
+			<old>Manage your security settings</old>
+			<new>管理安全設定</new>
+		</text>
+		<text>
+			<old>Manage your system's SMTP settings</old>
+			<new>管理系統的SMTP設定</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>管理您的系統群組</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>更多翻譯</new>
+		</text>
+		<text>
+			<old>Function:</old>
+			<new>功能</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>電子信箱</new>
+		</text>
+		<text>
+			<old>Done</old>
+			<new>完成</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>您確定要還原eyeNav預設設定？</new>
+		</text>
+		<text>
+			<old>Edit ACL</old>
+			<new>編輯ACL</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>編輯命令</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>編輯所選使用者</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>編輯鏡像</new>
+		</text>
+		<text>
+			<old>Edit Filetype</old>
+			<new>編輯檔案類型</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>您確定要還原到預設書籤？</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>您確定要還原到系統預設設定？</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Desktop Icons</old>
+			<new>桌面圖示</new>
+		</text>
+		<text>
+			<old>Description</old>
+			<new>敘述</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>確定移除該命令?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>確定將該群組從系統中移除?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>確定將該使用者從系統中移除?</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>您確定要將此鏡像從該系統中移除嗎?</new>
+		</text>
+		<text>
+			<old>Edit User</old>
+			<new>編輯使用者</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編輯</new>
+		</text>
+		<text>
+			<old>Filetype</old>
+			<new>檔案類型</new>
+		</text>
+		<text>
+			<old>Filetype successfully deleted.</old>
+			<new>已刪除檔案類型</new>
+		</text>
+		<text>
+			<old>Filetype successfully created.</old>
+			<new>已新增檔案類型</new>
+		</text>
+		<text>
+			<old>Filetypes</old>
+			<new>當案類型</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>鎖定：圖示不能移動。</new>
+		</text>
+		<text>
+			<old>Function</old>
+			<new>功能</new>
+		</text>
+		<text>
+			<old>Full Name</old>
+			<new>全名</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>來自</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>檔案無法下載.請修改連結.</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>檔案下載成功</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>匯出預設書籤和搜尋引擎</new>
+		</text>
+		<text>
+			<old>Expiration Date</old>
+			<new>過期日期</new>
+		</text>
+		<text>
+			<old>Expiration (dd/mm/yyyy)</old>
+			<new>過期日期(dd/mm/yyyy)</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>匯出</new>
+		</text>
+		<text>
+			<old>Extension</old>
+			<new>擴展</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>圖示自動排列</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>oneye公告板</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s 個命令</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>你可以貼上"%s"到另一個資料夾了！</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>連結無法被複製！</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>刪除檔案發生錯誤！</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s"已被移到資源回收桶</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s"已被成功移除</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Preferences</old>
+			<new>選項</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>屬性</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>貼上</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>以...打開</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>打開垃圾桶</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重新命名</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>上傳檔案</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>歡迎</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>垃圾桶</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>分享</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS閱讀器</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>新建快速啟動</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建資料夾</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>以zip格式下載</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>複製</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>行事曆</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>應用程式</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下載</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編輯</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>啟動</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>新建文件</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>主目錄</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>探索</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>清空資源回收桶</new>
+		</text>
+		<text>
+			<old>Address Book</old>
+			<new>通訊錄</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>Select a file to open</old>
+			<new>選擇一個要打開的檔案</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>另存為</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>選擇資料夾</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>選擇</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>必須選擇檔案</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>必須輸入名稱</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>好</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>開啟</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>不要！</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>覆蓋確認</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>開啟資料夾發生錯誤</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>名稱</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>主目錄</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>資料夾</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>確定要覆蓋這個檔案？</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Process Manager</old>
+			<new>程式管理員</new>
+		</text>
+		<text>
+			<old>Presentation</old>
+			<new>圖像瀏覽器</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>辦公</new>
+		</text>
+		<text>
+			<old>Oct</old>
+			<new>八月</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>公告板</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>Right</old>
+			<new>右</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>移除</new>
+		</text>
+		<text>
+			<old>Remove element</old>
+			<new>移除元素</new>
+		</text>
+		<text>
+			<old>Nov</old>
+			<new>十一月</new>
+		</text>
+		<text>
+			<old>New Text</old>
+			<new>十一月</new>
+		</text>
+		<text>
+			<old>Move right</old>
+			<new>向右移</new>
+		</text>
+		<text>
+			<old>Move left</old>
+			<new>向左移</new>
+		</text>
+		<text>
+			<old>Move down</old>
+			<new>向下移</new>
+		</text>
+		<text>
+			<old>Move up</old>
+			<new>向上移</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>網頁領航員</new>
+		</text>
+		<text>
+			<old>New Menu</old>
+			<new>新選單</new>
+		</text>
+		<text>
+			<old>New Icon</old>
+			<new>新圖示</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>網路</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS閱讀器</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>星期六</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>文字編輯器</new>
+		</text>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>Taskbar</old>
+			<new>任務欄</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>系統</new>
+		</text>
+		<text>
+			<old>Text</old>
+			<new>文字</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>星期四</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>文件編輯器</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>星期三</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>星期二</new>
+		</text>
+		<text>
+			<old>System Preferences</old>
+			<new>系統設定</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>星期天</new>
+		</text>
+		<text>
+			<old>Show / Hide image</old>
+			<new>顯示/隱藏 圖像</new>
+		</text>
+		<text>
+			<old>Sep</old>
+			<new>九月</new>
+		</text>
+		<text>
+			<old>Select the type of the new element. You can edit its options later.</old>
+			<new>選擇新元素的類型。此項目可以之後再修改</new>
+		</text>
+		<text>
+			<old>Show / Hide text</old>
+			<new>顯示/隱藏 文字</new>
+		</text>
+		<text>
+			<old>Show Desktop</old>
+			<new>顯示桌面</new>
+		</text>
+		<text>
+			<old>Spreadsheet</old>
+			<new>電子表格</new>
+		</text>
+		<text>
+			<old>Space</old>
+			<new>空間</new>
+		</text>
+		<text>
+			<old>Showdesktop</old>
+			<new>顯示桌面</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>星期一</new>
+		</text>
+		<text>
+			<old>Menu</old>
+			<new>選單</new>
+		</text>
+		<text>
+			<old>Change text</old>
+			<new>更改文字</new>
+		</text>
+		<text>
+			<old>Change image</old>
+			<new>更改圖像</new>
+		</text>
+		<text>
+			<old>Change height</old>
+			<new>更改高度</new>
+		</text>
+		<text>
+			<old>Change format</old>
+			<new>更改格式</new>
+		</text>
+		<text>
+			<old>Change width</old>
+			<new>更改寬度</new>
+		</text>
+		<text>
+			<old>Change</old>
+			<new>更改</new>
+		</text>
+		<text>
+			<old>Contact Manager</old>
+			<new>通訊錄</new>
+		</text>
+		<text>
+			<old>Close Session</old>
+			<new>登出使用者</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>西洋棋</new>
+		</text>
+		<text>
+			<old>Change command</old>
+			<new>更改命令</new>
+		</text>
+		<text>
+			<old>Catching Game</old>
+			<new>閃躲遊戲</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>應用程式</new>
+		</text>
+		<text>
+			<old>Add Element</old>
+			<new>增加元素</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>附屬程式</new>
+		</text>
+		<text>
+			<old>Apr</old>
+			<new>四月</new>
+		</text>
+		<text>
+			<old>Aug</old>
+			<new>八月</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>行事曆</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>計算機</new>
+		</text>
+		<text>
+			<old>Datetime</old>
+			<new>約會時間</new>
+		</text>
+		<text>
+			<old>Dec</old>
+			<new>十二月</new>
+		</text>
+		<text>
+			<old>Left</old>
+			<new>左</new>
+		</text>
+		<text>
+			<old>Launch App</old>
+			<new>啟動程式</new>
+		</text>
+		<text>
+			<old>Jun</old>
+			<new>六月</new>
+		</text>
+		<text>
+			<old>Line</old>
+			<new>線</new>
+		</text>
+		<text>
+			<old>Mail Client</old>
+			<new>信箱</new>
+		</text>
+		<text>
+			<old>Mar</old>
+			<new>三月</new>
+		</text>
+		<text>
+			<old>Manage Widgets</old>
+			<new>管理附件</new>
+		</text>
+		<text>
+			<old>Manage Dock</old>
+			<new>管理工具列</new>
+		</text>
+		<text>
+			<old>Jul</old>
+			<new>七月</new>
+		</text>
+		<text>
+			<old>Jan</old>
+			<new>一月</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>檔案管理</new>
+		</text>
+		<text>
+			<old>Feb</old>
+			<new>二月</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this element?</old>
+			<new>您真的要移除此元素嗎？</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>星期五</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP客戶端</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>內部訊息</new>
+		</text>
+		<text>
+			<old>Icon</old>
+			<new>圖示</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>遊戲</new>
+		</text>
+		<text>
+			<old>About oneye</old>
+			<new>關於oneye</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Open Document Text file</old>
+			<new>開啟文件</new>
+		</text>
+		<text>
+			<old>MS Word document file</old>
+			<new>MS Word檔案</new>
+		</text>
+		<text>
+			<old>File not found.</old>
+			<new>檔案無法找到</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>對不起,您沒有足夠的權限！</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>文件編輯器</new>
+		</text>
+		<text>
+			<old>The file does not exist.</old>
+			<new>檔案不存在</new>
+		</text>
+		<text>
+			<old>Sorry, you need to enable OpenOffice Support to view this document.</old>
+			<new>您必須啟用OpenOffice支援才能瀏覽此文件</new>
+		</text>
+		<text>
+			<old>oneye document file</old>
+			<new>oneye文件檔案</new>
+		</text>
+		<text>
+			<old>Error saving file.</old>
+			<new>儲存檔案失敗</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>您是否要儲存變更？</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>刪除警告</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>文件儲存成功</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>不儲存</new>
+		</text>
+		<text>
+			<old>Error creating file.</old>
+			<new>創建檔案失敗</new>
+		</text>
+		<text>
+			<old>Error - Document not saved. Please try again.</old>
+			<new>儲存出錯，請再試一次！</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>You can close this window now.</old>
+			<new>現在可以關閉此視窗</new>
+		</text>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>連結無法被下載！</new>
+		</text>
+		<text>
+			<old>Download!</old>
+			<new>下載！</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Import</old>
+			<new>匯入</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>從OPML匯入Feed</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>幫助</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>正在載入，請稍等…</new>
+		</text>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>已列出標題數：</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>閱讀歷史儲存期限（天）：</new>
+		</text>
+		<text>
+			<old>OPML files</old>
+			<new>OPML檔案</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>資料夾成功更改</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Feed更新頻率（秒）：</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>修改Feed成功</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>增加Feed成功</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Feed列表成功匯出</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Feed成功匯入</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>資料夾增加成功</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Feeds</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>RSS閱讀器</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>無法向指定目錄匯出清單</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>輸入Feed的URL位址</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>輸入資料夾名稱</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>輸入的URL無法獲取</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>無法從指定檔案匯入Feeds</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>您必須輸入名稱</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>您必須重新啟動程式以使您的修改生效。</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>輸入要創建的資料夾名稱（可選）：</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>輸入Feed名稱（可選）：</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>選擇檔案</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>選擇一個物件以閱讀...</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>選擇一個Feed以瀏覽...</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>儲存設定成功</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>標題</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>內容預覽量（字數）：</new>
+		</text>
+		<text>
+			<old>eyeFeeds - Enclosure</old>
+			<new>eyeFeeds - 附件</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>匯出</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>書籤</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>選擇匯入檔案</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>選擇資料夾：</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>選擇資料夾：</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>為已匯入的feed選擇資料夾：</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>確定要刪除這個資料夾？</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>確定要刪除這個Feed？</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>增加Feed</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>增加Feed</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>確認</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>增加資料夾</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>增加資料夾</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>套用</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>選擇母資料夾：</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>選擇母資料夾：</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>獲取指定feed出錯</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>刪除Feed出錯</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>套用更改出錯</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>匯入feed出錯</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>儲存feed出錯</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>儲存設定出錯</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>儲存資料夾出錯</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>增加資料夾錯誤</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>增加Feed錯誤</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>刪除 feed/資料夾</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>編輯Feed</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>編輯資料夾</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>元素刪除成功</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編輯</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>（未知名稱）</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重新命名</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>恢復</new>
+		</text>
+		<text>
+			<old>Share with</old>
+			<new>分享</new>
+		</text>
+		<text>
+			<old>Real</old>
+			<new>實際</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>屬性</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建資料夾</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>下一個</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>以...開啟</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>貼上</new>
+		</text>
+		<text>
+			<old>Show all</old>
+			<new>顯示全部</new>
+		</text>
+		<text>
+			<old>Show files</old>
+			<new>顯示檔案</new>
+		</text>
+		<text>
+			<old>Update view</old>
+			<new>更新視圖</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>上傳</new>
+		</text>
+		<text>
+			<old>Users</old>
+			<new>使用者</new>
+		</text>
+		<text>
+			<old>View</old>
+			<new>視圖</new>
+		</text>
+		<text>
+			<old>Tree</old>
+			<new>目錄樹</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>資源回收桶</new>
+		</text>
+		<text>
+			<old>Show folders</old>
+			<new>顯示資料夾</new>
+		</text>
+		<text>
+			<old>Show links</old>
+			<new>顯示連結</new>
+		</text>
+		<text>
+			<old>Show not</old>
+			<new>顯示不是</new>
+		</text>
+		<text>
+			<old>Show only</old>
+			<new>僅顯示</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>新檔案</new>
+		</text>
+		<text>
+			<old>List</old>
+			<new>清單</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下載</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編輯</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>清空資源回收桶</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>探索</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>下載為 zip檔案</new>
+		</text>
+		<text>
+			<old>Details</old>
+			<new>細節</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>後退</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>複製</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>檔案名稱</new>
+		</text>
+		<text>
+			<old>Files Manager</old>
+			<new>檔案管理</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>幫助</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>主目錄</new>
+		</text>
+		<text>
+			<old>Icons</old>
+			<new>圖示</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>啟動</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>群組</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>檔案大小(位元群組)</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>創建時間</new>
+		</text>
+		<text>
+			<old>Filter:</old>
+			<new>篩檢程式</new>
+		</text>
+		<text>
+			<old>Folders at first</old>
+			<new>資料夾優先</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>動作</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>輸入新資料夾名稱</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>輸入新檔案/資料夾名稱或路徑</new>
+		</text>
+		<text>
+			<old>Trying to connect to %s:%s (user "%s") ...</old>
+			<new>嘗試連接到%s:%s(使用者"%s")</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>請選擇檔案上傳到路徑:</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重新命名</new>
+		</text>
+		<text>
+			<old>Unable to connect to %s</old>
+			<new>無法連接到%s</new>
+		</text>
+		<text>
+			<old>Unable to create directory, error occured. (Do you have sufficient permissions?)</old>
+			<new>無法創建目錄，出錯。（請檢查您是否擁有權限）</new>
+		</text>
+		<text>
+			<old>Unable to download directory, error occured</old>
+			<new>無法下載路徑，出錯！</new>
+		</text>
+		<text>
+			<old>Unable to delete folder, error occured. (Do you have sufficient permissions?)</old>
+			<new>無法刪除目錄，出錯。（請檢查您是否擁有權限）</new>
+		</text>
+		<text>
+			<old>Unable to delete file, error occured. (Do you have sufficient permissions?)</old>
+			<new>無法刪除檔案，出錯。（請檢查您是否擁有權限）</new>
+		</text>
+		<text>
+			<old>Unable to create temporary file! Download aborted.</old>
+			<new>無法創建暫存檔案，下載終止。</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>重新命名/移除</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>重新命名檔案/資料夾</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密碼</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>密碼:</new>
+		</text>
+		<text>
+			<old>Passive mode failed! Data transfers will be performed in active mode</old>
+			<new>被動模式失敗，資料傳輸將會採用主動模式</new>
+		</text>
+		<text>
+			<old>Passive mode accepted</old>
+			<new>被動模式已接受</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>所有者</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>權限</new>
+		</text>
+		<text>
+			<old>Please specify a host to connect to</old>
+			<new>請選擇要連接的主機</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>埠:</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>埠</new>
+		</text>
+		<text>
+			<old>Please specify a username</old>
+			<new>請選擇使用者名稱</new>
+		</text>
+		<text>
+			<old>Unable to download file, error occured</old>
+			<new>無法下載檔案，出錯。</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured. (Do you have sufficient permissions?)</old>
+			<new>無法列出檔案，出錯。(請確認您是否擁有權限)</new>
+		</text>
+		<text>
+			<old>You must connect first</old>
+			<new>您必須先連接</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>您必須先選擇檔案或資料夾</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>您必須先連接</new>
+		</text>
+		<text>
+			<old>yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>您必須選擇一個主機才能刪除</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>您必須選擇一個主機才能編輯</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>您必須確定一個主機名稱,埠以及使用者名稱</new>
+		</text>
+		<text>
+			<old>You must select a remote file</old>
+			<new>您必須選擇一個遠端檔案</new>
+		</text>
+		<text>
+			<old>You must select a local file</old>
+			<new>您必須選擇一個本地檔案</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>您必須選擇一個主機才能載入</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>使用者名稱</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>使用者:</new>
+		</text>
+		<text>
+			<old>Unable to upload file, error occured</old>
+			<new>無法上傳檔案，出錯</new>
+		</text>
+		<text>
+			<old>Unable to write file, try to check permissions.</old>
+			<new>無法寫檔案，請檢查權限。</new>
+		</text>
+		<text>
+			<old>Unable to rename selection, error occured. (Do you have sufficient permissions?)</old>
+			<new>無法重新命名被選中項，出錯。（請檢查您是否擁有權限）</new>
+		</text>
+		<text>
+			<old>Unable to read temporary file! Upload aborted.</old>
+			<new>無法讀取暫存檔案！上傳終止。</new>
+		</text>
+		<text>
+			<old>Unable to list files, error occured</old>
+			<new>無法列出檔案，出錯。</new>
+		</text>
+		<text>
+			<old>Unknown error occured during upload operation</old>
+			<new>上傳操作時發生未知錯誤。</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>上傳檔案</new>
+		</text>
+		<text>
+			<old>User "%s" authenticated successfully</old>
+			<new>使用者"%s"認證成功</new>
+		</text>
+		<text>
+			<old>Uploading: "%s" to "%s"</old>
+			<new>上傳中：從"%s"到"%s"</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>上傳</new>
+		</text>
+		<text>
+			<old>Upload finished successfully, %s bytes transfered.</old>
+			<new>上傳成功，%s B已傳輸。</new>
+		</text>
+		<text>
+			<old>Only files can be downloaded</old>
+			<new>只有檔案能被下載</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>創建目錄"%s"成功</new>
+		</text>
+		<text>
+			<old>Directory listing successful for "%s" (%s file(s) found)</old>
+			<new>列出目錄"%s"內容成功（找到%s個檔案）</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>刪除選擇</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>刪除檔案/資料夾</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>斷開連接</new>
+		</text>
+		<text>
+			<old>Disconnected - FTP Client</old>
+			<new>段開連接-FTP客戶端</new>
+		</text>
+		<text>
+			<old>Downloading: "%s" to "%s"</old>
+			<new>正在下載：從%s到%s</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下載</new>
+		</text>
+		<text>
+			<old>Download finished successfully, %s bytes transfered.</old>
+			<new>下載成功完成。共傳輸%s 位元組</new>
+		</text>
+		<text>
+			<old>Disconnecting from %s:%s</old>
+			<new>%s斷開連接：%s</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Create</old>
+			<new>創建</new>
+		</text>
+		<text>
+			<old>Attempting to create folder "%s" in "%s"...</old>
+			<new>正在在目錄“%s”中創建"%s"…</new>
+		</text>
+		<text>
+			<old>Attempting to rename/move "%s"...</old>
+			<new>正在重新命名/移動"%s"…</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>您確定要刪除該檔案/資料夾嗎?</new>
+		</text>
+		<text>
+			<old>An error occurred during path resolving, aborting</old>
+			<new>路徑解析出錯，退出。</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>增加主機</new>
+		</text>
+		<text>
+			<old>Authenticating user...</old>
+			<new>認證使用者...</new>
+		</text>
+		<text>
+			<old>Authentication failed. Invalid username/password!</old>
+			<new>認證失敗。無效的使用者名稱或密碼！</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>已連接</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>連接</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>編輯選項</new>
+		</text>
+		<text>
+			<old>Error while trying to browse local folder!</old>
+			<new>瀏覽本地目錄出錯！</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>主機:</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>主機名稱</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>幫助</new>
+		</text>
+		<text>
+			<old>Help and FAQ available on the eyeOS wiki: %s</old>
+			<new>eyeos Wiki上的幫助和常見問題回答（FAQ）：%s</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Hosts Management</old>
+			<new>主機管理</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>載入所選</new>
+		</text>
+		<text>
+			<old>no</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>新建資料夾</new>
+		</text>
+		<text>
+			<old>Name must not be empty</old>
+			<new>名稱不能為空</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>編輯主機</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>FTP客戶端</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>強制被動模式</new>
+		</text>
+		<text>
+			<old>eyeFTP v.%s started</old>
+			<new>eyeFTP v.%s已啟動</new>
+		</text>
+		<text>
+			<old>Error, can't upload file "%s" to FTP server</old>
+			<new>出錯，無法將檔案“%s”上傳到FTP伺服器</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted.</old>
+			<new>上傳檔案出錯！傳輸中止。</new>
+		</text>
+		<text>
+			<old>Error while uploading file! Transfer aborted. (Do you have sufficient permissions?)</old>
+			<new>上傳文件出錯！傳輸終止（請確認您有這權限）。</new>
+		</text>
+		<text>
+			<old>Failed to connect to specified host!</old>
+			<new>連接到指定主機失敗！</new>
+		</text>
+		<text>
+			<old>File "%s" successfully uploaded to "%s"</old>
+			<new>檔案"%s"成功上傳到"%s"</new>
+		</text>
+		<text>
+			<old>Filesize</old>
+			<new>檔案大小</new>
+		</text>
+		<text>
+			<old>Filesize (B)</old>
+			<new>檔案大小（位元組）</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>檔案名稱</new>
+		</text>
+		<text>
+			<old>File/folder renamed successfully</old>
+			<new>檔案/目錄重新命名成功</new>
+		</text>
+		<text>
+			<old>Add -a to LIST command</old>
+			<new>增加-a到命令清單</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeHelp</name>
+		<text>
+			<old>Topics</old>
+			<new>主題</new>
+		</text>
+		<text>
+			<old>User to contact to ask for help:</old>
+			<new>可聯絡的求助對象：</new>
+		</text>
+		<text>
+			<old>You are not allowed to do this.</old>
+			<new>您不被允許執行此動作</new>
+		</text>
+		<text>
+			<old>The field must not be left empty.</old>
+			<new>欄位不能為空白！</new>
+		</text>
+		<text>
+			<old>Submit</old>
+			<new>送出</new>
+		</text>
+		<text>
+			<old>Changes successfully applied.</old>
+			<new>更改已套用</new>
+		</text>
+		<text>
+			<old>eyeHelp preferences</old>
+			<new>eyeHelp設定</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Ask for help</old>
+			<new>尋求幫助</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeIframize</name>
+		<text>
+			<old>What URL do you want to open in an Iframe?</old>
+			<new>您想以Iframe開啟什麼網址？</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>開啟</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>PNG files</old>
+			<new>PNG檔案</new>
+		</text>
+		<text>
+			<old>No image could be found.</old>
+			<new>沒有找到圖片</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>上一個</new>
+		</text>
+		<text>
+			<old>TIFF files</old>
+			<new>TIFF檔案</new>
+		</text>
+		<text>
+			<old>View Images</old>
+			<new>查看圖片</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>下一個</new>
+		</text>
+		<text>
+			<old>JPG files</old>
+			<new>JPG檔案</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>BMP files</old>
+			<new>BMP檔案</new>
+		</text>
+		<text>
+			<old>GIF files</old>
+			<new>GIF檔案</new>
+		</text>
+		<text>
+			<old>Image formats</old>
+			<new>影像格式</new>
+		</text>
+		<text>
+			<old>JPEG files</old>
+			<new>JPEG檔案</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>您必須選擇一個目錄以匯入</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>匯入</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>瀏覽</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>文件%s已匯入</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInfo</name>
+		<text>
+			<old>Thanks to...</old>
+			<new>感謝</new>
+		</text>
+		<text>
+			<old>Supporters</old>
+			<new>支援者</new>
+		</text>
+		<text>
+			<old>Projects</old>
+			<new>計畫</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Only root can install packages</old>
+			<new>只有系統管理員才能安裝套用軟體。</new>
+		</text>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>外掛程式安裝成功!</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>無軟體安裝!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>正在安裝</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>您確定將此外掛程式安裝到oneye系統嗎?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run...</old>
+			<new>執行...</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>執行</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>輸入程式名稱或命令執行</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>使用者</new>
+		</text>
+		<text>
+			<old>Run as different user</old>
+			<new>以不同使用者執行</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密碼</new>
+		</text>
+		<text>
+			<old>Error, empty username or password</old>
+			<new>錯誤,使用者名稱或密碼為空</new>
+		</text>
+		<text>
+			<old>Error, invalid username or password</old>
+			<new>錯誤,無效使用者名稱或密碼</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>無效的使用者名稱</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s未找到</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>The language does not exist!</old>
+			<new>此語言不存在！</new>
+		</text>
+		<text>
+			<old>That user already exists!</old>
+			<new>該使用者已存在</new>
+		</text>
+		<text>
+			<old>Retype password</old>
+			<new>確認密碼</new>
+		</text>
+		<text>
+			<old>This system does not allow user registrations!</old>
+			<new>本系統不允許帳號註冊</new>
+		</text>
+		<text>
+			<old>Username is too short!</old>
+			<new>使用者名稱太膽</new>
+		</text>
+		<text>
+			<old>Your account has been disabled!</old>
+			<new>您的帳號被封鎖！</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>使用者名稱</new>
+		</text>
+		<text>
+			<old>Username should be alpha-numeric!</old>
+			<new>使用者名稱請以數字和英文輸入</new>
+		</text>
+		<text>
+			<old>Please fill out all fields!</old>
+			<new>請填寫所有欄位！</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>密碼</new>
+		</text>
+		<text>
+			<old>Error creating new user!</old>
+			<new>建立使用者失敗！</new>
+		</text>
+		<text>
+			<old>Enter</old>
+			<new>登入</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>註冊帳號</new>
+		</text>
+		<text>
+			<old>Language (this session)</old>
+			<new>語言(本次登入)</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>語言</new>
+		</text>
+		<text>
+			<old>Password is too short!</old>
+			<new>密碼太短！</new>
+		</text>
+		<text>
+			<old>Password fields do not match!</old>
+			<new>兩次輸入密碼不符！</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>註冊使用者</new>
+		</text>
+		<text>
+			<old>( Default )</old>
+			<new>(預設語言)</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMail</name>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>Run</old>
+			<new>執行</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>回覆：</new>
+		</text>
+		<text>
+			<old>Security settings has been updated.</old>
+			<new>安全選項已更新</new>
+		</text>
+		<text>
+			<old>Security</old>
+			<new>安全</new>
+		</text>
+		<text>
+			<old>Sending mail...</old>
+			<new>郵件傳送中...</new>
+		</text>
+		<text>
+			<old>Send</old>
+			<new>寄出</new>
+		</text>
+		<text>
+			<old>Remove Account</old>
+			<new>刪除帳戶</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Manual</old>
+			<new>手動</new>
+		</text>
+		<text>
+			<old>Full Name:</old>
+			<new>全名：</new>
+		</text>
+		<text>
+			<old>From:</old>
+			<new>來自：</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>名稱</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>密碼：否</new>
+		</text>
+		<text>
+			<old>Port:</old>
+			<new>連接埠：</new>
+		</text>
+		<text>
+			<old>Please fill out all fields.</old>
+			<new>密碼：</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>寄出</new>
+		</text>
+		<text>
+			<old>Server Port:</old>
+			<new>伺服器連接埠：</new>
+		</text>
+		<text>
+			<old>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for IMAP first.</old>
+			<new>您無法啟動eyeMail。系統管理員必須啟用PHP對IMAP的拓展功能</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Write a new mail</old>
+			<new>撰寫新信</new>
+		</text>
+		<text>
+			<old>You cannot run eyeMail. The server's administrator needs to activate the PHP extension for SQLite first.</old>
+			<new>您無法啟動eyeMail。系統管理員必須啟用PHP對SQLite的拓展功能</new>
+		</text>
+		<text>
+			<old>You have %s new mail</old>
+			<new>您有%s封新信</new>
+		</text>
+		<text>
+			<old>Your message has been sent</old>
+			<new>您的信件已寄出</new>
+		</text>
+		<text>
+			<old>You have %s new mails</old>
+			<new>您有%s封新信</new>
+		</text>
+		<text>
+			<old>Username:</old>
+			<new>使用者名稱：</new>
+		</text>
+		<text>
+			<old>User:</old>
+			<new>使用者：</new>
+		</text>
+		<text>
+			<old>Subject: %s</old>
+			<new>標題：%s</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>標題</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>大小</new>
+		</text>
+		<text>
+			<old>Subject:</old>
+			<new>標題：</new>
+		</text>
+		<text>
+			<old>To: %s</old>
+			<new>收信人：%s</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>無法創建檔案</new>
+		</text>
+		<text>
+			<old>To:</old>
+			<new>收信人：</new>
+		</text>
+		<text>
+			<old>From: %s</old>
+			<new>來自：%s</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>來自</new>
+		</text>
+		<text>
+			<old>Check for new mail:</old>
+			<new>檢查新信：</new>
+		</text>
+		<text>
+			<old>CCO:</old>
+			<new>密件副本：</new>
+		</text>
+		<text>
+			<old>CC:</old>
+			<new>副本：</new>
+		</text>
+		<text>
+			<old>Check mail at startup</old>
+			<new>啟動後自動檢查信件</new>
+		</text>
+		<text>
+			<old>Contacts</old>
+			<new>聯絡人</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Create a new account</old>
+			<new>新建帳戶</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>後退</new>
+		</text>
+		<text>
+			<old>Activity Monitor</old>
+			<new>動態監視器</new>
+		</text>
+		<text>
+			<old>Accounts</old>
+			<new>帳號</new>
+		</text>
+		<text>
+			<old>Account Type:</old>
+			<new>帳號類型：</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>進階</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Are you sure?</old>
+			<new>您確定？</new>
+		</text>
+		<text>
+			<old>Date: %s</old>
+			<new>日期：%s</new>
+		</text>
+		<text>
+			<old>Date:</old>
+			<new>日期：</new>
+		</text>
+		<text>
+			<old>Every 30 minutes</old>
+			<new>每三十分鐘</new>
+		</text>
+		<text>
+			<old>Every 15 minutes</old>
+			<new>每十五分鐘</new>
+		</text>
+		<text>
+			<old>Error sending mail</old>
+			<new>傳送信件失敗</new>
+		</text>
+		<text>
+			<old>Every 5 minutes</old>
+			<new>每五分鐘</new>
+		</text>
+		<text>
+			<old>Every hour</old>
+			<new>每小時</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>前進</new>
+		</text>
+		<text>
+			<old>Finish</old>
+			<new>完成</new>
+		</text>
+		<text>
+			<old>Enter an account name to be identified later.</old>
+			<new>輸入未來再處理的帳戶名稱</new>
+		</text>
+		<text>
+			<old>Email:</old>
+			<new>信件：</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this mail?</old>
+			<new>您確定要刪除這封信件？</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Downloading all mails...</old>
+			<new>下載信件中...</new>
+		</text>
+		<text>
+			<old>Email account has been created.</old>
+			<new>信箱帳號已建立</new>
+		</text>
+		<text>
+			<old>Email Address:</old>
+			<new>信箱地址：</new>
+		</text>
+		<text>
+			<old>Email account has been updated.</old>
+			<new>信箱帳號已更新</new>
+		</text>
+		<text>
+			<old>Account Name:</old>
+			<new>帳號名稱：</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMedia</name>
+		<text>
+			<old>Previous</old>
+			<new>上一個</new>
+		</text>
+		<text>
+			<old>Playing: %s</old>
+			<new>正在播放：%s</new>
+		</text>
+		<text>
+			<old>Play</old>
+			<new>播放</new>
+		</text>
+		<text>
+			<old>Remove File</old>
+			<new>移除檔案</new>
+		</text>
+		<text>
+			<old>Repeat</old>
+			<new>重複</new>
+		</text>
+		<text>
+			<old>Successfully opened: %s</old>
+			<new>成功開啟%s</new>
+		</text>
+		<text>
+			<old>Stop</old>
+			<new>停止</new>
+		</text>
+		<text>
+			<old>Shuffle</old>
+			<new>隨意順序</new>
+		</text>
+		<text>
+			<old>Paused.</old>
+			<new>暫停</new>
+		</text>
+		<text>
+			<old>Nothing Playing.</old>
+			<new>沒有檔案播放中</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>檔案名稱</new>
+		</text>
+		<text>
+			<old>Error opening: %s</old>
+			<new>開啟%s發生錯誤</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>增加資料夾</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Media Player</old>
+			<new>媒體播放器</new>
+		</text>
+		<text>
+			<old>No folder selected.</old>
+			<new>沒有資料夾被選擇</new>
+		</text>
+		<text>
+			<old>No file selected.</old>
+			<new>沒有檔案被選擇</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>下一個</new>
+		</text>
+		<text>
+			<old>Add File</old>
+			<new>新增檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Reply</old>
+			<new>回復</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>還原</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>閱讀</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>訊息儲存至原資料夾</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>閱讀訊息</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>已發送</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>主題</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>您必須選擇一個要刪除的訊息</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>您必須選擇一個要打開的訊息</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>未讀訊息</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>垃圾箱</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>至</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>內部訊息</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>收件箱</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Confirm empty</old>
+			<new>確認清空</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Are you sure you want to empty all messages of this folder?</old>
+			<new>你確定要清空該資料夾中所有的內容？</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>下載</new>
+		</text>
+		<text>
+			<old>Emptied</old>
+			<new>已清空</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>來自</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>檔案儲存成功</new>
+		</text>
+		<text>
+			<old>Error opening message</old>
+			<new>打開訊息錯誤</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>清空</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>確認</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>一些特殊字元被清除</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>輸入新資料夾名稱</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>錯誤存取路徑</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>新建資料夾</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>確認</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMp3</name>
+		<text>
+			<old>This is not a bug. Unfortunately it is a problem with your Flash player!</old>
+			<new>這不是Bug...不幸地，您的Flash player有問題！</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Refresh</old>
+			<new>重新整理</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>搜索</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>打開搜索</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>打開書籤</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>瀏覽器</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>起始頁</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav bookmarks file!</old>
+			<new>選中的檔案並非有效的eyeNav書籤檔案！</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>網站</new>
+		</text>
+		<text>
+			<old>Uncategorized</old>
+			<new>無法識別的</new>
+		</text>
+		<text>
+			<old>The selected file is not a valid eyeNav search file!</old>
+			<new>選中的檔案並非eyeNav搜索檔案！</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>同標題的書籤已存在!</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>連結成功儲存.</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>連結刪除成功.</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>書籤</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>書籤標題</new>
+		</text>
+		<text>
+			<old>Bookmark does not exist!</old>
+			<new>書籤不存在！</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>增加書籤</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>後退</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>刪除書籤</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>您確定要刪除該書籤麼?</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>知識庫</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>圖片</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>論壇</new>
+		</text>
+		<text>
+			<old>Forward</old>
+			<new>前進</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>接受</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>另存為</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>對不起,權限不足！</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>文字編輯器</new>
+		</text>
+		<text>
+			<old>Unable to create file</old>
+			<new>無法創建該文件.</new>
+		</text>
+		<text>
+			<old>Text files</old>
+			<new>文字檔案</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>開啟</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>新檔案</new>
+		</text>
+		<text>
+			<old>Delete warning</old>
+			<new>刪除警告</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Do you want to save changes?</old>
+			<new>您確定要套用變更？</new>
+		</text>
+		<text>
+			<old>Don't save</old>
+			<new>不要儲存</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>檔案儲存成功.</new>
+		</text>
+		<text>
+			<old>All files</old>
+			<new>所有檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePaste</name>
+		<text>
+			<old>Replace</old>
+			<new>取代</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>重新命名</new>
+		</text>
+		<text>
+			<old>Links cannot be pasted!</old>
+			<new>連結不能被貼上！</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>對不起，權限不足！</new>
+		</text>
+		<text>
+			<old>You are already on the first slide, you cannot go back anymore!</old>
+			<new>你已經在第一頁。無法往回。</new>
+		</text>
+		<text>
+			<old>You need to select a file to open!</old>
+			<new>你必須選擇檔案！</new>
+		</text>
+		<text>
+			<old>Presentations</old>
+			<new>簡報</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>開啟</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>前進</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>後退</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>結束處理程序成功</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>程式管理員</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>程式名稱</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>使用者名稱</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>程式ID</new>
+		</text>
+		<text>
+			<old>New process</old>
+			<new>新處理程序</new>
+		</text>
+		<text>
+			<old>Application</old>
+			<new>程式</new>
+		</text>
+		<text>
+			<old>Close Application</old>
+			<new>關閉程式</new>
+		</text>
+		<text>
+			<old>Kill process</old>
+			<new>結束處理程序</new>
+		</text>
+		<text>
+			<old>Application killed successfully.</old>
+			<new>結束程式成功</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProperties</name>
+		<text>
+			<old>PWD file</old>
+			<new>PWD檔案</new>
+		</text>
+		<text>
+			<old>PSW file</old>
+			<new>PSW檔案</new>
+		</text>
+		<text>
+			<old>Python source</old>
+			<new>Python原始碼</new>
+		</text>
+		<text>
+			<old>Rich Text Format</old>
+			<new>Rich文字格式</new>
+		</text>
+		<text>
+			<old>Ruby source</old>
+			<new>Ruby原始碼</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>內容</new>
+		</text>
+		<text>
+			<old>PHP source</old>
+			<new>PHP原始碼</new>
+		</text>
+		<text>
+			<old>Microsoft Word file</old>
+			<new>Word檔案</new>
+		</text>
+		<text>
+			<old>Microsoft Powerpoint file</old>
+			<new>Powerpoint檔案</new>
+		</text>
+		<text>
+			<old>Mp3 audio file</old>
+			<new>Mp3音訊黨</new>
+		</text>
+		<text>
+			<old>Path</old>
+			<new>路徑</new>
+		</text>
+		<text>
+			<old>Perl source</old>
+			<new>Perl原始碼</new>
+		</text>
+		<text>
+			<old>Shockwave file</old>
+			<new>Shockwave檔案</new>
+		</text>
+		<text>
+			<old>Size</old>
+			<new>檔案大小</new>
+		</text>
+		<text>
+			<old>vCard</old>
+			<new>vCard檔案</new>
+		</text>
+		<text>
+			<old>VBS source</old>
+			<new>VBS原始碼</new>
+		</text>
+		<text>
+			<old>XML file</old>
+			<new>XML檔案</new>
+		</text>
+		<text>
+			<old>XSL source</old>
+			<new>XSL原始碼</new>
+		</text>
+		<text>
+			<old>ZIP file</old>
+			<new>Zip檔案</new>
+		</text>
+		<text>
+			<old>The file does not exist!</old>
+			<new>檔案不存在！</new>
+		</text>
+		<text>
+			<old>Tar.Gz file</old>
+			<new>Tar.Gz檔案</new>
+		</text>
+		<text>
+			<old>Tagged Image File Format</old>
+			<new>標籤影像格式</new>
+		</text>
+		<text>
+			<old>SQL source</old>
+			<new>SQL原始碼</new>
+		</text>
+		<text>
+			<old>Tar file</old>
+			<new>Tar檔案</new>
+		</text>
+		<text>
+			<old>Tar.Bz file</old>
+			<new>Tar.Bz檔案</new>
+		</text>
+		<text>
+			<old>Tar.Bz2 file</old>
+			<new>Tar.Bz檔案</new>
+		</text>
+		<text>
+			<old>Microsoft Excel file</old>
+			<new>Excel檔案</new>
+		</text>
+		<text>
+			<old>JS source</old>
+			<new>JS原始碼</new>
+		</text>
+		<text>
+			<old>Creation date</old>
+			<new>建立日期</new>
+		</text>
+		<text>
+			<old>Created with</old>
+			<new>建立程式</new>
+		</text>
+		<text>
+			<old>Creation information</old>
+			<new>建立資料</new>
+		</text>
+		<text>
+			<old>CSS file</old>
+			<new>CSS檔案</new>
+		</text>
+		<text>
+			<old>CSV sheet file</old>
+			<new>CSV檔案</new>
+		</text>
+		<text>
+			<old>Command</old>
+			<new>命令</new>
+		</text>
+		<text>
+			<old>C++ source</old>
+			<new>C++原始碼</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>作者</new>
+		</text>
+		<text>
+			<old>%sBytes</old>
+			<new>%s個位元組</new>
+		</text>
+		<text>
+			<old>Bitmap</old>
+			<new>點陣圖</new>
+		</text>
+		<text>
+			<old>C sharp source</old>
+			<new>C#原始碼</new>
+		</text>
+		<text>
+			<old>C source</old>
+			<new>C原始碼</new>
+		</text>
+		<text>
+			<old>Deletion date</old>
+			<new>刪除日期</new>
+		</text>
+		<text>
+			<old>Deletion information</old>
+			<new>刪除資料</new>
+		</text>
+		<text>
+			<old>Graphics Interchange Format</old>
+			<new>圖片轉換格式</new>
+		</text>
+		<text>
+			<old>FLV file</old>
+			<new>FLV檔案</new>
+		</text>
+		<text>
+			<old>Hypertext Markup Language</old>
+			<new>超文本標記語言</new>
+		</text>
+		<text>
+			<old>Java source</old>
+			<new>Java原始碼</new>
+		</text>
+		<text>
+			<old>Joint Photographic Experts Group</old>
+			<new>聯合拍攝群組</new>
+		</text>
+		<text>
+			<old>Filetime</old>
+			<new>檔案建立時間</new>
+		</text>
+		<text>
+			<old>File</old>
+			<new>檔案</new>
+		</text>
+		<text>
+			<old>eyeDocument file</old>
+			<new>eyeDocument檔案</new>
+		</text>
+		<text>
+			<old>Directory</old>
+			<new>路徑</new>
+		</text>
+		<text>
+			<old>eyeInstaller package</old>
+			<new>eyeInstaller檔案</new>
+		</text>
+		<text>
+			<old>oneye source</old>
+			<new>oneye原始碼</new>
+		</text>
+		<text>
+			<old>File information</old>
+			<new>檔案資訊</new>
+		</text>
+		<text>
+			<old>%s file</old>
+			<new>%s個檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeShare</name>
+		<text>
+			<old>Share "%s" with...</old>
+			<new>與...共用"%s"</new>
+		</text>
+		<text>
+			<old>Share</old>
+			<new>共用</new>
+		</text>
+		<text>
+			<old>Folder "%s" shared with group "%s".</old>
+			<new>資料夾"%s"與群組"%s"共用</new>
+		</text>
+		<text>
+			<old>File "%s" shared with group "%s".</old>
+			<new>檔案"%s"與群組"%s"共用</new>
+		</text>
+		<text>
+			<old>Choose the groups to share with</old>
+			<new>選擇要共用的群組</new>
+		</text>
+		<text>
+			<old>"%s" already exists in group "%s".</old>
+			<new>"%s"已在群組"%s"中存在</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Spreadsheet</old>
+			<new>試算表</new>
+		</text>
+		<text>
+			<old>Spreadsheet saved successfully.</old>
+			<new>試算表儲存成功</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>對不起,權限不足！</new>
+		</text>
+		<text>
+			<old>File not found!</old>
+			<new>檔案沒找到</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Packages Manager</old>
+			<new>套裝軟體管理</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>請選擇要安裝的程式</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>請選擇要卸載的程式</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>搜索</new>
+		</text>
+		<text>
+			<old>Other Apps</old>
+			<new>其它應用程式</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>只有Root使用者才能安裝eyeApps！</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>名稱:%s</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>none</old>
+			<new>無</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>辦公</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>建議:%s</new>
+		</text>
+		<text>
+			<old>The application cannot be uninstalled.</old>
+			<new>該程式無法卸載.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>更新</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>版本</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>版本:%s</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>卸載</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>卸載程式</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>程式成功卸載!</new>
+		</text>
+		<text>
+			<old>Themes</old>
+			<new>主題</new>
+		</text>
+		<text>
+			<old>Translations</old>
+			<new>翻譯</new>
+		</text>
+		<text>
+			<old>Multimedia</old>
+			<new>多媒體</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>認證:%s</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>類別</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>類別:%s</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>關係:%s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>作者:%s</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>應用程式名稱</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>%s安裝成功!</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>確定</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>管理</new>
+		</text>
+		<text>
+			<old>All</old>
+			<new>所有</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>描述:%s</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>桌面</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>安裝</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>已安裝</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>正在安裝</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>網路</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>遊戲</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>eyeSoft:軟體清單已更新!</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>您確定要卸載此程式嗎?</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>正在下載並安裝%s...請稍等</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>教育</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>%s下載出錯！無法安裝</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>Options</old>
+			<new>選項</new>
+		</text>
+		<text>
+			<old>md5 Hash</old>
+			<new>md5校驗</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>最後執行時間:%s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>輸入文本</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>輸出文字</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>移除HTML實體</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>URL編碼</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>URL解碼</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>開始</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>羅馬數字轉換十進位</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>HTML實體</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hexa轉換Ascii</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Base64解碼</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>自動清除輸入</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>Ascii轉換到Hexa</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>在最後增加新行</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Base64編碼</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>清除</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye校驗</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>十進位數字轉換羅馬數字</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>連結輸出</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>增加輸入到輸出</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Tetravex</new>
+		</text>
+		<text>
+			<old>These options won't be applied until you start a new game.</old>
+			<new>更改的設定要開始新遊戲才會套用</new>
+		</text>
+		<text>
+			<old>Time</old>
+			<new>時間</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>Rank</old>
+			<new>排行</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>Number of moves:</old>
+			<new>移動次數</new>
+		</text>
+		<text>
+			<old>Tip used! Ranking disabled...</old>
+			<new>有用過提示！不列入排行</new>
+		</text>
+		<text>
+			<old>Unable to connect to the host server.</old>
+			<new>無法連結到伺服器</new>
+		</text>
+		<text>
+			<old>Your rank:</old>
+			<new>您的排行：</new>
+		</text>
+		<text>
+			<old>Your time:</old>
+			<new>您花費的時間：</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>使用者</new>
+		</text>
+		<text>
+			<old>Use colored numbers on tiles</old>
+			<new>用有顏色的數字</new>
+		</text>
+		<text>
+			<old>Use shared highscores on server (all users)</old>
+			<new>使用共用排行榜(與所有使用者)</new>
+		</text>
+		<text>
+			<old>New game</old>
+			<new>新遊戲</new>
+		</text>
+		<text>
+			<old>Network problem</old>
+			<new>網路問題</new>
+		</text>
+		<text>
+			<old>Configuration</old>
+			<new>設定</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>日期</new>
+		</text>
+		<text>
+			<old>Do you want to start a new game?</old>
+			<new>您要開始新遊戲嗎？</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>關閉</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Always remember my last configuration</old>
+			<new>永遠記得上次的設定</new>
+		</text>
+		<text>
+			<old>Board size :</old>
+			<new>板子大小</new>
+		</text>
+		<text>
+			<old>Finished!</old>
+			<new>完成！</new>
+		</text>
+		<text>
+			<old>Fullscreen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Maybe you should try a higher level...</old>
+			<new>也許您該試試更高級...</new>
+		</text>
+		<text>
+			<old>Moves</old>
+			<new>移動數</new>
+		</text>
+		<text>
+			<old>Maximum</old>
+			<new>最大值</new>
+		</text>
+		<text>
+			<old>Maximum value on edges:</old>
+			<new>最大數字：</new>
+		</text>
+		<text>
+			<old>Highscores</old>
+			<new>排行榜</new>
+		</text>
+		<text>
+			<old>Level / board size (%s-%s):</old>
+			<new>等級/板子大小(%s-%s)</new>
+		</text>
+		<text>
+			<old>[Unknown string]</old>
+			<new>[未知的字符]</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Size (KB)</old>
+			<new>大小(KB)</new>
+		</text>
+		<text>
+			<old>The file has been uploaded successfully.</old>
+			<new>這個檔案已上傳成功</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>簡易</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>刪除</new>
+		</text>
+		<text>
+			<old>Please enter the HTTP address to a file:</old>
+			<new>請輸入檔案的HTTP網址</new>
+		</text>
+		<text>
+			<old>Transfering: </old>
+			<new>傳輸中:</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>上傳檔案</new>
+		</text>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>您沒有權限！</new>
+		</text>
+		<text>
+			<old>You do not have enough free space!</old>
+			<new>您的空間不足！</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>上傳！</new>
+		</text>
+		<text>
+			<old>Ok</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>增加文件</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>增加要傳輸的檔案，然後按上傳按鈕！</new>
+		</text>
+		<text>
+			<old>&lt;b&gt;Some files are too big!&lt;/b&gt;&lt;br&gt;Some of the selected files are too big and may be rejected by the server at the end of the transfer.&lt;br&gt;Do you want to remove them now?</old>
+			<new>&lt;b&gt;有些檔案太大！&lt;/b&gt;&lt;br&gt;有些檔案上傳之後可能會被伺服器退回。&lt;br&gt;您是否要將它們先移除？</new>
+		</text>
+		<text>
+			<old>%s MB</old>
+			<new>%s MB</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>進階</new>
+		</text>
+		<text>
+			<old>Error occured during upload process!</old>
+			<new>上傳中發生錯誤！</new>
+		</text>
+		<text>
+			<old>Max filesize allowed</old>
+			<new>檔案大小限制</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>檔案名稱</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>上傳成功</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>發生錯誤！</new>
+		</text>
+		<text>
+			<old>"%s" has been uploaded successfully.</old>
+			<new>"%s"已成功上傳</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>您沒有使用權！</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>編輯</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Welcome to %s</old>
+			<new>歡迎到%s</new>
+		</text>
+		<text>
+			<old>Unable to save position!</old>
+			<new>無法儲存位置！</new>
+		</text>
+		<text>
+			<old>Please wait...</old>
+			<new>請等待......</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>哈囉，世界！</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>oneye 範例應用程式</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>更改標籤文字</new>
+		</text>
+	</part>
+	<part>
+		<name>killall</name>
+		<text>
+			<old>No process has been killed!</old>
+			<new>沒有程式被終止！</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Upload your files</old>
+			<new>上傳檔案</new>
+		</text>
+		<text>
+			<old>Yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>發送內部訊息</new>
+		</text>
+		<text>
+			<old>No</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>新建試算表</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>您希望該工具在下次登入時自動打開嗎?</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>新建文件</new>
+		</text>
+	</part>
+	<part>
+		<name>miniCalendar</name>
+		<text>
+			<old>Calendar</old>
+			<new>日曆</new>
+		</text>
+	</part>
+	<part>
+		<name>miniHome</name>
+		<text>
+			<old>My Quota</old>
+			<new>我的存儲空間額度</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>內部訊息</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Please type the name of the new file here:</old>
+			<new>請輸入檔案的名稱：</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>一些特殊字元被移除</new>
+		</text>
+		<text>
+			<old>Error creating file!</old>
+			<new>建立檔案發生錯誤！</new>
+		</text>
+		<text>
+			<old>Create a file</old>
+			<new>建立檔案</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>確定</new>
+		</text>
+	</part>
+	<part>
+		<name>newMessage</name>
+		<text>
+			<old>Send</old>
+			<new>傳送</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>標題</new>
+		</text>
+		<text>
+			<old>To groups</old>
+			<new>給群組</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>給</new>
+		</text>
+		<text>
+			<old>New Message</old>
+			<new>新訊息</new>
+		</text>
+		<text>
+			<old>Message sent</old>
+			<new>傳送成功</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>附件</new>
+		</text>
+		<text>
+			<old>Close</old>
+			<new>關閉</new>
+		</text>
+		<text>
+			<old>Error sending message</old>
+			<new>傳送發生錯誤</new>
+		</text>
+		<text>
+			<old>Add file</old>
+			<new>增加檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>Restore %s</old>
+			<new>復原%s</new>
+		</text>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>您不能將"%s"復原到真實資料夾</new>
+		</text>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>您確定要復原"%s"？</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>"%s"已經被復原到您的主目錄</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>確定</new>
+		</text>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>"%s"不能被復原</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>您確定要清空儲存格？</new>
+		</text>
+		<text>
+			<old>Saturday</old>
+			<new>星期六</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>另存為</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>列印</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>位置</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>十一月</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>十月</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>打開</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>儲存</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>九月</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>星期二</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>星期三</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>星期四</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>星期天</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>表格尺寸</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>樣式</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>新建</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>星期一</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>二月</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>公式</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>星期五</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>刪除行</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>刪除列</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>八月</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>複製/貼上這些代碼到另一個空白表格中(如Excel)</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>十二月</new>
+		</text>
+		<text>
+			<old>Full Screen</old>
+			<new>全螢幕</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>幫助</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>六月</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>三月</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>五月</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>七月</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>一月</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>插入列</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>插入行</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>四月</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>Sat</old>
+			<new>星期六</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>九月</new>
+		</text>
+		<text>
+			<old>SA</old>
+			<new>六</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>日</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>十一月</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>十月</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>星期天</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>二</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>三</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>星期三</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>上傳</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>星期二</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>四</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>星期四</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>星期一</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>五月</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>已解壓縮</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>五</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>錯誤 %s</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>十二月</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>四月</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>八月</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>二月</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>星期五</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>一</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>三月</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>六月</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>七月</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>一月</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>另一個檔案</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>System console log</old>
+			<new>紀錄</new>
+		</text>
+		<text>
+			<old>Clean</old>
+			<new>清除</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>Import</old>
+			<new>匯入</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>對不起，未在此檔案中找到連絡人!</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>檔案未找到</new>
+		</text>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>無法初始化vCard匯入工具，請聯繫管理員</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>匯入 %s</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>檔案已匯入！</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>路徑未找到</new>
+		</text>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>您確定要匯入這個vCard嗎?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>匯出文件出錯。</new>
+		</text>
+		<text>
+			<old>Cancel</old>
+			<new>取消</new>
+		</text>
+	</part>
+</lang>

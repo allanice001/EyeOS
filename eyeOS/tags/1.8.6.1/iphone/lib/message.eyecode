@@ -1,0 +1,20 @@
+<?php
+
+// Function to set information panel in iphone
+// Two params (title and content) to set only view mode
+// Two more params (caption and link) to set a button value and on click link
+
+function msgIphone($params=null) {
+	require_once(IPHONE_PATH.'top.eyecode');
+	if (!isset($params['title']) && !isset($params['content'])) {
+		return false;
+	}
+	echo '<div id="'.$params['title'].'" title="'.$params['title'].'" class="panel" selected="true">';
+	echo '<h2>'.$params['content'].'</h2>';
+	if (isset($params['link']) && isset($params['caption'])) {	
+		echo '<input value="'.$params['caption'].'" type="button" onclick="document.location.href=\''.$params['link'].'\'">';
+	}
+	echo '</div>';
+	require_once(IPHONE_PATH.'bottom.eyecode');
+}
+?>

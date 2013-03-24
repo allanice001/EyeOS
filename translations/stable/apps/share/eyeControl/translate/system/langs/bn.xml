@@ -1,0 +1,217 @@
+<lang>
+	<info>
+		<lang>বাংলা</lang>
+		<lang-en>Bengali</lang-en>
+		<author>Moin Uddin Rahim</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>পাঠান</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>পাবলিক বোর্ড</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>পরিষ্কার</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>স্বাগতম পৃথিবী</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>উদাহরন আইঅপ্প</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>লেখা বদলান</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Formula</old>
+			<new>ফরমুলা</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>শুক্রবার</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>কলাম ঢোকান</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>রো ঢোকান</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>জানুয়ারি</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>জুলাই</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>ফেব্রুয়ারি</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>এপ্রিল</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>আগস্ট</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>অন্য কোন স্প্রেদসিট প্রোগ্রামে কপি অথবা পেস্ট করুন</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>ডিশেম্বার</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>কলাম মুছে দিন</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>রো মুছে দিন</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>SA</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>S</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>নভেম্বর</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>অক্টোবার</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>রবি</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>T</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>W</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>বুধ</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>শনি</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>সেপ্টেম্বর</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>আপলোড</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>মঙ্গল</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>TH</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>বৃহস্পতি</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>সোমবার</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>মে</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>ফেব্রুয়ারী</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>শুক্র</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>F</new>
+		</text>
+		<text>
+			<old>extracted</old>
+			<new>এক্সট্রাকটেড</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>ডিসেম্বর</new>
+		</text>
+		<text>
+			<old>Error %s</old>
+			<new>সমস্যা %সমূহ</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>জানুয়ারী</new>
+		</text>
+		<text>
+			<old>Another file</old>
+			<new>আরেকটি ফাইল</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>M</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>মার্চ</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>জুন</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>জুলাই</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>এপ্রিল</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>আগস্ট</new>
+		</text>
+	</part>
+</lang>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>userExist</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>um</tag>
+			<tag>user</tag>
+		</tags>
+		<shortDesc>Check if a user exists.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>userExist</functionName>
+		<syntax>bool um('userExist', array(string $username))</syntax>
+		<desc>Checks if a user exists.</desc>
+		<params>
+			<type>required</type>
+			<name>username</name>
+			<desc>Name of the user.</desc>
+		</params>
+		<return>Returns a boolean value indicating whether or not a user with the given name exist. If some error occurs, returns false and sets the error accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>No username is specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

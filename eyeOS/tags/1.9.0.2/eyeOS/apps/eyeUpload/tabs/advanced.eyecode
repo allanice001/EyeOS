@@ -1,0 +1,52 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+global $checknum;
+global $sessionId;
+$myFlash = new Flash(array(
+	'father' => $advancedTab,
+	'flashParamsNames' => array(
+		'checknum',
+		'flashFix',
+		'flashvars',
+		'scriptUrl',
+		'sid',
+		'signal'
+	),
+	'flashParamsValues' => array(
+		$checknum,
+		FLASH_UPLOAD_FIX,
+		'autostart=yes&checknum=' . $checknum . '&flashFix=' . FLASH_UPLOAD_FIX . '&jscontrol=true&loop=no&scriptUrl=index.php&sid=' . $sessionId . '&signal=advanced_Do',
+		'index.php',
+		$sessionId,
+		'advanced_Do'
+	),
+	'height' => 200,
+	'name' => 'eyeUpload_advanced_Flash',
+	'src' => 'index.php?version=' . EXTERN_CACHE_VERSION . '&extern=apps/eyeUpload/swf/eyeuploadx.swf&type=swf',
+	'width' => 450,
+	'x' => 8,
+	'y' => 8
+));
+$myFlash->show();
+?>

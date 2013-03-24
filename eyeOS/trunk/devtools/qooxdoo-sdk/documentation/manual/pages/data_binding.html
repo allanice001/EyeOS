@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Binding &mdash; qooxdoo v1.3 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.3 documentation" href="../index.html" />
+    <link rel="up" title="Core Framework" href="core.html" />
+    <link rel="next" title="Data Binding" href="data_binding/data_binding.html" />
+    <link rel="prev" title="Variants" href="core/variants.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="data_binding/data_binding.html" title="Data Binding"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core/variants.html" title="Variants"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../index.html">qooxdoo v1.3 documentation</a> &raquo;</li>
+          <li><a href="core.html" accesskey="U">Core Framework</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="data-binding">
+<h1>Data Binding<a class="headerlink" href="#data-binding" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_binding/data_binding.html">Data Binding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/data_binding.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/data_binding.html#the-main-idea">The main idea</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/data_binding.html#data">Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/data_binding.html#store">Store</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/data_binding.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/data_binding.html#controller">Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_binding/data_binding.html#view">View</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/data_binding.html#demos-api-and-cheatsheet">Demos, API and CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_binding/single_value_binding.html">Single Value Binding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#binding-a-single-property-to-another-property">Binding a single property to another property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#binding-a-data-event-to-property">Binding a data event to property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#bind-a-property-chain-to-another-property">Bind a property chain to another property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#bind-an-array-to-a-property">Bind an array to a property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#options-conversion-and-validation">Options: Conversion and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#managing-bindings">Managing bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/single_value_binding.html#tech-notes">Tech notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_binding/controller.html">Controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#selection">Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#delegate">Delegate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#configureitem">configureItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#binditem">bindItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/controller.html#createitem">createItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#object-controller">Object Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#list-controller">List Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#tree-controller">Tree Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#form-controller">Form Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/controller.html#combining-controller">Combining Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_binding/stores.html">Stores</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html#json-marshaler">JSON Marshaler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#toclass">toClass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#tomodel">toModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_binding/stores.html#createmodel-static">createModel (static)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html#json-store">JSON Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html#jsonp-store">JSONP Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html#yql-store">YQL Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html#combining-with-controllers">Combining with controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_binding/stores.html#how-to-get-my-own-code-into-the-model">How to get my own code into the model?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="core/variants.html"
+                                  title="previous chapter">Variants</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="data_binding/data_binding.html"
+                                  title="next chapter">Data Binding</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/pages/data_binding.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

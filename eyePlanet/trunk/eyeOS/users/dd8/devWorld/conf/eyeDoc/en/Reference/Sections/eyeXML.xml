@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>eyeXML, the XML files managing library</title>
+	<general>
+		<name>eyeXML</name>
+		<tag>XML</tag>
+		<tags>
+			<tag>library</tag>
+		</tags>
+	</general>
+	<desc>The eyeXML lib is an API for basic XML reading and modifying. It also has functions to manage a user's XML configuration files and functions to transform XML to a PHP array and vice versa.</desc>
+</info>

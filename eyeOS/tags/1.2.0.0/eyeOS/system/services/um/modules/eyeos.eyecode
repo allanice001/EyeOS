@@ -1,0 +1,531 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+*/
+/*
+	UserManager service
+*/
+
+/* 
+	userInfo[0] = username
+*/
+
+/*Xml userInfo.xml in USERDIR/conf/
+ * <username>
+ * <password>
+ * <email>
+ * <creationDate>
+ */
+
+
+/*--------------------------------------------------------------------*/
+/* USER CRUD FUNCTIONS
+/*--------------------------------------------------------------------*/
+
+/***
+* 
+* Description: create a userInfo.xml file without creating user's directories
+* 
+* Arguments: 
+* 	+ username: string containing the username 
+* 	+ password: string containing the password
+* 	- email: string containing the email
+* 	- fullname: string containing the full name
+* 	- groups: array containing the groups else DEFAULT_GROUP or one group as string
+* 
+* Return: If current user is admin and the new user doesn't exist, create it, returning true. 
+* 		  If current user isn't admin return UM_USER_PERMISSIONS.
+* 		  If new user already exists, return UM_USER_ALREADY_EXISTS
+* 		  If fileExists or checkPermissions return an error, createUser will return it.	
+* 
+* Last update 2007-06-3
+***/
+
+
+
+function service_um_createUser($params = null){
+//Check arguments
+	if($params == null || count($params) < 2){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	if(!$params['username'] || !$params['password']) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	if (!preg_match("/^[-_a-zA-Z0-9]+$/", $params['username'])) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	if(strlen($params['username']) < 2 || strlen($params['username']) > MAX_USERNAME_LEN) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+//Check if user exists.
+	$username = $params['username'];
+	if(um('userExists',array($username))) {
+		errorCodes('setErrorCode',array(UM_USER_ALREADY_EXISTS));
+		return false;
+	}
+// Create new user dirs
+	$myDir = um('getUserDir',array($username));
+	if(!vfs('real_exists',array(EYE_ROOT.'/'.USERS_DIR.'/'.getAcronim(array($username))))){
+		vfs('mkDir',array(EYE_ROOT.'/'.USERS_DIR.'/'.getAcronim(array($username))));
+	}
+	if(!vfs('real_exists',array($myDir))){
+		vfs('mkDir',array($myDir));
+	}
+	if(!vfs('real_exists',array(service_um_getUserFilePath(array($username,1))))){
+		vfs('mkDir',array(service_um_getUserFilePath(array($username,1))));
+	}
+// Copy skel to user
+	recursiveCopy(EYE_ROOT.'/'.SYSTEM_DIR.'/'.'/conf/skel/',$myDir);
+		//Real create make real_fileExists now.
+//handling userInfo.
+	$password = md5($params['password'] . md5($params['password']));
+	$email = $params['email'];
+	$fullname = $params['fullname'];
+	$createDate = time();
+	if (is_array($params['groups'])) {
+		$groups = $params['groups'];
+	} elseif ($params['groups']) {
+		$groups = array($params['groups']);
+	} else {
+		$groups = array(DEFAULT_GROUP);
+	}
+		//TODO: put a basic handler for user, pass or email?
+// Create users xml file
+	$data = Array(
+		'eyeUser' => array(
+			array(
+				'username' => array($username),
+				'password' => array($password),
+				'email' => array($email),
+				'fullname' => array($fullname),
+				'createDate' => array($createDate),
+				'group' => $groups
+			)
+		)
+	);
+	$xml = eyeXML('array2xml',array($data,1));
+	$file = service_um_getUserFilePath(array($username));
+	vfs('real_create',array($file));
+	$fp = vfs('real_open',array($file,'w'));
+	//Error handling
+	if(!$fp){
+		return false;
+	}
+	fwrite($fp,$xml);
+	fclose($fp);
+	return true;
+}
+
+/***
+* 
+* Description: retrieve the user info from userInfo.xml
+* 
+* Arguments:
+* 	+ username: string containing the username
+* 
+* Return: If user is admin, and username exists, return an array with user information. 
+* 		  If user isn't admin, return UM_USER_PERMISSIONS.
+		  Return false if userInfo cannot be found.
+* 
+* Last update 2007-06-3 
+***/
+function service_um_retriveUser($params = null){
+	 
+	if($params == null || count($params) < 1){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	
+	$username = basename($params[0]);
+	$filePath = service_um_getUserFilePath(array($username));
+	$fp = vfs('real_open',array($filePath,'r'));
+	//Error handling
+	if(!$fp){
+		return false;
+	}
+	$xml = fread($fp,filesize($filePath));
+	fclose($fp);
+	return eyeXML('xml2array',array($xml));//Return the array generated by eyeXML	
+}
+
+/***
+* 
+* Description: check if a given user exists
+* 
+* Arguments:
+* 	+ username: string containing the username
+* 
+* Return: If current user is admin and user exists, return an array with user information. 
+* 		  If current user isn't admin return UM_USER_PERMISSIONS.	
+* 
+* Last update 2007-06-01 
+***/
+function service_um_userExist($params = null){
+	 
+	if($params == null || count($params) < 1){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	
+	$username = basename($params[0]);
+	$filePath = service_um_getUserFilePath(array($username));
+	$fp = vfs('real_open',array($filePath,'r'));
+	//Error handling
+	if(!$fp){
+		return false;
+	}
+	return true;
+}
+	
+/***
+* 
+* Description: update specified user's userInfo.xml
+* 
+* Arguments:
+* 	+ username: string containing the username
+* 	- password: string containing the password
+* 	- email: string containing the email
+* 
+* Return: If user is admin, user exists, and update is successfull return true.
+* 		  If user isn't admin return UM_USER_PERMISSIONS.	
+* 
+* Last update 2007-06-3
+***/
+function service_um_updateUser($params = null){
+	 //TODO: realy admin? currentuser?
+	 if($params == null || count($params) < 1){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	 }
+	  
+	 if($params['username'] == null)
+	 {
+	 	errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	 } 
+	 
+	 //TODO: Make findUserByName?
+	$userInfo = um('retriveUser',array(basename($params['username'])));
+	if (isset($params['password'])) {
+		$userInfo['eyeUser'][0]['password'][0] = $params['password'];
+	}
+	if (isset($params['email'])) {
+		$userInfo['eyeUser'][0]['email'][0] = $params['email'];
+	}
+	if (isset($params['fullname'])) {
+		$userInfo['eyeUser'][0]['fullname'][0] = $params['fullname'];
+	}
+	if (isset($params['createDate'])) {
+		$userInfo['eyeUser'][0]['createDate'][0] = $params['createDate'];
+	}
+	if (isset($params['group'])) {
+		$userInfo['eyeUser'][0]['group'] = array_splice($userInfo['eyeUser'][0]['group'],1);
+		if (is_array($params['group'])) {
+			$x = 0;
+			foreach ($params['group'] as $group) {
+				$userInfo['eyeUser'][0]['group'][$x] = $group;
+				$x++;
+			}
+		} else {
+			$userInfo['eyeUser'][0]['group'][0] = $params['group'];
+		}
+	}
+	
+	$xml = eyeXML('array2xml',array($userInfo,1));
+	//TODO: WARNING: SECURITY RISK WITH USERNAME IN XML? 
+	$filePath = service_um_getUserFilePath($userInfo['eyeUser'][0]['username']);
+	$fp = vfs('real_open',array($filePath,'w'));	
+	//Error handling
+	if(!$fp){
+		return false;
+	}
+	 
+	fwrite($fp,$xml);
+	fclose($fp);
+	return true;
+}
+
+/***
+* 
+* Description: delete a user's userInfo.xml, without deleting its directories
+* 
+* Arguments:
+* 	+ username: string containing the username
+* 
+* Return: If user is admin, user exists, and delete is successfull, return true.
+* 		  If user isn't admin return UM_USER_PERMISSIONS.	
+* 
+* Last update 2007-08-31
+***/
+function service_um_deleteUser($params = null){
+	// Argument handling.
+	if ($params == null || count($params) < 1) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$username = basename($params[0]);
+	if ($username == ROOTUSER) {
+		return false;
+	}
+	
+	// Delete the accounts user dir
+	$MyDir = um('getUserDir',array($username));
+	$result = vfs('real_rmdir',array($MyDir));
+	//Error handling. (1)
+	if (!$result) {
+		return false;
+	}
+	
+	$userDir = service_um_getUserFilePath(array($username));
+	$result = vfs('real_delete',array($userDir));
+	//Error handling. (2)
+	if (!$result) {
+		return false;
+	}
+	
+	return true;
+}
+
+/*--------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------*/
+/* Logic functions, login logout etc.
+/*--------------------------------------------------------------------*/
+/***
+* 
+* Description: check if a user's credentials are correct
+* 
+* Arguments:
+* 	+ username: string containing the username
+* 	+ password: string containing the password
+* 
+* Return: return true if username and password are correct. Return false otherwise
+* 
+* Last update 2007-06-3 
+***/
+function service_um_login($params = null) {
+	 
+	if($params == null || count($params) < 2){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}	
+	$username = basename($params[0]);
+	$password = md5($params[1].md5($params[1]));
+	 
+	global $currentUser;
+	
+	//special suid
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	//end of special suid
+	$info = um('retriveUser',array($username));
+	$currentUser = $oldUser;	
+	if(!$info) {
+		return false;
+	}
+	
+	if(!is_array($info)) {
+	//user not exist
+		return false;
+	}
+	
+	if($info['eyeUser'][0]['password'][0] == $password)	
+	{
+		foreach($info['eyeUser'][0]['group'] as $value) {
+			$_SESSION['groups'][$value] = 1;
+		}
+		return true;
+	}
+	return false;
+}
+
+function service_um_getCurrentGroups() {
+	return $_SESSION['groups'];
+}
+
+/***
+* 
+* Description: return all registered users
+* 
+* Arguments: none
+* 
+* Return: array containing all registered users
+* 
+* Last update 2007-08-17
+***/
+function service_um_getAllUsers() {
+	$x = 0;
+	$dir = EYE_ROOT . '/' . ACCOUNT_DIR . '/';
+	if ($open = opendir($dir)) {
+		while ($folder = readdir($open)) {
+			$dir2 = $dir . $folder;
+			if (is_dir($dir2) && $folder != '.' && $folder != '..') {
+				if ($open2 = opendir($dir2)) {
+					while ($file = readdir($open2)) {
+						if (substr($file,strlen($file) - 4,strlen($file)) == '.xml')  {
+							$allUsers[$x] = substr($file,0,strlen($file) - 4);
+							$x++;
+						}
+					}
+				}
+			}
+		}
+	}
+	return $allUsers;
+}
+
+/***
+* 
+* Description: return the current user's dir
+* 
+* Arguments: none
+* 
+* Return: string containing the current userdir
+* 
+* Last update 2007-06-3
+***/
+function service_um_getCurrentUserDir() {
+	global $currentUser;
+	if(!$currentUser) { //if something fails, this is secure
+		return false;
+	}
+	return um('getUserDir',array($currentUser));
+}
+
+/***
+* 
+* Description: check if current user has admin permissions
+* 
+* Arguments: none
+* 
+* Return: return true if current user have permissions.
+* 		  return false if current user don't have permissions.
+*  
+* Last update 2007-06-3 
+***/
+function service_um_checkAdminPermissions()
+{
+	global $currentUser;
+	if($currentUser != ROOTUSER){
+		return false;
+	}else{
+		return true;
+	}			
+}
+
+/***
+* 
+* Description: get the userdir of a specified user
+* 
+* Arguments:
+* 	+ username: string containing username
+* 
+* Return: if params are ok, return string with userdir.
+* 		  if params are incorrect, return INCORRECT_PARAMS
+*  
+* Last update 2007-06-3 
+***/
+function service_um_getUserDir($params=null) {
+	if($params == null || count($params) < 1){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+
+	$username = basename($params[0]);
+	$userDir = EYE_ROOT.'/'.USERS_DIR.'/'.getAcronim(array($username)).'/'.$username.'/';
+	return $userDir;
+}
+
+/***
+* 
+* Description: generate a user's filepath
+* 
+* Arguments:
+* 	+ username: string containing username
+* 
+* Return: return string with user filepath
+*  
+* Last update 2007-08-31
+***/
+function service_um_getUserFilePath($params=null) {
+	if($params == null || count($params) < 1){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$username = $params[0];
+	if (isset($params[1]) && $params[1] == 1) {
+		return EYE_ROOT . '/' . ACCOUNT_DIR . '/' . getAcronim(array($username)) . '/';
+	} else {
+		return EYE_ROOT . '/' . ACCOUNT_DIR . '/' . getAcronim(array($username)) . '/' . $username . '.xml';
+	}
+}
+
+/*--------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------*/
+/* Private functions for this service.
+/*--------------------------------------------------------------------*/
+/***
+* 
+* Description: generate the username acronyms used to store users' directories
+* 
+* Arguments:
+* 	+ username: string containing username
+* 
+* Return: return string with user acronym
+*  
+* Last update 2007-06-3 
+***/
+function getAcronim($params){
+	 
+	$username = $params[0];
+	if(!$username) {
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$userLenght = strlen($username);
+	//Generate de dir, remove $userDir ? maybe.
+	return $username{0}.$username{$userLenght-1}.substr($userLenght,-1);	 	
+}
+
+//TODO: shall we put this function in eyeLib ? 
+function recursiveCopy($from,$to) {
+	if ($gestor = opendir($from)) {
+		while (false !== ($archivo = readdir($gestor))) {
+			if ($archivo{0} != ".") {
+				if(!is_dir($from.'/'.$archivo)) {
+					copy($from.'/'.$archivo,$to.'/'.$archivo);
+				} else {
+					mkdir($to.'/'.$archivo);
+					recursiveCopy($from.'/'.$archivo,$to.'/'.$archivo);
+				}
+			}
+		}
+		closedir($gestor);
+	}
+}
+?>

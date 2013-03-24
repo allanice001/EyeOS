@@ -1,0 +1,48 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function addLink_run($params = '') {
+	eyex('messageBox',array(
+		'content' => 'Please type the link name here:',
+		'type' => 3,
+		'title' => 'Add an eyeLink',
+		'win_name' => 'addLink_window',
+		'win_style' => TITLE + CLOSE + LISTED + MIN,
+		'btn1_capt' => 'Create',
+		'btn1_name' => 'create',
+		'btn2_capt' => 'Cancel',
+		'btn2_name' => 'cancel',
+		'hidden_text' => $params[1],
+		'hidden_name' => 'addLink_hidden',
+		'textbox_text' => $params[3],
+		'textbox_name' => 'addLink_textbox',
+		'textbox_event' => 'create',
+		'img' => 'index.php?extern=apps/eyeFiles/gfx/rename_big.png'
+	));
+}
+
+function addLink_end($params = '') {
+	eyeWidgets('unserialize');
+}
+
+?>

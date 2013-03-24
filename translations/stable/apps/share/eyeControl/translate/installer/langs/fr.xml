@@ -1,0 +1,235 @@
+<lang>
+	<info>
+		<lang>Français</lang>
+		<author>François Bocquet &amp; Pascal Lebas</author>
+		<version>1.11.0.0</version>
+		<revision>2</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-no</old>
+			<new>Non</new>
+		</text>
+		<text>
+			<old>installer-system-password</old>
+			<new>Mot de passe root</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]Non[/span] vous ramène à la page de départ.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]Oui[/span] supprimera tous les fichiers d'installation d'oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Veuillez choisir une des actions suivantes:</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Voulez-vous réellement supprimer l'installateur d'oneye?</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Les traductions peuvent être téléchargées ici: [a link].</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>Veuillez supprimer l'installateur pour des raisons de sécurité!</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Désinstaller oneye</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Réinitialisation des fichiers du système</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Action</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Retour au menu</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Continuer...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]Non[/span] vous ramène à la page de départ.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>Voulez-vous vraiment désinstaller oneye?</new>
+		</text>
+		<text>
+			<old>installer-install-recommended</old>
+			<new>Recommandé</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Veuillez poursuivre la mise à jour de votre installation oneye en version [version].</new>
+		</text>
+		<text>
+			<old>installer-install-compat</old>
+			<new>Veuillez vérifier vos réglages PHP avant d'installer oneye.</new>
+		</text>
+		<text>
+			<old>installer-install-required</old>
+			<new>Requis</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Mot de passe root incorrect!</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Cet outil de mise à jour est réservé à eyeos version 1.5 ou plus. Vous utiliser en ce moment eyeos [version1]. Veuillez mettre à jour en version eyeos 1.5 avant d'utiliser la mise à jour vers oneye [version2].</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>Impossible de renommer le répertoire "./eyeOS/". Veuillez le renommer manuellement en "[hash]" et remplacer tous les fichiers existant.</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Oui</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]Oui[/span] désinstallera complètement oneye!</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Continuer...</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Mettre à jour oneye!</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>Les fichiers de mise à jour ne peuvent pas être décompressés. Pour mettre à jour oneye manuellement, renommer "[package]" en "package.tar.gz" et extraire les contenus dans le même répertoire.</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Supprimer l'installateur oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>Votre version de PHP ne supporte pas complètement UTF-8. Veuillez mettre à jour PHP ou installer le module mbstring. Si celui-ci n'est pas installé, vous pourrez installer et mettre à jour oneye mais vous pourrez rencontrer des problèmes dans certaines parties du système qui requièrent un support international.</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>Le mot de passe root est nécessaire!</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>Les mots de passe root ne correspondent pas!</new>
+		</text>
+		<text>
+			<old>installer-install-systemname-error</old>
+			<new>Vous devez indiquer un nom de système!</new>
+		</text>
+		<text>
+			<old>installer-install-systemname</old>
+			<new>Nom du système</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Veuillez renseigner le formulaire pour installer oneye:</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>Le mot de passe root doit comporter plus de 3 caractères!</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Mot de passe root</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>Les fichiers d'installation ne peuvent pas être décompressés. Pour installer oneye manuellement, renommez "[package]" en "package.tar.gz" et extrayez les contenus dans le même répertoire.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Installer oneye!</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>Impossible de renommer le répertoire "./eyeOS/". Veuillez le renommer manuellement en "[hash]"</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>Votre serveur ne semble pas pouvoir utiliser gzip. Pour installer oneye manuellement, renommer "[package]" en "package.tar.gz" et extraire les contenus dans le même répertoire.</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Resaisir le mot de passe</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Attention: veuillez vérifier "[package]" car le fichier semble corrompu.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Langue utilisée</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>par</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Langues</new>
+		</text>
+		<text>
+			<old>installer-lib-output-sqlite</old>
+			<new>Le support SQLite n'est pas présent sur votre installation PHP. Vous devriez installer le module SQLite. Sans lui, il sera impossible d'utiliser le client eyeMail.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>Installation d'oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-imap</old>
+			<new>Le support IMAP n'est pas présent sur votre installation PHP. Vous devriez installer le module IMAP. Sans celui-ci il sera impossible d'utiliser le client eyeMail.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>Des problèmes sont survenus pendant l'installation:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Erreur: "[file]" n'existe pas.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>La version actuelle d'oneye est plus récente que la mise à jour. Veuillez supprimer le répertoire "[installer]" et le fichier index.html pour des raisons de sécurité.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Attention: veuillez changer les permissions (CHMOD 777) pour "[file]"</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>Votre serveur utilise actuellement une version non supportée de PHP. Veuillez mettre à jour en PHP 5.0 ou supérieur avant d'installer oneye.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>Désolé mais oneye requiert SAFE_MODE placé sur OFF. Votre configuration actuelle a un SAFE_MODE activé. Veuillez modifier votre fichier php.ini pour placer SAFE_MODE sur off ou demander de l'aide à votre administrateur système.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Permettre aux utilisateurs de créer leur compte</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Continuer...</new>
+		</text>
+	</part>
+</lang>

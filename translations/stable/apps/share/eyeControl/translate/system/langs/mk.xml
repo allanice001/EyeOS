@@ -1,0 +1,35 @@
+<lang>
+	<info>
+		<lang>македонски јазик</lang>
+		<lang-en>Macedonian</lang-en>
+		<author>Aleksandar Velkov</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Ве молиме внесете го насловот на линкот тука:</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Направи линк</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Здраво на светот!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Пример за eye апликација</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Смени го текстот</new>
+		</text>
+	</part>
+</lang>

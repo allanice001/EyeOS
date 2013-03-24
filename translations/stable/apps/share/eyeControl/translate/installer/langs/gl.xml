@@ -1,0 +1,199 @@
+<lang>
+	<info>
+		<lang>Galego</lang>
+		<author>Eduar Garza</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[spam]Non[/spam] te levarán á páxina do sistema.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>¿Desexas eliminar o instalador de oneye?</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>Non</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Por favor, escolle unha das seguintes accións:</new>
+		</text>
+		<text>
+			<old>installer-system-password</old>
+			<new>Contrasinal de root</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Traduccións poden ser descagadas dende [a link]</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Continuar...</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>¡Por favor, elimina o instalador por motivos de seguridade!</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[spam]Si[/spam] eliminará as arquivos de instalación.</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Desinstalar oneye</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>Os arquivos de actualización no puideron ser extraídas. Para actualizar oneye manualmente renomea "[package]" como "package.tar.gz" e extrae o contido na mesma carpeta.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>¿Realmente desexas desinstalar oneye?</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Etsa actualización é somentes para versións de eyeos 1.5 ou superiores. Estás empregando eyeos [version1]. Por favor, actualiza a eyeos 1.5 antes de actualizar a oneye [version2]</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Por favor, continua actualizando a túa instalación oneye á versión [version].</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>¡Actualizar oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>¡Contrasinal de root incorrecta!</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>Non poido renomear a carpeta "./eyeOS/". Por favor, renomea manualmente como "[hash]" e sobreescribe os arquivos existentes.</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Continuar...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[spam]Si[/spam] eliminará oneye completamente.</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Si</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Eliminar o instalador oneye</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[spam]Non[/spam] Levarate de regreso á páxina do sistema.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Acción</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>A versión de PHP non ten completo soporte UTF-8. POr favor, considera actualizar PHP ou instala o módulo mbstring. Sen el serás capaz de instalar e actualizar o teu oneye, pero atoparás prblemas nalgunhas áreas do sistema que requiren soporte internacional.</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>¡A contrasinal de root é precisa!</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Por favor, cubre o seguinte formulario para instalar oneye:</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Contrasinal de root</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Atención: Por favor, comproba "[package]" porque semella estar corrupto.</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>¡As contrasinais de root non coinciden!</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Repita a contrasinal</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>Os arquivos de instalación non foron extraídas. Para instalar oneye manualmente, renomee "[package]" como "package.tar.gz" e extrae o contido na mesma carpeta.</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>Non se pode renomear a carpeta "./eyeOS/". Por favor, renomeao manualmente a "[hash]"</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>O teu servidor semella non ter soporte gzip. Para instalar oneye manualmente renomea "[package]" como "package.tar.gz" e exrae o contido na mesma carpeta.</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Continuar</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>por</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Erro: "[arquivo]" non existe.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Idiomas</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>Instalación oneye</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>Houbo problemas durante a instalación:</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>¡A contrasinal de root ten que ser de máis de tres caracteres!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Idioma actual</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>Sintoo, pero oneye precisa SAFE_MODE OFF. A túa configuración actual ten activado SAFE_MODE. Por favor, modifica o arquivo php.ini para cambiar SAFE_MODE a off ou pide axuda ó administrador do teu sistema.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Atención: Por favor, dalle permiso total (CHMOD 777) ó "[file]"</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>O teu servidor está empregando unha versión non soportada de PHP. Por favor, actualiza a PHP 5.0 ou superior antes de instalar oneye.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Permitir ós usuarios crear contas</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>A instalación activa de oneye é máis recente que esta actualización. Por favor, elimina a carpeta "[installer]" por razóns de seguridade.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>¡Instalar oneye!</new>
+		</text>
+	</part>
+</lang>

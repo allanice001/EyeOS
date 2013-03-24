@@ -1,0 +1,107 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+/*
+	events resource for eyeDashBoard
+*/
+
+function eyeDashBoard_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDashBoard_on_showDesktop($params="") {
+	service('eyex','hideLayer',array('name'=>'dashBoardLayer'));
+}
+function eyeDashBoard_on_addWidget($params=""){
+	if(!is_array($params)){
+		return false;
+	}
+	//Put control system here.	
+	$widgetName = $params['addWidget'][0];
+	service('proc','launch',array($widgetName,array('dashBoardLayer')));
+	//TODO: check if widget is launched correctly
+	service('eyeX','messageBox',array('content'=>"%s widget added!",'tokens' => array($widgetName)));
+	//Put new widget in the xml file
+	global $newWidgetPid;
+	
+	$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+	if(!is_array($myWidgets['widgetsLoaded'][0][$widgetName])){		
+		$myWidgets['widgetsLoaded'][0][$widgetName] = array();
+	}
+	$myWidgets['widgetsLoaded'][0][$widgetName][]['pid'][0] = $newWidgetPid;
+	reqLib('eyeXML','setXMLconfig',array('eyeDashBoard','widgetsLoaded.xml',$myWidgets));
+}
+function eyeDashBoard_on_rmWidget($params=""){
+	if(!is_array($params)){
+		return false;
+	}
+	//Put control system here.	
+	$widgetName = $params['rmWidget'][0];
+	$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+	//Getting the widget pid and remove widted
+	if(isset($myWidgets['widgetsLoaded'][0][$widgetName]) && is_array($myWidgets['widgetsLoaded'][0][$widgetName])){
+		foreach ($myWidgets['widgetsLoaded'][0][$widgetName] as $widgetPid){		
+			if(!service('proc','close',array($widgetPid['pid'][0]))){
+				service('eyeX','messageBox',array('content'=>'Can\'t remove the widget'));
+				return false;				
+			}
+			service('eyeX','messageBox',array('content'=>'Widget removed!'));
+			//Unsetting the remove widget
+			unset($myWidgets['widgetsLoaded'][0][$widgetName][0]);
+			//If have another widget
+			if(!isset($myWidgets['widgetsLoaded'][0][$widgetName][1])){
+				unset($myWidgets['widgetsLoaded'][0][$widgetName]);
+			}
+			//Writing the widget tables without the removed widget
+			reqLib('eyeXML','setXMLconfig',array('eyeDashBoard','widgetsLoaded.xml',$myWidgets));
+			return true;		
+		}
+	}
+	exit;
+	return false;
+}
+function eyeDashBoard_on_showDashBoard($params=""){	
+	service('eyex','showLayer',array('name'=>'dashBoardLayer'));
+}
+function eyeDashBoard_on_saveWinPosition($params=""){
+	global $myPid;
+	global $checknum;
+	$top = 	$params['top'][0];
+	$left = $params['left'][0];
+	$widgetPid = $params['widgetPid'][0];
+	$widgetName = proc('findNameByPid',array($widgetPid));
+	$myWidgets = reqLib('eyeXML','getXMLconfig',array('eyeDashBoard','widgetsLoaded.xml'));
+	$count = 0;
+	foreach($myWidgets['widgetsLoaded'][0][$widgetName] as $widgetInfo){
+			if($widgetInfo['pid'][0] == $widgetPid){
+				$myWidgets['widgetsLoaded'][0][$widgetName][$count]['top'][0] = $top;
+				$myWidgets['widgetsLoaded'][0][$widgetName][$count]['left'][0] = $left;						
+			}
+			$count++;
+	}
+	reqLib('eyeXML','setXMLconfig',array('eyeDashBoard','widgetsLoaded.xml',$myWidgets));
+}
+function eyeDashBoard_on_Close(){
+	proc('end');
+}
+
+?>

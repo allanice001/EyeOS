@@ -1,0 +1,36 @@
+<?php
+function eyeShare_on_shareSignal($params = ''){
+	$param = $GLOBALS['hiddenParams']->text;
+	$filename = basename($param);
+	$file = utf8_basename($param);
+	$path = eyeFiles('cleanPath',array(utf8_substr(utf8_trim($param,'/\\'),0,- utf8_strlen($file))));
+	$orig = $path[0] . $filename;
+
+	if ($GLOBALS['hiddenParams']->text) {
+		for($i=0;$i<$GLOBALS['simplebox_num']->text;$i++){
+			if($GLOBALS["eyeShare_chekbox_".$i]->checked == 1){
+				$group = $GLOBALS["eyeShare_chekbox_".$i]->text;
+				$dest = EYE_ROOT .'/'. GROUPS_DIR .'/'. $group .'/'. FILES_GROUP_DIR .'/'. $filename;
+				if(!vfs('isdir',array($orig))){
+					if (vfs('copy', array($orig, $dest))) {
+						eyeX('messageBox',array('content'=>"File $filename shared correctly with group $group"));
+					} elseif (vfs('fileExists', array($dest))) {
+						eyeX('messageBox',array('content'=>"File $filename already shared on group $group"));
+					}
+				}else{
+					if (vfs('copyDir', array($orig, $dest))) {
+						eyeX('messageBox',array('content'=>"Directory $filename shared correctly with group $group"));
+					} elseif (vfs('fileExists', array($dest))) {
+						eyeX('messageBox',array('content'=>"Directory $filename already shared on group $group"));
+					}
+				}
+			}
+		}
+	}
+	proc('end');
+}
+
+function eyeShare_on_Close($params = '') {
+	proc('end');
+}
+?>

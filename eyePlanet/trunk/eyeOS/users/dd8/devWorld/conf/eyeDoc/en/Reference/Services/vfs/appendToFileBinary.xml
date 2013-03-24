@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>appendToFileBinary</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>vfs</tag>
+			<tag>xml-rpc</tag>
+		</tags>
+		<shortDesc>Appends a value to an abstract file's content.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>appendToFileBinary</functionName>
+		<syntax>bool vfs('appendToFileBinary', array(string $file, string $content))</syntax>
+		<desc>Appends a value to an abstract file's content. This function can be perfectly used by any application, but it is specifically thought to be used remotely using eyeOS' XML-RPC API.</desc>
+		<params>
+			<type>required</type>
+			<name>file</name>
+			<desc>URL to the abstract file inside a user's directory.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>content</name>
+			<desc>Content to append. It must be encoded in Base 64.</desc>
+		</params>
+		<return>Returns true on success, false on failure.</return>
+	</definition>
+</info>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Widget</type>
+	<general>
+		<name>Textarea</name>
+		<tags>
+			<tag>widget</tag>
+			<tag>text</tag>
+			<tag>input</tag>
+			<tag>multiline</tag>
+			<tag>rich text</tag>
+			<tag>editor</tag>
+		</tags>
+		<shortDesc>A multi-line text input field, capable of handling rich text.</shortDesc>
+	</general>
+	<name>Textarea</name>
+	<description>The Textarea widget is a multi-line text input field that can be used to contain rich text, which makes this widget useful for rich text editors.</description>
+	<image>Tres Textareas: el primero con soporte a edición avanzada de texto, el segundo siendo un Textarea normal, y el tercero con resaltado de código activado.</image>
+	<generic_keys>
+		<key>
+			<name>name</name>
+			<desc>Nombre unívoco dado al widget.</desc>
+		</key>
+		<key>
+			<name>father</name>
+			<desc>Nombre de su elemento padre dentro del cual se crea.</desc>
+		</key>
+		<key>
+			<name>horiz</name>
+			<desc>Especifica si la coordenada horizontal debe tomarse desde el borde izquierdo (0) o derecho (1) de su contenedor. El valor por defecto es 0 (borde izquierdo).</desc>
+		</key>
+		<key>
+			<name>vert</name>
+			<desc>Especifica si la coordenada vertical debe tomarse desde el borde superior (0) o inferior (1) de su contenedor. El valor por defecto es 0 (borde superior).</desc> 
+		</key>
+		<key>
+			<name>x</name>
+			<desc>Especifica la coordenada horizontal dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>y</name>
+			<desc>Especifica la coordenada vertical dentro de su contenedor, en píxeles. El valor por defecto son 10 píxeles.</desc> 
+		</key>
+		<key>
+			<name>cent</name>
+			<desc>
+			Especifica cómo debe centrarse el widget. Los valores posibles son:
+			 0: sin centrar. Es el valor por defecto.
+			 1: centrar horizontal y verticalmente.
+			 2: centrar horizontalmente.
+			 3: centrar verticalmente.
+			 4: especifica como coordenadas horizontales y verticales del widget el centro del contenedor.
+			 5: especifica como coordenada horizontal del widget el centro del contenedor.
+			 6: especifica como coordenada vertical del widget el centro del contenedor.
+
+			Ten en cuenta la diferencia que hay entre las opciones 1-3 y 4-6. Las opciones 1-3 calculan el tamaño del widget para asegurarse que su punto central coincide con el centro de su contenedor, mientras que las opciones 4-6 sólo posicionan el widget con las coordenadas del punto central del contenedor, haciendo que el widget pueda verse desplazado del centro.
+			</desc>
+		</key>
+		<key>
+			<name>visible</name>
+			<desc>Especifica la visibilidad del widget. Los valores posibles son 0 (invisible) o 1 (visible). El valor por defecto es 1.</desc>
+		</key>
+		<key>
+			<name>enabled</name>
+			<desc>Specifies whether the widget is usable or not. The default value is 1 (enabled), while disabled value is 0.</desc>
+		</key>
+		<key>
+			<name>width</name>
+			<desc>Especifica la anchura del widget, en píxeles. El valor por defecto son 200 píxeles.</desc>
+		</key>            
+	</generic_keys>
+	<specific_keys>
+		<key>
+			<name>code</name>
+			<desc>Added since eyeOS 1.6. Specifies whether or not the Textarea contains code and must be highlighted. The default value of 0 disables it, while a value of 1 enables it. In case this key is enabled, you must use the 'lang' key to specify in which programming language the code is written.</desc>
+		</key>
+		<key>
+			<name>cols</name>
+			<desc>Tells Internet Explorer the width of the Textarea, in columns.</desc>
+		</key>
+		<key>
+			<name>cssClass</name>
+			<desc>Specifies the CSS class applied to the widget.</desc>
+		</key>
+		<key>
+			<name>lang</name>
+			<desc>
+			Added since eyeOS 1.6. If the 'code' key is set, this key must be provided to specify in which programming the code inside the Textarea is written. The supported languages are:
+				ASP
+				AutoIt
+				C
+				C#
+				CSS
+				eyecode
+				HTML
+				Java
+				JavaScript
+				Perl
+				PHP
+				Ruby
+				SQL
+				VBScript
+				XSL
+			Note that the language must be written in lowercase. In addition of this list, the 'generic' (for any generic code) and 'text' (for no highlighting) modes are also accepted.
+			</desc>
+		</key>
+		<key>
+			<name>rich</name>
+			<desc>Specifies whether the Textarea contains rich text or not. The default value of 0 does not specify it, while a value of 1 does.</desc>
+		</key>
+		<key>
+			<name>rows</name>
+			<desc>Tells Internet Explorer the height of the Textarea, in rows.</desc>
+		</key>
+		<key>
+			<name>text</name>
+			<desc>Sets the initial text inside the Textarea.</desc>
+		</key>
+	</specific_keys>
+	<methods>
+		<method>
+			<syntax>void addEvent(string $eventName, string $eventFunc[, string $args = ''])</syntax>
+			<desc>Hace que el sistema ejecute un código JavaScript dado cada vez que se produzca un evento en este widget.</desc>
+			<arguments>
+				<arg>
+					<name>eventName</name>
+					<desc>Nombre del evento JS. Ejemplos: onchange, onmouseup.</desc>
+				</arg>
+				<arg>
+					<name>eventFunc</name>
+					<desc>Código JavaScript que se ejecutará cada vez que se dispare el evento. El código se ejecutará dentro de una función para que puedan recibirse argumentos.</desc>
+				</arg>
+				<arg>
+					<name>args</name>
+					<desc>Argumentos pasados a la función del evento.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void disable()</syntax>
+			<desc>Deshabilita el widget.</desc>
+		</method>
+		<method>
+			<syntax>void enable()</syntax>
+			<desc>Habilita el widget.</desc>
+		</method>
+		<method>
+			<syntax>void focus()</syntax>
+			<desc>Pone el foco en este widget.</desc>
+		</method>
+		<method>
+			<syntax>void hide()</syntax>
+			<desc>Hace el widget invisible.</desc>
+		</method>
+		<method>
+			<syntax>richClean()</syntax>
+			<desc>Removes the ability to handle rich text of the Textarea.</desc>
+		</method>
+		<method>
+			<syntax>void remove()</syntax>
+			<desc>Elimina el widget, y con él todos los widgets en su interior.</desc>
+		</method>
+		<method>
+			<syntax>void setCss(array $params)</syntax>
+			<desc>Aplica atributos CSS al widget.</desc>
+			<arguments>
+				<arg>
+					<name>params</name>
+					<desc>Especifica, en forma de un array asociativo, los atributos a aplicar. La clave del elemento del array corresponde a la propiedad, mientras que el valor representa al valor de la propiedad. Tanto las claves como los valores deben ser válidos en la sintaxis de CSS.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setHeight(int $height)</syntax>
+			<desc>Cambia la altura de un widget.</desc>
+			<arguments>
+				<arg>
+					<name>height</name>
+					<desc>Nueva altura, expresada en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>setText(string $newText)</syntax>
+			<desc></desc>
+			<arguments>
+				<arg>
+					<name>newText</name>
+					<desc>New text of the Textarea.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+		 	<syntax>void setWidth(int $width)</syntax>
+			<desc>Cambia la anchura del widget.</desc>
+			<arguments>
+				<arg>
+					<name>width</name>
+					<desc>Nueva anchura del widget, en píxeles.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setX(int $x)</syntax>
+			<desc>Cambia la posición horizontal del widget.</desc>
+			<arguments>
+				<arg>
+					<name>x</name>
+					<desc>Nueva coordenada horizontal.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void setY(int $y)</syntax>
+			<desc>Cambia la posición vertical del widget.</desc>
+			<arguments>
+				<arg>
+					<name>y</name>
+					<desc>Nueva posición vertical.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>show(int $noserialize=0)</syntax>
+			<desc>Draws the widget in the screen, allowing to serialize the instance in the session.</desc>
+			<arguments>
+				<arg>
+					<name>noserialize</name>
+					<desc>Specifies whether the Textarea must be serialized or not. The default value of 0 serializes it, while any other value does not.</desc>
+				</arg>
+			</arguments>
+		</method>
+		<method>
+			<syntax>void unhide()</syntax>
+			<desc>Hace el widget visible.</desc>
+		</method>
+	</methods>
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>Added two new keys, 'code' and 'lang'. They allow to set the Textarea to highlight code and to specify the programming language, respecively.</desc>
+		</trace>
+	</changelog>
+</info>

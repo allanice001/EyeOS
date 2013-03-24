@@ -1,0 +1,24 @@
+<!-- GPL -->
+<html>
+<head>
+  <title>Simple Spreadsheet</title>
+  <link media="all" href="index.php?extern=apps/eyeSheets/styles.css" rel="stylesheet" type="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="index.php?extern=apps/eyeSheets/getjs.eyecode&type=dynamic&params[]=$myPid&params[]=$checknum" type="text/javascript"></script>
+</head>
+<body>
+<div class="data" id="data"></div>
+<div id="source" align="center">
+<script>
+var lang = "$userLang";
+var useCode = $useCode;
+loadScriptFile("index.php?extern=apps/eyeSheets/translations/"+lang+".js");
+if(useCode == 0) {
+	loadSheetFromUrl("index.php?msg=getSheet&checknum=$checknum");
+} else {
+	appendCode("index.php?msg=getFile&checknum=$checknum");
+}	
+</script>
+</div>
+</body>
+</html>

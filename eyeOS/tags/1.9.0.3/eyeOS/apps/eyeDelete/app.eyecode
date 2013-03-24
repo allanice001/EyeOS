@@ -1,0 +1,70 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.9
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDelete_run($params = '') {
+	if ($params[0]) {
+		$file = utf8_basename($params[0]);
+		$path = eyeFiles('cleanPath',array(utf8_substr(utf8_trim($params[0],'/\\'),0,- utf8_strlen($file))));
+		if ($path[1] != 'real' && vfs('fileExists',array($path[0] . '/' . $file))) {
+			if (vfs('delete',array($path[0] . '/' . $file,1))) {
+				eyeFiles('update',array('trash:///',$path[1] . '://' . $path[2]));
+				eyex('messageBox',array('content' => '"%s" moved to trash successfully.','tokens' => array($file)));
+			} else {
+				$error = 1;
+			}
+		} else {
+			if ($path[1] != 'real' && utf8_strtolower(strrchr($file,'.')) == '.' . utf8_strtolower(EYEOS_LINK_EXT)) {
+				$xmlLink = eyeXML('getXMLfile',array($path[0] . '/' . $file));
+			}
+			if (vfs('real_delete',array($path[0] . '/' . $file))) {
+				eyeFiles('update',array('trash://',$path[1] . '://' . $path[2]));
+				eyex('messageBox',array('content' => '"%s" has been removed successfully.','tokens' => array($file)));
+			} else {
+				$error = 1;
+			}
+		}
+		if ($error) {
+			eyex('messageBox',array('content' => 'Error deleting file!'));
+		} else {
+			if ($xmlLink) {
+				$file = $xmlLink['eyeLink'][0]['content'][0];
+			}
+			if ($path[1] == 'home' && utf8_strtolower(utf8_basename($path[2])) == 'desktop') {
+				$xml = eyeXML('getXMLconfig',array('eyeDesk','icons.xml'));
+				if (is_array($xml['icon'])) {
+					foreach ($xml['icon'] as $key => $value) {
+						if ($value['name'][0] == $file) {
+							unset($xml['icon'][$key]);
+						}
+					}
+					eyeXML('setXMLconfig',array('eyeDesk','icons.xml',$xml));
+				}
+			}
+			if ($params[1]) {
+				eyex('rawjs',array('js' => $params[1]));
+			}
+		}
+	}
+	proc('end');
+}
+?>

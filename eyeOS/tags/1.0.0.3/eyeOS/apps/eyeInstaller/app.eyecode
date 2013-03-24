@@ -1,0 +1,61 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeInstaller_run($params=null) {
+	global $currentUser;
+	if($currentUser != ROOTUSER) {
+		global $myPid;
+		service('proc','close',array($myPid));
+		return;
+	}
+	$myWindow = new Window(array('name'=>'Installing','father'=>'eyeApps',
+		'type'=>NORESIZE_WINDOW,'cent'=>1,'width'=>400,'height'=>150,
+		'title'=>'Installing'));
+	$myWindow->show();
+	
+	if(!$params[0]) {
+		$myLabel1 = new Label(array('name'=>'Label1','father'=>'Installing_Content',
+			'text'=>"Nothing to install!",'y'=>25,'x'=>20));
+		$myLabel1->show();
+		return;
+	}
+	
+	$file = $params[0];
+	$name = basename($file);
+	$rfile = service('vfs','getRealName',array($file));
+	$myLabel1 = new Label(array('name'=>'Label1','father'=>'Installing_Content',
+		'text'=>"Installing $name into the system, continue?",'y'=>25,'x'=>20));
+	$myLabel1->show();
+	$myButton = new Button(array('name'=>'Continue','father'=>'Installing_Content',
+		'caption'=>'Accept','x'=>120,'y'=>70,'signal'=>'Accept'));
+	$myButton->show();
+	
+	$myButton2 = new Button(array('name'=>'Cancel','father'=>'Installing_Content',
+		'caption'=>'Cancel','x'=>220,'y'=>70,'signal'=>'Cancel'));
+	$myButton2->show();
+	
+	$myHidden = new Hidden(array('name'=>'rfile','father'=>'eyeApps','text'=>$rfile));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+function eyeInstaller_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+?>

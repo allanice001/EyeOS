@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>eyeURL library</title>
+	<general>
+		<name>eyeURL</name>
+		<tags>
+			<tag>library</tag>
+		</tags>
+		<shortDesc>Allows to fetch remote files.</shortDesc>
+	</general>
+	<desc>eyeURL contains functions to make HTTP request to a host to get a remote file's contents.</desc>
+</info>

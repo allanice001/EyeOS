@@ -1,0 +1,53 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_theme_change($params = '') {
+	if(!isset($params['eyeControl_theme_select'][0]) || empty($params)){
+		eyex('messageBox',array('content'=>'Incorrect theme!'));
+		return false;
+	}
+	//TODO: check if theme exists
+	$ThemeFile = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeDesk/conf.xml';
+	$ThemeXML = eyeXML('getXMLFile',array($ThemeFile));	
+	$ThemeXML['eyeDesk'][0]['theme'][0] = $params['eyeControl_theme_select'][0];
+	eyeXML('setXMLFile',array($ThemeFile,$ThemeXML));
+	eyex('messageBox',array('content'=>'Theme changed. Please restart your desktop now.'));
+}
+
+function eyeControl_on_theme_select($params = '') {
+	global $currentUser;
+	global $myPid;
+	$dir = EYE_ROOT . '/' . EXTERN_DIR . '/' . THEMES_DIR . '/';
+	$theme = $params['selected'][0];
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	$ThemeXML = eyeXML('getXMLfile',array($dir . $theme . '/info.xml'));
+	$currentUser = $oldUser;
+	$ThemeXML = $ThemeXML['eyeXtheme'][0];
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_theme_label_display_2").innerHTML="";'));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_theme_label_display_2").appendChild(document.createTextNode("' . i18n('translate',array($ThemeXML['display'][0] . ' %s',array($ThemeXML['version'][0]))) . '"));'));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_theme_label_author_2").innerHTML="";'));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_theme_label_author_2").appendChild(document.createTextNode("' . i18n('translate',array($ThemeXML['author'][0])) . '"));'));
+	eyex('rawjs',array('js' => 'document.getElementById("' . $myPid . '_eyeControl_theme_imagebox").src="index.php?extern='. THEMES_DIR . '/' . $theme . '/screenshot.png";'));
+}
+?>

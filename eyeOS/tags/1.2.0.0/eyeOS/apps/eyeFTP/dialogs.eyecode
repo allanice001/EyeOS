@@ -1,0 +1,513 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+
+/**
+ * @author Nanawel (nanawel@gmail.com)
+ * @version 2.0.2
+ * @updated ...-2007
+ */
+
+/**
+ * Creates a dialog box to manage saved hosts
+ * 
+ * @param array $params
+ * @see eyeFTP_on_eyeFTP_rename_rename_BTN()
+ */
+function showManageHostsDialog($params="") {
+	global $checknum;
+	
+	//prevent multiple instances of the window
+	if ($GLOBALS['eyeFTP_manageHosts_DLG']) {
+		@$GLOBALS['eyeFTP_manageHosts_DLG']->close();
+	}
+	
+	$manageHostsWindow = new Window(array(
+		'name' => 'eyeFTP_manageHosts_DLG',
+		'father' => 'eyeFTP_WND',
+		'type' => NOLIST_CLOSE_WINDOW,
+		'cent' => 1,
+		'width' => 540,
+		'height' => 300,
+		'title' => 'Manage hosts',
+		'removepid' => 0
+	));
+	$manageHostsWindow->show();
+
+	/* TABLE FOR SAVED HOSTS LIST */
+	$hostsTable = new Sortabletable(array(
+		'name' => 'eyeFTP_manageHosts_savedHosts_TAB',
+		'father' => 'eyeFTP_manageHosts_DLG_Content',
+		'x' => 4,
+		'y' => 4,
+		'width' => 430,
+		'height' => 200,
+		'sortypes' => array('Hidden','String','String','String','String'),
+		'master' => 0,
+		'theader' => array('id','Hostname','Port','Username','Password')
+	));
+	$hostsTable->show();
+	
+	/**
+	 * CONTAINER (ACTIONS ELEMENTS)
+	 */
+	$actionsContainer = new Box(array(
+		'name' => 'eyeFTP_manageHosts_actions_CTNR',
+		'father' => 'eyeFTP_manageHosts_DLG_Content',
+		'x' => 440,
+		'y' => 4,
+		'width' => 94,
+		'height' => 264,
+		'title' => 'Actions'
+	));
+	$actionsContainer->show();
+	
+	/* ADD BUTTON */
+	$addButton = new Button(array(
+		'name' => 'eyeFTP_manageHosts_add_BTN',
+		'father' => 'eyeFTP_manageHosts_actions_CTNR',
+		'caption' => 'Add host',
+		'x' => 8,
+		'y' => 30,
+		'enabled' => 1,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/add.png'
+	));
+	$addButton->show(0);
+	
+	/* EDIT BUTTON */
+	$editButton = new Button(array(
+		'name' => 'eyeFTP_manageHosts_edit_BTN',
+		'father' => 'eyeFTP_manageHosts_actions_CTNR',
+		'caption' => 'Edit Selection',
+		'x' => 8,
+		'y' => 64,
+		'enabled' => 1,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/rename.png'
+	));
+	$editButton->addFriend($hostsTable);
+	$editButton->show(0);
+	
+	/* DELETE BUTTON */
+	$deleteButton = new Button(array(
+		'name' => 'eyeFTP_manageHosts_delete_BTN',
+		'father' => 'eyeFTP_manageHosts_actions_CTNR',
+		'caption' => 'Delete Selection',
+		'x' => 8,
+		'y' => 98,
+		'enabled' => 1,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/delete.png'
+	));
+	$deleteButton->addFriend($hostsTable);
+	$deleteButton->show(0);
+	
+	/* LOAD BUTTON */
+	$loadButton = new Button(array(
+		'name' => 'eyeFTP_manageHosts_load_BTN',
+		'father' => 'eyeFTP_manageHosts_actions_CTNR',
+		'caption' => 'Load Selection',
+		'x' => 8,
+		'y' => 220,
+		'enabled' => 1,
+		'img' => 'index.php?extern=apps/eyeFTP/gfx/load.png'
+	));
+	$loadButton->addFriend($hostsTable);
+	$loadButton->show(0);
+	
+	/**
+	 * CONTAINER (ADD/UPDATE HOST FORM ELEMENTS)
+	 */
+	$addHostContainer = new Container(array(
+		'name' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'father' => 'eyeFTP_manageHosts_DLG_Content',
+		'x' => 8,
+		'y' => 214,
+		'width' => 430,
+		'height' => 58
+	));
+	$addHostContainer->show();
+	
+	/* HOST LABEL/TEXTBOX */
+	$hostLabel = new Label(array(
+		'name' => 'eyeFTP_manageHosts_host_LBL',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 2,
+		'y' => 7,
+		'text' => 'Host: '
+	));
+	$hostLabel->show();
+	$hostTextbox = new Textbox(array(
+		'name' => 'eyeFTP_manageHosts_host_TXTBOX',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 34,
+		'y' => 4,
+		'width' => 120,
+		'enabled' => 0
+	));
+	$hostTextbox->show();
+	$hostTextbox->focus();
+	
+	/* PORT LABEL/TEXTBOX */
+	$portLabel = new Label(array(
+		'name' => 'eyeFTP_manageHosts_port_LBL',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 166,
+		'y' => 7,
+		'text' => 'Port: '
+	));
+	$portLabel->show();
+	$portTextbox = new Textbox(array(
+		'name' => 'eyeFTP_manageHosts_port_TXTBOX',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 226,
+		'y' => 4,
+		'width' => 50,
+		'enabled' => 0
+	));
+	$portTextbox->show();
+	
+	/* USERNAME LABEL/TEXTBOX */
+	$usernameLabel = new Label(array(
+		'name' => 'eyeFTP_manageHosts_username_LBL',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 2,
+		'y' => 37,
+		'text' => 'User: '
+	));
+	$usernameLabel->show();
+	$usernameTextbox = new Textbox(array(
+		'name' => 'eyeFTP_manageHosts_username_TXTBOX',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 34,
+		'y' => 34,
+		'width' => 120,
+		'enabled' => 0
+	));
+	$usernameTextbox->show();
+	
+	/* PASSWORD LABEL/TEXTBOX */
+	$passwordLabel = new Label(array(
+		'name' => 'eyeFTP_manageHosts_password_LBL',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 166,
+		'y' => 37,
+		'text' => 'Password: '
+	));
+	$passwordLabel->show();
+	$passwordTextbox = new Textbox(array(
+		'name' => 'eyeFTP_manageHosts_password_TXTBOX',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'x' => 226,
+		'y' => 34,
+		'width' => 80,
+		'password' => 1,
+		'enabled' => 0
+	));
+	$passwordTextbox->show();
+	
+	/* CANCEL BUTTON */
+	$cancelButton = new Button(array(
+		'name' => 'eyeFTP_manageHosts_cancel_BTN',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'caption' => 'Cancel',
+		'x' => 340,
+		'y' => 0,
+		'enabled' => 0
+	));
+	$cancelButton->addFriend($hostTextbox);
+	$cancelButton->addFriend($portTextbox);
+	$cancelButton->addFriend($usernameTextbox);
+	$cancelButton->addFriend($passwordTextbox);
+	$cancelButton->show(0);
+	
+	/* SAVE BUTTON */
+	$saveButton = new Button(array(
+		'name' => 'eyeFTP_manageHosts_save_BTN',
+		'father' => 'eyeFTP_manageHosts_addUpdateHostData_CTNR',
+		'caption' => 'Save',
+		'x' => 340,
+		'y' => 30,
+		'enabled' => 0
+	));
+	$saveButton->addFriend($hostTextbox);
+	$saveButton->addFriend($portTextbox);
+	$saveButton->addFriend($usernameTextbox);
+	$saveButton->addFriend($passwordTextbox);
+	$saveButton->show(0);
+	
+	
+	/* HIDDEN ELEMENTS */
+	$arraySerializedHostsData = new Hidden(array(
+		'name' =>'eyeFTP_manageHosts_serializedHostsData_HID',
+		'father' => 'eyeFTP_manageHosts_DLG_Content',
+		'text' => ''
+	));
+	reqLib('eyeWidgets','serialize',array($arraySerializedHostsData));
+	$idEdition = new Hidden(array(
+		'name' =>'eyeFTP_manageHosts_idEdition_HID',
+		'father' => 'eyeFTP_manageHosts_DLG_Content',
+		'text' => 'new'
+	));
+	reqLib('eyeWidgets','serialize',array($idEdition));
+
+	eyeX('rawjs',array('js' => 'sendMsg('.$checknum.',"eyeFTP_manageHosts_initComplete","");'));
+}
+
+/**
+ * Creates a dialog box with a textfield in order the user to type the name of the new folder to create
+ * 
+ * @see eyeFTP_on_eyeFTP_newFolder_createFolder_BTN()
+ */
+function showCreateFolderDialog() {
+	$createFolderWindow = new Window(array(
+		'name' => 'eyeFTP_newFolder_DLG',
+		'father' => 'eyeFTP_WND',
+		'type' => NOLIST_CLOSE_WINDOW,
+		'cent' => 1,
+		'width' => 350,
+		'height' => 170,
+		'title' => 'New folder',
+		'removepid' => 0
+	));
+	$createFolderWindow->show();
+
+	$myLabel = new Label(array(
+		'name' => 'eyeFTP_newFolder_LBL',
+		'father' => 'eyeFTP_newFolder_DLG_Content',
+		'text' => 'Type the name of the new folder',
+		'y' => 25,
+		'x' => 105
+	));
+	$myLabel->show();
+	
+	$myTextBox = new Textbox(array(
+		'name' => 'eyeFTP_newFolder_TXTBOX',
+		'father' => 'eyeFTP_newFolder_DLG_Content',
+		'x' => 105,
+		'y' => 55,
+		'width' => 200
+	));
+	$myTextBox->show();
+	$myTextBox->focus();
+
+	$myButton = new Button(array(
+		'name' => 'eyeFTP_newFolder_createFolder_BTN',
+		'father' => 'eyeFTP_newFolder_DLG_Content',
+		'caption' => 'Create',
+		'x' => 105,
+		'y' => 100
+	));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();
+	
+	$myImage = new Imagebox(array(
+		'name' => 'eyeFTP_newFolder_IMG',
+		'father' => 'eyeFTP_newFolder_DLG_Content',
+		'url' => 'index.php?extern=apps/eyeFTP/gfx/newfolder_big.png',
+		'x' => 30,
+		'y' => 38
+	));
+	$myImage->show();
+}
+
+
+/**
+ * Creates a dialog box with a textfield in order the user to type the new name of the selected file/folder
+ * 
+ * @param array $params
+ * @see eyeFTP_on_eyeFTP_rename_rename_BTN()
+ */
+function showRenameDialog($params="") {
+	$createFolderWindow = new Window(array(
+		'name' => 'eyeFTP_rename_DLG',
+		'father' => 'eyeFTP_WND',
+		'type' => NOLIST_CLOSE_WINDOW,
+		'cent' => 1,
+		'width' => 350,
+		'height' => 170,
+		'title' => 'Rename file/folder',
+		'removepid' => 0
+	));
+	$createFolderWindow->show();
+
+	$myLabel = new Label(array(
+		'name' => 'eyeFTP_rename_LBL',
+		'father' => 'eyeFTP_rename_DLG_Content',
+		'text' => 'Type the new name/location of the file/folder',
+		'y' => 25,
+		'x' => 105
+	));
+	$myLabel->show();
+	
+	$myTextBox = new Textbox(array(
+		'name' => 'eyeFTP_rename_TXTBOX',
+		'father' => 'eyeFTP_rename_DLG_Content',
+		'x' => 105,
+		'y' => 55,
+		'width' => 200
+	));
+	$myTextBox->show();
+	$myTextBox->focus();
+	//FIXME: unable to use setText(), otherwise causes an "undefined entity" error on special chars in browser
+	global $myPid;
+	eyeX('rawjs',array('js' => 'document.getElementById("'.$myPid.'_eyeFTP_rename_TXTBOX").value=Base64.decode("'.base64_encode($params['displayedFileLocation']).'");'));
+
+	$myButton = new Button(array(
+		'name' => 'eyeFTP_rename_rename_BTN',
+		'father' => 'eyeFTP_rename_DLG_Content',
+		'caption' => 'Rename',
+		'x' => 105,
+		'y' => 100
+	));
+	$myButton->addFriend($myTextBox);
+	$myButton->show();
+	
+	$myImage = new Imagebox(array(
+		'name' => 'eyeFTP_rename_IMG',
+		'father' => 'eyeFTP_rename_DLG_Content',
+		'url' => 'index.php?extern=apps/eyeFTP/gfx/rename_big.png',
+		'x' => 30,
+		'y' => 38
+	));
+	$myImage->show();
+	
+	$myHidden = new Hidden(array(
+		'name' =>'eyeFTP_rename_currentLocation_HID',
+		'father' => 'eyeFTP_rename_DLG_Content',
+		'text' => $params['selectedFileLocation']
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+/**
+ * Creates a dialog box asking user for confirmation of file/folder deletion
+ * 
+ * @param array $params
+ * @see eyeFTP_on_eyeFTP_delete_deleteYes_BTN()
+ * @see eyeFTP_on_eyeFTP_delete_deleteNo_BTN()
+ */
+function showConfirmDeleteDialog($params="") {
+	$confirmDeleteWindow = new Window(array(
+		'name' => 'eyeFTP_delete_DLG',
+		'father' => 'eyeFTP_WND',
+		'type' => NOLIST_CLOSE_WINDOW,
+		'cent' => 1,
+		'width' => 350,
+		'height' => 150,
+		'title' => 'Delete file/folder',
+		'removepid' => 0
+	));
+	$confirmDeleteWindow->show();
+
+	$myLabel = new Label(array(
+		'name' => 'eyeFTP_delete_LBL',
+		'father' => 'eyeFTP_delete_DLG_Content',
+		'text' => 'Are you sure you want to delete this file/folder?',
+		'y' => 25,
+		'x' => 105
+	));
+	$myLabel->show();
+
+	$myButtonYes = new Button(array(
+		'name' => 'eyeFTP_delete_deleteYes_BTN',
+		'father' => 'eyeFTP_delete_DLG_Content',
+		'caption' => 'Yes',
+		'x' => 135,
+		'y' => 80
+	));
+	$myButtonYes->show();
+	
+	$myButtonNo = new Button(array(
+		'name' => 'eyeFTP_delete_deleteNo_BTN',
+		'father' => 'eyeFTP_delete_DLG_Content',
+		'caption' => 'No',
+		'x' => 210,
+		'y' => 80
+	));
+	$myButtonNo->show();
+	
+	$myImage = new Imagebox(array(
+		'name' => 'eyeFTP_delete_IMG',
+		'father' => 'eyeFTP_delete_DLG_Content',
+		'url' => 'index.php?extern=apps/eyeFTP/gfx/question.png',
+		'x' => 30,
+		'y' => 38
+	));
+	$myImage->show();
+	
+	$myHidden = new Hidden(array(
+		'name' =>'eyeFTP_delete_serializedFileInfos_HID',
+		'father' => 'eyeFTP_delete_DLG_Content',
+		'text' => $params['serializedFileInfos']
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+/**
+ * Creates a dialog box with a file input in order the user to select a file to upload
+ * 
+ * @see 
+ */
+function showUploadDialog($params="") {
+	global $checknum;
+	$uploadWindow = new Window(array(
+		'name' => 'eyeFTP_upload_DLG',
+		'father' => 'eyeFTP_WND',
+		'type' => NOLIST_CLOSE_WINDOW,
+		'cent' => 1,
+		'width' => 350,
+		'height' => 170,
+		'title' => 'Upload a file',
+		'removepid' => 0
+	));
+	$uploadWindow->show();
+	reqLib('eyeWidgets','serialize',array($uploadWindow));
+
+	$myFrame = new Iframe(array(
+		'name' => 'eyeFTP_upload_FRM',
+		'father' => 'eyeFTP_upload_DLG_Content',
+		'x' => 100,
+		'y' => 5,
+		'height' => 120,
+		'width' => 240,
+		'url' => 'index.php?checknum='.$checknum.'&msg=eyeFTP_upload_initForm&params[]='.urlencode($params['displayedPath']),
+		'scroll' => 1
+	));
+	$myFrame->show();
+
+	$myHidden = new Hidden(array(
+		'name' => 'eyeFTP_upload_path_HID',
+		'father' => 'eyeFTP_upload_DLG_Content',
+		'text' => $params['path']
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	$myImage = new Imagebox(array(
+		'name' => 'eyeFTP_upload_IMG',
+		'father' => 'eyeFTP_upload_DLG_Content',
+		'url' => 'index.php?extern=apps/eyeFTP/gfx/upload_big.png',
+		'x' => 30,
+		'y' => 38
+	));
+	$myImage->show();
+}
+?>

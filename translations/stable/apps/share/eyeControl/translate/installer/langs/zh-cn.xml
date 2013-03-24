@@ -1,0 +1,199 @@
+<lang>
+	<info>
+		<lang>简体中文</lang>
+		<author>linxiaodong &amp; Aron Xu</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]否[/span]将会使您回到系统页面。</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>您确实要删除 oneye 安装程序么？</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>否</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>请在以下动作中选择一个：</new>
+		</text>
+		<text>
+			<old>installer-system-password</old>
+			<new>root 用户密码</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>您可以在以下地址下载到语言包：[a link]</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>继续…</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>为了安全保障，请删除安装程序！</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]是[/span]将会删除 oneye 安装程序。</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>卸载 oneye</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>无法解压缩升级文件。要手工更新 eyseOS，请将“[package]”重命名为“package.tar.gz”并将其解压到相同的目录中。</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>您确实要删除 oneye 么？</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>这个更新程序仅能用于更新 eyeos 1.5或更新版本。您正在使用的版本是 eyeos [version1]，请在升级到 oneye [version2]前先升级到 eyeos 1.5。</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>请继续更新您的 oneye 安装到 [version] 版本。</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>更新 oneye！</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>root 用户密码错误！</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>无法重命名“./eyeOS/”目录。请手工将其重命名为“[hash]”并覆盖所有已存在文件。</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>继续…</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]是[/span]将会完整删除 oneye 。</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>是</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>移除 oneye 安装程序</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]否[/span]将会使您回到系统页面。</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>动作</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>您的 PHP 没有完整的 UTF-8 支持。请考虑升级 PHP 或者安装 mbstring 模块。尽管没有他们您也可以安装和升级您的 oneye，但是当您的系统需要国际化支持时就可能遇到各种问题。</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>必须输入 root 用户密码！</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>请您填写以下各项以安装 oneye</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>root 密码</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>警告：请检查“[package]”，它可能已损坏。</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>输入的 root 密码不匹配！</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>重新输入密码</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>无法解压缩安装文件。手工安装 eyseOS，请将“[package]”重命名为“package.tar.gz”并将其解压到相同的目录中。</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>无法重命名“./eyeOS/”目录。请手工将其重命名为“[hash]”。</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>您的服务器似乎没有 gzip 支持。要手工安装 oneye，请将“[package]”重命名为“package.tar.gz”并将其解压到相同目录下。</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>继续…</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>由</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>错误：“[file]”不存在。</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>语言</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>oneye 安装</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>安装过程出错：</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>root 用户密码应当长于 3 个字符！</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>当前语言</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>抱歉，oneye需要您关闭安全模式(SAFE_MODE OFF)。您当前弃用了安全模式。请更改 php.ini 以关闭安全模式，或询问系统管理员以寻求帮助。</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>警告：请将“[file]”的权限设置为777(chmod 777)。</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>您的服务器使用的 PHP 版本不能使用 oneye，请在安装 oneye 前升级PHP到5.0或更新的版本。</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>允许用户创建帐号</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>当前的 oneye 安装版本高于此更新。为了安全起见，请删除“[installer]”目录。</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>安装 oneye！</new>
+		</text>
+	</part>
+</lang>

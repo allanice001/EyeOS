@@ -1,0 +1,84 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeControl_on_desktop_select($params = '') {
+	global $checknum;
+	proc('launch',array('eyeDialog',$options = array(0,'desktop_select_now',$checknum,'',1)));
+}
+
+function eyeControl_on_desktop_select_now($params=null) {
+	global $checknum;
+	global $myPid;
+	$file = $params['arg'][0];
+	if($file) {
+		if (substr($file,0,strlen('/' . GROUPS_DIR . '/')) == '/' . GROUPS_DIR . '/') {
+			$file = EYE_ROOT . $file;
+		} else {
+			$file = service('um','getCurrentUserDir') . '/' . FILES_USER_DIR . '/' . $file;
+		}
+		$ConfFile = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeDesk/conf.xml';
+		if (vfs('filesize',array($file)) > 0 && in_array(strtolower(substr($file,-4)),array('.jpg','.gif','.bmp','.png','.tif'))) {
+			$mySettings = eyeXML('getXMLfile',array($ConfFile));
+			$mySettings['eyeDesk'][0]['wallpaper'][0] = $file;
+			$mySettings = eyeXML('setXMLfile',array($ConfFile,$mySettings));
+			eyex('setWallpaper',array('path' => 'index.php?checknum=' . $checknum . '&msg=getWallpaper&params=' . md5(uniqid(rand(),true)),'repeat' => 0,'center' => 1));
+			eyex('messageBox',array('content'=>'New wallpaper successfully set.'));
+		} elseif (!in_array(strtolower(substr($file,-4)),array('.jpg','.gif','.bmp','.png','.tif'))) {
+			eyex('messageBox',array('content'=>'Sorry, this file is not allowed to be a wallpaper.'));
+		}
+		loadContent('look_and_feel','desktop');
+	}
+}
+
+function eyeControl_on_desktop_default($params = '') {
+	global $checknum;
+	global $myPid;
+	$ConfFile = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeDesk/conf.xml';
+	$mySettings = eyeXML('getXMLfile',array($ConfFile));
+	$mySettings['eyeDesk'][0]['wallpaper'][0] = '';
+	$mySettings = eyeXML('setXMLfile',array($ConfFile,$mySettings));
+	eyex('setWallpaper',array('path' => 'index.php?checknum=' . $checknum . '&msg=getWallpaper&params=','repeat' => 0,'center' => 1));
+	eyex('messageBox',array('content'=>'New wallpaper successfully set.'));
+	loadContent('look_and_feel','desktop');
+}
+
+function eyeControl_on_getWallpaper($params = '') {
+	$ConfFile = um('getCurrentUserDir') . '/' . CONF_USER_DIR . '/eyeDesk/conf.xml';
+	$mySettings = eyeXML('getXMLfile',array($ConfFile));
+	$path = $mySettings['eyeDesk'][0]['wallpaper'][0];
+	if ($path && vfs('fileExists',array($path))) {
+		$fp = vfs('open',array($path,'r'));
+		if (!$fp) {
+			exit;
+		}
+		header('Cache-Control: no-cache, must-revalidate');
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+		header('Content-Type: image/jpg');
+		header('Conection: close');
+		while (!feof($fp)) {
+			echo fgets($fp, 4096);
+		}
+		fclose($fp);
+	}
+}
+?>

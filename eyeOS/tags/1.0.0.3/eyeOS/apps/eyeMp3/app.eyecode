@@ -1,0 +1,120 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+/*
+	eyeLaunch
+	
+	This app launch apps introducing his name into the textbox and clicking the button
+*/
+
+function eyeMp3_run($params=null) {
+	global $myPid,$checknum;
+	if(isset($params[0])){
+		$mp3FilePath = $params[0];	
+	}else{
+		$mp3FilePath = '';
+	}
+	
+	//Setting checknum and myPid with old instanced if it exists
+	$checkResult = isEyeMp3Running();
+	if($checkResult !== false){
+		$myPid2 = $myPid;//myPid2 is for kill this instacen when make a action 
+		$checknum = $checkResult['checknum'];
+		$myPid = $checkResult['pid'];
+	}
+			
+	service('eyex','loadScript',array('url' => 'index.php?extern=apps/eyeMp3/js/eyeMp3'.EYE_CODE_EXTENSION.'&type=dynamic&params[]='.$myPid.'&params[]='.$checknum));
+	
+	if($mp3FilePath){
+		//Make a hidden widget for store the info. This will give access in all app/request without disclosure
+		$myHidden = new Hidden(array('name'=>'soundPath','father'=>'eyeApps','text'=>$mp3FilePath));
+		reqLib('eyeWidgets','serialize',array($myHidden));		
+		//Putting a shortUrl for mp3player		
+		$mp3Name = basename($mp3FilePath);
+		addShortUrl($mp3Name,'getSound');
+		$shortUrl = "index.php/$mp3Name";			
+	}
+	
+	if($checkResult !== false && $mp3FilePath){
+		//If it is open with a new sound
+		service('eyex','sendMessage',array('msg'=>'putSound'));
+		service('proc','close',array($myPid2));
+		return;		
+	}elseif(is_array($checkResult) && !$mp3FilePath){
+		//TODO:If it is not a re-open with a sound
+		service('proc','close',array($myPid2));
+		return;
+	}
+	
+			
+	$myWindow = new Window(array('name'=>'win1','title'=>'eyeMp3!','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'width'=>280,'height'=>88,'cent'=>1,'savePosition'=>1));
+	$myWindow->show();
+	
+	$myLabel = new Label(array('name'=>'infoLabel','father'=>'win1_Content',
+		'text'=>'This is not a bug! Is a problem with flash players! Sorry.','y'=>20,'x'=>20));
+	$myLabel->show();
+	
+	$flashPlayerPath = "index.php?extern=apps/eyeMp3/swf/webplayer.swf&type=swf";//This is hardcoded because it shouldn't change		
+	//flashParamsNames and flashParamsValues.
+	//Vars for mp3 player.
+	$flashParamsNames[] = 'flashvars';
+	//Prevent diferents views in the future
+	if(isset($shortUrl)){
+		$flashParamsValues[] = "src=$shortUrl&autostart=yes&loop=no&jscontrol=true";	
+	}else{
+		$flashParamsValues[] = "autostart=yes&loop=no&jscontrol=true";
+	}
+					
+	//Show flash menu with all options
+	$flashParamsNames[] = 'menu';
+	$flashParamsValues[] = 'false';
+	//scale flash
+	$flashParamsNames[] = 'scale';
+	$flashParamsValues[] = 'noscale';
+	//background color
+	$flashParamsNames[] = 'bgcolor';
+	$flashParamsValues[] = '#C0C0C0';
+	//movie //TODO: check if it is realy needed
+	//$flashParamsNames[] = 'movie';
+	//$flashParamsValues[] = $flashPlayerPath;		
+	$myFlashPlayer = new Flash(array('name'=>'flashPlayer','title'=>'eyeMp3!','father'=>'win1','width'=>278,'height'=>64,'x'=>1,'y'=>23,
+							'src'=>$flashPlayerPath,'flashParamsNames'=>$flashParamsNames,'flashParamsValues'=>$flashParamsValues));
+	$myFlashPlayer->show();
+
+}
+
+function isEyeMp3Running(){
+	global $checknum,$myPid;
+	$processTable = service('proc','getProcessTable');
+	$count = 0;
+	foreach($processTable as $process){
+		if($process['appName'] == 'eyeMp3'){			
+			if($count > 0 || $checknum != $process['checknum']) {
+				return $process;//return the instanced eyeMp3
+			}
+			$count++;
+		}
+	}	
+	return false;
+}
+
+function eyeMp3_end($params=null) {
+	reqLib('eyeWidgets','unserialize');	
+}
+?>

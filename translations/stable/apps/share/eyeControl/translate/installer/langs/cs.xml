@@ -1,0 +1,207 @@
+<lang>
+	<info>
+		<lang>Český</lang>
+		<author>Peter Schiffer</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>default</name>
+		<text>
+			<old>installer-system-password</old>
+			<new>Heslo root-a</new>
+		</text>
+		<text>
+			<old>installer-system-no</old>
+			<new>Ne</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-no</old>
+			<new>[span]Ne[/span] tě pošle zpátky na systémovou stránku.</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-really</old>
+			<new>Doopravdy chceš odstranit oneye instalátor?</new>
+		</text>
+		<text>
+			<old>installer-system-title</old>
+			<new>Prosím vyber jednu z následujících akcí:</new>
+		</text>
+		<text>
+			<old>installer-system-message-translations</old>
+			<new>Překlady můžou být staženy z [a link].</new>
+		</text>
+		<text>
+			<old>installer-system-message-remove</old>
+			<new>Prosím odstraň instalátor kvůli bezpečnosti!</new>
+		</text>
+		<text>
+			<old>installer-system-action-uninstall</old>
+			<new>Odinstalovat oneye</new>
+		</text>
+		<text>
+			<old>installer-system-back</old>
+			<new>Návrat do menu</new>
+		</text>
+		<text>
+			<old>installer-system-continue</old>
+			<new>Pokračovat...</new>
+		</text>
+		<text>
+			<old>installer-system-removeinstaller-yes</old>
+			<new>[span]Ano[/span] odstraní všechny soubory oneye instalátoru!</new>
+		</text>
+		<text>
+			<old>installer-update-error-extract</old>
+			<new>Aktualizační soubory se nepodařilo rozbalit. Pokud chceš nainstalovat oneye ručně, přejmenuj "[package]" na "package.tar.gz" a rozbal obsah archivu do té samé složky.</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-really</old>
+			<new>Doopravdy chceš odinstalovat oneye?</new>
+		</text>
+		<text>
+			<old>installer-update-error-under15</old>
+			<new>Tato aktualizace je jenom pro eyeos verzi 1.5 nebo novější. Ty používáš eyeos [version1]. Prosím aktualizuj na eyeos 1.5 před aktualizováním na oneye [version2].</new>
+		</text>
+		<text>
+			<old>installer-update-title</old>
+			<new>Prosím pokračuj k aktualizaci tvého oneye na verzi [version].</new>
+		</text>
+		<text>
+			<old>installer-update-do</old>
+			<new>Aktualizuj oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-password-error</old>
+			<new>Nesprávné heslo root-a!</new>
+		</text>
+		<text>
+			<old>installer-update-error-renaming</old>
+			<new>Nepodařilo se přejmenovat složku "./eyeOS/". Prosím, přejmenuj ji ručně na "[hash]" a přepiš všechny existující soubory.</new>
+		</text>
+		<text>
+			<old>installer-update-continue</old>
+			<new>Pokračovat...</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-yes</old>
+			<new>[span]Ano[/span] odstraní oneye!</new>
+		</text>
+		<text>
+			<old>installer-system-yes</old>
+			<new>Ano</new>
+		</text>
+		<text>
+			<old>installer-system-action-resetsystem</old>
+			<new>Resetovat systémové soubory</new>
+		</text>
+		<text>
+			<old>installer-system-uninstall-no</old>
+			<new>[span]Ne[/span] tě pošle zpátky na systémovou stránku.</new>
+		</text>
+		<text>
+			<old>installer-system-action</old>
+			<new>Akce</new>
+		</text>
+		<text>
+			<old>installer-system-action-removeinstaller</old>
+			<new>Odstranit oneye instalátor</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-required</old>
+			<new>Musíš zadat heslo root-a!</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-characters</old>
+			<new>Heslo root-a musí být delší než tři znaky!</new>
+		</text>
+		<text>
+			<old>installer-install-title</old>
+			<new>Prosím vyplň následující pole k instalaci oneye:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-gzip</old>
+			<new>Vypadá to, že tvůj server nepodporuje gzip. Když chceš nainstalovat oneye ručně, přejmenuj "[package]" na "package.tar.gz" a rozbal obsah archivu do té samé složky.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-newer</old>
+			<new>Současná verze oneye je novější jako tato aktualizace. Prosím smaž složku "[installer]" kvůli bezpečnosti.</new>
+		</text>
+		<text>
+			<old>installer-install-password-root</old>
+			<new>Heslo root-a</new>
+		</text>
+		<text>
+			<old>installer-install-password-retype</old>
+			<new>Potvrzení hesla</new>
+		</text>
+		<text>
+			<old>installer-install-continue</old>
+			<new>Pokračovat...</new>
+		</text>
+		<text>
+			<old>installer-install-error-extract</old>
+			<new>Instalační soubory se nepodařilo rozbalit. Když chceš nainstalovat oneye ručně, přejmenuj "[package]" na "package.tar.gz" a rozbal obsah archivu do té samé složky.</new>
+		</text>
+		<text>
+			<old>installer-install-error-renaming</old>
+			<new>Nepodařilo se přejmenovat složku "./eyeOS/". Prosím, přejmenuj ji ručně na "[hash]".</new>
+		</text>
+		<text>
+			<old>installer-lib-check-md5</old>
+			<new>Varování: Prosím zkontroluj "[package]", protože archiv může být poškozen.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-currentlang</old>
+			<new>Současný jazyk</new>
+		</text>
+		<text>
+			<old>installer-lib-check-permissions</old>
+			<new>Varování: Prosím dej všechna práva (CHMOD 777) souboru "[file]".</new>
+		</text>
+		<text>
+			<old>installer-lib-output-title</old>
+			<new>oneye Instalace</new>
+		</text>
+		<text>
+			<old>installer-lib-output-utf8</old>
+			<new>Tvá PHP verze nemá plnou podporu UTF-8. Prosím zvaž aktualizaci PHP, nebo doinstalování modulu mbstring. Bez něho budeš schopen nainstalovat a aktualizovat tvůj oneye, ale pak se mohou vyskytnout problémy v určitých oblastech systému, které vyžadují mezinárodní podporu.</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-by</old>
+			<new>od</new>
+		</text>
+		<text>
+			<old>installer-install-passwords-notmatch</old>
+			<new>Hesla root-a nesouhlasí!</new>
+		</text>
+		<text>
+			<old>installer-lib-output-lang-langs</old>
+			<new>Jazyky</new>
+		</text>
+		<text>
+			<old>installer-lib-output-errors</old>
+			<new>Při instalaci se vyskytly problémy:</new>
+		</text>
+		<text>
+			<old>installer-lib-check-php</old>
+			<new>Tvůj server používá nepodporovanou verzi PHP. Prosím aktualizuj na PHP 5.0 nebo novější před instalací oneye.</new>
+		</text>
+		<text>
+			<old>installer-lib-check-safemode</old>
+			<new>Promiň, ale oneye vyžaduje SAFE_MODE nastaven na OFF. Tvoje současná konfigurace má SAFE_MODE zapnuto. Prosím, uprav tvůj php.ini a vypni SAFE_MODE, nebo požádej o pomoc systémového administrátora.</new>
+		</text>
+		<text>
+			<old>installer-install-allow-creation</old>
+			<new>Povolit uživatelům vytvářet nová konta</new>
+		</text>
+		<text>
+			<old>installer-lib-check-notexist</old>
+			<new>Chyba: "[file]" neexistuje.</new>
+		</text>
+		<text>
+			<old>installer-install-do</old>
+			<new>Instalovat oneye!</new>
+		</text>
+	</part>
+</lang>

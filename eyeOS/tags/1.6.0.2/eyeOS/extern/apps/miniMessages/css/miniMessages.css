@@ -1,0 +1,23 @@
+.miniMessagesOuter {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	width: 380px;
+	height: 178px;
+	background-color: #E9EEF5;
+	border: 1px solid #20529B;
+	z-index: 100;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.miniMessagesInner {
+	position: absolute;
+	top: 19px;
+	width: 380px;
+	height: 153px;
+	background-image: url("index.php?extern=apps/eyeX/themes/default/images/desktop/miniwidgetbg.png");
+	background-repeat: repeat;
+	border-top: 1px solid #9BBFE4;
+	border-bottom: 1px solid #9BBFE4;
+}

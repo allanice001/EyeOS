@@ -1,0 +1,92 @@
+.allow_register {
+	border: 1px solid gray;
+	left: 200px;
+	position: absolute;
+	top: 59px;
+}
+
+.allow_register_text {
+	left: 15px;
+	position: absolute;
+	top: 60px;
+	width: 200px;
+}
+
+.errorHostname {
+	color: red;
+	left: 420px;
+	position: absolute;
+	top: 25px;
+	width: 260px;
+}
+
+.errorPassword {
+	color: red;
+	left: 420px;
+	position: absolute;
+	top: 40px;
+	width: 260px;
+}
+
+.hostname {
+	border: 1px solid gray;
+	left: 124px;
+	position: absolute;
+	top: 24px;
+	width: 260px;
+}
+
+.hostname_text {
+	left: 15px;
+	position: absolute;
+	top: 25px;
+	width: 100px;
+}
+
+.options {
+	border: 1px solid gray;
+	height: 90px;
+	left: 20px;
+	position: absolute;
+	top: 254px;
+	width: 714px;
+}
+
+.password {
+	border: 1px solid gray;
+	left: 124px;
+	position: absolute;
+	top: 24px;
+	width: 260px;
+}
+
+.password_text {
+	left: 15px;
+	position: absolute;
+	top: 25px;
+	width: 100px;
+}
+
+.password2 {
+	border: 1px solid gray;
+	left: 124px;
+	position: absolute;
+	top: 59px;
+	width: 260px;
+}
+
+.password2_text {
+	left: 15px;
+	position: absolute;
+	top: 60px;
+	width: 100px;
+}
+
+.passwords {
+	border: 1px solid gray;
+	height: 100px;
+	left: 20px;
+	position: absolute;
+	top: 153px;
+	width: 714px;
+}

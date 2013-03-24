@@ -1,0 +1,76 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+
+/** 
+ * @author Nanawel (nanawel@eyeos.org)
+ * @version 3.0.0
+ * @updated 12-Jan-2008
+ */
+
+/*********************************************************************************************/
+/*********************************************************************************************/
+/*					LIB FUNCTIONS - REMOTE FILES VIEW										 */
+/*********************************************************************************************/
+/*********************************************************************************************/
+
+/**
+ * Removes all rows from the remote files table
+ */
+function eyeFTP_emptyRemoteFilesTable() {
+	$conf = eyeFTP_getConf();
+	foreach($conf['listedRemoteFilesData'] as $id => $fileInfos) {
+		$GLOBALS['eyeFTP_remoteFiles_TAB']->delRow($id);
+	}
+	$GLOBALS['eyeFTP_serializedRemoteFilesData_HID']->setText(serialize(array()));
+	$GLOBALS['eyeFTP_remotePath_TXTBOX']->setText("");
+}
+
+function eyeFTP_refreshRemote() {
+	$conf = eyeFTP_getConf();
+	eyeFTP_browseRemote($conf['currentRemoteDir']);
+}
+
+/**
+ * @param string $path The path to browse
+ */
+function eyeFTP_browseRemote($path = '/') {
+	$conf = eyeFTP_getConf();
+	if (! $conf['isConnectionActive']) {
+		eyeX('messageBox',array('content'=>'You must connect first!'));
+		return;
+	}
+	
+	eyeFTP_logConsole('Listing directory \''.eyeFTP_getFormatedDirPath($path).'\'...');
+	if (EYEFTP_USE_REQUEST_BOUNCING) {
+		eyeFTP_bounceRequest(array(
+			'__signal' => 'eyeFTP_browseRemote_bounced',
+			'dir_b64' => base64_encode($path)
+		));
+	}
+	else {
+		eyeFTP_ftpListDir(eyeFTP_getFormatedDirPath($path));
+	}
+}
+
+?>

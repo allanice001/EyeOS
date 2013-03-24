@@ -1,0 +1,92 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeMail_on_skip($params=null) {
+	eyeWidgets('unserialize');
+	include_once(EYE_ROOT.'/'.APP_DIR.'/eyeMail/ui/main'.EYE_CODE_EXTENSION);
+}
+
+function eyeMail_on_save($params=null) {
+	$accName = $GLOBALS['accountName_TXT']->text;
+	$hostI = $GLOBALS['hostI_TXT']->text;
+	$hostPI = $GLOBALS['hostPI_TXT']->text;
+	$protocolI = $GLOBALS['protocolSelect']->selected;
+	$userI = $GLOBALS['userI_TXT']->text;
+	$passI = $GLOBALS['passI_TXT']->text;
+	$secureI = $GLOBALS['secureI_chk']->checked;
+	
+	if(!$secureI){
+		$secureI = "0";
+	}
+
+	$hostO = $GLOBALS['hostO_TXT']->text;
+	$hostPO = $GLOBALS['hostPO_TXT']->text;
+	$protocolO = $GLOBALS['protocolSelectO']->selected;
+	$userO = $GLOBALS['userO_TXT']->text;
+	$passO = $GLOBALS['passO_TXT']->text;
+	$secureO = $GLOBALS['secureO_chk']->checked;
+	
+	if(!$secureO){
+		$secureO = "0";
+	}
+	
+	$myUserDir = um('getCurrentUserDir');
+	$confdir = $myUserDir.'/conf/eyeMail/';
+	
+	$conf = array(
+					'name'=>array($accName),
+					'Host_Incoming'=>array($hostI),
+					'Port_Incoming'=>array($hostPI),
+					'User_Incoming'=>array($userI),
+					'Pass_Incoming'=>array($passI),
+					'Protocol_Incoming'=>array($protocolI),
+					'Secure_Incoming'=>array($secureI),
+					'Host_Out'=>array($hostO),
+					'Port_Out'=>array($hostPO),
+					'User_Out'=>array($userO),
+					'Pass_Out'=>array($passO),
+					'Protocol_Out'=>array($protocolO),
+					'Secure_Out'=>array($secureO)					
+				);
+	
+	$current = eyeXML('getXMLfile',array($confdir.'conf.xml'));
+	if(!is_array($current) || !isset($current['accounts'][0])) {
+		$conf = array(
+		'accounts'=>array(array('account'=>array(($conf))))
+		);
+		eyeXML('setXMLfile',array($confdir.'conf.xml',$conf));	
+	} else {
+		$current['accounts'][0]['account'][] = $conf;
+		eyeXML('setXMLfile',array($confdir.'conf.xml',$current));	
+		$conf=$current;
+	}
+	$GLOBALS['configure_WND']->close();
+	if($GLOBALS['fromManage']) {
+		eyeMail_ManageReaded($conf);
+	} else {
+		proc('launch',array('eyeMail'));
+		proc('end');
+	}
+}
+
+?>

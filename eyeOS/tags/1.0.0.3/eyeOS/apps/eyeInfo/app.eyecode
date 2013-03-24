@@ -1,0 +1,72 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeInfo_run($params=null) {
+	global $myPid;
+	$content = "";
+	$myWindow = new Window(array('name'=>'eyeInfoWND','type'=>NOLIST_CLOSE_WINDOW,'father'=>'eyeApps',
+	'cent'=>1,'width'=>300,'height'=>300,'title'=>'Info Screen'));
+	$myWindow->show();
+	$myImage3 = new Imagebox(array('name'=>'eyeos_logo','father'=>'eyeInfoWND_Content',
+		'url'=>'index.php?extern=apps/eyeX/themes/default/images/apps/eyeBar/default.png',
+		'x'=>10,'y'=>30,'cent'=>2,'width'=>138,'height'=>38,'disableMsg'=>0,'cssClass'=>'cPointer','signal'=>'Logo_Clicked'));
+	$myImage3->show();
+
+	$myCssText = array(
+	'color' => '#000',
+	'font-family'=>'Verdana',
+	'font-size'=>'11px',
+	'font-weight'=>'bold'
+	);
+	$myLabel1 = new Label(array ('name' => "eyeInfo_lbl1",'father' => 'eyeInfoWND_Content',
+		'text' =>"eyeOS 1.0 Engineering Team",'x' => 70,'y' => 75));
+	$myLabel1->show();
+	$myLabel2 = new Label(array ('name' => "eyeInfo_lbl2",'father' => 'eyeInfoWND_Content',
+		'text' =>"Pau Garcia-Milà",'x' => 80,'y' => 110));
+	$myLabel2->show();
+	$myLabel3 = new Label(array ('name' => "eyeInfo_lbl3",'father' => 'eyeInfoWND_Content',
+		'text' =>"Marc Cercós",'x' => 80,'y' => 130));
+	$myLabel3->show();
+	$myLabel4 = new Label(array ('name' => "eyeInfo_lbl4",'father' => 'eyeInfoWND_Content',
+		'text' =>"Jose Carlos Norte",'x' => 80,'y' => 150));
+	$myLabel4->show();
+	$myLabel5 = new Label(array ('name' => "eyeInfo_lbl5",'father' => 'eyeInfoWND_Content',
+		'text' =>"Daniel Gil",'x' => 80,'y' => 170));
+	$myLabel5->show();
+	$myLabel6 = new Label(array ('name' => "eyeInfo_lbl6",'father' => 'eyeInfoWND_Content',
+		'text' =>"Alejandro Fiestas",'x' => 80,'y' => 190));
+	$myLabel6->show();
+	$myLabel7 = new Label(array ('name' => "eyeInfo_lbl7",'father' => 'eyeInfoWND_Content',
+		'text' =>"David Plaza",'x' => 80,'y' => 210));
+	$myLabel7->show();
+	$myLabel8 = new Label(array ('name' => "eyeInfo_lbl8",'father' => 'eyeInfoWND_Content',
+		'text' =>"David Comuñas",'x' => 80,'y' => 230));
+	$myLabel8->show();
+			
+	$myLabel1->setCss($myCssText);
+		
+
+}
+
+function eyeInfo_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

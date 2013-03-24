@@ -1,0 +1,186 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.2
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU General Public License Version 3 (GPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/gpl.txt
+
+        Copyright 2005-2007 eyeOS Team (team@eyeos.org)         
+*/
+
+//create the window
+$myWindow = new Window(array('name'=>'configure_WND','father'=>'eyeApps','title'=>'eyeMail Configuration',
+	'cent'=>1,'width'=>500,'height'=>570,'style'=>TITLE));
+$myWindow->show();
+
+if(!isset($GLOBALS['fromManage'])) {
+	$myButtonClose = new Button(array('name'=>'close_BTN','father'=>'configure_WND_Content','caption'=>'Configure Later',
+	'x'=>10,'vert'=>1,'y'=>10,'signal'=>'skip'));
+	$myButtonClose->show();
+}
+
+//label information
+$myLabelInfo = new Label(array('name'=>'information_LBL','father'=>'configure_WND_Content','x'=>20,'y'=>20,
+	'text'=>'Welcome to eyeMail. Please, fill this form with your e-mail account data.'));
+$myLabelInfo->show();
+$myLabelInfo->setCss(array('font-weight'=>'bold'));
+
+//acount name
+$myLabelAccountName = new Label(array('name'=>'accountName_LBL','father'=>'configure_WND_Content',
+	'text'=>'Account\'s name','x'=>20,'y'=>70));
+$myLabelAccountName->show();
+
+$myTextAccountName = new Textbox(array('name'=>'accountName_TXT','father'=>'configure_WND_Content','width'=>200,
+	'horiz'=>1,'x'=>20,'y'=>70));
+$myTextAccountName->show();
+
+$myLabelAccountName = new Label(array('name'=>'information2_LBL','father'=>'configure_WND_Content',
+	'text'=>'This name will be used by eyeMail to identify this account, and has nothing to do with the server\'s configuration.',
+	'x'=>20,'horiz'=>1,'y'=>95));
+$myLabelAccountName->show();
+
+//separation line to incoming mail
+$myLine = new Line(array('name'=>'line_1','father'=>'configure_WND_Content','width'=>400,'x'=>20,'y'=>150));
+$myLine->show();
+
+$myLabelIncoming = new Label(array('name'=>'incoming_LBL','father'=>'configure_WND_Content','text'=>'Incoming mail',
+	'x'=>20,'y'=>130));
+$myLabelIncoming->show();
+$myLabelIncoming->setCss(array('font-weight'=>'bold'));
+
+//show server host label
+$myLabelHostI = new Label(array('name'=>'hostI_LBL','father'=>'configure_WND_Content','text'=>'Server Address',
+	'x'=>20,'y'=>170));
+$myLabelHostI->show();
+
+$myTextHostI = new Textbox(array('name'=>'hostI_TXT','father'=>'configure_WND_Content','width'=>200,'horiz'=>1,
+	'x'=>20,'y'=>170));
+$myTextHostI->show();
+
+//show server port label
+$myLabelHostPI = new Label(array('name'=>'hostPI_LBL','father'=>'configure_WND_Content','text'=>'Server Port',
+	'x'=>20,'y'=>190));
+$myLabelHostPI->show();
+
+$myTextHostPI = new Textbox(array('name'=>'hostPI_TXT','father'=>'configure_WND_Content','width'=>80,'horiz'=>1,
+	'x'=>20,'y'=>190,'text'=>110));
+$myTextHostPI->show();
+
+$myLabelHostTI = new Label(array('name'=>'hostTI_LBL','father'=>'configure_WND_Content','text'=>'Server Protocol',
+	'x'=>20,'y'=>210));
+$myLabelHostTI->show();
+
+$mySelectI = new Select(array('name'=>'protocolSelect','father'=>'configure_WND_Content','x'=>20,'y'=>210,'horiz'=>1,
+	'width'=>130));
+$mySelectI->show();
+$mySelectI->addOption('POP3','POP3',1);
+
+$myLabelUserI = new Label(array('name'=>'userI_LBL','father'=>'configure_WND_Content','text'=>'Username',
+	'x'=>20,'y'=>235));
+$myLabelUserI->show();
+
+$myTextUserI = new Textbox(array('name'=>'userI_TXT','father'=>'configure_WND_Content','width'=>200,'horiz'=>1,
+	'x'=>20,'y'=>235));
+$myTextUserI->show();
+
+
+$myLabelPassI = new Label(array('name'=>'passI_LBL','father'=>'configure_WND_Content','text'=>'Password',
+	'x'=>20,'y'=>255));
+$myLabelPassI->show();
+
+$myTextPassI = new Textbox(array('name'=>'passI_TXT','father'=>'configure_WND_Content','width'=>200,'horiz'=>1,
+	'x'=>20,'y'=>255,'password'=>1));
+$myTextPassI->show();
+
+$myCheckBoxSecureI = new Checkbox(array('name'=>'secureI_chk','father'=>'configure_WND_Content','x'=>20,'horiz'=>1,
+	'y'=>280,'text'=>'Use Secure Sockets'));
+$myCheckBoxSecureI->show();
+
+//---- outgoing
+
+$myLine2 = new Line(array('name'=>'line_1','father'=>'configure_WND_Content','width'=>400,'x'=>20,'y'=>340));
+$myLine2->show();
+
+$myLabelOutGoing = new Label(array('name'=>'outGoing_LBL','father'=>'configure_WND_Content','text'=>'Outgoing mail',
+	'x'=>20,'y'=>320));
+$myLabelOutGoing->show();
+$myLabelOutGoing->setCss(array('font-weight'=>'bold'));
+
+//show server host label
+$myLabelHostO = new Label(array('name'=>'hostO_LBL','father'=>'configure_WND_Content','text'=>'Server Address',
+	'x'=>20,'y'=>360));
+$myLabelHostO->show();
+
+$myTextHostO = new Textbox(array('name'=>'hostO_TXT','father'=>'configure_WND_Content','width'=>200,'horiz'=>1,
+	'x'=>20,'y'=>360));
+$myTextHostO->show();
+
+//show server port label
+$myLabelHostPO = new Label(array('name'=>'hostPO_LBL','father'=>'configure_WND_Content','text'=>'Server Port',
+	'x'=>20,'y'=>380));
+$myLabelHostPO->show();
+
+$myTextHostPO = new Textbox(array('name'=>'hostPO_TXT','father'=>'configure_WND_Content','width'=>80,'horiz'=>1,
+	'x'=>20,'y'=>380,'text'=>25));
+$myTextHostPO->show();
+
+$myLabelHostT0 = new Label(array('name'=>'hostTO_LBL','father'=>'configure_WND_Content','text'=>'Server Protocol',
+	'x'=>20,'y'=>400));
+$myLabelHostT0->show();
+
+$mySelect2 = new Select(array('name'=>'protocolSelectO','father'=>'configure_WND_Content','x'=>20,'y'=>400,'horiz'=>1,
+	'width'=>130));
+$mySelect2->show();
+$mySelect2->addOption('SMTP','SMTP',1);
+
+$myLabelUserO = new Label(array('name'=>'userO_LBL','father'=>'configure_WND_Content','text'=>'Username',
+	'x'=>20,'y'=>425));
+$myLabelUserO->show();
+
+$myTextUserO = new Textbox(array('name'=>'userO_TXT','father'=>'configure_WND_Content','width'=>200,'horiz'=>1,
+	'x'=>20,'y'=>425));
+$myTextUserO->show();
+
+
+$myLabelPassO = new Label(array('name'=>'passO_LBL','father'=>'configure_WND_Content','text'=>'Password',
+	'x'=>20,'y'=>445));
+$myLabelPassO->show();
+
+$myTextPassO = new Textbox(array('name'=>'passO_TXT','father'=>'configure_WND_Content','width'=>200,'horiz'=>1,
+	'x'=>20,'y'=>445,'password'=>1));
+$myTextPassO->show();
+
+$myCheckBoxSecureO = new Checkbox(array('name'=>'secureO_chk','father'=>'configure_WND_Content','x'=>20,'horiz'=>1,
+	'y'=>465,'text'=>'Use Secure Sockets'));
+$myCheckBoxSecureO->show();
+
+$myButtonSave = new Button(array('name'=>'ok_BTN','father'=>'configure_WND_Content','caption'=>'Save Configuration',
+	'x'=>10,'horiz'=>1,'vert'=>1,'y'=>10,'signal'=>'save'));
+$myButtonSave->addFriend($myTextAccountName);
+$myButtonSave->addFriend($myTextHostI);
+$myButtonSave->addFriend($myTextHostPI);
+$myButtonSave->addFriend($mySelectI);
+$myButtonSave->addFriend($myTextUserI);
+$myButtonSave->addFriend($myTextPassI);
+$myButtonSave->addFriend($myTextHostO);
+$myButtonSave->addFriend($myTextHostPO);
+$myButtonSave->addFriend($mySelect2);
+$myButtonSave->addFriend($myTextUserO);
+$myButtonSave->addFriend($myTextPassO);
+$myButtonSave->addFriend($myCheckBoxSecureI);
+$myButtonSave->addFriend($myCheckBoxSecureO);
+$myButtonSave->show();
+?>

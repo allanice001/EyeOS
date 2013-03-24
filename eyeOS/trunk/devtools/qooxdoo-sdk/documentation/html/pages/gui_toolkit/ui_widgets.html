@@ -1,0 +1,174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Widgets &mdash; qooxdoo v1.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="qooxdoo v1.2 documentation" href="../../index.html" />
+    <link rel="up" title="GUI Toolkit" href="../gui_toolkit.html" />
+    <link rel="next" title="Interaction" href="ui_interaction.html" />
+    <link rel="prev" title="Window" href="../widget/window.html" /> 
+  </head>
+  <body>
+
+		<div class="header">
+			<div class="headcenter">
+		    <a href="/"><img id="logo" src="http://resources.qooxdoo.org/images/logo.gif" alt="qooxdoo logo"/></a>
+		
+		    <h1 style="display: none;">qooxdoo</h1>
+		    <h2 class="subline">the new era of web development</h2>
+		  </div>
+			<div class="navigation">
+				<a href="http://qooxdoo.org">Home</a>
+				<a href="http://qooxdoo.org/about">About</a>
+				<a href="http://news.qooxdoo.org/">News</a>
+				<a href="http://qooxdoo.org/demo">Demo</a>
+				<a class="current" href="http://qooxdoo.org/documentation">Documentation</a>
+				<a href="http://qooxdoo.org/community">Community</a>
+				<a href="http://qooxdoo.org/download">Download</a>
+				<a href="http://bugzilla.qooxdoo.org/">Bugs</a>
+			</div>
+			<div class="subheader">&nbsp;</div>
+		</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ui_interaction.html" title="Interaction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../widget/window.html" title="Window"
+             accesskey="P">previous</a> |</li>
+				<li> &raquo; <a href="http://qooxdoo.org">Home</a> &raquo;</li>
+        <li><a href="../../index.html">qooxdoo v1.2 documentation</a> &raquo;</li>
+          <li><a href="../gui_toolkit.html" accesskey="U">GUI Toolkit</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="widgets">
+<span id="pages-ui-widgets-widgets"></span><h1>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="labels">
+<span id="pages-ui-widgets-labels"></span><h2>Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h2>
+<p>Labels are one of the basic building blocks in applications. The qooxdoo Label supports two modes, one which combines simple single line text content with the possibility to automatically render an ellipsis in cases where not enough room is available. This is often the best choice for all types of simple labels and is the default mode in qooxdoo. Through technical restrictions it is not possible to insert HTML in a so-configured instance. The other mode allows rich content (HTML) and adds the option for multi-line content together with an advanced mechanism called <em>Height4Width</em> which automatically re-wraps content based on the available width. This mode however could not handle automatic ellipsis (also makes less sense in multiline labels, still also not possible technological).</p>
+<p>More details: <a class="reference internal" href="../widget/label.html"><em>Label</em></a></p>
+</div>
+<div class="section" id="images">
+<span id="pages-ui-widgets-images"></span><h2>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<p>The second building block of applications. The image class in qooxdoo is quite sophisticated. PNG transparency is available in all browsers. Image data (e.g. format and dimension) is automatically pre-cached by the build system and distributed to the application for optional performance (omits reflow during application startup for example).</p>
+<p>This data also makes it possible to allow semi-automatic image sprites, a feature which gets more important for larger applications. Image sprites combine multiple images (with maybe even multiple states) in a single image instance. Only the relevant part is shown, all other states or images are cropped. This has some positive effects on the latency (e.g. number of HTTP requests needed) and also improves the runtime performance (switching a state in a image sprite is much faster than replacing the source of an image instance). Image sprites could be introduced in any application at any time. The application code do not need any changes. The original image path is automatically interpreted to a clipped image source with the needed offsets. Please note that this feature highly depends on qooxdoo&#8217;s tool chain which is a requirement to generate these data for the client.</p>
+<p>A major restriction of this technology is that the options to resize images client-side are crippled (the normal image is rendered through a background-image defintion and allows no stretching at all). The alternate mode renders the image using a normal image element. This is a good alternative when a application part depends on this scaling feature but should normally not be used if not necessary.</p>
+<p>More details: <a class="reference internal" href="../widget/image.html"><em>Image</em></a></p>
+</div>
+<div class="section" id="atoms">
+<span id="pages-ui-widgets-atoms"></span><h2>Atoms<a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h2>
+<p>Atoms are in qooxdoo for quite some time now. Basically this widget combines an Image with a Label and allows some alignment options to them. Both content types are optional and toggle-able. The Atom supports shrinking like the Label while keeping the image intact. Atoms are used by many higher level widgets like Buttons (in Tab Views, Toolbars, ...) or List Items etc.</p>
+<p>More details: <a class="reference internal" href="../widget/atom.html"><em>Atom</em></a></p>
+</div>
+<div class="section" id="buttons">
+<span id="pages-ui-widgets-buttons"></span><h2>Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h2>
+<p>The Button is basically an Atom with some additional events. All relevant rendering features are already solved by the Atom. The Button is available in some variants: As a Repeat, Radio or Toggle Button.</p>
+<p>The Button can be connected to a Command (class to work with key bindings etc.) and fires an <tt class="docutils literal"><span class="pre">execute</span></tt> event when clicked (or activated via keyboard). The Repeat Button fires the <tt class="docutils literal"><span class="pre">execute</span></tt> in an interval while being pressed. The Toggle Button (which toggles between checked and unchecked) is an exception to this and fires a <tt class="docutils literal"><span class="pre">change</span></tt> event on each transition of the <tt class="docutils literal"><span class="pre">checked</span></tt> property.</p>
+<p>More details: <a class="reference internal" href="../widget/button.html"><em>Button</em></a></p>
+</div>
+<div class="section" id="text-fields">
+<span id="pages-ui-widgets-text-fields"></span><h2>Text Fields<a class="headerlink" href="#text-fields" title="Permalink to this headline">¶</a></h2>
+<p>The Text Field is one of the major used form elements. It fires two events. The <tt class="docutils literal"><span class="pre">input</span></tt> event which is fired on every keystroke or other type of text modification. This property fires live. When the application do not need this level of detailed information it better uses the <tt class="docutils literal"><span class="pre">change</span></tt> event which fires after the modification is done, typically after the field was blurred.</p>
+<p>The Text Field supports basic label alignment to <tt class="docutils literal"><span class="pre">left</span></tt>, <tt class="docutils literal"><span class="pre">center</span></tt> or <tt class="docutils literal"><span class="pre">right</span></tt>. Protecting user inputs is possible through the property <tt class="docutils literal"><span class="pre">enabled</span></tt> or <tt class="docutils literal"><span class="pre">readOnly</span></tt>. Disabling a widget greys it out and makes it unresponsive for all types of interaction while <tt class="docutils literal"><span class="pre">readOnly</span></tt> only prevents the modification of the value and has normally no special visual indication when enabled.</p>
+<p>More details: <a class="reference internal" href="../widget/textfield.html"><em>TextField</em></a></p>
+</div>
+<div class="section" id="popups">
+<span id="pages-ui-widgets-popups"></span><h2>Popups<a class="headerlink" href="#popups" title="Permalink to this headline">¶</a></h2>
+<p>Popups and Tooltips are comparable in some way. Both are rendered above other content (while tooltips are even above Popups). Both widgets are automatically inserted into the application root widget (can be overridden when needed).</p>
+<p>Popups may be used for notification panels or a type of modal sub dialog. Basically they are just a container (with a configurable layout) which lays above normal content.</p>
+<p>Popups are normally automatically hidden when the user works somewhere else in the application. This behavior is controlable through the <tt class="docutils literal"><span class="pre">autoHide</span></tt> property. They are automatically moved back to the viewport. In fact it is not possible to place Popups outside the viewport (even not partly). This behavior makes sense in almost every case and improves usability of popups in general.</p>
+<p>With <tt class="docutils literal"><span class="pre">bringToFront</span></tt> and <tt class="docutils literal"><span class="pre">sendToBack</span></tt> the popups zIndex could be controlled in relation to other visible popups.</p>
+<p>More details: <a class="reference internal" href="../widget/popup.html"><em>PopUp</em></a></p>
+</div>
+<div class="section" id="tooltips">
+<span id="pages-ui-widgets-tooltips"></span><h2>Tooltips<a class="headerlink" href="#tooltips" title="Permalink to this headline">¶</a></h2>
+<p>Tooltips are basically Popups with an Atom in them. But Tooltips improves on many of the features of the normal Popup. The automatic positioning support like mentioned for the Popups supports offsets as well and automatically switches the Tooltip to the best possible side regarding to the mouse cursor position.</p>
+<p>While this is not needed normally, every popup can be configured with a individual timeout. This is useful when building separate type of tooltips e.g. displaying system notifications etc.</p>
+<p>More details: <a class="reference internal" href="../widget/tooltip.html"><em>ToolTip</em></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">Widgets</a><ul>
+<li><a class="reference internal" href="#labels">Labels</a></li>
+<li><a class="reference internal" href="#images">Images</a></li>
+<li><a class="reference internal" href="#atoms">Atoms</a></li>
+<li><a class="reference internal" href="#buttons">Buttons</a></li>
+<li><a class="reference internal" href="#text-fields">Text Fields</a></li>
+<li><a class="reference internal" href="#popups">Popups</a></li>
+<li><a class="reference internal" href="#tooltips">Tooltips</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../widget/window.html"
+                                  title="previous chapter">Window</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="ui_interaction.html"
+                                  title="next chapter">Interaction</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/pages/gui_toolkit/ui_widgets.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, qooxdoo developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

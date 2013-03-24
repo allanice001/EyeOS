@@ -1,0 +1,85 @@
+<?php
+/*
+  ___  _ __   ___ _   _  ___
+ / _ \| '_ \ / _ \ | | |/ _ \
+| (_) | | | |  __/ |_| |  __/
+ \___/|_| |_|\___|\__, |\___|
+                  |___/
+
+oneye is released under the GNU Affero General Public License Version 3 (AGPL3)
+ -> provided with this release in license.txt
+ -> or via web at www.gnu.org/licenses/agpl-3.0.txt
+
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+*/
+
+function eyeControl_on_infolang_back($params = '') {
+	eyeControl_lib_loadContent('others', 'translations', array($GLOBALS['eyeControl_infolang_hidden_type']->text));
+}
+
+function eyeControl_on_infolang_save($params = '') {
+	global $currentUser;
+	$selType = $GLOBALS['eyeControl_infolang_hidden_type']->text;
+	$selLang = $GLOBALS['eyeControl_infolang_hidden_lang']->text;
+	if ($currentUser != ROOTUSER) {
+		$myUserXml = um('retrieveUser',array($currentUser));
+		if (!in_array($selLang,$myUserXml['eyeUser'][0]['group'])) {
+			eyeControl_lib_loadContent('others','translations',array($selType));
+			return;
+		}
+	}
+	$oldUser = $currentUser;
+	$currentUser = ROOTUSER;
+	
+	$id = $GLOBALS['eyeControl_infolang_textbox_id']->text;
+	$lang = $GLOBALS['eyeControl_infolang_textbox_lang']->text;
+	if (eyeControl_lib_check_system_translation($selType)) {
+		$lang_en = $GLOBALS['eyeControl_infolang_textbox_lang_en']->text;
+	} else {
+		$lang_en = 1;
+	}
+	$author = $GLOBALS['eyeControl_infolang_textbox_author']->text;
+	$revision = $GLOBALS['eyeControl_infolang_textbox_revision']->text;
+	if (!$revision) {
+		$revision = 1;
+	}
+	if ($selType && $selLang && $id && $lang && $lang_en && $author && $revision) {
+		$dir = EYE_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/eyeControl/translate/' . $selType . '/';
+		$xml['lang'][0]['info'][0]['lang'][0] = $lang;
+		if (eyeControl_lib_check_system_translation($selType)) {
+			$xml['lang'][0]['info'][0]['lang-en'][0] = $lang_en;
+		}
+		$xml['lang'][0]['info'][0]['author'][0] = $author;
+		$defaultXml = eyeXML('getXMLfile',array($dir . 'default.xml'));
+		$xml['lang'][0]['info'][0]['version'][0] = $defaultXml['lang'][0]['version'][0];
+		$xml['lang'][0]['info'][0]['revision'][0] = $revision;
+		eyeXML('setXMLFile',array($dir . 'infos/' . $selLang . '.xml',$xml));
+		$xml2 = eyeXML('getXMLfile',array($dir . 'langs/' . $selLang . '.xml'));
+		$xml2['lang'][0]['info'][0] = $xml['lang'][0]['info'][0];
+		eyeXML('setXMLFile',array($dir . 'langs/' . $selLang . '.xml',$xml2));
+		if ($id != $selLang && ($id == 'en' || vfs('real_fileExists',array($dir . 'infos/' . $id . '.xml')) || vfs('real_fileExists',array($dir . 'langs/' . $id . '.xml')))) {
+			$msg = 'Language ID already in use!';
+		} elseif ($selLang != $id && ($oldUser == ROOTUSER || in_array($id,$myUserXml['eyeUser'][0]['group']))) {
+			vfs('real_move',array($dir . 'infos/' . $selLang . '.xml',$dir . 'infos/' . $id . '.xml'));
+			vfs('real_move',array($dir . 'langs/' . $selLang . '.xml',$dir . 'langs/' . $id . '.xml'));
+			if (vfs('real_fileExists',array($dir . 'files/' . $selLang . '/'))) {
+				vfs('real_delete',array($dir . 'files/' . $selLang . '/'));
+			}
+			if (vfs('real_fileExists',array($dir . 'langs/' . $selLang . '/'))) {
+				vfs('real_delete',array($dir . 'langs/' . $selLang . '/')); // deprecated dir
+			}
+		}
+		eyex('messageBox',array('content' => 'Language successfully updated.'));
+		$currentUser = $oldUser;
+		eyeControl_lib_loadContent('others','translations',array($selType));
+	} else {
+		eyex('messageBox',array('content' => 'Please fill in all textboxes!'));
+	}
+	$currentUser = $oldUser;
+}
+
+function eyeControl_on_infolang_wikipedia($params = '') {
+	proc('launch',array('eyeNav','http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'));
+}
+?>

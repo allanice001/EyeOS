@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eyeDock>
+	<ShowDesc>1</ShowDesc>
+	<Group>
+		<name>Favorites</name>
+		<icon>favorites.png</icon> 
+		<items>
+			<item>
+				<name>eyeDocs</name>
+				<desc>Word Processor</desc>
+				<text>Create and edit rich text documents</text>
+				<icon>eyeDocs.png</icon>
+				<exec>eyeDocs</exec>
+			</item>
+			<item>
+				<name>eyeCalendar</name>
+				<desc>Calendar</desc>
+				<text>Create and edit events and be organized</text>
+				<icon>eyeCalendar.png</icon>
+				<exec>eyeCalendar</exec>
+			</item>
+			<item>
+				<name>eyeMessages</name>
+				<desc>Internal Messaging</desc>
+				<text>Send private messages with attachments to the other eyeOS users</text>
+				<icon>eyeMessages.png</icon>
+				<exec>eyeMessages</exec>
+			</item>
+			<item>
+				<name>eyeFeeds</name>
+				<desc>RSS Feed Reader</desc>
+				<text>Stay tuned to the latest news from your favorite sources</text>
+				<icon>RSS.png</icon>
+				<exec>eyeFeeds</exec>
+			</item>
+		</items>
+	</Group>
+	<Group>
+		<name>Office</name>
+		<icon>office.png</icon> 
+		<items>
+			<item>
+				<name>eyeFiles</name>
+				<desc>File Manager</desc>
+				<text>Upload, manage and work with your files in eyeOS</text>
+				<icon>home.png</icon>
+				<exec>eyeFiles</exec>
+			</item>
+			<item>
+				<name>eyeDocs</name>
+				<desc>Word Processor</desc>
+				<text>Create and edit rich text documents</text>
+				<icon>eyeDocs.png</icon>
+				<exec>eyeDocs</exec>
+			</item>
+			<item>
+				<name>eyeSheets</name>
+				<desc>Spreadsheet</desc>
+				<text>Create and edit rich sheets</text>
+				<icon>eyeSheets.png</icon>
+				<exec>eyeSheets</exec>
+			</item>
+			<item>
+				<name>eyePresentation</name>
+				<desc>Presentations</desc>
+				<text>Watch your presentations</text>
+				<icon>eyePresentation.png</icon>
+				<exec>eyePresentation</exec>
+			</item>
+			<item>
+				<name>eyeCalendar</name>
+				<desc>Calendar</desc>
+				<text>Create and edit events and be organized</text>
+				<icon>eyeCalendar.png</icon>
+				<exec>eyeCalendar</exec>
+			</item>
+			<item>
+				<name>eyeContacts</name>
+				<desc>Contact Manager</desc>
+				<text>Manage and import/export your contacts</text>
+				<icon>eyeContacts.png</icon>
+				<exec>eyeContacts</exec>
+			</item>
+		</items>
+	</Group>
+	<Group>
+		<name>Network</name>
+		<icon>network.png</icon>
+		<items>
+			<item>
+				<name>eyeBoard</name>
+				<desc>Public Board</desc>
+				<text>Read and leave messages to all the system users</text>
+				<icon>eyeBoard.png</icon>
+				<exec>eyeBoard</exec>
+			</item>
+			<item>
+				<name>eyeFTP</name>
+				<desc>FTP Client</desc>
+				<text>Work with any FTP Server in the world</text>
+				<icon>eyeFTP.png</icon>
+				<exec>eyeFTP</exec>
+			</item>
+			<item>
+				<name>eyeMessages</name>
+				<desc>Internal Messaging</desc>
+				<text>Send private messages with attachments to the other eyeOS users</text>
+				<icon>eyeMessages.png</icon>
+				<exec>eyeMessages</exec>
+			</item>
+			<item>
+				<name>eyeMail</name>
+				<desc>Mail Client</desc>
+				<text>Send and receive e-mails with your usual POP3 mail accounts</text>
+				<icon>eyeMail.png</icon>
+				<exec>eyeMail</exec>
+			</item>
+			<item>
+				<name>eyeNav</name>
+				<desc>Navigator</desc>
+				<text>Navigate through Internet and save your bookmarks</text>
+				<icon>eyeNav.png</icon>
+				<exec>eyeNav</exec>
+			</item>
+			<item>
+				<name>eyeFeeds</name>
+				<desc>RSS Feed Reader</desc>
+				<text>Stay tuned to the latest news from your favorite sources</text>
+				<icon>RSS.png</icon>
+				<exec>eyeFeeds</exec>
+			</item>
+		</items>
+	</Group>
+	<Group>
+		<name>Accessories</name>
+		<icon>accesories.png</icon>
+		<items>
+			<item>
+				<name>eyeCalc</name>
+				<desc>Calculator</desc>
+				<icon>eyeCalc.png</icon>
+				<exec>eyeCalc</exec>
+			</item>
+			<item>
+				<name>eyeNotes</name>
+				<desc>Text Editor</desc>
+				<text>Save quick notes and edit text and source files</text>
+				<icon>eyeNotes.png</icon>
+				<exec>eyeNotes</exec>
+			</item>
+			<item>
+				<name>miniActions</name>
+				<desc>Actions widget</desc>
+				<icon>miniActions.png</icon>
+				<exec>miniActions</exec>
+			</item>
+			<item>
+				<name>miniMessages</name>
+				<desc>Messages widget</desc>
+				<icon>miniMessages.png</icon>
+				<exec>miniMessages</exec>
+			</item>
+			<item>
+				<name>miniCalendar</name>
+				<desc>Calendar widget</desc>
+				<icon>miniCalendar.png</icon>
+				<exec>miniCalendar</exec>
+			</item>
+			<item>
+				<name>miniHome</name>
+				<desc>Home widget</desc>
+				<icon>miniHome.png</icon>
+				<exec>miniHome</exec>
+			</item>
+		</items>
+	</Group>
+	<Group>
+		<name>Games</name>
+		<icon>games.png</icon>
+		<items>
+			<item>
+				<name>eyeChess</name>
+				<desc>Chess Game</desc>
+				<icon>eyeChess.png</icon>
+				<exec>eyeChess</exec>
+			</item>
+			<item>
+				<name>eyeTetravex</name>
+				<desc>Tetravex Game</desc>
+				<icon>eyeTetravex.png</icon>
+				<exec>eyeTetravex</exec>
+			</item>
+		</items>
+	</Group>
+	<Group>
+		<name>System</name>
+		<icon>development.png</icon>
+		<items>
+			<item>
+				<name>eyeProcess</name>
+				<desc>Process Manager</desc>
+				<text>See which processes are running in your session and kill them</text>
+				<icon>eyeProcess.png</icon>
+				<exec>eyeProcess</exec>
+			</item>
+		</items>
+	</Group>
+	<Group>
+		<name>Places</name>
+		<icon>places.png</icon>
+		<items>
+			<item>
+				<name>Home</name>
+				<desc>Home</desc>
+				<text>Your Home folder</text>
+				<icon>home.png</icon>
+				<exec>eyeFiles</exec>
+			</item>
+			<item>
+				<name>Desktop</name>
+				<desc>Desktop</desc>
+				<icon>desktop.png</icon>
+				<exec>eyeFiles,/Desktop</exec>
+			</item>
+			<item>
+				<name>Trash</name>
+				<desc>Trash</desc>
+				<icon>trash.png</icon>
+				<exec>eyeTrash</exec>
+			</item>
+			<item>
+				<name>Public</name>
+				<desc>Public</desc>
+				<text>Public directory to share files with all the system users</text>
+				<icon>public.png</icon>
+				<exec>eyeGroups,/public</exec>
+			</item>
+			<item>
+				<name>Groups</name>
+				<desc>Groups</desc>
+				<text>Access to all the groups you are allowed to use</text>
+				<icon>groups.png</icon>
+				<exec>eyeGroups</exec>
+			</item>
+		</items>
+	</Group>
+</eyeDock>

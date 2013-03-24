@@ -1,0 +1,305 @@
+<?php
+/*
+                                  ____   _____ 
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___  
+                 / _ \ | | |/ _ \ |  | |\___ \ 
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/ 
+                       __/ |                   
+                      |___/              1.6
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - eyeOS.org/whoarewe
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2008 eyeOS Team (team@eyeos.org)         
+*/
+
+function eyeCode_run($params=null) {
+	global $currentUser;
+	global $checknum;
+	global $myPid;
+	
+	//check if the user is root, if not, then end
+	if($currentUser != ROOTUSER) {
+		service('eyex','messageBox',array('content' => 'Only root can run this program'));
+		proc('end');
+		return;
+	}
+	
+	//create the main window
+	$myWindow = new Window(array(
+		'name'=>'eyeNotesWND',
+		'father'=>'eyeApps',
+		'cent'=>1,
+		'width'=>900,
+		'height'=>600,
+		'title'=>'eyeCode',
+		'sendResizeMsg'=>1,
+		'sigResize'=>'Resize'
+	));
+	$myWindow->show();
+	
+	//save the size of the window (width)
+	$myHidden = new Hidden(array(
+		'name'=>'myWidth',
+		'father'=>'eyeNotesWND',
+		'text'=>900
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	//save the size of the window (height)
+	$myHidden = new Hidden(array(
+		'name'=>'myHeight',
+		'father'=>'eyeNotesWND',
+		'text'=>600
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	//create the textarea, be default with eyeCode, and no file associated to it
+	$myTextArea = new Textarea(array(
+		'name'=>'noteContent',
+		'father'=>'eyeNotesWND_Content',
+		'width'=>$myWindow->width-390,
+		'height'=>$myWindow->height-90,
+		'x'=>200,
+		'y'=>60,
+		'code'=>1,
+		'lang'=>'eyecode'
+	));
+	$myTextArea->show();
+	//give it the focus, run and start writing!
+	$myTextArea->focus();
+	
+	//create the toolbar for the main window
+	$myToolbar = new Toolbar(array(
+		'name'=>'myBar',
+		'father'=>'eyeNotesWND_Content'
+	));
+	$myToolbar->show();
+	
+	//add some items, like open, save and save as
+	$myToolbar->addItem('open','index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png','Open');
+	$myToolbar->addItem('save','index.php?extern=apps/eyeX/themes/default/images/toolbar/filesave.png','Save',array($myTextArea));
+	$myToolbar->addItem('saveAs','index.php?extern=apps/eyeX/themes/default/images/toolbar/filesaveas.png','Save As',array($myTextArea));
+	$myToolbar->addLine();
+	$myToolbar->addItem('runApp','index.php?extern=apps/eyeX/themes/default/images/toolbar/1rightarrow.png','Run App');
+	$myToolbar->addItem('runProcess','index.php?extern=apps/eyeX/themes/default/images/toolbar/editcal.png','eyeProcess');
+	
+
+	//create a invisible window at the left of the screen, this is needed to have scolling in the tree
+	$myWindowInv = new Window(array(
+		'title'=>'eyeCode',
+		'name'=>'wndInv',
+		'father' => 'eyeNotesWND_Content',
+		'y'=>60,
+		'type'=>INVISIBLE_WINDOW,
+		'x'=>5,
+		'width'=>190,
+		'height'=>$myWindow->height-90
+	));
+	$myWindowInv->show();
+	
+	//create a second invisible window for the right part of the screen, where do you have your opened files
+	$myWindowInv = new Window(array(
+		'title'=>'eyeCode',
+		'name'=>'wndInvR',
+		'father' => 'eyeNotesWND_Content',
+		'y'=>60,
+		'type'=>INVISIBLE_WINDOW,
+		'x'=>0,
+		'width'=>190,
+		'height'=>$myWindow->height-90,
+		'horiz'=>1
+	));
+	$myWindowInv->show();
+	
+	//create the select for select what do you want to see in the tree: apps, libs, extern or services
+	$mySelect = new Select(array(
+		'name'=>'whereSelect',
+		'father'=>'wndInv',
+		'x'=>2,
+		'y'=>2,
+		'width'=>188
+	));
+	$mySelect->show();
+	
+	//add the options to the tree
+	$mySelect->addOption('Applications','./apps/');
+	$mySelect->addOption('Libraries','./system/lib/');
+	$mySelect->addOption('Services','./system/services/');
+	$mySelect->addOption('Extern','./extern/');
+	
+	//save the current location, at the start it is ./apps/
+	$myHidden = new Hidden(array(
+		'name'=>'whereAre',
+		'father'=>'eyeNotesWND',
+		'text'=>'./apps/'
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+	
+	//add a event that sends a message each time that the user changes the select value
+	$mySelect->addEvent('onchange','sendMsg('.$checknum.',"selectedSite",eyeParam("arg0",this.value));');
+	
+	//create the tree at the left of the screen, for browse files
+	$myTree = new Tree(array(
+		'name'=>'filesTree',
+		'father'=>'wndInv_Content',
+		'width'=>165,
+		'height'=> $myWindow->height-130,
+		'x'=>0,
+		'y'=>10,
+		'clickTree'=>1,
+		'signal'=>'gotoFile'
+	));
+	//add the text editor as friend
+	$myTree->addFriend($myTextArea);
+	$myTree->show();
+	
+	//load the tree with the content of the current location: ./apps/
+	$myUdir = './apps/';
+	$myTree->addItem('filesTree','home_item','/');
+	$myTree->addSubList('home_item','home_list');
+	eyeCode_drawTree($myTree,'home_list',$myUdir);
+	$myTree->processList();
+	
+	$myContextMenu = new ContextMenu(array(
+		'name'=>'my_menu',
+		'father'=>'home_item',
+		'searchFather'=>1,
+	));
+	$myContextMenu->show();
+	$myContextMenu->addEntry(
+		'<img src="index.php?extern=apps/eyeFeeds/gfx/addfeed_menu.png" /> &nbsp; Rename',
+		'rename',
+		'rename',
+		'./apps/'
+	);
+	$myContextMenu->addEntry(
+		'<img src="index.php?extern=apps/eyeFeeds/gfx/addfeed_menu.png" /> &nbsp; New Folder',
+		'nfolder',
+		'nfolder',
+		'./apps/'
+	);
+	$myContextMenu->addEntry(
+		'<img src="index.php?extern=apps/eyeFeeds/gfx/addfeed_menu.png" /> &nbsp; New File',
+		'nfile',
+		'nfile',
+		'./apps/'
+	);
+	$myContextMenu->addEntry(
+		'<img src="index.php?extern=apps/eyeFeeds/gfx/addfeed_menu.png" /> &nbsp; Delete',
+		'delete',
+		'delete',
+		'./apps/'
+	);
+	//create new line to separate the editor and the tree at the right, with your opened files
+	$myLine = new Line(array(
+		'name'=>'verticalPanel',
+		'father'=>'eyeNotesWND_Content',
+		'x'=>187,
+		'y'=>60,
+		'horiz'=>1,
+		'width'=>1,
+		'height'=>$myWindow->height-85
+	));
+	$myLine->show(0);
+	
+	//create the tree at the right, empty at the start
+	$myTreeR = new Tree(array(
+		'name'=>'openFiles',
+		'father'=>'wndInvR_Content',
+		'width'=>165,
+		'height'=> $myWindow->height-130,
+		'x'=>0,
+		'y'=>10,
+		'clickTree'=>1,
+		'signal'=>'currentFile',
+		'horiz'=>1
+	));
+	$myTreeR->show();
+	$myTreeR->processList();
+	
+	//create the object to store the paths of the files that you edit
+	$myHidden = new Hidden(array(
+		'name'=>'editing',
+		'father'=>'eyeNotesWND',
+		'text'=>''
+	));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+
+//this function takes a directory and a tree, and draws the directory contents into the tree
+if(!function_exists('eyeCode_drawTree')) {
+	function eyeCode_drawTree($object,$tree,$dir) {
+		foreach (glob($dir."/*") as $fileName) {
+			$content[] = $fileName;
+		}
+		if(is_array($content)) {
+			foreach($content as $value)	{
+				$id = md5(realpath($value));
+				if(is_dir($value)) {
+					$object->addItem($tree,'item_'.$id,utf8_basename($value));
+					$object->addSubList('item_'.$id,'list_'.$id);
+					eyeCode_drawTree($object,'list_'.$id,$value);
+					eyeCode_drawTree_addContextMenu('MENU_'.$id,'item_'.$id,$value);
+				} else {
+					$object->addItem($tree,'item_'.$id,utf8_basename($value));
+					eyeCode_drawTree_addContextMenu('MENU_'.$id,'item_'.$id,$value);
+				}
+			}
+		}
+	}
+}
+
+if(!function_exists('eyeCode_drawTree_addContextMenu')) {
+	function eyeCode_drawTree_addContextMenu($menuName, $nodeName, $arg) {
+		//add context menu
+		$myMenu = new ContextMenu(array(
+			'name' => $menuName,
+			'father' => $nodeName,
+			'searchFather' => 1,
+			'rfather' => $nodeName,
+			'mfather' => 'eyeNotesWND'
+		));
+		$myMenu->show();
+		
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/rename.png" /> &nbsp; Rename',
+			'rename',
+			'rename',
+			$arg
+		);
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/folder.png" /> &nbsp; New Folder',
+			'nfolder',
+			'nfolder',
+			$arg
+		);
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/file.png" /> &nbsp; New File',
+			'nfile',
+			'nfile',
+			$arg
+		);
+		$myMenu->addEntry(
+			'<img src="index.php?extern=apps/eyeX/themes/default/icons/16x16/delete.png" /> &nbsp; Delete',
+			'delete',
+			'delete',
+			$arg
+		);
+	}
+}
+
+function eyeCode_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

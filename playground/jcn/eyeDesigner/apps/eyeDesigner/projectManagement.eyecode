@@ -1,0 +1,304 @@
+<?php
+/*
+                           eyeDesigner 1.0.0
+                          ____________________
+
+ Released under the Creative Commons Attribution-Noncommercial 3.0 Unported License.
+
+ *   You are free:
+        * to Share : to copy, distribute and transmit the work
+        * to Remix : to adapt the work
+ 
+ *   Under the following conditions:
+
+        * Attribution : You must attribute the work in the manner specified by the author or 
+           licensor (but not in any way that suggests that they endorse you or your use of 
+          the work).
+        * Noncommercial : You may not use this work for commercial purposes.
+
+   The full license text can be read at http://creativecommons.org/licenses/by-nc/3.0/legalcode
+   and inside this package in license.txt
+
+                    Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+ */
+
+//open a file project and call loadWndPrefs function.
+function eyeDesigner_on_openFile($params = ''){
+	global $checknum;
+	global $myPid;
+	$options = array(
+		EYEDIALOG_TYPE_OPENFILE,
+		'selectFileOpen',
+		$checknum,
+		'',
+		array(
+			'eyeDesigner project file' => '*.eyeproject'
+		)
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeDesigner_on_selectFileOpen($params = ''){
+	global $myPid;
+	
+	$path = correctPath($params);
+	$_SESSION[$myPid.'documentPath'] = $path;
+	eyeDesigner_on_loadWndPrefs();
+}
+
+function correctPath($params = ''){
+	
+	$posPoint = stristr($params['arg'][0], ".eyeproject");
+	$file = $params['arg'][0];
+	if ($posPoint === false) {
+		$file = $params['arg'][0].".eyeproject";
+	}
+	$path = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+	return $path;
+	
+}
+
+//reset the list of widgets, read the project file and convert to an array the content, set the window properties and call the loadSavedWidgets function.
+function eyeDesigner_on_loadWndPrefs($params=null){
+	global $myPid;
+	
+	//remove the widget listbox.
+	$GLOBALS['eyeDesigner_listWidgetsBOX']->remove();
+	//create a new one.
+	$myListBox = new Listbox(array(
+		'name' => 'eyeDesigner_listWidgetsBOX',
+		'father' => 'eyeDesigner_listWidgetsWND_Content',
+		'x' => 2,
+		'y' => 32,
+		'width' => 192,
+		'height' => 140,
+		'border' => 0
+	));
+	$myListBox->show(0);
+	//reset the global and session values.
+	if(isset($GLOBALS['eyeDesigner_making_WND'])){
+		$GLOBALS['eyeDesigner_making_WND']->clear();
+		$js = "document.getElementById('".$myPid."_eyeDesigner_making_WND').parentNode.removeChild(document.getElementById('".$myPid."_eyeDesigner_making_WND'));";
+	eyeX('rawjs',array('js'=>$js));
+	}
+	unset($_SESSION[$myPid.'_wo']);
+	unset($_SESSION[$myPid.'_wd']);
+	unset($_SESSION[$myPid.'_wnd']);
+	unset($_SESSION[$myPid.'content']);
+	unset($_SESSION[$myPid.'friends']);
+	unset($_SESSION[$myPid.'selectedWidget']);
+	//read the project file an convert the content into one array.
+	$path = $_SESSION[$myPid.'documentPath'];
+	$fp = service('vfs','open',array($path,'r'));
+	if(!$fp) {
+		service('eyex','messageBox',array('content'=>'File not found'));
+		return;
+	}
+	$size = service('vfs','filesize',array($path));
+	$content = fread($fp,$size);
+	fclose($fp);
+	$openedWndPref = eyeXML('xml2array', array($content));
+	//change the making window properties for the saved ones. 
+	$_SESSION[$myPid.'_wnd']['width'] = $openedWndPref['project'][0]['window'][0]['width'][0];
+	$_SESSION[$myPid.'_wnd']['height'] = $openedWndPref['project'][0]['window'][0]['height'][0];
+	$_SESSION[$myPid.'_wnd']['title'] = $openedWndPref['project'][0]['window'][0]['title'][0];
+	$_SESSION[$myPid.'_wnd']['close'] = $openedWndPref['project'][0]['window'][0]['close'][0];
+	$_SESSION[$myPid.'_wnd']['min'] = $openedWndPref['project'][0]['window'][0]['min'][0];
+	$_SESSION[$myPid.'_wnd']['max'] = $openedWndPref['project'][0]['window'][0]['max'][0];
+	$_SESSION[$myPid.'_wnd']['listed'] = $openedWndPref['project'][0]['window'][0]['listed'][0];
+	$_SESSION[$myPid.'_wnd']['resize'] = $openedWndPref['project'][0]['window'][0]['resize'][0];
+	$_SESSION[$myPid.'_wnd']['titleStr'] = $openedWndPref['project'][0]['window'][0]['titleStr'][0];
+	$_SESSION[$myPid.'_wnd']['sendResizeMsg'] = $openedWndPref['project'][0]['window'][0]['sendResizeMsg'][0];
+	$_SESSION[$myPid.'_wnd']['sendResizeMsgStr'] = $openedWndPref['project'][0]['window'][0]['sendResizeMsgStr'][0];
+	$_SESSION[$myPid.'_wnd']['name'] = $openedWndPref['project'][0]['window'][0]['name'][0];
+	
+	$makingWindow = new Window(array(
+		'name' => 'eyeDesigner_making_WND',
+		'father' => 'eyeDesigner_Content',
+		'title' => $_SESSION[$myPid.'_wnd']['titleStr'],
+		'cent' => 1,
+		'width' => $_SESSION[$myPid.'_wnd']['width'],
+		'height' => $_SESSION[$myPid.'_wnd']['height'],
+		'style' => TITLE+RESIZE,
+		'sendResizeMsg' => 1,
+		'sigResize' => 'resizedMaking'
+	));
+
+	$makingWindow->show();
+	
+	loadSavedWidgets($openedWndPref);
+	loadSavedFriends($openedWndPref);
+	loadSavedContent($openedWndPref);
+}
+
+function loadSavedFriends($savedFriends){
+	global $myPid;
+	global $checknum;
+
+	if(isset($savedFriends['project'][0]['friends'])){
+		foreach ($savedFriends['project'][0]['friends'][0] as $key => $value){
+			foreach ($savedFriends['project'][0]['friends'][0][$key] as $value2){
+				$_SESSION[$myPid.'friends'][$key][$value2] = $value2;
+			}
+		}
+	}
+}
+
+function loadSavedContent($savedContent){
+	global $myPid;
+	if(isset($savedContent['project'][0]['content'])){
+		foreach ($savedContent['project'][0]['content'][0] as $key => $value){
+			foreach($savedContent['project'][0]['content'][0][$key][0] as $key2 => $value2){
+				foreach($savedContent['project'][0]['content'][0][$key][0][$key2] as $value3){
+					foreach($value3 as $key3 => $value4)
+					foreach($savedContent['project'][0]['content'][0][$key][0][$key2][0][$key3] as $value5){
+						$_SESSION[$myPid.'content'][$key][$key2][$key3] = $value5;
+					}
+				}
+			}
+		}
+	}
+}
+
+//read the widget saved on the project and load its.
+function loadSavedWidgets($savedWidgets){
+	global $myPid;
+	global $checknum;
+	
+	if(isset($savedWidgets['project'][0]['widgets'])){
+		$i = 0;
+		foreach($savedWidgets['project'][0]['widgets'][0] as $widgetKeyPos => $widgetValuePos) {
+			$widgetPos = $widgetKeyPos;
+			//read the widget type
+			$widget[$i] = $savedWidgets['project'][0]['widgets'][0][$widgetPos][0]['type'][0];
+			//read all widgets properties
+			$widgets = $savedWidgets['project'][0]['widgets'][0];
+	
+			//check if the session widget counter is seted and if is not seted set to the first number
+			if(!isset($_SESSION[$myPid.'_wd'][$widget[$i]])) {
+				$_SESSION[$myPid.'_wd'][$widget[$i]] = 1;
+			}
+			
+			//load each one widget's properties in $props and fill with NULL every value in blank
+			foreach($savedWidgets['project'][0]['widgets'][0][$widgetPos][0] as $KeyValue => $Value){
+				if(empty($Value[0])){
+					$Value[0] = NULL;
+				}
+				$props[$KeyValue] = $Value[0];
+			}
+			
+			//create the widget
+			$var = new $widget[$i] ($props);
+			$var->show(0);
+			
+			widgetPrepare($var);
+			addWidget($var);
+			$_SESSION[$myPid.'_wd'][$widget[$i]]++;
+			$i++;
+		}
+	}
+}
+
+function eyeDesigner_on_saveProject($params = ''){
+	global $myPid;
+	$widgetsList = $_SESSION[$myPid.'_wo'];
+	$widgets = array();
+	foreach($widgetsList as $key => $value) {
+		$type = get_class($value); //for ex. window
+		$widgets['widgets'][0][$key][0]['type'][0] = $type; 
+		$props = get_class_vars($type);
+		foreach($props as $currentProp => $value2) {
+			if($currentProp != 'showed' && $currentProp != 'creatorPid'){
+				$widgets['widgets'][0][$key][0][$currentProp] = array($value->$currentProp);
+			}
+		}
+	}
+	$winPref = $_SESSION[$myPid.'_wnd'];
+	$windowPref = array();
+	foreach($winPref as $winKey => $winValue) {
+		$windowPref['window'][0][$winKey] = array($winValue);
+	}
+	$savedProjectStruct['project'][0] = array_merge($windowPref, $widgets);
+	if(isset($_SESSION[$myPid.'friends'])){
+		$friendStat = $_SESSION[$myPid.'friends'];
+		foreach($friendStat as $friendKey => $friendValue) {
+			$friends['friends'][0][$friendKey] = $friendValue;
+		}
+		$savedProjectStruct['project'][0] = array_merge($savedProjectStruct['project'][0],$friends);		
+	}
+	if(isset($_SESSION[$myPid.'content'])){
+		$contentStat = $_SESSION[$myPid.'content'];
+		foreach($contentStat as $contentKey => $contentValue) {
+			foreach($_SESSION[$myPid.'content'][$contentKey] as $key => $value){
+				foreach($_SESSION[$myPid.'content'][$contentKey][$key] as $key2 => $value2){
+					$content['content'][0][$contentKey][0][$key][0][$key2][0] = $value2;
+				}
+			}
+		}
+		$savedProjectStruct['project'][0] = array_merge($savedProjectStruct['project'][0],$content);		
+	}
+	$savedProject = eyeXML('array2xml', array($savedProjectStruct, 1));
+	
+	vfs('create', array($_SESSION[$myPid.'documentPath'],'eyeDesigner'));
+	vfs('writeFile', array($_SESSION[$myPid.'documentPath'], $savedProject));
+	service('eyex','messageBox',array('content'=>'File saved successfully.'));
+}
+
+function eyeDesigner_on_DoSaveAs($params = '') {
+	global $checknum;
+	global $myPid;
+
+	$options = array(
+		EYEDIALOG_TYPE_SAVEFILE,
+		'selectFileSave',
+		$checknum,
+		'',
+		array(
+			'eyeDesigner project file' => '*.eyeproject'
+		)
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeDesigner_on_selectFileSave($params = ''){
+	global $myPid;
+	
+	$path = correctPath($params);
+	$_SESSION[$myPid.'documentPath'] = $path;
+	eyeDesigner_on_saveProject();
+}
+
+function eyeDesigner_on_doSave($params = ''){
+	global $myPid;
+	if(empty($_SESSION[$myPid.'documentPath'])){
+		eyeDesigner_on_DoSaveAs();
+	}else{
+		eyeDesigner_on_saveProject();
+	}
+}
+
+function widgetPrepare($var){
+	global $myPid;
+	global $checknum;
+	$var->setCss(array('cursor'=>'move'));	
+
+	$afterfunction = "sendMsg(".$checknum.",'widgetMoved',eyeParam('widgetName','".$var->name."')+eyeParam('x',xLeft('".$myPid."_".$var->name."_Container'))+eyeParam('y',xTop('".$myPid."_".$var->name."_Container')));";
+	
+	//TODO: we should add a _Container to tree to avoid this ifs
+	if(strtolower(get_class($var)) == 'tree'){
+    	$js = 'makeDrag ("'.$myPid.'_'.$var->name.'","'.$myPid.'_'.$var->father.'","'.$afterfunction.'",'.$checknum.',"");';
+	} else {
+		$js = 'makeDrag ("'.$myPid.'_'.$var->name.'_Container","'.$myPid.'_'.$var->father.'","'.$afterfunction.'",'.$checknum.',"");';
+	}
+
+	eyeX('rawjs',array('js'=>$js));
+}
+
+function addWidget($obj) {
+	global $myPid;
+	//wo = widget objects
+	$_SESSION[$myPid.'_wo'][$obj->name] = $obj;
+	$GLOBALS['eyeDesigner_listWidgetsBOX']->addItem($obj->name,'list_'.$obj->name);
+}
+
+?>

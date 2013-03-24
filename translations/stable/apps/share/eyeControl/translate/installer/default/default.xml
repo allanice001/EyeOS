@@ -1,0 +1,63 @@
+<lang>
+	<info>
+		<revision>13/04/2012</revision>
+	</info>
+	<texts>
+		<installer-system-removeinstaller-no>[span]No[/span] will bring you back to the system page.</installer-system-removeinstaller-no>
+		<installer-system-uninstall-no>[span]No[/span] will bring you back to the system page.</installer-system-uninstall-no>
+		<installer-system-removeinstaller-yes>[span]Yes[/span] will remove all oneye installer files!</installer-system-removeinstaller-yes>
+		<installer-system-uninstall-yes>[span]Yes[/span] will remove oneye completely!</installer-system-uninstall-yes>
+		<installer-system-action>Action</installer-system-action>
+		<installer-install-allow-creation>Allow users to create accounts</installer-install-allow-creation>
+		<installer-system-back>Back to menu</installer-system-back>
+		<installer-lib-output-lang-by>by</installer-lib-output-lang-by>
+		<installer-install-continue>Continue...</installer-install-continue>
+		<installer-update-continue>Continue...</installer-update-continue>
+		<installer-system-continue>Continue...</installer-system-continue>
+		<installer-update-error-renaming>Could not rename the directory "./eyeOS/". Please, rename it manually to "[hash]" and overwrite all existing files.</installer-update-error-renaming>
+		<installer-install-error-renaming>Could not rename the directory "./eyeOS/". Please, rename it manually to "[hash]".</installer-install-error-renaming>
+		<installer-lib-output-lang-currentlang>Current language</installer-lib-output-lang-currentlang>
+		<installer-system-removeinstaller-really>Do you really want to remove the oneye installer?</installer-system-removeinstaller-really>
+		<installer-system-uninstall-really>Do you really want to uninstall oneye?</installer-system-uninstall-really>
+		<installer-lib-check-notexist>Error: "[file]" does not exist.</installer-lib-check-notexist>
+		<installer-system-password-error>Incorrect root password!</installer-system-password-error>
+		<installer-install-do>Install oneye!</installer-install-do>
+		<installer-lib-output-lang-langs>Languages</installer-lib-output-lang-langs>
+		<installer-system-no>No</installer-system-no>
+		<installer-lib-output-title>oneye Installation</installer-lib-output-title>
+		<installer-install-compat>Please check your PHP settings before installing oneye.</installer-install-compat>
+		<installer-system-title>Please choose one of the following actions:</installer-system-title>
+		<installer-update-title>Please continue to update your oneye installation to version [version].</installer-update-title>
+		<installer-install-title>Please fill out the following form to install oneye:</installer-install-title>
+		<installer-system-message-remove>Please remove the installer for security reasons!</installer-system-message-remove>
+		<installer-install-recommended>Recommended</installer-install-recommended>
+		<installer-system-action-removeinstaller>Remove the oneye installer</installer-system-action-removeinstaller>
+		<installer-install-required>Required</installer-install-required>
+		<installer-system-action-resetsystem>Reset system files</installer-system-action-resetsystem>
+		<installer-install-password-retype>Retype Password</installer-install-password-retype>
+		<installer-system-password>Root password</installer-system-password>
+		<installer-install-password-root>Root Password</installer-install-password-root>
+		<installer-lib-check-safemode>Sorry, but oneye needs SAFE_MODE to be set to OFF. Your current configuration has SAFE_MODE activated. Please modify your php.ini file to turn SAFE_MODE off, or ask your system administrator for more help.</installer-lib-check-safemode>
+		<installer-install-systemname>System Name</installer-install-systemname>
+		<installer-lib-check-newer>The current oneye installation is newer than this update. Please delete the directory "[installer]" for security reasons.</installer-lib-check-newer>
+		<installer-install-error-extract>The install files could not be extracted. To install oneye manually, rename "[package]" to "package.tar.gz" and extract the contents into the same directory.</installer-install-error-extract>
+		<installer-install-passwords-required>The root password is required!</installer-install-passwords-required>
+		<installer-install-passwords-characters>The root password needs to be more than three characters!</installer-install-passwords-characters>
+		<installer-install-passwords-notmatch>The root passwords do not match!</installer-install-passwords-notmatch>
+		<installer-update-error-extract>The update files could not be extracted. To update oneye manually, rename "[package]" to "package.tar.gz" and extract the contents into the same directory.</installer-update-error-extract>
+		<installer-lib-output-errors>There were problems during installation:</installer-lib-output-errors>
+		<installer-update-error-under15>This updater is only for eyeos version 1.5 and higher. You are using eyeos [version1]. Please update to eyeos 1.5 before updating to oneye [version2].</installer-update-error-under15>
+		<installer-system-message-translations>Translations can be downloaded from [a link].</installer-system-message-translations>
+		<installer-system-action-uninstall>Uninstall oneye</installer-system-action-uninstall>
+		<installer-update-do>Update oneye!</installer-update-do>
+		<installer-lib-check-md5>Warning: Please, check "[package]" since it seems to be corrupted.</installer-lib-check-md5>
+		<installer-lib-check-permissions>Warning: Please, give full permissions (CHMOD 777) to "[file]".</installer-lib-check-permissions>
+		<installer-system-yes>Yes</installer-system-yes>
+		<installer-install-systemname-error>You must specify a system name!</installer-install-systemname-error>
+		<installer-lib-output-imap>Your PHP installation does not have IMAP support. Please consider installing the IMAP module. Without it, you will not be able to use the Mail Client.</installer-lib-output-imap>
+		<installer-lib-output-sqlite>Your PHP installation does not have SQLite support. Please consider installing the SQLite module. Without it, you will not be able to use the Mail Client.</installer-lib-output-sqlite>
+		<installer-lib-output-utf8>Your PHP version does not have full UTF-8 support. Please consider updating PHP or installing the mbstring module. Without it, you will be able to install and update your oneye, but you may encounter problems in some areas of the system that require internationalization support.</installer-lib-output-utf8>
+		<installer-lib-check-gzip>Your server does not seem to have gzip support. To install oneye manually, rename "[package]" to "package.tar.gz" and extract the contents into the same directory.</installer-lib-check-gzip>
+		<installer-lib-check-php>Your server is currently using an unsupported version of PHP. Please update to PHP 5.0.0 or higher before installing oneye.</installer-lib-check-php>
+	</texts>
+</lang>

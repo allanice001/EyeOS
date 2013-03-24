@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>createUser</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>um</tag>
+			<tag>user</tag>
+		</tags>
+		<shortDesc>Creates a new user.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>createUser</functionName>
+		<syntax>bool um('createUser', array(string 'username' => $username, string 'password' => $password [, string 'email' => $email]))</syntax>
+		<desc>Creates a new user, including its info file in the accounts directory and the user directory.</desc>
+		<params>
+			<type>required</type>
+			<name>username</name>
+			<desc>String containing the username.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>password</name>
+			<desc>String containing the password.</desc>
+		</params>
+		<params>
+			<type>optional</type>
+			<name>email</name>
+			<desc>String containing the email of the user</desc>
+		</params>
+		<return>If the function succeeds, returns true. Otherwise, returns false and sets the error code depending on the error occurred.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>One or both required parameters are not specified, the username is not strictly alphanumeric, the username is shorter than two characters or it is too long.</desc>
+			</error>
+			<error>
+				<type>UM_USER_ALREADY_EXISTS</type>
+				<desc>There already exists a username with the same name.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

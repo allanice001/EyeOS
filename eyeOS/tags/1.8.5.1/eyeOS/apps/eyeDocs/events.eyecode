@@ -1,0 +1,490 @@
+<?php
+/*
+                                  ____   _____
+                                 / __ \ / ____|
+                  ___ _   _  ___| |  | | (___
+                 / _ \ | | |/ _ \ |  | |\___ \
+                |  __/ |_| |  __/ |__| |____) |
+                 \___|\__, |\___|\____/|_____/
+                       __/ |
+                      |___/              1.8
+
+                     Web Operating System
+                           eyeOS.org
+
+             eyeOS Engineering Team - www.eyeos.org/team
+
+     eyeOS is released under the GNU Affero General Public License Version 3 (AGPL3)
+            provided with this release in license.txt
+             or via web at gnu.org/licenses/agpl-3.0.txt
+
+        Copyright 2005-2009 eyeOS Team (team@eyeos.org)
+*/
+
+function eyeDocs_on_Message($params="") {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDocs_on_Open($params=null) {
+	global $checknum;
+	$options = array(
+		EYEDIALOG_TYPE_OPENFILE,
+		'SelectFileOpen',
+		$checknum,
+		'',
+		array(
+			'All files' => '*.*',
+			'eyeOS document file' => '*.eyedoc',
+			'MS Word document file' => '*.doc',
+			'Open Document Text file' => '*.odt'
+		)
+	);
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+function eyeDocs_on_Resize($params=null) {
+	global $myPid;
+	$width = $params['arg'][0];
+	$height = $params['arg'][1];
+	$width = intval($width);
+	$height = intval($height);
+	$GLOBALS['eyeDocsWND']->width = $width;
+	$GLOBALS['eyeDocsWND']->height = $height;
+	$width = $width - 19;
+	$height = $height - 100;
+	$GLOBALS['noteContent']->setHeight($height-34,1);
+	$GLOBALS['noteContent']->setWidth($width);
+}
+
+function eyeDocs_on_fullScreen(){
+	global $myPid;
+	$GLOBALS['eyeDocsWND']->setFullScreen();
+}
+
+function eyeDocs_on_Save($params=null) {
+	global $checknum,$myPid;
+	$options = array(
+		EYEDIALOG_TYPE_SAVEFILE,
+		'SelectFileSave',
+		$checknum,
+		'',
+		array(
+			'eyeOS document file' => '*.eyedoc',
+			'MS Word document file' => '*.doc',
+			'Open Document Text file' => '*.odt',
+			'All files' => '*.*'
+		)
+	);
+	//Serializamos contenido
+	$myHiddenContent = new Hidden(array(
+		'name' => 'textAreaContent',
+		'father' => 'eyeNotesWND_Content',
+		'text' => $GLOBALS['noteContent']->text
+	));
+	eyeWidgets('serialize',array($myHiddenContent));
+	if(is_object($GLOBALS['notePath']) && $GLOBALS['notePath']->text) {
+		$info = utf8_pathinfo($GLOBALS['notePath']->text);
+		$udir = um('getCurrentUserDir').'/tmp/'.$myPid.'_new.html';
+		if(vfs('real_fileExists',array($udir))){
+			$realContent = vfs('real_getFileContent',array($udir));
+			$match = array();
+			//Getting the old header style from temporal file
+			//If the original file doesn't have style header, a new one is not needed, really?
+			if(preg_match("/<\!--.+?-->/su",$realContent,$match)){
+				$toBeReplaced = $match[0];
+				//Getting the new header style from tinyMCE content
+				if(preg_match("/(<\!--.+?-->)/su",$GLOBALS['noteContent']->text,$match)){
+					$toBeReplaced = $match[0];
+					//Replacing the header style from the old (tmp file) to the new tinyMCE
+					$realContent = str_replace($toBeReplaced,$toReplace,$realContent);
+				}
+			}
+			//Getting the original body
+			if(preg_match("/<BODY.*?>(.+)<\/BODY>/sui",$realContent,$match)){
+				$toBeReplaced = $match[1];
+				//Getting the tinyMCE "body"
+
+				if(preg_match("/-->(.*)/sui",$GLOBALS['noteContent']->text,$match)){
+					$toReplace = $match[1];
+					//Replacing the old body with the new one
+					$realContent = str_replace($toBeReplaced,$toReplace,$realContent);
+				}
+			}
+			$realContent = vfs('real_putFileContent',array($udir,$realContent));
+			if(utf8_strtolower($info['extension'] == 'odt')) {
+				eyeConverter('convert',array($udir,vfs('getRealName',array($GLOBALS['notePath']->text)),'writerglobal8_writer',1));
+			} elseif(utf8_strtolower($info['extension'] == 'doc')) {
+				eyeConverter('convert',array($udir,vfs('getRealName',array($GLOBALS['notePath']->text)),'MS Word 97',1));
+			} else {
+				vfs('real_delete',array($GLOBALS['notePath']->text));
+				vfs('real_copy',array($udir,$GLOBALS['notePath']->text));
+			}
+		}else{
+			$fp = vfs('open',array($GLOBALS['notePath']->text,'w'));
+			fwrite($fp,$GLOBALS['noteContent']->text);
+			fclose($fp);
+		}
+		service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+} else {
+		service('proc','launch',array('eyeDialog',$options));
+	}
+}
+
+function eyeDocs_on_SaveAs($params=null) {
+	global $checknum;
+	$options = array(
+		EYEDIALOG_TYPE_SAVEFILE,
+		'SelectFileSave',
+		$checknum,
+		'',
+		array(
+			'eyeOS document files' => '*.eyedoc',
+			'Microsoft Word file' => '*.doc',
+			'Open Document Text file' => '*.odt',
+			'All files' => '*.*'
+		)
+	);
+	//Serializamos contenido
+	$myHiddenContent = new Hidden(array(
+		'name' => 'textAreaContent',
+		'father' => 'eyeNotesWND_Content',
+		'text' => $GLOBALS['noteContent']->text
+	));
+	eyeWidgets('serialize',array($myHiddenContent));
+	service('proc','launch',array('eyeDialog',$options));
+}
+
+
+function eyeDocs_on_SelectFileSave($params=null) {
+	global $checknum,$myPid;
+	$file = $params['arg'][0];
+	$udir = um('getCurrentUserDir').'/tmp/'.$myPid.'_new.html';
+	$info = utf8_pathinfo($GLOBALS['notePath']->text);
+	if($file) {
+		if(empty($params['fileType'][0])){
+			$params['fileType'][0] = "*.eyedoc";
+		}
+		$file = service('um','getCurrentUserDir') . FILES_USER_DIR . '/' . $file;
+		if (utf8_substr($file,-4) == ".doc" || $params['fileType'][0] == "*.doc") {
+			include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDocs/html_to_doc'.EYE_CODE_EXTENSION);
+			$htmltodoc= new HTML_TO_DOC();
+			$myContent = $GLOBALS['noteContent']->text;
+			if (!empty($myContent)) {
+				$htmltodoc->createDoc($myContent,$file);
+				service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+				//Refrescamos el escritorio
+				eyeFiles('update',array(dirname($file)));
+				//Serializamos ubicacion del archivo
+				$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+				reqLib('eyeWidgets','serialize',array($myHidden));
+				$GLOBALS['eyeDocsWND']->setTitle(utf8_basename($file).' - ' . i18n('translate',array('Word Processor')));
+			}
+		} elseif(utf8_substr($file,-4) == ".odt" || $params['fileType'][0] == "*.odt") {
+			$udir = um('getCurrentUserDir').'/tmp/'.$myPid. '.html';
+			$matchings = array();
+			$html0 = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">'."\n".'<HTML>'."\n".'<HEAD>'."\n\t";
+			$html0 .= '<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">'."\n\t".'<TITLE></TITLE>'."\n\t";
+			$html0 .= '<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.0  (Linux)">'."\n\t";
+			$html0 .= '<META NAME="Info 1" CONTENT="">'."\n\t".'<META NAME="Info 2" CONTENT="">'."\n\t".'<META NAME="Info 3" CONTENT="">'."\n\t".'<META NAME="Info 4" CONTENT="">';
+			$html0 .= '<STYLE TYPE="text/css">'."\n\t".'<!--'."\n\t\t".'@page { size: 21cm 29.7cm; margin: 2cm }'."\n\t\t";
+			$html0 .= 'P { margin-bottom: 0.21cm }'."\n\t".'-->'."\n\t".'</STYLE>';
+			$html0 .= '</HEAD>'."\n".'<BODY LANG="es-ES" DIR="LTR">'."\n".'<P STYLE="margin-bottom: 0cm">';
+			$html1 = '</P>'."\n".'</BODY>'."\n".'</HTML>';
+			if($fp = fopen($udir, "w+")){
+				$realContent = vfs('real_getFileContent',array($udir));
+				if(!preg_match('/\!DOCTYPE HTML PUBLIC /',$realContent,$matchings)){
+					fwrite($fp,$html0);
+					fwrite($fp,$GLOBALS['noteContent']->text);
+					fwrite($fp,$html1);
+					fclose($fp);
+				}
+			}
+			if(utf8_substr($file,-4) != ".odt") {
+				$file = $file . '.odt';
+			}
+			vfs('create',array($file));
+			eyeConverter('convert',array($udir,vfs('getRealName',array($file)),'writerglobal8_writer',1));
+			service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+			eyeFiles('update',array(dirname($file)));
+			//Serializamos ubicacion del archivo
+			$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			$GLOBALS['eyeDocsWND']->setTitle(utf8_basename($file).' - ' . i18n('translate',array('Word Processor')));
+		} else {
+			if (utf8_substr($file,-7) != ".eyedoc" || $params['fileType'][0] == "*.eyedoc") {
+				$file = $file.'.eyedoc';
+			}
+			service('vfs','create',array($file,'eyeDocs'));
+			$fp = service('vfs','open',array($file,'w'));
+			if(!$fp) {
+				service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions!'));
+				return;
+			}
+			fwrite($fp,$GLOBALS['noteContent']->text);
+			fclose($fp);
+			$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeDocsWND','text'=>$file));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			$GLOBALS['eyeDocsWND']->setTitle(utf8_basename($file).' - ' . i18n('translate',array('Word Processor')));
+			eyeFiles('update',array(dirname($file)));
+			service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+		}
+	}
+}
+
+function eyeDocs_on_SelectFileOpen($params=null) {
+	global $myPid;
+	eyeConverter('cleanTmp');
+	$file = $params['arg'][0];
+	if($file) {
+		$file = service('um','getCurrentUserDir') . FILES_USER_DIR . '/' . $file;
+		$info = utf8_pathinfo($file);
+		$tCheckNum = proc('findChecknumByName',array('eyeX'));
+		$real = vfs('getRealName',array($file));
+		if(!vfs('checkPermissions',array($real))) {
+			eyeX('messageBox',array('content'=>'Sorry, you do not have sufficient permissions!'));
+			return false;
+		}
+		$extension = utf8_strtolower($info['extension']);
+		$nfile = um('getCurrentUserDir').'tmp/'.$myPid.'.'.$info['extension'];
+		$myHTML = um('getCurrentUserDir').'tmp/'.$myPid.'_new.html';
+
+		copy($real,$nfile);
+		$to = 'HTML (StarWriter)';
+		$tfp = vfs('real_open',array($nfile,'r'));
+		$bytes = fread($tfp,5);
+		$real = 1;
+		if($bytes == '<html') {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		$bytes = fread($tfp,25);
+		if(strstr($bytes,'<!--')) {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+		if($extension == 'eyedoc') {
+			$real = 0;
+			$content = file_get_contents($nfile);
+		}
+
+		fclose($tfp);
+		$to = 'HTML (StarWriter)';
+		if($real == 1) {
+			eyeConverter('convert',array($nfile,$myHTML,$to,1));
+			$fp = vfs('real_open',array($myHTML,'r'));
+			$content = fread($fp,vfs('real_filesize',array($myHTML)));
+			fclose($fp);
+			$content = str_replace('<IMG SRC="','<IMG SRC="index.php?checknum='.$tCheckNum.'&msg=viewTempImg&params=',$content);
+		} else {
+			$pattern = '/<img[^\/]*\/>/i';
+			$replacement = '';
+			$content = preg_replace($pattern, $replacement, $content);
+		}
+
+		$GLOBALS['noteContent']->setText($content);
+		$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeDocsWND','text'=>$file));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+		$GLOBALS['eyeDocsWND']->setTitle(utf8_basename($file).' - Word Processor');
+		$myHiddenContent = new Hidden(array(
+			'name' => 'textAreaContent',
+			'father' => 'eyeNotesWND_Content',
+			'text' => $GLOBALS['noteContent']->text
+		));
+		eyeWidgets('serialize',array($myHiddenContent));
+	}
+}
+
+function eyeDocs_on_Close(){
+	$taContent = $GLOBALS['textAreaContent']->text;
+	$content = $GLOBALS['noteContent']->text;
+
+	if($taContent != $content ) {
+		eyex('messageBox',array(
+			'content' => 'Do you want to save changes?',
+			'type' => 3,
+			'title' => 'Delete warning',
+			'win_name' => 'delete_warning',
+			'win_style' => TITLE + MIN + CLOSE,
+			'btn1_capt' => 'Save',
+			'btn1_name' => 'yDelete',
+			'btn2_capt' => "Don't save",
+			'btn2_name' => 'nDelete',
+			'btn3_capt' => "Cancel",
+			'btn3_name' => 'cancel',
+			'img' => '?',
+			'win_removepid' => 0
+		));
+	} else {
+		if(!IE || IE > 7) {
+			$GLOBALS['noteContent']->richClean();
+		}
+		eyeConverter('cleanTmp');
+		proc('end');
+	}
+}
+
+function eyeDocs_on_yDelete(){
+	$GLOBALS['delete_warning']->close();
+	global $checknum,$myPid;
+	$options = array(
+		EYEDIALOG_TYPE_SAVEFILE,
+		'SelectFileSaveClose',
+		$checknum,
+		'',
+		array(
+			'eyeOS document file' => '*.eyedoc',
+			'MS Word document file' => '*.doc',
+			'Open Document Text file' => '*.odt',
+			'All files' => '*.*'
+		));
+	if(is_object($GLOBALS['notePath']) && $GLOBALS['notePath']->text) {
+		$info = utf8_pathinfo($GLOBALS['notePath']->text);
+		$udir = um('getCurrentUserDir').'/tmp/'.$myPid.'_new.html';
+		if(vfs('real_fileExists',array($udir))){
+			$realContent = vfs('real_getFileContent',array($udir));
+			$match = array();
+			//Getting the old header style from temporal file
+			//If the original file doesn't have style header, a new one is not needed, really?
+			if(preg_match("/<\!--.+?-->/su",$realContent,$match)){
+				$toBeReplaced = $match[0];
+				//Getting the new header style from tinyMCE content
+				if(preg_match("/(<\!--.+?-->)/su",$GLOBALS['noteContent']->text,$match)){
+					$toBeReplaced = $match[0];
+					//Replacing the header style from the old (tmp file) to the new tinyMCE
+					$realContent = str_replace($toBeReplaced,$toReplace,$realContent);
+				}
+			}
+			//Getting the original body
+			if(preg_match("/<BODY.*?>(.+)<\/BODY>/sui",$realContent,$match)){
+				$toBeReplaced = $match[1];
+				//Getting the tinyMCE "body"
+
+				if(preg_match("/-->(.*)/sui",$GLOBALS['noteContent']->text,$match)){
+					$toReplace = $match[1];
+					//Replacing the old body with the new one
+					$realContent = str_replace($toBeReplaced,$toReplace,$realContent);
+				}
+			}
+			$realContent = vfs('real_putFileContent',array($udir,$realContent));
+			if(utf8_strtolower($info['extension'] == 'odt')) {
+				eyeConverter('convert',array($udir,vfs('getRealName',array($GLOBALS['notePath']->text)),'writerglobal8_writer',1));
+			}elseif(utf8_strtolower($info['extension'] == 'doc')) {
+				eyeConverter('convert',array($udir,vfs('getRealName',array($GLOBALS['notePath']->text)),'MS Word 97',1));
+			}else{
+				vfs('real_delete',array($GLOBALS['notePath']->text));
+				vfs('real_copy',array($udir,$GLOBALS['notePath']->text));
+			}
+		}else{
+			$fp = vfs('open',array($GLOBALS['notePath']->text,'w'));
+			fwrite($fp,$GLOBALS['noteContent']->text);
+			fclose($fp);
+		}
+		service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+		if(!IE || IE > 7) {
+			$GLOBALS['noteContent']->richClean();
+		}
+		eyeConverter('cleanTmp');
+		proc('end');
+	} else {
+		service('proc','launch',array('eyeDialog',$options));
+	}
+}
+
+function eyeDocs_on_SelectFileSaveClose($params=null) {
+	global $checknum,$myPid;
+	$file = $params['arg'][0];
+	$udir = um('getCurrentUserDir').'/tmp/'.$myPid.'_new.html';
+	$info = utf8_pathinfo($GLOBALS['notePath']->text);
+	if($file) {
+		if(empty($params['fileType'][0])){
+			$params['fileType'][0] = ".eyedoc";
+		}
+		$file = service('um','getCurrentUserDir') . FILES_USER_DIR . '/' . $file;
+		if (utf8_substr($file,-4) == ".doc" || $params['fileType'][0] == "*.doc") {
+			include_once(EYE_ROOT.'/'.APP_DIR.'/eyeDocs/html_to_doc'.EYE_CODE_EXTENSION);
+			$htmltodoc= new HTML_TO_DOC();
+			$myContent = $GLOBALS['noteContent']->text;
+			if (!empty($myContent)) {
+				$htmltodoc->createDoc($myContent,$file);
+				service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+				if(!IE || IE > 7) {
+					$GLOBALS['noteContent']->richClean();
+				}
+				eyeConverter('cleanTmp');
+				proc('end');
+			}
+		} elseif(utf8_substr($file,-4) == ".odt" || $params['fileType'][0] == "*.odt") {
+			$udir = um('getCurrentUserDir').'/tmp/'.$myPid. '.html';
+			$matchings = array();
+			$html0 = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">'."\n".'<HTML>'."\n".'<HEAD>'."\n\t";
+			$html0 .= '<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">'."\n\t".'<TITLE></TITLE>'."\n\t";
+			$html0 .= '<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.0  (Linux)">'."\n\t";
+			$html0 .= '<META NAME="Info 1" CONTENT="">'."\n\t".'<META NAME="Info 2" CONTENT="">'."\n\t".'<META NAME="Info 3" CONTENT="">'."\n\t".'<META NAME="Info 4" CONTENT="">';
+			$html0 .= '<STYLE TYPE="text/css">'."\n\t".'<!--'."\n\t\t".'@page { size: 21cm 29.7cm; margin: 2cm }'."\n\t\t";
+			$html0 .= 'P { margin-bottom: 0.21cm }'."\n\t".'-->'."\n\t".'</STYLE>';
+			$html0 .= '</HEAD>'."\n".'<BODY LANG="es-ES" DIR="LTR">'."\n".'<P STYLE="margin-bottom: 0cm">';
+			$html1 = '</P>'."\n".'</BODY>'."\n".'</HTML>';
+			if($fp = fopen($udir, "w+")){
+				$realContent = vfs('real_getFileContent',array($udir));
+				if(!preg_match('/\!DOCTYPE HTML PUBLIC /',$realContent,$matchings)){
+					fwrite($fp,$html0);
+					fwrite($fp,$GLOBALS['noteContent']->text);
+					fwrite($fp,$html1);
+					fclose($fp);
+				}
+			}
+			if(utf8_substr($file,-4) != ".odt") {
+				$file = $file . '.odt';
+			}
+			vfs('create',array($file));
+			eyeConverter('convert',array($udir,vfs('getRealName',array($file)),'writerglobal8_writer',1));
+			service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+			eyeFiles('update',array(dirname($file)));
+			//Serializamos ubicacion del archivo
+			$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>$file));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			proc('end');
+		} else {
+			if (utf8_substr($file,-7) != ".eyedoc" || $params['fileType'][0] == "*.eyedoc") {
+				$file = $file.'.eyedoc';
+			}
+			service('vfs','create',array($file,'eyeDocs'));
+			$fp = service('vfs','open',array($file,'w'));
+			if(!$fp) {
+				service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions!'));
+				return;
+			}
+			fwrite($fp,$GLOBALS['noteContent']->text);
+			fclose($fp);
+			$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeDocsWND','text'=>$file));
+			reqLib('eyeWidgets','serialize',array($myHidden));
+			eyeFiles('update',array(dirname($file)));
+			service('eyex','messageBox',array('content'=>'Document saved successfully.'));
+			if(!IE || IE > 7) {
+				$GLOBALS['noteContent']->richClean();
+			}
+			eyeConverter('cleanTmp');
+			proc('end');
+		}
+	}
+}
+
+function eyeDocs_on_nDelete(){
+	if(!IE || IE > 7) {
+		$GLOBALS['noteContent']->richClean();
+	}
+	eyeConverter('cleanTmp');
+	$GLOBALS['delete_warning']->close();
+	proc('end');
+}
+
+function eyeDocs_on_cancel(){
+	$GLOBALS['delete_warning']->close();
+}
+
+function eyeDocs_on_New($params=null) {
+	$GLOBALS['eyeDocsWND']->setTitle('Word Processor');
+	$myHidden = new Hidden(array('name'=>'notePath','father'=>'eyeNotesWND','text'=>""));
+	reqLib('eyeWidgets','serialize',array($myHidden));
+}
+?>

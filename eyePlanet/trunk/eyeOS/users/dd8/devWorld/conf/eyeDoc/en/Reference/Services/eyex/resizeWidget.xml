@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Function</type>
+	<general>
+		<name>resizeWidget</name>
+		<tags>
+			<tag>function</tag>
+			<tag>service</tag>
+			<tag>eyex</tag>
+		</tags>
+		<shortDesc>Changes the dimensions of a widget.</shortDesc>		
+	</general>	
+	<changelog>
+		<trace>
+			<version>1.6</version>
+			<desc>This function now returns true if it succeeds.</desc>
+		</trace>
+		<trace>
+			<version>1.0</version>
+			<desc>Created.</desc>
+		</trace>
+	</changelog>
+	<definition>
+		<functionName>resizeWidget</functionName>
+		<syntax>boolean eyex('resizeWidget', array(string 'name' => $name, int 'width' => $width, int 'height' => $height))</syntax>
+		<desc>Changes the size of an existing widget to the specified width and height.</desc>
+		<params>
+			<type>required</type>
+			<name>name</name>
+			<desc>Name of the widget.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>width</name>
+			<desc>New width of the widget, expressed in pixels.</desc>
+		</params>
+		<params>
+			<type>required</type>
+			<name>height</name>
+			<desc>New height of the widget, expressed in pixels.</desc>
+		</params>
+		<return>If the function succeeds, returns true in eyeOS version 1.6 and above. Otherwise, if a parameter is not specified, returns false and sets the error code accordingly.</return>
+		<errorCodes>
+			<error>
+				<type>INCORRECT_PARAMS</type>
+				<desc>Some parameter is not specified.</desc>
+			</error>
+		</errorCodes>
+	</definition>
+</info>

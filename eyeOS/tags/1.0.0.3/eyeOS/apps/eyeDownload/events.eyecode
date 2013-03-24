@@ -1,0 +1,51 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function eyeDownload_on_Message($params=null) {
+	reqLib('eyeWidgets','updateContent',$params);
+}
+
+function eyeDownload_on_download($params=null) {
+	global $myPid;
+	$path = $params['path'][0];
+	$inGroup = $params['group'][0];
+	if($inGroup) {
+		$myUserDir = EYE_ROOT.'/'.GROUPS_DIR.'/'.$path;
+	} else {
+		$myUserDir = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$path;
+	}
+	if(is_dir($myUserDir)) {
+		service('proc','close',array($myPid));
+		exit;
+	}
+	$fp = service('vfs','open',array($myUserDir,'r'),1);
+	$size = service('vfs','filesize',array($myUserDir),1);
+	$content = fread($fp,$size);
+	$name = basename($myUserDir);
+	fclose($fp);
+	header('Content-Type: application/octet-stream');
+	header('Content-Disposition: attachment; filename="'.$name.'"');
+	echo $content;
+	reqLib('eyeWidgets','rawunserialize');
+	service('proc','close',array($myPid));
+	exit;
+}
+
+
+?>

@@ -1,0 +1,230 @@
+.eyeClock {
+	background-image: url();
+	bottom: -1px;
+	cursor: pointer;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/desktop/clock.png', sizingMethod='scale');
+	height: 24px;
+	position: absolute;
+	right: 0px;
+	width: 92px;
+}
+
+.eyeClockText {
+	color: #ffffff;
+	font-size: 9pt;
+	margin-right: 10px;
+	margin-top: 5px;
+	text-align: right;
+}
+
+.eyeDesk_miniCalendar {
+	background-image: url();
+	bottom: 30px;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/desktop/calendar.png', sizingMethod='scale');
+}
+
+.eyeDock_center {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/center.png', sizingMethod='scale');
+	height: 28px;
+	width: expression(this.parentNode.offsetWidth - 18 - 18);
+}
+
+.eyeDock_left {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/left.png', sizingMethod='scale');
+	height: 32px;
+}
+
+.eyeDock_right {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/right.png', sizingMethod='scale');
+	height: 32px;
+}
+
+.eyeDockMenuBottomCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png', sizingMethod='scale');
+	bottom: -13px;
+}
+
+.eyeDockMenuBottonLeft {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bottom_left.png', sizingMethod='scale');
+	bottom: -13px;
+}
+
+.eyeDockMenuBottonRight {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bottom_right.png', sizingMethod='scale');
+	bottom: -13px;
+}
+
+.eyeDockMenuContent {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png', sizingMethod='scale');
+}
+
+.eyeDockMenuIcon:hover {
+	background-image: url();
+	cursor: pointer;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/dockbgover.png', sizingMethod='scale');
+	left: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.eyeDockMenuLeftCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png', sizingMethod='scale');
+}
+
+.eyeDockMenuLine {
+	background-image: url(index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/IE/apps/eyeDock/line.png);
+}
+
+.eyeDockMenuRightCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png', sizingMethod='scale');
+}
+
+.eyeDockMenuTopCenter {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/bg.png', sizingMethod='scale');
+	top: -13px;
+}
+
+.eyeDockMenuTopLeft {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/top_left.png', sizingMethod='scale');
+	top: -13px;
+}
+
+.eyeDockMenuTopRight {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeDock/top_right.png', sizingMethod='scale');
+	top: -13px;
+}
+
+.eyeMenu_top {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/top_bub.png', sizingMethod='image');
+	height: 42px;
+	width: 200px;
+}
+
+.eyeMenu_bot {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/bottom_bub.png', sizingMethod='image');
+	height: 14px;
+	width: 200px;
+}
+
+.eyeMenu_cen {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/apps/eyeBar/center_bub.png', sizingMethod='scale');
+	font-family: Verdana;
+	font-size: 11px;
+	width: 200px;
+}
+
+.eyeMenuButton {
+	bottom: 19px;
+	position: absolute;
+}
+
+.eyeMessageBox {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/desktop/messagebox.png', sizingMethod='scale');
+}
+
+.eyeWindowCloseButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/close.png', sizingMethod='scale');
+}
+
+.eyeWindowContent {
+	height: expression(this.parentNode.offsetHeight);
+	width: expression(this.parentNode.offsetWidth);
+}
+
+.eyeWindowContentInvisible {
+	height: expression(this.parentNode.offsetHeight);
+	width: expression(this.parentNode.offsetWidth);
+}
+
+.eyeWindowMaxButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/max.png', sizingMethod='crop');
+	padding-right: 28px;
+	right: 100px;
+}
+
+.eyeWindowMinimizeButton {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/min.png', sizingMethod='crop');
+	padding-right: 30px;
+}
+
+.eyeWindowOnBar_On {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_on.png', sizingMethod='crop');
+	margin: 5px;
+}
+
+.eyeWindowOnBar_Off {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_off.png', sizingMethod='crop');
+	margin: 5px;
+}
+
+.eyeWindowTitle_border_left {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top_left.png', sizingMethod='crop');
+	width: 4px;
+}
+
+.eyeWindowTitle_border_right {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/windows/bg_top_right.png', sizingMethod='crop');
+	width: 3px;
+}
+
+.eyeWindowTitle_center {
+	left: 4px;
+	width: expression(this.parentNode.offsetWidth - 1 - 1 - 5);
+}
+
+.minimizedApps {
+	background-image: url();
+	bottom: -1px;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_bg.png', sizingMethod='scale');
+	height: 24px;
+	left: 66px;	
+	position: absolute;
+	width: expression(this.parentNode.offsetWidth - 169);
+}
+
+.minimizedAppsLeft {
+	background-image: url();
+	bottom: -1px;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_bg.png', sizingMethod='scale');
+	height: 24px;
+	left: -2px;
+	position: absolute;
+	width: 16px;
+}
+
+.minimizedAppsRight {
+	background-image: url();
+	bottom: -1px;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/minimized/minbar_bg.png', sizingMethod='scale');
+	height: 24px;
+	position: absolute;
+	right: 92px;
+}
+
+.shadowLayer {
+	background-image: url();
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='index.php?version=EXTERN_CACHE_VERSION&theme=eyeFusion&extern=images/widgets/bg.png', sizingMethod='scale');
+}

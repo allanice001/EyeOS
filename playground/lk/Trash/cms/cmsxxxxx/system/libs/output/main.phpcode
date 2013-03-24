@@ -1,0 +1,55 @@
+<?php
+class output {
+	function addToBody($code) {
+		global $output_body;
+		$output_body .= $code;
+	}
+	
+	function addToHead($code) {
+		global $output_head;
+		$output_head .= $code;
+	}
+	
+	function doOutput() {
+		global $output_body;
+		global $output_head;
+		
+		// base, direction, language, title, etc. need to be read here!
+		
+		if (stripos($_SERVER['HTTP_ACCEPT'],'application/xhtml+xml') !== false) {
+			header('Content-Type: application/xhtml+xml; charset=UTF-8');
+		} else {
+			header('Content-Type: text/html; charset=UTF-8');
+		}
+		
+		echo('<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="' . $language . '" dir="' . $direction . '">
+	<head>
+		<base href="' . $base . '" />
+		<meta http-equiv="content-language" content="' . $language . '" />
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>' . $title . '</title>
+		' . $output_head . '
+	</head>
+	<body>
+	<a href="okay/test.php">hallo</a>
+		' . $output_body . '
+	</body>
+</html>');
+	}
+	
+	function prepareOutput() {
+		global $site;
+		if ($_SERVER['PATH_INFO']) { // and if allowed!
+			$site = $_SERVER['PATH_INFO']; //htmlspecialchars!
+		} elseif ($_REQUEST['site']) {
+			$site = $_REQUEST['site']; //htmlspecialchars!
+		} else {
+			$site = 'index';//todo:lang?
+		}
+		// check language here?
+		// get site info and load theme, etc.
+	}
+}
+?>

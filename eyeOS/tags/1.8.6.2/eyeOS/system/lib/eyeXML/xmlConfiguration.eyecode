@@ -1,0 +1,135 @@
+<?php
+/**
+* Opens an XML file and returns it as an array.
+* 
+* @param $params array(file)
+* @param $file Path to the file.
+* @return If the function succeeds, returns an array with the contents
+*	of the file. Otherwise, returns false.
+* @date 2008/03/11
+*/
+function lib_eyeXML_getXMLfile($params) {
+	if(!isset($params[0])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$file = $params[0];
+	$content = vfs('real_getFileContent',array($file));
+	$xml = lib_eyeXML_xml2array(array($content));
+	return $xml;
+}
+
+/**
+* Saves a PHP array as an XML file.
+* 
+* @param $params array(file,myArray,[myHeader])
+* @param $file Path to the file.
+* @param $myArray PHP array to save as the content of the file.
+* @param $myHeader XML header of the file.
+* @return If the function succeeds, returns true. Otherwise, returns
+*	false.
+* @date 2008/03/11
+*/
+function lib_eyeXML_setXMLfile($params) {
+	if(!isset($params[0]) || !isset($params[1])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$file = $params[0];
+	$myArray = $params[1];
+	if(isset($params[2])){
+		$myHeader = $params[2];	
+	}else{
+		$myHeader = '';
+	}
+	
+	if (!service('vfs','real_fileExists',array($file))) {
+		service('vfs','real_create',array($file));
+	}
+	$fp = service('vfs','real_open',array($file,'w'));
+	if(!$fp) {
+		return false;
+	}
+	$content = lib_eyeXML_array2xml(array($myArray,$myHeader));	
+	fwrite($fp,$content);
+	fclose($fp);
+	return true;
+}
+
+/**
+* Opens an XML config file of a specified application inside the user's
+* configurations directory, and returns it in the form of an array.
+* 
+* @param $params array(appname,filename)
+* @param $appname Name of the application.
+* @param $filename Name of the file to open.
+* @return If the function succeeds, returns an array with the contents
+*	of the read file. Otherwise, returns false.
+* @date 2008/03/11
+*/
+function lib_eyeXML_getXMLconfig($params) {
+	if(!isset($params[0]) || !isset($params[1])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$appname = $params[0];
+	$filename = $params[1];
+	$file = service('um','getCurrentUserDir');
+	$file .= '/'.CONF_USER_DIR.'/'.$appname.'/'.$filename;
+	$fp = service('vfs','real_open',array($file,'r'));
+    //That between other things checks if the file exists
+	if(!$fp) {
+		return false;
+	}
+    //we only can read from it, if the size is bigger than 0
+    //I don't return false because it may break the type retrocompatibility so just
+    //continue the normal flow of the function but without the fread warning
+    $size = filesize($file);
+    if($size == 0){
+        $content = false;
+    }else{
+        $content = fread($fp,filesize($file));
+    }
+    fclose($fp);
+	$xml = lib_eyeXML_xml2array(array($content));
+	return $xml;
+}
+
+/**
+* Updates the configuration file of an application with a specified
+* content.
+* 
+* @param $params array(appname,filename,newConfig)
+* @param $appname Name of the application.
+* @param $filename Name of the configuration file.
+* @param $newConfig PHP array to save as the content of the file.
+* @return If the configuration file is written successfully, returns
+*	true. Otherwise returns false.
+* @date 2008/03/11
+*/
+function lib_eyeXML_setXMLconfig($params) {
+	if(!isset($params[0]) || !isset($params[1]) || !isset($params[2])){
+		errorCodes('setErrorCode',array(INCORRECT_PARAMS));
+		return false;
+	}
+	$appname = $params[0];
+	$filename = $params[1];
+	$newConfig = $params[2];
+	$file = service('um','getCurrentUserDir') . '/' . CONF_USER_DIR . '/' . $appname . '/';
+	if (!vfs('real_fileExists',array($file))) {
+		vfs('real_mkdir',array($file));
+	}
+	$file .= $filename;
+	if (!vfs('real_fileExists',array($file))) {
+		vfs('real_create',array($file));
+	}
+	$fp = service('vfs','real_open',array($file,'w+'));
+	if(!$fp) {
+		return false;
+	}
+	$xml = lib_eyeXML_array2xml(array($newConfig));
+	$content = fwrite($fp,$xml);
+	fclose($fp);
+	return true;
+}
+?>

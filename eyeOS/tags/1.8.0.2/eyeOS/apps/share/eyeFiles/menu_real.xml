@@ -1,0 +1,32 @@
+<menu>
+	<entry>
+		<icon>download</icon>
+		<text>Download</text>
+		<action>eyeDownload</action>
+	</entry>
+	<entry>
+		<icon>downzip</icon>
+		<text>Download as zip</text>
+		<action>downZip</action>
+	</entry>
+	<entry>
+		<icon>delete</icon>
+		<text>Delete</text>
+		<action>eyeDelete</action>
+	</entry>
+	<entry>
+		<icon>rename</icon>
+		<text>Rename</text>
+		<action>eyeRename</action>
+	</entry>
+	<entry>
+		<icon>copy</icon>
+		<text>Copy</text>
+		<action>eyeCopy</action>
+	</entry>
+	<entry>
+		<icon>properties</icon>
+		<text>Properties</text>
+		<action>eyeProperties</action>
+	</entry>
+</menu>

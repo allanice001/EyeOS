@@ -1,0 +1,2655 @@
+<lang>
+	<info>
+		<lang>Polski</lang>
+		<lang-en>Polish</lang-en>
+		<author>Mateusz Nowak &amp; Robert Sulkowski</author>
+		<version>1.11.0.0</version>
+		<revision>1</revision>
+	</info>
+	<part>
+		<name>addLink</name>
+		<text>
+			<old>Please type the title of the link here:</old>
+			<new>Podaj tytuł linku:</new>
+		</text>
+		<text>
+			<old>Create a link</old>
+			<new>Utwórz link</new>
+		</text>
+	</part>
+	<part>
+		<name>downZip</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Linki nie mogą zostać pobrane.</new>
+		</text>
+	</part>
+	<part>
+		<name>editLink</name>
+		<text>
+			<old>Update</old>
+			<new>Aktualizuj</new>
+		</text>
+		<text>
+			<old>Edit %s</old>
+			<new>Edytuj %s</new>
+		</text>
+		<text>
+			<old>Command to be executed:</old>
+			<new>Komenda do wykonania:</new>
+		</text>
+	</part>
+	<part>
+		<name>emptyTrash</name>
+		<text>
+			<old>Empty trash</old>
+			<new>Opróżnij kosz</new>
+		</text>
+		<text>
+			<old>Do you really want to remove "%s"?</old>
+			<new>Czy naprawdę chcesz usunąć "%s"?</new>
+		</text>
+		<text>
+			<old>Do you really want to empty the trash?</old>
+			<new>Czy naprawdę chcesz opróżnić ten kosz?</new>
+		</text>
+		<text>
+			<old>Delete %s</old>
+			<new>Usuń %s</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeApps</name>
+		<text>
+			<old>Manage Dock</old>
+			<new>Zarządzaj panelem aplikacji</new>
+		</text>
+		<text>
+			<old>Install Apps</old>
+			<new>Zainstaluj aplikacje</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplikacje</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeArchive</name>
+		<text>
+			<old>Filename</old>
+			<new>Nazwa pliku</new>
+		</text>
+		<text>
+			<old>The compress type is not supported</old>
+			<new>Ten typ kompresji nie jest obsługiwany.</new>
+		</text>
+		<text>
+			<old>Extract</old>
+			<new>Wypakuj</new>
+		</text>
+		<text>
+			<old>File extracted successfully.</old>
+			<new>Wypakowano pomyślnie</new>
+		</text>
+		<text>
+			<old>File extraction failed</old>
+			<new>Wypakowywanie nie powiodło się</new>
+		</text>
+		<text>
+			<old>Extract to...</old>
+			<new>Wypakuj do...</new>
+		</text>
+		<text>
+			<old>Compressed successfully</old>
+			<new>Skompresowano pomyślnie</new>
+		</text>
+		<text>
+			<old>Compression failed</old>
+			<new>Kompresja nie powiodła się</new>
+		</text>
+		<text>
+			<old>Archive Manager</old>
+			<new>Menadżer Archiwum</new>
+		</text>
+		<text>
+			<old>Compress to...</old>
+			<new>Skompresuj do...</new>
+		</text>
+		<text>
+			<old>Compress</old>
+			<new>Kompresja</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeBoard</name>
+		<text>
+			<old>Send</old>
+			<new>Wyślij</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Czat systemowy</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Wyczyść</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalc</name>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCalendar</name>
+		<text>
+			<old>Text for this event:</old>
+			<new>Tekst dla wydarzenia:</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same ID!</old>
+			<new>Dwa kalendarze nie mogą mieć tego samego ID!</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Wstecz</new>
+		</text>
+		<text>
+			<old>Please type a name for the calendar</old>
+			<new>Proszę wpisać nazwę kalendarza</new>
+		</text>
+		<text>
+			<old>Today</old>
+			<new>Dziś</new>
+		</text>
+		<text>
+			<old>Work</old>
+			<new>Praca</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Dalej</new>
+		</text>
+		<text>
+			<old>Show</old>
+			<new>Pokaż</new>
+		</text>
+		<text>
+			<old>Window mode</old>
+			<new>Okno</new>
+		</text>
+		<text>
+			<old>Week</old>
+			<new>Tydzień</new>
+		</text>
+		<text>
+			<old>Two calendars cannot share the same name!</old>
+			<new>Dwa kalendarze nie mogą mieć tej samej nazwy!</new>
+		</text>
+		<text>
+			<old>Please specify the calendar name:</old>
+			<new>Proszę podać nazwę kalendarza:</new>
+		</text>
+		<text>
+			<old>Invalid Num %s</old>
+			<new>Nieprawidłowa wartość %s</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendarz</new>
+		</text>
+		<text>
+			<old>Calendars</old>
+			<new>Kalendarze</new>
+		</text>
+		<text>
+			<old>Calendar added succesfully</old>
+			<new>Kalendarz dodany pomyślnie!</new>
+		</text>
+		<text>
+			<old>At least, one calendar is required!</old>
+			<new>Wymagany jest przynajmniej jeden kalendarz!</new>
+		</text>
+		<text>
+			<old>Calendars management</old>
+			<new>Zarządzanie kalendarzami</new>
+		</text>
+		<text>
+			<old>Invalid checkbox value</old>
+			<new>Nieprawidłowa wartość okienka zaznaczania(checkbox'a)</new>
+		</text>
+		<text>
+			<old>A calendar with the same name already exists!</old>
+			<new>Kalendarz o tej samej nazwie już istnieje!</new>
+		</text>
+		<text>
+			<old>Calendar is already running!</old>
+			<new>Kalendarz jest już otwarty!</new>
+		</text>
+		<text>
+			<old>Day</old>
+			<new>Dzień</new>
+		</text>
+		<text>
+			<old>Configure calendar</old>
+			<new>Konfiguruj kalendarz</new>
+		</text>
+		<text>
+			<old>Configuration saved correctly</old>
+			<new>Konfiguracja została pomyślnie zapisana</new>
+		</text>
+		<text>
+			<old>Add Calendar</old>
+			<new>Dodaj kalendarz</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeChess</name>
+		<text>
+			<old>Undo</old>
+			<new>Cofnij</new>
+		</text>
+		<text>
+			<old>Slow</old>
+			<new>Powolny</new>
+		</text>
+		<text>
+			<old>Middling</old>
+			<new>Niezły</new>
+		</text>
+		<text>
+			<old>Knight</old>
+			<new>Rycerz</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Szachy</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeControl</name>
+		<text>
+			<old>Please choose a mirror to delete.</old>
+			<new>Wybierz mirror do usunięcia.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to edit.</old>
+			<new>Wybierz mirror do edycji.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be deleted.</old>
+			<new>Wybierz użytkownika do usunięcia.</new>
+		</text>
+		<text>
+			<old>Please choose a group to set it as default group.</old>
+			<new>Wybierz grupę, która ma się stać domyślną.</new>
+		</text>
+		<text>
+			<old>Please choose a group to edit.</old>
+			<new>Wybierz grupę do edycji.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be deleted.</old>
+			<new>Wybierz polecenie do usunięcia.</new>
+		</text>
+		<text>
+			<old>Please choose a command to be edited.</old>
+			<new>Wybierz polecenie do edycji.</new>
+		</text>
+		<text>
+			<old>Please choose a group to delete.</old>
+			<new>Wybierz grupę do usunięcia.</new>
+		</text>
+		<text>
+			<old>Please choose a user to be edited.</old>
+			<new>Wybierz użytkownika do edycji.</new>
+		</text>
+		<text>
+			<old>Please fill out all required fields marked with *.</old>
+			<new>Wypełnij wymagane pola(zaznaczone *)</new>
+		</text>
+		<text>
+			<old>Please type a correct group name!</old>
+			<new>Wpisz poprawną nazwę grupy!</new>
+		</text>
+		<text>
+			<old>Please type an address!</old>
+			<new>Wpisz adres!</new>
+		</text>
+		<text>
+			<old>Remove now!</old>
+			<new>Usuń teraz!</new>
+		</text>
+		<text>
+			<old>Please type the username here:</old>
+			<new>Wpisz nazwę użytkownika:</new>
+		</text>
+		<text>
+			<old>Please type a command!</old>
+			<new>Wpisz polecenie!</new>
+		</text>
+		<text>
+			<old>Please correct your typed settings.</old>
+			<new>Popraw ustawienia.</new>
+		</text>
+		<text>
+			<old>Please fill in all necessary fields!</old>
+			<new>Wypełnij wszystkie wymagane pola!</new>
+		</text>
+		<text>
+			<old>Personal</old>
+			<new>Moje konto</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Uprawnienia</new>
+		</text>
+		<text>
+			<old>Mirror successfully saved.</old>
+			<new>Mirror zapisany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Mirror</old>
+			<new>Mirrory</new>
+		</text>
+		<text>
+			<old>New command</old>
+			<new>Nowe polecenie</new>
+		</text>
+		<text>
+			<old>Mirror successfully deleted.</old>
+			<new>Mirror skasowany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Mirror does not exist!</old>
+			<new>Mirror nie istnieje!</new>
+		</text>
+		<text>
+			<old>Manage your system's groups</old>
+			<new>Zarządzaj grupami systemu</new>
+		</text>
+		<text>
+			<old>Manage your system's users</old>
+			<new>Zarządzaj użytkownikami systemu</new>
+		</text>
+		<text>
+			<old>Mirror address (example: %s)</old>
+			<new>Adres mirroru (np. %s)</new>
+		</text>
+		<text>
+			<old>New wallpaper successfully set.</old>
+			<new>Nowa tapeta ustawiona pomyślnie.</new>
+		</text>
+		<text>
+			<old>No registered user could be found.</old>
+			<new>Nie znaleziono zarejestrowanych użytkowników.</new>
+		</text>
+		<text>
+			<old>Permissions *</old>
+			<new>Uprawnienia</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Hasło</new>
+		</text>
+		<text>
+			<old>Passwords do not match!</old>
+			<new>Hasła nie pasują!</new>
+		</text>
+		<text>
+			<old>Password successfully changed.</old>
+			<new>Hasło zmienione pomyślnie.</new>
+		</text>
+		<text>
+			<old>Password (again) *</old>
+			<new>Powtórz hasło*</new>
+		</text>
+		<text>
+			<old>Password *</old>
+			<new>Hasło*</new>
+		</text>
+		<text>
+			<old>Others</old>
+			<new>Inne</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Usuń</new>
+		</text>
+		<text>
+			<old>Reset icon positions</old>
+			<new>Resetuj pozycje ikon</new>
+		</text>
+		<text>
+			<old>Type the name of the group you want to create:</old>
+			<new>Podaj nazwę grupy, którą chcesz stworzyć:</new>
+		</text>
+		<text>
+			<old>Type the new group's name:</old>
+			<new>Podaj nazwę grupy:</new>
+		</text>
+		<text>
+			<old>Theme</old>
+			<new>Motyw</new>
+		</text>
+		<text>
+			<old>Type the new mirror address:</old>
+			<new>Podaj nowy adres morrora:</new>
+		</text>
+		<text>
+			<old>Type the command you want to run at login.</old>
+			<new>Wpisz polecenie, które ma zostać wykonane po starcie systemu.</new>
+		</text>
+		<text>
+			<old>There was a problem while deleting the group.</old>
+			<new>Wystąpił błąd podczas usuwania grupy.</new>
+		</text>
+		<text>
+			<old>The mirror is installed, yet!</old>
+			<new>Mirror jest już zainstalowany!</new>
+		</text>
+		<text>
+			<old>The user does not exist.</old>
+			<new>Użytkownik nie istnieje.</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Odinstaluj</new>
+		</text>
+		<text>
+			<old>User successfully created.</old>
+			<new>Użytkownik dodany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Update your system's profile</old>
+			<new>Aktualizuj profil systemu</new>
+		</text>
+		<text>
+			<old>User successfully deleted.</old>
+			<new>Użytkownik skasowany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Please choose a mirror to be tested.</old>
+			<new>Wybierz mirror do testu.</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Użytkownik</new>
+		</text>
+		<text>
+			<old>Wallpaper</old>
+			<new>Tapeta</new>
+		</text>
+		<text>
+			<old>Used space:</old>
+			<new>Zajęte miejsce:</new>
+		</text>
+		<text>
+			<old>Update your system's settings</old>
+			<new>Aktualizuj ustawienia systemu</new>
+		</text>
+		<text>
+			<old>Use a custom wallpaper</old>
+			<new>Użyj tapety</new>
+		</text>
+		<text>
+			<old>The chosen group is already the default group!</old>
+			<new>Wybrana grupa jest już ustawiona jako domyślna.</new>
+		</text>
+		<text>
+			<old>Test</old>
+			<new>Test</new>
+		</text>
+		<text>
+			<old>Screenshot</old>
+			<new>Zrzuty ekranu</new>
+		</text>
+		<text>
+			<old>Search engines successfully imported.</old>
+			<new>Wyszukiwarki zaimportowane pomyślnie.</new>
+		</text>
+		<text>
+			<old>Search user...</old>
+			<new>Szukaj użytkownika...</new>
+		</text>
+		<text>
+			<old>Root</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Zmień nazwę</new>
+		</text>
+		<text>
+			<old>Repositories</old>
+			<new>Repozytoria</new>
+		</text>
+		<text>
+			<old>Select a file...</old>
+			<new>Wybierz plik...</new>
+		</text>
+		<text>
+			<old>Select user:</old>
+			<new>Wybierz użytkownika:</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Strona startowa</new>
+		</text>
+		<text>
+			<old>System preferences</old>
+			<new>Ustawienia systemu</new>
+		</text>
+		<text>
+			<old>Sorry, this file is not allowed to be a wallpaper.</old>
+			<new>Niestety, ten plik nie może być tapetą.</new>
+		</text>
+		<text>
+			<old>Set as default</old>
+			<new>Ustaw jako domyślny</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Ustawienia</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Wybierz</new>
+		</text>
+		<text>
+			<old>Manage your autorun commands</old>
+			<new>Zarządzaj poleceniami autostartu</new>
+		</text>
+		<text>
+			<old>Manage default search engines</old>
+			<new>Zarządzaj domyślnymi wyszukiwarkami</new>
+		</text>
+		<text>
+			<old>Changes successfully saved.</old>
+			<new>Zmiany zapisane pomyślnie.</new>
+		</text>
+		<text>
+			<old>Clean oneye</old>
+			<new>Wyczyść oneye</new>
+		</text>
+		<text>
+			<old>Command successfully added.</old>
+			<new>Polecenie dodane pomyślnie.</new>
+		</text>
+		<text>
+			<old>Changes successfully saved and user updated.</old>
+			<new>Zmiany zostały zapisane. Użytkownik zaktualizowany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Change your preferred language</old>
+			<new>Zmień domyślny język</new>
+		</text>
+		<text>
+			<old>Change your current theme</old>
+			<new>Zmień obecny motyw</new>
+		</text>
+		<text>
+			<old>Change your desktop wallpaper</old>
+			<new>Zmień tapete pulpitu</new>
+		</text>
+		<text>
+			<old>Change your eyeBoard settings</old>
+			<new>Zmień ustawienia eyeBoard</new>
+		</text>
+		<text>
+			<old>Command successfully deleted.</old>
+			<new>Polecenie skasowane pomyślnie</new>
+		</text>
+		<text>
+			<old>Command successfully saved.</old>
+			<new>Polecenie zapisane pomyślnie.</new>
+		</text>
+		<text>
+			<old>Default settings successfully set.</old>
+			<new>Domyślne ustawienia zapisano pomyślnie.</new>
+		</text>
+		<text>
+			<old>Default group successfully saved. You need to restart your session now.</old>
+			<new>Domyślna grupa zapisana, aby zmiany były widoczne zrestartuj sesje.</new>
+		</text>
+		<text>
+			<old>Default group: %s | %s group(s)</old>
+			<new>Domyślna grupa: %s | %s grup</new>
+		</text>
+		<text>
+			<old>Configure the startpage</old>
+			<new>Konfiguruj stronę startową</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Linux server</old>
+			<new>Konfiguracja biura na serwerze Linux</new>
+		</text>
+		<text>
+			<old>Configure the office support on a Windows server</old>
+			<new>Konfiguracja biura na serwerze Windows</new>
+		</text>
+		<text>
+			<old>Commands</old>
+			<new>Polecenia</new>
+		</text>
+		<text>
+			<old>Change your current password</old>
+			<new>Zmień obecne hasło</new>
+		</text>
+		<text>
+			<old>Browse Plugin</old>
+			<new>Przeglądaj Wtyczkę</new>
+		</text>
+		<text>
+			<old>Add a new user to your oneye system</old>
+			<new>Dodaj nowego użytkownika do systemu.</new>
+		</text>
+		<text>
+			<old>Add mirror</old>
+			<new>Dodaj mirrora</new>
+		</text>
+		<text>
+			<old>Add</old>
+			<new>Dodaj</new>
+		</text>
+		<text>
+			<old>About me</old>
+			<new>O mnie</new>
+		</text>
+		<text>
+			<old>[Default user]</old>
+			<new>[Domyślny użytkownik]</new>
+		</text>
+		<text>
+			<old>%s user(s) registered.</old>
+			<new>%s zarejestrowanych użytkowników.</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administracja</new>
+		</text>
+		<text>
+			<old>Administrator</old>
+			<new>Administrator</new>
+		</text>
+		<text>
+			<old>Autorun Commands</old>
+			<new>Autostart</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Bookmarks and search engines successfully exported.</old>
+			<new>Zakładki i wyszukiwarki wyeksportowano pomyślnie.</new>
+		</text>
+		<text>
+			<old>Bookmarks successfully imported.</old>
+			<new>Zakładki zaimportowano pomyślnie.</new>
+		</text>
+		<text>
+			<old>Allow web upload</old>
+			<new>Zezwól na przesyłanie plików</new>
+		</text>
+		<text>
+			<old>Delete autorun</old>
+			<new>Usuń autostart</new>
+		</text>
+		<text>
+			<old>Allow public dirs</old>
+			<new>Zezwól na publiczne foldery</new>
+		</text>
+		<text>
+			<old>Allow user registration</old>
+			<new>Swobodna rejestracja użytkowników</new>
+		</text>
+		<text>
+			<old>Delete group</old>
+			<new>Usuń grupę</new>
+		</text>
+		<text>
+			<old>Groupname</old>
+			<new>Grupa</new>
+		</text>
+		<text>
+			<old>Group successfully deleted.</old>
+			<new>Grupa pomyślnie usunięta.</new>
+		</text>
+		<text>
+			<old>Groups</old>
+			<new>Grupy</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importuj</new>
+		</text>
+		<text>
+			<old>Get more translations</old>
+			<new>Pobierz więcej przekładów</new>
+		</text>
+		<text>
+			<old>Fixed: Icons cannot be moved</old>
+			<new>Błąd: Ikony nie mogą być przemieszczane!</new>
+		</text>
+		<text>
+			<old>Fielded: Icons are aligned automatically</old>
+			<new>Błąd: Ikony są dostosowywane automatycznie</new>
+		</text>
+		<text>
+			<old>File can be downloaded successfully.</old>
+			<new>Plik może zostać pomyślnie pobrany.</new>
+		</text>
+		<text>
+			<old>File cannot be downloaded. Please correct the address.</old>
+			<new>Plik nie może być pobrany. Sprawdź poprawność adresu!</new>
+		</text>
+		<text>
+			<old>Incorrect password!</old>
+			<new>Nieprawidłowe hasło!</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Język</new>
+		</text>
+		<text>
+			<old>Manage default bookmarks</old>
+			<new>Zarządzaj domyślnymi zakładkami</new>
+		</text>
+		<text>
+			<old>Maintain</old>
+			<new>Utrzymanie</new>
+		</text>
+		<text>
+			<old>Maintainer</old>
+			<new>Opiekun &amp; Przedstawiciel</new>
+		</text>
+		<text>
+			<old>Main</old>
+			<new>Ustawienia</new>
+		</text>
+		<text>
+			<old>Load</old>
+			<new>Załaduj</new>
+		</text>
+		<text>
+			<old>Look &amp; Feel</old>
+			<new>Wygląd</new>
+		</text>
+		<text>
+			<old>Last login</old>
+			<new>Ostatnie logowanie</new>
+		</text>
+		<text>
+			<old>oneye Board</old>
+			<new>Tablica oneye</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksportuj</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this group from the system?</old>
+			<new>Czy aby na pewno chcesz usunąć tę grupę? :&gt;</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this mirror from eyeSoft?</old>
+			<new>Czy aby na pewno chcesz usunąć ten mirror z eyeSoft? :&gt;</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this user from the system?</old>
+			<new>Czy aby na pewno chcesz usunąć tego użytkownika z systemu? :&gt;</new>
+		</text>
+		<text>
+			<old>Do you really want to remove this command?</old>
+			<new>Czy aby na pewno chcesz usunąć to polecenie? :&gt;</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav bookmarks?</old>
+			<new>Jesteś pewien, iż chcesz przywrócić domyślnie zakładki eyeNav?</new>
+		</text>
+		<text>
+			<old>Delete mirror</old>
+			<new>Usuń mirror</new>
+		</text>
+		<text>
+			<old>Desktop</old>
+			<new>Pulpit</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeDesk settings?</old>
+			<new>Jesteś pewien, iż chcesz przywrócić domyślnie ustawienia eyeDesk?</new>
+		</text>
+		<text>
+			<old>Do you really want to restore the default eyeNav search?</old>
+			<new>Jesteś pewien, iż chcesz przywrócić domyślnie ustawienia wyszukiwarki eyeNav?</new>
+		</text>
+		<text>
+			<old>Edit mirror</old>
+			<new>Edytuj mirror</new>
+		</text>
+		<text>
+			<old>Edit the chosen user</old>
+			<new>	 Edycja wybranego użytkownika</new>
+		</text>
+		<text>
+			<old>Export default bookmarks and search engines</old>
+			<new>Eksportuj domyślne zakładki i wyszukiwarki</new>
+		</text>
+		<text>
+			<old>%s command(s)</old>
+			<new>%s poleceń</new>
+		</text>
+		<text>
+			<old>Edit command</old>
+			<new>Edytuj polecenie</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edytuj</new>
+		</text>
+		<text>
+			<old>E-mail</old>
+			<new>E-mail</new>
+		</text>
+		<text>
+			<old>%s mirror(s)</old>
+			<new>%s mirrorów</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeCopy</name>
+		<text>
+			<old>You can paste "%s" into another folder now.</old>
+			<new>Teraz możesz wkleić "% s" do innego folderu.</new>
+		</text>
+		<text>
+			<old>Links cannot be copied!</old>
+			<new>Linki nie mogą być kopiowane!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDelete</name>
+		<text>
+			<old>Error deleting file!</old>
+			<new>Błąd podczas usuwania pliku.</new>
+		</text>
+		<text>
+			<old>"%s" moved to trash successfully.</old>
+			<new>"%s" został pomyślnie przeniesiony do kosza.</new>
+		</text>
+		<text>
+			<old>"%s" has been removed successfully.</old>
+			<new>"%s" został pomyślnie usunięty.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDesk</name>
+		<text>
+			<old>Properties</old>
+			<new>Właściwości</new>
+		</text>
+		<text>
+			<old>Rename</old>
+			<new>Zmień Nazwę</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Wklej</new>
+		</text>
+		<text>
+			<old>Open with</old>
+			<new>Otwórz za pomocą</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Odśwież</new>
+		</text>
+		<text>
+			<old>Welcome to %s, %s.</old>
+			<new>Witaj na %s, %s.</new>
+		</text>
+		<text>
+			<old>New launcher</old>
+			<new>Nowy Aktywator</new>
+		</text>
+		<text>
+			<old>Preferences</old>
+			<new>Ustawienia</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Załaduj pliki</new>
+		</text>
+		<text>
+			<old>Trash</old>
+			<new>Kosz</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>Czytnik RSS</new>
+		</text>
+		<text>
+			<old>Open trash</old>
+			<new>Otwórz kosz</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nowy folder</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Pobierz</new>
+		</text>
+		<text>
+			<old>Empty trash</old>
+			<new>Opróżnij kosz</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Usuń</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiuj</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edytuj</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nowy plik</new>
+		</text>
+		<text>
+			<old>Applications</old>
+			<new>Aplikacje</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Pobierz jako zip</new>
+		</text>
+		<text>
+			<old>Launch</old>
+			<new>Aktywuj</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Folder Główny</new>
+		</text>
+		<text>
+			<old>Explore</old>
+			<new>Przeglądaj</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendarz</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDialog</name>
+		<text>
+			<old>You must enter a name</old>
+			<new>Musisz wpisać nazwę</new>
+		</text>
+		<text>
+			<old>Select a file to open</old>
+			<new>Wybierz plik do otwarcia</new>
+		</text>
+		<text>
+			<old>You must select a file</old>
+			<new>Musisz wybrać plik</new>
+		</text>
+		<text>
+			<old>Save as...</old>
+			<new>Zapisz jako...</new>
+		</text>
+		<text>
+			<old>Select a folder</old>
+			<new>Wybierz folder...</new>
+		</text>
+		<text>
+			<old>Select</old>
+			<new>Wybierz</new>
+		</text>
+		<text>
+			<old>Name</old>
+			<new>Nazwa</new>
+		</text>
+		<text>
+			<old>Folders</old>
+			<new>Foldery</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Home</old>
+			<new>Folder Domowy</new>
+		</text>
+		<text>
+			<old>Are you sure you want to replace this file?</old>
+			<new>Jesteś pewien, że chcesz zastąpić ten plik?</new>
+		</text>
+		<text>
+			<old>Confirm file replacement</old>
+			<new>Potwierdź chęć nadpisania pliku</new>
+		</text>
+		<text>
+			<old>Error while trying to browse folder</old>
+			<new>Błąd podczas próby odczytu zwartości folderu</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDock</name>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Gra Tetravex</new>
+		</text>
+		<text>
+			<old>Process Manager</old>
+			<new>Menedżer procesów</new>
+		</text>
+		<text>
+			<old>Office</old>
+			<new>Biuro</new>
+		</text>
+		<text>
+			<old>Word Processor</old>
+			<new>Edytor tekstu</new>
+		</text>
+		<text>
+			<old>Network</old>
+			<new>Sieć</new>
+		</text>
+		<text>
+			<old>Public Board</old>
+			<new>Czat publiczny</new>
+		</text>
+		<text>
+			<old>Text Editor</old>
+			<new>Edytor Tekstu</new>
+		</text>
+		<text>
+			<old>System</old>
+			<new>System</new>
+		</text>
+		<text>
+			<old>Navigator</old>
+			<new>Przeglądarka WWW</new>
+		</text>
+		<text>
+			<old>FTP Client</old>
+			<new>Klient FTP</new>
+		</text>
+		<text>
+			<old>Calendar</old>
+			<new>Kalendarz</new>
+		</text>
+		<text>
+			<old>Calculator</old>
+			<new>Kalkulator</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Komunikator</new>
+		</text>
+		<text>
+			<old>Accessories</old>
+			<new>Akcesoria</new>
+		</text>
+		<text>
+			<old>Chess Game</old>
+			<new>Szachy</new>
+		</text>
+		<text>
+			<old>Games</old>
+			<new>Gry</new>
+		</text>
+		<text>
+			<old>File Manager</old>
+			<new>Menedżer plików</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDocs</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions!</old>
+			<new>Sorry, you do not have sufficient permissions!</new>
+		</text>
+		<text>
+			<old>Document saved successfully.</old>
+			<new>Dokument zapisany pomyślnie.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeDownload</name>
+		<text>
+			<old>Links cannot be downloaded!</old>
+			<new>Linki nie mogą zostać pobrane.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFeeds</name>
+		<text>
+			<old>Number of titles displayed in the list:</old>
+			<new>Licz tytułów wyświetlana na liście:</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Import</new>
+		</text>
+		<text>
+			<old>Import Feeds from OPML</old>
+			<new>Import kanałów z OPML</new>
+		</text>
+		<text>
+			<old>Reading history cache duration (days):</old>
+			<new>Czas trwania historii podręcznej (dni):</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Odśwież</new>
+		</text>
+		<text>
+			<old>Select a feed to browse...</old>
+			<new>Wybierz kanał do przeglądania...</new>
+		</text>
+		<text>
+			<old>RSS Feed Reader</old>
+			<new>Czytnik RSS</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pomoc</new>
+		</text>
+		<text>
+			<old>Folder successfully changed</old>
+			<new>Folder pomyślnie zmieniony</new>
+		</text>
+		<text>
+			<old>Feeds cache duration (sec.):</old>
+			<new>Czas buforowania kanałów (sec.):</new>
+		</text>
+		<text>
+			<old>Feed successfully changed</old>
+			<new>Kanał pomyślnie zmieniony</new>
+		</text>
+		<text>
+			<old>Feeds list successfully exported</old>
+			<new>Lista kanałów pomyślnie zeksportowana</new>
+		</text>
+		<text>
+			<old>Feeds successfully imported</old>
+			<new>Kanały pomyślnie zimportowane</new>
+		</text>
+		<text>
+			<old>Folder successfully added</old>
+			<new>Folder pomyślnie dodany</new>
+		</text>
+		<text>
+			<old>Feeds</old>
+			<new>Kanały</new>
+		</text>
+		<text>
+			<old>Select an item to read...</old>
+			<new>Wybierz zagadnienie do przeczytania...</new>
+		</text>
+		<text>
+			<old>Select file</old>
+			<new>Wybierz plik</new>
+		</text>
+		<text>
+			<old>Unable to fetch entered URL</old>
+			<new>Nie można pobrać danych z wpisanego adresu URL</new>
+		</text>
+		<text>
+			<old>Unable to export list to the specified location</old>
+			<new>Nie można eksportować listy do określonej lokalizacji</new>
+		</text>
+		<text>
+			<old>Unable to import feeds from specified file</old>
+			<new>Nie można zimportować kanałów z wybranego pliku</new>
+		</text>
+		<text>
+			<old>You may restart the application to apply the changes.</old>
+			<new>Musisz zresetować aplikacje, aby zmiany zadziałały.</new>
+		</text>
+		<text>
+			<old>Loading, please wait...</old>
+			<new>Ładowanie, proszę czekać...</new>
+		</text>
+		<text>
+			<old>You must enter a name</old>
+			<new>Musisz wpisać nazwe</new>
+		</text>
+		<text>
+			<old>Type the URL of the feed:</old>
+			<new>Adres URL kanału:</new>
+		</text>
+		<text>
+			<old>Type the name of the folder:</old>
+			<new>Nazwa folderu:</new>
+		</text>
+		<text>
+			<old>Settings</old>
+			<new>Ustawienia</new>
+		</text>
+		<text>
+			<old>Settings saved successfully</old>
+			<new>Ustawienia zapisane pomyślnie</new>
+		</text>
+		<text>
+			<old>Size of content preview (char.):</old>
+			<new>Rozmiar podglądu zawartości (liczba znaków)</new>
+		</text>
+		<text>
+			<old>Title</old>
+			<new>Tytuł</new>
+		</text>
+		<text>
+			<old>Type the name of the folder to create (optional):</old>
+			<new>Nazwa folderu do stworzenia (opcjonalnie)</new>
+		</text>
+		<text>
+			<old>Type the name of the feed (optional):</old>
+			<new>Nazwa kanału (opcjonalnie)</new>
+		</text>
+		<text>
+			<old>Feed successfully added</old>
+			<new>Kanał zapisany pomyślnie</new>
+		</text>
+		<text>
+			<old>Export</old>
+			<new>Eksport</new>
+		</text>
+		<text>
+			<old>Choose a file to import</old>
+			<new>Wybierz plik do importu</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Zakładki</new>
+		</text>
+		<text>
+			<old>Choose a folder for the feed:</old>
+			<new>Wybierz folder dla kanału:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the imported feeds:</old>
+			<new>	 Wybierz folder dla importowanych kanałów:</new>
+		</text>
+		<text>
+			<old>Choose a parent folder for the new folder:</old>
+			<new>Wybierz folder nadrzędny dla nowego folderu:</new>
+		</text>
+		<text>
+			<old>Choose a folder for the new feed:</old>
+			<new>Wybierz folder dla nowego kanału:</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this folder?</old>
+			<new>Jesteś pewien, że chcesz skasować ten folder?</new>
+		</text>
+		<text>
+			<old>Add feed</old>
+			<new>Dodaj kanał</new>
+		</text>
+		<text>
+			<old>Add Feed</old>
+			<new>Dodaj Kanał</new>
+		</text>
+		<text>
+			<old>Add folder</old>
+			<new>Dodaj folder</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this feed?</old>
+			<new>Jesteś pewien, że chcesz skasować ten kanał?</new>
+		</text>
+		<text>
+			<old>Apply</old>
+			<new>Zastosuj</new>
+		</text>
+		<text>
+			<old>Choose a parent for the folder:</old>
+			<new>Wybierz folder nadrzędny:</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Error getting specified feed</old>
+			<new>Błąd podczas uzyskiwania określonego kanału</new>
+		</text>
+		<text>
+			<old>Error deleting the feed</old>
+			<new>Bład kasowania kanału</new>
+		</text>
+		<text>
+			<old>Error importing feeds</old>
+			<new>Błąd importowania kanałów</new>
+		</text>
+		<text>
+			<old>Error saving feed</old>
+			<new>Błąd zapisywania kanału</new>
+		</text>
+		<text>
+			<old>Error saving settings</old>
+			<new>Błąd zapisywania ustawień</new>
+		</text>
+		<text>
+			<old>Error saving folder</old>
+			<new>Błąd zapisywania folderu</new>
+		</text>
+		<text>
+			<old>Error applying changes</old>
+			<new>Błąd zatwierdzania zmian</new>
+		</text>
+		<text>
+			<old>Error adding folder</old>
+			<new>Błąd dodawania folderu</new>
+		</text>
+		<text>
+			<old>Edit Feed</old>
+			<new>Edytuj Kanał</new>
+		</text>
+		<text>
+			<old>Delete feed/folder</old>
+			<new>Skasuj kanał/folder</new>
+		</text>
+		<text>
+			<old>Edit Folder</old>
+			<new>Edytuj Folder</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edytuj</new>
+		</text>
+		<text>
+			<old>Error adding feed</old>
+			<new>Błąd dodawania kanału</new>
+		</text>
+		<text>
+			<old>Element successfully deleted</old>
+			<new>Element pomyślnie skasowany</new>
+		</text>
+		<text>
+			<old>(Unknown name)</old>
+			<new>(Nieznana nazwa)</new>
+		</text>
+		<text>
+			<old>Add Folder</old>
+			<new>Dodaj Folder</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFiles</name>
+		<text>
+			<old>Rename</old>
+			<new>Zmień nazwę</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Załaduj pliki</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nowy folder</new>
+		</text>
+		<text>
+			<old>Paste</old>
+			<new>Wklej</new>
+		</text>
+		<text>
+			<old>Properties</old>
+			<new>Właściwości</new>
+		</text>
+		<text>
+			<old>New file</old>
+			<new>Nowy plik</new>
+		</text>
+		<text>
+			<old>Download as zip</old>
+			<new>Pobierz jako ZIP</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Pobierz</new>
+		</text>
+		<text>
+			<old>Actions</old>
+			<new>Akcje</new>
+		</text>
+		<text>
+			<old>Copy</old>
+			<new>Kopiuj</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Usuń</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeFTP</name>
+		<text>
+			<old>Rename</old>
+			<new>Zmień nazwę</new>
+		</text>
+		<text>
+			<old>Select a file to upload to path:</old>
+			<new>Wybierz plik do załadowania:</new>
+		</text>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Wpisz nazwę nowego folderu:</new>
+		</text>
+		<text>
+			<old>Type the new name/location of the file/folder</old>
+			<new>Wpisz nową nazwę/położenie pliku/folderu:</new>
+		</text>
+		<text>
+			<old>Rename file/folder</old>
+			<new>Zmień nazwę pliku/folderu</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Odśwież</new>
+		</text>
+		<text>
+			<old>Password: </old>
+			<new>Hasło:</new>
+		</text>
+		<text>
+			<old>Permissions</old>
+			<new>Uprawnienia</new>
+		</text>
+		<text>
+			<old>Port</old>
+			<new>Port</new>
+		</text>
+		<text>
+			<old>Port: </old>
+			<new>Port:</new>
+		</text>
+		<text>
+			<old>Upload a file</old>
+			<new>Załaduj plik</new>
+		</text>
+		<text>
+			<old>You must connect first!</old>
+			<new>Najpierw musisz się połączyć!</new>
+		</text>
+		<text>
+			<old>You must select a host to delete</old>
+			<new>Musisz wybrać serwer!</new>
+		</text>
+		<text>
+			<old>You must select a host to edit</old>
+			<new>Musisz wybrać serwer!</new>
+		</text>
+		<text>
+			<old>You must select a host to load</old>
+			<new>Musisz wybrać serwer!</new>
+		</text>
+		<text>
+			<old>Rename/Move</old>
+			<new>Zmień nazwę/przenieś</new>
+		</text>
+		<text>
+			<old>You must specify a hostname, a port and a username</old>
+			<new>Musisz podaj nazwę serwera, port i nazwę użytkownika!</new>
+		</text>
+		<text>
+			<old>You must select a file or a folder first</old>
+			<new>Najpierw musisz wybrać plik lub folder!</new>
+		</text>
+		<text>
+			<old>Upload</old>
+			<new>Załaduj</new>
+		</text>
+		<text>
+			<old>User: </old>
+			<new>Użytkownik:</new>
+		</text>
+		<text>
+			<old>Username</old>
+			<new>Nazwa użytkownika</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Hasło</new>
+		</text>
+		<text>
+			<old>Owner</old>
+			<new>Właściciel</new>
+		</text>
+		<text>
+			<old>Delete file/folder</old>
+			<new>Usuń plik/folder</new>
+		</text>
+		<text>
+			<old>Delete Selection</old>
+			<new>Usuń selekcję</new>
+		</text>
+		<text>
+			<old>Delete</old>
+			<new>Usuń</new>
+		</text>
+		<text>
+			<old>Directory "%s" created successfully</old>
+			<new>Katalog "%s" stworzony pomyślnie</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Connection accepted</old>
+			<new>Połączenie zakcpetowane</new>
+		</text>
+		<text>
+			<old>Author</old>
+			<new>Autor</new>
+		</text>
+		<text>
+			<old>Connect</old>
+			<new>Połącz</new>
+		</text>
+		<text>
+			<old>Disconnect</old>
+			<new>Rozłącz</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Pobierz</new>
+		</text>
+		<text>
+			<old>Hostname</old>
+			<new>Nazwa serwera</new>
+		</text>
+		<text>
+			<old>Host: </old>
+			<new>Serwer:</new>
+		</text>
+		<text>
+			<old>Load Selection</old>
+			<new>Załaduj selekcję</new>
+		</text>
+		<text>
+			<old>Manage hosts</old>
+			<new>Menedżer sewerów</new>
+		</text>
+		<text>
+			<old>New folder</old>
+			<new>Nowy folder</new>
+		</text>
+		<text>
+			<old>Help</old>
+			<new>Pomoc</new>
+		</text>
+		<text>
+			<old>Add host</old>
+			<new>Dodaj serwer</new>
+		</text>
+		<text>
+			<old>Edit Selection</old>
+			<new>Edytuj selekcję</new>
+		</text>
+		<text>
+			<old>Filename</old>
+			<new>Nazwa</new>
+		</text>
+		<text>
+			<old>Force passive mode</old>
+			<new>Tryb pasywny</new>
+		</text>
+		<text>
+			<old>Are you sure you want to delete this file/folder?</old>
+			<new>Czy aby na pewno chcesz usunąć ten plik/folder?</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImages</name>
+		<text>
+			<old>View Images</old>
+			<new>Pokaż Zdjęcia</new>
+		</text>
+		<text>
+			<old>Previous</old>
+			<new>Wstecz</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Dalej</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeImport</name>
+		<text>
+			<old>You have to select a directory to import files</old>
+			<new>Musisz wybrać folder, aby zaimportować pliki!</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importuj</new>
+		</text>
+		<text>
+			<old>Browse</old>
+			<new>Przeglądaj</new>
+		</text>
+		<text>
+			<old>%s files imported!</old>
+			<new>Zaimportowano %s plików!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeInstaller</name>
+		<text>
+			<old>Package installed successfully!</old>
+			<new>Paczka zainstalowana pomyślnie!</new>
+		</text>
+		<text>
+			<old>Nothing to install!</old>
+			<new>Nie ma nic do instalacji!</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instalowanie</new>
+		</text>
+		<text>
+			<old>Do you really want to install this package into the system?</old>
+			<new>Czy aby na pewno chcesz zainstalować tę paczkę w systemie?</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Akceptuj</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLaunch</name>
+		<text>
+			<old>Run</old>
+			<new>Uruchom</new>
+		</text>
+		<text>
+			<old>Type the name of the app or command to run</old>
+			<new>Wpisz nazwę aplikacji lub polecenia do uruchomienia</new>
+		</text>
+		<text>
+			<old>User</old>
+			<new>Użytkownik</new>
+		</text>
+		<text>
+			<old>Run...</old>
+			<new>Uruchamianie...</new>
+		</text>
+		<text>
+			<old>%s not found</old>
+			<new>%s nie odnalezionych</new>
+		</text>
+		<text>
+			<old>Invalid username</old>
+			<new>Nieprawidłowa nazwa użytkownika</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Hasło</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeLogin</name>
+		<text>
+			<old>Username</old>
+			<new>Użytkownik</new>
+		</text>
+		<text>
+			<old>Password</old>
+			<new>Hasło</new>
+		</text>
+		<text>
+			<old>New User</old>
+			<new>Nowy Użytkownik</new>
+		</text>
+		<text>
+			<old>Language</old>
+			<new>Język</new>
+		</text>
+		<text>
+			<old>Create account</old>
+			<new>Stwórz konto</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeManageApps</name>
+		<text>
+			<old>Refresh</old>
+			<new>Odśwież</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMessages</name>
+		<text>
+			<old>Trash</old>
+			<new>Kosz</new>
+		</text>
+		<text>
+			<old>Sent</old>
+			<new>Wysłano</new>
+		</text>
+		<text>
+			<old>Restore</old>
+			<new>Przywróć</new>
+		</text>
+		<text>
+			<old>Reply</old>
+			<new>Odpowiedz</new>
+		</text>
+		<text>
+			<old>You must choose a message to open</old>
+			<new>Musisz wybrać wiadomość do otwarcia.</new>
+		</text>
+		<text>
+			<old>Refresh</old>
+			<new>Odśwież</new>
+		</text>
+		<text>
+			<old>Subject</old>
+			<new>Temat</new>
+		</text>
+		<text>
+			<old>You must choose a message to delete</old>
+			<new>Musisz wybrać wiadomość do skasowania.</new>
+		</text>
+		<text>
+			<old>Unread</old>
+			<new>Nieprzeczytane</new>
+		</text>
+		<text>
+			<old>To</old>
+			<new>Do</new>
+		</text>
+		<text>
+			<old>Read</old>
+			<new>Czytaj</new>
+		</text>
+		<text>
+			<old>Inbox</old>
+			<new>Skrzynka</new>
+		</text>
+		<text>
+			<old>Empty</old>
+			<new>Pusty</new>
+		</text>
+		<text>
+			<old>Download</old>
+			<new>Pobierz</new>
+		</text>
+		<text>
+			<old>Date</old>
+			<new>Data</new>
+		</text>
+		<text>
+			<old>Read Message</old>
+			<new>Czytaj wiadomość</new>
+		</text>
+		<text>
+			<old>Attach</old>
+			<new>Załącz</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Plik zapisany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Message restored in its original folder</old>
+			<new>Wiadomość przeniesiona do poprzedniego folderu.</new>
+		</text>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Wiadomości wewnętrzne</new>
+		</text>
+		<text>
+			<old>From</old>
+			<new>Od</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeMkDir</name>
+		<text>
+			<old>Type the name of the new folder</old>
+			<new>Wpisz nazwę nowego folderu</new>
+		</text>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Pewne znaki specjalne zostały usunięte.</new>
+		</text>
+		<text>
+			<old>Error creating directory!</old>
+			<new>Błąd podczas tworzenia folderu</new>
+		</text>
+		<text>
+			<old>Create folder</old>
+			<new>Stwórz folder</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNav</name>
+		<text>
+			<old>Settings</old>
+			<new>Ustawienia</new>
+		</text>
+		<text>
+			<old>Open searches</old>
+			<new>Otwórz wyszukiwanie</new>
+		</text>
+		<text>
+			<old>Open bookmarks</old>
+			<new>Otwórz zakładki</new>
+		</text>
+		<text>
+			<old>Link successfully saved.</old>
+			<new>Link zapisany pomyślnie.</new>
+		</text>
+		<text>
+			<old>Startpage</old>
+			<new>Strona startowa</new>
+		</text>
+		<text>
+			<old>There is already another bookmark with this title!</old>
+			<new>Istnieje już zakładka o takim tytule!</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Szukaj</new>
+		</text>
+		<text>
+			<old>Wiki</old>
+			<new>Wiki</new>
+		</text>
+		<text>
+			<old>Website</old>
+			<new>Strona domowa</new>
+		</text>
+		<text>
+			<old>Link successfully deleted.</old>
+			<new>Link usunięty pomyślnie.</new>
+		</text>
+		<text>
+			<old>Knowledge</old>
+			<new>Wiedza</new>
+		</text>
+		<text>
+			<old>Bookmarks</old>
+			<new>Zakładki</new>
+		</text>
+		<text>
+			<old>Bookmark title</old>
+			<new>Tytuł zakładki</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Wróć</new>
+		</text>
+		<text>
+			<old>Do you really want to delete this bookmark?</old>
+			<new>Czy aby na pewno chcesz usunąć tę zakładkę?</new>
+		</text>
+		<text>
+			<old>Internet</old>
+			<new>Internet</new>
+		</text>
+		<text>
+			<old>Images</old>
+			<new>Obrazy</new>
+		</text>
+		<text>
+			<old>Forums</old>
+			<new>Fora dyskusyjne</new>
+		</text>
+		<text>
+			<old>Add bookmark</old>
+			<new>Dodaj zakładkę</new>
+		</text>
+		<text>
+			<old>Delete bookmark</old>
+			<new>Usuń zakładkę</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeNotes</name>
+		<text>
+			<old>Unable to create file</old>
+			<new>Nie można utworzyć pliku.</new>
+		</text>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Niestety, nie posiadasz wymaganych uprawnień.</new>
+		</text>
+		<text>
+			<old>File saved successfully.</old>
+			<new>Plik zapisany pomyślnie.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeOpen</name>
+		<text>
+			<old>Open "%s" with...</old>
+			<new>Otwórz "%s" za pomocą...</new>
+		</text>
+	</part>
+	<part>
+		<name>eyePresentation</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Niestety, nie posiadasz wymaganych uprawnień.</new>
+		</text>
+		<text>
+			<old>Next</old>
+			<new>Dalej</new>
+		</text>
+		<text>
+			<old>Back</old>
+			<new>Wstecz</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeProcess</name>
+		<text>
+			<old>Username</old>
+			<new>Nazwa użytkownika</new>
+		</text>
+		<text>
+			<old>Process Name</old>
+			<new>Nazwa procesu</new>
+		</text>
+		<text>
+			<old>Process killed successfully.</old>
+			<new>Proces zakończony pomyślnie.</new>
+		</text>
+		<text>
+			<old>Pid</old>
+			<new>PID</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSheets</name>
+		<text>
+			<old>Sorry, you do not have sufficient permissions.</old>
+			<new>Niestety, nie posiadasz wymaganych uprawnień.</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeSoft</name>
+		<text>
+			<old>Please choose an applictaion to be uninstalled.</old>
+			<new>Wybierz aplikację do odinstalowania.</new>
+		</text>
+		<text>
+			<old>Only root can install eyeApps</old>
+			<new>Tylko administrator może instalować aplikacje.</new>
+		</text>
+		<text>
+			<old>Name: %s</old>
+			<new>Nazwa: %s</new>
+		</text>
+		<text>
+			<old>Installing</old>
+			<new>Instalowanie</new>
+		</text>
+		<text>
+			<old>License: %s</old>
+			<new>Licencja: %s</new>
+		</text>
+		<text>
+			<old>Search</old>
+			<new>Szukaj</new>
+		</text>
+		<text>
+			<old>Suggestions: %s</old>
+			<new>Sugestie: %s</new>
+		</text>
+		<text>
+			<old>Version</old>
+			<new>Wersja</new>
+		</text>
+		<text>
+			<old>Version: %s</old>
+			<new>Wersja: %s</new>
+		</text>
+		<text>
+			<old>Please choose an applictaion to be installed.</old>
+			<new>Wybierz aplikację do zainstalowania.</new>
+		</text>
+		<text>
+			<old>Update</old>
+			<new>Aktualizacja</new>
+		</text>
+		<text>
+			<old>Uninstall</old>
+			<new>Odinstaluj</new>
+		</text>
+		<text>
+			<old>The application was successfully uninstalled.</old>
+			<new>Aplikacja została odinstalowana pomyślnie.</new>
+		</text>
+		<text>
+			<old>Uninstall application</old>
+			<new>Odinstaluj aplikację</new>
+		</text>
+		<text>
+			<old>Installed</old>
+			<new>Zainstalowano</new>
+		</text>
+		<text>
+			<old>Install</old>
+			<new>Instaluj</new>
+		</text>
+		<text>
+			<old>Categories</old>
+			<new>Kategorie</new>
+		</text>
+		<text>
+			<old>Category: %s</old>
+			<new>Kategoria: %s</new>
+		</text>
+		<text>
+			<old>Author: %s</old>
+			<new>Autor: %s</new>
+		</text>
+		<text>
+			<old>App Name</old>
+			<new>Nazwa aplikacji</new>
+		</text>
+		<text>
+			<old>Accept</old>
+			<new>Akceptuj</new>
+		</text>
+		<text>
+			<old>Administration</old>
+			<new>Administracja</new>
+		</text>
+		<text>
+			<old>Dependencies: %s</old>
+			<new>Zależności: %s</new>
+		</text>
+		<text>
+			<old>Description: %s</old>
+			<new>Opis: %s</new>
+		</text>
+		<text>
+			<old>Education</old>
+			<new>Edukacja</new>
+		</text>
+		<text>
+			<old>eyeSoft: Package list updated</old>
+			<new>Lista paczek zaktualizowana.</new>
+		</text>
+		<text>
+			<old>Downloading and Installing %s ... please wait</old>
+			<new>Pobieranie i instalowanie %s ... Proszę czekać</new>
+		</text>
+		<text>
+			<old>Do you really want to uninstall this application?</old>
+			<new>Czy aby na pewno chcesz odinstalować tę aplikację?</new>
+		</text>
+		<text>
+			<old>%s download is corrupted! unable to install</old>
+			<new>Pobieranie %s nie udało się! Nie można zainstalować</new>
+		</text>
+		<text>
+			<old>%s installed succesfully!</old>
+			<new>Instalacja %s zakończona pomyślnie!</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeString</name>
+		<text>
+			<old>md5 Hash</old>
+			<new>MD5 hash</new>
+		</text>
+		<text>
+			<old>Last execution time: %s</old>
+			<new>Czas ostatniego wykonania: %s</new>
+		</text>
+		<text>
+			<old>Input Text</old>
+			<new>Wejście tekstowe</new>
+		</text>
+		<text>
+			<old>Output Text</old>
+			<new>Wyjście tekstowe</new>
+		</text>
+		<text>
+			<old>Remove Html Entities</old>
+			<new>Usuń encje HTML</new>
+		</text>
+		<text>
+			<old>URL Encode</old>
+			<new>Dekodowanie URL</new>
+		</text>
+		<text>
+			<old>Options</old>
+			<new>Opcje</new>
+		</text>
+		<text>
+			<old>URL Decode</old>
+			<new>Kodowanie URL</new>
+		</text>
+		<text>
+			<old>Start</old>
+			<new>Start</new>
+		</text>
+		<text>
+			<old>Roman to Decimal</old>
+			<new>Rzymskie na dziesiętne</new>
+		</text>
+		<text>
+			<old>Html Entities</old>
+			<new>Encje HTML</new>
+		</text>
+		<text>
+			<old>Hexa to Ascii</old>
+			<new>Hex na ASCII</new>
+		</text>
+		<text>
+			<old>Base64 Encode</old>
+			<new>Dekodowanie Base64</new>
+		</text>
+		<text>
+			<old>Base64 Decode</old>
+			<new>Kodowanie Base64</new>
+		</text>
+		<text>
+			<old>Auto clear input</old>
+			<new>Automatycznie czyjść wejście</new>
+		</text>
+		<text>
+			<old>Ascii to Hexa</old>
+			<new>ASCII na Hex</new>
+		</text>
+		<text>
+			<old>Clear</old>
+			<new>Czyść</new>
+		</text>
+		<text>
+			<old>Add input to output</old>
+			<new>Dodaj wejście do wyjścia</new>
+		</text>
+		<text>
+			<old>oneye hash</old>
+			<new>oneye hash</new>
+		</text>
+		<text>
+			<old>Decimal to Roman</old>
+			<new>Dziesiętne na rzymskie</new>
+		</text>
+		<text>
+			<old>Concatenate Output</old>
+			<new>Połącz wyjście</new>
+		</text>
+		<text>
+			<old>Add new line to end</old>
+			<new>Dodaj nową linię na koniec</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeTetravex</name>
+		<text>
+			<old>Tetravex Game</old>
+			<new>Gra Tetravex </new>
+		</text>
+	</part>
+	<part>
+		<name>eyeUpload</name>
+		<text>
+			<old>Transfering: </old>
+			<new>Proces:</new>
+		</text>
+		<text>
+			<old>Upload files</old>
+			<new>Załaduj pliki</new>
+		</text>
+		<text>
+			<old>Upload now!</old>
+			<new>Wyślij!</new>
+		</text>
+		<text>
+			<old>Simple</old>
+			<new>Tryb Prosty</new>
+		</text>
+		<text>
+			<old>Remove</old>
+			<new>Usuń</new>
+		</text>
+		<text>
+			<old>File uploaded successfully.</old>
+			<new>Plik został pomyślnie załadowany.</new>
+		</text>
+		<text>
+			<old>Advanced</old>
+			<new>Tryb Zawansowany</new>
+		</text>
+		<text>
+			<old>Error uploading file!</old>
+			<new>Błąd podczas wysyłania pliku!</new>
+		</text>
+		<text>
+			<old>Add files to transfer, then press Upload now!</old>
+			<new>Dodaj pliki do transferu, następnie naciśnij Wyślij Plik!</new>
+		</text>
+		<text>
+			<old>Add files</old>
+			<new>Dodaj Pliki</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeVisor</name>
+		<text>
+			<old>You do not have sufficient permissions!</old>
+			<new>Nie masz wystarczających uprawnień!</new>
+		</text>
+		<text>
+			<old>Edit</old>
+			<new>Edytuj</new>
+		</text>
+	</part>
+	<part>
+		<name>eyeX</name>
+		<text>
+			<old>Welcome to %s</old>
+			<new>Witaj na %s</new>
+		</text>
+		<text>
+			<old>Please wait...</old>
+			<new>Proszę czekać...</new>
+		</text>
+	</part>
+	<part>
+		<name>HelloWorld</name>
+		<text>
+			<old>Hello World!</old>
+			<new>Witaj Świecie!</new>
+		</text>
+		<text>
+			<old>Example eyeApp</old>
+			<new>Przykład aplikacji eyeApp</new>
+		</text>
+		<text>
+			<old>Change Label Text</old>
+			<new>Wpisz nowy tekst</new>
+		</text>
+	</part>
+	<part>
+		<name>miniActions</name>
+		<text>
+			<old>Upload your files</old>
+			<new>Wyślij swoje pliki</new>
+		</text>
+		<text>
+			<old>Send an internal message</old>
+			<new>Komunikator</new>
+		</text>
+		<text>
+			<old>Do you want this widget to open automatically on the next session?</old>
+			<new>Chcesz, aby ten widżet otworzył się automatycznie w następnej sesji?</new>
+		</text>
+		<text>
+			<old>Create a new spreadsheet</old>
+			<new>Nowy arkusz kalkulacyjny</new>
+		</text>
+		<text>
+			<old>Create a new document</old>
+			<new>Nowy dokument tekstowy</new>
+		</text>
+	</part>
+	<part>
+		<name>miniMessages</name>
+		<text>
+			<old>Internal Messaging</old>
+			<new>Komunikator</new>
+		</text>
+	</part>
+	<part>
+		<name>newFile</name>
+		<text>
+			<old>Some special chars have been removed.</old>
+			<new>Niektóre znaki specjalne zostały usunięte.</new>
+		</text>
+	</part>
+	<part>
+		<name>restoreTrash</name>
+		<text>
+			<old>You cannot restore "%s" to a real folder!</old>
+			<new>Nie można przywrócić "%s" do rzeczywistego folderu.</new>
+		</text>
+		<text>
+			<old>Restore %s</old>
+			<new>Przywróć %s</new>
+		</text>
+		<text>
+			<old>Do you really want to restore "%s"?</old>
+			<new>Jesteś pewien, że chcesz przywrócić "%s"?</new>
+		</text>
+		<text>
+			<old>"%s" has been restored to your home folder!</old>
+			<new>"%s" został przywrócony do folderu głównego!</new>
+		</text>
+		<text>
+			<old>"%s" could not be restored!</old>
+			<new>"%s" nie został przywrócony!</new>
+		</text>
+	</part>
+	<part>
+		<name>SimpleSpreadSheets</name>
+		<text>
+			<old>Saturday</old>
+			<new>Sobota</new>
+		</text>
+		<text>
+			<old>Save As</old>
+			<new>Zapisz jako</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Wrzesień</new>
+		</text>
+		<text>
+			<old>Print</old>
+			<new>Drukuj</new>
+		</text>
+		<text>
+			<old>Position</old>
+			<new>Pozycja</new>
+		</text>
+		<text>
+			<old>Open</old>
+			<new>Otwórz</new>
+		</text>
+		<text>
+			<old>Save</old>
+			<new>Zapisz</new>
+		</text>
+		<text>
+			<old>Tuesday</old>
+			<new>Wtorek</new>
+		</text>
+		<text>
+			<old>Sheet Size</old>
+			<new>Rozmiar arkusza</new>
+		</text>
+		<text>
+			<old>Wednesday</old>
+			<new>Środa</new>
+		</text>
+		<text>
+			<old>X</old>
+			<new>X</new>
+		</text>
+		<text>
+			<old>Really empty cell(s) ?</old>
+			<new>Czy aby na pewno chcesz usunąć zawartość tych komórek? ;)</new>
+		</text>
+		<text>
+			<old>Thursday</old>
+			<new>Czwartek</new>
+		</text>
+		<text>
+			<old>Sunday</old>
+			<new>Niedziela</new>
+		</text>
+		<text>
+			<old>Style</old>
+			<new>Styl</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Listopad</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Październik</new>
+		</text>
+		<text>
+			<old>New</old>
+			<new>Nowy</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Luty</new>
+		</text>
+		<text>
+			<old>Formula</old>
+			<new>Formuła</new>
+		</text>
+		<text>
+			<old>Ins. Column</old>
+			<new>Wstaw kolumnę</new>
+		</text>
+		<text>
+			<old>Del. Column</old>
+			<new>Usuń kolumnę</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Grudzień</new>
+		</text>
+		<text>
+			<old>Copy / paste this code to other spreadsheet applications (e.g. Excel)</old>
+			<new>Skopiuj i wklej ten kod do innego arkusza kalkulacyjnego (np. Calc, Excel).</new>
+		</text>
+		<text>
+			<old>Friday</old>
+			<new>Piątek</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Marzec</new>
+		</text>
+		<text>
+			<old>Ins. Row</old>
+			<new>Wstaw wiersz</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maj</new>
+		</text>
+		<text>
+			<old>Monday</old>
+			<new>Poniedziałek</new>
+		</text>
+		<text>
+			<old>Del. Row</old>
+			<new>Usuń wiersz</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Czerwiec</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Lipiec</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Styczeń</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Kwiecień</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Sierpień</new>
+		</text>
+	</part>
+	<part>
+		<name>System</name>
+		<text>
+			<old>SA</old>
+			<new>So</new>
+		</text>
+		<text>
+			<old>September</old>
+			<new>Wrzesień</new>
+		</text>
+		<text>
+			<old>S</old>
+			<new>Nd</new>
+		</text>
+		<text>
+			<old>Sun</old>
+			<new>Nie.</new>
+		</text>
+		<text>
+			<old>October</old>
+			<new>Październik</new>
+		</text>
+		<text>
+			<old>T</old>
+			<new>Wt</new>
+		</text>
+		<text>
+			<old>W</old>
+			<new>Śr</new>
+		</text>
+		<text>
+			<old>Wed</old>
+			<new>Śr.</new>
+		</text>
+		<text>
+			<old>Sat</old>
+			<new>Sob.</new>
+		</text>
+		<text>
+			<old>Tue</old>
+			<new>Czw.</new>
+		</text>
+		<text>
+			<old>Thu</old>
+			<new>Wt.</new>
+		</text>
+		<text>
+			<old>TH</old>
+			<new>Cz</new>
+		</text>
+		<text>
+			<old>November</old>
+			<new>Listopad</new>
+		</text>
+		<text>
+			<old>Mon</old>
+			<new>Pon.</new>
+		</text>
+		<text>
+			<old>February</old>
+			<new>Luty</new>
+		</text>
+		<text>
+			<old>January</old>
+			<new>Styczeń</new>
+		</text>
+		<text>
+			<old>Fri</old>
+			<new>Piąt.</new>
+		</text>
+		<text>
+			<old>F</old>
+			<new>Pt</new>
+		</text>
+		<text>
+			<old>August</old>
+			<new>Sierpień</new>
+		</text>
+		<text>
+			<old>July</old>
+			<new>Lipiec</new>
+		</text>
+		<text>
+			<old>June</old>
+			<new>Czerwiec</new>
+		</text>
+		<text>
+			<old>May</old>
+			<new>Maj</new>
+		</text>
+		<text>
+			<old>March</old>
+			<new>Marzec</new>
+		</text>
+		<text>
+			<old>M</old>
+			<new>Po</new>
+		</text>
+		<text>
+			<old>April</old>
+			<new>Kwiecień</new>
+		</text>
+		<text>
+			<old>December</old>
+			<new>Grudzień</new>
+		</text>
+	</part>
+	<part>
+		<name>systemConsole</name>
+		<text>
+			<old>System console log</old>
+			<new>Historia Konsoli</new>
+		</text>
+		<text>
+			<old>Clean</old>
+			<new>Wyczyść</new>
+		</text>
+	</part>
+	<part>
+		<name>vCardImport</name>
+		<text>
+			<old>vCardImport cannot initialize, contact with your administrator</old>
+			<new>Nie można zainicjować vCardImport, skontaktuj się z administratorem</new>
+		</text>
+		<text>
+			<old>Import</old>
+			<new>Importuj</new>
+		</text>
+		<text>
+			<old>No contacts were found in the file!</old>
+			<new>Nie znaleziono kontaktów w pliku!</new>
+		</text>
+		<text>
+			<old>The file was not found!</old>
+			<new>Plik nieznaleziony!</new>
+		</text>
+		<text>
+			<old>Import %s</old>
+			<new>Importuj %s</new>
+		</text>
+		<text>
+			<old>File Imported!</old>
+			<new>Plik zaimportowany!</new>
+		</text>
+		<text>
+			<old>Directory not found</old>
+			<new>Folder nie został odnaleziony.</new>
+		</text>
+		<text>
+			<old>Do you really want to import this vCard?</old>
+			<new>Jesteś pewien, że chcesz zimportować vCard?</new>
+		</text>
+		<text>
+			<old>Error exporting file!</old>
+			<new>Błąd eksportowania pliku!</new>
+		</text>
+	</part>
+</lang>

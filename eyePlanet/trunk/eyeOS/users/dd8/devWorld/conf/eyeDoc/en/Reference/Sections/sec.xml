@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>Sec, the security service</title>
+	<general>
+		<name>sec</name>
+		<tags>
+			<tag>service</tag>
+		</tags>
+		<shortDesc>Manages the system security.</shortDesc>
+	</general>
+	<desc>The 'sec' service manages security in eyeOS.</desc>
+</info>

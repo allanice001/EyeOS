@@ -1,0 +1,60 @@
+<?php
+/*                            eyeOS project
+                     Internet Based Operating System
+                               Version 1.0
+                     www.eyeOS.org - www.eyeOS.info
+       -----------------------------------------------------------------
+                                 eyeOS Team
+                        http://www.eyeos.org/whoarewe
+       -----------------------------------------------------------------
+          eyeOS is released under the GNU General Public License - GPL
+               provided with this release in license.txt
+                   or via web at www.gnu.org/licenses/gpl.txt
+
+                Copyright 2005-2007 eyeOS Team (team@eyeos.org)
+
+          To help continued development please consider a donation at
+            http://www.eyeos.org/donations         
+*/
+
+function emptyTrash_run($params=null) {
+	if(is_array($params)) {
+		$callback = $params[0][0];
+	} else {
+		$callback = "";
+	}
+	$myWindow = new Window(array('name'=>'emptyTrashWND','father'=>'eyeApps',
+		'type'=>NOLIST_CLOSE_WINDOW,'cent'=>1,'width'=>350,'height'=>170,
+		'title'=>'New folder'));
+	$myWindow->show();
+
+	$myLabel = new Label(array('name'=>'emLabel','father'=>'emptyTrashWND_Content',
+		'text'=>'Are you sure you want to empty trash content?','y'=>25,'x'=>105));
+	$myLabel->show();
+
+	if($callback) {
+		$myHidden = new Hidden(array('name'=>'nfCallback','father'=>'emptyTrashWND_Content','text'=>$callback));
+		reqLib('eyeWidgets','serialize',array($myHidden));
+	}
+
+	$myButton = new Button(array('name'=>'emButton','father'=>'emptyTrashWND_Content',
+		'caption'=>'Yes','x'=>145,'y'=>70,'signal'=>'yes'));
+	$myButton->show();
+
+    $myButton = new Button(array('name'=>'emButton2','father'=>'emptyTrashWND_Content',
+            'caption'=>'No','x'=>235,'y'=>70,'signal'=>'no'));
+    $myButton->show();
+
+
+	$myImage = new Imagebox(array('name'=>'image_folder','father'=>'emptyTrashWND_Content',
+		'url'=>'index.php?extern=apps/eyeTrash/gfx/empty_big.png',
+		'x'=>30,'y'=>58));
+	$myImage->show();
+}
+
+function emptyTrash_end($params=null) {
+	reqLib('eyeWidgets','unserialize');
+}
+
+
+?>

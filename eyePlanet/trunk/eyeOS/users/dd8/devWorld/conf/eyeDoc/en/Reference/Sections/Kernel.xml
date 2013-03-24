@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is licensed under the Creative Commons 3.0 BY-NC-ND License
+	 available at http://creativecommons.org/licenses/by-nc-nd/3.0/. -->
+<info>
+	<type>Section</type>
+	<title>The eyeOS Kernel</title>
+	<general>
+		<name>eyeX</name>
+		<tags>
+			<tag>service</tag>
+		</tags>
+		<shortDesc>Contains the core functions.</shortDesc>
+	</general>
+	<desc>The kernel of eyeOS is the responsible of loading the services and libraries the applications need to work It has algo more features like the possibility to use short URLs and Listener Service Calls.</desc>
+</info>

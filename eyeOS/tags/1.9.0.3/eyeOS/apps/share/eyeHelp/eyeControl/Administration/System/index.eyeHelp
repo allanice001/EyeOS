@@ -1,0 +1,65 @@
+[b]At the top you will see tabs to chose from below we will go through what each does[/b]
+
+[b]eyeOS Hostname[/b]
+
+	This is the name that appears as the browser's title after the username and the welcome massage when we first login to our account
+
+
+[b]Default Language[/b]
+
+	Chose the Default language from the drop-down box. If you do not see your desired language please read page __ Personal > Language
+
+
+
+[b]User Quota[/b]
+
+	A quota is a limit on how much space can be used. So here we can set the amount of space each user has or we can turn it off all together. Set the numeric value and then from the drop-box you can chose from byte. kilo, mega, and gigabytes
+
+
+[b]Create Thumbnails[/b]
+
+	Select if you would like eyeFiles to show a preview of image files or not
+
+
+[b]Permissions[/b]
+[list]
+[*]Allow user registration
+		If enabled at the login screen new users can register and make new accounts
+
+[*]Allow public dirs
+		Chose if you want to have public directory to share or to disable them
+
+[*]Allow web upload
+		with web upload you can find the url of the file and copy it into web upload and click Upload and it we download to your eyeOS file system directly
+[/list]
+
+
+[b]Cache System[/b]
+	Cache is enabled by default, with the most compatible configuration. Otherwise if you upgraded your system or you want check what possibilities the cache system offers to you, you can configure the entire cache system with an eyeControl module. 
+[list][*]Enable cache system
+		enable or disable the cache system
+
+[*]Current cache version
+		If you have modified any theme inside eyeOS, you must increase this number to be sure that all your users get a fresh data.
+
+[*]Patch CSS files
+		allow you modify how eyeOS patch the urls that are inside the css files.
+
+			There are 3 ways:
+				*Manual: eyeOS doesn't patch the css files so it must be done manually.
+				*Automatic: eyeOS automatically patch all css files in each request.
+				*Semi-automatic: eyeOS only patch the css the first time that is requested.
+
+[/list]
+
+[b]Office Support[/b]
+
+	TODO
+
+
+[b]Uninstall[/b]
+
+	Completely uninstall your eyeOS from this panel, by typing your root's password and clicking on “Uninstall eyeOS” button. This is useful when you want to completely remove your eyeOS installation and you can't do it due to the permissions assigned to eyeOS files during the Installation.
+
+	Note:Uninstalling your eyeOS can't be undone. Please do it only when you and all the users inside your system have backed up all the important data.
+
